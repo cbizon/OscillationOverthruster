@@ -134,10 +134,10 @@ def main(argv=None):
                  counts=d)
         dt = time.time() - c0
         say("cycle %5d ev/N=%5.0f pp=%9d wall=%7d plate=%8d cell=%7d adv=%8d "
-            "rootfail=%d tinypp=%d zmax=%.1f %.1fs %.2fMev/s wall=%.0fs"
+            "tinypp=%d zmax=%.1f %.1fs %.2fMev/s wall=%.0fs"
             % (sim.cycle, d[K.C_EVENTS] / sim.N, d[K.C_PP], d[K.C_WALL],
                d[K.C_PLATE], d[K.C_CELL], d[K.C_ADV],
-               d[K.C_ROOTFAIL], d[K.C_TINYPP], diag["zmax"], dt,
+               d[K.C_TINYPP], diag["zmax"], dt,
                d[K.C_EVENTS] / dt / 1e6, walltime()))
         if sim.cycle % args.ckpt_every == 0:
             g, i, j, bad = sim.overlap_check()

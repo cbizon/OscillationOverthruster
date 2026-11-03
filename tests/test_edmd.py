@@ -209,12 +209,11 @@ def test_plate_root(seed):
     zi = zp + ri + rng.exponential(1.0)
     vzi = A * om * math.cos(om * t) + rng.normal() * 2
     tmax = 3 * T
-    tau, flag = K.plate_root(zi, vzi, ri, t, tmax, A, om, 1.0, 1e-12, 10000)
+    tau = K.plate_root(zi, vzi, ri, t, tmax, A, om, 1.0)
     tb = brute_plate_root(zi, vzi, ri, t, tmax, A, om)
     if np.isinf(tb):
-        assert flag == 0
+        assert np.isinf(tau)
     else:
-        assert flag == 1
         assert abs(tau - tb) < 1e-6 * max(1.0, tb), (tau, tb)
 
 
@@ -224,12 +223,10 @@ def test_plate_root_just_after_bounce():
         zp = A * math.sin(om * t)
         vp = A * om * math.cos(om * t)
         for vrel in [1e-6, 1e-3, 0.1, 1.0]:
-            tau, flag = K.plate_root(zp + 0.5, vp + vrel, 0.5, t, 3 * T, A, om,
-                                     1.0, 1e-12, 100000)
+            tau = K.plate_root(zp + 0.5, vp + vrel, 0.5, t, 3 * T, A, om, 1.0)
             tb = brute_plate_root(zp + 0.5 + 1e-13, vp + vrel, 0.5, t, 3 * T, A, om,
                                   n=2000001)
-            assert flag == 1
-            assert tau > 0
+            assert 0 < tau < np.inf
             if tb > 1e-3:
                 assert abs(tau - tb) < 1e-5 * max(1, tb), (t, vrel, tau, tb)
 

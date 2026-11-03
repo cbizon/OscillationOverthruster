@@ -39,19 +39,25 @@ SX, SY, SZ, SVX, SVY, SVZ, ST, SR = range(8)
 
 # float parameter vector layout
 P_L, P_HX, P_HZ, P_Z0, P_A, P_OM, P_G, P_EPS, P_ALPHA, P_V0, P_B, P_MU, \
-    P_BETA0, P_K, P_HTOL, P_BTOL, P_RMAX = range(17)
-NP_FLOAT = 17
+    P_BETA0, P_K, P_BTOL, P_RMAX = range(16)
+NP_FLOAT = 16
 # int parameter vector layout
-I_NX, I_NY, I_NZ, I_N, I_M, I_MAXIT = range(6)
-NP_INT = 6
+I_NX, I_NY, I_NZ, I_N, I_M = range(5)
+NP_INT = 5
 
 # counters
-C_PP, C_WALL, C_PLATE, C_CELL, C_ADV, C_EVENTS, C_ROOTFAIL, C_PPSKIP, \
-    C_PLSKIP, C_TINYPP, C_TINYPL, C_PREDICT, C_PAIRS, C_ROOTIT, \
-    C_ROOTCALL = range(15)
+C_PP, C_WALL, C_PLATE, C_CELL, C_ADV, C_EVENTS, C_PPSKIP, C_PLSKIP, \
+    C_TINYPP, C_TINYPL, C_PREDICT, C_PAIRS, C_ROOTCALL = range(13)
 NCOUNT = 20
 
 INF = np.inf
+
+# fail-fast tolerances: geometric errors larger than these mean a missed or
+# mispredicted event, not round-off
+PLATE_PENETRATION_TOL = 2e-8    # sphere below the plate surface at prediction
+PLATE_CONTACT_TOL = 2e-8        # |gap| at a plate collision
+PAIR_PENETRATION_TOL = 2e-8     # pair overlap depth at prediction
+PLATE_MAX_SEGMENTS = 1000       # monotone-curvature segments per plate search
 
 
 # ----------------------------------------------------------------------------
@@ -304,47 +310,126 @@ def collide_wall(i, nx_, ny_, nz_, wvx, wvy, wvz, S, W, P):
 # event prediction
 # ----------------------------------------------------------------------------
 
-@njit(cache=True)
-def plate_root(zi, vzi, ri, t, tau_max, A, om, g, htol, maxit):
-    tau, flag, it = plate_root_it(zi, vzi, ri, t, tau_max, A, om, g, htol, maxit)
-    return tau, flag
+@njit(cache=True, inline='always')
+def plate_gap(tau, gap0, vz, phase, A, om, g):
+    """Gap between sphere bottom and plate at t + tau, given the gap gap0 at t.
 
-
-@njit(cache=True)
-def plate_root_it(zi, vzi, ri, t, tau_max, A, om, g, htol, maxit):
-    """First time tau in [0, tau_max] at which the sphere (state at time t)
-    touches the plate z_p = A sin(om t') while approaching it.
-
-    Conservative advancement: |h''| <= M = g + A om^2 for the gap
-    h(tau) = zi + vzi tau - g tau^2/2 - ri - A sin(om (t + tau)), so the step
-    tau_k -> tau_k + s with h + h' s - M s^2/2 = 0 never passes the first root.
-    Returns (tau, flag) with flag 1 = collision, 0 = none before tau_max,
-    2 = not converged (tau is a safe re-prediction time).
+    The plate displacement A sin(phase + om tau) - A sin(phase) is written as
+    2 A cos(phase + om tau / 2) sin(om tau / 2), which avoids cancellation
+    when tau is small.
     """
-    M = g + A * om * om
-    tau = 0.0
-    for it in range(maxit):
-        s = t + tau
-        sn = np.sin(om * s)
-        cs = np.cos(om * s)
-        h = zi + vzi * tau - 0.5 * g * tau * tau - ri - A * sn
-        h1 = vzi - g * tau - A * om * cs
-        if h <= htol:
-            if h1 < 0.0:
-                return tau, 1, it
-            if h < 0.0:
-                h = 0.0
-        S_ = np.sqrt(h1 * h1 + 2.0 * M * h)
-        if h1 < 0.0:
-            step = 2.0 * h / (S_ - h1)
+    return (gap0 + vz * tau - 0.5 * g * tau * tau
+            - 2.0 * A * np.cos(phase + 0.5 * om * tau) * np.sin(0.5 * om * tau))
+
+
+@njit(cache=True, inline='always')
+def plate_gap_rate(tau, vz, phase, A, om, g):
+    return vz - g * tau - A * om * np.cos(phase + om * tau)
+
+
+@njit(cache=True)
+def plate_gap_root(lower, upper, gap0, vz, phase, A, om, g):
+    """Root of the gap in [lower, upper] with gap(lower) > 0 >= gap(upper):
+    Newton steps safeguarded by bisection."""
+    trial = upper
+    for _ in range(100):
+        value = plate_gap(trial, gap0, vz, phase, A, om, g)
+        if value > 0.0:
+            lower = trial
         else:
-            step = (h1 + S_) / M
-        if step < 1e-15:
-            step = 1e-15
-        tau += step
-        if tau > tau_max:
-            return INF, 0, it
-    return tau, 2, maxit
+            upper = trial
+        rate = plate_gap_rate(trial, vz, phase, A, om, g)
+        if rate != 0.0 and abs(value / rate) < 1e-14 * max(1.0, trial):
+            return trial
+        if upper - lower < 2e-14 * max(1.0, upper):
+            return 0.5 * (lower + upper)
+        if rate != 0.0:
+            candidate = trial - value / rate
+        else:
+            candidate = lower
+        if candidate <= lower or candidate >= upper:
+            candidate = 0.5 * (lower + upper)
+        trial = candidate
+    return 0.5 * (lower + upper)
+
+
+@njit(cache=True)
+def plate_root(zi, vzi, ri, t, horizon, A, om, g):
+    """First time tau in [0, horizon] at which the sphere (state at time t)
+    touches the plate z_p = A sin(om t') while approaching it, or INF.
+
+    The gap h(tau) = zi + vzi tau - g tau^2/2 - ri - A sin(om (t + tau)) has
+    curvature -g + A om^2 sin(om (t + tau)), which changes sign only where
+    sin(om (t + tau)) = g / (A om^2).  Between those points h is convex or
+    concave, so it has at most one extremum; that extremum is located from the
+    sign of h', and the first sign change of h is then bracketed and solved.
+    Raises if the sphere starts inside the plate.
+    """
+    phase = (om * t) % (2.0 * np.pi)
+    gap0 = zi - ri - A * np.sin(phase)
+    if gap0 < -PLATE_PENETRATION_TOL:
+        raise ValueError("sphere penetrates the bottom plate")
+    if gap0 < 0.0:
+        gap0 = 0.0
+    curv_max = g + A * om * om
+    # lower bound of h on [0, horizon] from h'(0) >= vzi - A om, |h''| <= curv_max
+    if gap0 + min(0.0, vzi - A * om) * horizon - 0.5 * curv_max * horizon * horizon > 1e-12:
+        return INF
+    if gap0 == 0.0 and plate_gap_rate(0.0, vzi, phase, A, om, g) < 0.0:
+        return 0.0
+    # the sphere bottom stays above the highest plate position
+    if min(zi, zi + vzi * horizon - 0.5 * g * horizon * horizon) - ri > A:
+        return INF
+    split = A * om * om > g
+    turn = 0.0
+    if split:
+        turn = np.arcsin(g / (A * om * om))
+    two_pi = 2.0 * np.pi
+    lower = 0.0
+    for _ in range(PLATE_MAX_SEGMENTS):
+        upper = horizon
+        if split:
+            psi = phase + om * lower
+            turn1 = turn + two_pi * (np.floor((psi - turn) / two_pi) + 1.0)
+            turn2 = np.pi - turn + two_pi * (np.floor((psi - np.pi + turn) / two_pi) + 1.0)
+            upper = min(horizon, (min(turn1, turn2) - phase) / om)
+            if upper <= lower + 1e-14:
+                upper = min(horizon, lower + 1e-12)
+        rate_lower = plate_gap_rate(lower, vzi, phase, A, om, g)
+        rate_upper = plate_gap_rate(upper, vzi, phase, A, om, g)
+        middle = upper
+        if rate_lower * rate_upper < 0.0:
+            # isolate the extremum of h in this segment
+            left = lower
+            right = upper
+            middle = 0.5 * (left + right)
+            for _ in range(100):
+                rate_middle = plate_gap_rate(middle, vzi, phase, A, om, g)
+                if rate_middle * rate_lower > 0.0:
+                    left = middle
+                else:
+                    right = middle
+                curvature = -g + A * om * om * np.sin(phase + om * middle)
+                if curvature != 0.0 and abs(rate_middle / curvature) < 1e-14:
+                    break
+                if right - left < 2e-14:
+                    middle = 0.5 * (left + right)
+                    break
+                if curvature != 0.0:
+                    candidate = middle - rate_middle / curvature
+                else:
+                    candidate = left
+                if candidate <= left or candidate >= right:
+                    candidate = 0.5 * (left + right)
+                middle = candidate
+        if plate_gap(middle, gap0, vzi, phase, A, om, g) < 0.0:
+            return plate_gap_root(lower, middle, gap0, vzi, phase, A, om, g)
+        if plate_gap(upper, gap0, vzi, phase, A, om, g) < 0.0:
+            return plate_gap_root(middle, upper, gap0, vzi, phase, A, om, g)
+        if upper >= horizon:
+            return INF
+        lower = upper
+    raise RuntimeError("plate root isolation exceeded the segment limit")
 
 
 @njit(cache=True)
@@ -515,6 +600,8 @@ def predict(i, t, S, cellof, head, nxt, ev_t, P, IP, cnt):
                             a = dvx * dvx + dvy * dvy + dvz * dvz
                             if cc <= 0.0:
                                 # touching / overlapping by round-off
+                                if cc < -2.0 * sig * PAIR_PENETRATION_TOL:
+                                    raise ValueError("sphere pair overlaps")
                                 if b < -btol * np.sqrt(a):
                                     tt = 0.0
                                 else:
@@ -536,21 +623,14 @@ def predict(i, t, S, cellof, head, nxt, ev_t, P, IP, cnt):
     # --- bottom plate (only reachable from low cells)
     A = P[P_A]
     if z0 + iz * hz - ri <= A:
-        tpl, flag, nit = plate_root_it(zi, vzi, ri, t, best, A, P[P_OM], g,
-                                       P[P_HTOL], IP[I_MAXIT])
-        cnt[C_ROOTIT] += nit + 1
+        if best == INF:
+            raise RuntimeError("plate search without a finite horizon")
+        tpl = plate_root(zi, vzi, ri, t, best, A, P[P_OM], g)
         cnt[C_ROOTCALL] += 1
-        if flag == 1:
-            if tpl < best:
-                best = tpl
-                btype = EV_PLATE
-                bp = 0
-        elif flag == 2:
-            cnt[C_ROOTFAIL] += 1
-            if tpl < best:
-                best = tpl
-                btype = EV_ADV
-                bp = -1
+        if tpl < best:
+            best = tpl
+            btype = EV_PLATE
+            bp = 0
     if best == INF:
         best = 1.0
         btype = EV_ADV
@@ -639,6 +719,8 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
                      IP, cnt)
         elif typ == EV_PLATE:
             advance(i, t, S, g)
+            if abs(S[i, SZ] - S[i, SR] - A * np.sin(om * t)) > PLATE_CONTACT_TOL:
+                raise ValueError("plate collision off the plate surface")
             vp = A * om * np.cos(om * t)
             vsep = collide_wall(i, 0.0, 0.0, -1.0, 0.0, 0.0, vp, S, W, P)
             if vsep >= 0.0:
