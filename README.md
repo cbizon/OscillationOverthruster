@@ -43,6 +43,12 @@ f* = 0.44 run (N = 2400, L = 20), cycle 3 reached phase 0.88 (plate
 acceleration 3.4 g), and one sphere and its neighbour above it then generated
 about 2e6 events per 1e-8 time units. Relative normal speeds were about
 1e-11, so e(v) was effectively 1 and the pair rattled at the
-floating-point resolution of time. Handling this deliberately (for example a
-co-moving "stuck" state while the plate acceleration exceeds g, as in the
-original C code) is the next piece of work.
+floating-point resolution of time. Handling this deliberately is the next
+piece of work.
+
+The original C code (as built for the reference) has no co-moving "stuck"
+state either. It snaps each ball onto the plate surface after a plate hit,
+finds plate contacts to a 1e-9 time tolerance, and aborts when a ball ends up
+more than 1e-2 D below the plate. Its Gamma = 5 reference run hit that abort
+in cycle 4-5 (0.16 D penetration), so the reference trajectory for that case
+is the first four cycles of an unequilibrated layer.
