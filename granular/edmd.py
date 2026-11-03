@@ -39,16 +39,16 @@ SX, SY, SZ, SVX, SVY, SVZ, ST, SR = range(8)
 
 # float parameter vector layout
 P_L, P_HX, P_HZ, P_Z0, P_A, P_OM, P_G, P_EPS, P_ALPHA, P_V0, P_B, P_MU, \
-    P_BETA0, P_K, P_HTOL, P_VFLOOR, P_BTOL, P_RMAX = range(18)
-NP_FLOAT = 18
+    P_BETA0, P_K, P_HTOL, P_BTOL, P_RMAX = range(17)
+NP_FLOAT = 17
 # int parameter vector layout
 I_NX, I_NY, I_NZ, I_N, I_M, I_MAXIT = range(6)
 NP_INT = 6
 
 # counters
-C_PP, C_WALL, C_PLATE, C_CELL, C_ADV, C_EVENTS, C_FLOOR, C_PPNOW, \
-    C_PLNOW, C_ROOTFAIL, C_PPSKIP, C_PLSKIP, C_TINYPP, C_TINYPL, C_PREDICT, \
-    C_PAIRS, C_ROOTIT, C_ROOTCALL = range(18)
+C_PP, C_WALL, C_PLATE, C_CELL, C_ADV, C_EVENTS, C_ROOTFAIL, C_PPSKIP, \
+    C_PLSKIP, C_TINYPP, C_TINYPL, C_PREDICT, C_PAIRS, C_ROOTIT, \
+    C_ROOTCALL = range(15)
 NCOUNT = 20
 
 INF = np.inf
@@ -591,7 +591,6 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
     g = P[P_G]
     A = P[P_A]
     om = P[P_OM]
-    vfloor = P[P_VFLOOR]
     nx = IP[I_NX]
     ny = IP[I_NY]
     nev = 0
@@ -646,10 +645,6 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
                 cnt[C_PLATE] += 1
                 if vsep < 1e-10:
                     cnt[C_TINYPL] += 1
-                if vsep < vfloor:
-                    # guarantee separation from the plate (Zeno guard)
-                    S[i, SVZ] = vp + vfloor
-                    cnt[C_FLOOR] += 1
             else:
                 cnt[C_PLSKIP] += 1
             schedule(i, t, S, cellof, head, nxt, ev_t, ev_type, ev_p, tree, P,

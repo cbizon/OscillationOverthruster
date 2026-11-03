@@ -96,10 +96,9 @@ def main(argv=None):
                 walltime_seconds=wall_before + wall_export,
                 walltime_before_export=wall_before, walltime_export=wall_export,
                 A=sim.A, T=sim.T, omega=sim.om, frequency=sim.f,
-                vfloor=args.vfloor,
                 counters={n: int(sim.cnt[getattr(K, n)]) for n in
                           ("C_PP", "C_WALL", "C_PLATE", "C_CELL", "C_ADV",
-                           "C_EVENTS", "C_FLOOR", "C_ROOTFAIL", "C_TINYPP",
+                           "C_EVENTS", "C_ROOTFAIL", "C_TINYPP",
                            "C_TINYPL", "C_PPSKIP", "C_PLSKIP")})
     with open(args.out.replace(".npz", ".json"), "w") as fh:
         json.dump(meta, fh, indent=1)

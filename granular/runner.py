@@ -38,7 +38,7 @@ def layer_stats(r, zp):
 
 def make_sim(args):
     return Simulation(args.N, args.L, args.gamma, args.fstar, args.depth,
-                      args.seed, box_height=args.box_height, vfloor=args.vfloor,
+                      args.seed, box_height=args.box_height,
                       mu=args.mu, eps=args.eps, alpha=args.alpha, v0=args.v0)
 
 
@@ -51,7 +51,6 @@ def add_common(ap):
     ap.add_argument("--depth", type=float, default=5.42)
     ap.add_argument("--seed", type=int, default=16532)
     ap.add_argument("--box-height", type=float, default=100.0)
-    ap.add_argument("--vfloor", type=float, default=1e-6)
     ap.add_argument("--mu", type=float, default=0.5)
     ap.add_argument("--eps", type=float, default=0.7)
     ap.add_argument("--alpha", type=float, default=0.75)
@@ -135,9 +134,9 @@ def main(argv=None):
                  counts=d)
         dt = time.time() - c0
         say("cycle %5d ev/N=%5.0f pp=%9d wall=%7d plate=%8d cell=%7d adv=%8d "
-            "floor=%d rootfail=%d tinypp=%d zmax=%.1f %.1fs %.2fMev/s wall=%.0fs"
+            "rootfail=%d tinypp=%d zmax=%.1f %.1fs %.2fMev/s wall=%.0fs"
             % (sim.cycle, d[K.C_EVENTS] / sim.N, d[K.C_PP], d[K.C_WALL],
-               d[K.C_PLATE], d[K.C_CELL], d[K.C_ADV], d[K.C_FLOOR],
+               d[K.C_PLATE], d[K.C_CELL], d[K.C_ADV],
                d[K.C_ROOTFAIL], d[K.C_TINYPP], diag["zmax"], dt,
                d[K.C_EVENTS] / dt / 1e6, walltime()))
         if sim.cycle % args.ckpt_every == 0:

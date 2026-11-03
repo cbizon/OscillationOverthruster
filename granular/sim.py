@@ -87,7 +87,7 @@ class Simulation:
 
     def __init__(self, n_particles, box_width, gamma, f_star, depth, seed,
                  box_height=None, fill_fraction=0.30, v_init=0.1,
-                 htol=1e-12, vfloor=1e-6, btol=1e-10, maxit=200, mu=MU,
+                 htol=1e-12, btol=1e-10, maxit=200, mu=MU,
                  eps=EPS, alpha=ALPHA, v0=V0):
         self.N = int(n_particles)
         self.L = float(box_width)
@@ -161,7 +161,6 @@ class Simulation:
         self.P[K.P_BETA0] = BETA0
         self.P[K.P_K] = KINERTIA
         self.P[K.P_HTOL] = htol
-        self.P[K.P_VFLOOR] = vfloor
         self.P[K.P_BTOL] = btol
         self.P[K.P_RMAX] = self.rmax
         M = 1
