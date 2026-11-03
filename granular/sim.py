@@ -119,7 +119,9 @@ class Simulation:
         r = np.zeros((self.N, 3))
         seed32 = int(rng.integers(0, 2 ** 31 - 1))
         for attempt in range(10):
-            hslab = vol / (fill_fraction * self.L ** 2)
+            # the slab must fit at least one diameter, or RSA would place
+            # spheres below zlo + r, inside the plate
+            hslab = max(vol / (fill_fraction * self.L ** 2), 2.0 * self.rmax)
             zlo = 0.0 + 1e-3
             zhi = zlo + hslab
             hc = 1.02
