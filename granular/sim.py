@@ -16,7 +16,6 @@ V0 = 1.0           # crossover velocity sqrt(g D)
 MU = 0.5           # sliding friction coefficient
 BETA0 = 0.35       # rolling-limit rotational restitution
 KINERTIA = 0.4     # 4 I / (m sigma^2) for uniform spheres
-KINERTIA_DISK = 0.5  # 4 I / (m sigma^2) for uniform disks
 PHI = 0.58         # packing fraction used to define the layer depth
 
 
@@ -33,7 +32,7 @@ def _rsa_fill(n, L, zlo, zhi, rad, seed, out, hc, ncx, ncz, maxtry, y_plane):
     """Random sequential addition of n spheres (radii rad) in the slab
     [r, L-r]^2 x [zlo + r, zhi - r] without overlaps (gap >= 1e-3).
 
-    If y_plane >= 0, every particle is placed at y = y_plane (disks in the
+    If y_plane >= 0, every particle is placed at y = y_plane (spheres in the
     x-z plane) and y is not drawn."""
     np.random.seed(seed)
     ncy = 1 if y_plane >= 0.0 else ncx
@@ -89,12 +88,12 @@ def _rsa_fill(n, L, zlo, zhi, rad, seed, out, hc, ncx, ncz, maxtry, y_plane):
 class Simulation:
     """State and driver of one simulation run (lengths in D, time in sqrt(D/g)).
 
-    ``dim=3`` simulates spheres in an L x L box.  ``dim=2`` simulates disks
-    in an x-z box of width L: every particle sits on the plane y = hx / 2 with
-    zero y velocity and spin only about y.  The 3D kernel then keeps the
-    motion exactly planar (all impulses lie in the plane, all torques along
-    y), and with the disk inertia factor and mass proportional to d^2 it is
-    the hard-disk model.  The y side walls are never reached.
+    ``dim=3`` simulates spheres in an L x L box.  ``dim=2`` simulates spheres
+    confined to a plane, as in the 1998 C code's 2D mode: every sphere sits on
+    the plane y = hx / 2 with zero y velocity and spin only about y, in an x-z
+    box of width L.  The 3D kernel then keeps the motion exactly planar (all
+    impulses lie in the plane, all torques along y).  Masses and moments of
+    inertia are those of spheres.  The y side walls are never reached.
 
     Internally particles are re-ordered for memory locality; ``pid[k]`` is the
     original (exported) index of internal particle k.
@@ -139,6 +138,7 @@ class Simulation:
             cross_section = self.L ** 2
             y_plane = -1.0
         else:
+            # area the spheres' cross-sections cover in the plane
             vol = np.sum(math.pi / 4.0 * diam ** 2)
             cross_section = self.L
             y_plane = 0.5 * self.hx
@@ -172,8 +172,7 @@ class Simulation:
         self.S[:self.N, 7] = 0.5 * diam
         self.W = np.zeros((self.N, 3))
         self.diam = diam                  # internal order
-        self.mass = diam ** dim           # uniform density, m(D) = 1
-        self.kinertia = KINERTIA if dim == 3 else KINERTIA_DISK
+        self.mass = diam ** 3             # uniform density, m(D) = 1
         self.pid = np.arange(self.N)
 
         self.P = np.zeros(K.NP_FLOAT)
@@ -190,7 +189,7 @@ class Simulation:
         self.P[K.P_B] = (1.0 - eps) * v0 ** (-alpha)
         self.P[K.P_MU] = mu
         self.P[K.P_BETA0] = BETA0
-        self.P[K.P_K] = self.kinertia
+        self.P[K.P_K] = KINERTIA
         self.P[K.P_BTOL] = btol
         self.P[K.P_RMAX] = self.rmax
         M = 1
@@ -297,8 +296,7 @@ class Simulation:
         rad = self.rad
         gap_plate = float(np.min(r[:, 2] - rad - zp))
         ke = 0.5 * float(np.sum(self.mass[:, None] * v ** 2))
-        inertia = 0.25 * self.kinertia * self.mass * self.diam ** 2
-        kr = 0.5 * float(np.sum(inertia[:, None] * w ** 2))
+        kr = 0.5 * float(np.sum(0.1 * self.mass[:, None] * self.diam[:, None] ** 2 * w ** 2))
         return dict(zcm=float(np.mean(r[:, 2])), zmax=float(np.max(r[:, 2])),
                     ke=ke, krot=kr, gap_plate=gap_plate,
                     xmin=float(np.min(r[:, 0] - rad)),

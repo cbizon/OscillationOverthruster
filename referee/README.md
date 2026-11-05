@@ -76,23 +76,28 @@ rarely.
     subcritical pattern regime **[pick]**, each at a low and a high
     frequency **[pick]**, at depths 5, 10 and 15 particle diameters: 12
     runs. 2D can behave slightly differently, so it filters but doesn't
-    decide. The engine runs 2D disks with `dim=2` (branch `engine-2d`).
+    decide. 2D here means spheres confined to a plane, the model of the
+    1998 C code's 2D mode (decided by Chris, Nov 5): sphere masses and
+    inertia, all centres on one plane. This engine runs it with `dim=2`
+    (branch `engine-2d`).
 
     Pilot (Nov 5, L = 100, two starts each, 30 cycles, Gamma = 5 as a
     trial higher value, f* = 0.3 and 0.5): the baseline engine without
-    contact handling stalls in most of this grid. At Gamma = 3.5 it ran
-    only at depth 5 (both frequencies) and at depth 10, f* = 0.5 for one
-    of two starts; depths 10 and 15 otherwise stalled in the first or
-    second cycle. At Gamma = 5 it stalled everywhere except depth 5,
-    f* = 0.5. So the with/without comparison is only available for
-    shallow layers. Decided (Chris, Nov 5): the baseline for conditions
-    this engine can't run is the C code's approach (snap onto the plate
-    after a plate hit), using the 1998 C code itself, which has a
-    compile-time 2D mode (`DIMENSION 2`; the reproduction port builds
-    with it). Its 2D mode uses sphere inertia (K = 2/5), so it models
-    spheres confined to a plane, not disks; this engine's 2D mode has to
-    match whichever model the comparison uses **[decide]**. Runs that work
-    take 0.01 to 0.13 s per cycle.
+    contact handling stalls in most of this grid. It ran 30 cycles only
+    at Gamma = 3.5 with depth 5 (both frequencies) or depth 10 at
+    f* = 0.5, and at Gamma = 5 with depth 5 at f* = 0.5. Everything
+    else stalled, mostly in the first few cycles; Gamma = 5, depth 5,
+    f* = 0.3 lasted 14 and 20 cycles. Runs that work take 0.01 to 0.08 s
+    per cycle.
+
+    So the with/without comparison is only available for shallow layers.
+    Decided (Chris, Nov 5): where this engine can't run, the baseline is
+    the C code's approach (snap onto the plate after a plate hit), using
+    the 1998 C code itself in its 2D mode (`DIMENSION 2`; the
+    reproduction port in `grains_July23_1998/reproduction/src` builds with
+    it). Its parameters are compile-time, so each grid point is its own
+    build. It also aborts in some dense states, so some deep conditions
+    may have no baseline.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).

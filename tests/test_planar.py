@@ -1,14 +1,14 @@
-"""2D hard disks: the 3D kernel restricted to one plane, with disk inertia."""
+"""2D mode: spheres confined to a plane (the 1998 C code's 2D model)."""
 
 import numpy as np
 import pytest
 
 from granular import edmd as K
-from granular.sim import KINERTIA_DISK, Simulation
+from granular.sim import KINERTIA, Simulation
 from test_reference import all_pairs_reference
 
 
-def disks(n, L, seed, **kw):
+def planar(n, L, seed, **kw):
     return Simulation(n, L, 3.0, 0.44, n / L, seed, dim=2, **kw)
 
 
@@ -23,27 +23,27 @@ def assert_planar(sim):
     np.testing.assert_array_equal(w[:, [0, 2]], 0.0)
 
 
-def disk_energy(sim):
+def planar_energy(sim):
     r, v, w = sim.snapshot()
-    inertia = 0.25 * KINERTIA_DISK * sim.mass * sim.diam ** 2
+    inertia = 0.25 * KINERTIA * sim.mass * sim.diam ** 2
     return (0.5 * np.sum(sim.mass[:, None] * v ** 2) + np.sum(sim.mass * r[:, 2])
             + 0.5 * np.sum(inertia * w[:, 1] ** 2))
 
 
-def test_disk_setup():
-    sim = disks(300, 30.0, 4)
+def test_planar_setup():
+    sim = planar(300, 30.0, 4)
     assert sim.ny == 1 and sim.IP[K.I_NY] == 1
-    assert sim.P[K.P_K] == KINERTIA_DISK
-    np.testing.assert_array_equal(sim.mass, sim.diam ** 2)
+    assert sim.P[K.P_K] == KINERTIA
+    np.testing.assert_array_equal(sim.mass, sim.diam ** 3)
     assert_planar(sim)
 
 
-def test_driven_disks_stay_in_plane():
-    """Several cycles of driven, dissipative, frictional disks: every
+def test_driven_spheres_stay_in_plane():
+    """Several cycles of driven, dissipative, frictional spheres: every
     position, velocity and spin stays exactly in the plane.  (With
     v_init = 1 this layer hits the resting-contact stall in cycle 0, so
     the test uses the default start.)"""
-    sim = disks(400, 40.0, 3)
+    sim = planar(400, 40.0, 3)
     spin_about_y(sim, 3)
     sim.rebuild()
     for _ in range(3):
@@ -57,13 +57,14 @@ def test_driven_disks_stay_in_plane():
     assert g > -1e-9 and bad == 0
 
 
-def test_equal_disk_formulas_walton():
-    """Equal disks: Walton's operator with K = 1/2 (I = m r^2 / 2)."""
+def test_equal_planar_formulas_walton():
+    """Equal spheres colliding in the plane: Walton's operator (K = 2/5)
+    gives in-plane impulses and spin changes about y only."""
     rng = np.random.default_rng(17)
     P = np.zeros(K.NP_FLOAT)
     P[K.P_EPS], P[K.P_ALPHA], P[K.P_V0] = 0.7, 0.75, 1.0
     P[K.P_B] = 0.3
-    P[K.P_MU], P[K.P_BETA0], P[K.P_K], P[K.P_G] = 0.5, 0.35, KINERTIA_DISK, 1.0
+    P[K.P_MU], P[K.P_BETA0], P[K.P_K], P[K.P_G] = 0.5, 0.35, KINERTIA, 1.0
     cnt = np.zeros(K.NCOUNT, dtype=np.int64)
     for _ in range(10):
         angle = rng.uniform(0, 2 * np.pi)
@@ -80,7 +81,7 @@ def test_equal_disk_formulas_walton():
         vn = np.dot(vab, n)
         vs = vab - vn * n + 0.5 * np.cross(n, w[0]) + 0.5 * np.cross(n, w[1])
         e = K.restitution(-vn, 0.7, 0.75, 1.0, 0.3)
-        Kk = KINERTIA_DISK
+        Kk = KINERTIA
         b1 = min(0.5 * (1 + e) * (1 + 1 / Kk) * abs(vn) / np.linalg.norm(vs), 1.35)
         dva = 0.5 * (1 + e) * vn * n + Kk * b1 / (2 * (Kk + 1)) * vs
         dwa = b1 / (Kk + 1) * np.cross(n, vs)
@@ -95,10 +96,10 @@ def test_equal_disk_formulas_walton():
         assert np.all(w1[:, [0, 2]] == 0.0)
 
 
-def test_disk_energy_conservation_elastic_static_plate():
-    """Elastic, perfectly rough disks on a static floor conserve kinetic,
-    rotational and potential energy, with disk inertia."""
-    sim = disks(400, 20.0, 7, v_init=1.0)
+def test_planar_energy_conservation_elastic_static_plate():
+    """Elastic, perfectly rough spheres in a plane on a static floor conserve
+    kinetic, rotational and potential energy."""
+    sim = planar(400, 20.0, 7, v_init=1.0)
     sim.P[K.P_A] = 0.0
     sim.P[K.P_EPS] = 1.0
     sim.P[K.P_B] = 0.0
@@ -106,18 +107,21 @@ def test_disk_energy_conservation_elastic_static_plate():
     sim.P[K.P_BETA0] = 1.0
     spin_about_y(sim, 1)
     sim.rebuild()
-    E0 = disk_energy(sim)
+    E0 = planar_energy(sim)
     for k in range(1, 11):
         sim.run_to(0.5 * k)
-    E1 = disk_energy(sim)
+    E1 = planar_energy(sim)
     assert sim.cnt[K.C_PP] > 3000
     assert abs(E1 - E0) < 1e-8 * abs(E0), (E0, E1)
     assert_planar(sim)
 
 
-@pytest.mark.parametrize("n_particles, t_end", [(20, 8.0), (60, 4.5)])
-def test_disks_match_all_pairs_reference(n_particles, t_end):
-    sim = disks(n_particles, 6.0, 723, v_init=1.0)
+@pytest.mark.parametrize("n_particles, t_end", [(20, 6.0), (60, 4.5)])
+def test_planar_matches_all_pairs_reference(n_particles, t_end):
+    """Both cases stop soon after the layer lands: event counts still match
+    at t = 8, but in the landing burst the round-off differences grow from
+    about 1e-12 at t = 4 to 1e-7 at t = 8, past the comparison tolerance."""
+    sim = planar(n_particles, 6.0, 723, v_init=1.0)
     spin_about_y(sim, 723)
     sim.rebuild()
     S0, W0, mass, P = sim.S.copy(), sim.W.copy(), sim.mass.copy(), sim.P.copy()
@@ -134,7 +138,7 @@ def test_disks_match_all_pairs_reference(n_particles, t_end):
 
 def test_checkpoint_dimension_mismatch_raises(tmp_path):
     path = str(tmp_path / "state.npz")
-    disks(100, 10.0, 3).save_checkpoint(path)
+    planar(100, 10.0, 3).save_checkpoint(path)
     spheres = Simulation(100, 10.0, 3.0, 0.44, 10.0, 3)
     with pytest.raises(ValueError, match="checkpoint is 2D"):
         spheres.load_checkpoint(path)
