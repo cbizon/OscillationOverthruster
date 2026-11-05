@@ -20,5 +20,4 @@ in this order:
 
 Report only what the files say. Then discuss with Chris. When he agrees on
 tonight's instruction (under about 250 words, written for the agent), save
-it as instructions/YYYY-MM-DD.md dated today and commit it on `main`
-branch.
+it as instructions/YYYY-MM-DD.md dated today and commit it on `main`.
