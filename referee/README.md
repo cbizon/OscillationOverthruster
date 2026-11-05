@@ -241,6 +241,28 @@ conditions, compared with the baseline and with Figure 1. Patterns take
 many cycles to form, so this runs only when a method is a candidate to
 become the default, or after a change that 3a can't rule out.
 
+Survival pilot (Nov 5, `referee/long_contact.py`, this engine without any
+contact method, 120 cycles, one start each). The 2D grid:
+
+| | depth 5 | depth 10 | depth 15 |
+| --- | --- | --- | --- |
+| Gamma 3.5, f* 0.3 | runs | runs | stalls in cycle 1 |
+| Gamma 3.5, f* 0.5 | runs | runs | stalls in cycle 1 |
+| Gamma 5, f* 0.3 | stalls in cycle 21 | stalls in cycle 3 | stalls in cycle 3 |
+| Gamma 5, f* 0.5 | runs | stalls in cycle 5 | stalls in cycle 3 |
+
+The 3D Gamma = 5, f* = 0.44 case ran 30 cycles and stalled in cycle 31.
+Every stall came at phase 0.83 to 0.99, with tens of thousands of plate
+collisions slower than 1e-10, the resting-contact failure. Every completed
+cycle passed the energy audit (worst residual 6e-12). One stall
+(Gamma 3.5, depth 15) was rerun with the stall threshold made 10,000 times
+stricter: it made no further progress in four minutes against three seconds
+for a normal run. This corrects the first pilot, whose event-count
+detector called Gamma 3.5, depth 10 a stall. Baseline coverage of the 2D
+grid is now: this engine at Gamma 3.5 depths 5 and 10 and Gamma 5 depth 5
+f* 0.5; the C code also at Gamma 3.5 depth 15 and Gamma 5 depth 5 f* 0.3;
+neither at Gamma 5 depths 10 and 15.
+
 Survival (decided by Chris, Nov 5): no cycle count counts as enough. A
 method passes when it runs every condition for the whole run without
 stalling; until then, cycles completed before the stall measure progress.
