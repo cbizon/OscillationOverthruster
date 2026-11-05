@@ -152,10 +152,34 @@ rarely.
     four points, 4 of 56 drift flags fired, about what chance gives at 95%.
     The scatter has only been measured at this one point.
 
-    So the acceptance tolerance should come from this window-to-window
-    scatter, measured per condition, rather than a fixed percentage
-    **[decide]**: for example, a method passes a quantity when its mean is
-    within twice the baseline's window-to-window spread.
+    Pass rule (decided by Chris, Nov 5): a method passes a quantity when
+    its mean is within two of the baseline's window-to-window standard
+    deviations of the baseline mean, measured at each condition from a
+    long baseline run split into windows the same length as the method's
+    measurement (at least four). Implemented as `bulk.py baseline` and
+    `bulk.py judge`.
+
+    First use, and a problem with it: sequel's single 10-cycle
+    measurement at Gamma 3.5, f* 0.3, depth 5, judged against the C
+    code's four-window baseline, fails vertical energy (-2.5 standard
+    deviations) and vertical temperature (-2.4). Measuring sequel over the
+    same 40 cycles shows those fails were noise: the two codes' 40-cycle
+    means differ by 1 to 3% on every quantity, within about 2.4 standard
+    errors of the difference (largest: height, +0.9%). Two reasons:
+
+    - A standard deviation from four windows is uncertain by about a factor
+      of two (sequel's vertical-energy scatter is 0.048, the C code's
+      0.024).
+    - With seven quantities each tested at two standard deviations, a
+      method identical to the baseline fails at least one about 30% of the
+      time even with exact standard deviations.
+
+    Proposed refinement **[decide]**: measure the method over the same
+    windows as the baseline and compare the two means against the
+    standard error of their difference; and either widen the threshold to
+    allow for seven quantities (about 2.7 instead of 2 keeps the chance
+    of a false fail near 5%) or require a fail to repeat in a second
+    independent run before it counts.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).

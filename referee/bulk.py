@@ -35,11 +35,24 @@ whole-cycle shift (0 to period - 1) that best aligns the profiles (a period-2
 response can be in either phase), then reports the largest difference across
 phase and the difference of means.  Masses are taken as d^3 in both codes.
 
+Pass rule (decided by Chris, Nov 5): ``baseline`` measures a long baseline
+run in successive windows of the same length as the method's measurement
+(after the same settling) and records, per quantity, the mean and standard
+deviation of the window means.  ``judge`` passes a method's quantity when
+its mean is within ``PASS_SIGMAS`` (2) of those standard deviations of the
+baseline mean.  The window-to-window standard deviation is the scatter a
+single measurement of this length has, so it is the right yardstick for
+one method measurement; with few windows it is itself uncertain, so
+``baseline`` requires at least ``MIN_WINDOWS`` (4).
+
 Usage::
 
     uv run python referee/bulk.py measure TRAJ.npz --from-cycle 20 \\
         --cycles 10 --period 2 --out bulk.json
     uv run python referee/bulk.py compare A.json B.json
+    uv run python referee/bulk.py baseline BASE.npz --from-cycle 20 \\
+        --cycles 10 --windows 4 --period 2 --out baseline.json
+    uv run python referee/bulk.py judge baseline.json bulk.json
 """
 
 from __future__ import annotations
@@ -53,6 +66,8 @@ import numpy as np
 PHASES = 32
 CONTACT_GAP = 0.02          # D; a particle this close to the plate touches it
 CONTACT_THRESHOLD = 0.01    # fraction of particles touching: layer on the plate
+PASS_SIGMAS = 2.0
+MIN_WINDOWS = 4
 # two-sided 95% Student t critical values by degrees of freedom
 T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
        8: 2.306, 9: 2.262, 10: 2.228, 12: 2.179, 15: 2.131, 20: 2.086,
@@ -202,6 +217,44 @@ def compare(a: dict, b: dict) -> dict[str, dict[str, float]]:
     return out
 
 
+def baseline(path: Path, from_cycle: int, cycles: int, windows: int,
+             period: int) -> dict[str, object]:
+    """Window-to-window statistics of a long baseline run."""
+    if windows < MIN_WINDOWS:
+        raise ValueError(f"need at least {MIN_WINDOWS} windows, got {windows}")
+    measured = [measure(path, from_cycle + k * cycles, cycles, period)
+                for k in range(windows)]
+    stats = {}
+    for name in QUANTITIES:
+        means = np.array([m["quantities"][name]["mean"] for m in measured])
+        stats[name] = {"window_means": means.tolist(),
+                       "mean": float(means.mean()),
+                       "sd": float(means.std(ddof=1))}
+    return {"trajectory": str(path), "from_cycle": from_cycle,
+            "cycles_per_window": cycles, "windows": windows, "period": period,
+            "quantities": stats}
+
+
+def judge(base: dict, method: dict) -> dict[str, dict[str, object]]:
+    """Pass each quantity whose mean is within PASS_SIGMAS window-to-window
+    standard deviations of the baseline mean."""
+    if method["cycles"] != base["cycles_per_window"]:
+        raise ValueError(f"method measured over {method['cycles']} cycles, baseline "
+                         f"windows are {base['cycles_per_window']}; the scatter "
+                         "only applies to measurements of the same length")
+    if method["period"] != base["period"]:
+        raise ValueError("measurements use different response periods")
+    out = {}
+    for name in QUANTITIES:
+        b = base["quantities"][name]
+        value = method["quantities"][name]["mean"]
+        sigmas = (value - b["mean"]) / b["sd"] if b["sd"] > 0 else float("inf")
+        out[name] = {"baseline_mean": b["mean"], "baseline_sd": b["sd"],
+                     "method_mean": value, "sigmas": float(sigmas),
+                     "passes": bool(abs(sigmas) <= PASS_SIGMAS)}
+    return out
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="command", required=True)
@@ -214,7 +267,38 @@ def main(argv=None) -> None:
     c = sub.add_parser("compare", help="compare two measurements")
     c.add_argument("a", type=Path)
     c.add_argument("b", type=Path)
+    bl = sub.add_parser("baseline", help="window-to-window scatter of a long baseline run")
+    bl.add_argument("trajectory", type=Path)
+    bl.add_argument("--from-cycle", type=int, required=True)
+    bl.add_argument("--cycles", type=int, required=True, help="cycles per window")
+    bl.add_argument("--windows", type=int, required=True)
+    bl.add_argument("--period", type=int, default=2)
+    bl.add_argument("--out", type=Path, required=True)
+    j = sub.add_parser("judge", help="pass or fail a method against a baseline")
+    j.add_argument("baseline", type=Path)
+    j.add_argument("method", type=Path)
     args = ap.parse_args(argv)
+
+    if args.command == "baseline":
+        result = baseline(args.trajectory, args.from_cycle, args.cycles,
+                          args.windows, args.period)
+        args.out.write_text(json.dumps(result, indent=1) + "\n")
+        for name, q in result["quantities"].items():
+            print(f"{name:16s} mean {q['mean']:10.4f}  sd {q['sd']:.4f} "
+                  f"({100 * q['sd'] / abs(q['mean']):.1f}%)")
+        return
+    if args.command == "judge":
+        rows = judge(json.loads(args.baseline.read_text()),
+                     json.loads(args.method.read_text()))
+        print(f"{'quantity':16s} {'baseline':>10s} {'sd':>8s} {'method':>10s} "
+              f"{'sigmas':>7s}")
+        for name, row in rows.items():
+            print(f"{name:16s} {row['baseline_mean']:10.4f} {row['baseline_sd']:8.4f} "
+                  f"{row['method_mean']:10.4f} {row['sigmas']:+7.2f}  "
+                  f"{'pass' if row['passes'] else 'FAIL'}")
+        verdict = all(row["passes"] for row in rows.values())
+        print("all quantities pass" if verdict else "fails on at least one quantity")
+        raise SystemExit(0 if verdict else 1)
 
     if args.command == "measure":
         result = measure(args.trajectory, args.from_cycle, args.cycles, args.period)

@@ -97,3 +97,39 @@ def test_plate_contact_phases():
     phases = bulk.crossings(profile, 0.01)
     assert phases["landing"] == [10 / 32, 40 / 32]
     assert phases["takeoff"] == [20 / 32, 50 / 32]
+
+
+def test_baseline_and_judge(tmp_path):
+    """Window means of a noisy baseline give the scatter; a method inside it
+    passes and one shifted well outside fails."""
+    rng = np.random.default_rng(0)
+    path = synthetic(tmp_path / "base.npz", cycles=60)
+    data = dict(np.load(path))
+    frames = data["time"].size
+    # per-cycle noise in height, so window means scatter
+    noise = np.repeat(rng.normal(0, 0.2, frames // bulk.PHASES + 1), bulk.PHASES)[:frames]
+    data["positions"][:, :, 2] += noise[:, None]
+    np.savez(path, **data)
+    base = bulk.baseline(path, 20, 10, 4, 2)
+    sd = base["quantities"]["zcm"]["sd"]
+    assert sd > 0
+    inside = bulk.measure(synthetic(tmp_path / "in.npz"), 20, 10, 2)
+    rows = bulk.judge(base, inside)
+    assert rows["zcm"]["passes"] == (abs(3.0 - base["quantities"]["zcm"]["mean"]) <= 2 * sd)
+    shifted = synthetic(tmp_path / "out.npz")
+    data = dict(np.load(shifted))
+    data["positions"][:, :, 2] += 10 * sd + 1.0
+    np.savez(shifted, **data)
+    assert not bulk.judge(base, bulk.measure(shifted, 20, 10, 2))["zcm"]["passes"]
+
+
+def test_judge_refuses_mismatched_lengths(tmp_path):
+    base = bulk.baseline(synthetic(tmp_path / "b.npz", cycles=60), 20, 10, 4, 2)
+    method = bulk.measure(synthetic(tmp_path / "m.npz"), 20, 6, 2)
+    with pytest.raises(ValueError, match="same length"):
+        bulk.judge(base, method)
+
+
+def test_baseline_needs_enough_windows(tmp_path):
+    with pytest.raises(ValueError, match="at least"):
+        bulk.baseline(synthetic(tmp_path / "b.npz", cycles=60), 20, 10, 3, 2)
