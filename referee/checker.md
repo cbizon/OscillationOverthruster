@@ -42,7 +42,7 @@ open challenge:
   session.
 
 For any claim that a method is minimally invasive (acceptance criterion 3
-in `DIRECTION.md`), read the method's diff against `program` and say
+in `DIRECTION.md`), read the method's diff against `main` and say
 plainly what it changes beyond long-lasting contacts: ordinary collisions,
 tuned constants the result depends on, extra state. Argue the other side.
 
@@ -81,4 +81,4 @@ Write the review to a temporary file as JSON following
 the session's date, then copy it to `reviews/YYYY-MM-DD.json`. Never
 overwrite an existing review. Write the prose for a physicist who didn't
 watch: plain language, numbers in words with what they mean. Commit only
-that file, on the `program` branch, with a one-line message.
+that file, on `main`, with a one-line message.

@@ -25,16 +25,16 @@ itself under test (RQ0 in `PROGRAM.md`), so you record how each session ran
 5. Check on simulations left running by earlier sessions (see "Long
    simulations"). Collect finished ones before starting new work.
 6. Run the frozen tests: `uv run pytest referee/tests`. If they fail on the
-   program branch, fixing that comes before anything else.
+   `main`, fixing that comes before anything else.
 
 ## Where work goes
 
 - The program's records (this file's siblings: `PROGRAM.md`, `ledger/`,
-  `sessions/`, `evidence/`) live on the `program` branch. Commit them there.
+  `sessions/`, `evidence/`) live on `main`. Commit them there.
 - Each contact-handling method is developed on its own branch,
   `method/<short-name>`, in a worktree under
   `~/Projects/experiments/sequel-data/worktrees/`. Never merge a method into
-  `program` or `main`; that needs Chris.
+  `main`; that needs Chris.
 - Large outputs (trajectories, movies, checkpoints) go under
   `~/Projects/experiments/sequel-data/runs/<experiment-id>/`, never in git.
   Keep only what a claim needs, and record the size of what you keep in the
@@ -145,5 +145,5 @@ Write it for a physicist who didn't watch the session:
 - `run_conditions`: as above.
 
 Then update `PROGRAM.md` ("Current state" and "Next"), and commit the program
-records on the `program` branch, and any method code on its own branch, with
+records on `main`, and any method code on its own branch, with
 messages describing the session.

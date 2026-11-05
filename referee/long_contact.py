@@ -2,7 +2,7 @@
 
 Runs one condition for a number of drive cycles with the engine in
 ``--engine`` (a checkout of sequel, usually a method branch's worktree; the
-referee script itself always comes from the program branch) and records:
+referee script itself always comes from `main`) and records:
 
 - **Survival.** The run goes on until it completes its cycles; nothing
   stops it for being slow.  It ends early only when:

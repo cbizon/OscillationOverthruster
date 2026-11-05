@@ -1,6 +1,6 @@
 Run tonight's session of the sequel research program.
 
-- Work in ~/Projects/experiments/sequel on the `program` branch. Follow
+- Work in ~/Projects/experiments/sequel on `main`. Follow
   CLAUDE.md exactly; it says what to read first and what to write at the end.
 - This task was scheduled for 11:00 pm New York time. Record that as
   `scheduled_start` and note the real time now as `actual_start`.

@@ -140,7 +140,7 @@ Chris has rated the figures.
   the budget allows. Chris should never wake up to a full disk or a machine
   out of memory.
 - Must ask first: changing the paper's collision model or constants;
-  merging a method into `program` or `main`; any single run expected to
+  merging a method into `main`; any single run expected to
   exceed the per-run budget; anything irreversible.
 - May never: edit this file, `budgets.yaml`, `referee/`, `scheduled/` or
   `approvals.json`; change the reference data; delete evidence that a
