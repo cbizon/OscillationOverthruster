@@ -212,6 +212,7 @@ class Simulation:
         self.ev_p = np.zeros(self.N + 1, dtype=np.int64)
         self.tree = np.zeros(2 * M, dtype=np.int64)
         self.cnt = np.zeros(K.NCOUNT, dtype=np.int64)
+        self.en = np.zeros(K.NEN)     # energy and impulse accounting
         self.cycle = 0            # completed forcing cycles
         self.t_local = 0.0        # time since start of current cycle
         self.rebuild()
@@ -254,7 +255,7 @@ class Simulation:
         st = K.run_events(self.S, self.W, self.mass, self.cellof, self.head,
                           self.nxt, self.prv, self.ev_t, self.ev_type,
                           self.ev_p, self.tree, self.P, self.IP,
-                          float(t_local_stop), max_events, self.cnt)
+                          float(t_local_stop), max_events, self.cnt, self.en)
         if st == 0:
             self.t_local = float(t_local_stop)
         return st
@@ -304,6 +305,17 @@ class Simulation:
                     ymin=float(np.min(r[:, 1] - rad)),
                     ymax=float(np.max(r[:, 1] + rad)))
 
+    def layer_energy(self):
+        """Kinetic, rotational and gravitational potential energy of the
+        layer, and its vertical momentum, at the current time."""
+        r, v, w = self.snapshot()
+        inertia = 0.25 * KINERTIA * self.mass * self.diam ** 2
+        kinetic = 0.5 * float(np.sum(self.mass[:, None] * v ** 2))
+        rotational = 0.5 * float(np.sum(inertia[:, None] * w ** 2))
+        potential = float(self.P[K.P_G] * np.sum(self.mass * r[:, 2]))
+        momentum_z = float(np.sum(self.mass * v[:, 2]))
+        return kinetic + rotational + potential, momentum_z
+
     def overlap_check(self):
         """Minimum pair gap with states projected to the current time
         (does not modify the dynamical state)."""
@@ -323,7 +335,7 @@ class Simulation:
         tmp = path + ".tmp.npz"
         np.savez(tmp, S=self.S, W=self.W, diam=self.diam, mass=self.mass,
                  pid=self.pid, cycle=self.cycle, t_local=self.t_local,
-                 cnt=self.cnt,
+                 cnt=self.cnt, en=self.en,
                  params=np.array([self.N, self.L, self.gamma, self.f_star,
                                   self.depth, self.seed, self.dim]))
         os.replace(tmp, path)
@@ -344,4 +356,6 @@ class Simulation:
         self.cycle = int(d["cycle"])
         self.t_local = float(d["t_local"])
         self.cnt[:] = d["cnt"]
+        if "en" in d.files:
+            self.en[:] = d["en"]
         self.rebuild(sort=False)

@@ -2,8 +2,10 @@
 doesn't change the macroscopic physics.
 
 ``measure`` reads a trajectory (``granular/export.py`` format, or
-``referee/c_baseline.py`` output, which has the same keys) and, over a
-window of whole drive cycles, computes per frame:
+``referee/c_baseline.py`` output, which has the same keys), or a
+quantities file from ``referee/long_contact.py`` (the per-frame values
+below, computed during the run, so long 3D runs needn't store
+trajectories), and, over a window of whole drive cycles, uses per frame:
 
 - ``zcm``: centre-of-mass height above the plate;
 - ``thickness``: standard deviation of particle heights (layer depth);
@@ -175,8 +177,14 @@ def measure(path: Path, from_cycle: int, cycles: int, period: int) -> dict[str, 
     period_time = drive_period(time, data["drive_phase"])
     index, rel_bin = window_frames(time, data["drive_phase"], period_time,
                                    from_cycle, cycles)
-    values = frame_quantities(data["positions"][index], data["velocities"][index],
-                              data["diameters"], data["plate_z"][index].astype(np.float64))
+    if "positions" in data.files:
+        values = frame_quantities(data["positions"][index], data["velocities"][index],
+                                  data["diameters"],
+                                  data["plate_z"][index].astype(np.float64))
+        particle_count = int(data["diameters"].size)
+    else:
+        values = {name: data[name][index] for name in QUANTITIES}
+        particle_count = int(data["particle_count"])
     order = np.argsort(rel_bin)
     bins_per_period = PHASES * period
     result = {}
@@ -197,7 +205,7 @@ def measure(path: Path, from_cycle: int, cycles: int, period: int) -> dict[str, 
         "cycles": cycles,
         "period": period,
         "drive_period_time": period_time,
-        "particle_count": int(data["diameters"].size),
+        "particle_count": particle_count,
         "quantities": result,
         "plate_contact_phases": crossings(np.array(result["plate_contact"]["profile"]),
                                           CONTACT_THRESHOLD),

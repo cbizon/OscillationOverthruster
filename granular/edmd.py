@@ -47,8 +47,17 @@ NP_INT = 5
 
 # counters
 C_PP, C_WALL, C_PLATE, C_CELL, C_ADV, C_EVENTS, C_PPSKIP, C_PLSKIP, \
-    C_TINYPP, C_TINYPL, C_PREDICT, C_PAIRS, C_ROOTCALL = range(13)
+    C_TINYPP, C_TINYPL, C_PREDICT, C_PAIRS, C_ROOTCALL, C_EGAIN = range(14)
 NCOUNT = 20
+
+# energy and impulse accounting, accumulated over all events (see run_events)
+EN_PLATE_WORK, EN_PLATE_DISS, EN_PP_DISS, EN_WALL_DISS, EN_PLATE_JZ, \
+    EN_WALL_JZ, EN_MAX_GAIN = range(7)
+NEN = 8
+# a collision "gains" energy in its dissipation frame when the gain exceeds
+# round-off: this relative tolerance times the frame energy, plus a floor
+GAIN_REL_TOL = 1e-10
+GAIN_ABS_TOL = 1e-14
 
 INF = np.inf
 
@@ -169,6 +178,29 @@ def build_cells(S, cellof, head, nxt, prv, P, IP):
     for i in range(N - 1, -1, -1):
         cell_insert(i, cell_of_position(S[i, SX], S[i, SY], S[i, SZ], P, IP),
                     cellof, head, nxt, prv)
+
+
+@njit(cache=True, inline='always')
+def particle_energy(i, S, W, mass, K, vz_frame):
+    """Kinetic plus rotational energy of particle i in a frame moving
+    vertically at vz_frame (I = K m r^2, with K = 4 I / (m sigma^2))."""
+    vz = S[i, SVZ] - vz_frame
+    v2 = S[i, SVX] * S[i, SVX] + S[i, SVY] * S[i, SVY] + vz * vz
+    w2 = W[i, 0] * W[i, 0] + W[i, 1] * W[i, 1] + W[i, 2] * W[i, 2]
+    r = S[i, SR]
+    return 0.5 * mass[i] * (v2 + K * r * r * w2)
+
+
+@njit(cache=True, inline='always')
+def record_dissipation(slot, before, after, en, cnt):
+    """Add a collision's energy change in its dissipation frame to en[slot];
+    a gain beyond round-off is counted and its size tracked."""
+    change = after - before
+    en[slot] += change
+    if change > GAIN_REL_TOL * before + GAIN_ABS_TOL:
+        cnt[C_EGAIN] += 1
+        if change > en[EN_MAX_GAIN]:
+            en[EN_MAX_GAIN] = change
 
 
 # ----------------------------------------------------------------------------
@@ -665,10 +697,23 @@ def schedule(i, t, S, cellof, head, nxt, ev_t, ev_type, ev_p, tree, P, IP,
 
 @njit(cache=True)
 def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
-               P, IP, t_stop, max_events, cnt):
+               P, IP, t_stop, max_events, cnt, en):
     """Process all events with time < t_stop (or until max_events).
-    Returns 0 if t_stop was reached, 1 if max_events was hit."""
+    Returns 0 if t_stop was reached, 1 if max_events was hit.
+
+    Energy accounting in en (the referee's energy audit uses it): for every
+    collision, the energy change in the frame where it can only dissipate
+    (the pair's centre of mass, the static wall, the moving plate) goes to
+    EN_PP_DISS, EN_WALL_DISS or EN_PLATE_DISS; the plate's work, its
+    velocity times the vertical impulse it delivers, to EN_PLATE_WORK; the
+    vertical impulses of plate and walls to EN_PLATE_JZ and EN_WALL_JZ.
+    Between events energy changes only by gravity, which the audit counts
+    through potential energy.  So the layer's energy change equals plate
+    work plus the three dissipations, and any other change is energy the
+    contact handling put in or took out unaccounted.  A contact method must
+    route every velocity or position change it makes through these terms."""
     g = P[P_G]
+    Kin = P[P_K]
     A = P[P_A]
     om = P[P_OM]
     nx = IP[I_NX]
@@ -688,8 +733,16 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
             j = ev_p[i]
             advance(i, t, S, g)
             advance(j, t, S, g)
+            before = (particle_energy(i, S, W, mass, Kin, 0.0)
+                      + particle_energy(j, S, W, mass, Kin, 0.0))
             if collide_pp(i, j, S, W, mass, P, cnt):
                 cnt[C_PP] += 1
+            # momentum is conserved, so the lab-frame change equals the
+            # centre-of-mass-frame change, which can only be a loss
+            record_dissipation(EN_PP_DISS, before,
+                               particle_energy(i, S, W, mass, Kin, 0.0)
+                               + particle_energy(j, S, W, mass, Kin, 0.0),
+                               en, cnt)
             ev_type[j] = EV_ADV
             ev_t[j] = t
             schedule(i, t, S, cellof, head, nxt, ev_t, ev_type, ev_p, tree, P,
@@ -722,7 +775,14 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
             if abs(S[i, SZ] - S[i, SR] - A * np.sin(om * t)) > PLATE_CONTACT_TOL:
                 raise ValueError("plate collision off the plate surface")
             vp = A * om * np.cos(om * t)
+            vz_before = S[i, SVZ]
+            before = particle_energy(i, S, W, mass, Kin, vp)
             vsep = collide_wall(i, 0.0, 0.0, -1.0, 0.0, 0.0, vp, S, W, P)
+            jz = mass[i] * (S[i, SVZ] - vz_before)
+            en[EN_PLATE_JZ] += jz
+            en[EN_PLATE_WORK] += vp * jz
+            record_dissipation(EN_PLATE_DISS, before,
+                               particle_energy(i, S, W, mass, Kin, vp), en, cnt)
             if vsep >= 0.0:
                 cnt[C_PLATE] += 1
                 if vsep < 1e-10:
@@ -734,6 +794,8 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
         elif typ == EV_WALL:
             advance(i, t, S, g)
             f = ev_p[i]
+            vz_before = S[i, SVZ]
+            before = particle_energy(i, S, W, mass, Kin, 0.0)
             if f == 0:
                 vs = collide_wall(i, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, S, W, P)
             elif f == 1:
@@ -744,6 +806,9 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
                 vs = collide_wall(i, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, S, W, P)
             if vs >= 0.0:
                 cnt[C_WALL] += 1
+            en[EN_WALL_JZ] += mass[i] * (S[i, SVZ] - vz_before)
+            record_dissipation(EN_WALL_DISS, before,
+                               particle_energy(i, S, W, mass, Kin, 0.0), en, cnt)
             schedule(i, t, S, cellof, head, nxt, ev_t, ev_type, ev_p, tree, P,
                      IP, cnt)
         else:   # EV_ADV
