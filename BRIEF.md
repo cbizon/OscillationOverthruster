@@ -13,6 +13,11 @@ every summary matter here.
 - Run the frozen engine tests: `uv run pytest referee/tests`. If they fail
   on `main`, fixing that comes before anything else.
 
+## Background to read
+
+- `notes/contact-options.md`: Chris's analysis of the stall and the five
+  contact-handling options, with the order to try them in. RQ1 follows it.
+
 ## Where code goes
 
 - Each contact-handling idea is developed on its own branch,

@@ -12,14 +12,19 @@ after `DIRECTION.md` at the start of every session.
   the 1998 reference on the other Figure 1 conditions.
 - Falsified if: every method tried either stalls, injects energy, or changes
   Figure 1 agreement beyond the referee's tolerance.
-- Candidates, to be compared, not assumed:
-  - a co-moving "stuck" state on the plate, with an explicit release
-    condition when the plate decelerates below -g relative motion;
-  - an inelastic-collapse cutoff (treat collisions closer together than a
-    small time as fully inelastic, in the spirit of Luding's TC model);
-  - the original C code's approach (snap onto the plate surface after a plate
-    hit, 1e-9 root tolerance), as a baseline to understand, not adopt;
-  - switching persistent contacts to a soft-sphere treatment.
+- Options are in `notes/contact-options.md` (Chris, Nov 3), which is the
+  reference for them:
+  1. position nudge onto the plate (astra): a baseline only; it injects
+     m g δ per plate hit and will eventually overlap spheres, so it can at
+     best postpone a failure;
+  2. stuck state on the plate, captured by e = 0, released when the plate's
+     acceleration falls to -g: the plate-frame core of option 4;
+  3. elastic window near zero speed (e = 1 below v_el): the cheapest test;
+  4. persistent contact after González, Risso & Soto (2009), extended to a
+     moving plate, friction and spin: the target;
+  5. cutoffs: a trigger, not a method; kept as instrumentation.
+- Order: 3 and 1 first as cheap baselines that show whether the stalled
+  conditions get further, then 2, then 4.
 - Status: open.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -57,7 +62,7 @@ after `DIRECTION.md` at the start of every session.
 
 ## Approaches under consideration
 
-See RQ1's candidates. None tried yet.
+The five options in `notes/contact-options.md`. None tried yet.
 
 ## Current state
 

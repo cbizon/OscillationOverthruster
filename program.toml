@@ -14,4 +14,4 @@ checker_minutes = "45"
 debrief = "07:00"
 
 [files]
-human_only = ["DIRECTION.md", "BRIEF.md", "budgets.yaml", "program.toml", "referee/**"]
+human_only = ["DIRECTION.md", "BRIEF.md", "budgets.yaml", "program.toml", "referee/**", "notes/**"]

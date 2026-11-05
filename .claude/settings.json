@@ -11,6 +11,8 @@
       "Write(program.toml)",
       "Edit(referee/**)",
       "Write(referee/**)",
+      "Edit(notes/**)",
+      "Write(notes/**)",
       "Edit(approvals.json)",
       "Write(approvals.json)",
       "Edit(CLAUDE.md)",

@@ -12,7 +12,7 @@ into it.
 Who owns what:
 
 - **Chris's files**, which you never change: `DIRECTION.md`,
-  `BRIEF.md`, `budgets.yaml`, `program.toml`, `referee/`, and
+  `BRIEF.md`, `budgets.yaml`, `program.toml`, `referee/`, `notes/`, and
   `approvals.json`.
 - **RoboRobo's files**, which you never change: this file, `CHECKER.md`,
   `scheduled/`, `.claude/`, and the folder READMEs.
@@ -25,7 +25,10 @@ Who owns what:
 
 1. Note the time you started; you need it for the run conditions.
 2. Read `DIRECTION.md` (the question, bounds, claim rules, autonomy), then
-   `BRIEF.md` (how this program works day to day) and `budgets.yaml`.
+   `BRIEF.md` (how this program works day to day) and `budgets.yaml`. Read
+   the notes in `notes/` that `BRIEF.md` points to before planning: they
+   hold Chris's thinking from before the program, and you follow
+   them unless an instruction says otherwise.
 3. Read `PROGRAM.md`, then the instruction for today in `instructions/`
    (`YYYY-MM-DD.md`, dated by the evening the session starts). If there is
    none, follow `instructions/fallback.md`.
