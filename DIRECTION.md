@@ -59,9 +59,11 @@ The agent can run these; it can't edit them. Details in `referee/`.
      stalling; an energy audit shows no energy injected by the contact
      method; and bulk quantities (layer depth, centre-of-mass height and
      kinetic energy against phase, take-off and landing phases) agree with
-     this code without the contact method at a grid of other conditions
-     (2D first as a fast filter, then 3D at N = 60000), so we know the
-     sticking isn't changing the physics;
+     this code without the contact method (or the 1998 C code where this
+     one stalls) at a grid of other conditions (2D first as a fast filter,
+     then 3D at N = 60000), so we know the sticking isn't changing the
+     physics. Pass rule: each quantity's 100-cycle mean within 3.61
+     block standard deviations of a 10-block baseline (`referee/README.md`);
    - slow, run rarely: the patterns themselves at a few conditions, when a
      method is a candidate to become the default.
 4. **For experiments**: published experimental observations where they exist

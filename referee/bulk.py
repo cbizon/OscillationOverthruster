@@ -35,15 +35,21 @@ whole-cycle shift (0 to period - 1) that best aligns the profiles (a period-2
 response can be in either phase), then reports the largest difference across
 phase and the difference of means.  Masses are taken as d^3 in both codes.
 
-Pass rule (decided by Chris, Nov 5): ``baseline`` measures a long baseline
-run in successive windows of the same length as the method's measurement
-(after the same settling) and records, per quantity, the mean and standard
-deviation of the window means.  ``judge`` passes a method's quantity when
-its mean is within ``PASS_SIGMAS`` (2) of those standard deviations of the
-baseline mean.  The window-to-window standard deviation is the scatter a
-single measurement of this length has, so it is the right yardstick for
-one method measurement; with few windows it is itself uncertain, so
-``baseline`` requires at least ``MIN_WINDOWS`` (4).
+Pass rule (decided by Chris, Nov 5): ``baseline`` measures one long
+baseline run, after settling, in consecutive blocks the same length as the
+method's measurement (100 cycles), and records per quantity the mean and
+standard deviation of the block means.  Blocks of one long run stand in for
+independent runs because the layer forgets its state quickly: in a check
+with four runs per code, block means within a run predicted the spread
+between runs.  ``judge`` passes a method's quantity when its mean is
+within ``pass_threshold(blocks)`` standard deviations of the baseline mean.
+
+The threshold keeps the chance that a method identical to the baseline
+fails any of the seven quantities at 5%.  It allows for the method's own
+scatter (as large as one block's) and for the uncertainty of a standard
+deviation estimated from few blocks, so it shrinks as blocks are added:
+7.24 for 4 blocks, 3.61 for 10, 3.07 for 20 (``THRESHOLDS``, from a
+400,000-trial simulation with independent normal quantities).
 
 Usage::
 
@@ -51,7 +57,7 @@ Usage::
         --cycles 10 --period 2 --out bulk.json
     uv run python referee/bulk.py compare A.json B.json
     uv run python referee/bulk.py baseline BASE.npz --from-cycle 20 \\
-        --cycles 10 --windows 4 --period 2 --out baseline.json
+        --cycles 100 --blocks 10 --period 2 --out baseline.json
     uv run python referee/bulk.py judge baseline.json bulk.json
 """
 
@@ -66,8 +72,11 @@ import numpy as np
 PHASES = 32
 CONTACT_GAP = 0.02          # D; a particle this close to the plate touches it
 CONTACT_THRESHOLD = 0.01    # fraction of particles touching: layer on the plate
-PASS_SIGMAS = 2.0
-MIN_WINDOWS = 4
+# Threshold in baseline standard deviations, by number of blocks, for a 5%
+# chance that a method identical to the baseline fails any of 7 quantities.
+THRESHOLDS = {4: 7.24, 5: 5.5, 6: 4.7, 7: 4.24, 8: 3.96, 9: 3.77, 10: 3.61,
+              11: 3.5, 12: 3.41, 13: 3.34, 14: 3.29, 15: 3.24, 16: 3.19,
+              17: 3.16, 18: 3.13, 19: 3.1, 20: 3.07}
 # two-sided 95% Student t critical values by degrees of freedom
 T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
        8: 2.306, 9: 2.262, 10: 2.228, 12: 2.179, 15: 2.131, 20: 2.086,
@@ -217,33 +226,40 @@ def compare(a: dict, b: dict) -> dict[str, dict[str, float]]:
     return out
 
 
-def baseline(path: Path, from_cycle: int, cycles: int, windows: int,
+def pass_threshold(blocks: int) -> float:
+    if blocks not in THRESHOLDS:
+        raise ValueError(f"need between {min(THRESHOLDS)} and {max(THRESHOLDS)} "
+                         f"baseline blocks, got {blocks}")
+    return THRESHOLDS[blocks]
+
+
+def baseline(path: Path, from_cycle: int, cycles: int, blocks: int,
              period: int) -> dict[str, object]:
-    """Window-to-window statistics of a long baseline run."""
-    if windows < MIN_WINDOWS:
-        raise ValueError(f"need at least {MIN_WINDOWS} windows, got {windows}")
+    """Block statistics of one long baseline run."""
+    pass_threshold(blocks)
     measured = [measure(path, from_cycle + k * cycles, cycles, period)
-                for k in range(windows)]
+                for k in range(blocks)]
     stats = {}
     for name in QUANTITIES:
         means = np.array([m["quantities"][name]["mean"] for m in measured])
-        stats[name] = {"window_means": means.tolist(),
+        stats[name] = {"block_means": means.tolist(),
                        "mean": float(means.mean()),
                        "sd": float(means.std(ddof=1))}
     return {"trajectory": str(path), "from_cycle": from_cycle,
-            "cycles_per_window": cycles, "windows": windows, "period": period,
-            "quantities": stats}
+            "cycles_per_block": cycles, "blocks": blocks, "period": period,
+            "threshold": pass_threshold(blocks), "quantities": stats}
 
 
 def judge(base: dict, method: dict) -> dict[str, dict[str, object]]:
-    """Pass each quantity whose mean is within PASS_SIGMAS window-to-window
-    standard deviations of the baseline mean."""
-    if method["cycles"] != base["cycles_per_window"]:
+    """Pass each quantity whose mean is within the threshold, in baseline
+    block standard deviations, of the baseline mean."""
+    if method["cycles"] != base["cycles_per_block"]:
         raise ValueError(f"method measured over {method['cycles']} cycles, baseline "
-                         f"windows are {base['cycles_per_window']}; the scatter "
+                         f"blocks are {base['cycles_per_block']}; the scatter "
                          "only applies to measurements of the same length")
     if method["period"] != base["period"]:
         raise ValueError("measurements use different response periods")
+    threshold = pass_threshold(base["blocks"])
     out = {}
     for name in QUANTITIES:
         b = base["quantities"][name]
@@ -251,7 +267,8 @@ def judge(base: dict, method: dict) -> dict[str, dict[str, object]]:
         sigmas = (value - b["mean"]) / b["sd"] if b["sd"] > 0 else float("inf")
         out[name] = {"baseline_mean": b["mean"], "baseline_sd": b["sd"],
                      "method_mean": value, "sigmas": float(sigmas),
-                     "passes": bool(abs(sigmas) <= PASS_SIGMAS)}
+                     "threshold": threshold,
+                     "passes": bool(abs(sigmas) <= threshold)}
     return out
 
 
@@ -267,11 +284,11 @@ def main(argv=None) -> None:
     c = sub.add_parser("compare", help="compare two measurements")
     c.add_argument("a", type=Path)
     c.add_argument("b", type=Path)
-    bl = sub.add_parser("baseline", help="window-to-window scatter of a long baseline run")
+    bl = sub.add_parser("baseline", help="block statistics of one long baseline run")
     bl.add_argument("trajectory", type=Path)
     bl.add_argument("--from-cycle", type=int, required=True)
-    bl.add_argument("--cycles", type=int, required=True, help="cycles per window")
-    bl.add_argument("--windows", type=int, required=True)
+    bl.add_argument("--cycles", type=int, required=True, help="cycles per block")
+    bl.add_argument("--blocks", type=int, required=True)
     bl.add_argument("--period", type=int, default=2)
     bl.add_argument("--out", type=Path, required=True)
     j = sub.add_parser("judge", help="pass or fail a method against a baseline")
@@ -281,15 +298,17 @@ def main(argv=None) -> None:
 
     if args.command == "baseline":
         result = baseline(args.trajectory, args.from_cycle, args.cycles,
-                          args.windows, args.period)
+                          args.blocks, args.period)
         args.out.write_text(json.dumps(result, indent=1) + "\n")
         for name, q in result["quantities"].items():
             print(f"{name:16s} mean {q['mean']:10.4f}  sd {q['sd']:.4f} "
                   f"({100 * q['sd'] / abs(q['mean']):.1f}%)")
         return
     if args.command == "judge":
-        rows = judge(json.loads(args.baseline.read_text()),
-                     json.loads(args.method.read_text()))
+        base = json.loads(args.baseline.read_text())
+        rows = judge(base, json.loads(args.method.read_text()))
+        print(f"threshold {pass_threshold(base['blocks'])} sd "
+              f"({base['blocks']} baseline blocks)")
         print(f"{'quantity':16s} {'baseline':>10s} {'sd':>8s} {'method':>10s} "
               f"{'sigmas':>7s}")
         for name, row in rows.items():

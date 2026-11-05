@@ -100,25 +100,27 @@ def test_plate_contact_phases():
 
 
 def test_baseline_and_judge(tmp_path):
-    """Window means of a noisy baseline give the scatter; a method inside it
-    passes and one shifted well outside fails."""
+    """Block means of a noisy baseline give the scatter; a method inside the
+    threshold passes and one shifted well outside fails."""
     rng = np.random.default_rng(0)
     path = synthetic(tmp_path / "base.npz", cycles=60)
     data = dict(np.load(path))
     frames = data["time"].size
-    # per-cycle noise in height, so window means scatter
+    # per-cycle noise in height, so block means scatter
     noise = np.repeat(rng.normal(0, 0.2, frames // bulk.PHASES + 1), bulk.PHASES)[:frames]
     data["positions"][:, :, 2] += noise[:, None]
     np.savez(path, **data)
     base = bulk.baseline(path, 20, 10, 4, 2)
+    assert base["threshold"] == bulk.THRESHOLDS[4]
     sd = base["quantities"]["zcm"]["sd"]
     assert sd > 0
     inside = bulk.measure(synthetic(tmp_path / "in.npz"), 20, 10, 2)
     rows = bulk.judge(base, inside)
-    assert rows["zcm"]["passes"] == (abs(3.0 - base["quantities"]["zcm"]["mean"]) <= 2 * sd)
+    limit = bulk.THRESHOLDS[4] * sd
+    assert rows["zcm"]["passes"] == (abs(3.0 - base["quantities"]["zcm"]["mean"]) <= limit)
     shifted = synthetic(tmp_path / "out.npz")
     data = dict(np.load(shifted))
-    data["positions"][:, :, 2] += 10 * sd + 1.0
+    data["positions"][:, :, 2] += 2 * limit + 1.0
     np.savez(shifted, **data)
     assert not bulk.judge(base, bulk.measure(shifted, 20, 10, 2))["zcm"]["passes"]
 
@@ -130,6 +132,18 @@ def test_judge_refuses_mismatched_lengths(tmp_path):
         bulk.judge(base, method)
 
 
-def test_baseline_needs_enough_windows(tmp_path):
-    with pytest.raises(ValueError, match="at least"):
+def test_baseline_needs_enough_blocks(tmp_path):
+    with pytest.raises(ValueError, match="baseline blocks"):
         bulk.baseline(synthetic(tmp_path / "b.npz", cycles=60), 20, 10, 3, 2)
+
+
+def test_thresholds_give_five_percent_false_fails():
+    """A method drawn from the same distribution as the baseline blocks fails
+    some quantity about 5% of the time (checked for 10 blocks)."""
+    rng = np.random.default_rng(7)
+    trials, n = 40000, 10
+    b = rng.normal(size=(trials, len(bulk.QUANTITIES), n))
+    m = rng.normal(size=(trials, len(bulk.QUANTITIES)))
+    z = np.abs(m - b.mean(2)) / b.std(2, ddof=1)
+    rate = (z > bulk.pass_threshold(n)).any(1).mean()
+    assert 0.04 < rate < 0.06

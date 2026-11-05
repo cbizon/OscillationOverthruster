@@ -152,27 +152,36 @@ rarely.
     four points, 4 of 56 drift flags fired, about what chance gives at 95%.
     The scatter has only been measured at this one point.
 
-    Pass rule (decided by Chris, Nov 5): a method passes a quantity when
-    its mean is within two of the baseline's window-to-window standard
-    deviations of the baseline mean, measured at each condition from a
-    long baseline run split into windows the same length as the method's
-    measurement (at least four). Implemented as `bulk.py baseline` and
-    `bulk.py judge`.
+    Pass rule (decided by Chris, Nov 5; final form): measure the method
+    for 100 cycles after 20 of settling. Run the baseline once, settle 20
+    cycles, then measure 10 consecutive 100-cycle blocks (`bulk.py
+    baseline --cycles 100 --blocks 10`). A method passes a quantity when
+    its 100-cycle mean is within 3.61 of the baseline's block standard
+    deviations of the baseline mean (`bulk.py judge`). 3.61 keeps the
+    chance that a method identical to the baseline fails any of the seven
+    quantities at 5%; it allows for the method's own scatter and for the
+    uncertainty of a standard deviation from ten blocks (the threshold
+    for other block counts is in `bulk.py`). One long run with blocks,
+    rather than independent runs, because the layer forgets its state
+    quickly: with four independent runs per code, block means within a run
+    predicted the spread between runs, and one run pays for settling
+    once.
 
-    First use, and a problem with it: sequel's single 10-cycle
-    measurement at Gamma 3.5, f* 0.3, depth 5, judged against the C
-    code's four-window baseline, fails vertical energy (-2.5 standard
-    deviations) and vertical temperature (-2.4). Measuring sequel over the
-    same 40 cycles shows those fails were noise: the two codes' 40-cycle
-    means differ by 1 to 3% on every quantity, within about 2.4 standard
-    errors of the difference (largest: height, +0.9%). Two reasons:
+    Validation (Gamma 3.5, f* 0.3, depth 5): a 1020-cycle C baseline (34 s)
+    against four independent sequel runs and four independent C runs. All
+    eight pass every quantity; the largest deviation is 1.15 standard
+    deviations. What the test can detect there, in percent of the mean:
+    height 1.8%, vertical energy 4.3%, plate contact 6.5%, thickness 8.7%,
+    vertical temperature 10%, horizontal energy and temperature about 30%.
+    It is sharp for height and vertical energy and weak for horizontal
+    motion.
 
-    - A standard deviation from four windows is uncertain by about a factor
-      of two (sequel's vertical-energy scatter is 0.048, the C code's
-      0.024).
-    - With seven quantities each tested at two standard deviations, a
-      method identical to the baseline fails at least one about 30% of the
-      time even with exact standard deviations.
+    How the rule was reached (Nov 5): a first version judged one 10-cycle
+    method window against 10-cycle windows of the baseline at 2 standard
+    deviations. Its first use failed sequel on two quantities that a
+    longer measurement showed agree; 10-cycle windows are too short for
+    the slow fluctuations, and testing seven quantities at 2 standard
+    deviations fails identical methods about 30% of the time.
 
     Cycle-to-cycle variation in each code (Gamma 3.5, f* 0.3, depth 5,
     cycles 20 to 60, means of each 2-cycle period, 20 periods each):
@@ -222,12 +231,6 @@ rarely.
     from the spread of long-run means across independent runs of one
     code, which is what the four-run table measures.
 
-    Proposed refinement **[decide]**: measure the method over the same
-    windows as the baseline and compare the two means against the
-    standard error of their difference; and either widen the threshold to
-    allow for seven quantities (about 2.7 instead of 2 keeps the chance
-    of a false fail near 5%) or require a fail to repeat in a second
-    independent run before it counts.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).
