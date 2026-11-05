@@ -174,6 +174,32 @@ rarely.
       method identical to the baseline fails at least one about 30% of the
       time even with exact standard deviations.
 
+    Cycle-to-cycle variation in each code (Gamma 3.5, f* 0.3, depth 5,
+    cycles 20 to 60, means of each 2-cycle period, 20 periods each):
+
+    | quantity | C: sd of period means | sequel: sd | ratio | period-to-period correlation, C / sequel |
+    | --- | --- | --- | --- | --- |
+    | height | 1.1% | 1.3% | 1.23 | -0.29 / 0.17 |
+    | thickness | 5.4% | 4.5% | 0.81 | 0.08 / 0.23 |
+    | vertical energy | 2.2% | 2.5% | 1.12 | 0.06 / 0.47 |
+    | vertical temperature | 6.4% | 8.0% | 1.24 | -0.13 / 0.28 |
+    | horizontal energy | 7.1% | 12.5% | 1.82 | 0.11 / 0.44 |
+    | horizontal temperature | 7.1% | 12.4% | 1.77 | 0.11 / 0.43 |
+    | plate contact | 6.0% | 4.8% | 0.79 | 0.11 / -0.18 |
+
+    With 20 periods each, a ratio between about 0.63 and 1.58 is
+    consistent with equal variation. Height, thickness, vertical energy
+    and temperature, and plate contact vary the same in both codes.
+    Horizontal energy and temperature vary about 1.8 times more in
+    sequel, and sequel's fluctuations persist from one period to the
+    next (correlation about 0.45, against about 0.1 in C), so they are
+    slower as well as larger. The means still agree; it is the
+    fluctuations in horizontal motion that differ, which is a difference
+    between the codes' handling of the plate (C snaps particles onto it,
+    sequel doesn't) worth understanding. Because sequel's period means
+    are correlated, a 10-cycle window holds fewer independent samples
+    than it looks, which also widens its window-to-window scatter.
+
     Proposed refinement **[decide]**: measure the method over the same
     windows as the baseline and compare the two means against the
     standard error of their difference; and either widen the threshold to
