@@ -4,18 +4,26 @@ Runs one condition for a number of drive cycles with the engine in
 ``--engine`` (a checkout of sequel, usually a method branch's worktree; the
 referee script itself always comes from the program branch) and records:
 
-- **Survival.** A stall is a run that stops advancing in time: events are
-  processed in chunks of ``STALL_CHUNK`` per particle, and if a chunk moves
-  simulated time forward by less than ``STALL_TIME_FRACTION`` of a drive
-  period, the run has stalled.  A real stall advances about 2e-10 periods
-  per chunk (the Gamma = 5 case: two million events per 1e-8 time units);
-  the densest legitimate burst seen, the first landing of a deep layer
-  (1,750 events per particle in one cycle, nearly all at once), about 1e-3,
-  so the threshold of 1e-6 sits far from both.  An event count alone can't
-  tell these apart, and a first version that used one called landing
-  bursts stalls.  The run stops at a stall; cycles completed before it are
-  the measure of progress.  The goal is no stall at all, however long the
-  run.
+- **Survival.** The run goes on until it completes its cycles; nothing
+  stops it for being slow.  It ends early only when:
+  - the engine raises on a non-physical state (an overlap, a sphere below
+    the plate, a plate contact off the surface, an unbracketed plate root):
+    recorded as ``physical_failure`` with the message, then raised;
+  - it reaches ``--max-cpu-hours`` (``cpu_budget``);
+  - simulated time is frozen: a chunk of ``CHUNK`` events per particle
+    advances it by exactly zero (``frozen_time``), so the run can never
+    move again.
+  Slow stretches are recorded, not stopped: a slow episode starts when a
+  chunk advances time by less than ``SLOW_TIME_FRACTION`` of a drive
+  period and ends when one advances it by more.  Each episode records
+  where it started (cycle and phase), the slowest advance per event, how
+  many events and how much CPU it took, and where it ended, or that it was
+  still going when the run stopped.  Whether these resting-contact
+  episodes clear on their own, and how long they take, is part of what
+  the test measures (Chris, Nov 5: see what can be done without a stall
+  detector).  The first landing of a deep layer is dense but not slow by
+  this measure (about 1e-3 of a period per chunk, against about 1e-7 in a
+  resting-contact episode).
 - **Energy audit, per cycle.** The layer's change in energy (kinetic,
   rotational, gravitational, from snapshots) must equal the plate's work
   plus the dissipation of every collision, each measured in the frame where
@@ -31,8 +39,10 @@ referee script itself always comes from the program branch) and records:
 - **Bulk quantities, every frame** (32 per cycle), saved to
   ``quantities.npz`` for ``referee/bulk.py measure``.
 
-Checkpoints every ``--checkpoint-every`` cycles; ``--resume`` continues
-from the latest one.
+Checkpoints every ``--checkpoint-every`` cycles (skipped while a slow
+episode is open); ``--resume`` continues from the latest one.
+``summary.json`` is also rewritten every ``PROGRESS_SECONDS`` during a slow
+episode, so a long one can be watched.
 
 Usage::
 
@@ -55,8 +65,9 @@ from pathlib import Path
 import numpy as np
 
 AUDIT_REL_TOL = 1e-8
-STALL_CHUNK = 100               # events per particle between progress checks
-STALL_TIME_FRACTION = 1e-6      # of a drive period, per chunk
+CHUNK = 100                     # events per particle between progress checks
+SLOW_TIME_FRACTION = 1e-6       # of a drive period per chunk: a slow episode
+PROGRESS_SECONDS = 300
 PHASES = 32
 HERE = Path(__file__).resolve().parent
 
@@ -91,6 +102,8 @@ def main(argv=None) -> None:
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--cycles", type=int, required=True)
     ap.add_argument("--checkpoint-every", type=int, default=10)
+    ap.add_argument("--max-cpu-hours", type=float, default=40.0,
+                    help="stop at this much CPU (budgets.yaml per_run_cpu_hours)")
     ap.add_argument("--outdir", type=Path, required=True)
     ap.add_argument("--resume", action="store_true")
     args = ap.parse_args(argv)
@@ -112,8 +125,8 @@ def main(argv=None) -> None:
                      dim=args.dim)
     names = bulk.QUANTITIES
     series = {name: [] for name in names}
-    times, phases, audit = [], [], []
-    wall_before = 0.0
+    times, phases, audit, episodes = [], [], [], []
+    wall_before = cpu_before = 0.0
     if args.resume and checkpoint.exists():
         sim.load_checkpoint(str(checkpoint))
         saved = np.load(outdir / "quantities.npz")
@@ -122,9 +135,21 @@ def main(argv=None) -> None:
         series = {name: list(saved[name][:keep]) for name in names}
         audit = [row for row in json.loads((outdir / "audit.json").read_text())
                  if row["cycle"] <= sim.cycle]
-        wall_before = json.loads((outdir / "summary.json").read_text())["wall_seconds"]
+        previous = json.loads((outdir / "summary.json").read_text())
+        wall_before, cpu_before = previous["wall_seconds"], previous["cpu_seconds"]
+        episodes = [ep for ep in previous["slow_episodes"]
+                    if ep.get("end_cycle") is not None and ep["end_cycle"] < sim.cycle]
     else:
         outdir.mkdir(parents=True, exist_ok=False)
+
+    started = time.time()
+    cpu_started = time.process_time()
+
+    def cpu_seconds():
+        return cpu_before + time.process_time() - cpu_started
+
+    def now_phase():
+        return float((sim.ev_t[sim.tree[1]] / sim.T) % 1.0)
 
     def record_frame(phase_index):
         r, v, w = sim.snapshot()
@@ -147,10 +172,12 @@ def main(argv=None) -> None:
             engine=engine_provenance(engine), dim=args.dim, gamma=args.gamma,
             f_star=args.fstar, particle_count=args.N, width=args.L, depth=depth,
             seed=args.seed, cycles_requested=args.cycles,
-            stall_chunk_events_per_particle=STALL_CHUNK,
-            stall_time_fraction=STALL_TIME_FRACTION,
-            audit_rel_tol=AUDIT_REL_TOL, **status,
+            chunk_events_per_particle=CHUNK, slow_time_fraction=SLOW_TIME_FRACTION,
+            max_cpu_hours=args.max_cpu_hours, audit_rel_tol=AUDIT_REL_TOL,
+            **status,
             cycles_completed=sim.cycle,
+            slow_episodes=[{k: v for k, v in ep.items() if k != "cnt0"}
+                           for ep in episodes],
             audit_failures=[row["cycle"] for row in audit if not row["passes"]],
             worst_energy_residual=max((abs(row["energy_residual_rel"]) for row in audit),
                                       default=0.0),
@@ -160,43 +187,79 @@ def main(argv=None) -> None:
             events_per_particle_cycle=(float(sim.cnt[K.C_EVENTS]) / sim.N / sim.cycle
                                        if sim.cycle else None),
             wall_seconds=wall_before + time.time() - started,
+            cpu_seconds=cpu_seconds(),
         )
         (outdir / "summary.json").write_text(json.dumps(summary, indent=1) + "\n")
         return summary
 
-    started = time.time()
     if not times:
         record_frame(0)
-    chunk = STALL_CHUNK * sim.N
+    chunk = CHUNK * sim.N
+    episode = None
+    last_progress_save = time.time()
+
+    def close_episode():
+        nonlocal episode
+        d = sim.cnt - episode.pop("cnt0")
+        episode["tiny_plate_collisions"] = int(d[K.C_TINYPL])
+        episode["tiny_pair_collisions"] = int(d[K.C_TINYPP])
+        episode["end_cycle"] = sim.cycle
+        episode["end_phase"] = now_phase()
+        episode = None
 
     def advance_to(target):
-        """Run to target; returns None, or stall details if time stops moving."""
+        """Run to target.  Returns None, or the reason the run must stop.
+        A slow chunk opens or extends a slow episode; a normal one closes it."""
+        nonlocal episode, last_progress_save
         while True:
             before = sim.ev_t[sim.tree[1]]
-            step_cnt = sim.cnt.copy()
-            if not sim.run_to(target, max_events=chunk):
+            cpu0 = cpu_seconds()
+            try:
+                hit_limit = sim.run_to(target, max_events=chunk)
+            except (ValueError, RuntimeError) as error:
+                return {"outcome": "physical_failure", "error": str(error),
+                        "error_type": type(error).__name__,
+                        "failure_cycle": sim.cycle, "failure_phase": now_phase()}
+            if cpu_seconds() > args.max_cpu_hours * 3600:
+                return {"outcome": "cpu_budget"}
+            if not hit_limit:
+                if episode is not None:
+                    close_episode()
                 return None
-            progress = sim.ev_t[sim.tree[1]] - before
-            if progress < STALL_TIME_FRACTION * sim.T:
-                d = sim.cnt - step_cnt
-                return {"stall_time": float(sim.cycle * sim.T + sim.ev_t[sim.tree[1]]),
-                        "stall_chunk_time_advance": float(progress),
-                        "stall_tiny_plate_collisions": int(d[K.C_TINYPL]),
-                        "stall_tiny_pair_collisions": int(d[K.C_TINYPP])}
-    status = {"stalled": False}
+            progress = float(sim.ev_t[sim.tree[1]] - before)
+            if progress == 0.0:
+                return {"outcome": "frozen_time", "frozen_cycle": sim.cycle,
+                        "frozen_phase": now_phase()}
+            if progress < SLOW_TIME_FRACTION * sim.T:
+                if episode is None:
+                    episode = {"start_cycle": sim.cycle, "start_phase": now_phase(),
+                               "events": 0, "cpu_seconds": 0.0,
+                               "slowest_advance_per_event": progress / chunk,
+                               "cnt0": sim.cnt.copy()}
+                    episodes.append(episode)
+                episode["events"] += chunk
+                episode["cpu_seconds"] += cpu_seconds() - cpu0
+                episode["slowest_advance_per_event"] = min(
+                    episode["slowest_advance_per_event"], progress / chunk)
+                episode["reached_cycle"] = sim.cycle
+                episode["reached_phase"] = now_phase()
+                if time.time() - last_progress_save > PROGRESS_SECONDS:
+                    save({"outcome": "running"})
+                    last_progress_save = time.time()
+            elif episode is not None:
+                close_episode()
+
+    stop = None
     while sim.cycle < args.cycles:
         energy0, momentum0 = sim.layer_energy()
         en0, cnt0 = sim.en.copy(), sim.cnt.copy()
         for k in range(1, PHASES + 1):
-            stall = advance_to(sim.T * k / PHASES)
-            if stall is not None:
-                status = {"stalled": True, "stall_cycle": sim.cycle,
-                          "stall_phase": float((stall["stall_time"] / sim.T) % 1.0),
-                          **stall}
+            stop = advance_to(sim.T * k / PHASES)
+            if stop is not None:
                 break
             if k < PHASES:
                 record_frame(k)
-        if status["stalled"]:
+        if stop is not None:
             break
         energy1, momentum1 = sim.layer_energy()
         d = sim.en - en0
@@ -227,17 +290,26 @@ def main(argv=None) -> None:
                       for key, v in row.items()})
         sim.end_cycle()
         record_frame(0)
-        if sim.cycle % args.checkpoint_every == 0 or sim.cycle == args.cycles:
+        if (sim.cycle % args.checkpoint_every == 0 or sim.cycle == args.cycles) \
+                and episode is None:
             sim.save_checkpoint(str(checkpoint))       # also re-sorts
-            save(status)
+            save({"outcome": "running"})
         else:
             sim.rebuild(sort=True)
+    if episode is not None:
+        episode.pop("cnt0", None)
+        episode["end_cycle"] = None                    # still going
+    status = stop if stop is not None else {"outcome": "completed"}
     summary = save(status)
-    outcome = (f"stalled in cycle {summary['stall_cycle'] + 1}" if status["stalled"]
-               else f"completed {summary['cycles_completed']} cycles")
+    if status["outcome"] == "physical_failure":
+        raise RuntimeError(f"non-physical state in cycle {sim.cycle + 1}: {status['error']}")
+    outcome = {"completed": f"completed {summary['cycles_completed']} cycles",
+               "cpu_budget": "stopped at the CPU budget after "
+                             f"{summary['cycles_completed']} cycles",
+               "frozen_time": f"time frozen in cycle {sim.cycle + 1}"}[status["outcome"]]
     audit_text = ("energy audit clean" if not summary["audit_failures"]
                   else f"energy audit failed in {len(summary['audit_failures'])} cycles")
-    print(f"{outcome}; {audit_text} (worst residual "
+    print(f"{outcome}; {len(episodes)} slow episodes; {audit_text} (worst residual "
           f"{summary['worst_energy_residual']:.1e}); "
           f"{summary['wall_seconds']:.0f} s -> {outdir}")
 
