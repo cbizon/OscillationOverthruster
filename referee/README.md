@@ -130,20 +130,23 @@ rarely.
     First comparison, sequel versus the C code (Nov 5, 2D, settle 20,
     measure 10, one start each), at the four points both codes run:
 
-    | point | largest difference in a mean | take-off and landing |
-    | --- | --- | --- |
-    | Gamma 3.5, f* 0.3, depth 5 | horizontal energy 7% (others under 2%) | same to 1/32 cycle |
-    | Gamma 3.5, f* 0.5, depth 5 | 2.5% (vertical temperature) | same to 1/32 cycle |
-    | Gamma 3.5, f* 0.5, depth 10 | 9% (horizontal energy; others under 5%) | identical |
-    | Gamma 5, f* 0.5, depth 5 | 2.7% (horizontal temperature) | identical |
+    Differences of the means, sequel relative to C:
+
+    | point | height | thickness | vertical energy, temperature | horizontal energy, temperature | plate contact | take-off and landing |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | Gamma 3.5, f* 0.3, depth 5 | -0.3% | -1.6% | -1.5%, -3.6% | -7.2%, -7.7% | +4.9% | same to 1/32 cycle |
+    | Gamma 3.5, f* 0.5, depth 5 | 0.0% | +0.7% | 0.0%, +2.5% | +1.5%, +3.0% | -1.4% | same to 1/32 cycle |
+    | Gamma 3.5, f* 0.5, depth 10 | +0.9% | +2.1% | +1.3%, +5.2% | +9.4%, +8.3% | +0.1% | identical |
+    | Gamma 5, f* 0.5, depth 5 | +0.4% | +1.5% | -0.1%, +0.1% | +1.3%, +2.7% | -3.6% | identical |
 
     How big a difference is just noise: the C code at Gamma 3.5, f* 0.3,
     depth 5, run 60 cycles and measured in five 10-cycle windows, varies
     between windows by about 2% in centre-of-mass height, 4% in thickness
-    and vertical energy. The differences above are of that size, so the
-    two codes agree within the scatter of a single 10-cycle measurement.
-    Small quantities (horizontal energy, about a tenth of the vertical)
-    scatter more. Settling: that run's values rise through cycles 10 to
+    and vertical energy. Height, thickness and vertical energy differ
+    between the codes by less than that. Horizontal energy and
+    temperature differ by up to 9%; they are about a tenth of the
+    vertical energy and their scatter hasn't been measured yet, so
+    whether those differences are noise is open. Settling: that run's values rise through cycles 10 to
     20 and then fluctuate without a trend, so 20 cycles of settling looks
     sufficient there; across the four points, 4 of 56 drift flags fired,
     about what chance gives at 95%.
