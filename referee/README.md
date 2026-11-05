@@ -98,6 +98,23 @@ rarely.
     it). Its parameters are compile-time, so each grid point is its own
     build. It also aborts in some dense states, so some deep conditions
     may have no baseline.
+
+    The script is `referee/c_baseline.py` (one grid point; seeds tried in
+    order after an abort, every attempt kept). Its output has the same
+    keys as `granular/export.py`, in sequel units and frame. Smoke test at
+    Gamma = 3.5, f* = 0.5, depth 5: centre-of-mass height above the plate,
+    by phase over cycles 20 to 30, agrees with this engine within 0.03 D.
+
+    C pilot on the same grid (Nov 5, 30 cycles, seeds 16532, 1, 2): it
+    completed every Gamma = 3.5 point, including depths 10 and 15 where
+    this engine stalls, in 1 to 40 s each. At Gamma = 5 it completed only
+    depth 5 (both frequencies); every depth 10 and 15 point aborted in its
+    plate root finder (`detect.c` lines 787 and 840) within 2 to 11 cycles
+    for all three seeds. So at Gamma = 3.5 the C code covers the deep
+    layers; at Gamma = 5 deep layers have no baseline from either code,
+    and the contact methods there can only be compared with each other
+    and judged by the energy audit and smoothness across neighbouring
+    conditions.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).
