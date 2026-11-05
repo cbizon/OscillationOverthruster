@@ -18,11 +18,13 @@ from .sim import Simulation
 from . import edmd as K
 
 
-def height_map(r, rad, L, nb=100):
-    """Top-surface height map: highest particle top (z + r) in each column."""
+def height_map(r, rad, L, nb=100, dim=3):
+    """Top-surface height map: highest particle top (z + r) in each column.
+    In 2D the map is a single row (a height profile along x)."""
+    nby = nb if dim == 3 else 1
     ix = np.clip((r[:, 0] / L * nb).astype(np.int64), 0, nb - 1)
-    iy = np.clip((r[:, 1] / L * nb).astype(np.int64), 0, nb - 1)
-    hm = np.full((nb, nb), -np.inf)
+    iy = np.clip((r[:, 1] / L * nby).astype(np.int64), 0, nby - 1)
+    hm = np.full((nby, nb), -np.inf)
     np.maximum.at(hm, (iy, ix), r[:, 2] + rad)
     bad = ~np.isfinite(hm)
     if bad.any():
@@ -37,9 +39,13 @@ def layer_stats(r, zp):
 
 
 def make_sim(args):
+    if args.depth is None:
+        # 3D: the Figure 1 depth; 2D: number of particle layers, N D / L
+        args.depth = 5.42 if args.dim == 3 else args.N / args.L
     return Simulation(args.N, args.L, args.gamma, args.fstar, args.depth,
                       args.seed, box_height=args.box_height,
-                      mu=args.mu, eps=args.eps, alpha=args.alpha, v0=args.v0)
+                      mu=args.mu, eps=args.eps, alpha=args.alpha, v0=args.v0,
+                      dim=args.dim)
 
 
 def add_common(ap):
@@ -48,7 +54,9 @@ def add_common(ap):
     ap.add_argument("--fstar", type=float, required=True)
     ap.add_argument("--N", type=int, default=60000)
     ap.add_argument("--L", type=float, default=100.0)
-    ap.add_argument("--depth", type=float, default=5.42)
+    ap.add_argument("--dim", type=int, choices=(2, 3), default=3)
+    ap.add_argument("--depth", type=float, default=None,
+                    help="layer depth for f*; default 5.42 in 3D, N/L in 2D")
     ap.add_argument("--seed", type=int, default=16532)
     ap.add_argument("--box-height", type=float, default=100.0)
     ap.add_argument("--mu", type=float, default=0.5)
@@ -89,9 +97,10 @@ def main(argv=None):
             json.dump(dict(vars(args), A=sim.A, T=sim.T, omega=sim.om, f=sim.f,
                            nx=sim.nx, nz=sim.nz, hx=sim.hx, z0=sim.z0,
                            fill_fraction=sim.fill_fraction), f, indent=1)
-    say("case %s N=%d L=%g Gamma=%g f*=%g A=%.6f T=%.6f omega=%.6f grid=%dx%dx%d"
-        % (args.case, sim.N, sim.L, sim.gamma, sim.f_star, sim.A, sim.T, sim.om,
-           sim.nx, sim.nx, sim.nz))
+    say("case %s %dD N=%d L=%g depth=%g Gamma=%g f*=%g A=%.6f T=%.6f omega=%.6f "
+        "grid=%dx%dx%d"
+        % (args.case, sim.dim, sim.N, sim.L, sim.depth, sim.gamma, sim.f_star,
+           sim.A, sim.T, sim.om, sim.nx, sim.ny, sim.nz))
     t_run = time.time()
 
     def walltime():
@@ -124,7 +133,8 @@ def main(argv=None):
             zp, vp = sim.plate(sim.t_local if k < nph else sim.T)
             stats.append(layer_stats(r, zp))
             if k % (nph // nmap) == 0:
-                maps.append(height_map(r, sim.rad, sim.L).astype(np.float16))
+                maps.append(height_map(r, sim.rad, sim.L, dim=sim.dim)
+                            .astype(np.float16))
         d = sim.cnt - prev
         prev = sim.cnt.copy()
         diag = sim.diagnostics()
