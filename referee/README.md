@@ -76,8 +76,17 @@ rarely.
     subcritical pattern regime **[pick]**, each at a low and a high
     frequency **[pick]**, at depths 5, 10 and 15 particle diameters: 12
     runs. 2D can behave slightly differently, so it filters but doesn't
-    decide. The engine is 3D only today; 2D needs either a disk version
-    or a narrow box **[decide]**.
+    decide. The engine runs 2D disks with `dim=2` (branch `engine-2d`).
+
+    Pilot (Nov 5, L = 100, two starts each, 30 cycles, Gamma = 5 as a
+    trial higher value, f* = 0.3 and 0.5): the baseline engine without
+    contact handling stalls in most of this grid. At Gamma = 3.5 it ran
+    only at depth 5 (both frequencies) and at depth 10, f* = 0.5 for one
+    of two starts; depths 10 and 15 otherwise stalled in the first or
+    second cycle. At Gamma = 5 it stalled everywhere except depth 5,
+    f* = 0.5. So the with/without comparison is only available for
+    shallow layers; deeper conditions need another baseline **[decide]**.
+    Runs that work take 0.01 to 0.13 s per cycle.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).
