@@ -1,0 +1,18 @@
+{
+ "approved_at": "2026-11-05T21:50:57+00:00",
+ "by": "Chris Bizon",
+ "files": {
+  "BRIEF.md": "749cc3b4e033076a66aa96dfabcb4de61fa52a6ba84579021b5c8589c717c939",
+  "DIRECTION.md": "55309f71dc2e1155abe7d1d5b38ee78e2595c45c99f8036231b6e0ea698973c0",
+  "budgets.yaml": "a47910ef07923320c3f0da779e1750d4d8f4b9002b850644867c38c2b273fe83",
+  "program.toml": "f232a5468c3e1511b6e3ea87182d861d65f0e70ee69128031d61da42e5c9f1b8",
+  "referee/README.md": "8f19e80afc43ce5af21feb5eaf02296b67b78ea0b4f896cad53d125afcdf9b1b",
+  "referee/bulk.py": "d17510b9983da04f79019034127849f5487dbb5d719d73ec32bd1f6837d85c23",
+  "referee/c_baseline.py": "ae19cf32eecbced7ad2e578242e3a6dc992914f11112b434473d7abdba037286",
+  "referee/checker.md": "78167b7b6ec5ecb9d49857bd703f817acff2ec9e6d5ea07349a95e3a7b68fd2e",
+  "referee/long_contact.py": "ba099f1a32fec74bf5447fc1911405c47527028a55fadd88f459b4d91783b428",
+  "referee/tests/test_edmd.py": "25720cc7f22eb9c2cc3f4edae21e052066841bf1b8d4983a7f0ffc58c92b7493",
+  "referee/tests/test_plate_root.py": "2a5ad075eff0f720764a6c7e3bbdb3e2938104c17f79223a9367b6804040a269",
+  "referee/tests/test_reference.py": "949e52aadcab151b388386c26f10b19a34a7783a45cbadfdb50588082d8159d0"
+ }
+}
