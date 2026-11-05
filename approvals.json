@@ -1,11 +1,13 @@
 {
- "approved_at": "2026-11-05T21:50:57+00:00",
+ "approved_at": "2026-11-05T22:00:24+00:00",
  "by": "Chris Bizon",
  "files": {
-  "BRIEF.md": "749cc3b4e033076a66aa96dfabcb4de61fa52a6ba84579021b5c8589c717c939",
+  "BRIEF.md": "08cd05549a713f45df73727c1d6693d1e7104e98b1430ac4d3500af857d0fb72",
   "DIRECTION.md": "55309f71dc2e1155abe7d1d5b38ee78e2595c45c99f8036231b6e0ea698973c0",
   "budgets.yaml": "a47910ef07923320c3f0da779e1750d4d8f4b9002b850644867c38c2b273fe83",
-  "program.toml": "f232a5468c3e1511b6e3ea87182d861d65f0e70ee69128031d61da42e5c9f1b8",
+  "notes/README.md": "18c30817a12f21b8e8d5317505fb59a130f72972b27e8ae13867c2f24565bb53",
+  "notes/contact-options.md": "f5f1991730af6b2e9dffe01b9b26a702493f3c4d57b073e30492b98f1099c7d5",
+  "program.toml": "4587f9f04ccf1d30e9af1a40bd0f4c4bf483bc8bb129421606c0d1dae5bd5a48",
   "referee/README.md": "8f19e80afc43ce5af21feb5eaf02296b67b78ea0b4f896cad53d125afcdf9b1b",
   "referee/bulk.py": "d17510b9983da04f79019034127849f5487dbb5d719d73ec32bd1f6837d85c23",
   "referee/c_baseline.py": "ae19cf32eecbced7ad2e578242e3a6dc992914f11112b434473d7abdba037286",
