@@ -1,0 +1,17 @@
+# Human-only. After editing, run `program sync` and `program approve`.
+[program]
+name = "sequel"
+title = "long-lasting contacts in event-driven simulation of vibrated granular layers, and the hysteresis and oscillon experiments they make possible"
+scientist = "Chris"
+data_dir = "~/Projects/experiments/sequel-data"
+timezone = "America/New_York"
+
+[schedule]
+session_start = "23:00"
+session_end = "05:00"
+checker = "05:30"
+checker_minutes = "45"
+debrief = "07:00"
+
+[files]
+human_only = ["DIRECTION.md", "BRIEF.md", "budgets.yaml", "program.toml", "referee/**"]

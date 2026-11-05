@@ -39,19 +39,11 @@ phase and the difference of means.  Masses are taken as d^3 in both codes.
 
 Pass rule (decided by Chris, Nov 5): ``baseline`` measures one long
 baseline run, after settling, in consecutive blocks the same length as the
-method's measurement (100 cycles), and records per quantity the mean and
-standard deviation of the block means.  Blocks of one long run stand in for
-independent runs because the layer forgets its state quickly: in a check
-with four runs per code, block means within a run predicted the spread
-between runs.  ``judge`` passes a method's quantity when its mean is
-within ``pass_threshold(blocks)`` standard deviations of the baseline mean.
-
-The threshold keeps the chance that a method identical to the baseline
-fails any of the seven quantities at 5%.  It allows for the method's own
-scatter (as large as one block's) and for the uncertainty of a standard
-deviation estimated from few blocks, so it shrinks as blocks are added:
-7.24 for 4 blocks, 3.61 for 10, 3.07 for 20 (``THRESHOLDS``, from a
-400,000-trial simulation with independent normal quantities).
+method's measurement (100 cycles); ``judge`` passes a method's quantity when
+its mean is within a threshold of the baseline's block standard deviations
+of the baseline mean.  The rule and its threshold are general and live in
+RoboRobo (``roborobo.judge``, which explains them); this module supplies
+the physics: which quantities, and how to measure them.
 
 Usage::
 
@@ -70,15 +62,11 @@ import json
 from pathlib import Path
 
 import numpy as np
+from roborobo import judge as rule
 
 PHASES = 32
 CONTACT_GAP = 0.02          # D; a particle this close to the plate touches it
 CONTACT_THRESHOLD = 0.01    # fraction of particles touching: layer on the plate
-# Threshold in baseline standard deviations, by number of blocks, for a 5%
-# chance that a method identical to the baseline fails any of 7 quantities.
-THRESHOLDS = {4: 7.24, 5: 5.5, 6: 4.7, 7: 4.24, 8: 3.96, 9: 3.77, 10: 3.61,
-              11: 3.5, 12: 3.41, 13: 3.34, 14: 3.29, 15: 3.24, 16: 3.19,
-              17: 3.16, 18: 3.13, 19: 3.1, 20: 3.07}
 # two-sided 95% Student t critical values by degrees of freedom
 T95 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365,
        8: 2.306, 9: 2.262, 10: 2.228, 12: 2.179, 15: 2.131, 20: 2.086,
@@ -234,50 +222,27 @@ def compare(a: dict, b: dict) -> dict[str, dict[str, float]]:
     return out
 
 
-def pass_threshold(blocks: int) -> float:
-    if blocks not in THRESHOLDS:
-        raise ValueError(f"need between {min(THRESHOLDS)} and {max(THRESHOLDS)} "
-                         f"baseline blocks, got {blocks}")
-    return THRESHOLDS[blocks]
-
-
 def baseline(path: Path, from_cycle: int, cycles: int, blocks: int,
              period: int) -> dict[str, object]:
-    """Block statistics of one long baseline run."""
-    pass_threshold(blocks)
+    """Block statistics of one long baseline run (``roborobo.judge``)."""
     measured = [measure(path, from_cycle + k * cycles, cycles, period)
                 for k in range(blocks)]
-    stats = {}
-    for name in QUANTITIES:
-        means = np.array([m["quantities"][name]["mean"] for m in measured])
-        stats[name] = {"block_means": means.tolist(),
-                       "mean": float(means.mean()),
-                       "sd": float(means.std(ddof=1))}
+    base = rule.baseline({name: [m["quantities"][name]["mean"] for m in measured]
+                          for name in QUANTITIES})
     return {"trajectory": str(path), "from_cycle": from_cycle,
-            "cycles_per_block": cycles, "blocks": blocks, "period": period,
-            "threshold": pass_threshold(blocks), "quantities": stats}
+            "cycles_per_block": cycles, "period": period, **base}
 
 
 def judge(base: dict, method: dict) -> dict[str, dict[str, object]]:
-    """Pass each quantity whose mean is within the threshold, in baseline
-    block standard deviations, of the baseline mean."""
+    """Pass or fail each quantity of a method's measurement (``roborobo.judge``)."""
     if method["cycles"] != base["cycles_per_block"]:
         raise ValueError(f"method measured over {method['cycles']} cycles, baseline "
                          f"blocks are {base['cycles_per_block']}; the scatter "
                          "only applies to measurements of the same length")
     if method["period"] != base["period"]:
         raise ValueError("measurements use different response periods")
-    threshold = pass_threshold(base["blocks"])
-    out = {}
-    for name in QUANTITIES:
-        b = base["quantities"][name]
-        value = method["quantities"][name]["mean"]
-        sigmas = (value - b["mean"]) / b["sd"] if b["sd"] > 0 else float("inf")
-        out[name] = {"baseline_mean": b["mean"], "baseline_sd": b["sd"],
-                     "method_mean": value, "sigmas": float(sigmas),
-                     "threshold": threshold,
-                     "passes": bool(abs(sigmas) <= threshold)}
-    return out
+    return rule.judge(base, {name: method["quantities"][name]["mean"]
+                             for name in QUANTITIES})
 
 
 def main(argv=None) -> None:
@@ -315,13 +280,13 @@ def main(argv=None) -> None:
     if args.command == "judge":
         base = json.loads(args.baseline.read_text())
         rows = judge(base, json.loads(args.method.read_text()))
-        print(f"threshold {pass_threshold(base['blocks'])} sd "
+        print(f"threshold {base['threshold']} sd "
               f"({base['blocks']} baseline blocks)")
         print(f"{'quantity':16s} {'baseline':>10s} {'sd':>8s} {'method':>10s} "
               f"{'sigmas':>7s}")
         for name, row in rows.items():
             print(f"{name:16s} {row['baseline_mean']:10.4f} {row['baseline_sd']:8.4f} "
-                  f"{row['method_mean']:10.4f} {row['sigmas']:+7.2f}  "
+                  f"{row['candidate_mean']:10.4f} {row['sigmas']:+7.2f}  "
                   f"{'pass' if row['passes'] else 'FAIL'}")
         verdict = all(row["passes"] for row in rows.values())
         print("all quantities pass" if verdict else "fails on at least one quantity")

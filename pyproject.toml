@@ -6,6 +6,7 @@ requires-python = ">=3.12"
 dependencies = [
     "numba>=0.66",
     "numpy>=2.2",
+    "roborobo",
 ]
 
 [dependency-groups]
@@ -22,3 +23,6 @@ packages = ["granular"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.uv.sources]
+roborobo = { path = "../research-programs", editable = true }

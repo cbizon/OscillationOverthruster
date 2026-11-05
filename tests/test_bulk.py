@@ -111,12 +111,12 @@ def test_baseline_and_judge(tmp_path):
     data["positions"][:, :, 2] += noise[:, None]
     np.savez(path, **data)
     base = bulk.baseline(path, 20, 10, 4, 2)
-    assert base["threshold"] == bulk.THRESHOLDS[4]
+    assert base["threshold"] == bulk.rule.threshold(4, len(bulk.QUANTITIES))
     sd = base["quantities"]["zcm"]["sd"]
     assert sd > 0
     inside = bulk.measure(synthetic(tmp_path / "in.npz"), 20, 10, 2)
     rows = bulk.judge(base, inside)
-    limit = bulk.THRESHOLDS[4] * sd
+    limit = base["threshold"] * sd
     assert rows["zcm"]["passes"] == (abs(3.0 - base["quantities"]["zcm"]["mean"]) <= limit)
     shifted = synthetic(tmp_path / "out.npz")
     data = dict(np.load(shifted))
@@ -133,8 +133,8 @@ def test_judge_refuses_mismatched_lengths(tmp_path):
 
 
 def test_baseline_needs_enough_blocks(tmp_path):
-    with pytest.raises(ValueError, match="baseline blocks"):
-        bulk.baseline(synthetic(tmp_path / "b.npz", cycles=60), 20, 10, 3, 2)
+    with pytest.raises(ValueError, match="at least 3 baseline blocks"):
+        bulk.baseline(synthetic(tmp_path / "b.npz", cycles=60), 20, 10, 2, 2)
 
 
 def test_thresholds_give_five_percent_false_fails():
@@ -145,5 +145,5 @@ def test_thresholds_give_five_percent_false_fails():
     b = rng.normal(size=(trials, len(bulk.QUANTITIES), n))
     m = rng.normal(size=(trials, len(bulk.QUANTITIES)))
     z = np.abs(m - b.mean(2)) / b.std(2, ddof=1)
-    rate = (z > bulk.pass_threshold(n)).any(1).mean()
+    rate = (z > bulk.rule.threshold(n, len(bulk.QUANTITIES))).any(1).mean()
     assert 0.04 < rate < 0.06

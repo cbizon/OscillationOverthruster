@@ -142,8 +142,8 @@ Chris has rated the figures.
 - Must ask first: changing the paper's collision model or constants;
   merging a method into `main`; any single run expected to
   exceed the per-run budget; anything irreversible.
-- May never: edit this file, `budgets.yaml`, `referee/`, `scheduled/` or
-  `approvals.json`; change the reference data; delete evidence that a
+- May never: edit Chris's files or RoboRobo's (listed in `CLAUDE.md`);
+  push, tag, or approve; change the reference data; delete evidence that a
   ledger record or claim points to.
 
 ## Budgets
