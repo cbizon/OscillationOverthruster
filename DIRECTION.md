@@ -1,7 +1,6 @@
 # Direction: sequel
 
-Human-only. The agent reads this file and never edits it. Items marked
-**[decide]** are proposals awaiting Chris's decision.
+Human-only. The agent reads this file and never edits it.
 
 ## The question
 
@@ -54,16 +53,21 @@ The agent can run these; it can't edit them. Details in `referee/`.
    (the Gamma = 5 case aborted in cycle 4–5) are judged only over the valid
    span.
 3. **Long-contact test**, in two parts:
-   - quick, run on every candidate: the Gamma = 5, f* = 0.44 case (N = 2400,
-     L = 20) runs a stated number of cycles **[decide: how many]** without
-     stalling; an energy audit shows no energy injected by the contact
-     method; and bulk quantities (layer depth, centre-of-mass height and
-     kinetic energy against phase, take-off and landing phases) agree with
-     this code without the contact method (or the 1998 C code where this
-     one stalls) at a grid of other conditions (2D first as a fast filter,
-     then 3D at N = 60000), so we know the sticking isn't changing the
-     physics. Pass rule: each quantity's 100-cycle mean within 3.61
-     block standard deviations of a 10-block baseline (`referee/README.md`);
+   - quick, run on every candidate:
+     - **survival**: the Gamma = 5, f* = 0.44 case (N = 2400, L = 20), and
+       every condition in the bulk-quantity grid, run without stalling for
+       the whole run, however long it is. There is no number of cycles that
+       counts as enough: the goal is a method that doesn't stall. Cycles
+       completed before a stall are the measure of progress between ideas;
+     - **energy audit**: no energy injected by the contact method;
+     - **bulk physics**: layer depth, centre-of-mass height and kinetic
+       energy against phase, take-off and landing phases agree with this
+       code without the contact method (or the 1998 C code where this one
+       stalls) at a grid of other conditions (2D first as a fast filter,
+       then 3D at N = 60000), so we know the sticking isn't changing the
+       physics. Pass rule: each quantity's 100-cycle mean within 3.61
+       block standard deviations of a 10-block baseline
+       (`referee/README.md`);
    - slow, run rarely: the patterns themselves at a few conditions, when a
      method is a candidate to become the default.
 4. **For experiments**: published experimental observations where they exist
@@ -99,24 +103,48 @@ For the checker to try against every claim:
 - **Silent substitution.** A slow calculation replaced with a cheaper
   approximation without saying so.
 
-## Acceptance bar **[decide]**
+## Acceptance bar
 
-Proposed: a contact method is ready to become the default when it meets the
-"contact method works" evidence on all seven Figure 1 conditions and runs the
-Gamma = 5 case for the agreed number of cycles at no more than twice the
-baseline cost per event. A physical result is ready to report when it meets
-its evidence class and Chris has rated the figures.
+A contact method is ready to become the default when:
 
-## Autonomy **[decide]**
+1. **It doesn't change the observed physics where we can compare.** It
+   passes the bulk-physics check against the baseline (this code without
+   the method, or the 1998 C code) at every condition where a baseline
+   runs, and the frozen tests.
+2. **It works where the old code doesn't.** It survives every condition in
+   the grid, including the Gamma = 5 case and the deep layers where both
+   baselines stall, for the whole run, with a clean energy audit.
+3. **It is minimally invasive.** It changes as little of the model and the
+   engine as it can: it acts only on long-lasting contacts, leaves ordinary
+   collisions alone, and adds no tuned constants that the result depends
+   on. This one is a judgement: the agent argues the case in its summary,
+   the checker challenges it, and Chris decides.
 
-- May, without asking: implement and compare contact methods on branches; run
-  experiments within budget; read the literature; add tests in `tests/`;
-  improve performance without changing results.
-- Must ask first: changing the paper's collision model or constants; merging
-  a contact method into the main branch; any single run expected to exceed
-  the per-run budget; anything irreversible.
-- May never: edit this file, `budgets.yaml`, `referee/` or `approvals.json`;
-  change the reference data; delete results.
+A physical result is ready to report when it meets its evidence class and
+Chris has rated the figures.
+
+## Autonomy
+
+- May, without asking:
+  - run simulations and comparisons, including the referee's tools;
+  - try ideas on new branches of sequel (`method/<name>`), in worktrees
+    under `~/Projects/experiments/sequel-data/worktrees/`;
+  - add tests in `tests/`; read the literature; improve performance
+    without changing results;
+  - delete its own scratch and intermediate files.
+- Must stay inside `~/Projects/experiments/sequel` and
+  `~/Projects/experiments/sequel-data`. Nothing is written anywhere else.
+- Must keep the machine clean: check free disk and memory before starting
+  runs and at the end of each session (limits in `budgets.yaml`), delete
+  intermediate output nobody will use, and never leave the disk fuller than
+  the budget allows. Chris should never wake up to a full disk or a machine
+  out of memory.
+- Must ask first: changing the paper's collision model or constants;
+  merging a method into `program` or `main`; any single run expected to
+  exceed the per-run budget; anything irreversible.
+- May never: edit this file, `budgets.yaml`, `referee/`, `scheduled/` or
+  `approvals.json`; change the reference data; delete evidence that a
+  ledger record or claim points to.
 
 ## Budgets
 
@@ -126,8 +154,8 @@ summary at 50% and 80%, and stops spending at 100% until Chris raises the limit.
 ## Cadence
 
 - Sessions: locally on Chris's Mac, as a Claude Code (Code tab) scheduled task
-  that runs only on this computer, **[decide: when and how long]**. Proposed:
-  11 pm to 5 am. The Mac must be awake with the app open.
+  that runs only on this computer, 11 pm to 5 am; the checker at 5:30 am,
+  the debrief at 7 am. The Mac must be awake with the app open.
 - Long simulations run as background processes with checkpoints, so they can
   continue between sessions; sessions pick up finished runs.
 - Running locally is an experiment in itself: every session records its run

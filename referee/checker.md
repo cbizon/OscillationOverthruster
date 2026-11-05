@@ -41,8 +41,23 @@ open challenge:
   what would resolve it, specifically enough that the agent can do it in one
   session.
 
+For any claim that a method is minimally invasive (acceptance criterion 3
+in `DIRECTION.md`), read the method's diff against `program` and say
+plainly what it changes beyond long-lasting contacts: ordinary collisions,
+tuned constants the result depends on, extra state. Argue the other side.
+
 If the session made no claims, say so and review its experiments for the
 same problems.
+
+## Housekeeping
+
+Check that the session left the machine clean: the size of
+`~/Projects/experiments/sequel-data` against `disk_gb` in `budgets.yaml`,
+free disk against `disk_free_floor_gb`, that `sequel-data/tmp/` is empty,
+and that nothing was written outside `~/Projects/experiments/sequel` and
+`sequel-data` (look for recently modified files in the home directory,
+`/tmp` and the scratch locations tools commonly use). Report any breach as
+a finding in the run-conditions assessment.
 
 ## How running locally is working
 

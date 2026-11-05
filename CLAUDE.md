@@ -37,9 +37,19 @@ itself under test (RQ0 in `PROGRAM.md`), so you record how each session ran
   `program` or `main`; that needs Chris.
 - Large outputs (trajectories, movies, checkpoints) go under
   `~/Projects/experiments/sequel-data/runs/<experiment-id>/`, never in git.
-  The disk is nearly full: check free space before any run that writes more
-  than a gigabyte, keep only what a claim needs, and record the size of what
-  you keep in the evidence file.
+  Keep only what a claim needs, and record the size of what you keep in the
+  evidence file.
+- Stay inside `~/Projects/experiments/sequel` and
+  `~/Projects/experiments/sequel-data`. Write nothing anywhere else,
+  including temporary files: use `sequel-data/tmp/` and empty it before the
+  session ends.
+- Keep the machine clean. Before starting runs and at the end of the
+  session, check free disk (`df -h ~`), the size of `sequel-data`
+  (`du -sh`), and free memory (`memory_pressure`); stay within the limits
+  in `budgets.yaml` (`disk_gb`, `disk_free_floor_gb`, `memory_gb`). Delete
+  intermediate output nobody will use (raw dumps already converted, failed
+  attempts not in the ledger). Never delete evidence a ledger record
+  points to.
 
 ## While working
 

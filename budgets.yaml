@@ -1,13 +1,16 @@
-# Human-only. Proposals awaiting Chris's decision. Resource names match the
-# keys experiments use in cost_estimate / cost_actual.
+# Human-only. Resource names match the keys experiments use in
+# cost_estimate / cost_actual.
 budgets:
   # Simulation CPU time, measured from the runs, not estimated.
   cpu_hours: {limit: 400, period: week}
   # Simulations running at once, including ones left by earlier sessions.
   # The Mac has 14 cores; this leaves room for Chris's own work.
   concurrent_cores: {limit: 10, period: instant}
-  # Everything under ~/Projects/experiments/sequel-data/. The disk had
-  # 31 GB free when this was written.
+  # Everything under ~/Projects/experiments/sequel-data/, and free disk
+  # never below the floor.
   disk_gb: {limit: 15, period: program}
+  disk_free_floor_gb: {limit: 40, period: instant}
+  # Memory used by running simulations together. The Mac has 36 GB.
+  memory_gb: {limit: 16, period: instant}
   # Largest single run without asking first.
   per_run_cpu_hours: {limit: 40, period: run}

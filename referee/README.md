@@ -72,10 +72,9 @@ rarely.
   neighbouring conditions where both run.
 
   The grid, coarse first:
-  - **2D, as a fast filter.** Gamma = 3.5 and a higher value in the
-    subcritical pattern regime **[pick]**, each at a low and a high
-    frequency **[pick]**, at depths 5, 10 and 15 particle diameters: 12
-    runs. 2D can behave slightly differently, so it filters but doesn't
+  - **2D, as a fast filter.** Gamma = 3.5 and 5, each at f* = 0.3 and
+    0.5, at depths 5, 10 and 15 particle diameters: 12 conditions
+    (decided by Chris, Nov 5). 2D can behave slightly differently, so it filters but doesn't
     decide. 2D here means spheres confined to a plane, the model of the
     1998 C code's 2D mode (decided by Chris, Nov 5): sphere masses and
     inertia, all centres on one plane. This engine runs it with `dim=2`
@@ -231,9 +230,9 @@ rarely.
     from the spread of long-run means across independent runs of one
     code, which is what the four-run table measures.
 
-  - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
-    **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
-    stuck case, method only).
+  - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3, f* = 0.44
+    (Figure 1 case b, stripes) and Gamma = 6, f* = 0.84 (case g, stripes),
+    plus Gamma = 5, f* = 0.44 (the stuck case, method only).
 
 ### 3b. Patterns (infrequent)
 
@@ -242,15 +241,13 @@ conditions, compared with the baseline and with Figure 1. Patterns take
 many cycles to form, so this runs only when a method is a candidate to
 become the default, or after a change that 3a can't rule out.
 
-To decide:
+Survival (decided by Chris, Nov 5): no cycle count counts as enough. A
+method passes when it runs every condition for the whole run without
+stalling; until then, cycles completed before the stall measure progress.
 
-- the number of cycles for survival;
-- what "stalling" means in numbers (for example, events per unit simulated
-  time above some multiple of the run's median);
-- the energy balance tolerance;
-- the parameter grid for 3a, the transient and averaging lengths, and the
-  number of random initial conditions;
-- which conditions 3b covers and how many cycles each needs.
+Still to build: the stall detector (what event rate counts as a stall) and
+the energy audit (its balance tolerance); the slow pattern check's
+conditions and length.
 
 ## 4. Experiments (later)
 

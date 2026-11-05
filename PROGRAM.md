@@ -63,13 +63,26 @@ See RQ1's candidates. None tried yet.
 
 The engine is the hardened import described in `README.md`: it fails loudly
 on physical violations, matches an all-pairs reference, and restarts
-bit-for-bit, but stalls in the Gamma = 5 resting-contact regime. The referee
-is drafted in `DIRECTION.md`. Its frozen tests are in place
-(`referee/tests/`, 74 tests, about ten seconds); the Figure 1 comparison and
-the long-contact test are not built yet.
+bit-for-bit, but stalls in the Gamma = 5 resting-contact regime, and in 2D
+at depths 10 and 15 for most of the grid.
+
+It also runs 2D (spheres confined to a plane, `dim=2`).
+
+The referee (`referee/README.md`) has:
+
+- the frozen tests;
+- a script that runs the 1998 C code in 2D as the baseline where this
+  engine stalls (it covers Gamma = 3.5 at all depths; at Gamma = 5 it also
+  aborts at depths 10 and 15);
+- the bulk-quantity measurement with its pass rule.
+
+In 2D, this engine and the C code agree on bulk physics wherever both run.
+
+Not built yet: the stall detector, the energy audit, the 3D baselines, the
+Figure 1 comparison.
 
 ## Next
 
-Build the referee (frozen tests, Figure 1 comparison runner, long-contact
-test with energy audit) with Chris, interactively. Scheduled sessions start
-after he approves it.
+Finish the referee with Chris: the energy audit and stall detector, then
+one 3D baseline to measure its cost. Scheduled sessions start after he
+approves it.
