@@ -34,21 +34,53 @@ To decide:
 
 ## 3. Long-contact test (to build with Chris)
 
-The Gamma = 5, f* = 0.44 case (N = 2400, L = 20) must run a stated number
-of cycles without stalling, with an energy audit showing the contact method
-injects no energy.
+Two parts: a quick one run on every candidate method, and a slow one run
+rarely.
+
+### 3a. Survival, energy and bulk physics (every candidate, every change)
+
+- **Survival.** The Gamma = 5, f* = 0.44 case (N = 2400, L = 20) runs a
+  stated number of cycles without stalling.
+- **Energy audit.** Per cycle, the work done by the plate, the energy lost
+  in collisions, and the change in the layer's energy balance to a stated
+  tolerance. Any energy a method adds by fiat (a position snap, a velocity
+  floor) is counted separately and must be zero or reported.
+- **Bulk quantities across parameters.** At a grid of driving conditions
+  (Gamma and frequency, including ones where the baseline engine never has
+  long contacts), compare the method with the baseline engine, and with the
+  reference C runs where they exist, on quantities that settle within a few
+  cycles:
+  - layer depth (thickness, for example the spread of heights);
+  - centre-of-mass height, as a function of phase in the cycle;
+  - total kinetic energy, and its vertical and horizontal parts, as a
+    function of phase;
+  - potential energy, and the phases at which the layer takes off from and
+    lands on the plate;
+  - collision rate.
+
+  Each is averaged over cycles after a short transient, over several random
+  initial conditions, so differences can be compared with run-to-run
+  spread. Where the baseline works, the method must agree within that
+  spread; disagreement means the contact handling is changing the physics.
+  Where only the method runs (long contacts), the quantities should vary
+  smoothly from the neighbouring conditions where both run.
+
+### 3b. Patterns (infrequent)
+
+The patterns themselves (stripes, squares, hexagons, flat) at a few
+conditions, compared with the baseline and with Figure 1. Patterns take
+many cycles to form, so this runs only when a method is a candidate to
+become the default, or after a change that 3a can't rule out.
 
 To decide:
 
-- the number of cycles;
+- the number of cycles for survival;
 - what "stalling" means in numbers (for example, events per unit simulated
   time above some multiple of the run's median);
-- the energy audit: per cycle, the work done by the plate, the energy lost
-  in collisions, and the change in the layer's energy must balance to a
-  stated tolerance; any energy a method adds by fiat (a position snap, a
-  velocity floor) is counted separately and must be zero or reported;
-- the neighbouring conditions used to check that a method isn't tuned to
-  this one case.
+- the energy balance tolerance;
+- the parameter grid for 3a, the transient and averaging lengths, and the
+  number of random initial conditions;
+- which conditions 3b covers and how many cycles each needs.
 
 ## 4. Experiments (later)
 

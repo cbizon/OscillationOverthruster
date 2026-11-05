@@ -53,9 +53,17 @@ The agent can run these; it can't edit them. Details in `referee/`.
    (local bundle, 2.6 GB). Conditions where the reference itself is limited
    (the Gamma = 5 case aborted in cycle 4–5) are judged only over the valid
    span.
-3. **Long-contact test**: the Gamma = 5, f* = 0.44 case (N = 2400, L = 20) must
-   run a stated number of cycles **[decide: how many]** without stalling, with
-   an energy audit showing no energy injected by the contact method.
+3. **Long-contact test**, in two parts:
+   - quick, run on every candidate: the Gamma = 5, f* = 0.44 case (N = 2400,
+     L = 20) runs a stated number of cycles **[decide: how many]** without
+     stalling; an energy audit shows no energy injected by the contact
+     method; and bulk quantities (layer depth, centre-of-mass height and
+     kinetic energy against phase, take-off and landing phases, collision
+     rate) agree with the baseline engine within run-to-run spread at a grid
+     of other driving conditions, so we know the sticking isn't changing the
+     physics;
+   - slow, run rarely: the patterns themselves at a few conditions, when a
+     method is a candidate to become the default.
 4. **For experiments**: published experimental observations where they exist
    (the hysteresis and oscillon experiments of the 1990s), and Chris's blind
    rating of figures and movies, mixed with controls.
