@@ -85,8 +85,14 @@ rarely.
     of two starts; depths 10 and 15 otherwise stalled in the first or
     second cycle. At Gamma = 5 it stalled everywhere except depth 5,
     f* = 0.5. So the with/without comparison is only available for
-    shallow layers; deeper conditions need another baseline **[decide]**.
-    Runs that work take 0.01 to 0.13 s per cycle.
+    shallow layers. Decided (Chris, Nov 5): the baseline for conditions
+    this engine can't run is the C code's approach (snap onto the plate
+    after a plate hit), using the 1998 C code itself, which has a
+    compile-time 2D mode (`DIMENSION 2`; the reproduction port builds
+    with it). Its 2D mode uses sphere inertia (K = 2/5), so it models
+    spheres confined to a plane, not disks; this engine's 2D mode has to
+    match whichever model the comparison uses **[decide]**. Runs that work
+    take 0.01 to 0.13 s per cycle.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).
