@@ -115,6 +115,43 @@ rarely.
     and the contact methods there can only be compared with each other
     and judged by the energy audit and smoothness across neighbouring
     conditions.
+
+    Measurement tool: `referee/bulk.py`. `measure` reads either code's
+    trajectory and gives, by phase over the response period (2 cycles by
+    default) and as overall means: centre-of-mass height above the plate,
+    layer thickness (spread of heights), kinetic energy per particle
+    (vertical, horizontal), granular temperature (the same about the
+    centre-of-mass velocity), and the fraction of particles touching the
+    plate, with take-off and landing phases. It flags a quantity as
+    drifting when its change across the window differs from zero at 95%.
+    `compare` aligns two measurements on the best whole-cycle shift and
+    reports differences.
+
+    First comparison, sequel versus the C code (Nov 5, 2D, settle 20,
+    measure 10, one start each), at the four points both codes run:
+
+    | point | largest difference in a mean | take-off and landing |
+    | --- | --- | --- |
+    | Gamma 3.5, f* 0.3, depth 5 | horizontal energy 7% (others under 2%) | same to 1/32 cycle |
+    | Gamma 3.5, f* 0.5, depth 5 | 2.5% (vertical temperature) | same to 1/32 cycle |
+    | Gamma 3.5, f* 0.5, depth 10 | 9% (horizontal energy; others under 5%) | identical |
+    | Gamma 5, f* 0.5, depth 5 | 2.7% (horizontal temperature) | identical |
+
+    How big a difference is just noise: the C code at Gamma 3.5, f* 0.3,
+    depth 5, run 60 cycles and measured in five 10-cycle windows, varies
+    between windows by about 2% in centre-of-mass height, 4% in thickness
+    and vertical energy. The differences above are of that size, so the
+    two codes agree within the scatter of a single 10-cycle measurement.
+    Small quantities (horizontal energy, about a tenth of the vertical)
+    scatter more. Settling: that run's values rise through cycles 10 to
+    20 and then fluctuate without a trend, so 20 cycles of settling looks
+    sufficient there; across the four points, 4 of 56 drift flags fired,
+    about what chance gives at 95%.
+
+    So the acceptance tolerance should come from this window-to-window
+    scatter, measured per condition, rather than a fixed percentage
+    **[decide]**: for example, a method passes a quantity when its mean is
+    within twice the baseline's window-to-window spread.
   - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
     **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
     stuck case, method only).
