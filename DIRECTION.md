@@ -58,10 +58,10 @@ The agent can run these; it can't edit them. Details in `referee/`.
      L = 20) runs a stated number of cycles **[decide: how many]** without
      stalling; an energy audit shows no energy injected by the contact
      method; and bulk quantities (layer depth, centre-of-mass height and
-     kinetic energy against phase, take-off and landing phases, collision
-     rate) agree with the baseline engine within run-to-run spread at a grid
-     of other driving conditions, so we know the sticking isn't changing the
-     physics;
+     kinetic energy against phase, take-off and landing phases) agree with
+     this code without the contact method at a grid of other conditions
+     (2D first as a fast filter, then 3D at N = 60000), so we know the
+     sticking isn't changing the physics;
    - slow, run rarely: the patterns themselves at a few conditions, when a
      method is a candidate to become the default.
 4. **For experiments**: published experimental observations where they exist

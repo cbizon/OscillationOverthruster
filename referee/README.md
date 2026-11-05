@@ -45,25 +45,42 @@ rarely.
   in collisions, and the change in the layer's energy balance to a stated
   tolerance. Any energy a method adds by fiat (a position snap, a velocity
   floor) is counted separately and must be zero or reported.
-- **Bulk quantities across parameters.** At a grid of driving conditions
-  (Gamma and frequency, including ones where the baseline engine never has
-  long contacts), compare the method with the baseline engine, and with the
-  reference C runs where they exist, on quantities that settle within a few
-  cycles:
+- **Bulk quantities across parameters.** Compare macroscopic quantities
+  with and without the contact method in this same code (so the only
+  difference is the contact handling), and with the reference C runs where
+  they exist:
   - layer depth (thickness, for example the spread of heights);
   - centre-of-mass height, as a function of phase in the cycle;
   - total kinetic energy, and its vertical and horizontal parts, as a
     function of phase;
   - potential energy, and the phases at which the layer takes off from and
-    lands on the plate;
-  - collision rate.
+    lands on the plate.
 
-  Each is averaged over cycles after a short transient, over several random
-  initial conditions, so differences can be compared with run-to-run
-  spread. Where the baseline works, the method must agree within that
-  spread; disagreement means the contact handling is changing the physics.
-  Where only the method runs (long contacts), the quantities should vary
-  smoothly from the neighbouring conditions where both run.
+  Not collision rate: methods model the resting state differently (long
+  contacts in some, many tiny collisions in others), so the rate describes
+  the method, not the physics.
+
+  Each run settles for 20 cycles and is measured over the next 10, averaged
+  over those 10. One initial state per condition: chaotic mixing at the
+  particle level forgets the initial state quickly. When the baseline grid
+  is first run, check the 10 measured cycles for a remaining trend; if
+  there is one, lengthen the settling time.
+
+  Where the baseline works, the method must agree with it; disagreement
+  means the contact handling is changing the physics. Where only the method
+  runs (long contacts), the quantities should vary smoothly from the
+  neighbouring conditions where both run.
+
+  The grid, coarse first:
+  - **2D, as a fast filter.** Gamma = 3.5 and a higher value in the
+    subcritical pattern regime **[pick]**, each at a low and a high
+    frequency **[pick]**, at depths 5, 10 and 15 particle diameters: 12
+    runs. 2D can behave slightly differently, so it filters but doesn't
+    decide. The engine is 3D only today; 2D needs either a disk version
+    or a narrow box **[decide]**.
+  - **3D, N = 60000, L = 100, depth 5.42.** Gamma = 3 and a high Gamma
+    **[pick]** at the stripe frequency, plus Gamma = 5, f* = 0.44 (the
+    stuck case, method only).
 
 ### 3b. Patterns (infrequent)
 
