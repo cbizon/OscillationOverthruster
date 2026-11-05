@@ -140,16 +140,17 @@ rarely.
     | Gamma 5, f* 0.5, depth 5 | +0.4% | +1.5% | -0.1%, +0.1% | +1.3%, +2.7% | -3.6% | identical |
 
     How big a difference is just noise: the C code at Gamma 3.5, f* 0.3,
-    depth 5, run 60 cycles and measured in five 10-cycle windows, varies
-    between windows by about 2% in centre-of-mass height, 4% in thickness
-    and vertical energy. Height, thickness and vertical energy differ
-    between the codes by less than that. Horizontal energy and
-    temperature differ by up to 9%; they are about a tenth of the
-    vertical energy and their scatter hasn't been measured yet, so
-    whether those differences are noise is open. Settling: that run's values rise through cycles 10 to
-    20 and then fluctuate without a trend, so 20 cycles of settling looks
-    sufficient there; across the four points, 4 of 56 drift flags fired,
-    about what chance gives at 95%.
+    depth 5 was run 60 cycles and measured in 10-cycle windows. After
+    cycle 20 the window means scatter (standard deviation over mean) by
+    0.7% in height, 0.8% in vertical energy, 2.3% in vertical
+    temperature, 3.3% in thickness, 4.1% in horizontal energy and
+    temperature, and 4.6% in plate contact. At that point every sequel
+    difference in the table is within two of those standard deviations
+    (the largest, vertical energy, at about two). Settling: that run's
+    values rise through cycles 10 to 20 and then fluctuate without a
+    trend, so 20 cycles of settling looks sufficient there; across the
+    four points, 4 of 56 drift flags fired, about what chance gives at 95%.
+    The scatter has only been measured at this one point.
 
     So the acceptance tolerance should come from this window-to-window
     scatter, measured per condition, rather than a fixed percentage
