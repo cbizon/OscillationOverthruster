@@ -187,18 +187,40 @@ rarely.
     | horizontal temperature | 7.1% | 12.4% | 1.77 | 0.11 / 0.43 |
     | plate contact | 6.0% | 4.8% | 0.79 | 0.11 / -0.18 |
 
-    With 20 periods each, a ratio between about 0.63 and 1.58 is
-    consistent with equal variation. Height, thickness, vertical energy
-    and temperature, and plate contact vary the same in both codes.
-    Horizontal energy and temperature vary about 1.8 times more in
-    sequel, and sequel's fluctuations persist from one period to the
-    next (correlation about 0.45, against about 0.1 in C), so they are
-    slower as well as larger. The means still agree; it is the
-    fluctuations in horizontal motion that differ, which is a difference
-    between the codes' handling of the plate (C snaps particles onto it,
-    sequel doesn't) worth understanding. Because sequel's period means
-    are correlated, a 10-cycle window holds fewer independent samples
-    than it looks, which also widens its window-to-window scatter.
+    That looked like a difference in horizontal motion, so it was
+    checked (Nov 5) with four runs of each code, 100 measured cycles each
+    after 20 of settling. It isn't one: the variation overlaps completely.
+
+    | quantity | C: sd of period means, 4 runs | sequel, 4 runs | period-to-period correlation, C / sequel |
+    | --- | --- | --- | --- |
+    | height | 1.0 to 1.2% | 1.2 to 1.3% | -0.15 to 0.32 / 0.03 to 0.20 |
+    | thickness | 4.2 to 6.6% | 4.5 to 7.1% | 0.21 to 0.53 / 0.20 to 0.69 |
+    | vertical energy | 2.4 to 2.9% | 2.1 to 3.4% | 0.19 to 0.66 / 0.24 to 0.74 |
+    | vertical temperature | 8.1 to 8.5% | 7.2 to 10.1% | 0.06 to 0.48 / 0.08 to 0.47 |
+    | horizontal energy | 12 to 18% | 10 to 17% | 0.35 to 0.70 / 0.46 to 0.71 |
+    | plate contact | 4.2 to 5.1% | 4.3 to 4.8% | -0.09 to 0.38 / 0.01 to 0.17 |
+
+    The first C run happened to be quiet in horizontal motion over its 40
+    cycles. The C code's plate collision (`collide.c`, `ballwall`) also
+    rules out the suggested cause: the snap only sets the height to the
+    plate surface; horizontal velocity changes only through the same Walton
+    friction update sequel uses, with the same crossover speed
+    (VMIN = sqrt(g D)).
+
+    What this does show: horizontal energy (and to a lesser degree
+    thickness and vertical energy) fluctuates slowly in both codes, with
+    period-to-period correlation up to 0.7. A 10-cycle window holds barely
+    more than one independent sample of it, so a 10-cycle measurement of
+    horizontal energy is uncertain by more than 10%. Even 100-cycle means
+    differ between runs: horizontal energy 0.38 to 0.43 in C and 0.40 to
+    0.43 in sequel (about 5% spread), against about 0.3% for height, 0.5%
+    for vertical energy and 1% for thickness. The two codes' 100-cycle
+    means overlap on every quantity.
+
+    So measurement windows have to be longer than 10 cycles, at least for
+    horizontal quantities, and the allowance between models should be set
+    from the spread of long-run means across independent runs of one
+    code, which is what the four-run table measures.
 
     Proposed refinement **[decide]**: measure the method over the same
     windows as the baseline and compare the two means against the
