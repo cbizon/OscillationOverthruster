@@ -29,6 +29,31 @@ million events per 1e-8 time units.
   reference run hit that abort in cycle 4–5 (particle 5400, 0.16 D below the
   plate), so the case-e reference covers only four unequilibrated cycles.
 
+What the unmodified engine does when left to run (Nov 5–6, three 2D runs
+with no stall detector, `referee/README.md`): it ends in one of three ways.
+
+- **Time freezes.** At Γ = 3.5, f* = 0.3, depth 15, a chunk of 150,000
+  events advanced time by exactly zero in cycle 1: floating-point time can
+  no longer move.
+- **The slow stretch clears.** At Γ = 3.5, f* = 0.5, depth 15, the first
+  landing took about 8 billion events and 3 CPU-hours, then the run did 119
+  more cycles with no slow stretch.
+- **It slows, then overlaps.** At Γ = 5, f* = 0.3, depth 5, slow stretches
+  in cycles 21 and 39 cleared after 3–4 CPU-hours each; the one in cycle 49
+  ended in a sphere-pair overlap. Where the C code overlaps at once, the
+  modern code slows first, but slowing doesn't save it.
+
+**Simulating resting contact as many nearly elastic collisions itself
+changes energy and momentum (Chris, 2026-11-06).** In the two cycles of the
+Γ = 5 run with about 20 million events per particle, the energy audit was
+off by 3e-8 and 8e-7 of the cycle's energy throughput, and momentum by the
+same order, against about 1e-12 in every ordinary cycle. Billions of
+collisions at relative speeds near 1e-11 drift energy and momentum
+stochastically through round-off. This is a property of the method, just
+as an option below is charged for what it changes: the unmodified hard-
+sphere treatment is not energy-conserving in lasting contact, and it is not
+a clean baseline in cycles where it slows down, even when it gets through.
+
 Each option below must let that run continue without injecting energy, or
 say exactly how much it injects.
 

@@ -263,6 +263,26 @@ grid is now: this engine at Gamma 3.5 depths 5 and 10 and Gamma 5 depth 5
 f* 0.5; the C code also at Gamma 3.5 depth 15 and Gamma 5 depth 5 f* 0.3;
 neither at Gamma 5 depths 10 and 15.
 
+Long runs without a stall detector (Nov 5–6, `long_contact.py` recording
+slow episodes, unmodified engine, 2D, 120 cycles requested):
+
+| condition | outcome | CPU | slow episodes |
+| --- | --- | --- | --- |
+| Gamma 3.5, f* 0.3, depth 15 | time frozen in cycle 1 (phase 0.987) | seconds | one, never ended |
+| Gamma 3.5, f* 0.5, depth 15 | completed 120 cycles | 2.9 h | cycle 1 only (phases 0.898–0.916), 8e9 events; none after |
+| Gamma 5, f* 0.3, depth 5 | sphere-pair overlap in cycle 49 (phase 0.942) | 10.7 h | cycles 21 and 39 cleared after 3–4 CPU-hours each; cycle 49 ended in the overlap |
+
+The energy and momentum audit failed in cycles 21 and 39 of the Gamma 5 run
+(energy residuals 3e-8 and 8e-7 of throughput; ordinary cycles about
+1e-12), the cycles with about 20 million events per particle. The audit's
+tolerance stays: resting contact simulated as many nearly elastic
+collisions drifts energy and momentum stochastically, and that drift is
+charged to the method, here the unmodified engine (Chris, Nov 6; see
+`notes/contact-options.md`). Where the unmodified engine slows down, its
+cycles are not a clean baseline even when it survives them. The Gamma 3.5,
+f* 0.5, depth 15 run gives a usable baseline after its first cycle (its
+cycle-1 audit residual was 1e-10, within tolerance).
+
 Survival (decided by Chris, Nov 5): no cycle count counts as enough. A
 method passes when it runs every condition for the whole run without
 stalling; until then, cycles completed before the stall measure progress.
