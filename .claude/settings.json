@@ -1,5 +1,15 @@
 {
   "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch"
+    ],
     "deny": [
       "Edit(DIRECTION.md)",
       "Write(DIRECTION.md)",
@@ -45,7 +55,12 @@
       "Bash(git rebase:*)",
       "Bash(git reset --hard:*)",
       "Bash(program approve:*)",
-      "Bash(uv run program approve:*)"
+      "Bash(uv run program approve:*)",
+      "Bash(uv run --project * program approve:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/bizon/Projects/experiments/sequel-data",
+      "/Users/bizon/Projects/experiments/research-programs"
     ]
   }
 }
