@@ -1,0 +1,20 @@
+No session summary for 2026-11-05.
+
+Looked at 2026-11-06 05:41 EST (system clock). The instruction instructions/2026-11-05.md
+exists (committed 2026-11-05 17:04), but sessions/ holds no 2026-11-05.json, so there
+is nothing to review.
+
+What the repository shows:
+- No commits on any branch since the instruction was committed.
+- All four ledger files (experiments, claims, decisions, blockers) are empty.
+- ~/Projects/experiments/sequel-data/runs/active.jsonl does not exist.
+
+One thing worth a look: ~/Projects/experiments/sequel-data/runs/slow-episodes/ has
+output written overnight (2d-g3.5-f0.5-N1500 last modified 19:56 on Nov 5;
+2d-g5-f0.3-N500 last modified 05:05 on Nov 6). That folder predates the instruction
+(created 15:43 on Nov 5), so it may be Chris's own pre-program run. The N500 log ends
+with a crash in referee/long_contact.py: "non-physical state in cycle 49: sphere pair
+overlaps". No process from it is running now, and no ledger record points to it.
+
+Also noted: pmset -g log shows sleep/wake entries stamped 08:40-08:44 on Nov 6, later
+than the system clock at the time of looking; the clock or the log timestamps may be off.
