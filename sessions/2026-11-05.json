@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-05",
+  "instruction": "instructions/2026-11-05.md",
+  "headline": "This session was meant to start the first contact-method work (the elastic window and the position nudge), but no experiments ran. The Mac was in closed-lid sleep on battery through the whole overnight window, and the scheduled task only fired after the machine fully woke the next morning, past the five-in-the-morning cutoff. The start-of-session checks pass, so tonight can begin the instruction as written.",
+  "experiments": [],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "Can the Mac be left open on AC power overnight, or would you rather change its power settings so scheduled sessions run with the lid closed?",
+      "why_it_matters": "The session fires only when the machine is fully awake; closed-lid sleep on battery skipped this whole night, and caffeinate inside a session cannot help if the session never starts. This is also the first data point for the question of whether running locally is adequate.",
+      "default_if_unanswered": "Nothing changes on my side; I will not touch power or system settings. If the machine sleeps again, the session is lost again and I record it the same way."
+    },
+    {
+      "question": "When a session fires after the morning cutoff, as this one did, should it still do ordinary work during the day, or only record the miss and stop?",
+      "why_it_matters": "The scheduled task says to stop by five in the morning; starting long jobs in the daytime would compete with your own work, though they run at low priority.",
+      "default_if_unanswered": "Record the miss, run only the cheap start-of-session checks, write the summary, and stop, as this session did."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Run the instruction for this session unchanged tonight: build the elastic window and the position nudge on their own branches, pre-register and run survival on the stalled conditions, then the bulk-physics check against a ten-block baseline at the shallow Gamma three-and-a-half condition.",
+      "rationale": "Nothing about the plan changed; it simply did not run. The frozen tests pass on main, so implementation can start immediately."
+    },
+    {
+      "direction": "Treat the setup runs in the slow-episodes folder as context for the survival comparison. None is running now: one completed its run, one froze in its first cycle, and the deep Gamma five run with the smaller system ended on a sphere-pair overlap partway through.",
+      "rationale": "The instruction said to count these runs against the core limit, but they have all ended, so tonight has the full core budget. The overlap failure in the unmodified engine is worth knowing before blaming any overlap on the nudge."
+    }
+  ],
+  "budget": {
+    "cpu_hours": {"spent": 0, "limit": 400},
+    "disk_gb": {"spent": 0, "limit": 15}
+  },
+  "open_blockers": ["B0001"],
+  "run_conditions": {
+    "scheduled_start": "2026-11-05T23:00:00-05:00",
+    "actual_start": "2026-11-06T09:23:42-05:00",
+    "ended": "2026-11-06T09:30:00-05:00",
+    "interruptions": [
+      {
+        "start": "2026-11-05T22:56:01-05:00",
+        "end": "2026-11-06T08:44:12-05:00",
+        "cause": "Clamshell sleep on battery (pmset log); only maintenance dark wakes until the lid was opened. The scheduled task did not fire during sleep and started about forty minutes after the full wake, past the 05:00 stop time, so the session was cut to start-of-session checks and the summary."
+      }
+    ],
+    "cpu_hours": 0,
+    "cores_available": 11.8,
+    "disk_free_gb": {"start": 96, "end": 96},
+    "unfinished_runs": [],
+    "limits_hit": "The whole night was lost: the machine slept through the session window, so no implementation or simulation ran."
+  }
+}

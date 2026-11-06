@@ -86,8 +86,13 @@ In 2D, this engine and the C code agree on bulk physics wherever both run.
 Not built yet: the stall detector, the energy audit, the 3D baselines, the
 Figure 1 comparison.
 
+Session of Nov 5: did not run. The Mac slept (closed lid, battery) through
+the window; the task fired at 09:23 on Nov 6, past the 05:00 cutoff. Frozen
+tests pass on `main`. Blocker B0001 is open. The setup runs in
+`sequel-data/runs/slow-episodes/` have all ended (none running).
+
 ## Next
 
-Finish the referee with Chris: the energy audit and stall detector, then
-one 3D baseline to measure its cost. Scheduled sessions start after he
-approves it.
+Carry out `instructions/2026-11-05.md` as written: elastic window and nudge
+on their own branches, survival on the stalled conditions, bulk physics at
+2D Gamma = 3.5, f* = 0.3, depth 5.
