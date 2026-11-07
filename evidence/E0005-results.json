@@ -1,0 +1,46 @@
+{
+ "experiment": "E0005",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0005/3d-g5-f0.44-vel0.03",
+   "commit": "b1e4086",
+   "branch": "method/elastic-window-v003",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "cycles_completed": 6,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 25,
+   "slow_episode_start_cycles": [
+    6
+   ],
+   "slow_events": 2383200000,
+   "slow_cpu_seconds": 3580.0,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 1860986130,
+   "tiny_pair_in_episodes": 521256633,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 3.4949877631610254e-13,
+   "worst_momentum_residual": 3.969882655781455e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 166294.365,
+   "cpu_seconds": 3600.2,
+   "data": {
+    "size_mb": 0.03,
+    "sha256": {
+     "summary.json": "ac94ae9cfecbbb0f6fa1c97a8ceac0aeeface44fef6b96255697ccc0b7fd0018",
+     "audit.json": "0bd458812d3ab3f8b3aefd06bb0db11f5686f19a606e2c066b30cbfcc53db8c0"
+    }
+   }
+  }
+ ]
+}

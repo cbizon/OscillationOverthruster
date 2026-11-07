@@ -1,0 +1,356 @@
+{
+ "experiment": "E0002",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g3.5-f0.3-d15",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "depth": 15.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "cycles_completed": 0,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 9,
+   "slow_episode_start_cycles": [
+    0
+   ],
+   "slow_events": 2930100000,
+   "slow_cpu_seconds": 3592.9,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 684156736,
+   "tiny_pair_in_episodes": 279543580,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 0.0,
+   "worst_momentum_residual": 0.0,
+   "energy_gains": 0,
+   "events_per_particle_cycle": null,
+   "cpu_seconds": 3600.2,
+   "data": {
+    "size_mb": 0.01,
+    "sha256": {
+     "summary.json": "c535a35bf141f168f8fc031d59b5fab0f86bfc9a32f55595235ebc6476b07e30",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g3.5-f0.5-d15",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "depth": 15.0,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 5.838171094353002e-12,
+   "worst_momentum_residual": 1.2238992888963385e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 489.3034388888889,
+   "cpu_seconds": 70.4,
+   "at_last_checkpoint": {
+    "nudge_energy": 0.0,
+    "plate_work": 6000111.339498378,
+    "nudge_over_plate_work": 0.0,
+    "plate_events": 4189974,
+    "tiny_plate": 0,
+    "tiny_pair": 0
+   },
+   "data": {
+    "size_mb": 0.5,
+    "sha256": {
+     "summary.json": "e31579b14073502ebe5338c44ae1003cd8685933c5c18490166bba77b78dc76f",
+     "audit.json": "05b505fc82085203b710f55c0685433d27645bbd83b33363a9785dbdad84f779"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g5-f0.3-d10",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "depth": 10.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "cycles_completed": 6,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 6,
+   "failure_phase": 0.8964828243081986,
+   "frozen_cycle": null,
+   "slow_episodes": 1,
+   "slow_episode_start_cycles": [
+    6
+   ],
+   "slow_events": 270600000,
+   "slow_cpu_seconds": 373.2,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 3.2568133153462676e-13,
+   "worst_momentum_residual": 2.040870427354896e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 46088.92633333334,
+   "cpu_seconds": 378.5,
+   "data": {
+    "size_mb": 0.02,
+    "sha256": {
+     "summary.json": "d0fc38deefd921e0a2852252d7f3f4c992248a479f070beafdbfdc3855be8e3a",
+     "audit.json": "8a99566d6b4b91705357882f82dd267135f743ef72155d834e3148a475f31dc8"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g5-f0.3-d15",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "depth": 15.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "cycles_completed": 2,
+   "error": "plate collision off the plate surface",
+   "failure_cycle": 2,
+   "failure_phase": 0.8250531357367064,
+   "frozen_cycle": null,
+   "slow_episodes": 20,
+   "slow_episode_start_cycles": [
+    2
+   ],
+   "slow_events": 493200000,
+   "slow_cpu_seconds": 659.3,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 100867570,
+   "tiny_pair_in_episodes": 35596407,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 9.013737303383014e-15,
+   "worst_momentum_residual": 6.291240969937848e-15,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 169441.209,
+   "cpu_seconds": 677.6,
+   "data": {
+    "size_mb": 0.02,
+    "sha256": {
+     "summary.json": "6f89f33d92c396db5305ea46ce5ad60138e09833aafd9af6ae8dd2b71b870916",
+     "audit.json": "4aa5d5eec0363e6b505d46a6e211dd097d4b9c1037e933c2853b7407afa71e70"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g5-f0.3-d5",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 500,
+   "L": 100.0,
+   "depth": 5.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "cycles_completed": 14,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 21,
+   "slow_episode_start_cycles": [
+    14
+   ],
+   "slow_events": 3129250000,
+   "slow_cpu_seconds": 3597.6,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 384692612,
+   "tiny_pair_in_episodes": 170861042,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 7.975406631723976e-13,
+   "worst_momentum_residual": 4.30142544971749e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 447333.5351428571,
+   "cpu_seconds": 3600.0,
+   "at_last_checkpoint": {
+    "nudge_energy": 0.0,
+    "plate_work": 150138.66161292003,
+    "nudge_over_plate_work": 0.0,
+    "plate_events": 48932,
+    "tiny_plate": 0,
+    "tiny_pair": 0
+   },
+   "data": {
+    "size_mb": 0.11,
+    "sha256": {
+     "summary.json": "74af45dacb3b963813c0a6f57cc278962e7bd6b8b48d8b02a99b1b84896a59a9",
+     "audit.json": "798113a17e2ec64d4850b859b14f8f4eefe70cfafe181f3517f525122fe0e527"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g5-f0.5-d10",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1000,
+   "L": 100.0,
+   "depth": 10.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "cycles_completed": 4,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 4,
+   "failure_phase": 0.8364371192197811,
+   "frozen_cycle": null,
+   "slow_episodes": 2,
+   "slow_episode_start_cycles": [
+    4
+   ],
+   "slow_events": 204200000,
+   "slow_cpu_seconds": 173.5,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 70040091,
+   "tiny_pair_in_episodes": 27359776,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 3.45515625608645e-13,
+   "worst_momentum_residual": 9.682382079322195e-15,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 51571.7615,
+   "cpu_seconds": 175.5,
+   "data": {
+    "size_mb": 0.02,
+    "sha256": {
+     "summary.json": "29b354cd66cbb5df6e5361820efdac118380a2461c87ead6e32105b280dd3bfd",
+     "audit.json": "73c9c1f0c5abf45814cb27cb3a4ca34b14600efcaae909dd1999a6ed978a0ce4"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/2d-g5-f0.5-d15",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "depth": 15.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "cycles_completed": 2,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 2,
+   "failure_phase": 0.8549325735606851,
+   "frozen_cycle": null,
+   "slow_episodes": 3,
+   "slow_episode_start_cycles": [
+    2
+   ],
+   "slow_events": 341400000,
+   "slow_cpu_seconds": 385.4,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 18943580,
+   "tiny_pair_in_episodes": 7736571,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 3.6281648016276025e-13,
+   "worst_momentum_residual": 1.93226170974724e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 115563.25933333334,
+   "cpu_seconds": 390.8,
+   "data": {
+    "size_mb": 0.01,
+    "sha256": {
+     "summary.json": "b021cf57a2e324cbb0b1300b7af102f5b1536dea684cd3a23504b6284e0039fc",
+     "audit.json": "bcb4e9ff135d079c4bb35a8570d48984941fff64d1d10561543c9d7d5e834379"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0002/3d-g5-f0.44",
+   "commit": "90ee7d2",
+   "branch": "method/elastic-window",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "cycles_completed": 20,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 100,
+   "slow_episode_start_cycles": [
+    2,
+    20
+   ],
+   "slow_events": 1819200000,
+   "slow_cpu_seconds": 3480.1,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 1474800543,
+   "tiny_pair_in_episodes": 234414166,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 2.103895040591644e-09,
+   "worst_momentum_residual": 8.203494066976267e-10,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 39144.90827083333,
+   "cpu_seconds": 3600.3,
+   "at_last_checkpoint": {
+    "nudge_energy": 0.0,
+    "plate_work": 594460.5650318721,
+    "nudge_over_plate_work": 0.0,
+    "plate_events": 1018833059,
+    "tiny_plate": 1016853348,
+    "tiny_pair": 102514256
+   },
+   "data": {
+    "size_mb": 0.37,
+    "sha256": {
+     "summary.json": "450fa6d81400384b4b90381d966cf25b7fd91a23345c9291e94b16a762dda4e6",
+     "audit.json": "b7267b98d8957c6e9dd99d470ed18b6dc82f43da433733027dfcfb8487e61ab4"
+    }
+   }
+  }
+ ]
+}

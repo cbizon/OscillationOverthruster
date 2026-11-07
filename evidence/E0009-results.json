@@ -1,0 +1,169 @@
+{
+ "experiment": "E0009",
+ "c_code_1020_cycle_attempts": {
+  "c-g3.5-f0.3-d15": {
+   "selected_seed": null,
+   "attempts": [
+    {
+     "seed": 16532,
+     "completed": false,
+     "cycles": 60.84,
+     "return_code": -6,
+     "elapsed_seconds": 88
+    },
+    {
+     "seed": 1,
+     "completed": false,
+     "cycles": 49.88,
+     "return_code": -6,
+     "elapsed_seconds": 72
+    },
+    {
+     "seed": 2,
+     "completed": false,
+     "cycles": 41.97,
+     "return_code": -6,
+     "elapsed_seconds": 72
+    }
+   ]
+  },
+  "c-g3.5-f0.5-d15": {
+   "selected_seed": 1,
+   "attempts": [
+    {
+     "seed": 16532,
+     "completed": false,
+     "cycles": 664.97,
+     "return_code": -6,
+     "elapsed_seconds": 682
+    },
+    {
+     "seed": 1,
+     "completed": true,
+     "cycles": 1020.0,
+     "return_code": 0,
+     "elapsed_seconds": 1053
+    }
+   ]
+  },
+  "c-g5-f0.3-d5": {
+   "selected_seed": null,
+   "attempts": [
+    {
+     "seed": 16532,
+     "completed": false,
+     "cycles": 35.94,
+     "return_code": -6,
+     "elapsed_seconds": 13
+    },
+    {
+     "seed": 1,
+     "completed": false,
+     "cycles": 25.87,
+     "return_code": -6,
+     "elapsed_seconds": 3
+    },
+    {
+     "seed": 2,
+     "completed": false,
+     "cycles": 19.91,
+     "return_code": -6,
+     "elapsed_seconds": 2
+    }
+   ]
+  }
+ },
+ "baseline": {
+  "condition": "2D Gamma 3.5, f* 0.5, depth 15 (L 100)",
+  "source": "1998 C code via referee/c_baseline.py, seed 1, 1020 cycles; bulk.py baseline from cycle 20, 10 blocks of 100, period 2",
+  "means_and_block_sd": {
+   "zcm": [
+    13.77386,
+    0.0268
+   ],
+   "thickness": [
+    5.98848,
+    0.01573
+   ],
+   "ke_vertical": [
+    3.05989,
+    0.01114
+   ],
+   "ke_horizontal": [
+    0.49055,
+    0.01948
+   ],
+   "temp_vertical": [
+    1.00181,
+    0.01439
+   ],
+   "temp_horizontal": [
+    0.48655,
+    0.01969
+   ],
+   "plate_contact": [
+    0.00752,
+    5e-05
+   ]
+  },
+  "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0009/c-g3.5-f0.5-d15-baseline.json",
+  "sha256": "a0f8d249d6aeb82f92015c910d1e1e8581f94586778aa905dad1d0a12e9c5f3b"
+ },
+ "judge_threshold_sd": 3.62,
+ "methods": {
+  "nudge (E0003 run, seed 1)": {
+   "run": "E0003/2d-g3.5-f0.5-d15",
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.23,
+    "thickness": 1.26,
+    "ke_vertical": 1.12,
+    "ke_horizontal": 0.21,
+    "temp_vertical": 1.09,
+    "temp_horizontal": 0.22,
+    "plate_contact": 0.78
+   },
+   "passes": true,
+   "bulk_sha256": "0dee51d64e90ae7e2180fa32c31adf135453e04a58bbe5004f3e2198bd6acb6b"
+  },
+  "elastic window (E0002 run, seed 1)": {
+   "run": "E0002/2d-g3.5-f0.5-d15",
+   "deviation_in_baseline_block_sd": {
+    "zcm": -5.05,
+    "thickness": 14.75,
+    "ke_vertical": 9.12,
+    "ke_horizontal": -6.35,
+    "temp_vertical": 10.23,
+    "temp_horizontal": -6.56,
+    "plate_contact": 11.44
+   },
+   "passes": false,
+   "bulk_sha256": "d0f945fe206c9fde5e3e179ec7f29727b104be48b412358e43943a22ce2bb397"
+  },
+  "unmodified engine (slow-episodes run from setup, seed 1, commit 20c9e8f)": {
+   "run": "slow-episodes/2d-g3.5-f0.5-N1500",
+   "deviation_in_baseline_block_sd": {
+    "zcm": -1.44,
+    "thickness": 1.55,
+    "ke_vertical": 0.47,
+    "ke_horizontal": -1.88,
+    "temp_vertical": 1.43,
+    "temp_horizontal": -1.93,
+    "plate_contact": 2.93
+   },
+   "passes": true,
+   "bulk_sha256": "cf0ab2cda8537bedd2eca9ee2543fb5719f82f9b212f7bdd4202e43e6b66e9da"
+  }
+ },
+ "not_judged": {
+  "reason": "No 1020-cycle C baseline: all three seeds aborted (return code -6, the plate root finder assertion) at 20 to 61 cycles; the unmodified sequel engine stalls there too",
+  "conditions": [
+   "2D Gamma 3.5, f* 0.3, depth 15",
+   "2D Gamma 5, f* 0.3, depth 5"
+  ]
+ },
+ "data": {
+  "dir": "/Users/bizon/Projects/experiments/sequel-data/runs/E0009",
+  "size_mb_kept": 17,
+  "trajectories_deleted_after_measuring": "/Users/bizon/Projects/experiments/sequel-data/runs/E0009/trajectories-deleted.txt (sizes and SHA-256 of the 8 deleted C trajectories, 3.2 GB)"
+ }
+}
