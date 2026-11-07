@@ -1,0 +1,93 @@
+{
+ "experiment": "E0012",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0012/main-3d-g3-f0.44-s2",
+   "commit": "317b79e",
+   "branch": "main",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 2,
+   "outcome": "frozen_time",
+   "cycles_completed": 0,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": 0,
+   "slow_episodes": 1,
+   "slow_episode_start_cycles": [
+    0
+   ],
+   "slow_events": 6000000,
+   "slow_cpu_seconds": 7.0,
+   "open_episode": true,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 0.0,
+   "worst_momentum_residual": 0.0,
+   "energy_gains": 0,
+   "events_per_particle_cycle": null,
+   "cpu_seconds": 92.2,
+   "data": {
+    "size_mb": 0.01,
+    "sha256": {
+     "summary.json": "522fd163df119581f8447093639eb93cddada1230b3fafc418fc489864d63353",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0012/nudge-3d-g3-f0.44-s1",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 6,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 3.612517587900578e-13,
+   "worst_momentum_residual": 1.2928702089814202e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 295.4266777777778,
+   "cpu_seconds": 179.1,
+   "at_last_checkpoint": {
+    "nudge_energy": 5.853080782125624e-09,
+    "plate_work": 4486877.04194257,
+    "nudge_over_plate_work": 1.3044887852758191e-15,
+    "plate_events": 15972158,
+    "tiny_plate": 2345,
+    "tiny_pair": 2162
+   },
+   "data": {
+    "size_mb": 6.74,
+    "sha256": {
+     "summary.json": "aaa2ba7e1a717d15f3aba47874d88847e2a5d8e2482a78b5030aadebaf1bc4a1",
+     "audit.json": "77fbd292dd552f9c2588e74283b44610a27d01f9c49831eef5f2c69a206530ec"
+    }
+   }
+  }
+ ]
+}
