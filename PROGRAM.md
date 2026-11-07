@@ -25,7 +25,8 @@ after `DIRECTION.md` at the start of every session.
   5. cutoffs: a trigger, not a method; kept as instrumentation.
 - Order: 3 and 1 first as cheap baselines that show whether the stalled
   conditions get further, then 2, then 4.
-- Status: open.
+- Status: open. Nov 6: option 3 (elastic window) tried and does not help;
+  option 1 (nudge) survives every stalled condition so far. See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
 
@@ -62,7 +63,25 @@ after `DIRECTION.md` at the start of every session.
 
 ## Approaches under consideration
 
-The five options in `notes/contact-options.md`. None tried yet.
+The five options in `notes/contact-options.md`.
+
+- **Option 3, elastic window** (`method/elastic-window`, v_el = 0.01;
+  `method/elastic-window-v003`, v_el = 0.03). Tried Nov 6. Survives no
+  better than the unmodified engine at 6 of 8 stalled conditions: slow
+  stretches with 1e7 to 1e8 collisions slower than 1e-10, then overlaps or
+  CPU caps. v_el = 0.03 does worse than 0.01 in 3D. Passes bulk physics at
+  the shallow condition and at the deep Gamma 3.5 f* 0.5 condition (2 of 3
+  seeds; the third run sits in a different pattern state). Not a candidate.
+- **Option 1, position nudge** (`method/nudge`). Tried Nov 6. Completes 120
+  cycles at all 8 stalled conditions, and 1000 cycles at every condition
+  finished so far (E0008). Adds 1e-15 to 1e-13 of the plate's work. Passes
+  bulk physics against the unmodified engine (shallow) and the C code
+  (deep Gamma 3.5 f* 0.5, 3 seeds). Remaining slow stretches come from
+  lasting pair contacts in the dense Gamma 5 layers, not the plate. The
+  leading candidate, but Figure 1 comparison and 3D bulk checks aren't
+  done, and it is the 'baseline only' option in the notes.
+- Options 2 and 4 change the restitution law (e = 0 capture), so they need
+  Chris's go-ahead before implementation.
 
 ## Current state
 

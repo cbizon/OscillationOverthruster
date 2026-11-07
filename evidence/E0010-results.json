@@ -1,0 +1,164 @@
+{
+ "experiment": "E0010",
+ "condition": "2D Gamma 3.5, f* 0.5, depth 15 (N 1500, L 100); measure cycles 20-120, judged against the E0009 C baseline (seed 1, 1020 cycles, 10 blocks)",
+ "wavelength_method": "Final checkpoint (end of cycle 120, drive phase 0): 90th-percentile particle height in 50 bins across the box, Fourier transform, dominant mode. One frame per run.",
+ "runs": {
+  "window seed 1 (E0002)": {
+   "run": "E0002/2d-g3.5-f0.5-d15",
+   "commit": "90ee7d2",
+   "cycles": 120,
+   "worst_energy_residual": 5.838171094353002e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": -5.05,
+    "thickness": 14.75,
+    "ke_vertical": 9.12,
+    "ke_horizontal": -6.35,
+    "temp_vertical": 10.23,
+    "temp_horizontal": -6.56,
+    "plate_contact": 11.44
+   },
+   "passes": false,
+   "final_snapshot_dominant_wavelength_D": 33.3,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 138.1,
+    "33.3": 176.6,
+    "25.0": 45.4
+   }
+  },
+  "window seed 2": {
+   "run": "E0010/elastic-window-s2",
+   "commit": "90ee7d2",
+   "cycles": 120,
+   "worst_energy_residual": 5.432399587213706e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.94,
+    "thickness": 1.24,
+    "ke_vertical": 1.02,
+    "ke_horizontal": 0.06,
+    "temp_vertical": 0.78,
+    "temp_horizontal": 0.08,
+    "plate_contact": -0.39
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 221.0,
+    "33.3": 16.2,
+    "25.0": 85.3
+   }
+  },
+  "window seed 3": {
+   "run": "E0010/elastic-window-s3",
+   "commit": "90ee7d2",
+   "cycles": 120,
+   "worst_energy_residual": 7.36528935719463e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.59,
+    "thickness": 1.81,
+    "ke_vertical": 1.69,
+    "ke_horizontal": 0.07,
+    "temp_vertical": 1.87,
+    "temp_horizontal": 0.07,
+    "plate_contact": -0.41
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 177.5,
+    "33.3": 9.9,
+    "25.0": 65.0
+   }
+  },
+  "nudge seed 1 (E0003)": {
+   "run": "E0003/2d-g3.5-f0.5-d15",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 5.4163096219026074e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.23,
+    "thickness": 1.26,
+    "ke_vertical": 1.12,
+    "ke_horizontal": 0.21,
+    "temp_vertical": 1.09,
+    "temp_horizontal": 0.22,
+    "plate_contact": 0.78
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 180.9,
+    "33.3": 31.1,
+    "25.0": 86.5
+   }
+  },
+  "nudge seed 2": {
+   "run": "E0010/nudge-s2",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 5.30000501750446e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.48,
+    "thickness": 3.53,
+    "ke_vertical": 3.61,
+    "ke_horizontal": 0.38,
+    "temp_vertical": 3.54,
+    "temp_horizontal": 0.37,
+    "plate_contact": 1.44
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 212.9,
+    "33.3": 44.9,
+    "25.0": 87.5
+   }
+  },
+  "nudge seed 3": {
+   "run": "E0010/nudge-s3",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 5.070924797936171e-12,
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.64,
+    "thickness": 3.27,
+    "ke_vertical": 2.73,
+    "ke_horizontal": 0.31,
+    "temp_vertical": 2.92,
+    "temp_horizontal": 0.33,
+    "plate_contact": 2.05
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 198.1,
+    "33.3": 9.4,
+    "25.0": 79.2
+   }
+  },
+  "unmodified seed 1 (setup run)": {
+   "run": "slow-episodes/2d-g3.5-f0.5-N1500",
+   "commit": "20c9e8f",
+   "cycles": 120,
+   "worst_energy_residual": 1.0345904840119776e-10,
+   "deviation_in_baseline_block_sd": {
+    "zcm": -1.44,
+    "thickness": 1.55,
+    "ke_vertical": 0.47,
+    "ke_horizontal": -1.88,
+    "temp_vertical": 1.43,
+    "temp_horizontal": -1.93,
+    "plate_contact": 2.93
+   },
+   "passes": true,
+   "final_snapshot_dominant_wavelength_D": 50.0,
+   "final_snapshot_mode_amplitudes": {
+    "50.0": 193.9,
+    "33.3": 26.8,
+    "25.0": 75.8
+   }
+  }
+ },
+ "data_size_mb": 2.0,
+ "baseline_sha256": "a0f8d249d6aeb82f92015c910d1e1e8581f94586778aa905dad1d0a12e9c5f3b",
+ "note": "The C baseline trajectories were deleted after measuring (E0009), so the C run's wavelength cannot be checked; its bulk means match the two-wavelength runs."
+}

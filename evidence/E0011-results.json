@@ -1,0 +1,138 @@
+{
+ "experiment": "E0011",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0011/main-3d-g3-f0.44",
+   "commit": "72eaf70",
+   "branch": "main",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "cycles_completed": 0,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 0,
+   "failure_phase": 0.9041871033957076,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 0.0,
+   "worst_momentum_residual": 0.0,
+   "energy_gains": 0,
+   "events_per_particle_cycle": null,
+   "cpu_seconds": 877.5,
+   "data": {
+    "size_mb": 0.01,
+    "sha256": {
+     "summary.json": "a36f3152b635c4e880c454e2d1886ce28c19a3a38e681195a775cc5ba29f302c",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0011/main-3d-g6-f0.84",
+   "commit": "72eaf70",
+   "branch": "main",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 6,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 8.381299625170234e-13,
+   "worst_momentum_residual": 5.653578344198989e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 67.19283055555556,
+   "cpu_seconds": 41.0,
+   "at_last_checkpoint": {
+    "nudge_energy": 0.0,
+    "plate_work": 2096139.777557124,
+    "nudge_over_plate_work": 0.0,
+    "plate_events": 1857407,
+    "tiny_plate": 0,
+    "tiny_pair": 0
+   },
+   "data": {
+    "size_mb": 6.74,
+    "sha256": {
+     "summary.json": "e3da559bb0b2b8780a04f088429d7b0010d4ef5c6900a7eb1c7aea54175e56a4",
+     "audit.json": "5a754e9e4208bdc1b6e1d75bce7ead380700501cf42cc494e7631ba48da715f9"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0011/nudge-3d-g5-f0.44",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 6,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 2.3684615287441933e-12,
+   "worst_momentum_residual": 2.581891455880125e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 359.3713916666666,
+   "cpu_seconds": 207.9,
+   "at_last_checkpoint": {
+    "nudge_energy": 1.8544274132092414e-08,
+    "plate_work": 4270978.300378807,
+    "nudge_over_plate_work": 4.341926562925329e-15,
+    "plate_events": 26430718,
+    "tiny_plate": 1640,
+    "tiny_pair": 2614
+   },
+   "data": {
+    "size_mb": 6.74,
+    "sha256": {
+     "summary.json": "334c3a1be6b786704ed74304f576c50f6086fc7c717e86db658fafbfdf819cf5",
+     "audit.json": "9ab1f86fbae776ed30f75335fb62944e83f1d5bbf8e2f470701eac62b6ec8bf9"
+    }
+   }
+  }
+ ]
+}
