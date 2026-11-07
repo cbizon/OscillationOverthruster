@@ -1,0 +1,149 @@
+{
+ "experiment": "E0013",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g3-f0.44",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 1.951229334584085e-11,
+   "worst_momentum_residual": 4.947322017438888e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 151.35156388888888,
+   "cpu_seconds": 2120.0,
+   "at_last_checkpoint": {
+    "nudge_energy": 3.6500644044570354e-08,
+    "plate_work": 93947578.0271277,
+    "nudge_over_plate_work": 3.885213947083411e-16,
+    "plate_events": 86833697,
+    "tiny_plate": 2345,
+    "tiny_pair": 2162
+   },
+   "data": {
+    "size_mb": 7.05,
+    "sha256": {
+     "summary.json": "9400ea299a98445c60ff9db2cf441fa40331a6f62bc9a78b578425e8795314d4",
+     "audit.json": "8f022ac916d24b83bf1fd52b02d8ba9c0d76c643162632a126e30376e9ac0cd9"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g5-f0.44",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [
+    96,
+    110
+   ],
+   "worst_energy_residual": 1.5571522395204856e-08,
+   "worst_momentum_residual": 2.0326470384770954e-10,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 759.3234419444445,
+   "cpu_seconds": 10015.6,
+   "at_last_checkpoint": {
+    "nudge_energy": 6.43463928143893e-07,
+    "plate_work": 59399301.75129799,
+    "nudge_over_plate_work": 1.0832853403530658e-14,
+    "plate_events": 950135069,
+    "tiny_plate": 38897,
+    "tiny_pair": 68054
+   },
+   "data": {
+    "size_mb": 7.05,
+    "sha256": {
+     "summary.json": "afb82d454292ae75d63da056122113a3cee9091f3462a904d2e7ff9bc567028a",
+     "audit.json": "663c2a50fc79cfa4cd0c49bfa1eab45cf561c6991e5c6244613814f8f6d10259"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g6-f0.84",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dirty": false,
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "depth": 5.42,
+   "seed": 1,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "frozen_cycle": null,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "slow_events": 0,
+   "slow_cpu_seconds": 0,
+   "open_episode": false,
+   "tiny_plate_in_episodes": 0,
+   "tiny_pair_in_episodes": 0,
+   "audit_failure_cycles": [],
+   "worst_energy_residual": 2.6054602943544294e-11,
+   "worst_momentum_residual": 6.0299277541774804e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 91.04415847222222,
+   "cpu_seconds": 1383.2,
+   "at_last_checkpoint": {
+    "nudge_energy": 1.5316938128946222e-08,
+    "plate_work": 34592569.90369862,
+    "nudge_over_plate_work": 4.427811570978004e-16,
+    "plate_events": 54638025,
+    "tiny_plate": 0,
+    "tiny_pair": 0
+   },
+   "data": {
+    "size_mb": 7.05,
+    "sha256": {
+     "summary.json": "178f5146071089f87791d7d1fa11808236c0b3c4fa6a01cb2e9534e68c06d692",
+     "audit.json": "326771c5cc52b46f968b011533ddf0f7857cebe21f9e9e83c223814dfff68d7e"
+    }
+   }
+  }
+ ]
+}

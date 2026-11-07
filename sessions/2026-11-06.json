@@ -1,0 +1,199 @@
+{
+  "date": "2026-11-06",
+  "instruction": "instructions/fallback.md",
+  "headline": "No new instruction, so this session carried out the November fifth instruction: the elastic window and the position nudge, each on its own branch, run on every condition where the unmodified engine stalls, then checked for changes to the bulk physics. The nudge, which lifts a sphere about a quadrillionth of a diameter above the plate after each plate hit, got through every stalled condition at three starting seeds, ran to a thousand cycles at most of them, and also ran two Figure 1 conditions where the unmodified engine itself fails; wherever a baseline exists it leaves the bulk physics alone, within the spread of the unmodified engine. The elastic window got no further than the unmodified engine, and what still slows the nudge is lasting contact between spheres inside dense layers, not contact with the plate.",
+  "experiments": [
+    {
+      "experiment_id": "E0001",
+      "question": "How much does each method cost per cycle at the stalled conditions, and does either change anything in the first few cycles?",
+      "what_was_done": "Ran each method for eight cycles at the deep two-dimensional layer with strong driving and at the small three-dimensional strong-driving case, with a quarter-hour cap per run.",
+      "result": "The nudge ran both cleanly at a few seconds of CPU per cycle. The window stalled in the second cycle at both, with about a hundred million plate collisions slower than one ten-billionth of the gravity speed scale; one run ended in a physical failure, the other hit its cap.",
+      "takeaway": "Set the caps for the full runs: eight CPU-hours per nudge run, one per window run, because the window's slow stretches did not clear.",
+      "graded_by_referee": false
+    },
+    {
+      "experiment_id": "E0002",
+      "question": "Does the elastic window (perfectly elastic collisions below one hundredth of the gravity speed scale) let the stalled conditions run?",
+      "what_was_done": "Ran the referee's long-contact test for up to one hundred twenty cycles at the eight conditions where the unmodified engine stalls, one CPU-hour cap each, and compared cycle counts with the unmodified engine's pilot.",
+      "result": "It completed one hundred twenty cycles at one condition only (shallow driving, high frequency, depth fifteen). Elsewhere it stopped at about the same place as the unmodified engine or earlier: three runs ended in sphere overlaps, one in a plate collision off the plate surface, and three were still inside a slow stretch at the cap; in three dimensions it reached twenty cycles against the unmodified engine's thirty. Every completed cycle passed the energy audit.",
+      "takeaway": "Making slow collisions elastic does not keep relative speeds up in lasting contact; speeds still fall far below the window. Not a candidate method.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0003",
+      "question": "Does the position nudge let the stalled conditions run, and does it eventually push spheres into overlap as the notes predict?",
+      "what_was_done": "Same eight conditions, one hundred twenty cycles, eight-CPU-hour cap; recorded the energy the nudge adds separately.",
+      "result": "All eight completed one hundred twenty cycles, including the three-dimensional case where the unmodified engine stalled after thirty. Two runs had brief slow stretches that cleared in seconds. The nudge's added energy was between a quadrillionth and a ten-trillionth of the plate's work. The audit failed in a few cycles of two runs, always with energy missing rather than added. No overlap occurred.",
+      "takeaway": "The plate part of the stall is removed by a floating-point-sized lift. The overlap prediction did not show up in this run length, which by the registration's own rule counts as falsified for that part.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0004",
+      "question": "Does either method change the bulk physics where there are no long contacts (shallow driving, low frequency, depth five)?",
+      "what_was_done": "A thousand-cycle baseline from the unmodified engine, ten blocks of a hundred cycles, and one hundred twenty cycles of each method from a different start, judged by the referee's rule.",
+      "result": "Both passed all seven quantities; the largest deviation was under one and a half block standard deviations. The nudge run showed a downward drift in its vertical quantities over the measured window.",
+      "takeaway": "Both methods leave ordinary dynamics alone here, as they should; the drift was followed up next.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0006",
+      "question": "Was the nudge's drift a nudge effect?",
+      "what_was_done": "Three more starts for each method at the same shallow condition, judged against the same baseline.",
+      "result": "Drift flags appeared in both methods, rising in some runs and falling in others, so the drift is not a nudge effect. But the nudge failed horizontal energy at one start, just past the threshold, which by the registration's rule falsifies the hypothesis.",
+      "takeaway": "One run's slow fluctuations decide verdicts at this margin; that is why the unmodified engine's own spread was measured next. Record-keeping note: I first logged this outcome as inconclusive, then appended a correction, and the program check allows one outcome per experiment, so I replaced those two uncommitted lines with a single 'falsified' record that says so. Nothing committed was changed.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0007",
+      "question": "How far do independent runs of the unmodified engine itself fall from the baseline?",
+      "what_was_done": "Eight more starts of the unmodified engine at the shallow condition, judged the same way.",
+      "result": "All eight passed, but horizontal energy ranged down to a little over three block standard deviations below the baseline, and its spread across starts was about one and a half times the baseline's block spread. The nudge's and window's deviations fall inside that spread.",
+      "takeaway": "Blocks from a single run understate run-to-run spread for horizontal energy, so the rule fails identical engines more often than intended for that quantity.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0008",
+      "question": "Does the nudge eventually fail if the runs go ten times longer?",
+      "what_was_done": "Continued all eight one-hundred-twenty-cycle nudge runs toward a thousand cycles in the background.",
+      "result": "Six of eight reached a thousand cycles with no physical failure. Two strong-driving, low-frequency deep layers (depths ten and fifteen) have been inside long slow stretches since cycles one hundred sixty-two and two hundred forty-six; there the slow collisions are almost all between pairs of spheres (millions) rather than with the plate (thousands). Audit failures grew with run length and were all energy losses.",
+      "takeaway": "The nudge's remaining limit is lasting sphere-sphere contact in dense layers, the part that option four addresses. The two stuck runs continue to their caps and will be collected next session.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0009",
+      "question": "Where this engine stalls but the 1998 C code runs, does either method change the bulk physics?",
+      "what_was_done": "Ran the C code for a thousand twenty cycles at three such conditions, with three seeds each, and judged the existing method runs against it.",
+      "result": "The C code aborted before a thousand cycles at two of the three conditions for every seed, so only the deep layer with shallow driving and high frequency could be judged. There the nudge passed all seven quantities, as did the unmodified engine's own run, but the window failed all seven by five to fifteen standard deviations.",
+      "takeaway": "The C code covers fewer deep conditions than its short pilot suggested. The window result needed a second look, below.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0010",
+      "question": "Is the window's failure at the deep condition a property of the window?",
+      "what_was_done": "Two more starts for each method there, and the surface pattern of every run from its final snapshot.",
+      "result": "The window passed at both new starts, and the nudge passed at all three. The failing window run had three pattern wavelengths across the box, while all six other runs had two.",
+      "takeaway": "At deep layers the bulk check depends on which pattern a run settles into. That is physics, multistable patterns, and relevant to the hysteresis question, not a contact-method effect.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0005",
+      "question": "Does a wider elastic window survive better in three dimensions?",
+      "what_was_done": "The three-dimensional strong-driving case with the window widened to three hundredths, one CPU-hour cap.",
+      "result": "It reached six cycles, against twenty with the narrower window.",
+      "takeaway": "Widening the window does not help.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0011",
+      "question": "What does the full-size three-dimensional bulk grid (sixty thousand spheres) cost?",
+      "what_was_done": "Six-cycle pilots: the unmodified engine at Figure 1 cases b and g, the nudge at the strong-driving case.",
+      "result": "Case g ran at about seven CPU-seconds per cycle and the strong-driving nudge run at about thirty-five, with about a sixth of a gigabyte of memory each. The unmodified engine at case b overlapped in its first cycle.",
+      "takeaway": "The grid is affordable, but the unmodified engine has no case-b baseline at this size.",
+      "graded_by_referee": false
+    },
+    {
+      "experiment_id": "E0012",
+      "question": "Is the case-b failure a lasting-contact failure that the nudge avoids?",
+      "what_was_done": "The unmodified engine from a second start, and the nudge from the first, for six cycles each.",
+      "result": "The unmodified engine froze in its first landing at the same drive phase as the overlap; the nudge ran six clean cycles.",
+      "takeaway": "Without the old plate floor, the engine cannot run a Figure 1 condition it is meant to be compared on.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0013",
+      "question": "Does the nudge survive the three full-size three-dimensional conditions for a hundred twenty cycles?",
+      "what_was_done": "One hundred twenty cycles at cases b and g and the strong-driving case, sixty thousand spheres each.",
+      "result": "All three completed one hundred twenty cycles with no slow stretches. Cases b and g had clean audits; the strong-driving run, the costliest at nearly three CPU-hours, failed the audit in two cycles, both small energy losses. The nudge added under a ten-trillionth of the plate's work in each.",
+      "takeaway": "Full-size three-dimensional survival looks the same as in the small runs, including at case b, where the unmodified engine can't get through its first landing.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0014",
+      "question": "Does the nudge change the bulk physics at case g, where the unmodified engine runs?",
+      "what_was_done": "Started a thousand-cycle unmodified baseline and two more nudge starts.",
+      "result": "The baseline stalled for about an hour after cycle fifty, so the plan moved to a different baseline (next item). It later recovered and keeps running in the background.",
+      "takeaway": "Superseded; the nudge runs from it are used below.",
+      "graded_by_referee": false
+    },
+    {
+      "experiment_id": "E0015",
+      "question": "How far do independent unmodified runs at case g fall from a baseline?",
+      "what_was_done": "Two more unmodified starts, one hundred twenty cycles each.",
+      "result": "Both completed cleanly. One became the baseline below; the other failed plate contact against it while sharing its stripe pattern.",
+      "takeaway": "As in two dimensions, one run's block spread understates the spread between runs, here for plate contact.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0017",
+      "question": "Same question as the superseded case-g check, with a baseline that could finish tonight.",
+      "what_was_done": "Continued an unmodified case-g run toward a thousand twenty cycles as the baseline, then judged three nudge starts and one unmodified control.",
+      "result": "The unmodified baseline itself overlapped at cycle five hundred sixty-seven, in the lasting-contact phase, so the judgement is provisional, on five blocks with a correspondingly wider threshold. Two nudge starts passed everything; the third failed only plate contact, and so did the unmodified control; all five runs agree on plate contact to the fourth decimal and share the same stripe wavelength.",
+      "takeaway": "Provisionally the nudge does not change the physics at case g. The unmodified engine eventually fails there too, so the nudge is not just an alternative baseline; it is the only engine here that runs these conditions for long.",
+      "graded_by_referee": true
+    },
+    {
+      "experiment_id": "E0016",
+      "question": "Is the nudge's survival specific to the first start?",
+      "what_was_done": "The eight stalled conditions again at the second and third seeds, one hundred twenty cycles each.",
+      "result": "All sixteen completed. One had a few brief slow stretches that cleared; two had audit failures in two cycles each, all energy losses.",
+      "takeaway": "Survival holds across starts.",
+      "graded_by_referee": true
+    }
+  ],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "May I implement options two and four (capture onto the plate with zero restitution below a small speed, then persistent contact) on their own branches? Both change the paper's restitution law.",
+      "why_it_matters": "The nudge removes the plate part of the stall but not lasting sphere-sphere contact in dense layers, which is what still slows the deep strong-driving runs. Options two and four are the principled routes, and the program's order puts option two next.",
+      "default_if_unanswered": "I won't implement them. I'll keep testing the nudge where baselines exist and characterize the lasting pair contacts (where in the layer, at what phase) so the design for option four is ready."
+    },
+    {
+      "question": "How should the bulk pass rule handle run-to-run spread and pattern state? Blocks from one run understate the spread between runs for horizontal energy (two dimensions) and plate contact (three dimensions), so the unmodified engine's own controls fail or nearly fail it; and at deep layers a run in a different pattern wavelength fails every quantity.",
+      "why_it_matters": "As it stands, verdicts at the margin are decided by which run is the baseline and which pattern a run lands in, not by the contact method.",
+      "default_if_unanswered": "Keep applying the rule as written and report verdicts by its letter, alongside the unmodified engine's controls at the same condition and each run's pattern wavelength, as tonight."
+    },
+    {
+      "question": "What should the Figure 1 comparison's baseline engine be, given that this engine without its old plate floor fails at case b in the first landing and at case g after about five hundred cycles?",
+      "why_it_matters": "The acceptance bar says 'no worse than the baseline engine on every valid case'. At those cases there is no long valid span from this engine, and the 1998 reference itself aborted at the strong-driving case.",
+      "default_if_unanswered": "Nothing on the Figure 1 comparison until we agree its spec, as the referee notes say."
+    },
+    {
+      "question": "Do audit failures that are energy losses (never gains) in cycles with millions of collisions count against 'no energy injected'?",
+      "why_it_matters": "Your November sixth note charges that drift to the method. Every failing cycle tonight lost energy, about a hundred-millionth to a few ten-millionths of the cycle's throughput, while the nudge's own term adds a hundred-thousandth as much.",
+      "default_if_unanswered": "Report them as audit failures, with their sign, as tonight; don't argue them away."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Treat the nudge as the working method and finish the evidence that can be gathered without new decisions: a full ten-block case-g baseline from the run still going, bulk checks at every remaining condition where a baseline runs, three-dimensional survival across seeds, and the long runs.",
+      "rationale": "It is the only engine tonight that ran every stalled condition and two Figure 1 conditions where the unmodified engine fails, at negligible added energy and no measurable change to the bulk physics. It is the notes' 'baseline only' option, so it is also the bar options two and four must meet."
+    },
+    {
+      "direction": "Option two (capture onto the plate below a small speed, release at a known phase) on its own branch, once you approve the change to the restitution law, judged against the nudge as well as the unmodified engine.",
+      "rationale": "It replaces a floating-point-sized fix with a physical state, and its plate-frame release is the core of option four."
+    },
+    {
+      "direction": "Characterize the lasting sphere-sphere contacts that still slow the nudge in the deep strong-driving layers: which spheres, where in the column, at what drive phase, how long they last.",
+      "rationale": "That is the remaining failure and the part of option four with no precedent in the moving-plate setting; it is cheap to measure from the runs already stuck."
+    }
+  ],
+  "budget": {
+    "cpu_hours": {"spent": 29.4, "limit": 400},
+    "disk_gb": {"spent": 1.8, "limit": 15}
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-06T23:00:00-05:00",
+    "actual_start": "2026-11-06T23:07:41-05:00",
+    "ended": "2026-11-07T03:50:00-05:00",
+    "interruptions": [],
+    "cpu_hours": 29.4,
+    "cores_available": 12.85,
+    "disk_free_gb": {"start": 96, "end": 96},
+    "unfinished_runs": [
+      {"experiment_id": "E0008", "reason": "Two nudge continuations (strong driving, low frequency, depths ten and fifteen) are inside long slow stretches of lasting pair contacts at cycles one hundred sixty-two and two hundred forty-six; they run to their eight-CPU-hour caps, around half past seven, and are collected next session."},
+      {"experiment_id": "E0014", "reason": "The seed-one unmodified case-g baseline stalled for about an hour after cycle fifty, then recovered; it was past cycle four hundred at session end and may reach a thousand twenty around half past six. If it does, it gives the full ten-block baseline that E0017 lacked."}
+    ],
+    "limits_hit": "No sleep, wake, or permission interruptions; the machine ran the whole window on AC. The ten-core limit was the binding constraint: runs queued behind each other all night, the window runs were capped at one CPU-hour each, and the case-g bulk check ended provisional because its baseline couldn't reach a thousand cycles in the window. My own error: for about two minutes around 23:34 thirteen jobs ran against the ten-core limit, because I started the C baselines without counting the jobs already queued; I paused three until cores freed. I also deleted the C-code trajectories after measuring them, before realizing pattern wavelength mattered, so the C baseline's pattern can't be checked. Session ended about an hour early because nothing more could be finished before five; the remaining runs continue in the background."
+  }
+}

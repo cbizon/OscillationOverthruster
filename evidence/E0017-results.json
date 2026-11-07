@@ -1,0 +1,162 @@
+{
+ "experiments": [
+  "E0013",
+  "E0014",
+  "E0015",
+  "E0017"
+ ],
+ "condition": "3D Gamma 6, f* 0.84, N 60000, L 100, depth 5.42 (Figure 1 case g); measure cycles 20-120, period 2",
+ "provisional": true,
+ "why_provisional": "The unmodified seed-2 baseline (E0015 run continued) ended in a sphere-pair overlap at cycle 567, phase 0.937, so only 5 complete 100-cycle blocks (cycles 20-520) exist; bulk.py threshold for 5 blocks is used. The seed-1 unmodified baseline (E0014) was at cycle 400 at session end and is still running.",
+ "baseline": {
+  "run": "E0017/baseline-main-s2",
+  "outcome": "physical_failure",
+  "error": "sphere pair overlaps",
+  "failure_cycle": 566,
+  "failure_phase": 0.9366886180501925,
+  "blocks": 5,
+  "threshold": 5.51,
+  "means_and_block_sd": {
+   "zcm": [
+    4.67631,
+    0.002321
+   ],
+   "thickness": [
+    2.11833,
+    0.002815
+   ],
+   "ke_vertical": [
+    1.14997,
+    0.000991
+   ],
+   "ke_horizontal": [
+    0.09611,
+    0.001036
+   ],
+   "temp_vertical": [
+    0.21358,
+    0.000587
+   ],
+   "temp_horizontal": [
+    0.09609,
+    0.001032
+   ],
+   "plate_contact": [
+    0.02036,
+    1.2e-05
+   ]
+  },
+  "sha256": "b99463b3219c237809c500782bb7d28da89c3205ceaff1fa989eef03ae360a4f",
+  "final_snapshot_wavelength_D": 20.0
+ },
+ "runs": {
+  "nudge seed 1 (E0013)": {
+   "run": "E0013/3d-g6-f0.84",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 2.6054602943544294e-11,
+   "means": {
+    "zcm": 4.66897,
+    "thickness": 2.11526,
+    "ke_vertical": 1.15075,
+    "ke_horizontal": 0.09331,
+    "temp_vertical": 0.214,
+    "temp_horizontal": 0.09329,
+    "plate_contact": 0.02044
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -3.16,
+    "thickness": -1.09,
+    "ke_vertical": 0.78,
+    "ke_horizontal": -2.7,
+    "temp_vertical": 0.72,
+    "temp_horizontal": -2.71,
+    "plate_contact": 7.37
+   },
+   "passes": false,
+   "final_snapshot_wavelength_D": 19.6,
+   "bulk_sha256": "5a4d48677adec1f3401dad4d71c690c6ca837cd25b8438f48c4027fa359970a3"
+  },
+  "nudge seed 2 (E0014)": {
+   "run": "E0014/nudge-3d-g6-f0.84-s2",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 4.8991857370411895e-11,
+   "means": {
+    "zcm": 4.67158,
+    "thickness": 2.11466,
+    "ke_vertical": 1.15034,
+    "ke_horizontal": 0.0945,
+    "temp_vertical": 0.21346,
+    "temp_horizontal": 0.09448,
+    "plate_contact": 0.02037
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -2.04,
+    "thickness": -1.3,
+    "ke_vertical": 0.37,
+    "ke_horizontal": -1.56,
+    "temp_vertical": -0.21,
+    "temp_horizontal": -1.56,
+    "plate_contact": 1.17
+   },
+   "passes": true,
+   "final_snapshot_wavelength_D": 19.6,
+   "bulk_sha256": "1e5086b87ec172e9ff28ba1dbe47faf7a70d2e7c66a9d88ba6c4232a396cc98c"
+  },
+  "nudge seed 3 (E0014)": {
+   "run": "E0014/nudge-3d-g6-f0.84-s3",
+   "commit": "b608fef",
+   "cycles": 120,
+   "worst_energy_residual": 3.4772182699828324e-11,
+   "means": {
+    "zcm": 4.67062,
+    "thickness": 2.115,
+    "ke_vertical": 1.15006,
+    "ke_horizontal": 0.09392,
+    "temp_vertical": 0.21385,
+    "temp_horizontal": 0.09389,
+    "plate_contact": 0.02038
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -2.45,
+    "thickness": -1.18,
+    "ke_vertical": 0.09,
+    "ke_horizontal": -2.11,
+    "temp_vertical": 0.46,
+    "temp_horizontal": -2.12,
+    "plate_contact": 1.79
+   },
+   "passes": true,
+   "final_snapshot_wavelength_D": 20.0,
+   "bulk_sha256": "b910356128f685593bfd6727e166ddec5c015f8643a12200476a60e63384d295"
+  },
+  "unmodified seed 3 (E0015 control)": {
+   "run": "E0015/main-3d-g6-f0.84-s3",
+   "commit": "317b79e",
+   "cycles": 120,
+   "worst_energy_residual": 3.3827779563972154e-11,
+   "means": {
+    "zcm": 4.67019,
+    "thickness": 2.11767,
+    "ke_vertical": 1.14971,
+    "ke_horizontal": 0.09414,
+    "temp_vertical": 0.21452,
+    "temp_horizontal": 0.09413,
+    "plate_contact": 0.02043
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -2.64,
+    "thickness": -0.23,
+    "ke_vertical": -0.27,
+    "ke_horizontal": -1.9,
+    "temp_vertical": 1.6,
+    "temp_horizontal": -1.9,
+    "plate_contact": 6.27
+   },
+   "passes": false,
+   "final_snapshot_wavelength_D": 19.6,
+   "bulk_sha256": "6e578897d66382129478950ccea2bf1abffecbd00eea905eccb894b8d3f3db05"
+  }
+ }
+}

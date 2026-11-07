@@ -85,33 +85,61 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
-The engine is the hardened import described in `README.md`: it fails loudly
-on physical violations, matches an all-pairs reference, and restarts
-bit-for-bit, but stalls in the Gamma = 5 resting-contact regime, and in 2D
-at depths 10 and 15 for most of the grid.
+The engine on `main` is the hardened import described in `README.md`: it
+fails loudly on physical violations, matches an all-pairs reference, and
+restarts bit-for-bit, but stalls or overlaps in lasting contact. Nov 6
+showed this is wider than the Gamma = 5 cases: at 3D N = 60000 it fails in
+the first landing at Figure 1 case b (overlap at seed 1, frozen time at
+seed 2; E0011, E0012) and overlapped at cycle 567 of case g (seed 2,
+E0017), always at drive phase 0.90 to 0.94.
 
 It also runs 2D (spheres confined to a plane, `dim=2`).
 
-The referee (`referee/README.md`) has:
+Contact methods, on branches with worktrees under
+`sequel-data/worktrees/` (merging needs Chris):
 
-- the frozen tests;
-- a script that runs the 1998 C code in 2D as the baseline where this
-  engine stalls (it covers Gamma = 3.5 at all depths; at Gamma = 5 it also
-  aborts at depths 10 and 15);
-- the bulk-quantity measurement with its pass rule.
+- `method/nudge` (b608fef): survives everything tried so far. 120 cycles
+  at all 8 stalled conditions at seeds 1, 2, 3 (E0003, E0016); 1000
+  cycles at 6 of them (E0008; two Gamma 5 f* 0.3 runs, depths 10 and 15,
+  are inside long slow stretches at cycles 162 and 246 and still running).
+  3D N = 60000: 120 cycles at cases b and g and Gamma 5 (E0013). Nudge energy 1e-15 to 1e-13 of plate work.
+  Audit failures happen only in many-collision cycles and are always
+  energy losses, never gains. Bulk physics passes against the unmodified
+  engine (2D shallow), the C code (2D Gamma 3.5 f* 0.5 depth 15, 3
+  seeds), and provisionally at 3D case g (2 of 3 seeds; the third fails
+  plate contact, as does the unmodified engine's own control).
+- `method/elastic-window` (90ee7d2) and `-v003` (b1e4086): not a
+  candidate; no better survival than the unmodified engine.
 
-In 2D, this engine and the C code agree on bulk physics wherever both run.
+What the remaining slow stretches are: with the plate fixed by the nudge,
+they are lasting pair contacts inside dense Gamma 5 layers (millions of
+pair collisions slower than 1e-10, a few thousand plate ones).
 
-Not built yet: the stall detector, the energy audit, the 3D baselines, the
-Figure 1 comparison.
+Referee findings to bring to Chris (not edits; the referee is his):
 
-Session of Nov 5: did not run. The Mac slept (closed lid, battery) through
-the window; the task fired at 09:23 on Nov 6, past the 05:00 cutoff. Frozen
-tests pass on `main`. Blocker B0001 is open. The setup runs in
-`sequel-data/runs/slow-episodes/` have all ended (none running).
+- The 1998 C code does not give 1020-cycle baselines at 2D Gamma 3.5
+  f* 0.3 depth 15 or Gamma 5 f* 0.3 depth 5 (aborts at 20 to 61 cycles,
+  3 seeds each); the 30-cycle pilot overstated coverage (E0009).
+- The bulk pass rule's block spread from one run understates run-to-run
+  spread for horizontal energy (2D, E0007) and plate contact (3D case g,
+  E0017), so unmodified-engine controls fail or nearly fail it.
+- At deep layers the bulk quantities depend on the selected pattern
+  wavelength (2D Gamma 3.5 f* 0.5 depth 15: three wavelengths across the
+  box versus two; E0010). `sequel-data/runs/tools/wavelength.py` reports it.
+
+Tools (not in git): `sequel-data/runs/launch.sh` starts a long_contact run
+in the background and records it in `active.jsonl`; `runs/tools/` has the
+queue scripts and the evidence helpers (`surv.py`, `cpu_session.py`,
+`wavelength.py`).
 
 ## Next
 
-Carry out `instructions/2026-11-05.md` as written: elastic window and nudge
-on their own branches, survival on the stalled conditions, bulk physics at
-2D Gamma = 3.5, f* = 0.3, depth 5.
+- Collect the runs left going (E0008 two runs, E0014 seed-1 case-g
+  baseline; see `sequel-data/runs/active.jsonl`) and record E0008's outcome.
+- If the E0014 seed-1 baseline reaches 1020 cycles, judge the case-g nudge
+  runs against a full 10-block baseline.
+- Wait for Chris on options 2 and 4 (they change the restitution law), the
+  Figure 1 comparison spec, and how the pass rule should treat run-to-run
+  spread and pattern state. Meanwhile: more nudge bulk checks where a
+  baseline runs, and characterize the lasting pair contacts that still
+  slow the nudge.
