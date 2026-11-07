@@ -1,0 +1,131 @@
+{
+ "date": "2026-11-06",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "The session proposed no claims, so I reviewed its experiments for the same problems. The record-keeping is accurate: every evidence checksum I could resolve matches (the only mismatches are files of runs that kept running after the session, as expected), the energy audits recompute exactly from the runs' audit files, and I reproduced two bulk verdicts with the referee's own tool to the second decimal. The main news is something that happened after the session ended: one of the two thousand-cycle position-nudge runs left stuck in the background (strong driving, low frequency, depth ten) ended at 04:03 in a sphere-pair overlap in cycle one hundred sixty-three, after about four CPU-hours of slow stretches. So the nudge does not survive every stalled condition for the whole run, which is the referee's survival test, and the overlap the notes predicted has now occurred once. The other stuck run (depth fifteen) got past its slow stretch and is at cycle seven hundred forty, but about three-quarters of its CPU went into slow stretches, so its survival is the 'cleared after hours' kind. Over a thousand cycles the nudge also failed the energy audit in seventy-seven and sixty-six cycles at two conditions; all were energy losses, and none were gains. The bulk-physics evidence for the nudge holds where it was tested, but it covers only three conditions, and four cheap two-dimensional conditions where the unmodified engine runs were never checked. The 'multistable patterns are physics' reading rests on one elastic-window run and fits the 'contact-method artifact read as physics' failure mode. Housekeeping is clean apart from a disclosed two-minute breach of the core limit and a disclosed rewrite of two uncommitted ledger lines. The frozen engine tests were never recorded for either branch; I ran them, and both pass all seventy-four.",
+ "reviews": [
+  {
+   "claim_id": "E0003",
+   "plain_claim": "The position nudge runs all eight conditions where the unmodified engine stalls for one hundred twenty cycles at three starting seeds, with negligible added energy (E0003, E0016).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the nudge's diff against main (granular/edmd.py, 18 lines) and recomputed the audit for all twenty-four runs from their audit.json files.",
+     "finding": "The nudge only raises a sphere to two floating-point steps above the plate after a plate event. It never lowers one, never touches velocities, and books m g dz in its own slot, outside plate work, so any energy it added would show up as a positive audit residual and could not hide in plate work. No audit failure is positive: the failures are three cycles at strong driving, low frequency, depth ten (seed one), eight at strong driving, high frequency, depth fifteen (seed one), and two each in two seed-two and seed-three runs, all energy losses of one to nine hundred-millionths of the cycle's throughput, with momentum clean and no collision gaining energy. That matches the ledger. The nudge's own energy is one quadrillionth to one ten-trillionth of plate work."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Checked the run grid against the referee's list of stalled conditions.",
+     "finding": "All eight stalled conditions are covered at seeds one, two and three, including the deep layers. The survival evidence here is about hard cases."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read slow_episodes in the twenty-four summaries, as referee/checker.md asks.",
+     "finding": "Survival here is genuine, not cleared-after-hours: only three runs had slow stretches (thirty, thirty-four and seven episodes), and they cleared in seconds of CPU."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Ran the frozen referee tests against each branch myself, from outside the repository so that the worktree's engine is the one imported (I checked the module paths).",
+     "finding": "Both branches pass all seventy-four tests. The session recorded no frozen-test result anywhere, and the method in decision D0004 (setting PYTHONPATH to the worktree) imports main's engine whenever it is run from inside the sequel folder, because Python puts the current folder first. The runs themselves are fine: long_contact.py records the worktree path and commit b608fef."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0008",
+   "plain_claim": "Run ten times longer, toward a thousand cycles, the nudge eventually fails at one or more stalled conditions; six of eight reached a thousand cycles with no physical failure, and audit failures are all energy losses.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the two runs left in the background (pid 45753 and 46464) against their summaries and logs.",
+     "finding": "The depth-ten, strong-driving, low-frequency run ended at 04:03, after the session, in a sphere-pair overlap in cycle one hundred sixty-three (phase 0.998). It had spent 3.96 of its 4.62 CPU-hours in 1,451 slow episodes from cycle one hundred sixty onward; the final one ran an hour and five billion events. So the registration's hypothesis (the nudge eventually fails) is now supported at this condition, and the nudge fails the referee's survival test there. The summary's 'no overlap occurred' was true when written, but it is now out of date. The depth-fifteen run cleared its slow stretch at cycle two hundred forty-eight and is at cycle seven hundred forty, but 4.55 of its 6.15 CPU-hours were slow, so if it completes, its survival is the cleared-after-hours kind."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Recomputed every audit row for the eight continuation runs.",
+     "finding": "No energy gains in any cycle. But at a thousand cycles, the strong-driving, high-frequency runs failed the audit in seventy-seven cycles (depth ten) and sixty-six cycles (depth fifteen); depth five at low frequency failed in twenty-one; the depth-fifteen low-frequency run had failures up to 1.3 millionths of throughput. referee/checker.md asks that every completed cycle pass. The losses are not injection, but by the referee's letter the nudge does not have a clean audit over long runs. The session put this question to Chris honestly. For comparison, the unmodified engine's own audit failures are losses in two dimensions, but at the three-dimensional case-g baseline that is still running they are five gains (up to six ten-millionths) with momentum failures too, so the sign is not tied to the method."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked checkpoint times of the continuation runs.",
+     "finding": "The depth-ten run's last checkpoint was written at 23:38; the referee's tool skips checkpoints during slow episodes, so more than four hours of work were unprotected. This is a referee design limit, not the agent's choice, but it conflicts with the program's rule of losing less than about thirty minutes to a kill."
+    }
+   ],
+   "what_would_resolve": "Next session: collect both runs and append an outcome for E0008 that records the overlap (cycle one hundred sixty-three, phase 0.998). From the last state available, find out whether the overlapping pair includes a sphere in plate contact, which is the notes' mechanism of repeated nudges under a resting stack, or two spheres in the bulk. Report the depth-fifteen run's survival as cleared-after-hours, with its slow CPU share. Then update PROGRAM.md and the 'nudge survives every stalled condition' framing to match."
+  },
+  {
+   "claim_id": "E0017",
+   "plain_claim": "Where a baseline runs, the nudge does not change the bulk physics: shallow two-dimensional (E0004, E0006, E0007), deep two-dimensional against the C code (E0009, E0010), and three-dimensional case g against a provisional five-block baseline (E0017).",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Re-measured the case-g nudge seed-one run and the deep two-dimensional nudge run with referee/bulk.py and judged them against the recorded baselines.",
+     "finding": "I reproduced the numbers exactly: case g fails only plate contact at +7.37 standard deviations (threshold 5.51 for five blocks), and the deep two-dimensional run passes everything (largest +1.26). The evidence files match their checksums."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared the conditions judged with the conditions where a baseline exists.",
+     "finding": "Only three conditions were judged. Two contain long contacts (deep two-dimensional, three-dimensional case g); the shallow one has none. The unmodified engine also runs four more two-dimensional conditions (Gamma 3.5 at depth ten for both frequencies, Gamma 3.5 at high frequency and depth five, and Gamma 5 at high frequency and depth five). Each takes seconds, and none was judged, although the session ended seventy minutes early with seven cores free."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read the verdicts by the rule's letter.",
+     "finding": "By the referee's rule the nudge failed twice: horizontal energy at shallow seed three (-3.70 against 3.62) and plate contact at case-g seed one. At the deep condition its two new seeds sat at 3.61 and 3.27, just under the threshold. Explaining these away with unmodified-engine controls that fail or nearly fail the same way is reasonable, and the session reported it honestly as context, not reversal. But it is an argument about the rule, which is Chris's call, not a pass. Case g rests on five blocks from a baseline that later overlapped."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the audit of the seed-one unmodified case-g run, which the session plans to use as the full ten-block baseline.",
+     "finding": "By cycle five hundred fifty it had five audit failures, all energy gains, the largest six ten-millionths of throughput. referee/README.md says cycles where the unmodified engine slows down are not a clean baseline even when it survives them, so this run cannot be used as a full baseline without addressing that."
+    }
+   ],
+   "what_would_resolve": "Judge three nudge seeds against ten-block unmodified baselines at the four untested two-dimensional conditions where the unmodified engine runs. That is a few CPU-minutes, and it should be registered before running. Before using the seed-one case-g run as a baseline, report its audit failures and either exclude the affected blocks or say why they don't matter."
+  },
+  {
+   "claim_id": "E0010",
+   "plain_claim": "The elastic window's failure of all seven bulk quantities at deep Gamma 3.5, high frequency, seed one is a pattern-state effect (three wavelengths instead of two): multistable patterns, which is physics, not a contact-method effect.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Read E0010's evidence and the wavelength list.",
+     "finding": "Seven runs were checked. The only one with three wavelengths is the elastic-window run at seed one; all the nudge, unmodified and other window runs have two. One run with one method is exactly the evidence the physical-result class forbids, so calling this multistability is not yet supported. A window artifact that only sometimes shows up is just as consistent with the data. The C baseline's own pattern cannot be checked because its trajectories were deleted (disclosed)."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Checked the measurement window.",
+     "finding": "Patterns form slowly. One final snapshot per run after one hundred twenty cycles doesn't show whether the three-wavelength state lasts or is still coarsening."
+    }
+   ],
+   "what_would_resolve": "Take the window run's three-wavelength final state and continue it with the nudge and with the unmodified engine (it runs there after cycle one) for a hundred cycles. If the three-wavelength pattern persists under other contact handling, it is a real alternative state; if it collapses to two, it was the window. Add a few more nudge or unmodified seeds to see whether any lands in three wavelengths on its own. All of this is two-dimensional and cheap."
+  },
+  {
+   "claim_id": "E0002",
+   "plain_claim": "The elastic window (v_el 0.01, and 0.03 in three dimensions) does not survive the stalled conditions and is not a candidate method (E0002, E0005).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Compared run caps and outcomes against the unmodified engine's survival pilot.",
+     "finding": "Four of the eight window runs ended in physical failures (sphere overlaps, a plate collision off the surface), which settles 'does not survive' whatever the CPU budget. But window runs were capped at one CPU-hour (decision D0005), against eight for the nudge, and the unmodified engine's long run at strong driving, low frequency, depth five cleared slow stretches after three to four CPU-hours. So at the three conditions where the window was stopped by its cap ('got no further than the unmodified engine' at Gamma 3.5 low frequency, Gamma 5 low frequency depth five, and three dimensions), the comparison is limited by the cap. The same goes for the single one-hour, single-seed v_el = 0.03 run. The verdict stands; the 'no further' wording is stronger than those three runs support."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Recomputed the window runs' audits.",
+     "finding": "No failing cycle and no energy gains in the completed cycles, as reported."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session started seven and a half minutes after its scheduled start, on AC power with no sleep: the power log shows a full wake at 22:45 and nothing after it until morning. It ran four hours forty minutes and stopped seventy minutes before the window closed. It registered and finished sixteen experiments, and left three background jobs with a clear collection plan. The machine did not limit the science much. CPU use was about thirty hours of a four-hundred-hour weekly budget, and disk stayed at 1.8 of fifteen gigabytes with ninety-six free. The binding limits were the agent's own choices: one-CPU-hour caps on the window runs, and ending early with seven of ten cores idle while cheap two-dimensional bulk checks were still undone. The temporary folder is empty, and I found nothing written outside the two program folders since 23:00. program check passes, and its only approval in the last day is Chris's 'Approve human-only files (14)' commit at 09:40 on November sixth.",
+  "discrepancies": [
+   "limits_hit calls the ten-core limit the binding constraint, but the session ended at 03:50 with only three jobs running, leaving seven cores and seventy minutes unused.",
+   "The ledger's CPU total (17.6 hours, finished outcomes only) and disk total (zero) differ from the summary's 29.4 CPU-hours and 1.8 GB. My own sum from run summaries, corrected to 03:50, is about thirty-one CPU-hours, close to the summary. The ledger lags because the background jobs have no outcome records yet.",
+   "The summary says the two stuck nudge runs were in slow stretches 'since cycles one hundred sixty-two and two hundred forty-six'. The depth-ten run's episodes started at cycle one hundred sixty.",
+   "runs/active.jsonl still lists pid 45753, which ended at 04:03 in an overlap. That is expected to be collected next session, but the entry is stale now.",
+   "Disclosed by the session and not verifiable from the machine now: thirteen jobs against the ten-core limit for about two minutes around 23:34; two uncommitted ledger lines for E0006 replaced, not appended to (git shows no committed ledger line was ever removed); and about 3.2 GB of C-code trajectories deleted after measurement, which is why the C baseline's pattern cannot be checked."
+  ]
+ }
+}
