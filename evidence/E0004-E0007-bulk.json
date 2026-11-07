@@ -1,0 +1,538 @@
+{
+ "experiments": [
+  "E0004",
+  "E0006",
+  "E0007"
+ ],
+ "condition": "2D Gamma 3.5, f* 0.3, depth 5 (N 500, L 100); settle 20 cycles, measure 100 (period 2)",
+ "baseline": {
+  "run": {
+   "commit": "6c25f16",
+   "branch": "main",
+   "dirty": false,
+   "outcome": "completed",
+   "cycles": 1020,
+   "worst_energy_residual": 9.287370042108668e-12,
+   "audit_failures": 0,
+   "cpu_seconds": 17.7
+  },
+  "seed": 1,
+  "blocks": 10,
+  "cycles_per_block": 100,
+  "means_and_block_sd": {
+   "zcm": [
+    8.3842,
+    0.02543
+   ],
+   "thickness": [
+    3.75106,
+    0.05111
+   ],
+   "ke_vertical": [
+    2.8137,
+    0.01623
+   ],
+   "ke_horizontal": [
+    0.41686,
+    0.00975
+   ],
+   "temp_vertical": [
+    1.20115,
+    0.01842
+   ],
+   "temp_horizontal": [
+    0.4125,
+    0.00944
+   ],
+   "plate_contact": [
+    0.01436,
+    0.00017
+   ]
+  }
+ },
+ "judge_threshold_sd": 3.62,
+ "runs": [
+  {
+   "method": "window",
+   "seed": 2,
+   "run": {
+    "commit": "90ee7d2",
+    "branch": "method/elastic-window",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 1.3617082508947441e-12,
+    "audit_failures": 0,
+    "cpu_seconds": 2.2
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 1.39,
+    "thickness": 0.06,
+    "ke_vertical": -0.33,
+    "ke_horizontal": 0.29,
+    "temp_vertical": -0.49,
+    "temp_horizontal": 0.22,
+    "plate_contact": -1.29
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "nudge",
+   "seed": 2,
+   "run": {
+    "commit": "b608fef",
+    "branch": "method/nudge",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.369635646934085e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.2
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -0.8,
+    "thickness": 0.06,
+    "ke_vertical": -0.49,
+    "ke_horizontal": -1.42,
+    "temp_vertical": -0.19,
+    "temp_horizontal": -1.42,
+    "plate_contact": 0.88
+   },
+   "passes": true,
+   "drift_flags": [
+    "thickness",
+    "ke_vertical",
+    "temp_vertical"
+   ]
+  },
+  {
+   "method": "window",
+   "seed": 3,
+   "run": {
+    "commit": "90ee7d2",
+    "branch": "method/elastic-window",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 8.79471862160289e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.4
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.81,
+    "thickness": -0.65,
+    "ke_vertical": -0.84,
+    "ke_horizontal": 0.16,
+    "temp_vertical": -0.98,
+    "temp_horizontal": 0.16,
+    "plate_contact": -1.07
+   },
+   "passes": true,
+   "drift_flags": [
+    "plate_contact"
+   ]
+  },
+  {
+   "method": "nudge",
+   "seed": 3,
+   "run": {
+    "commit": "b608fef",
+    "branch": "method/nudge",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.566784410215375e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.3
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -1.56,
+    "thickness": -2.12,
+    "ke_vertical": -1.92,
+    "ke_horizontal": -3.7,
+    "temp_vertical": -1.71,
+    "temp_horizontal": -3.7,
+    "plate_contact": 0.41
+   },
+   "passes": false,
+   "drift_flags": [
+    "plate_contact"
+   ]
+  },
+  {
+   "method": "window",
+   "seed": 4,
+   "run": {
+    "commit": "90ee7d2",
+    "branch": "method/elastic-window",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.095172591404422e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.3
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -0.44,
+    "thickness": 0.57,
+    "ke_vertical": 0.34,
+    "ke_horizontal": -0.2,
+    "temp_vertical": 0.18,
+    "temp_horizontal": -0.12,
+    "plate_contact": 0.49
+   },
+   "passes": true,
+   "drift_flags": [
+    "zcm",
+    "thickness",
+    "ke_vertical",
+    "ke_horizontal",
+    "temp_vertical",
+    "temp_horizontal"
+   ]
+  },
+  {
+   "method": "nudge",
+   "seed": 4,
+   "run": {
+    "commit": "b608fef",
+    "branch": "method/nudge",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.644107958120154e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.4
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.71,
+    "thickness": -1.75,
+    "ke_vertical": -1.52,
+    "ke_horizontal": -0.18,
+    "temp_vertical": -1.73,
+    "temp_horizontal": -0.21,
+    "plate_contact": -1.9
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "window",
+   "seed": 5,
+   "run": {
+    "commit": "90ee7d2",
+    "branch": "method/elastic-window",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.111705408839298e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.4
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.04,
+    "thickness": -1.79,
+    "ke_vertical": -1.39,
+    "ke_horizontal": -1.84,
+    "temp_vertical": -1.11,
+    "temp_horizontal": -1.9,
+    "plate_contact": 0.3
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "nudge",
+   "seed": 5,
+   "run": {
+    "commit": "b608fef",
+    "branch": "method/nudge",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 6.115354426642409e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.3
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.34,
+    "thickness": -2.33,
+    "ke_vertical": -2.27,
+    "ke_horizontal": -2.06,
+    "temp_vertical": -1.66,
+    "temp_horizontal": -2.13,
+    "plate_contact": -1.23
+   },
+   "passes": true,
+   "drift_flags": [
+    "thickness",
+    "ke_vertical",
+    "ke_horizontal",
+    "temp_vertical",
+    "temp_horizontal"
+   ]
+  },
+  {
+   "method": "unmodified",
+   "seed": 2,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 1.1660729331399857e-12,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -0.95,
+    "thickness": 0.02,
+    "ke_vertical": 0.94,
+    "ke_horizontal": 0.86,
+    "temp_vertical": 0.77,
+    "temp_horizontal": 0.92,
+    "plate_contact": -0.1
+   },
+   "passes": true,
+   "drift_flags": [
+    "zcm",
+    "plate_contact"
+   ]
+  },
+  {
+   "method": "unmodified",
+   "seed": 3,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 5.954657808875588e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -0.02,
+    "thickness": -0.89,
+    "ke_vertical": -0.44,
+    "ke_horizontal": -1.21,
+    "temp_vertical": -0.75,
+    "temp_horizontal": -1.3,
+    "plate_contact": -0.44
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "unmodified",
+   "seed": 4,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 8.348120893114216e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.01,
+    "thickness": -1.18,
+    "ke_vertical": -0.57,
+    "ke_horizontal": -0.86,
+    "temp_vertical": -0.85,
+    "temp_horizontal": -0.94,
+    "plate_contact": -0.2
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "unmodified",
+   "seed": 5,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 6.827893615012568e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.35,
+    "thickness": -0.9,
+    "ke_vertical": -0.6,
+    "ke_horizontal": 0.2,
+    "temp_vertical": -0.46,
+    "temp_horizontal": 0.17,
+    "plate_contact": -0.29
+   },
+   "passes": true,
+   "drift_flags": [
+    "zcm"
+   ]
+  },
+  {
+   "method": "unmodified",
+   "seed": 6,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 8.379784627876622e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": 0.47,
+    "thickness": -0.3,
+    "ke_vertical": -0.12,
+    "ke_horizontal": 0.21,
+    "temp_vertical": -0.05,
+    "temp_horizontal": 0.18,
+    "plate_contact": -0.84
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "unmodified",
+   "seed": 7,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 6.038226664478756e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.6
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -1.85,
+    "thickness": 0.3,
+    "ke_vertical": 0.03,
+    "ke_horizontal": -2.61,
+    "temp_vertical": 0.09,
+    "temp_horizontal": -2.55,
+    "plate_contact": 2.21
+   },
+   "passes": true,
+   "drift_flags": []
+  },
+  {
+   "method": "unmodified",
+   "seed": 8,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.615315379498887e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.7
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -0.64,
+    "thickness": -1.19,
+    "ke_vertical": -0.84,
+    "ke_horizontal": -1.78,
+    "temp_vertical": -0.53,
+    "temp_horizontal": -1.96,
+    "plate_contact": 0.19
+   },
+   "passes": true,
+   "drift_flags": [
+    "zcm",
+    "plate_contact"
+   ]
+  },
+  {
+   "method": "unmodified",
+   "seed": 9,
+   "run": {
+    "commit": "6c25f16",
+    "branch": "main",
+    "dirty": false,
+    "outcome": "completed",
+    "cycles": 120,
+    "worst_energy_residual": 7.047184647292448e-13,
+    "audit_failures": 0,
+    "cpu_seconds": 2.9
+   },
+   "deviation_in_baseline_block_sd": {
+    "zcm": -1.22,
+    "thickness": -1.21,
+    "ke_vertical": -0.96,
+    "ke_horizontal": -3.26,
+    "temp_vertical": -1.31,
+    "temp_horizontal": -3.36,
+    "plate_contact": 0.16
+   },
+   "passes": true,
+   "drift_flags": []
+  }
+ ],
+ "ke_horizontal_spread": {
+  "window": {
+   "ke_horizontal_deviations": [
+    0.29,
+    0.16,
+    -0.2,
+    -1.84
+   ],
+   "mean": -0.4,
+   "sd": 0.98
+  },
+  "nudge": {
+   "ke_horizontal_deviations": [
+    -1.42,
+    -3.7,
+    -0.18,
+    -2.06
+   ],
+   "mean": -1.84,
+   "sd": 1.47
+  },
+  "unmodified": {
+   "ke_horizontal_deviations": [
+    0.86,
+    -1.21,
+    -0.86,
+    0.2,
+    0.21,
+    -2.61,
+    -1.78,
+    -3.26
+   ],
+   "mean": -1.06,
+   "sd": 1.45
+  }
+ },
+ "nudge_energy_seed2_120_cycles": {
+  "nudge_energy": 2.376255088674577e-10,
+  "plate_work": 1767019.048109902,
+  "ratio": 1.344781818405606e-16
+ },
+ "data": {
+  "dir": "/Users/bizon/Projects/experiments/sequel-data/runs",
+  "size_mb": {
+   "E0004": 3.6,
+   "E0006": 2.4,
+   "E0007": 3.2
+  },
+  "sha256": {
+   "E0004/baseline.json": "53839212cadaedad85ac1e057a69bc0060173e88be47e1f73d6cc1d136e48996",
+   "E0004/baseline-main-g3.5-f0.3-d5/quantities.npz": "2a98136c4c04e0361ca95c1f15ce3dce509de19cecec90a0ea139eb488c9b3b7"
+  }
+ }
+}
