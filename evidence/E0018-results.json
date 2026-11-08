@@ -1,0 +1,55 @@
+{
+ "failure": {
+  "error": "sphere pair overlaps",
+  "cycle": 162,
+  "phase": 0.9977964393040597,
+  "cpu_seconds": 15925.717919
+ },
+ "at_failure": {
+  "time_local": 10.517697964689276,
+  "phase": 0.9977964393040597,
+  "min_gap": -2.0000004652409586e-08,
+  "lower": {
+   "index": 155,
+   "plate_gap": 8.326672684688674e-17,
+   "contacts": 2
+  },
+  "upper": {
+   "index": 156,
+   "plate_gap": 0.8703481385810139,
+   "contacts": 3
+  },
+  "vertical_separation": 0.8679361407733748,
+  "horizontal_separation": 0.5101523468543032,
+  "spheres_within_1em6_of_plate": 79
+ },
+ "pre_failure": {
+  "time_local": 10.517696468679421,
+  "phase": 0.9977962973801034,
+  "min_gap": -1.9999808587023438e-08,
+  "lower": {
+   "index": 155,
+   "plate_gap": 1.9984014443252818e-15,
+   "contacts": 2
+  },
+  "upper": {
+   "index": 156,
+   "plate_gap": 0.8703481385812587,
+   "contacts": 3
+  },
+  "vertical_separation": 0.8679361407736177,
+  "horizontal_separation": 0.5101523468542766,
+  "spheres_within_1em6_of_plate": 79
+ },
+ "what": "Bit-for-bit replay of E0008/2d-g5-f0.3-d10 (nudge b608fef, seed 1) from its cycle-160 checkpoint with tools/overlap_repro.py, then tools/replay_pair.py: all spheres projected to the latest state time, minimum pair gap, plate gap of each sphere of the pair (sphere bottom minus plate surface), vertical and horizontal separation, and contacts (other spheres within 1e-6 D).",
+ "reproduces_original": "Same failure cycle (zero-based 162) and phase 0.9977964393040597 as the original run's summary.",
+ "data": {
+  "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0018/replay-d10/",
+  "size_mb": 0.229,
+  "sha256": {
+   "at_failure.npz": "66bf92c0c3dab43a3005e68ae412825471013db8864a1be6d7204f3e8ce59a81",
+   "failure.json": "e82fe8ad41cca25e4d597b8fed8676b9ed0ea45637fd4695da7b3e639d2226a8",
+   "pre_failure.npz": "3c9cb78e3fe65d17e7e953ec70eb2f4daefca9fb4cb7b068e7e9aa71fe499f5b"
+  }
+ }
+}

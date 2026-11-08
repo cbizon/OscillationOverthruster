@@ -1,0 +1,294 @@
+{
+ "experiment": "E0019",
+ "note": "Case-b (3D Gamma 3, f* 0.44, N 60000, L 100) attempts with the unmodified engine (main 6f45fed): default start at seeds 3 and 4; soft starts (tools/soft_start.py, decision D0011) hot = fill 0.30 v_init 1.0, hotdilute = fill 0.10 v_init 1.0, colddilute = fill 0.10 v_init 0.1, pilots capped at 1 CPU-hour; colddilute-long = the same start rerun with an 8 CPU-hour cap (D0012). Seeds 1 and 2 with the default start failed in E0011/E0012.",
+ "runs": [
+  {
+   "run": "E0019/main-b-colddilute-long-s1",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 1,
+   "failure_phase": 0.8738427410426427,
+   "cycles_completed": 1,
+   "cpu_seconds": 5485.8,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.6138984625452907e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "dbe3d003c46052e6b716831cb8e7d16eb5fad2fe673f4c00f00a9efc1b7473d2",
+     "audit.json": "f908b884857ccc8044112957af3ec179fcaf02ea778ae11d55275d2faebc598f"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-colddilute-long-s2",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 1,
+   "failure_phase": 0.9159676774559522,
+   "cycles_completed": 1,
+   "cpu_seconds": 6659.1,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.1402535846087026e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "3167134e583c8dfa92dd8eea319d6755e20632b123dba2b42fc6a55c14485551",
+     "audit.json": "03103b97de5f3b44ea119cbdf918e28283fd8b4e4a39d52b559d0970efd6149b"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-colddilute-s1",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1,
+   "cpu_seconds": 3602.3,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.6138984625452907e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "d8ed59c47592579c9c49b90a2c5e720c7d18891fc9f4bd4b968e459c5a2f8f22",
+     "audit.json": "f908b884857ccc8044112957af3ec179fcaf02ea778ae11d55275d2faebc598f"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-colddilute-s2",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "cpu_budget",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1,
+   "cpu_seconds": 3604.2,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.1402535846087026e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "e5d08693d6658785be76a8ea871c3a95c3df876dcbff9fb40cc0dfe990cb63ae",
+     "audit.json": "03103b97de5f3b44ea119cbdf918e28283fd8b4e4a39d52b559d0970efd6149b"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-hot-s1",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 0,
+   "cpu_seconds": 3603.7,
+   "slow_episodes": 10,
+   "slow_cpu_seconds": 386.5,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.732,
+    "sha256": {
+     "summary.json": "aa0c5c5511d631ad2117fba2e10330e9060facabd7219d13b18f980a2d7f3f3e",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-hot-s2",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9471644559938649,
+   "cycles_completed": 0,
+   "cpu_seconds": 1941.1,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.728,
+    "sha256": {
+     "summary.json": "1dceabfea3d596208b62a56ae377f3062ddd3184d8a05b70cdff6378506fe842",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-hotdilute-s1",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 1,
+   "failure_phase": 0.9128982897244018,
+   "cycles_completed": 1,
+   "cpu_seconds": 1486.5,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.647008732671849e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "889f6215c06ecaee2782e8402b1b3ddfa308bc7e5f847742975504eecd1e50cb",
+     "audit.json": "189d29704d9303f927e4bef4f3f0140c91c2ac605e5b367b3b3edc8cae20ad56"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-hotdilute-s2",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 1,
+   "failure_phase": 0.882678717611757,
+   "cycles_completed": 1,
+   "cpu_seconds": 2872.4,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.116446587373598e-14,
+   "checkpoint_cycle": 0,
+   "data": {
+    "size_mb": 6.731,
+    "sha256": {
+     "summary.json": "8b98918058c64f59912df978d80d3eb0d9800de10ae70d908eddff9943273443",
+     "audit.json": "14f834a685a07abedbb9b36222b23d1121b26666f78717624a11e7e418d228bf"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-s3",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9070933311466647,
+   "cycles_completed": 0,
+   "cpu_seconds": 4092.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "0c11274ea8cda3df8f8ab788938fb01282e26a4ea5d5de5ac4a771c9319b0114",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0019/main-b-s4",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 4,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9223380871564077,
+   "cycles_completed": 0,
+   "cpu_seconds": 1214.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "3f0c4908368295d3ac82413631ae08a582714955c5067e0360d4ff1d8f222d5b",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  }
+ ]
+}

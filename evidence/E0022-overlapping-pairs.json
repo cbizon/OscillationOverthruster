@@ -1,0 +1,77 @@
+{
+ "experiment": "E0022",
+ "what": "Which pair overlaps when plate-stick fails. Each failure replayed from the start with method/plate-stick (3900896) in the referee's chunking, states projected to the failure time, minimum pair gap found (-2e-8, the engine's overlap limit). In every case one sphere of the pair is stuck on the plate (gap to plate below 1e-15 D, stuck flag 1) and the other is free and resting on it obliquely, its centre 0.3 to 0.9 D higher and 0.4 to 0.9 D to the side, with millions of pair collisions slower than 1e-10 before the overlap (counters in the replay). The replays reproduce the runs' failure cycles and phases. Script: sequel-data/tmp/ovl2.py (kept as sequel-data/runs/tools/stuck_overlap_replay.py).",
+ "replays": [
+  {
+   "condition": "2D Gamma 5 f* 0.3 depth 10 N 1000 L 100",
+   "seed": 1,
+   "cycle_zero_based": 2,
+   "phase": 0.88,
+   "stuck": 489,
+   "free": 508,
+   "free_height_above_stuck_D": 0.903,
+   "horizontal_offset_D": 0.41,
+   "note": "first diagnosis (E0021); also froze before the grazing fix"
+  },
+  {
+   "condition": "2D Gamma 5 f* 0.5 depth 10 N 1000 L 100",
+   "seed": 1,
+   "cycle_zero_based": 2,
+   "phase": 0.988,
+   "stuck": 701,
+   "free": 690,
+   "free_height_above_stuck_D": 0.665,
+   "horizontal_offset_D": 0.75
+  },
+  {
+   "condition": "2D Gamma 5 f* 0.5 depth 10 N 1000 L 100",
+   "seed": 2,
+   "cycle_zero_based": 2,
+   "phase": 0.84,
+   "stuck": 896,
+   "free": 883,
+   "free_height_above_stuck_D": 0.816,
+   "horizontal_offset_D": 0.564
+  },
+  {
+   "condition": "2D Gamma 5 f* 0.5 depth 15 N 1500 L 100",
+   "seed": 2,
+   "cycle_zero_based": 2,
+   "phase": 0.911,
+   "stuck": 496,
+   "free": 476,
+   "free_height_above_stuck_D": 0.378,
+   "horizontal_offset_D": 0.927
+  },
+  {
+   "condition": "2D Gamma 3.5 f* 0.3 depth 15 N 1500 L 100",
+   "seed": 3,
+   "cycle_zero_based": 0,
+   "phase": 0.945,
+   "stuck": 1045,
+   "free": 1017,
+   "free_height_above_stuck_D": 0.324,
+   "horizontal_offset_D": 0.944
+  },
+  {
+   "condition": "2D Gamma 5 f* 0.3 depth 5 N 500 L 100",
+   "seed": 3,
+   "cycle_zero_based": 26,
+   "phase": 0.854,
+   "stuck": 355,
+   "free": 348,
+   "free_height_above_stuck_D": 0.55,
+   "horizontal_offset_D": 0.833
+  },
+  {
+   "condition": "2D Gamma 5 f* 0.3 depth 15 N 1500 L 100",
+   "seed": 1,
+   "cycle_zero_based": 4,
+   "phase": 0.748,
+   "stuck": 1047,
+   "free": 1067,
+   "free_height_above_stuck_D": 0.68,
+   "horizontal_offset_D": 0.73
+  }
+ ]
+}

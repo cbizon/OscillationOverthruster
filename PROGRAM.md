@@ -25,8 +25,13 @@ after `DIRECTION.md` at the start of every session.
   5. cutoffs: a trigger, not a method; kept as instrumentation.
 - Order: 3 and 1 first as cheap baselines that show whether the stalled
   conditions get further, then 2, then 4.
-- Status: open. Nov 6: option 3 (elastic window) tried and does not help;
-  option 1 (nudge) survives every stalled condition so far. See Current state.
+- Status: open. Nov 6: option 3 (elastic window) tried and does not help.
+  Option 1 (nudge) completes 120 cycles at every stalled condition and
+  seed, but fails the survival test at 2D Gamma 5, f* 0.3, depth 10 (overlap
+  at cycle 163, seed 1) and survives depth 15 only after hours of slow
+  stretches. Nov 7: option 2 (plate-stick) tried and gets no further than the
+  unmodified engine: the lasting contact moves to stuck-free sphere pairs.
+  See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
 
@@ -66,80 +71,85 @@ after `DIRECTION.md` at the start of every session.
 The five options in `notes/contact-options.md`.
 
 - **Option 3, elastic window** (`method/elastic-window`, v_el = 0.01;
-  `method/elastic-window-v003`, v_el = 0.03). Tried Nov 6. Survives no
-  better than the unmodified engine at 6 of 8 stalled conditions: slow
-  stretches with 1e7 to 1e8 collisions slower than 1e-10, then overlaps or
-  CPU caps. v_el = 0.03 does worse than 0.01 in 3D. Passes bulk physics at
-  the shallow condition and at the deep Gamma 3.5 f* 0.5 condition (2 of 3
-  seeds; the third run sits in a different pattern state). Not a candidate.
-- **Option 1, position nudge** (`method/nudge`). Tried Nov 6. Completes 120
-  cycles at all 8 stalled conditions, and 1000 cycles at every condition
-  finished so far (E0008). Adds 1e-15 to 1e-13 of the plate's work. Passes
-  bulk physics against the unmodified engine (shallow) and the C code
-  (deep Gamma 3.5 f* 0.5, 3 seeds). Remaining slow stretches come from
-  lasting pair contacts in the dense Gamma 5 layers, not the plate. The
-  leading candidate, but Figure 1 comparison and 3D bulk checks aren't
-  done, and it is the 'baseline only' option in the notes.
-- Options 2 and 4 change the restitution law (e = 0 capture), so they need
-  Chris's go-ahead before implementation.
+  `-v003`, v_el = 0.03). Not a candidate (Nov 6): no better survival than
+  the unmodified engine.
+- **Option 1, position nudge** (`method/nudge`, b608fef). The only method
+  that gets through the stalled conditions: 120 cycles at all 8 stalled 2D
+  conditions and 3D Gamma 5 at seeds 1 to 3, and 1000 cycles at 7 of 8
+  (seed 1). It does fail: overlap at 2D Gamma 5 f* 0.3 depth 10 (cycle 163,
+  seed 1); depth 15 completed with 71% of its CPU in slow stretches. Every
+  audit failure is an energy loss. Bulk physics passes wherever a baseline
+  exists (2D shallow and deep against the unmodified engine and C code; 2D
+  L = 400 at three conditions, 3 seeds each, Nov 7; provisional 3D case g).
+- **Option 2, plate-stick** (`method/plate-stick`, 3900896; v_stick 1e-4;
+  `method/plate-stick-v1e-3` for the pilot). Built and tested Nov 7 (frozen
+  tests pass, capture/ride/release verified against the closed form, energy
+  books balance to round-off). Fails survival like the unmodified engine (23
+  of 24 runs overlap, at the same cycles), because every failure is a free
+  sphere pressed obliquely on a stuck one. Captured spheres are always freed
+  by collisions before their release phase. Where baselines exist it barely
+  captures, so its bulk passes are uninformative. Not a candidate as it
+  stands; transitive sticking (a model change Chris ruled out by default)
+  or option 4 would be needed for the stuck-free pairs.
+- **Option 4** (persistent contact) is not approved. Plate-stick's failures
+  are exactly the pair contacts option 4 is designed to handle.
 
 ## Current state
 
 The engine on `main` is the hardened import described in `README.md`: it
 fails loudly on physical violations, matches an all-pairs reference, and
-restarts bit-for-bit, but stalls or overlaps in lasting contact. Nov 6
-showed this is wider than the Gamma = 5 cases: at 3D N = 60000 it fails in
-the first landing at Figure 1 case b (overlap at seed 1, frozen time at
-seed 2; E0011, E0012) and overlapped at cycle 567 of case g (seed 2,
-E0017), always at drive phase 0.90 to 0.94.
+restarts bit-for-bit, but stalls or overlaps in lasting contact, including
+at 3D Figure 1 case b (first landing, all 4 seeds tried with the default
+start) and case g (overlap at cycle 567, seed 2; seed 1 ran 586 cycles to
+its CPU cap with 5 audit-failing cycles, all energy gains).
 
-It also runs 2D (spheres confined to a plane, `dim=2`).
+Contact methods are on branches with worktrees under
+`sequel-data/worktrees/` (merging needs Chris); frozen referee tests pass on
+every branch (74 each), run with the branch's engine imported (Nov 7).
 
-Contact methods, on branches with worktrees under
-`sequel-data/worktrees/` (merging needs Chris):
+Nov 7 findings:
 
-- `method/nudge` (b608fef): survives everything tried so far. 120 cycles
-  at all 8 stalled conditions at seeds 1, 2, 3 (E0003, E0016); 1000
-  cycles at 6 of them (E0008; two Gamma 5 f* 0.3 runs, depths 10 and 15,
-  are inside long slow stretches at cycles 162 and 246 and still running).
-  3D N = 60000: 120 cycles at cases b and g and Gamma 5 (E0013). Nudge energy 1e-15 to 1e-13 of plate work.
-  Audit failures happen only in many-collision cycles and are always
-  energy losses, never gains. Bulk physics passes against the unmodified
-  engine (2D shallow), the C code (2D Gamma 3.5 f* 0.5 depth 15, 3
-  seeds), and provisionally at 3D case g (2 of 3 seeds; the third fails
-  plate contact, as does the unmodified engine's own control).
-- `method/elastic-window` (90ee7d2) and `-v003` (b1e4086): not a
-  candidate; no better survival than the unmodified engine.
+- Wider 2D boxes (L = 400): 13 to 15 pattern wavelengths; run-to-run spread
+  over the judged 100-cycle window matches block spread (but so it did at
+  L = 100 in the same pilot, so the earlier excess wasn't reproduced). The
+  unmodified engine fails more first landings at L = 400 (depth 10: 2 of 5
+  seeds at f* 0.5, 2 of 2 at f* 0.3), and the C code aborts at L = 400 at
+  Gamma 3.5 f* 0.3 depth 10 and Gamma 5 f* 0.5 depth 5, so those have no
+  baseline at this width.
+- Case-b baseline: default start fails the first landing at seeds 1 to 4.
+  Soft starts (engine constructor arguments via a cycle-0 checkpoint,
+  decision D0011): hot fails in cycle 1 or slows; hot-dilute gets through
+  cycle 1 and fails in cycle 2 at both seeds; cold-dilute (fill 0.10,
+  v_init 0.1) passes cycle 1 and fails in cycle 2, its first dense landing,
+  at both seeds (E0019). No start gets the unmodified engine through case b;
+  every failure is at phase 0.87 to 0.95.
+- Audit census (E0023) over every run: see evidence/E0023-results.json.
 
-What the remaining slow stretches are: with the plate fixed by the nudge,
-they are lasting pair contacts inside dense Gamma 5 layers (millions of
-pair collisions slower than 1e-10, a few thousand plate ones).
+Tools (not in git): `sequel-data/runs/launch.sh` and `runs/tools/q.sh`
+(queue under the core limit), `soft_start.py`, `overlap_repro.py` and
+`stuck_overlap_replay.py` (replay a failure from a checkpoint or the start),
+`spread.py` (run-to-run versus block spread), `judge_set.py`,
+`audit_census.py`, `ev_runs.py`, `st.sh` (status), `watch.py`.
 
 Referee findings to bring to Chris (not edits; the referee is his):
 
-- The 1998 C code does not give 1020-cycle baselines at 2D Gamma 3.5
-  f* 0.3 depth 15 or Gamma 5 f* 0.3 depth 5 (aborts at 20 to 61 cycles,
-  3 seeds each); the 30-cycle pilot overstated coverage (E0009).
-- The bulk pass rule's block spread from one run understates run-to-run
-  spread for horizontal energy (2D, E0007) and plate contact (3D case g,
-  E0017), so unmodified-engine controls fail or nearly fail it.
-- At deep layers the bulk quantities depend on the selected pattern
-  wavelength (2D Gamma 3.5 f* 0.5 depth 15: three wavelengths across the
-  box versus two; E0010). `sequel-data/runs/tools/wavelength.py` reports it.
-
-Tools (not in git): `sequel-data/runs/launch.sh` starts a long_contact run
-in the background and records it in `active.jsonl`; `runs/tools/` has the
-queue scripts and the evidence helpers (`surv.py`, `cpu_session.py`,
-`wavelength.py`).
+- long_contact.py has no way to set the initial condition; soft starts go
+  through a cycle-0 checkpoint and --resume (D0011). An option would be
+  cleaner.
+- Checkpoints are skipped during slow episodes, so hours of work can be
+  lost to a kill (E0008 depth 10: last checkpoint four hours before the
+  overlap).
+- The 1998 C code does not give 1020-cycle baselines at several 2D
+  conditions (E0009) and none at two L = 400 conditions (E0024).
 
 ## Next
 
-- Collect the runs left going (E0008 two runs, E0014 seed-1 case-g
-  baseline; see `sequel-data/runs/active.jsonl`) and record E0008's outcome.
-- If the E0014 seed-1 baseline reaches 1020 cycles, judge the case-g nudge
-  runs against a full 10-block baseline.
-- Wait for Chris on options 2 and 4 (they change the restitution law), the
-  Figure 1 comparison spec, and how the pass rule should treat run-to-run
-  spread and pattern state. Meanwhile: more nudge bulk checks where a
-  baseline runs, and characterize the lasting pair contacts that still
-  slow the nudge.
+- Collect the two E0025 depth-10 nudge continuations.
+- Nov 7: the nudge's depth-10 overlap (E0018) is a free sphere pressed
+  obliquely on a sphere at the plate, the same configuration that ends every
+  plate-stick failure (E0022).
+- Case b has no baseline from either engine; ask Chris whether the C code at
+  3D case b, or comparing methods with each other, should stand in.
+- Wait for Chris on: transitive sticking or option 4 for the stuck-free
+  pairs; how to treat the nudge's rare overlaps (the notes predict them);
+  the Figure 1 comparison spec.

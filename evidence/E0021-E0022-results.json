@@ -1,0 +1,1204 @@
+{
+ "experiment": "E0021, E0022",
+ "note": "Plate-stick (option 2) pilot (E0021, first-commit runs under E0021/first-commit, fixed code 3900896 in E0021/) and survival grid (E0022). Captures, releases, capture energy (EN_CAPTURE), snap energy and plate work are the engine's cumulative tallies in each final checkpoint (none for runs that failed before their first checkpoint). Corrections to the outcome texts: the fixed-code overlap at 2D Gamma 5 f* 0.3 depth 10 (v_stick 1e-4) came after about 14 million pair collisions slower than 1e-10 (engine counter in the replay), not about a million (E0021); capture energy at v_stick 1e-4 was about 2e-15 of plate work in the 30-cycle pilot, not 1e-14 (E0022). The v_stick 1e-3 3D run of E0022 later cleared its slow stretch and overlapped at cycle 31 (zero-based 30) after 6830 CPU-s, with 1505042551 captures and one audit failure (cycle 13, energy -3.6e-7, momentum -2.0e-7).",
+ "runs": [
+  {
+   "run": "E0021/first-commit/plate-stick-2d-g5-f0.3-d10",
+   "commit": "381adc5",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "frozen_time",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 2,
+   "cpu_seconds": 1.5,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "753bfe6ef237adb9e4b51c8087351fb5cca4b293d0849d18f8f56fdb07ffe5c2",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0021/first-commit/plate-stick-3d-g5-f0.44",
+   "commit": "381adc5",
+   "branch": "method/plate-stick",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 30,
+   "cpu_seconds": 32.4,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.4333118083657255e-12,
+   "checkpoint_cycle": 30,
+   "captures": 1,
+   "releases": 0,
+   "capture_energy": -1.7989976276684505e-09,
+   "plate_work": 868477.2785460798,
+   "snap_energy": -1.1312391850521317e-16,
+   "data": {
+    "size_mb": 0.394,
+    "sha256": {
+     "summary.json": "5bc1a29e27d616923a757cacae042345c0334f39a6349dfe370bf71d7d926c45",
+     "audit.json": "0c5d3621f24e494943f9e0a5afd6733934fd68354506c1fe4d3e3c09a3abc5c6"
+    }
+   }
+  },
+  {
+   "run": "E0021/first-commit/plate-stick-v1e-3-2d-g5-f0.3-d10",
+   "commit": "04484dd",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "frozen_time",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 2,
+   "cpu_seconds": 1.1,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "b66d7e0f3a177a9c09e554350281658e2f124ac3546d8e176d32501bbca5b5c2",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0021/first-commit/plate-stick-v1e-3-3d-g5-f0.44",
+   "commit": "04484dd",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "frozen_time",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 12,
+   "cpu_seconds": 14.9,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 1.1330890911926098e-12,
+   "checkpoint_cycle": 10,
+   "captures": 119,
+   "releases": 0,
+   "capture_energy": -3.4282744852750016e-05,
+   "plate_work": 324167.32476990594,
+   "snap_energy": -4.550064378898405e-15,
+   "data": {
+    "size_mb": 0.348,
+    "sha256": {
+     "summary.json": "1ef0b670f4ed4ff0b76b1ae7225fc25f2ce6c032f6606a06497b00a6c23a9739",
+     "audit.json": "ab3ad0df6532aea5d2c7d47041fd0ef9c8e78d3d1c939dbbacde091a58972424"
+    }
+   }
+  },
+  {
+   "run": "E0021/plate-stick-2d-g5-f0.3-d10",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8795856661524988,
+   "cycles_completed": 2,
+   "cpu_seconds": 28.5,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 27.2,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "49c60d0c1336179123e8005f75381371918a74dd22b5c582c409cda7048a93d7",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0021/plate-stick-3d-g5-f0.44",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 30,
+   "cpu_seconds": 31.6,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.4333118083657255e-12,
+   "checkpoint_cycle": 30,
+   "captures": 1,
+   "releases": 0,
+   "capture_energy": -1.7989976276684505e-09,
+   "plate_work": 868477.2785460798,
+   "snap_energy": -1.1312391850521317e-16,
+   "data": {
+    "size_mb": 0.394,
+    "sha256": {
+     "summary.json": "b4f22906a758cf83ee20510da97a70dc45ad28d7e2c702ed9e49006ac5a2f6b8",
+     "audit.json": "0c5d3621f24e494943f9e0a5afd6733934fd68354506c1fe4d3e3c09a3abc5c6"
+    }
+   }
+  },
+  {
+   "run": "E0021/plate-stick-v1e-3-2d-g5-f0.3-d10",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8547966414917754,
+   "cycles_completed": 2,
+   "cpu_seconds": 75.6,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 69.3,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "21e12d30dd345f386c0136ea21a3fbbc7c15773b48f62a1289c326c51f1ac5c7",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0021/plate-stick-v1e-3-3d-g5-f0.44",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 12,
+   "cpu_seconds": 3600.1,
+   "slow_episodes": 4,
+   "slow_cpu_seconds": 3581.6,
+   "audit_failures": [],
+   "worst_energy_residual": 1.1330890911926098e-12,
+   "checkpoint_cycle": 10,
+   "captures": 119,
+   "releases": 0,
+   "capture_energy": -3.4282744852750016e-05,
+   "plate_work": 324167.32476990594,
+   "snap_energy": -4.550064378898405e-15,
+   "data": {
+    "size_mb": 0.349,
+    "sha256": {
+     "summary.json": "aa181509faf4de4c1ff7967aa5020b585ce630925570675ffb18b480597c025d",
+     "audit.json": "ab3ad0df6532aea5d2c7d47041fd0ef9c8e78d3d1c939dbbacde091a58972424"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.3-d15-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9543634055453917,
+   "cycles_completed": 0,
+   "cpu_seconds": 133.7,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 127.5,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "d1991c9d756f69c3be6374f862285dba121a6e36abb6c3d80246b8ff7089a7f6",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.3-d15-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.8859610430185946,
+   "cycles_completed": 0,
+   "cpu_seconds": 27.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 25.2,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "74b1f376896be3700cb0c8a7dd4685d3d35225714deb7f5de410a3ff41fa1ef8",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.3-d15-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9450728645721435,
+   "cycles_completed": 0,
+   "cpu_seconds": 17.7,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 13.3,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "701b85e5899f142ccd4e76dba26d5278fb4d4d1129f615804acf4f3b79f80574",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.5-d15-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.8979784180251308,
+   "cycles_completed": 0,
+   "cpu_seconds": 420.7,
+   "slow_episodes": 3,
+   "slow_cpu_seconds": 418.9,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.007,
+    "sha256": {
+     "summary.json": "74f22e88f87377b1f95308e0f1621696fda2fc11492d2aeb94401bc2a33c0675",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.5-d15-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 120,
+   "cpu_seconds": 74.8,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 4.045727124661112e-12,
+   "checkpoint_cycle": 120,
+   "captures": 33,
+   "releases": 0,
+   "capture_energy": -5.827777922484505e-08,
+   "plate_work": 6011486.744774566,
+   "snap_energy": 6.6393865416682355e-15,
+   "data": {
+    "size_mb": 0.52,
+    "sha256": {
+     "summary.json": "8484e0fe5baad3420d00066e504b0c6adb91f3d338cd92158d63c4072d6c2143",
+     "audit.json": "6aba567ae3a96c42d252496a58a39448789a9ab92f97a7cd49eea776967b136d"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g3.5-f0.5-d15-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.9044973441974994,
+   "cycles_completed": 0,
+   "cpu_seconds": 38.5,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 34.6,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "cbdf70d25becef63fc5033afcfabfbaf095941e72b676f8deeea592c895a1257",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d10-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8795856661524988,
+   "cycles_completed": 2,
+   "cpu_seconds": 29.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 28.0,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "1b50e88abf44724bc2ada4a0a0702dab3a3a41970a3715f35a64bc1b983791a7",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d10-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8338108026047513,
+   "cycles_completed": 2,
+   "cpu_seconds": 70.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 68.8,
+   "audit_failures": [],
+   "worst_energy_residual": 1.0360372301482183e-14,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "e4f5554a8f4b347e322223aab01f9541fc0b6113a8ecd7f125f9768eba844065",
+     "audit.json": "05e9b3c713f268a3b0613ed06f57836e44ee82333a2b15702afa80884880fd33"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d10-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8501914355811728,
+   "cycles_completed": 2,
+   "cpu_seconds": 62.1,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 55.5,
+   "audit_failures": [],
+   "worst_energy_residual": 4.000808227953162e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "e60734f864c0d57337007a33bf3deb74134e43b5f8f2066a336fe1ec3423b501",
+     "audit.json": "d2aaebe846f36717e4c115d743921bc711890eab21daf2f46aed41b41b5e8edf"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d15-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 4,
+   "failure_phase": 0.7479764126024269,
+   "cycles_completed": 4,
+   "cpu_seconds": 18.9,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 10.5,
+   "audit_failures": [],
+   "worst_energy_residual": 7.164743803088038e-13,
+   "data": {
+    "size_mb": 0.016,
+    "sha256": {
+     "summary.json": "2afc88b60123cc3638ab9a2f752bee3902ce9708413a9f6e13408a142bad638e",
+     "audit.json": "2fe9f8db44a414744d34af86572de3bfa6588a6e2a4eb113b560e444559f9f14"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d15-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8362330425294968,
+   "cycles_completed": 2,
+   "cpu_seconds": 282.5,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 275.9,
+   "audit_failures": [],
+   "worst_energy_residual": 9.935144652991564e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "b99979901593d8430bd43cdab8a16fe1bd047ea3a94944e9ea6952816529046a",
+     "audit.json": "038678a08e491f838d906058939e5b27d7ff17f2a3f535d9fb28ba9f63ef1631"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d15-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8740999600480802,
+   "cycles_completed": 2,
+   "cpu_seconds": 62.4,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 55.0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.437719592041377e-14,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "73f4a0275ddc53d9150642befdc0f4a578ef5c4fd20ed983f4bd28a4195c5aa2",
+     "audit.json": "3a046d35526970505b007a919a930ad54ad74001dd872cac53a09532fcb8889d"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d5-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 20,
+   "failure_phase": 0.9646434345890396,
+   "cycles_completed": 20,
+   "cpu_seconds": 31.7,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 30.1,
+   "audit_failures": [],
+   "worst_energy_residual": 3.143112383539623e-13,
+   "checkpoint_cycle": 20,
+   "captures": 0,
+   "releases": 0,
+   "capture_energy": 0.0,
+   "plate_work": 235189.96966705864,
+   "snap_energy": 0.0,
+   "data": {
+    "size_mb": 0.126,
+    "sha256": {
+     "summary.json": "d82f63547eff029b6a1063407d5e91b5159eb61844d4415a164cf88cfedf6bc1",
+     "audit.json": "8074b076eeed00fbecf637be9e6615fcf6c4b48d3e5ed85f88452e8c2432560f"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d5-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 14,
+   "failure_phase": 0.9888090121071459,
+   "cycles_completed": 14,
+   "cpu_seconds": 66.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 65.5,
+   "audit_failures": [],
+   "worst_energy_residual": 6.299311767792452e-13,
+   "checkpoint_cycle": 10,
+   "captures": 0,
+   "releases": 0,
+   "capture_energy": 0.0,
+   "plate_work": 157937.50567375467,
+   "snap_energy": 0.0,
+   "data": {
+    "size_mb": 0.11,
+    "sha256": {
+     "summary.json": "725ec12f66b598c136fd02e7d365762a46265215b875b96015f91f1880cd9443",
+     "audit.json": "d725b2bd32f6c86d5c4193c12fa57818b606508d9797c8473aaddbb4ea34c8f3"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.3-d5-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 26,
+   "failure_phase": 0.8542723899927943,
+   "cycles_completed": 26,
+   "cpu_seconds": 11.4,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 10.1,
+   "audit_failures": [],
+   "worst_energy_residual": 3.974227913754013e-13,
+   "checkpoint_cycle": 20,
+   "captures": 0,
+   "releases": 0,
+   "capture_energy": 0.0,
+   "plate_work": 298069.2444904424,
+   "snap_energy": 0.0,
+   "data": {
+    "size_mb": 0.142,
+    "sha256": {
+     "summary.json": "f0c4562d13ebc9942749faa70daa5ee8902d01c74aee341dc507760967ed0eb5",
+     "audit.json": "dc8415fd766dca91cba2a9759d994f8711163544669a440bf041dd17b9f16e7e"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d10-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.9881649405699872,
+   "cycles_completed": 2,
+   "cpu_seconds": 6.4,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 5.3,
+   "audit_failures": [],
+   "worst_energy_residual": 2.9680887291946804e-14,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "f5b172d7fbd724f0636bbd23ca888e0505f107763546c09f05cc759b9a692fc3",
+     "audit.json": "b7269a5b8f2ad0f0278b14780584b8d31515cf4d8f398d62b2d10b2a7a41ad8e"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d10-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8399267392819214,
+   "cycles_completed": 2,
+   "cpu_seconds": 3.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 2.4,
+   "audit_failures": [],
+   "worst_energy_residual": 1.1153423850615789e-14,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "4bcf6b6ea5f5d4c5ad6f9a88d4579b3d748ead128a067ce157d34f658e418c10",
+     "audit.json": "0473ff82c671fff659de36c442336a7d0fd9cc671991f61eeb36cd9db26d3722"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d10-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 4,
+   "failure_phase": 0.9211107439446506,
+   "cycles_completed": 4,
+   "cpu_seconds": 116.2,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 113.8,
+   "audit_failures": [],
+   "worst_energy_residual": 1.0657717394760849e-13,
+   "data": {
+    "size_mb": 0.017,
+    "sha256": {
+     "summary.json": "b13bfaa55991453cb3933d3a3f0e0fea32a6c900add24be54305e0e4f2ce6eb3",
+     "audit.json": "b824eabdfcb54c7a62b6f25255d0280d2a0a1e8b6b1c94c879dd279c37ed8e15"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d15-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.814740694653887,
+   "cycles_completed": 2,
+   "cpu_seconds": 24.8,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 21.9,
+   "audit_failures": [],
+   "worst_energy_residual": 4.3059171891464743e-13,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "8dbff2854686b3d0a60b7fdb66d6ca0e4729ad6cc3348a98d6fa95195e432a94",
+     "audit.json": "af1e789a97150938644fbba3cdff1c1586baf85430dde75da6778015a748c086"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d15-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.9112445508955427,
+   "cycles_completed": 2,
+   "cpu_seconds": 9.9,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 5.4,
+   "audit_failures": [],
+   "worst_energy_residual": 3.8953288868071945e-13,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "fc6cb1fcf2547743a9cd8caa96fd084d2c7b6e9e059c79b6638e6bdcad689561",
+     "audit.json": "49a9c578756d76d6041e63a217cf2e77ac5bfc580222abcb1015fe1d98860bac"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-2d-g5-f0.5-d15-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8087148120842135,
+   "cycles_completed": 2,
+   "cpu_seconds": 31.3,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 28.6,
+   "audit_failures": [],
+   "worst_energy_residual": 5.559289645276699e-13,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "9549cb86de9d96cdb473bc9b51eb36a05283729c76200bb79a14ea2ec347fe68",
+     "audit.json": "745bae02f67ced9654a8514277c7e379721f79eee06837f76f82b3b0794a80e7"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-3d-g5-f0.44-s1",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 40,
+   "failure_phase": 0.8742548620743505,
+   "cycles_completed": 40,
+   "cpu_seconds": 730.1,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 683.9,
+   "audit_failures": [],
+   "worst_energy_residual": 4.098297643317292e-12,
+   "checkpoint_cycle": 40,
+   "captures": 114,
+   "releases": 0,
+   "capture_energy": -6.895157278635626e-09,
+   "plate_work": 1131359.6154691244,
+   "snap_energy": -2.403654572026451e-14,
+   "data": {
+    "size_mb": 0.423,
+    "sha256": {
+     "summary.json": "3c1d50c9ad9ab65b1a536807936350d0bff27a8e7940cfa273f73ef52b8e5c1e",
+     "audit.json": "6d3e3394214cafbf509736c10ecd7543140783ec967ca14c0daf2cbf905f405b"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-3d-g5-f0.44-s2",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 10,
+   "failure_phase": 0.8643045644447392,
+   "cycles_completed": 10,
+   "cpu_seconds": 637.9,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 623.7,
+   "audit_failures": [],
+   "worst_energy_residual": 4.067172437014635e-13,
+   "checkpoint_cycle": 10,
+   "captures": 1,
+   "releases": 0,
+   "capture_energy": -4.884978225608864e-09,
+   "plate_work": 322228.38580499147,
+   "snap_energy": 2.2001641980184275e-16,
+   "data": {
+    "size_mb": 0.343,
+    "sha256": {
+     "summary.json": "ea5d714a742fa2c2beb53a20b16e6c98cedc717216d0158a10008be92a66d6f8",
+     "audit.json": "a7645d8a7ee563023b3a596df84922cbce9437597f9bcac60cae6569e097d6da"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-3d-g5-f0.44-s3",
+   "commit": "3900896",
+   "branch": "method/plate-stick",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 4,
+   "failure_phase": 0.9313295402952945,
+   "cycles_completed": 4,
+   "cpu_seconds": 135.9,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 130.0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.408314094284129e-13,
+   "data": {
+    "size_mb": 0.017,
+    "sha256": {
+     "summary.json": "c1e6e78f3d7588c173371efc813a176a72fbd09db28348420dfd9f199f86d250",
+     "audit.json": "b9b8a0bab2e7a2a8ab72390f5078bccf8d9273ca5988c6c9892285e18dc105c0"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g3.5-f0.3-d15-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "stuck pair root exceeded its iteration limit",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.8984919919204318,
+   "cycles_completed": 0,
+   "cpu_seconds": 122.3,
+   "slow_episodes": 8,
+   "slow_cpu_seconds": 118.7,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.008,
+    "sha256": {
+     "summary.json": "dfb74486ddea71ed1d8f22f1da9dcf7d3613d3808720667b6a15adb0146075a0",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g3.5-f0.5-d15-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 0,
+   "failure_phase": 0.8899096892329894,
+   "cycles_completed": 0,
+   "cpu_seconds": 111.9,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 109.3,
+   "audit_failures": [],
+   "worst_energy_residual": 0.0,
+   "data": {
+    "size_mb": 0.006,
+    "sha256": {
+     "summary.json": "4011314766e929d34ab5944b2503bcf95efe22c79144cf25f58db1707ff00629",
+     "audit.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g5-f0.3-d10-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8547966414917754,
+   "cycles_completed": 2,
+   "cpu_seconds": 75.0,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 73.5,
+   "audit_failures": [],
+   "worst_energy_residual": 5.889865157234306e-15,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "c3fcefba703ca7c2de942fc857ab23480aecbf79ecbccbe6e8a123afd222fd9a",
+     "audit.json": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g5-f0.3-d15-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.7343170207727032,
+   "cycles_completed": 2,
+   "cpu_seconds": 127.5,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 120.6,
+   "audit_failures": [],
+   "worst_energy_residual": 2.1404907552312584e-14,
+   "data": {
+    "size_mb": 0.011,
+    "sha256": {
+     "summary.json": "81150d0ecee9636ffc7809a6b20eee7f15334ce6cea82b27bc30cfbfb63d342d",
+     "audit.json": "810152d2392900ce6f5e8440c164aecaff03cd3490ea3fe534c1a93d585b05c1"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g5-f0.3-d5-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 14,
+   "failure_phase": 0.8776866035827683,
+   "cycles_completed": 14,
+   "cpu_seconds": 285.8,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 284.6,
+   "audit_failures": [],
+   "worst_energy_residual": 7.007284228508091e-13,
+   "checkpoint_cycle": 10,
+   "captures": 3,
+   "releases": 0,
+   "capture_energy": -6.683815760076274e-07,
+   "plate_work": 147404.1269947451,
+   "snap_energy": 0.0,
+   "data": {
+    "size_mb": 0.11,
+    "sha256": {
+     "summary.json": "5e5c079e9333867896b5a34a8320a2c9e1ec59edfafd9844fe420218cae085ae",
+     "audit.json": "195e77a794f82cec85443f43de5bdccc7cd01f93c35e665ba01d1f34897e7efe"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g5-f0.5-d10-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.9707088867790159,
+   "cycles_completed": 2,
+   "cpu_seconds": 70.1,
+   "slow_episodes": 2,
+   "slow_cpu_seconds": 67.9,
+   "audit_failures": [],
+   "worst_energy_residual": 1.670931256822913e-13,
+   "data": {
+    "size_mb": 0.012,
+    "sha256": {
+     "summary.json": "06ee361b44160d173aca210afe9778fc277ac279f8b8f164ad25779f03538b65",
+     "audit.json": "fc49085706dde869363492cefc7f3cef30a389cec39687fdb25e7a9cd4aad3d4"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-2d-g5-f0.5-d15-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "stuck pair root exceeded its iteration limit",
+   "failure_cycle_zero_based": 2,
+   "failure_phase": 0.8291915975276211,
+   "cycles_completed": 2,
+   "cpu_seconds": 194.7,
+   "slow_episodes": 7,
+   "slow_cpu_seconds": 189.3,
+   "audit_failures": [],
+   "worst_energy_residual": 3.8404851345920025e-13,
+   "data": {
+    "size_mb": 0.013,
+    "sha256": {
+     "summary.json": "ad2932e89307c6a204e3da74d030bea2c1fb3a7df53869e634e229afb8d07372",
+     "audit.json": "706386b080658cec62ae3c8660c9dd4d6966e4f2354b269c86f09e2a07b48c03"
+    }
+   }
+  },
+  {
+   "run": "E0022/plate-stick-v1e-3-3d-g5-f0.44-s1",
+   "commit": "7dd39c2",
+   "branch": "method/plate-stick-v1e-3",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 30,
+   "failure_phase": 0.9207885883827193,
+   "cycles_completed": 30,
+   "cpu_seconds": 6830.1,
+   "slow_episodes": 7,
+   "slow_cpu_seconds": 6790.6,
+   "audit_failures": [
+    {
+     "cycle": 13,
+     "energy_residual_rel": -3.619933947322842e-07,
+     "momentum_residual_rel": -1.9577181781339474e-07
+    }
+   ],
+   "worst_energy_residual": 3.619933947322842e-07,
+   "checkpoint_cycle": 30,
+   "captures": 1505042551,
+   "releases": 1,
+   "capture_energy": -9.452413836257829e-05,
+   "plate_work": 853339.8864396408,
+   "snap_energy": -2.102212613893859e-14,
+   "data": {
+    "size_mb": 0.399,
+    "sha256": {
+     "summary.json": "de7c1b712503d8fe93aa1999dd7a86d115b42fbae77e3f436de862b8c224fcb5",
+     "audit.json": "7ed139c3985e8dcd286f7026c1bc101cecae2a71e7bcd7e3e6ba01e0204e43a2"
+    }
+   }
+  }
+ ]
+}

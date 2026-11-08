@@ -1,0 +1,146 @@
+{
+ "date": "2026-11-07",
+ "instruction": "instructions/2026-11-07.md",
+ "headline": "Tonight built option two, plate-stick (a sphere touching the plate slower than a ten-thousandth of the gravity speed scale sticks to it and rides it until the plate's acceleration falls to minus g), and tested it alongside the nudge, as instructed, and also tried wider boxes, a case-b baseline, and an audit census. Plate-stick is correct and conserves energy, but it gets no further than the unmodified engine: in every failure a free sphere is pressed at an angle onto a stuck one, so the lasting contact simply moves from the plate to that pair, and in these layers no stuck sphere ever survives to its release. The nudge stays the only method that gets through the stalled conditions and passes every bulk check where a baseline exists, now including wide two-dimensional boxes, but its overlap at one condition is real, and that condition slows at the other seeds too. A bit-for-bit replay shows the nudge's overlap has the same anatomy as plate-stick's failures, a free sphere pressed on a sphere at the plate, which is the case option four is meant for.",
+ "experiments": [
+  {
+   "experiment_id": "E0022",
+   "question": "Does plate-stick survive the conditions where the unmodified engine stalls?",
+   "what_was_done": "Implemented plate-stick on its own branch with Chris's defaults (vertical sticking only, no sticking of spheres resting on stuck ones, capture speed one ten-thousandth of the gravity speed scale), checked capture, riding and release against the closed form and the energy books against the referee's audit, then ran the eight stalled two-dimensional conditions and the three-dimensional strong-driving case for one hundred twenty cycles at three seeds, plus the pilot capture speed of one thousandth at one seed.",
+   "result": "One run in twenty-four completed. The rest ended in sphere-pair overlaps at the same cycles where the unmodified engine stalls (cycle one at the deep moderate-driving layers, cycles three to five at the deep strong-driving layers, around cycle twenty at the shallow strong-driving layer, and cycles five to forty-one in three dimensions). The larger capture speed fails the same way, sooner in three dimensions, and in one cycle made a billion and a half captures. Replays of seven failures all show a stuck sphere with a free sphere resting obliquely on it after millions of very slow pair collisions. No sphere stayed stuck until its release phase in any run; collisions always knocked it free first. Energy taken by capture is negligible and no plate-stick cycle failed the audit at the default capture speed.",
+   "takeaway": "As it stands plate-stick is not a candidate. Without sticking whatever rests on a stuck sphere, the hard part is the pair above it, which is what option four (persistent contact) addresses.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0021",
+   "question": "Pilot: what does plate-stick cost, and does the capture speed matter?",
+   "what_was_done": "Ran both capture speeds for thirty cycles at the deep strong-driving two-dimensional layer and the three-dimensional strong-driving case.",
+   "result": "The first version froze at the deep layer because a grazing contact between a stuck and a free sphere repeated forever; fixed. After the fix both capture speeds overlap in cycle three there. In three dimensions the default made one capture in thirty cycles, behaving like the unmodified engine, while the larger capture speed made over a hundred captures and slowed from cycle twelve.",
+   "takeaway": "Thirty cycles don't discriminate in three dimensions; the full runs used one hundred twenty. The larger capture speed is worse.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0024",
+   "question": "In two-dimensional boxes four times wider, do the nudge and plate-stick leave the bulk physics alone?",
+   "what_was_done": "Unmodified baselines of a thousand twenty cycles at five conditions, falling back to the 1998 C code where the unmodified engine fails; three seeds of each method for one hundred twenty cycles; the referee's bulk judge.",
+   "result": "Only three conditions have a valid baseline at this width: the unmodified engine failed its first landing at the deep low-frequency layer (two seeds) and overlapped at cycle fifty-one at the shallow strong-driving layer, and the C code aborted at both. Where a baseline exists, the nudge passes all seven quantities at all three seeds, as do six unmodified controls. Plate-stick also passes, but those runs made at most one capture, so they followed the unmodified engine's own trajectory and the pass tells us nothing.",
+   "takeaway": "The nudge's bulk evidence now covers the wide boxes Chris asked for. Plate-stick only acts where no baseline exists, so its bulk physics can't be tested this way.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0020",
+   "question": "Does a box four times wider bring run-to-run spread in line with the pass rule's block spread?",
+   "what_was_done": "Five seeds of the unmodified engine for a thousand twenty cycles at a shallow and a deep condition, at both widths; compared the spread between seeds over the judged hundred-cycle window with each run's block spread, and counted pattern wavelengths.",
+   "result": "At the wide box the spread between seeds is within what block spread predicts for every quantity, and the box holds thirteen to fifteen wavelengths instead of three or four. But the narrow box passed the same test in this pilot, so the excess spread seen in earlier sessions was not reproduced. Over thousand-cycle means the wide shallow runs differ by about twice what blocks predict. The wide box costs four to five times as much per cycle, and the unmodified engine failed its first landing at two of five deep wide seeds.",
+   "takeaway": "Wide boxes do no harm to the pass rule and hold enough wavelengths, but they make baselines harder to get at depth ten.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0019",
+   "question": "Can the unmodified engine give a case-b baseline with more seeds or a softer start?",
+   "what_was_done": "Two more seeds with the usual start, and three softer starts made with the engine's own initial-condition settings, applied the same way to any engine: a hot start, a hot dilute start, and a cold dilute start.",
+   "result": "No. The usual start fails the first landing at all four seeds now tried. The softer starts only move the failure: the hot dilute and cold dilute starts get through cycle one and overlap in cycle two, when the layer first lands densely, at both seeds; the hot start failed or slowed in cycle one. Every failure came between phase eighty-seven and ninety-five hundredths of the cycle.",
+   "takeaway": "Case b has no baseline from this engine, whatever the start. The C code in three dimensions, or comparing methods with each other, would have to stand in.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0008",
+   "question": "Collected from last night: do the two nudge runs left going survive to a thousand cycles?",
+   "what_was_done": "Collected the two strong-driving, low-frequency runs at depths ten and fifteen.",
+   "result": "Depth ten ended in a sphere-pair overlap in cycle one hundred sixty-three after four and a half CPU-hours, most of it in slow stretches. Depth fifteen completed a thousand cycles, but over two thirds of its CPU went into slow stretches around cycle two hundred fifty. Audit failures in both were all energy losses.",
+   "takeaway": "The nudge fails the referee's survival test at one condition, and survives another only after hours; the earlier 'survives everything' framing is corrected in the program file.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0025",
+   "question": "Is the nudge's overlap at depth ten a one-off?",
+   "what_was_done": "Continued the nudge's seed-two and seed-three runs at the strong-driving, low-frequency depths ten and fifteen, and seed two at high frequency depth fifteen, toward a thousand cycles.",
+   "result": "All three depth-fifteen runs completed a thousand cycles without slow stretches. Both depth-ten runs went through more than a thousand slow episodes, spread from about cycle one hundred to six hundred eighty, and kept going; they are still running and will be collected next session. One depth-fifteen cycle failed the audit as an energy gain, about one hundred ninety times the nudge's own energy over that whole run, so not the nudge's energy.",
+   "takeaway": "Depth ten is the nudge's hard condition at every seed; whether it overlaps again is decided when the two runs finish.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0023",
+   "question": "Across every engine, what do audit failures look like?",
+   "what_was_done": "A census of every run's per-cycle energy and momentum audit, gains and losses both counted as failures.",
+   "result": "The unmodified engine fails about one cycle in three thousand, both ways, always with a momentum failure; the nudge about one in forty, almost all losses, now with one gain, never with a momentum failure; the elastic window and plate-stick at the default capture speed never. Failing cycles usually have many more collisions than passing ones, but not always.",
+   "takeaway": "The audit's sign doesn't identify the method; failures track the many-collision cycles of lasting contact, as Chris's note predicts.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0018",
+   "question": "Does the nudge's overlap involve a sphere nudged under one resting on it, as the notes predict?",
+   "what_was_done": "Replayed the depth-ten run bit for bit from its last checkpoint, saving the state at the failure.",
+   "result": "The replay reproduced the overlap exactly, at the same cycle and phase. The pair is a sphere sitting on the plate, within the nudge's two floating-point steps of it, and a free sphere resting on it at an angle, about seven eighths of a diameter higher and half a diameter to the side.",
+   "takeaway": "This is the mechanism the notes predicted for the nudge, and it is the same configuration that ends every plate-stick failure: a free sphere pressed on a sphere at the plate is the lasting contact neither method handles.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Plate-stick fails because a free sphere pressed on a stuck one rattles. May I try transitive sticking (a sphere resting on a stuck sphere sticks too), or go straight to option four?",
+   "why_it_matters": "Every plate-stick failure is that pair. Your default ruled out transitive sticking as a model change; option four isn't approved. Without one of them, plate-stick can't get further than the unmodified engine.",
+   "default_if_unanswered": "I won't change the plate-stick model. I'll write the design for option four extended to a moving plate (what freezes, what wakes it, how energy is booked) as a note for you to review, and keep testing the nudge."
+  },
+  {
+   "question": "The nudge overlapped once (depth ten) and slows at that condition at every seed. Does a rare overlap that your notes predict disqualify it, or should it be judged on how far it gets?",
+   "why_it_matters": "The referee's survival test has no cycle count, so one overlap fails the nudge outright; it is still the only method that gets through any stalled condition.",
+   "default_if_unanswered": "Report the nudge as failing survival at that condition, keep it as the comparison bar, and finish its depth-ten seeds."
+  },
+  {
+   "question": "Case b has no baseline from this engine with any start tried, and the C code only covers four unequilibrated cycles there. What should the nudge be compared with at case b?",
+   "why_it_matters": "Case b is one of the two three-dimensional bulk conditions; without a baseline the nudge's three-dimensional bulk evidence rests on case g alone, which is provisional.",
+   "default_if_unanswered": "Compare methods with each other at case b and say so; no case-b pass will be claimed."
+  },
+  {
+   "question": "At the wide two-dimensional box, two conditions have no baseline from either code. Should those be judged at the old width, or dropped from the bulk grid?",
+   "why_it_matters": "Your instruction moved all 2D bulk checks to the wide box; at depth ten (low frequency) and shallow strong driving only the methods run there.",
+   "default_if_unanswered": "Leave them unjudged at the wide box and report them as baseline-less, as the referee does for the deep strong-driving layers."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Write the option-four design for a vibrated layer (freezing relative to the moving plate, release on the plate's acceleration, the pair-above-stuck case plate-stick exposed, friction and spin) and, if you approve it, build it on its own branch starting from plate-stick's plate frame.",
+   "rationale": "Tonight showed exactly where the remaining lasting contacts are: free spheres pressed obliquely on spheres at the plate. That is the case persistent contact is built for, and plate-stick's riding, release and energy books are already tested."
+  },
+  {
+   "direction": "Finish the nudge's evidence: the two depth-ten runs, a case-g baseline that the unmodified engine can actually finish (or the C code in three dimensions), and the Figure 1 comparison once its spec is settled.",
+   "rationale": "It is the bar any new method must meet, and its remaining gaps are known."
+  },
+  {
+   "direction": "Ask for a long_contact.py option to set the initial condition and to checkpoint during slow stretches.",
+   "rationale": "Soft starts now go through a cycle-zero checkpoint, and four hours of the depth-ten nudge run were unprotected by checkpoints; both are referee changes only you can make."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 68.4,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.0,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-07T23:00:00-05:00",
+  "actual_start": "2026-11-07T23:07:45-05:00",
+  "ended": "2026-11-08T03:55:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 31.5,
+  "cores_available": 11.69,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 90
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0025",
+    "reason": "The two nudge continuations at the strong-driving, low-frequency depth-ten condition (seeds two and three) were past cycles five hundred and six hundred eighty at the end, after long slow stretches; they run to a thousand cycles or their eight-CPU-hour caps and are collected next session."
+   }
+  ],
+  "limits_hit": "No sleep, wake or permission interruptions (the power log shows nothing between 08:45 yesterday and the end; the machine was on AC). The machine did not limit the science. Most of the session's wall time was spent waiting for single long jobs: the four-CPU-hour replay, and the three-dimensional case-b attempts at twenty minutes to two hours each, which held most of the ten cores for the first hour and pushed the plate-stick grid back an hour. Cores were mostly idle after one o'clock: no further run was worth its cost without Chris's decisions on option four and case b. Possible breach: the C-code baseline job (started at 00:28 outside the queue) may have made eleven jobs for a few minutes; not verified. Stated corrections: two ledger outcome texts have small errors (E0021 says about a million slow pair collisions, the replay counted about fourteen million; E0022 says capture energy one ten-trillionth of plate work at the default capture speed, it was about two quadrillionths); both are corrected in the evidence file E0021-E0022-results.json because the ledger is append-only."
+ }
+}

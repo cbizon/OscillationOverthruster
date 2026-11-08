@@ -1,0 +1,931 @@
+{
+ "experiment": "E0024",
+ "width": 400,
+ "settle_measure": "settle 20, measure 100 (period 2); baselines 10 blocks of 100 from cycle 20",
+ "judgements": {
+  "f03d5_nudge": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s1/quantities.npz",
+   "baseline_mode": 15,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.3-d5-L400-s1",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": -0.577,
+      "thickness": 0.52,
+      "ke_vertical": 0.275,
+      "ke_horizontal": 0.216,
+      "temp_vertical": 0.684,
+      "temp_horizontal": 0.209,
+      "plate_contact": 0.813
+     },
+     "drift_flags": [
+      "thickness",
+      "ke_vertical",
+      "ke_horizontal",
+      "temp_vertical",
+      "temp_horizontal"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.3-d5-L400-s2",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": -2.259,
+      "thickness": -2.638,
+      "ke_vertical": -2.56,
+      "ke_horizontal": -2.922,
+      "temp_vertical": -2.292,
+      "temp_horizontal": -2.926,
+      "plate_contact": 1.074
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.3-d5-L400-s3",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.523,
+      "thickness": 0.305,
+      "ke_vertical": 0.565,
+      "ke_horizontal": 1.165,
+      "temp_vertical": 0.473,
+      "temp_horizontal": 1.172,
+      "plate_contact": -0.587
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s2",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.449,
+      "thickness": -0.074,
+      "ke_vertical": -0.338,
+      "ke_horizontal": 0.141,
+      "temp_vertical": -0.278,
+      "temp_horizontal": 0.144,
+      "plate_contact": -0.256
+     },
+     "drift_flags": [
+      "temp_vertical"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s3",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.302,
+      "thickness": 1.141,
+      "ke_vertical": 0.898,
+      "ke_horizontal": 0.204,
+      "temp_vertical": 0.795,
+      "temp_horizontal": 0.225,
+      "plate_contact": 1.35
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s4",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": -1.412,
+      "thickness": 0.968,
+      "ke_vertical": 0.654,
+      "ke_horizontal": -0.406,
+      "temp_vertical": 0.889,
+      "temp_horizontal": -0.396,
+      "plate_contact": 2.557
+     },
+     "drift_flags": [
+      "plate_contact"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s5",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": -1.728,
+      "thickness": -2.829,
+      "ke_vertical": -2.867,
+      "ke_horizontal": -2.928,
+      "temp_vertical": -2.393,
+      "temp_horizontal": -2.968,
+      "plate_contact": 0.942
+     },
+     "drift_flags": [
+      "thickness",
+      "plate_contact"
+     ]
+    }
+   ]
+  },
+  "f03d5_ps": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s1/quantities.npz",
+   "baseline_mode": 15,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.3-d5-L400-s1",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": -1.243,
+      "thickness": -0.673,
+      "ke_vertical": -1.282,
+      "ke_horizontal": -1.866,
+      "temp_vertical": -1.142,
+      "temp_horizontal": -1.857,
+      "plate_contact": 0.546
+     },
+     "drift_flags": [
+      "ke_horizontal",
+      "temp_horizontal"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.3-d5-L400-s2",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.449,
+      "thickness": -0.074,
+      "ke_vertical": -0.338,
+      "ke_horizontal": 0.141,
+      "temp_vertical": -0.278,
+      "temp_horizontal": 0.144,
+      "plate_contact": -0.256
+     },
+     "drift_flags": [
+      "temp_vertical"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.3-d5-L400-s3",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.302,
+      "thickness": 1.141,
+      "ke_vertical": 0.898,
+      "ke_horizontal": 0.204,
+      "temp_vertical": 0.795,
+      "temp_horizontal": 0.225,
+      "plate_contact": 1.35
+     },
+     "drift_flags": []
+    }
+   ]
+  },
+  "f05d10_nudge": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s1/quantities.npz",
+   "baseline_mode": 13,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d10-L400-s1",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.59,
+      "thickness": 0.917,
+      "ke_vertical": 1.191,
+      "ke_horizontal": -0.101,
+      "temp_vertical": 0.887,
+      "temp_horizontal": -0.101,
+      "plate_contact": -0.188
+     },
+     "drift_flags": [
+      "zcm",
+      "ke_horizontal",
+      "temp_horizontal"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d10-L400-s2",
+     "mode": 12,
+     "passes": true,
+     "sigmas": {
+      "zcm": -2.052,
+      "thickness": -1.768,
+      "ke_vertical": -1.47,
+      "ke_horizontal": -2.086,
+      "temp_vertical": -1.1,
+      "temp_horizontal": -2.135,
+      "plate_contact": 0.581
+     },
+     "drift_flags": [
+      "zcm"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d10-L400-s3",
+     "mode": 15,
+     "passes": true,
+     "sigmas": {
+      "zcm": -2.047,
+      "thickness": -0.321,
+      "ke_vertical": -0.16,
+      "ke_horizontal": -2.65,
+      "temp_vertical": -0.022,
+      "temp_horizontal": -2.658,
+      "plate_contact": 2.204
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s3",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": -0.412,
+      "thickness": -1.334,
+      "ke_vertical": -1.218,
+      "ke_horizontal": -0.747,
+      "temp_vertical": -1.467,
+      "temp_horizontal": -0.779,
+      "plate_contact": -0.747
+     },
+     "drift_flags": [
+      "zcm",
+      "thickness",
+      "ke_vertical",
+      "ke_horizontal",
+      "temp_horizontal"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s4",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.475,
+      "thickness": 0.121,
+      "ke_vertical": 0.144,
+      "ke_horizontal": 0.956,
+      "temp_vertical": 0.276,
+      "temp_horizontal": 0.999,
+      "plate_contact": -0.558
+     },
+     "drift_flags": [
+      "zcm",
+      "ke_horizontal",
+      "temp_horizontal"
+     ]
+    }
+   ]
+  },
+  "f05d10_ps": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s1/quantities.npz",
+   "baseline_mode": 13,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.5-d10-L400-s1",
+     "mode": 14,
+     "passes": true,
+     "sigmas": {
+      "zcm": -0.139,
+      "thickness": 0.673,
+      "ke_vertical": 0.647,
+      "ke_horizontal": -0.002,
+      "temp_vertical": 0.605,
+      "temp_horizontal": 0.023,
+      "plate_contact": -0.098
+     },
+     "drift_flags": [
+      "thickness",
+      "ke_vertical",
+      "temp_vertical"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.5-d10-L400-s3",
+     "mode": 13,
+     "passes": true,
+     "sigmas": {
+      "zcm": -0.714,
+      "thickness": -1.514,
+      "ke_vertical": -1.376,
+      "ke_horizontal": -1.076,
+      "temp_vertical": -1.663,
+      "temp_horizontal": -1.109,
+      "plate_contact": -0.724
+     },
+     "drift_flags": [
+      "zcm",
+      "thickness",
+      "ke_vertical",
+      "ke_horizontal",
+      "temp_horizontal"
+     ]
+    }
+   ]
+  },
+  "f05d5_nudge": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/main-g3.5-f0.5-d5-L400-s1/quantities.npz",
+   "baseline_mode": 21,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d5-L400-s1",
+     "mode": 29,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.059,
+      "thickness": 1.625,
+      "ke_vertical": 3.212,
+      "ke_horizontal": 1.425,
+      "temp_vertical": 1.43,
+      "temp_horizontal": 1.291,
+      "plate_contact": 0.678
+     },
+     "drift_flags": [
+      "plate_contact"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d5-L400-s2",
+     "mode": 21,
+     "passes": true,
+     "sigmas": {
+      "zcm": -1.454,
+      "thickness": -0.627,
+      "ke_vertical": 1.257,
+      "ke_horizontal": -0.919,
+      "temp_vertical": 1.027,
+      "temp_horizontal": -0.877,
+      "plate_contact": 1.658
+     },
+     "drift_flags": [
+      "ke_vertical"
+     ]
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/nudge-g3.5-f0.5-d5-L400-s3",
+     "mode": 22,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.344,
+      "thickness": -1.322,
+      "ke_vertical": 0.39,
+      "ke_horizontal": -1.659,
+      "temp_vertical": 0.874,
+      "temp_horizontal": -1.972,
+      "plate_contact": -0.368
+     },
+     "drift_flags": [
+      "zcm",
+      "plate_contact"
+     ]
+    }
+   ]
+  },
+  "f05d5_ps": {
+   "baseline": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/main-g3.5-f0.5-d5-L400-s1/quantities.npz",
+   "baseline_mode": 21,
+   "threshold": 3.62,
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.5-d5-L400-s1",
+     "mode": 1,
+     "passes": true,
+     "sigmas": {
+      "zcm": 1.153,
+      "thickness": 0.752,
+      "ke_vertical": 1.116,
+      "ke_horizontal": 0.127,
+      "temp_vertical": 0.808,
+      "temp_horizontal": 0.088,
+      "plate_contact": -0.954
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.5-d5-L400-s2",
+     "mode": 44,
+     "passes": true,
+     "sigmas": {
+      "zcm": -0.477,
+      "thickness": -0.433,
+      "ke_vertical": 0.054,
+      "ke_horizontal": -0.312,
+      "temp_vertical": 0.012,
+      "temp_horizontal": -0.286,
+      "plate_contact": 1.709
+     },
+     "drift_flags": []
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0024/plate-stick-g3.5-f0.5-d5-L400-s3",
+     "mode": 4,
+     "passes": true,
+     "sigmas": {
+      "zcm": 0.636,
+      "thickness": 0.702,
+      "ke_vertical": 0.385,
+      "ke_horizontal": 0.612,
+      "temp_vertical": 1.304,
+      "temp_horizontal": 0.746,
+      "plate_contact": -0.285
+     },
+     "drift_flags": [
+      "thickness",
+      "ke_vertical",
+      "temp_vertical"
+     ]
+    }
+   ]
+  }
+ },
+ "runs": [
+  {
+   "run": "main-g3.5-f0.3-d10-L400-s1",
+   "commit": "6f45fed",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 0,
+   "failure_phase": 0.9672113184018976,
+   "cpu_seconds": 81.6,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "20fa271b9ba52ee878a747e44f50412a1407d18a1d3b013beee3f3fcb02de93e"
+  },
+  {
+   "run": "main-g3.5-f0.3-d10-L400-s2",
+   "commit": "6f45fed",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 1,
+   "failure_phase": 0.010927060736233155,
+   "cpu_seconds": 563.1,
+   "slow_episodes": 28,
+   "audit_failures": [],
+   "sha256_summary": "fbafecb2c760f0eb962fe65e4e45ba17dd069c33e74b4cb5afac46a04d3ecdef"
+  },
+  {
+   "run": "main-g3.5-f0.5-d5-L400-s1",
+   "commit": "6f45fed",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "failure_phase": null,
+   "cpu_seconds": 51.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "878f762865acb0d7b8580b6158c2779b1981e23685c4884e51f11a40c235b039"
+  },
+  {
+   "run": "main-g5-f0.5-d5-L400-s1",
+   "commit": "6f45fed",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 50,
+   "failure_phase": 0.9239743750906807,
+   "cpu_seconds": 376.7,
+   "slow_episodes": 4,
+   "audit_failures": [],
+   "sha256_summary": "5dff5a2f1061000d8d2ff3eb8e6e80a486464a298668e4b7fa991a9192418ffe"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d10-L400-s1",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 156.5,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "ac922503c7b28cca854ed1184955d4921b2a14ee038303be03ab77e1c55b1965"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d10-L400-s2",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 144.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "095797f09053995ae7d8e45db245725503221781a11e5f454b7ed9d7e0e651b7"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d10-L400-s3",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 145.6,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "ab7d4b3c8146b698632a04fcf9d7649cf93bc978067d0336894316ffd40c533b"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d5-L400-s1",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 10.0,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "39cc3bf9e7c881a43cdeae2031fe403943815607e7c3ec79afa9eb001fa7355b"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d5-L400-s2",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 9.5,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "1a1230d1db271c25deb8d1a67e10e84c49b233fd6da38bb0b731a82ae53f89b1"
+  },
+  {
+   "run": "nudge-g3.5-f0.3-d5-L400-s3",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 10.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "1359ebf2502490801ff1768e554c417c0f9432172638c180c75c108fba356989"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d10-L400-s1",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 78.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "d8fa14f82741c1d307ad725bb1450b3ab6e0689d9f545950ac87889c19757969"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d10-L400-s2",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 77.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "7e870abce7b70159fee64184d5140587a701862cfd458ea4c7f27bede900a05b"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d10-L400-s3",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 79.1,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "d8b1bd9ca3bbb340d46142b79f26bcfee57ad78c83141557871a946e57b69866"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d5-L400-s1",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "89c1016a6a9a76a1c81004307c36034971d0c074d0def28fd24976a48cac94b1"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d5-L400-s2",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "f3efeda1eca63e1195b40be282c1d6ca528d168824474818eb239c3ff4691384"
+  },
+  {
+   "run": "nudge-g3.5-f0.5-d5-L400-s3",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "a107ab8126b3080834092e80a51447698ba21e4eb9aac07701ad28136ea385bd"
+  },
+  {
+   "run": "nudge-g5-f0.5-d5-L400-s1",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 63.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "0f3e1cf279a50d64988aaad3b3dc7692db0acd0b5ed4b8c20a163f0b971bb358"
+  },
+  {
+   "run": "nudge-g5-f0.5-d5-L400-s2",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 35.1,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "deb683a8dbbe8366af70bfbb75cf402e01cfe83b8d42f58936d7f73a465247cd"
+  },
+  {
+   "run": "nudge-g5-f0.5-d5-L400-s3",
+   "commit": "b608fef",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 32.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "03c0689f72fa5d45e1e71017b7158c51bde06b43702b1de294e8cc957ac689f0"
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d10-L400-s1",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 0,
+   "failure_phase": 0.9690501235351618,
+   "cpu_seconds": 29.2,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "cd7e26a1f34dcd97292dbbe9917b016b7117e67fdcaf7ca6b9aa5a596fe23f9a"
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d10-L400-s2",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 1,
+   "failure_phase": 0.012215030683293587,
+   "cpu_seconds": 28.8,
+   "slow_episodes": 3,
+   "audit_failures": [],
+   "sha256_summary": "da1797ac4b3e7149d4228d39deb4afdccefb9e3553af2d124bb11287fe2ce6d6"
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d10-L400-s3",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 0,
+   "failure_phase": 0.9336659259109855,
+   "cpu_seconds": 6.8,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "300f10866a7946ce38f81703e619cffa35907795d8cb5cbc95028f38ae8f5573"
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d5-L400-s1",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 10.5,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "3a6ad7356699bdc7a52007f5b80934f1cdb3598fac0e780d1dcdbf13e4070e78",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d5-L400-s2",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 10.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "67b3fad4ce5bf4098ef42f040ec751315c8ae4adf2949610ea8454545912e860",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g3.5-f0.3-d5-L400-s3",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 10.6,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "11f70b65d33238847b9914d7ffed967ceeb4d79ce72fcf7abed03c54e718beb1",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d10-L400-s1",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 77.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "6ba5dc3ac186a8d3b2d956232dc4f47338889f3072738da8a3d676f7705757b0",
+   "captures": 1,
+   "capture_energy": -4.770521844589858e-09
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d10-L400-s2",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 0,
+   "failure_phase": 0.9153965550541014,
+   "cpu_seconds": 14.7,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "d626c0b3ecce654af2e9c448464ff33c06b8233b04c38027c1bddd098b6a3a70"
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d10-L400-s3",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 77.1,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "7a2b4a5c358981893569f6490c96b2923df67402a2e685d5ae4dcee2f42442f3",
+   "captures": 1,
+   "capture_energy": -4.385457778088303e-09
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d5-L400-s1",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "4d461c87cc89f104f54c9956930e2226e27cd30106261a806458f50189634184",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d5-L400-s2",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.7,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "39fe87abad2647c8a169bdcb0b1ace008eed43cac79565f8e036dde2143a8d86",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g3.5-f0.5-d5-L400-s3",
+   "commit": "3900896",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 120,
+   "failure_phase": null,
+   "cpu_seconds": 6.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "sha256_summary": "4e8cbf74d349250c982079ef90be0f454a15c3505423486b9340a0451817b150",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g5-f0.5-d5-L400-s1",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 50,
+   "failure_phase": 0.9203292509027464,
+   "cpu_seconds": 10.9,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "bf9de844a2665f46fc322c7203512288ebc161b98ed6e4e5be7c87af395b19b6",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g5-f0.5-d5-L400-s2",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 26,
+   "failure_phase": 0.9254820622861064,
+   "cpu_seconds": 127.7,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "1d69825ec9345fac7f454e13ee41cfad159e5e1a374ebce5d6edc3163236bac1",
+   "captures": 0,
+   "capture_energy": 0.0
+  },
+  {
+   "run": "plate-stick-g5-f0.5-d5-L400-s3",
+   "commit": "3900896",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 40,
+   "failure_phase": 0.9275495666917728,
+   "cpu_seconds": 78.9,
+   "slow_episodes": 1,
+   "audit_failures": [],
+   "sha256_summary": "9fc3a28156154db0ca95c79829d5d63eb0513374d67f705720576b15fbf7c632",
+   "captures": 1,
+   "capture_energy": -2.502778389470201e-09
+  }
+ ],
+ "c_code_attempts": {
+  "c-g3.5-f0.3-d10-L400": [
+   {
+    "seed": 16532,
+    "completed": false,
+    "completed_cycles": 227.93749999997485,
+    "return_code": -6,
+    "elapsed_seconds": 387.7579102499876
+   },
+   {
+    "seed": 1,
+    "completed": false,
+    "completed_cycles": 56.937499999999766,
+    "return_code": -6,
+    "elapsed_seconds": 90.81264208303764
+   },
+   {
+    "seed": 2,
+    "completed": false,
+    "completed_cycles": 347.99999999994674,
+    "return_code": -6,
+    "elapsed_seconds": 561.5524471669924
+   }
+  ],
+  "c-g5-f0.5-d5-L400": [
+   {
+    "seed": 16532,
+    "completed": false,
+    "completed_cycles": 16.90625000000002,
+    "return_code": -6,
+    "elapsed_seconds": 4.009507750044577
+   },
+   {
+    "seed": 1,
+    "completed": false,
+    "completed_cycles": 22.96875000000003,
+    "return_code": -6,
+    "elapsed_seconds": 4.669380958075635
+   },
+   {
+    "seed": 2,
+    "completed": false,
+    "completed_cycles": 36.999999999999254,
+    "return_code": -6,
+    "elapsed_seconds": 7.622084166971035
+   }
+  ]
+ },
+ "c_code_note": "No C attempt completed 1020 cycles at L 400; trajectories deleted after the (failed) baseline attempt, checksums in each seed folder's trajectory.sha256.",
+ "data_size_mb": 26.3
+}

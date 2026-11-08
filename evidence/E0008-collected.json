@@ -1,0 +1,189 @@
+{
+ "experiment": "E0008",
+ "note": "Final state of the two thousand-cycle nudge runs left running by the session of 2026-11-06 (collected 2026-11-07). The other six E0008 runs are in evidence/E0008-results.json.",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0008/2d-g5-f0.3-d10",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 162,
+   "failure_phase": 0.9977964393040597,
+   "cycles_completed": 162,
+   "cpu_hours": 4.622,
+   "slow_episode_cpu_hours": 3.956,
+   "slow_cpu_share": 0.856,
+   "slow_episodes": 1451,
+   "slow_episode_start_cycles": [
+    96,
+    160,
+    161,
+    162
+   ],
+   "audit_failures": [
+    {
+     "cycle": 90,
+     "energy_residual_rel": -1.0235983061286908e-08,
+     "momentum_residual_rel": -1.4340093397479817e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 92,
+     "energy_residual_rel": -6.583604600896795e-08,
+     "momentum_residual_rel": 3.944295624361397e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 98,
+     "energy_residual_rel": -1.1341922327426862e-08,
+     "momentum_residual_rel": 3.3956482708969214e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 156,
+     "energy_residual_rel": -2.4687481054053837e-08,
+     "momentum_residual_rel": -4.601369182197991e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 157,
+     "energy_residual_rel": -1.3565266977849991e-08,
+     "momentum_residual_rel": 8.679410762265161e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 158,
+     "energy_residual_rel": -1.0956474247451314e-07,
+     "momentum_residual_rel": 1.4093956692554048e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 161,
+     "energy_residual_rel": -4.3418991899899814e-08,
+     "momentum_residual_rel": -5.417465453370478e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 162,
+     "energy_residual_rel": -4.223588213467818e-07,
+     "momentum_residual_rel": -6.789735831699758e-11,
+     "collision_gains": 0
+    }
+   ],
+   "data": {
+    "size_mb": 1.09,
+    "sha256": {
+     "summary.json": "05fe17826ccbf72ca00fe5b30ef1dda7b4ac6043bd4fbf4efa71b1b019a7c440",
+     "audit.json": "7da1dae48d2d871ab866a6774daf7ea7be7cd52210205a46dd76ab3bd267a026"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0008/2d-g5-f0.3-d15",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_hours": 6.398,
+   "slow_episode_cpu_hours": 4.546,
+   "slow_cpu_share": 0.711,
+   "slow_episodes": 1360,
+   "slow_episode_start_cycles": [
+    246,
+    247,
+    248
+   ],
+   "audit_failures": [
+    {
+     "cycle": 224,
+     "energy_residual_rel": -2.2777210995533245e-08,
+     "momentum_residual_rel": -2.0745149044060584e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 245,
+     "energy_residual_rel": -2.4680580651379546e-08,
+     "momentum_residual_rel": 5.858222437945701e-13,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 246,
+     "energy_residual_rel": -6.338456304414549e-07,
+     "momentum_residual_rel": 9.726479825879142e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 247,
+     "energy_residual_rel": -3.025175895900144e-07,
+     "momentum_residual_rel": 2.3421308468492727e-10,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 248,
+     "energy_residual_rel": -1.268521947384133e-06,
+     "momentum_residual_rel": 4.3798508192235054e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 249,
+     "energy_residual_rel": -1.5524803386507017e-07,
+     "momentum_residual_rel": 3.0942717886550193e-12,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 958,
+     "energy_residual_rel": -3.274004182467829e-07,
+     "momentum_residual_rel": -1.938013393987953e-09,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 967,
+     "energy_residual_rel": -1.6967054097467336e-08,
+     "momentum_residual_rel": 2.2824368353875672e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 996,
+     "energy_residual_rel": -3.05160069517097e-08,
+     "momentum_residual_rel": 2.32659220794682e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 997,
+     "energy_residual_rel": -1.0197572933038418e-07,
+     "momentum_residual_rel": -7.424081434067497e-11,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 998,
+     "energy_residual_rel": -4.6864503043807906e-07,
+     "momentum_residual_rel": -8.053349514554374e-12,
+     "collision_gains": 0
+    }
+   ],
+   "data": {
+    "size_mb": 3.36,
+    "sha256": {
+     "summary.json": "73fbc26f0c77eb9cbf204cc2eed1b88d1a422bb7e33afd091142d2c024097095",
+     "audit.json": "32422d8cf088679401383dc9a128102344a665f10105c34e13a1d8033967e4ed"
+    }
+   }
+  }
+ ]
+}

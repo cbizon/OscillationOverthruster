@@ -1,0 +1,1276 @@
+{
+ "experiment": "E0025",
+ "note": "Nudge (b608fef) continuations of E0016 seeds 2 and 3 toward 1000 cycles (copied, then long_contact.py --resume). Interim at session end: the two depth-10 runs were still running; cpu_seconds include the E0016 portion (120 cycles).",
+ "runs": [
+  {
+   "run": "E0025/2d-g5-f0.3-d10-s2",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "running",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 536,
+   "cpu_seconds": 8651.4,
+   "slow_episodes": 1209,
+   "slow_cpu_seconds": 3379.3,
+   "audit_failures": [
+    {
+     "cycle": 207,
+     "energy_residual_rel": -1.5269999640112364e-08,
+     "momentum_residual_rel": 1.7353706195671607e-11
+    },
+    {
+     "cycle": 208,
+     "energy_residual_rel": -3.257045755743013e-08,
+     "momentum_residual_rel": 7.451290806697964e-12
+    },
+    {
+     "cycle": 209,
+     "energy_residual_rel": -3.378455146639415e-08,
+     "momentum_residual_rel": -4.469467734728639e-13
+    },
+    {
+     "cycle": 210,
+     "energy_residual_rel": -9.950464418475707e-08,
+     "momentum_residual_rel": -1.4617743265192045e-10
+    },
+    {
+     "cycle": 211,
+     "energy_residual_rel": -3.509289275455885e-08,
+     "momentum_residual_rel": 7.294937857760451e-11
+    },
+    {
+     "cycle": 212,
+     "energy_residual_rel": -2.2660038094879142e-07,
+     "momentum_residual_rel": -1.3570852817385252e-12
+    },
+    {
+     "cycle": 213,
+     "energy_residual_rel": -2.101728601112341e-08,
+     "momentum_residual_rel": -3.4931937962786647e-11
+    },
+    {
+     "cycle": 214,
+     "energy_residual_rel": -4.487337540277534e-08,
+     "momentum_residual_rel": -2.553453468578123e-11
+    },
+    {
+     "cycle": 254,
+     "energy_residual_rel": -9.551121127865907e-08,
+     "momentum_residual_rel": 1.1041610799410268e-11
+    },
+    {
+     "cycle": 264,
+     "energy_residual_rel": -3.2854853052609754e-08,
+     "momentum_residual_rel": -1.4920979000412757e-10
+    },
+    {
+     "cycle": 266,
+     "energy_residual_rel": -3.718233836641263e-08,
+     "momentum_residual_rel": -2.0376545797192405e-11
+    },
+    {
+     "cycle": 289,
+     "energy_residual_rel": -1.207411465984159e-08,
+     "momentum_residual_rel": 2.838908292402242e-11
+    },
+    {
+     "cycle": 312,
+     "energy_residual_rel": -3.665735297723248e-08,
+     "momentum_residual_rel": 1.1267931216561175e-11
+    },
+    {
+     "cycle": 313,
+     "energy_residual_rel": -2.2798326501400797e-08,
+     "momentum_residual_rel": 6.885485123841288e-12
+    },
+    {
+     "cycle": 314,
+     "energy_residual_rel": -7.390180821578764e-08,
+     "momentum_residual_rel": 3.64635599726945e-12
+    },
+    {
+     "cycle": 315,
+     "energy_residual_rel": -5.527225345348129e-08,
+     "momentum_residual_rel": -2.2276800078768827e-11
+    },
+    {
+     "cycle": 316,
+     "energy_residual_rel": -2.5737152262388206e-07,
+     "momentum_residual_rel": 3.9177345554014316e-11
+    },
+    {
+     "cycle": 317,
+     "energy_residual_rel": -1.6884667741336035e-08,
+     "momentum_residual_rel": 7.521095964987074e-12
+    },
+    {
+     "cycle": 318,
+     "energy_residual_rel": -8.01239222996882e-08,
+     "momentum_residual_rel": 3.651929786442277e-11
+    },
+    {
+     "cycle": 319,
+     "energy_residual_rel": -2.4117051805519462e-08,
+     "momentum_residual_rel": 2.043448288429978e-11
+    },
+    {
+     "cycle": 320,
+     "energy_residual_rel": -1.326221917357043e-07,
+     "momentum_residual_rel": -1.607636186659367e-10
+    },
+    {
+     "cycle": 321,
+     "energy_residual_rel": -3.711723519992846e-08,
+     "momentum_residual_rel": -2.6125305616026374e-12
+    },
+    {
+     "cycle": 322,
+     "energy_residual_rel": -1.1676735170528315e-07,
+     "momentum_residual_rel": 2.050811924456824e-11
+    },
+    {
+     "cycle": 323,
+     "energy_residual_rel": -4.313672123026037e-08,
+     "momentum_residual_rel": 7.45699721101716e-12
+    },
+    {
+     "cycle": 324,
+     "energy_residual_rel": -1.1816048259872466e-08,
+     "momentum_residual_rel": -3.886353688486994e-12
+    },
+    {
+     "cycle": 349,
+     "energy_residual_rel": -1.1404610830479568e-08,
+     "momentum_residual_rel": 1.9523290238288785e-11
+    },
+    {
+     "cycle": 350,
+     "energy_residual_rel": -5.306721616979104e-08,
+     "momentum_residual_rel": -1.8815445034820866e-11
+    },
+    {
+     "cycle": 390,
+     "energy_residual_rel": -1.418628767662921e-07,
+     "momentum_residual_rel": 2.55326752888254e-11
+    },
+    {
+     "cycle": 391,
+     "energy_residual_rel": -2.4470157440903265e-08,
+     "momentum_residual_rel": 2.0109386887007226e-11
+    },
+    {
+     "cycle": 392,
+     "energy_residual_rel": -1.6529330924709002e-07,
+     "momentum_residual_rel": -2.0448125205467843e-11
+    },
+    {
+     "cycle": 396,
+     "energy_residual_rel": -1.671176773154857e-08,
+     "momentum_residual_rel": -3.2508604100637947e-12
+    },
+    {
+     "cycle": 404,
+     "energy_residual_rel": -2.5468550444997676e-08,
+     "momentum_residual_rel": -1.8322657362080616e-11
+    },
+    {
+     "cycle": 438,
+     "energy_residual_rel": -1.1821331249665514e-08,
+     "momentum_residual_rel": 1.1989381432320935e-12
+    },
+    {
+     "cycle": 439,
+     "energy_residual_rel": -1.2171118490999147e-08,
+     "momentum_residual_rel": -9.573368009593495e-12
+    },
+    {
+     "cycle": 440,
+     "energy_residual_rel": -1.239246060108557e-07,
+     "momentum_residual_rel": -1.2155706472516935e-11
+    },
+    {
+     "cycle": 441,
+     "energy_residual_rel": -5.985009968277632e-08,
+     "momentum_residual_rel": -1.8166480495870108e-11
+    },
+    {
+     "cycle": 442,
+     "energy_residual_rel": -8.543391648076631e-08,
+     "momentum_residual_rel": 6.291764015089955e-12
+    },
+    {
+     "cycle": 445,
+     "energy_residual_rel": -3.00413877238143e-08,
+     "momentum_residual_rel": -1.094272126412744e-11
+    },
+    {
+     "cycle": 446,
+     "energy_residual_rel": -4.237783476939948e-08,
+     "momentum_residual_rel": -6.659717463500618e-12
+    },
+    {
+     "cycle": 454,
+     "energy_residual_rel": -1.328166701799843e-08,
+     "momentum_residual_rel": -1.1563028559658557e-11
+    },
+    {
+     "cycle": 462,
+     "energy_residual_rel": -5.962869162239089e-08,
+     "momentum_residual_rel": 6.829447974403033e-11
+    },
+    {
+     "cycle": 464,
+     "energy_residual_rel": -3.0633717037259306e-08,
+     "momentum_residual_rel": -1.4164257618305308e-11
+    },
+    {
+     "cycle": 465,
+     "energy_residual_rel": -1.547644719950791e-08,
+     "momentum_residual_rel": -3.310169839778433e-11
+    },
+    {
+     "cycle": 497,
+     "energy_residual_rel": -2.1533062958100968e-08,
+     "momentum_residual_rel": 1.5646569653613918e-12
+    },
+    {
+     "cycle": 498,
+     "energy_residual_rel": -2.74098149923762e-08,
+     "momentum_residual_rel": 3.654521778850639e-12
+    },
+    {
+     "cycle": 500,
+     "energy_residual_rel": -2.440041305580525e-08,
+     "momentum_residual_rel": 7.704829178729079e-12
+    },
+    {
+     "cycle": 502,
+     "energy_residual_rel": -1.2055797637290821e-08,
+     "momentum_residual_rel": -9.709619914840219e-14
+    },
+    {
+     "cycle": 503,
+     "energy_residual_rel": -2.896867483543545e-08,
+     "momentum_residual_rel": 1.3954155529673504e-11
+    },
+    {
+     "cycle": 504,
+     "energy_residual_rel": -1.7994402784487548e-07,
+     "momentum_residual_rel": 5.998387717866016e-11
+    },
+    {
+     "cycle": 505,
+     "energy_residual_rel": -4.486293726605006e-08,
+     "momentum_residual_rel": 3.6818589751303976e-11
+    },
+    {
+     "cycle": 506,
+     "energy_residual_rel": -5.7527055312041125e-08,
+     "momentum_residual_rel": -1.0852589355640513e-11
+    },
+    {
+     "cycle": 509,
+     "energy_residual_rel": -2.2941662045058397e-08,
+     "momentum_residual_rel": -3.528255218392421e-11
+    },
+    {
+     "cycle": 510,
+     "energy_residual_rel": -1.1926016602604763e-07,
+     "momentum_residual_rel": 2.5467928286224328e-11
+    },
+    {
+     "cycle": 532,
+     "energy_residual_rel": -1.5379326263575702e-08,
+     "momentum_residual_rel": 7.885124509049372e-12
+    },
+    {
+     "cycle": 535,
+     "energy_residual_rel": -1.0279823399978935e-08,
+     "momentum_residual_rel": -4.6287704105146283e-11
+    },
+    {
+     "cycle": 536,
+     "energy_residual_rel": -1.5695630724065413e-07,
+     "momentum_residual_rel": -7.972968994752582e-12
+    }
+   ],
+   "worst_energy_residual": 2.5737152262388206e-07,
+   "checkpoint_cycle": 530,
+   "data": {
+    "size_mb": 2.003,
+    "sha256": {
+     "summary.json": "86d5bd9d48b5174feee1e93f9a1cfff7c2b2859f3cbe5627dd3c4e44824e2d33",
+     "audit.json": "89a5fcbaebe4b556d5bff3668551d5aa0b1c0dd033abbea356fc71319889ae29"
+    }
+   }
+  },
+  {
+   "run": "E0025/2d-g5-f0.3-d10-s3",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "running",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 680,
+   "cpu_seconds": 9239.7,
+   "slow_episodes": 1082,
+   "slow_cpu_seconds": 1450.5,
+   "audit_failures": [
+    {
+     "cycle": 46,
+     "energy_residual_rel": -2.7011997951643458e-08,
+     "momentum_residual_rel": -2.4251683870542928e-12
+    },
+    {
+     "cycle": 106,
+     "energy_residual_rel": -2.1664923416016415e-08,
+     "momentum_residual_rel": -8.90705691781969e-12
+    },
+    {
+     "cycle": 145,
+     "energy_residual_rel": -1.763519814681958e-08,
+     "momentum_residual_rel": 2.169609155227904e-11
+    },
+    {
+     "cycle": 146,
+     "energy_residual_rel": -9.3121496854506e-08,
+     "momentum_residual_rel": 6.502907042492368e-12
+    },
+    {
+     "cycle": 149,
+     "energy_residual_rel": -2.5290280938952076e-08,
+     "momentum_residual_rel": 3.622040924207747e-11
+    },
+    {
+     "cycle": 150,
+     "energy_residual_rel": -7.880795144193501e-08,
+     "momentum_residual_rel": 5.341832628809564e-12
+    },
+    {
+     "cycle": 159,
+     "energy_residual_rel": -1.7164203598846645e-08,
+     "momentum_residual_rel": 9.566392779663407e-12
+    },
+    {
+     "cycle": 160,
+     "energy_residual_rel": -1.3073538765838168e-07,
+     "momentum_residual_rel": 7.90857148899932e-12
+    },
+    {
+     "cycle": 161,
+     "energy_residual_rel": -6.446585379089191e-08,
+     "momentum_residual_rel": -1.2563997860854877e-11
+    },
+    {
+     "cycle": 162,
+     "energy_residual_rel": -2.9847164566876484e-07,
+     "momentum_residual_rel": 5.470775018967272e-12
+    },
+    {
+     "cycle": 164,
+     "energy_residual_rel": -1.4164473049807793e-08,
+     "momentum_residual_rel": -1.0795589050347225e-12
+    },
+    {
+     "cycle": 165,
+     "energy_residual_rel": -2.107907501157677e-08,
+     "momentum_residual_rel": -5.4793462255471145e-12
+    },
+    {
+     "cycle": 166,
+     "energy_residual_rel": -4.2338235923524116e-08,
+     "momentum_residual_rel": -1.6174118711071115e-12
+    },
+    {
+     "cycle": 170,
+     "energy_residual_rel": -1.8157194483019354e-08,
+     "momentum_residual_rel": -1.486597965160646e-12
+    },
+    {
+     "cycle": 282,
+     "energy_residual_rel": -3.32412084636846e-08,
+     "momentum_residual_rel": -1.1825006096642222e-11
+    },
+    {
+     "cycle": 285,
+     "energy_residual_rel": -1.3381452965949192e-08,
+     "momentum_residual_rel": 3.161577300575385e-11
+    },
+    {
+     "cycle": 316,
+     "energy_residual_rel": -1.488931781531613e-08,
+     "momentum_residual_rel": -9.229987237545675e-12
+    },
+    {
+     "cycle": 317,
+     "energy_residual_rel": -3.130122000461215e-08,
+     "momentum_residual_rel": 2.177992259312657e-11
+    },
+    {
+     "cycle": 318,
+     "energy_residual_rel": -3.7495762646101873e-08,
+     "momentum_residual_rel": -9.135684674003074e-12
+    },
+    {
+     "cycle": 332,
+     "energy_residual_rel": -3.879208170828092e-08,
+     "momentum_residual_rel": -4.231248699615815e-12
+    },
+    {
+     "cycle": 333,
+     "energy_residual_rel": -1.8748174299570933e-08,
+     "momentum_residual_rel": 1.2150847837011309e-11
+    },
+    {
+     "cycle": 334,
+     "energy_residual_rel": -1.3178665806245544e-07,
+     "momentum_residual_rel": 1.169991469244829e-11
+    },
+    {
+     "cycle": 335,
+     "energy_residual_rel": -1.0055062909703517e-08,
+     "momentum_residual_rel": -1.1833212761026705e-11
+    },
+    {
+     "cycle": 336,
+     "energy_residual_rel": -3.062707034189526e-08,
+     "momentum_residual_rel": -1.3839012595188887e-13
+    },
+    {
+     "cycle": 338,
+     "energy_residual_rel": -1.017048645494192e-07,
+     "momentum_residual_rel": -3.1159742873607254e-11
+    },
+    {
+     "cycle": 341,
+     "energy_residual_rel": -4.555778273107644e-08,
+     "momentum_residual_rel": -2.712919943382368e-11
+    },
+    {
+     "cycle": 342,
+     "energy_residual_rel": -1.4143846471463406e-07,
+     "momentum_residual_rel": -1.1869953565128368e-11
+    },
+    {
+     "cycle": 344,
+     "energy_residual_rel": -1.3806873948892353e-07,
+     "momentum_residual_rel": 7.333730871193644e-12
+    },
+    {
+     "cycle": 354,
+     "energy_residual_rel": -1.8166080518599238e-08,
+     "momentum_residual_rel": 2.115455510635415e-12
+    },
+    {
+     "cycle": 364,
+     "energy_residual_rel": -1.710223479557656e-08,
+     "momentum_residual_rel": -5.566011699904218e-12
+    },
+    {
+     "cycle": 366,
+     "energy_residual_rel": -3.393964440278548e-08,
+     "momentum_residual_rel": 5.401282696583596e-13
+    },
+    {
+     "cycle": 368,
+     "energy_residual_rel": -2.6936120963709223e-08,
+     "momentum_residual_rel": -1.13753325762177e-12
+    },
+    {
+     "cycle": 369,
+     "energy_residual_rel": -4.924840558025899e-08,
+     "momentum_residual_rel": 3.080150371145466e-11
+    },
+    {
+     "cycle": 370,
+     "energy_residual_rel": -5.379127635540944e-07,
+     "momentum_residual_rel": 6.449787372296607e-11
+    },
+    {
+     "cycle": 374,
+     "energy_residual_rel": -7.855478592534092e-08,
+     "momentum_residual_rel": -1.0019789466346809e-11
+    },
+    {
+     "cycle": 376,
+     "energy_residual_rel": -2.121455485462784e-08,
+     "momentum_residual_rel": 1.128926004531507e-11
+    },
+    {
+     "cycle": 377,
+     "energy_residual_rel": -2.89377921351602e-08,
+     "momentum_residual_rel": -7.641750137998182e-12
+    },
+    {
+     "cycle": 378,
+     "energy_residual_rel": -5.085491168758292e-08,
+     "momentum_residual_rel": -2.941032117957216e-12
+    },
+    {
+     "cycle": 382,
+     "energy_residual_rel": -1.4179335867065616e-08,
+     "momentum_residual_rel": -3.0066805599073742e-12
+    },
+    {
+     "cycle": 384,
+     "energy_residual_rel": -2.753446363811796e-08,
+     "momentum_residual_rel": 1.4028686761119257e-12
+    },
+    {
+     "cycle": 386,
+     "energy_residual_rel": -2.7493526442545726e-08,
+     "momentum_residual_rel": 5.184948771308629e-12
+    },
+    {
+     "cycle": 388,
+     "energy_residual_rel": -2.0691651980447405e-08,
+     "momentum_residual_rel": -6.760910835795849e-12
+    },
+    {
+     "cycle": 416,
+     "energy_residual_rel": -6.461290484842356e-08,
+     "momentum_residual_rel": -1.916040238923853e-11
+    },
+    {
+     "cycle": 419,
+     "energy_residual_rel": -2.9531001482625125e-08,
+     "momentum_residual_rel": 1.7909017434105388e-11
+    },
+    {
+     "cycle": 420,
+     "energy_residual_rel": -5.664580772900879e-08,
+     "momentum_residual_rel": -7.116842637742113e-11
+    },
+    {
+     "cycle": 422,
+     "energy_residual_rel": -2.1209437990326615e-08,
+     "momentum_residual_rel": -1.8908663292215215e-13
+    },
+    {
+     "cycle": 430,
+     "energy_residual_rel": -1.6787342479491193e-07,
+     "momentum_residual_rel": 1.1955154858356359e-11
+    },
+    {
+     "cycle": 433,
+     "energy_residual_rel": -1.6063280726365675e-08,
+     "momentum_residual_rel": 3.207014345602534e-11
+    },
+    {
+     "cycle": 434,
+     "energy_residual_rel": -2.0168185429443635e-08,
+     "momentum_residual_rel": -2.519655671594959e-11
+    },
+    {
+     "cycle": 448,
+     "energy_residual_rel": -1.724518794018567e-08,
+     "momentum_residual_rel": 2.4763416869829458e-11
+    },
+    {
+     "cycle": 452,
+     "energy_residual_rel": -4.362884841575e-08,
+     "momentum_residual_rel": -7.672788171759756e-12
+    },
+    {
+     "cycle": 454,
+     "energy_residual_rel": 1.4312217599144656e-08,
+     "momentum_residual_rel": 1.088978307696807e-11
+    },
+    {
+     "cycle": 455,
+     "energy_residual_rel": -1.3294456975529155e-08,
+     "momentum_residual_rel": 6.182970767262443e-12
+    },
+    {
+     "cycle": 456,
+     "energy_residual_rel": -1.6876127466697918e-08,
+     "momentum_residual_rel": 1.0143704537563723e-11
+    },
+    {
+     "cycle": 506,
+     "energy_residual_rel": -1.4269383832556187e-07,
+     "momentum_residual_rel": 4.5220346404290385e-11
+    },
+    {
+     "cycle": 507,
+     "energy_residual_rel": -2.0916258386323455e-08,
+     "momentum_residual_rel": 1.1999886325474852e-11
+    },
+    {
+     "cycle": 508,
+     "energy_residual_rel": -1.8663882657023548e-07,
+     "momentum_residual_rel": -1.3680075657590786e-11
+    },
+    {
+     "cycle": 528,
+     "energy_residual_rel": -1.4534030994498622e-08,
+     "momentum_residual_rel": -2.34460367731015e-11
+    },
+    {
+     "cycle": 564,
+     "energy_residual_rel": -2.6316388398512782e-08,
+     "momentum_residual_rel": -6.53812571747231e-12
+    },
+    {
+     "cycle": 566,
+     "energy_residual_rel": -4.8199270661007744e-08,
+     "momentum_residual_rel": 8.273533942710012e-12
+    },
+    {
+     "cycle": 608,
+     "energy_residual_rel": -9.256592853175228e-08,
+     "momentum_residual_rel": -2.1662252443077192e-11
+    },
+    {
+     "cycle": 609,
+     "energy_residual_rel": -5.5017279310572646e-08,
+     "momentum_residual_rel": 2.664482971064184e-11
+    },
+    {
+     "cycle": 610,
+     "energy_residual_rel": -2.4836385145472866e-07,
+     "momentum_residual_rel": 6.378731424539039e-11
+    },
+    {
+     "cycle": 611,
+     "energy_residual_rel": -4.086495861775447e-08,
+     "momentum_residual_rel": -3.7779195454970926e-11
+    },
+    {
+     "cycle": 612,
+     "energy_residual_rel": -1.7775598499413545e-07,
+     "momentum_residual_rel": -1.6228406903526224e-10
+    },
+    {
+     "cycle": 614,
+     "energy_residual_rel": -3.386820958537505e-08,
+     "momentum_residual_rel": 1.1721332812972206e-11
+    },
+    {
+     "cycle": 617,
+     "energy_residual_rel": -2.5772711800513116e-08,
+     "momentum_residual_rel": 1.778820667662775e-11
+    },
+    {
+     "cycle": 618,
+     "energy_residual_rel": -1.0906857195577072e-08,
+     "momentum_residual_rel": -5.3063647410553026e-12
+    },
+    {
+     "cycle": 619,
+     "energy_residual_rel": -2.955508197969613e-08,
+     "momentum_residual_rel": 2.1247390024814336e-11
+    },
+    {
+     "cycle": 620,
+     "energy_residual_rel": -9.088656156968794e-08,
+     "momentum_residual_rel": 1.4816044603403174e-11
+    },
+    {
+     "cycle": 622,
+     "energy_residual_rel": -2.6323595042213622e-08,
+     "momentum_residual_rel": 4.746653195138734e-12
+    },
+    {
+     "cycle": 627,
+     "energy_residual_rel": -3.484704442845573e-08,
+     "momentum_residual_rel": -7.289364126244917e-12
+    },
+    {
+     "cycle": 628,
+     "energy_residual_rel": -5.0386821278243824e-08,
+     "momentum_residual_rel": 2.8631121838922626e-12
+    },
+    {
+     "cycle": 629,
+     "energy_residual_rel": -2.324014544236234e-08,
+     "momentum_residual_rel": 9.121575260909522e-12
+    },
+    {
+     "cycle": 630,
+     "energy_residual_rel": -2.1239805784566866e-07,
+     "momentum_residual_rel": -4.2664149204837005e-11
+    },
+    {
+     "cycle": 631,
+     "energy_residual_rel": -1.1153068467194269e-07,
+     "momentum_residual_rel": -6.580334639203375e-11
+    },
+    {
+     "cycle": 632,
+     "energy_residual_rel": -1.6776916998055205e-07,
+     "momentum_residual_rel": 9.789769339328293e-12
+    },
+    {
+     "cycle": 670,
+     "energy_residual_rel": -4.8225690420619335e-08,
+     "momentum_residual_rel": -1.471958008223548e-12
+    },
+    {
+     "cycle": 679,
+     "energy_residual_rel": -1.0053965798845535e-08,
+     "momentum_residual_rel": -9.941275268309436e-12
+    },
+    {
+     "cycle": 680,
+     "energy_residual_rel": -7.113164920964022e-08,
+     "momentum_residual_rel": -1.2225378324841283e-11
+    }
+   ],
+   "worst_energy_residual": 5.379127635540944e-07,
+   "checkpoint_cycle": 680,
+   "data": {
+    "size_mb": 2.341,
+    "sha256": {
+     "summary.json": "5ff66c9397b5d23cf3004fed5a36c023f1547c9b25d83048474f8e73437c8169",
+     "audit.json": "e6e61e924155ae710efae9d9a524347e5bcf56d1900e94beb2496c893b90a249"
+    }
+   }
+  },
+  {
+   "run": "E0025/2d-g5-f0.3-d15-s2",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 3222.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 594,
+     "energy_residual_rel": -4.132527108532765e-08,
+     "momentum_residual_rel": -4.623116140687983e-11
+    },
+    {
+     "cycle": 595,
+     "energy_residual_rel": -3.440887158295632e-08,
+     "momentum_residual_rel": 1.3589099291969377e-11
+    },
+    {
+     "cycle": 596,
+     "energy_residual_rel": -7.167550452517004e-08,
+     "momentum_residual_rel": -1.7466731667733171e-12
+    },
+    {
+     "cycle": 597,
+     "energy_residual_rel": -2.5203205647158202e-08,
+     "momentum_residual_rel": 1.7294320381339822e-11
+    },
+    {
+     "cycle": 598,
+     "energy_residual_rel": -1.0314852425885482e-08,
+     "momentum_residual_rel": -5.659452124234169e-13
+    },
+    {
+     "cycle": 612,
+     "energy_residual_rel": -2.4465486966616953e-08,
+     "momentum_residual_rel": -2.959694712041346e-11
+    }
+   ],
+   "worst_energy_residual": 7.167550452517004e-08,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.859,
+    "sha256": {
+     "summary.json": "8b4bc3f686222bcfb949fb53306475e0e2641aa8308602c3d15b688d6482bb83",
+     "audit.json": "850d373fcb524b6f3f4d2cacb9271dd6918c53d0d53f916f97de50266a45a337"
+    }
+   }
+  },
+  {
+   "run": "E0025/2d-g5-f0.3-d15-s3",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 5535.3,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 236,
+     "energy_residual_rel": -1.9875412099191684e-08,
+     "momentum_residual_rel": -5.994680227617044e-12
+    },
+    {
+     "cycle": 336,
+     "energy_residual_rel": -4.723333786158276e-08,
+     "momentum_residual_rel": -1.1471418479275994e-10
+    },
+    {
+     "cycle": 635,
+     "energy_residual_rel": -3.3986098260638684e-08,
+     "momentum_residual_rel": 1.489229897496102e-11
+    },
+    {
+     "cycle": 636,
+     "energy_residual_rel": -1.1529309527711532e-07,
+     "momentum_residual_rel": -7.440028072572018e-13
+    },
+    {
+     "cycle": 641,
+     "energy_residual_rel": -3.158196650396582e-08,
+     "momentum_residual_rel": -9.320579562691571e-12
+    },
+    {
+     "cycle": 642,
+     "energy_residual_rel": -2.70651089529462e-07,
+     "momentum_residual_rel": -1.786095263997927e-11
+    },
+    {
+     "cycle": 643,
+     "energy_residual_rel": -6.116882567553024e-08,
+     "momentum_residual_rel": 2.445871186993795e-11
+    },
+    {
+     "cycle": 644,
+     "energy_residual_rel": -3.1727100694234674e-07,
+     "momentum_residual_rel": 1.5971719440443903e-12
+    },
+    {
+     "cycle": 645,
+     "energy_residual_rel": -3.512549005716103e-08,
+     "momentum_residual_rel": 6.666540875599722e-12
+    },
+    {
+     "cycle": 646,
+     "energy_residual_rel": -7.298400994640708e-08,
+     "momentum_residual_rel": -2.247253532746307e-11
+    },
+    {
+     "cycle": 647,
+     "energy_residual_rel": -1.6388683105586782e-07,
+     "momentum_residual_rel": 1.539470427754024e-11
+    },
+    {
+     "cycle": 648,
+     "energy_residual_rel": -3.4361704825701647e-07,
+     "momentum_residual_rel": -1.8257527919653425e-11
+    },
+    {
+     "cycle": 649,
+     "energy_residual_rel": -1.1147225929888396e-07,
+     "momentum_residual_rel": -3.1982357816764405e-11
+    },
+    {
+     "cycle": 669,
+     "energy_residual_rel": -1.2785882243050617e-08,
+     "momentum_residual_rel": -1.6505484730555607e-12
+    },
+    {
+     "cycle": 670,
+     "energy_residual_rel": -2.3855283315224848e-08,
+     "momentum_residual_rel": -1.309322119251428e-12
+    },
+    {
+     "cycle": 678,
+     "energy_residual_rel": -2.0694971611766487e-08,
+     "momentum_residual_rel": 2.809783889142713e-12
+    },
+    {
+     "cycle": 682,
+     "energy_residual_rel": -1.819133314512782e-08,
+     "momentum_residual_rel": 3.8045251433338853e-10
+    },
+    {
+     "cycle": 683,
+     "energy_residual_rel": -3.122232049134606e-08,
+     "momentum_residual_rel": 2.2987262759530786e-11
+    },
+    {
+     "cycle": 684,
+     "energy_residual_rel": -3.002276727377478e-08,
+     "momentum_residual_rel": -1.8005640452392962e-10
+    },
+    {
+     "cycle": 686,
+     "energy_residual_rel": -1.3945254206666975e-08,
+     "momentum_residual_rel": -3.7515982625687405e-12
+    },
+    {
+     "cycle": 712,
+     "energy_residual_rel": -2.5224742914261546e-07,
+     "momentum_residual_rel": 7.240453280097429e-11
+    },
+    {
+     "cycle": 772,
+     "energy_residual_rel": -2.0815788350223822e-08,
+     "momentum_residual_rel": 2.4997056587770925e-13
+    },
+    {
+     "cycle": 773,
+     "energy_residual_rel": -6.971627113875544e-08,
+     "momentum_residual_rel": -4.72741643868748e-11
+    },
+    {
+     "cycle": 774,
+     "energy_residual_rel": -3.859084616121155e-07,
+     "momentum_residual_rel": -2.1348490269415462e-11
+    },
+    {
+     "cycle": 814,
+     "energy_residual_rel": -1.2175516972464978e-08,
+     "momentum_residual_rel": 4.072158620731034e-10
+    },
+    {
+     "cycle": 836,
+     "energy_residual_rel": -1.0195437082701531e-08,
+     "momentum_residual_rel": 1.2983466638558161e-11
+    },
+    {
+     "cycle": 837,
+     "energy_residual_rel": -1.89322515606606e-08,
+     "momentum_residual_rel": -2.1472367675748397e-11
+    },
+    {
+     "cycle": 838,
+     "energy_residual_rel": -4.620384674311466e-08,
+     "momentum_residual_rel": -1.1303323304059914e-09
+    },
+    {
+     "cycle": 843,
+     "energy_residual_rel": -1.4391743118898547e-08,
+     "momentum_residual_rel": -2.5365471517753925e-11
+    },
+    {
+     "cycle": 844,
+     "energy_residual_rel": -4.5945709562919836e-08,
+     "momentum_residual_rel": -1.373085058638545e-10
+    },
+    {
+     "cycle": 850,
+     "energy_residual_rel": -4.197837951708093e-08,
+     "momentum_residual_rel": 1.316955674892102e-11
+    },
+    {
+     "cycle": 851,
+     "energy_residual_rel": -9.56190844425825e-08,
+     "momentum_residual_rel": 5.673723069437863e-11
+    },
+    {
+     "cycle": 852,
+     "energy_residual_rel": -5.274769061898058e-08,
+     "momentum_residual_rel": 1.6116677944737294e-11
+    },
+    {
+     "cycle": 854,
+     "energy_residual_rel": -2.6280256417990798e-08,
+     "momentum_residual_rel": -5.6336188606763e-10
+    },
+    {
+     "cycle": 855,
+     "energy_residual_rel": -4.2808899463251736e-08,
+     "momentum_residual_rel": -1.5986339429187024e-11
+    },
+    {
+     "cycle": 856,
+     "energy_residual_rel": -2.492151167839892e-07,
+     "momentum_residual_rel": 4.5823400395864644e-10
+    }
+   ],
+   "worst_energy_residual": 3.859084616121155e-07,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.859,
+    "sha256": {
+     "summary.json": "c915b90992519e466767960246c82eb62741046ef89eb82862efc183f6050f15",
+     "audit.json": "80cd4b73a8b13c87b2c92f366c4eae9b749cd38e9f4c876b659eef46cd9b7128"
+    }
+   }
+  },
+  {
+   "run": "E0025/2d-g5-f0.5-d15-s2",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 6628.1,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 105,
+     "energy_residual_rel": -1.842562457149097e-08,
+     "momentum_residual_rel": -7.841725178730724e-12
+    },
+    {
+     "cycle": 116,
+     "energy_residual_rel": -1.1356616369062592e-08,
+     "momentum_residual_rel": -7.15243483514325e-14
+    },
+    {
+     "cycle": 188,
+     "energy_residual_rel": 9.150797916109457e-08,
+     "momentum_residual_rel": 7.770121514811028e-12
+    },
+    {
+     "cycle": 226,
+     "energy_residual_rel": -5.723264706171072e-08,
+     "momentum_residual_rel": -7.531859698179713e-12
+    },
+    {
+     "cycle": 228,
+     "energy_residual_rel": -1.643773596565642e-08,
+     "momentum_residual_rel": 2.1871452623748484e-11
+    },
+    {
+     "cycle": 230,
+     "energy_residual_rel": -1.3354502656129417e-08,
+     "momentum_residual_rel": 4.223741247463692e-12
+    },
+    {
+     "cycle": 254,
+     "energy_residual_rel": -1.7689549624617173e-08,
+     "momentum_residual_rel": -2.081394354869056e-12
+    },
+    {
+     "cycle": 293,
+     "energy_residual_rel": -3.432764343535652e-08,
+     "momentum_residual_rel": -8.627434710991207e-12
+    },
+    {
+     "cycle": 294,
+     "energy_residual_rel": -1.2591373778076773e-07,
+     "momentum_residual_rel": 3.657320121554499e-12
+    },
+    {
+     "cycle": 352,
+     "energy_residual_rel": -1.2783667002891374e-08,
+     "momentum_residual_rel": -3.924783775873012e-12
+    },
+    {
+     "cycle": 380,
+     "energy_residual_rel": -1.3646814561236972e-08,
+     "momentum_residual_rel": -4.693066426739534e-12
+    },
+    {
+     "cycle": 400,
+     "energy_residual_rel": -1.2919698739650594e-08,
+     "momentum_residual_rel": -3.408502375564395e-11
+    },
+    {
+     "cycle": 402,
+     "energy_residual_rel": -3.618116142485978e-08,
+     "momentum_residual_rel": 1.9045246728663757e-11
+    },
+    {
+     "cycle": 438,
+     "energy_residual_rel": -4.11935488125236e-08,
+     "momentum_residual_rel": -1.5260422297677948e-11
+    },
+    {
+     "cycle": 465,
+     "energy_residual_rel": -1.0701236915824502e-08,
+     "momentum_residual_rel": 3.08148651733378e-11
+    },
+    {
+     "cycle": 466,
+     "energy_residual_rel": -2.7053188141555793e-08,
+     "momentum_residual_rel": 4.8281958587534175e-12
+    },
+    {
+     "cycle": 468,
+     "energy_residual_rel": -2.2853027847737105e-08,
+     "momentum_residual_rel": -1.9672203842261198e-11
+    },
+    {
+     "cycle": 470,
+     "energy_residual_rel": -5.7984050192878323e-08,
+     "momentum_residual_rel": -2.0336581149050476e-12
+    },
+    {
+     "cycle": 477,
+     "energy_residual_rel": -1.4013765978997211e-08,
+     "momentum_residual_rel": -1.4458632581164947e-11
+    },
+    {
+     "cycle": 478,
+     "energy_residual_rel": -3.502972249350667e-08,
+     "momentum_residual_rel": 9.57758889115332e-12
+    },
+    {
+     "cycle": 540,
+     "energy_residual_rel": -3.3625735528999995e-07,
+     "momentum_residual_rel": 9.75749250531493e-11
+    },
+    {
+     "cycle": 612,
+     "energy_residual_rel": -1.233773637537593e-08,
+     "momentum_residual_rel": 9.58920844760621e-12
+    },
+    {
+     "cycle": 618,
+     "energy_residual_rel": -5.70666995622625e-08,
+     "momentum_residual_rel": 2.192648399064182e-11
+    },
+    {
+     "cycle": 626,
+     "energy_residual_rel": -2.6066079048989926e-08,
+     "momentum_residual_rel": -1.1557572492722301e-11
+    },
+    {
+     "cycle": 656,
+     "energy_residual_rel": -3.7554786446620084e-08,
+     "momentum_residual_rel": -8.41666602625476e-12
+    },
+    {
+     "cycle": 684,
+     "energy_residual_rel": -1.1006005426421022e-08,
+     "momentum_residual_rel": 3.572112226008041e-11
+    },
+    {
+     "cycle": 690,
+     "energy_residual_rel": -1.3537614481825033e-08,
+     "momentum_residual_rel": 7.68924488634002e-12
+    },
+    {
+     "cycle": 694,
+     "energy_residual_rel": -1.782572318498718e-08,
+     "momentum_residual_rel": -4.6253103573109945e-11
+    },
+    {
+     "cycle": 720,
+     "energy_residual_rel": -2.1952389921794396e-08,
+     "momentum_residual_rel": 1.0137064193704988e-11
+    },
+    {
+     "cycle": 722,
+     "energy_residual_rel": -2.21433413818285e-08,
+     "momentum_residual_rel": 1.1542391620897051e-12
+    },
+    {
+     "cycle": 756,
+     "energy_residual_rel": -1.5522894345157557e-08,
+     "momentum_residual_rel": -6.46261324621636e-11
+    },
+    {
+     "cycle": 758,
+     "energy_residual_rel": -2.8352845236133118e-08,
+     "momentum_residual_rel": -8.889277989239784e-12
+    },
+    {
+     "cycle": 762,
+     "energy_residual_rel": -2.471609353793109e-08,
+     "momentum_residual_rel": 6.356491497269926e-12
+    },
+    {
+     "cycle": 764,
+     "energy_residual_rel": -3.0805501806686446e-08,
+     "momentum_residual_rel": 5.194855142603121e-11
+    },
+    {
+     "cycle": 796,
+     "energy_residual_rel": -9.156344679009036e-08,
+     "momentum_residual_rel": -9.199587669232158e-10
+    },
+    {
+     "cycle": 860,
+     "energy_residual_rel": -8.63323477368774e-08,
+     "momentum_residual_rel": 1.552465500109486e-11
+    },
+    {
+     "cycle": 886,
+     "energy_residual_rel": -6.645430761150402e-08,
+     "momentum_residual_rel": -3.0354385709264415e-11
+    },
+    {
+     "cycle": 890,
+     "energy_residual_rel": -2.1313611272003e-08,
+     "momentum_residual_rel": -1.4371641843534941e-11
+    },
+    {
+     "cycle": 891,
+     "energy_residual_rel": -5.252625670933071e-08,
+     "momentum_residual_rel": -7.90961061091544e-12
+    },
+    {
+     "cycle": 892,
+     "energy_residual_rel": -2.1582723068825925e-07,
+     "momentum_residual_rel": -3.3406991664150124e-11
+    },
+    {
+     "cycle": 948,
+     "energy_residual_rel": -2.8542814718306925e-08,
+     "momentum_residual_rel": 1.994645609877507e-11
+    },
+    {
+     "cycle": 952,
+     "energy_residual_rel": -1.4825537770731125e-08,
+     "momentum_residual_rel": -7.2575702804480295e-12
+    },
+    {
+     "cycle": 954,
+     "energy_residual_rel": -1.4813450314293543e-07,
+     "momentum_residual_rel": 8.396351517529077e-12
+    },
+    {
+     "cycle": 956,
+     "energy_residual_rel": -1.089069112597992e-08,
+     "momentum_residual_rel": 9.670914198098171e-12
+    },
+    {
+     "cycle": 989,
+     "energy_residual_rel": -3.7905745501546416e-08,
+     "momentum_residual_rel": -2.6008927610270446e-11
+    },
+    {
+     "cycle": 990,
+     "energy_residual_rel": -3.207054950897907e-08,
+     "momentum_residual_rel": -1.822218823969192e-11
+    }
+   ],
+   "worst_energy_residual": 3.3625735528999995e-07,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.859,
+    "sha256": {
+     "summary.json": "ac035d693b555cc7c6588dc3ad66d0f097a2c8e4aaece189557a54559a97f543",
+     "audit.json": "adac78ea7d173dcc43afa929fb56f03f9579cad01d37fa50ef294d9f8d8693b9"
+    }
+   }
+  }
+ ]
+}

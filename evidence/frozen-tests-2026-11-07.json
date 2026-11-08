@@ -1,0 +1,48 @@
+{
+ "what": "Frozen referee tests (referee/tests from main 6f45fed) run against each branch's engine, from outside the repository (cwd sequel-data/tmp) with PYTHONPATH set to the worktree and granular imported before pytest, so the branch's engine is the one used; the imported path is recorded.",
+ "at": "2026-11-08T00:59:27-05:00",
+ "runs": [
+  {
+   "branch": "main",
+   "commit": "6f45fed",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel/granular/__init__.py",
+   "result": "74 passed in 11.97s",
+   "returncode": 0
+  },
+  {
+   "branch": "method/nudge",
+   "commit": "b608fef",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel-data/worktrees/nudge/granular/__init__.py",
+   "result": "74 passed in 11.92s",
+   "returncode": 0
+  },
+  {
+   "branch": "method/elastic-window",
+   "commit": "90ee7d2",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel-data/worktrees/elastic-window/granular/__init__.py",
+   "result": "74 passed in 11.97s",
+   "returncode": 0
+  },
+  {
+   "branch": "method/elastic-window-v003",
+   "commit": "b1e4086",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel-data/worktrees/elastic-window-v003/granular/__init__.py",
+   "result": "74 passed in 12.00s",
+   "returncode": 0
+  },
+  {
+   "branch": "method/plate-stick",
+   "commit": "3900896",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel-data/worktrees/plate-stick/granular/__init__.py",
+   "result": "74 passed in 12.01s",
+   "returncode": 0
+  },
+  {
+   "branch": "method/plate-stick-v1e-3",
+   "commit": "7dd39c2",
+   "imported_from": "/Users/bizon/Projects/experiments/sequel-data/worktrees/plate-stick-v1e-3/granular/__init__.py",
+   "result": "74 passed in 12.59s",
+   "returncode": 0
+  }
+ ]
+}

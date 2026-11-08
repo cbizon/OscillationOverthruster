@@ -1,0 +1,66 @@
+{
+ "experiment": "E0014",
+ "note": "Final state of the seed-1 unmodified case-g run left running by the session of 2026-11-06 as a survival observation after E0014 was superseded by E0017.",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/baseline-main-3d-g6-f0.84",
+   "commit": "6f45fed",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 586,
+   "cpu_hours": 8.002,
+   "slow_episode_cpu_hours": 0.0,
+   "slow_cpu_share": 0.0,
+   "slow_episodes": 0,
+   "slow_episode_start_cycles": [],
+   "audit_failures": [
+    {
+     "cycle": 91,
+     "energy_residual_rel": 6.099999979778682e-07,
+     "momentum_residual_rel": 6.147784971244398e-07,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 173,
+     "energy_residual_rel": 3.4621963063377634e-08,
+     "momentum_residual_rel": 3.238539681299172e-08,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 453,
+     "energy_residual_rel": 2.024377991751565e-08,
+     "momentum_residual_rel": 1.6770428999152122e-08,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 457,
+     "energy_residual_rel": 1.203415610669327e-07,
+     "momentum_residual_rel": 1.07079983592831e-07,
+     "collision_gains": 0
+    },
+    {
+     "cycle": 529,
+     "energy_residual_rel": 4.0702681001138695e-08,
+     "momentum_residual_rel": 4.033554629291463e-08,
+     "collision_gains": 0
+    }
+   ],
+   "data": {
+    "size_mb": 8.3,
+    "sha256": {
+     "summary.json": "464a5465b6691286008cb91b484a80c272133fa2dacb6b5282aa6f4dd3b51142",
+     "audit.json": "26a8abde954b8147275284145360348f39f324d5a3dee0edb4cf2cc8a408f9e1"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,1037 @@
+{
+ "groups": {
+  "g3.5-f0.3-d5-L100": {
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L100-s1",
+     "mode": 3,
+     "wavelength": 33.333333333333336,
+     "mode_power_fraction": 0.141
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L100-s2",
+     "mode": 10,
+     "wavelength": 10.0,
+     "mode_power_fraction": 0.101
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L100-s3",
+     "mode": 3,
+     "wavelength": 33.333333333333336,
+     "mode_power_fraction": 0.131
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L100-s4",
+     "mode": 3,
+     "wavelength": 33.333333333333336,
+     "mode_power_fraction": 0.083
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L100-s5",
+     "mode": 4,
+     "wavelength": 25.0,
+     "mode_power_fraction": 0.128
+    }
+   ],
+   "quantities": {
+    "zcm": {
+     "first_block_means": [
+      8.378914,
+      8.360163,
+      8.383752,
+      8.384531,
+      8.393142
+     ],
+     "run_means": [
+      8.3842,
+      8.384793,
+      8.392222,
+      8.383297,
+      8.392974
+     ],
+     "block_sd": [
+      0.025425,
+      0.019934,
+      0.021402,
+      0.021352,
+      0.016523
+     ],
+     "R": 0.586,
+     "R1000": 0.709
+    },
+    "thickness": {
+     "first_block_means": [
+      3.785478,
+      3.752023,
+      3.705396,
+      3.690577,
+      3.705294
+     ],
+     "run_means": [
+      3.751064,
+      3.725215,
+      3.729982,
+      3.688232,
+      3.711804
+     ],
+     "block_sd": [
+      0.051111,
+      0.042872,
+      0.03641,
+      0.060619,
+      0.05026
+     ],
+     "R": 0.823,
+     "R1000": 1.523
+    },
+    "ke_vertical": {
+     "first_block_means": [
+      2.823328,
+      2.828932,
+      2.806585,
+      2.804403,
+      2.803979
+     ],
+     "run_means": [
+      2.813699,
+      2.808994,
+      2.812944,
+      2.799919,
+      2.806098
+     ],
+     "block_sd": [
+      0.01623,
+      0.01678,
+      0.012973,
+      0.019514,
+      0.017973
+     ],
+     "R": 0.706,
+     "R1000": 1.064
+    },
+    "ke_horizontal": {
+     "first_block_means": [
+      0.425104,
+      0.4252,
+      0.405025,
+      0.408442,
+      0.418831
+     ],
+     "run_means": [
+      0.416856,
+      0.412611,
+      0.417465,
+      0.407138,
+      0.413037
+     ],
+     "block_sd": [
+      0.009746,
+      0.015501,
+      0.017375,
+      0.015312,
+      0.014778
+     ],
+     "R": 0.645,
+     "R1000": 0.899
+    },
+    "temp_vertical": {
+     "first_block_means": [
+      1.222622,
+      1.215421,
+      1.187389,
+      1.185478,
+      1.192639
+     ],
+     "run_means": [
+      1.201149,
+      1.194688,
+      1.198385,
+      1.183452,
+      1.195088
+     ],
+     "block_sd": [
+      0.018418,
+      0.02031,
+      0.014879,
+      0.019922,
+      0.021288
+     ],
+     "R": 0.902,
+     "R1000": 1.124
+    },
+    "temp_horizontal": {
+     "first_block_means": [
+      0.420201,
+      0.421219,
+      0.400263,
+      0.403645,
+      0.414076
+     ],
+     "run_means": [
+      0.412499,
+      0.408175,
+      0.412743,
+      0.402732,
+      0.40786
+     ],
+     "block_sd": [
+      0.009438,
+      0.014887,
+      0.016999,
+      0.01519,
+      0.014379
+     ],
+     "R": 0.673,
+     "R1000": 0.915
+    },
+    "plate_contact": {
+     "first_block_means": [
+      0.014392,
+      0.014343,
+      0.014288,
+      0.014326,
+      0.014312
+     ],
+     "run_means": [
+      0.01436,
+      0.014321,
+      0.014275,
+      0.014354,
+      0.014279
+     ],
+     "block_sd": [
+      0.000165,
+      0.000123,
+      0.000174,
+      0.000172,
+      0.000134
+     ],
+     "R": 0.256,
+     "R1000": 0.828
+    }
+   }
+  },
+  "g3.5-f0.3-d5-L400": {
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s1",
+     "mode": 15,
+     "wavelength": 26.666666666666668,
+     "mode_power_fraction": 0.061
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s2",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.041
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s3",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.045
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s4",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.05
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.3-d5-L400-s5",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.048
+    }
+   ],
+   "quantities": {
+    "zcm": {
+     "first_block_means": [
+      8.380577,
+      8.395527,
+      8.394223,
+      8.379087,
+      8.37629
+     ],
+     "run_means": [
+      8.391558,
+      8.395698,
+      8.392657,
+      8.391342,
+      8.3871
+     ],
+     "block_sd": [
+      0.008834,
+      0.008071,
+      0.00735,
+      0.009921,
+      0.007492
+     ],
+     "R": 1.084,
+     "R1000": 1.173
+    },
+    "thickness": {
+     "first_block_means": [
+      3.737904,
+      3.759536,
+      3.803399,
+      3.797168,
+      3.660083
+     ],
+     "run_means": [
+      3.762209,
+      3.756774,
+      3.791791,
+      3.721227,
+      3.732268
+     ],
+     "block_sd": [
+      0.036098,
+      0.034171,
+      0.043522,
+      0.042324,
+      0.040155
+     ],
+     "R": 1.474,
+     "R1000": 2.222
+    },
+    "ke_vertical": {
+     "first_block_means": [
+      2.800322,
+      2.813032,
+      2.829682,
+      2.826398,
+      2.778968
+     ],
+     "run_means": [
+      2.817586,
+      2.815321,
+      2.827979,
+      2.804854,
+      2.80494
+     ],
+     "block_sd": [
+      0.013471,
+      0.011909,
+      0.014226,
+      0.013959,
+      0.014184
+     ],
+     "R": 1.531,
+     "R1000": 2.262
+    },
+    "ke_horizontal": {
+     "first_block_means": [
+      0.397478,
+      0.416723,
+      0.417321,
+      0.411476,
+      0.387293
+     ],
+     "run_means": [
+      0.415368,
+      0.419055,
+      0.423008,
+      0.408842,
+      0.406181
+     ],
+     "block_sd": [
+      0.009589,
+      0.011144,
+      0.009776,
+      0.013191,
+      0.010066
+     ],
+     "R": 1.226,
+     "R1000": 2.054
+    },
+    "temp_vertical": {
+     "first_block_means": [
+      1.19699,
+      1.20962,
+      1.225312,
+      1.226682,
+      1.178718
+     ],
+     "run_means": [
+      1.213686,
+      1.210393,
+      1.225119,
+      1.200944,
+      1.200531
+     ],
+     "block_sd": [
+      0.014615,
+      0.012571,
+      0.014989,
+      0.015503,
+      0.013399
+     ],
+     "R": 1.419,
+     "R1000": 2.263
+    },
+    "temp_horizontal": {
+     "first_block_means": [
+      0.396977,
+      0.416109,
+      0.416888,
+      0.410953,
+      0.386355
+     ],
+     "run_means": [
+      0.414736,
+      0.418421,
+      0.422454,
+      0.408212,
+      0.405532
+     ],
+     "block_sd": [
+      0.009562,
+      0.011072,
+      0.009717,
+      0.013221,
+      0.010141
+     ],
+     "R": 1.241,
+     "R1000": 2.064
+    },
+    "plate_contact": {
+     "first_block_means": [
+      0.014303,
+      0.014249,
+      0.014358,
+      0.014439,
+      0.01433
+     ],
+     "run_means": [
+      0.014267,
+      0.014256,
+      0.014288,
+      0.014253,
+      0.0143
+     ],
+     "block_sd": [
+      6.7e-05,
+      7e-05,
+      6.1e-05,
+      0.000107,
+      6.5e-05
+     ],
+     "R": 0.947,
+     "R1000": 0.877
+    }
+   }
+  },
+  "g3.5-f0.5-d10-L100": {
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L100-s1",
+     "mode": 4,
+     "wavelength": 25.0,
+     "mode_power_fraction": 0.151
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L100-s2",
+     "mode": 3,
+     "wavelength": 33.333333333333336,
+     "mode_power_fraction": 0.201
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L100-s3",
+     "mode": 3,
+     "wavelength": 33.333333333333336,
+     "mode_power_fraction": 0.144
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L100-s4",
+     "mode": 4,
+     "wavelength": 25.0,
+     "mode_power_fraction": 0.27
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L100-s5",
+     "mode": 4,
+     "wavelength": 25.0,
+     "mode_power_fraction": 0.197
+    }
+   ],
+   "quantities": {
+    "zcm": {
+     "first_block_means": [
+      9.021681,
+      9.045116,
+      9.030391,
+      9.005162,
+      9.031647
+     ],
+     "run_means": [
+      9.027763,
+      9.01679,
+      9.021933,
+      9.023087,
+      9.023928
+     ],
+     "block_sd": [
+      0.012762,
+      0.023554,
+      0.009852,
+      0.013617,
+      0.016681
+     ],
+     "R": 0.962,
+     "R1000": 0.819
+    },
+    "thickness": {
+     "first_block_means": [
+      3.769146,
+      3.78231,
+      3.724298,
+      3.731227,
+      3.777706
+     ],
+     "run_means": [
+      3.769897,
+      3.739996,
+      3.752915,
+      3.750295,
+      3.756283
+     ],
+     "block_sd": [
+      0.022082,
+      0.041809,
+      0.014557,
+      0.025245,
+      0.029589
+     ],
+     "R": 1.019,
+     "R1000": 1.284
+    },
+    "ke_vertical": {
+     "first_block_means": [
+      1.850986,
+      1.856151,
+      1.834916,
+      1.832697,
+      1.854651
+     ],
+     "run_means": [
+      1.850162,
+      1.837772,
+      1.844117,
+      1.841289,
+      1.844665
+     ],
+     "block_sd": [
+      0.009662,
+      0.015902,
+      0.005872,
+      0.010953,
+      0.012034
+     ],
+     "R": 1.03,
+     "R1000": 1.33
+    },
+    "ke_horizontal": {
+     "first_block_means": [
+      0.157813,
+      0.159698,
+      0.149584,
+      0.15341,
+      0.155383
+     ],
+     "run_means": [
+      0.157194,
+      0.153294,
+      0.15407,
+      0.153673,
+      0.155071
+     ],
+     "block_sd": [
+      0.003791,
+      0.006585,
+      0.003563,
+      0.005514,
+      0.007175
+     ],
+     "R": 0.738,
+     "R1000": 0.928
+    },
+    "temp_vertical": {
+     "first_block_means": [
+      0.54647,
+      0.545053,
+      0.514453,
+      0.523575,
+      0.550014
+     ],
+     "run_means": [
+      0.545292,
+      0.532414,
+      0.53695,
+      0.535827,
+      0.539437
+     ],
+     "block_sd": [
+      0.0097,
+      0.018169,
+      0.010541,
+      0.013616,
+      0.012647
+     ],
+     "R": 1.226,
+     "R1000": 1.174
+    },
+    "temp_horizontal": {
+     "first_block_means": [
+      0.155237,
+      0.157092,
+      0.147159,
+      0.151126,
+      0.153106
+     ],
+     "run_means": [
+      0.154455,
+      0.150789,
+      0.151667,
+      0.151055,
+      0.152552
+     ],
+     "block_sd": [
+      0.003729,
+      0.00638,
+      0.003574,
+      0.005622,
+      0.00704
+     ],
+     "R": 0.729,
+     "R1000": 0.888
+    },
+    "plate_contact": {
+     "first_block_means": [
+      0.012043,
+      0.011897,
+      0.011843,
+      0.01205,
+      0.011979
+     ],
+     "run_means": [
+      0.011994,
+      0.011947,
+      0.011973,
+      0.01193,
+      0.011969
+     ],
+     "block_sd": [
+      4.8e-05,
+      9.9e-05,
+      5.8e-05,
+      9.8e-05,
+      5.2e-05
+     ],
+     "R": 1.275,
+     "R1000": 1.097
+    }
+   }
+  },
+  "g3.5-f0.5-d10-L400": {
+   "runs": [
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s1",
+     "mode": 13,
+     "wavelength": 30.76923076923077,
+     "mode_power_fraction": 0.114
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s3",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.09
+    },
+    {
+     "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0020/main-g3.5-f0.5-d10-L400-s4",
+     "mode": 14,
+     "wavelength": 28.571428571428573,
+     "mode_power_fraction": 0.079
+    }
+   ],
+   "quantities": {
+    "zcm": {
+     "first_block_means": [
+      9.03532,
+      9.030093,
+      9.039188
+     ],
+     "run_means": [
+      9.034319,
+      9.032053,
+      9.038805
+     ],
+     "block_sd": [
+      0.010252,
+      0.006223,
+      0.006877
+     ],
+     "R": 0.586,
+     "R1000": 1.396
+    },
+    "thickness": {
+     "first_block_means": [
+      3.76368,
+      3.736372,
+      3.756702
+     ],
+     "run_means": [
+      3.75501,
+      3.762739,
+      3.756182
+     ],
+     "block_sd": [
+      0.013967,
+      0.019915,
+      0.012178
+     ],
+     "R": 0.924,
+     "R1000": 0.858
+    },
+    "ke_vertical": {
+     "first_block_means": [
+      1.846664,
+      1.836323,
+      1.844044
+     ],
+     "run_means": [
+      1.84323,
+      1.848151,
+      1.843786
+     ],
+     "block_sd": [
+      0.005669,
+      0.009357,
+      0.00525
+     ],
+     "R": 0.795,
+     "R1000": 1.261
+    },
+    "ke_horizontal": {
+     "first_block_means": [
+      0.163164,
+      0.159117,
+      0.165525
+     ],
+     "run_means": [
+      0.161927,
+      0.161247,
+      0.163365
+     ],
+     "block_sd": [
+      0.003764,
+      0.002923,
+      0.001713
+     ],
+     "R": 1.157,
+     "R1000": 1.221
+    },
+    "temp_vertical": {
+     "first_block_means": [
+      0.53955,
+      0.525227,
+      0.536418
+     ],
+     "run_means": [
+      0.534645,
+      0.539973,
+      0.536068
+     ],
+     "block_sd": [
+      0.006422,
+      0.010505,
+      0.006491
+     ],
+     "R": 0.965,
+     "R1000": 1.118
+    },
+    "temp_horizontal": {
+     "first_block_means": [
+      0.162677,
+      0.158499,
+      0.165114
+     ],
+     "run_means": [
+      0.161398,
+      0.160706,
+      0.162853
+     ],
+     "block_sd": [
+      0.003718,
+      0.002903,
+      0.001725
+     ],
+     "R": 1.202,
+     "R1000": 1.245
+    },
+    "plate_contact": {
+     "first_block_means": [
+      0.011877,
+      0.011813,
+      0.011825
+     ],
+     "run_means": [
+      0.01186,
+      0.011881,
+      0.011843
+     ],
+     "block_sd": [
+      6.2e-05,
+      7.2e-05,
+      5.6e-05
+     ],
+     "R": 0.536,
+     "R1000": 0.95
+    }
+   }
+  }
+ },
+ "all_runs": [
+  {
+   "run": "main-g3.5-f0.3-d5-L100-s1",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 19.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.79,
+   "sha256_summary": "30148383cc9a4ff725bcdae492edf2b4263d3393bfc4aee8e92f6b4f37740295"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L100-s2",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 20.0,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.79,
+   "sha256_summary": "ef991b87942a3248a4b0550c55296636a38274bb2b49ac288ab38137f4de8d29"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L100-s3",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 20.1,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.79,
+   "sha256_summary": "c9673fc801743580ca45363aaf85bc2ba8d259e60209cea22578f87197859230"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L100-s4",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 20.6,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.79,
+   "sha256_summary": "916c59c2d845d5101997dd4f6bc2c2af0288f8e059660bc8317008ecfb06948b"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L100-s5",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 20.9,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.79,
+   "sha256_summary": "b9a6849553fe7317989b9c40d980f410f2a5da027b5f8651f86eb93c9122e145"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L400-s1",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 83.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.96,
+   "sha256_summary": "6712f85b591b1c7c8a0b2ac527b848d0270a4ad43951148b5970a902422b5bb4"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L400-s2",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 84.9,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.96,
+   "sha256_summary": "d2842239917e67e517dd2f9abe0efaa6c0653b557a2984da226ba2fe23c2f5c4"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L400-s3",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 85.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.96,
+   "sha256_summary": "815c99977126686c0492439c1d36578d3c728a6459231c18b0705f457c714956"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L400-s4",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 84.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.96,
+   "sha256_summary": "24f55a732f8fecbce107c785ae900065a11c3d7062e72983e7c32a41809da2a8"
+  },
+  {
+   "run": "main-g3.5-f0.3-d5-L400-s5",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 84.0,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.96,
+   "sha256_summary": "a6194993ec836cb01192ac48e19ad285b1e429a2ab50a98fd7962a241b9889ed"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L100-s1",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 136.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.85,
+   "sha256_summary": "363bedf6f0429223744652f96e3c5a72ab944dcade1be995be3d6dc6a568e934"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L100-s2",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 139.4,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.85,
+   "sha256_summary": "8e75a1bc281228745f362363e20e588e0e82333b639a46c291d58766d9d0edf2"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L100-s3",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 143.7,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.85,
+   "sha256_summary": "8877812dfb3ef79eb27d981cf3e2692d2ac2b46260aecffc2cc08ebde72f283b"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L100-s4",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 142.8,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.85,
+   "sha256_summary": "ba0edbe4be61b60cdc53da250eb901d8ef5eabcec81f36a4bd7e0c166abe0087"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L100-s5",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 136.3,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 2.85,
+   "sha256_summary": "4a412e6077e7199c53ca159b3d26339a4638523c73df147cbb718a6318f1165e"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L400-s1",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 644.5,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 3.19,
+   "sha256_summary": "ac49b030863d93b570f1c30503f0c8d175020bf3add600d0edcc54e726a01e01"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L400-s2",
+   "outcome": "cpu_budget",
+   "error": null,
+   "cycles": 0,
+   "cpu_seconds": 7200.2,
+   "slow_episodes": 107,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 0.04,
+   "sha256_summary": "08dbb200bb807d8d3400bca8fd3e0fded6d528298aa5c6a8eba1010330b04641"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L400-s3",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 644.2,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 3.19,
+   "sha256_summary": "32543a368c64f554809b928dab6f1504b084a6a954dd54c95bf41dad38b38ec1"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L400-s4",
+   "outcome": "completed",
+   "error": null,
+   "cycles": 1020,
+   "cpu_seconds": 711.6,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 3.19,
+   "sha256_summary": "fa5a6edfc1f016f53b9f0d9685377155419896b628178fec1e1839635069c73e"
+  },
+  {
+   "run": "main-g3.5-f0.5-d10-L400-s5",
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles": 0,
+   "cpu_seconds": 105.2,
+   "slow_episodes": 10,
+   "audit_failures": [],
+   "commit": "6f45fed",
+   "size_mb": 0.01,
+   "sha256_summary": "ba06f9a91a458809bd1416bac0bb79e4ed62d2aa16b949580e5e20effa45cd56"
+  }
+ ],
+ "rule": "R = sd across seeds of cycle 20-120 means / mean within-run block sd; supported at L 400 if no R > 1.67 (5 seeds; 3 seeds at Gamma 3.5 f* 0.5 depth 10 L 400, where 1.67 is generous: the 95% point for 2 degrees of freedom is 1.73)."
+}
