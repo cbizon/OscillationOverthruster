@@ -1,0 +1,133 @@
+{
+ "date": "2026-11-07",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "The session proposed no claims, so I reviewed its experiments for the same problems. The record-keeping is accurate. All 169 checksums I could check in this session's evidence files match. The only mismatches are the two depth-ten nudge runs that kept running after the evidence was written, which is expected. Both open challenges from my last review were answered. The depth-ten overlap was recorded and replayed, PROGRAM.md's survival framing was corrected, and the frozen tests were run against every branch with the branch's engine imported (I confirmed each worktree sits at its branch's commit with no local changes). program check passes. The main findings: (1) Plate-stick's failure is real, but the reading of it is not yet secure. Its new pair-contact search deliberately steps past pairs that are pressed together without colliding them, and that could let the overlaps that end every run build up by construction. Two factual statements also overreach. One plate-stick run did reach a release, and the 'billion and a half captures in one cycle' was over thirty cycles. (2) In the wide two-dimensional boxes the layer may not have settled by cycle twenty. The referee's drift test fired on 39 of 161 quantities (about one in four, against the one in twenty expected by chance), in 16 of 23 runs. At the shallow condition the spread between seeds is larger relative to block spread in the wide box than in the narrow one, not smaller. The nudge's wide-box passes still stand. (3) Since the session, the nudge's seed-three run at strong driving, low frequency, depth ten finished a thousand cycles, at 03:44, before the session ended. 13% of its CPU went to slow stretches, and 130 cycles failed the audit, one of them an energy gain. Seed two is at cycle 844, still running, with 48% of its CPU in slow stretches. PROGRAM.md's 'every audit failure is an energy loss' is now wrong twice. Housekeeping is clean.",
+ "reviews": [
+  {
+   "claim_id": "E0008",
+   "plain_claim": "Corrected from last night: the nudge fails the survival test at strong driving, low frequency, depth ten (overlap in cycle one hundred sixty-three, seed one), and survives depth fifteen only after hours of slow stretches (71% of its CPU).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the E0008 outcome record, E0008-collected.json (checksums match) and PROGRAM.md against last review's request.",
+     "finding": "Everything I asked for is there. The overlap is recorded at zero-based cycle 162, phase 0.998. Depth fifteen is reported as cleared-after-hours, with 4.55 of 6.40 CPU-hours slow. The 'survives every stalled condition' framing is gone from PROGRAM.md. The challenge is resolved."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read slow_episodes and audit.json of the E0025 continuations (seeds two and three) at the same depth-ten condition, which finished or advanced after the session's evidence was written.",
+     "finding": "Seed three completed a thousand cycles at 03:44, eleven minutes before the session's recorded end. The summary and runs/active.jsonl still call it running. It had 1,145 slow episodes between cycles 104 and 681, which took 1,471 of its 10,962 CPU-seconds (13%). Seed two is at cycle 844 and still running (pid 10502). It has had 2,459 slow episodes, which took 8,129 of its 17,080 CPU-seconds (48%). So depth ten is slow at every seed, as the session said. Of three seeds, one overlapped, one finished, and one is undecided."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0018",
+   "plain_claim": "The nudge's depth-ten overlap is a sphere sitting on the plate with a free sphere resting on it at an angle, the mechanism the notes predict and the same configuration that ends every plate-stick failure.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the replay's saved states against their checksums and read the outcome against E0018-results.json.",
+     "finding": "The three saved files match their checksums. The record says the replay reproduced the failure cycle and phase exactly, and the geometry it reports (one sphere 8e-17 diameters above the plate, the other 0.87 diameters higher and 0.51 to the side) is in the evidence file. I did not rerun the four-CPU-hour replay."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Weighed how much one replay supports 'the same anatomy as plate-stick'.",
+     "finding": "This is a single overlap at a single seed. 'The same configuration' is a description of geometry, not evidence of a shared cause. In the nudge the pair is predicted by main's ordinary pair search. In plate-stick it is predicted by a new search with its own skip rule (see E0022). The similarity is suggestive, and it is enough to motivate the option-four design note. It should not be read as showing that the two methods fail for the same reason."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0022",
+   "plain_claim": "Plate-stick (capture below one ten-thousandth of the gravity speed scale, release at plate acceleration minus g) gets no further than the unmodified engine. Every failure is a free sphere pressed obliquely onto a stuck one, so the lasting contact just moves to that pair, and no stuck sphere survives to its release.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read the plate-stick diff against main (granular/edmd.py, about 400 lines), in particular the new stuck_pair_root, which predicts collisions between a stuck sphere and any other.",
+     "finding": "When a stuck–free pair is in contact and their relative acceleration presses them together, the search does not predict a collision. It steps forward by 20·σ·1e-12/|f''| and tries again. The code comment says 'the overlap meanwhile is far below round-off'. Contacts with approach speed below 1e-12 are also stepped over. This is exactly the free-sphere-resting-on-a-stuck-sphere configuration, and the engine stops these runs when overlap reaches 2e-8. Millions of such steps and very slow collisions (the replay counted about fourteen million) could build up that overlap by construction. If so, 'the rattle moves to the pair' is partly an artifact of this rule rather than the physics of the pair. The rule was introduced as the fix to the pilot's freeze (E0021). It has no decision record, although a reasonable scientist could choose differently (for example, treating a pressed stuck–free pair as a collision with the stuck sphere as an infinite mass, which D0009 lists as an alternative)."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Compared each statement in the summary with the per-run tallies in E0021-E0022-results.json (checksums match for all 80 files).",
+     "finding": "'No sphere stayed stuck until its release phase in any run' is contradicted by one release in the capture-speed one-thousandth three-dimensional run. For the other runs it rests on tallies from only six of the twenty-four default-capture-speed runs. The other eighteen failed before their first checkpoint, so they have no tally at all. 'In one cycle made a billion and a half captures' is wrong: 1,505,042,551 is the run's total over thirty cycles. The summary also says plate-stick fails 'at the same cycles where the unmodified engine stalls'. But the unmodified engine stalls, and at strong driving, low frequency, depth five it cleared after hours. Plate-stick ends in overlaps, a different and harder failure. At that depth-five condition plate-stick had made no capture at all by its last checkpoint (cycles 14 to 26) before it overlapped."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read how capture and riding energy is booked (advance_s, EN_CAPTURE) and the audit results.",
+     "finding": "Riding books the plate's work and impulse exactly as m[g dz + d(vz²)/2]. Capture energy is booked as part of plate dissipation. No default-capture-speed run failed the audit. The capture-speed one-thousandth three-dimensional run failed once (cycle 13, energy -3.6e-7 with a momentum failure of -2.0e-7), and the summary does not mention this. No energy gains."
+    }
+   ],
+   "what_would_resolve": "In one existing replay (for example the depth-ten, f* 0.3, seed-one failure, which takes about thirty CPU-seconds), count how often the pressed-contact step and the sub-1e-12 grazing step fire for the failing pair, and log the pair's gap after each event up to the failure. If the overlap grows through those steps, record the rule as a decision and rerun two or three failing cases with the alternative (a collision against the stuck sphere as an infinite mass, or capture of the pair). If the overlap arises only from real collisions, say so in an outcome. Either way, correct the release and capture-count statements, and say plainly that plate-stick overlaps where the unmodified engine only slows."
+  },
+  {
+   "claim_id": "E0024",
+   "plain_claim": "In two-dimensional boxes four times wider, the nudge passes all seven bulk quantities at three seeds at the three conditions with a valid baseline. Plate-stick's passes are uninformative because it barely captures. Two conditions have no baseline from either code.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked all 34 run checksums in E0024-results.json and the judgements list.",
+     "finding": "All checksums match. Every nudge run passes, and the largest deviation is 3.21 standard deviations against a threshold of 3.62 (Gamma 3.5, f* 0.5, depth five, seed one). Plate-stick's seed-two run at the shallow condition has exactly the same deviations as the unmodified seed-two control (largest 0.449, same drift flag). That confirms it followed the unmodified trajectory, as the session said."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Counted the referee's drift flags (a quantity whose change across the judged window differs from zero at 95%) over the 23 distinct runs judged.",
+     "finding": "39 of 161 quantities are flagged (24%), and 16 of 23 runs have at least one flag. referee/README.md accepted twenty cycles of settling because, at the narrow box, 4 of 56 flags fired, about what chance gives. At the wide box the flags fire four to five times as often, in nudge and unmodified runs alike. The session did not mention this. Because the drift is the same in the method and the baseline, it doesn't overturn the passes. It does mean the wide-box layers are still changing over cycles 20 to 120. See E0020."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Checked which conditions are judged.",
+     "finding": "The two conditions without a baseline are the two where long contacts make the unmodified engine fail. So the wide-box bulk evidence again covers only conditions where the unmodified engine runs. The session reported this honestly."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0020",
+   "plain_claim": "A box four times wider holds thirteen to fifteen wavelengths and brings run-to-run spread in line with block spread, so wide boxes do no harm to the pass rule.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Read the spread ratios in E0020-results.json (20 summary checksums match).",
+     "finding": "At the shallow condition the wide box is worse, not better. The ratio of seed-to-seed spread to block spread is 0.95 to 1.53 at L = 400, against 0.26 to 0.90 at L = 100. Over thousand-cycle means it is 2.05 to 2.26 for thickness and the energies and temperatures, against 0.71 to 1.52 at the narrow box. Seed-to-seed spread that exceeds what hundred-cycle blocks predict, together with the frequent drift flags in E0024, points to correlations that last longer than a block: the wide layer evolves slowly, probably as its pattern coarsens. If so, the block standard deviations understate the noise. The pass rule then becomes stricter than intended (so the nudge's passes are safe), but more seed-to-seed false failures should be expected. Also, the rule text calls 1.67 'generous' next to a 95% point of 1.73, but a lower threshold is the stricter one."
+    }
+   ],
+   "what_would_resolve": "Using the L = 400 baselines that already exist (1,020 cycles, no new runs), plot or tabulate running means from cycle zero to see when each quantity stops trending. Then recompute block standard deviations with blocks of 100, 200 and 340 cycles. If the block standard deviation grows with block length, correlations outlast a block, and settling or block length at L = 400 should be put to Chris. Record the result as an outcome for E0020."
+  },
+  {
+   "claim_id": "E0019",
+   "plain_claim": "The unmodified engine cannot give a case-b baseline: the default start fails the first landing at four seeds, and softer starts only move the failure to the first dense landing.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the 20 checksums in E0019-results.json and the soft-start design against D0011.",
+     "finding": "All checksums match. The soft starts use only the engine's own constructor arguments, written as a cycle-zero checkpoint, so they would apply identically to every engine, as Chris asked. Every failure falls between phase 0.87 and 0.95, in the landing. The hot start at seed one hit its one-CPU-hour pilot cap inside a slow episode, so for that one case 'fails' really means 'didn't finish within an hour'. That doesn't change the conclusion."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0023",
+   "plain_claim": "Audit census: the unmodified engine fails about one cycle in three thousand, both ways; the nudge about one in forty, almost all losses, one gain; the elastic window and default plate-stick never. Failures track many-collision cycles.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Recomputed the failing cycles for the five E0025 nudge runs from their audit.json files.",
+     "finding": "The census's nudge gain is confirmed: depth fifteen, f* 0.5, seed two, cycle 188, +9.2e-8 of throughput. Since the census, the seed-three depth-ten run has added a second gain at cycle 454, +1.4e-8 of throughput (momentum clean), among 130 failing cycles. Seed two at depth ten has 100 failures so far, all losses. So the census's nudge counts are already out of date. PROGRAM.md still says 'every audit failure is an energy loss' for the nudge, which was wrong even at the time of writing given the census's own gain."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session started eight minutes after its scheduled 23:00 start. It ran on AC power with no sleep: the power log's last wake is 08:45 the previous morning, with nothing after it. It ended at 03:55, an hour before the window closed. It registered eight experiments and collected three, and left two background jobs. CPU use was about thirty CPU-hours. My sum of the run summaries touched in the window, 29.4 hours including earlier portions of continued runs, is close to the recorded 31.5. Disk use is 2.0 of fifteen gigabytes, with 91 GB free. The temporary folder is empty, and I found nothing written outside the two program folders except files belonging to other applications. program check passes; the latest approval is Chris's from November 6. The machine did not limit the science. As last night, the binding limits were the agent's choices and its waiting on Chris's decisions. Most cores sat idle after 01:00, while the cheap analysis of the wide-box settling question above was left undone.",
+  "discrepancies": [
+   "The E0025 seed-three depth-ten run completed at 03:44, before the session's recorded end of 03:55. The summary's unfinished_runs and runs/active.jsonl (pid 10510) still list it as running.",
+   "The summary's budget says 68.4 CPU-hours spent; program check sums 48.1 from the ledger. As last night, the ledger lags because background jobs have no outcome records yet.",
+   "Disclosed and not verifiable now: a possible eleven-job moment above the ten-core limit around 00:28, when the C-code baseline was started outside the queue.",
+   "Session statements that don't match the evidence: 'a billion and a half captures in one cycle' (the evidence shows that many over thirty cycles); 'no sphere stayed stuck until its release phase in any run' (one release at capture speed one-thousandth, and no tallies for eighteen runs)."
+  ]
+ }
+}
