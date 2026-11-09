@@ -1,0 +1,125 @@
+{
+ "date": "2026-11-08",
+ "instruction": "instructions/fallback.md",
+ "headline": "No new instruction, so tonight answered the checker's two open challenges, collected last night's runs, and followed the top proposed direction (an option-four design). The checker was right about plate-stick: replays with counters show its overlaps are not pair physics but a stall, a free sphere and a stuck sphere colliding millions of times a few trillionths of a time unit apart, never separating, with rounding error building the overlap. The nudge now survives the referee's headline three-dimensional case for a thousand cycles at five seeds; the session was cut short by the Mac going to sleep with the lid closed at 23:57.",
+ "experiments": [
+  {
+   "experiment_id": "E0026",
+   "question": "Does plate-stick's overlap come from the physics of a free sphere resting on a stuck one, or from its search rule that steps past pressed contacts (the checker's challenge)?",
+   "what_was_done": "Added counters (no behaviour change) to a scratch copy of plate-stick and replayed five failures from the start, stepping one event at a time near each failure and logging the failing pair's gap.",
+   "result": "Every replay reproduced its failure. In each, the free and stuck sphere collided millions of times without separating: each collision leaves no normal speed and the lower sphere is captured again, so the next collision comes two pressed-contact steps later, a few trillionths of a time unit. Each step moves the pair together by about one rounding error of position, and over millions of steps that reaches the overlap limit. Essentially all of the overlap built up over those steps; the grazing step never fired, and in each run every pressed step belonged to the failing pair.",
+   "takeaway": "Plate-stick doesn't fail by physics; it stalls at the pair, as the unmodified engine does, and the stall ends in an overlap through rounding. The pair needs a resting state of its own, which is what option four provides. The pressed-contact rule is now recorded as a decision."
+  },
+  {
+   "experiment_id": "E0027",
+   "question": "In the wide two-dimensional boxes, are layers still settling at cycle twenty, and do block spreads understate the noise (the checker's challenge)?",
+   "what_was_done": "Reanalysed the existing thousand-cycle baselines (no new runs): running means, block spreads for several block lengths, correlation times, and the referee's drift test on every hundred-cycle block.",
+   "result": "Within a run the layers forget their state within about five to thirteen cycles, and block spreads don't grow with block length. The referee's drift test flags about one quantity in five even late in settled runs, at both widths, as often as in the first block. But at the shallow moderate-driving condition the five seeds' long-run means differ by about twice what blocks within a run predict, not explained by how many wavelengths each seed ended with.",
+   "takeaway": "Twenty cycles of settling is enough; the frequent drift flags are a property of the test, which treats correlated samples as independent. The seed-to-seed offsets make the pass rule stricter than intended at that condition, so existing passes stand, but false failures there are more likely."
+  },
+  {
+   "experiment_id": "E0025",
+   "question": "Do the nudge's other seeds at the condition where it overlapped once also fail or slow?",
+   "what_was_done": "Collected the two depth-ten continuations that finished overnight (both before the reboot).",
+   "result": "Both reached a thousand cycles without overlap, but spent about half and about an eighth of their CPU in slow stretches. The three depth-fifteen continuations had none. Audit failures are almost all energy losses, with one small gain each in two runs.",
+   "takeaway": "Depth ten at strong, low-frequency driving is the nudge's hard case at every seed: one overlap, two slow completions."
+  },
+  {
+   "experiment_id": "E0028",
+   "question": "Does the nudge survive the referee's headline survival case (three-dimensional, strong driving) for a thousand cycles at more seeds?",
+   "what_was_done": "Continued seeds two and three from a hundred twenty cycles, and ran seeds four and five fresh, to a thousand cycles.",
+   "result": "All four completed a thousand cycles with no slow stretches and clean energy audits, about twenty-two CPU-minutes each.",
+   "takeaway": "With seed one, the nudge survives that case for a thousand cycles at five seeds. It remains the bar any new method must meet."
+  },
+  {
+   "experiment_id": "E0029",
+   "question": "Can the unmodified engine give a full baseline at Figure 1 case g, where earlier seeds hit a CPU cap or overlapped?",
+   "what_was_done": "Started seeds three (continued from a hundred twenty cycles), four and five toward about a thousand cycles in the background.",
+   "result": "Still running: about a hundred twenty to a hundred sixty cycles each at the end, slowed by the Mac's sleep.",
+   "takeaway": "Collected next session; if one completes, the nudge's case-g runs get a proper baseline."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Do you approve the option-four design in evidence/D0015-option4-design.md, and its five choices (full rest relative to the plate; slow hits on frozen spheres treated as plate collisions; one supporter is enough; sleep and wake speeds with a sensitivity check; no stored energy returned)?",
+   "why_it_matters": "Tonight showed plate-stick's remaining lasting contact is a free sphere stalled on a plate-riding sphere. Only a resting state for that sphere removes it, and every choice listed changes the model or adds a constant.",
+   "default_if_unanswered": "I won't build it. I'll keep the nudge's evidence moving (case-g baseline, Figure 1 when specified) and refine the design if you comment on it."
+  },
+  {
+   "question": "Should the wide-box seed offsets change the pass rule (for example, baselines from several seeds instead of blocks of one run)?",
+   "why_it_matters": "At the shallow moderate-driving condition, seeds differ by about twice what blocks predict, so a method run at another seed can fail without changing any physics.",
+   "default_if_unanswered": "Keep the rule as is and report any failure there alongside the unmodified engine's own seed-to-seed spread."
+  },
+  {
+   "question": "Can the Mac's lid stay open overnight (or an external display stay attached)?",
+   "why_it_matters": "Tonight it rebooted before the session and then went into clamshell sleep half an hour in; background jobs pause while it sleeps.",
+   "default_if_unanswered": "Start sessions as scheduled, record sleep as a blocker, and keep jobs resumable."
+  },
+  {
+   "question": "The nudge still overlaps once and slows at depth ten. Does that disqualify it, or is it judged on how far it gets?",
+   "why_it_matters": "It is the only method that gets through the stalled conditions, and is the comparison bar for option four.",
+   "default_if_unanswered": "Report it as failing survival at that condition and keep it as the bar."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "If you approve D0015, build option four on its own branch from plate-stick's plate frame, test the two-sphere stack against the closed form, then run survival on the stalled conditions.",
+   "rationale": "Tonight pinned the remaining failure to exactly the case option four is built for, and plate-stick's riding, release and energy books are already tested."
+  },
+  {
+   "direction": "Finish the nudge's evidence: the case-g baseline now running, the Figure 1 comparison once its spec is set, and the three-dimensional strong-driving case at the large system size beyond a hundred twenty cycles.",
+   "rationale": "It is the bar for any new method, and these are its remaining gaps."
+  },
+  {
+   "direction": "Ask for referee changes: an initial-condition option, checkpoints during slow stretches, and a drift test that allows for correlated samples.",
+   "rationale": "Each has cost evidence or time this week, and only you can change the referee."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 75.0,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.0,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0002"
+ ],
+ "decisions_needing_you": [
+  "D0015"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-08T23:00:00-05:00",
+  "actual_start": "2026-11-08T23:26:41-05:00",
+  "ended": "2026-11-09T00:33:51-05:00",
+  "interruptions": [
+   {
+    "start": "2026-11-08T23:00:00-05:00",
+    "end": "2026-11-08T23:26:41-05:00",
+    "cause": "The Mac rebooted at 23:23 (it had been in maintenance sleep from 22:47 to 22:59); the session started at 23:26 after the reboot."
+   },
+   {
+    "start": "2026-11-08T23:57:32-05:00",
+    "end": "2026-11-09T00:29:42-05:00",
+    "cause": "Clamshell Sleep (lid closed) per pmset; only brief maintenance dark wakes until 00:29. The session resumed in a dark wake and wrapped up early in case it slept again."
+   }
+  ],
+  "cpu_hours": 2.7,
+  "cores_available": 8,
+  "disk_free_gb": {
+   "start": 156,
+   "end": 153
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0029",
+    "reason": "Three unmodified case-g runs at roughly a hundred twenty to a hundred sixty of a thousand twenty cycles; slowed by the Mac's sleep. They are resumable and are collected next session."
+   }
+  ],
+  "limits_hit": "The machine limited the session, not the science directly: a reboot before the start and clamshell sleep from 23:57 cut the session to about an hour of work and paused the case-g runs. Load average at the start was a post-reboot spike (852 falling to 5 within ten minutes), so cores available is taken from the load a few minutes in. CPU-hours: about 0.1 for the replays, 1.44 for the nudge survival runs (including their earlier portions), and about 1.14 so far for the case-g runs, from process times. Process notes, disclosed: two registrations carry a hand-written time of 23:40 although appended at about 23:29; a correction to the E0026 outcome was appended and then removed before commit because the check allows one outcome per experiment (the correction is in the evidence file); and the E0028 outcome first quoted wall-clock seconds as CPU and was corrected before commit. Budget: weekly CPU about 75 of 400 hours, under 50%."
+ }
+}

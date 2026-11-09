@@ -1,0 +1,128 @@
+{
+ "experiment": "E0028",
+ "note": "Nudge (b608fef) at the referee's survival case, 3D Gamma 5 f* 0.44 N 2400 L 20, to 1000 cycles. Seeds 2 and 3 continued from E0016 (120 cycles; cpu_seconds include that portion); seeds 4 and 5 fresh.",
+ "runs": [
+  {
+   "run": "E0028/3d-g5-f0.44-s2",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 1310.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.3080105584272358e-09,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.958,
+    "sha256": {
+     "summary.json": "b1646615d965bbbf9a1ba3a3635e9f504afa7ba40cd7a0ed090bfaf67ffd649c",
+     "audit.json": "a515408f406654eec30783695952dac94af1ab30719e8d85a5bce1f8c4de0e0f"
+    }
+   }
+  },
+  {
+   "run": "E0028/3d-g5-f0.44-s3",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 1285.4,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.3047756678936585e-09,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.959,
+    "sha256": {
+     "summary.json": "3fe2b8e239961b5176000f2a3397cab0580213d63b71ee4f71a71be331489d96",
+     "audit.json": "0de4e61df8fe9505bff766d54d7307992a3fa2a4cd2bdd20ce4803ac1f43b0fa"
+    }
+   }
+  },
+  {
+   "run": "E0028/3d-g5-f0.44-s4",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 1300.4,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.1916206447457223e-09,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.958,
+    "sha256": {
+     "summary.json": "f07d0fd7df2967f887bd8f63c847ceac740e925346379cf21679f5bbcd69ba8f",
+     "audit.json": "9d955513bb63d537c17779fbfebca0b1f94c47c78e03b8a896dfe047e0cc8ea9"
+    }
+   }
+  },
+  {
+   "run": "E0028/3d-g5-f0.44-s5",
+   "commit": "b608fef",
+   "branch": "method/nudge",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 5,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1000,
+   "cpu_seconds": 1280.3,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.2195993573393586e-09,
+   "checkpoint_cycle": 1000,
+   "data": {
+    "size_mb": 2.958,
+    "sha256": {
+     "summary.json": "465a4f75e0ccd5434352ff8d4b7da14fed0e3b0d63ffa49fcdfe3f9082698cde",
+     "audit.json": "b22c0bf67e61c570a5e72829f7c213493e994bf5847893ca6e5c229a7b0e3070"
+    }
+   }
+  }
+ ],
+ "wall_seconds_from_logs": {
+  "s2": 2804,
+  "s3": 2779,
+  "s4": 3141,
+  "s5": 3121
+ }
+}

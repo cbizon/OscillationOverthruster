@@ -25,13 +25,18 @@ after `DIRECTION.md` at the start of every session.
   5. cutoffs: a trigger, not a method; kept as instrumentation.
 - Order: 3 and 1 first as cheap baselines that show whether the stalled
   conditions get further, then 2, then 4.
-- Status: open. Nov 6: option 3 (elastic window) tried and does not help.
-  Option 1 (nudge) completes 120 cycles at every stalled condition and
-  seed, but fails the survival test at 2D Gamma 5, f* 0.3, depth 10 (overlap
-  at cycle 163, seed 1) and survives depth 15 only after hours of slow
-  stretches. Nov 7: option 2 (plate-stick) tried and gets no further than the
-  unmodified engine: the lasting contact moves to stuck-free sphere pairs.
-  See Current state.
+- Status: open.
+  - Nov 6: option 3 (elastic window) tried and does not help.
+  - Option 1 (nudge) completes 120 cycles at every stalled condition and
+    seed, but fails the survival test at 2D Gamma 5, f* 0.3, depth 10
+    (overlap at cycle 163, seed 1), and slows there at the other seeds.
+  - Nov 7: option 2 (plate-stick) tried; it gets no further than the
+    unmodified engine.
+  - Nov 8: instrumented replays (E0026) show plate-stick stalls at a free
+    sphere pressed on a stuck one: they collide every 2.5e-12 time units
+    without separating. The stall ends in an overlap built from rounding.
+  - An option-4 design is proposed for review (D0015).
+  - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
 
@@ -65,91 +70,171 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 8: the Mac rebooted at 23:23, after the scheduled 23:00 start. The
+    session started at 23:26. No jobs were lost: both were already done.
+  - Nov 8: clamshell sleep (lid closed) at 23:57 paused the session and its
+    jobs. Blocker B0002.
 
 ## Approaches under consideration
 
 The five options in `notes/contact-options.md`.
 
-- **Option 3, elastic window** (`method/elastic-window`, v_el = 0.01;
-  `-v003`, v_el = 0.03). Not a candidate (Nov 6): no better survival than
-  the unmodified engine.
-- **Option 1, position nudge** (`method/nudge`, b608fef). The only method
-  that gets through the stalled conditions: 120 cycles at all 8 stalled 2D
-  conditions and 3D Gamma 5 at seeds 1 to 3, and 1000 cycles at 7 of 8
-  (seed 1). It does fail: overlap at 2D Gamma 5 f* 0.3 depth 10 (cycle 163,
-  seed 1); depth 15 completed with 71% of its CPU in slow stretches. Every
-  audit failure is an energy loss. Bulk physics passes wherever a baseline
-  exists (2D shallow and deep against the unmodified engine and C code; 2D
-  L = 400 at three conditions, 3 seeds each, Nov 7; provisional 3D case g).
-- **Option 2, plate-stick** (`method/plate-stick`, 3900896; v_stick 1e-4;
-  `method/plate-stick-v1e-3` for the pilot). Built and tested Nov 7 (frozen
-  tests pass, capture/ride/release verified against the closed form, energy
-  books balance to round-off). Fails survival like the unmodified engine (23
-  of 24 runs overlap, at the same cycles), because every failure is a free
-  sphere pressed obliquely on a stuck one. Captured spheres are always freed
-  by collisions before their release phase. Where baselines exist it barely
-  captures, so its bulk passes are uninformative. Not a candidate as it
-  stands; transitive sticking (a model change Chris ruled out by default)
-  or option 4 would be needed for the stuck-free pairs.
-- **Option 4** (persistent contact) is not approved. Plate-stick's failures
-  are exactly the pair contacts option 4 is designed to handle.
+### Option 3, elastic window
+
+- Branches: `method/elastic-window` (v_el = 0.01) and `-v003` (v_el = 0.03).
+- Not a candidate (Nov 6): no better survival than the unmodified engine.
+
+### Option 1, position nudge
+
+- Branch: `method/nudge` (b608fef).
+- The only method that gets through the stalled conditions:
+  - 120 cycles at all 8 stalled 2D conditions, and at 3D Gamma 5 at seeds
+    1 to 3;
+  - 1000 cycles at 7 of 8 (seed 1).
+- Where it fails or slows:
+  - Overlap at 2D Gamma 5, f* 0.3, depth 10 (cycle 163, seed 1). Seeds 2
+    and 3 there completed 1000 cycles but spent 47% and 13% of their CPU in
+    slow stretches (E0025).
+  - At f* 0.3, depth 15: seed 1 spent 71% of its CPU in slow stretches;
+    seeds 2 and 3 none. The f* 0.5, depth 15, seed 2 run had none either.
+- Audit failures are almost all energy losses, with two gains (+9.2e-8 and
+  +1.4e-8 of throughput; E0023, E0025).
+- Bulk physics passes wherever a baseline exists:
+  - 2D shallow and deep layers, against the unmodified engine and the C
+    code;
+  - 2D L = 400 at three conditions, 3 seeds each (Nov 7);
+  - 3D case g, provisionally.
+- Running (E0028): the referee's 3D Gamma 5 case to 1000 cycles at seeds 2
+  to 5.
+
+### Option 2, plate-stick
+
+- Branches: `method/plate-stick` (3900896, v_stick 1e-4) and
+  `method/plate-stick-v1e-3` for the pilot.
+- Built and tested Nov 7: frozen tests pass, capture, ride and release
+  match the closed form, and the energy books balance to round-off.
+- Fails survival: 23 of 24 runs overlap where the unmodified engine slows
+  (and sometimes clears).
+- Every failure is a free sphere pressed at an angle on a stuck one. E0026
+  replayed five failures:
+  - the pair collides 2.6 to 17 million times without separating;
+  - each collision is followed by recapture of the lower sphere, so the
+    next collision comes two pressed-contact steps later (2.5e-12 time
+    units);
+  - rounding of about 1e-15 D per step builds 99.89% to 100% of the 2e-8
+    overlap.
+- The pressed-contact rule is recorded as D0014.
+- Captured spheres are almost always freed by collisions before their
+  release phase. One release was seen, in the v_stick 1e-3 3D run.
+- Where baselines exist it barely captures, so its bulk passes are
+  uninformative.
+- Not a candidate as it stands. The pair needs a resting state of its own:
+  transitive sticking (a model change Chris ruled out by default) or
+  option 4.
+
+### Option 4, persistent contact
+
+- Not approved. Plate-stick's failures are exactly the pair contacts it is
+  designed to handle.
+- A design for a vibrated layer is in
+  `evidence/D0015-option4-design.md` (proposed, with five choices for
+  Chris).
 
 ## Current state
 
-The engine on `main` is the hardened import described in `README.md`: it
-fails loudly on physical violations, matches an all-pairs reference, and
-restarts bit-for-bit, but stalls or overlaps in lasting contact, including
-at 3D Figure 1 case b (first landing, all 4 seeds tried with the default
-start) and case g (overlap at cycle 567, seed 2; seed 1 ran 586 cycles to
-its CPU cap with 5 audit-failing cycles, all energy gains).
+### The engine on `main`
 
-Contact methods are on branches with worktrees under
-`sequel-data/worktrees/` (merging needs Chris); frozen referee tests pass on
-every branch (74 each), run with the branch's engine imported (Nov 7).
+- It is the hardened import described in `README.md`. It fails loudly on
+  physical violations, matches an all-pairs reference, and restarts bit for
+  bit.
+- It stalls or overlaps in lasting contact:
+  - at 3D Figure 1 case b, at the first landing, at all 4 seeds tried with
+    the default start;
+  - at case g: overlap at cycle 567 at seed 2; seed 1 ran 586 cycles to its
+    CPU cap with 5 audit-failing cycles, all energy gains.
+- Running (E0029): seeds 3 to 5 at case g, toward a 1020-cycle baseline.
 
-Nov 7 findings:
+### Branches and tests
 
-- Wider 2D boxes (L = 400): 13 to 15 pattern wavelengths; run-to-run spread
-  over the judged 100-cycle window matches block spread (but so it did at
-  L = 100 in the same pilot, so the earlier excess wasn't reproduced). The
-  unmodified engine fails more first landings at L = 400 (depth 10: 2 of 5
-  seeds at f* 0.5, 2 of 2 at f* 0.3), and the C code aborts at L = 400 at
-  Gamma 3.5 f* 0.3 depth 10 and Gamma 5 f* 0.5 depth 5, so those have no
-  baseline at this width.
-- Case-b baseline: default start fails the first landing at seeds 1 to 4.
-  Soft starts (engine constructor arguments via a cycle-0 checkpoint,
-  decision D0011): hot fails in cycle 1 or slows; hot-dilute gets through
-  cycle 1 and fails in cycle 2 at both seeds; cold-dilute (fill 0.10,
-  v_init 0.1) passes cycle 1 and fails in cycle 2, its first dense landing,
-  at both seeds (E0019). No start gets the unmodified engine through case b;
-  every failure is at phase 0.87 to 0.95.
-- Audit census (E0023) over every run: see evidence/E0023-results.json.
+- Contact methods are on branches with worktrees under
+  `sequel-data/worktrees/`; merging needs Chris.
+- The frozen referee tests pass on every branch (74 each), run with the
+  branch's engine imported (Nov 7). They pass on `main` (Nov 8).
 
-Tools (not in git): `sequel-data/runs/launch.sh` and `runs/tools/q.sh`
-(queue under the core limit), `soft_start.py`, `overlap_repro.py` and
-`stuck_overlap_replay.py` (replay a failure from a checkpoint or the start),
-`spread.py` (run-to-run versus block spread), `judge_set.py`,
-`audit_census.py`, `ev_runs.py`, `st.sh` (status), `watch.py`.
+### Nov 8 findings
 
-Referee findings to bring to Chris (not edits; the referee is his):
+- **Plate-stick's overlap is a stall plus rounding (E0026).** In five
+  replayed failures, every pressed-contact step belonged to the failing
+  pair, and the grazing step never fired.
+- **Wide 2D boxes (E0027, existing L = 400 baselines):**
+  - Layers decorrelate within 5 to 13 cycles, and block standard deviations
+    don't grow with block length.
+  - The referee's drift test flags about a fifth of quantities even in
+    cycles 520 to 1020, at both widths. The frequent flags come from
+    autocorrelated per-period means, not unsettled layers.
+  - At Gamma 3.5, f* 0.3, depth 5, the five seeds' 1000-cycle means differ
+    by about twice what within-run blocks predict. This is not explained by
+    the final wavelength count. It makes the pass rule stricter than
+    intended there (effectively about 3.1 rather than 3.61 standard
+    deviations).
+- **Nudge depth-ten continuations (E0025):** both seeds completed 1000
+  cycles, with long slow stretches.
 
-- long_contact.py has no way to set the initial condition; soft starts go
-  through a cycle-0 checkpoint and --resume (D0011). An option would be
+### Nov 7 findings
+
+- **Wider 2D boxes (L = 400):**
+  - They hold 13 to 15 pattern wavelengths.
+  - Over the judged window, run-to-run spread matches block spread, but so
+    it did at L = 100 in the same pilot.
+  - The unmodified engine fails more first landings at L = 400.
+  - The C code aborts at two L = 400 conditions, so those have no baseline
+    at this width.
+- **Case-b baseline:** no start (default, hot, hot-dilute, cold-dilute) gets
+  the unmodified engine through case b. Every failure is at phase 0.87 to
+  0.95 (E0019).
+- **Audit census:** E0023 (the nudge's counts there are now superseded by
+  E0025).
+
+### Tools (not in git, under `sequel-data/runs/tools/`)
+
+- Launching: `launch.sh`, `q.sh` (queue under the core limit),
+  `soft_start.py`.
+- Replaying failures: `overlap_repro.py`, `stuck_overlap_replay.py`,
+  `replay_pair.py`.
+- Instrumented plate-stick replays: `e0026_replay_watch*.py` and
+  `e0026_counters.patch`.
+- Analysis: `spread.py`, `e0027_blocks.py`, `e0027_flags.py`,
+  `judge_set.py`, `audit_census.py`, `ev_runs.py`.
+- Status: `st.sh`, `watch.py`.
+
+### Referee findings to bring to Chris
+
+These are findings, not edits; the referee is his.
+
+- `long_contact.py` has no way to set the initial condition. Soft starts go
+  through a cycle-0 checkpoint and `--resume` (D0011). An option would be
   cleaner.
 - Checkpoints are skipped during slow episodes, so hours of work can be
-  lost to a kill (E0008 depth 10: last checkpoint four hours before the
-  overlap).
+  lost to a kill. In E0008 at depth ten, the last checkpoint was four hours
+  before the overlap. A mid-cycle checkpoint can't fix this without
+  breaking bit-for-bit replay, because `save_checkpoint` rebuilds and
+  re-sorts the state.
 - The 1998 C code does not give 1020-cycle baselines at several 2D
-  conditions (E0009) and none at two L = 400 conditions (E0024).
+  conditions (E0009), and none at two L = 400 conditions (E0024).
+- `bulk.py`'s drift test treats per-period means as independent. With
+  correlation times of 5 to 13 cycles, it flags about 20% of quantities in
+  settled layers instead of 5% (E0027).
 
 ## Next
 
-- Collect the two E0025 depth-10 nudge continuations.
-- Nov 7: the nudge's depth-10 overlap (E0018) is a free sphere pressed
-  obliquely on a sphere at the plate, the same configuration that ends every
-  plate-stick failure (E0022).
-- Case b has no baseline from either engine; ask Chris whether the C code at
-  3D case b, or comparing methods with each other, should stand in.
-- Wait for Chris on: transitive sticking or option 4 for the stuck-free
-  pairs; how to treat the nudge's rare overlaps (the notes predict them);
-  the Figure 1 comparison spec.
+- Collect E0028 (nudge, 3D Gamma 5, 1000 cycles, seeds 2 to 5) and E0029
+  (unmodified case g, seeds 3 to 5, 1020 cycles). If a case-g baseline
+  completes, judge the nudge's case-g runs against it.
+- Wait for Chris on:
+  - the option-4 design (D0015);
+  - how to treat the nudge's rare overlaps;
+  - the Figure 1 comparison spec;
+  - the case-b comparison;
+  - the wide-box seed offsets (E0027).
+- If option 4 is approved, build it on `method/persistent-contact` from
+  plate-stick's plate frame.
