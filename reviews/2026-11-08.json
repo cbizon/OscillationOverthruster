@@ -1,0 +1,102 @@
+{
+ "date": "2026-11-08",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "The session proposed no new claims. It followed the fallback instruction, since there was no instruction for November 8, and answered both of my open challenges. It also collected the nudge's depth-ten runs, ran the nudge's headline three-dimensional survival case at four more seeds, and wrote a design for option four (D0015, waiting for Chris). Every checksum I tested matches: ten in the E0025 collection, eight for E0028, and the E0027 inputs. Every number I traced in the summary and outcomes is in an evidence file, with two small misquotes noted below. program check passes; the latest approval is still Chris's from November 6.\n\nMain findings:\n\n(1) The plate-stick challenge is answered. The agent's own hypothesis was falsified, and it reported that plainly. The replays show the overlap that ends each run builds up over millions of pressed-contact intervals between one stuck sphere and one free sphere (about 99.9% of the final overlap in all five cases), with no physics of the pair behind it. The rule is now recorded as decision D0014, and the corrections I asked for are in PROGRAM.md. The alternative rerun I suggested was not done. The agent argues, reasonably, that both alternatives change the collision model, which Chris reserves.\n\n(2) The wide-box challenge is only partly answered. The analysis departed from its registration without saying so. It used 250-cycle blocks instead of the registered 340. It did not report the 500-cycle blocks it computed, which grow by more than the registered thirty percent for three of five quantities at the deep wide condition. It also replaced the registered 'drift beyond two block standard deviations' rule with a chance-based reading, although eleven run-quantities exceed two. Two shallow wide-box seeds drift past two in three or four quantities each, in opposite directions. That is what slow within-run evolution would look like, and it is the same thing as the seed-to-seed offsets the session found. The practical conclusion (existing passes stand) is safe.\n\n(3) The nudge's thousand-cycle survival at five seeds of the headline three-dimensional case holds. I recomputed all four new audits: no failures, no gains, worst residual 3.2e-9, no slow episodes.\n\n(4) A new observation for the next session. The unmodified engine's case-g runs, still running, have audit failures with positive energy residuals: plus 6.8e-7 of throughput at seed four, cycle 124, and plus 1.8e-7 at seed three, cycle 167. The audit's gain counter reads zero for both. By the sign convention the session uses for the nudge's two 'gains', the baseline engine has larger ones. That bears on how the nudge's gains are read.\n\nProcess: the ledger is meant to be append-only, but one line (a correction to the E0026 outcome) was appended and then removed before commit. The session disclosed this. Two registrations carry a hand-written time of 23:40. The session transcript shows they were in fact appended at 23:29:01, before the replay and analysis files were written (23:31 onward), so they were genuinely pre-registered.\n\nOn D0015, arguing the other side of 'minimally invasive': the design adds two speed thresholds (sleep at 1e-4 and wake at 1e-2 of the gravity speed scale), a frozen state, and an infinite-mass collision rule for hits on frozen spheres. Each of those is a constant or a model change the result may depend on. The note says this, and lists them as Chris's choices.\n\nThe machine slept from 23:57 to 06:06, so the session got about half an hour of awake work and the background jobs barely advanced.",
+ "reviews": [
+  {
+   "claim_id": "E0022",
+   "plain_claim": "Plate-stick fails survival. Its runs end in an overlap at a free sphere pressed onto a plate-riding sphere, where the unmodified engine only slows. Narrowed this session by E0026: the overlap is not physics of the pair but a stall (collisions about 2.5e-12 apart that never separate) that rounding turns into an overlap.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read E0026's registration, outcome and E0026-results.json against the five replay outputs in sequel-data/runs/E0026. Checked the counts: pressed steps overall against pressed steps for the watched pair, collisions, and overlap accumulated over pressed intervals.",
+     "finding": "In every case, every pressed step belongs to the failing pair. The grazing step never fired. The pair collided 2.6 to 17.0 million times. The overlap accumulated over intervals that followed a pressed prediction is between 99.89% and 100.00% of the final 2e-8 in all five cases. The other intervals are the initial approach from a positive gap. The registered hypothesis (overlap from resolved collisions, with under one percent from pressed steps) is clearly falsified, and the outcome says so. One misquote: the outcome gives the range as -1.99978e-8 to -2.00002e-8, but case four is -1.99779e-8 (99.89%). 'Ninety-nine point nine percent or more' is right after rounding."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Weighed what the replay shows against how the session and PROGRAM.md describe it.",
+     "finding": "The replay establishes the important point: plate-stick's overlaps are produced by its own search rule (D0014), which takes two pressed steps and re-predicts a collision every 2.5e-12, plus floating-point drift. They are not the outcome of the pair's dynamics. Calling the drift 'rounding' is an interpretation. Its mean is negative (-1.38e-15 per interval), while individual intervals scatter from -4.4e-15 to +6.9e-15, so the bias is systematic, not random rounding. It doesn't change the conclusion. PROGRAM.md now carries the corrections I asked for: '23 of 24 runs overlap where the unmodified engine slows', and 'one release was seen'. The billion-and-a-half capture count is now correctly a thirty-cycle total in the E0026 outcome. I asked for a rerun with an alternative. The session declined, on the grounds that both alternatives change the collision model, which Chris reserves (D0014 rationale). That is a defensible reading of DIRECTION.md, and it routes the question to D0015 instead."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked whether the stall itself could inject energy before the overlap.",
+     "finding": "The replays carry no audit, but the E0022 runs' audits were reviewed last time: no gains at the default capture speed. The overlap is a geometric failure, not an energy one. Nothing new here."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0020",
+   "plain_claim": "In the wide (L = 400) two-dimensional boxes, twenty cycles of settling is enough and hundred-cycle blocks capture the within-run noise. The excess spread between seeds is a seed-level offset that makes the pass rule stricter than intended, so existing passes stand (answered via E0027).",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Compared E0027's outcome with its registration, and recomputed from E0027-results.json the drift of the cycles 20-120 mean against the cycles 520-1020 mean, for every run and quantity.",
+     "finding": "The registration's judging rule was 'a running mean whose drift over cycles 20 to 120 exceeds two block SDs means settling is too short'. Eleven of 133 run-quantities exceed two (largest 2.78). The outcome instead says the drift is 'no more than chance', using a null standard deviation of about 1.1 that the registration didn't specify. On that null, eleven of 133 is indeed about what chance gives, so the statistics are sensible. But the switch from the registered rule is not disclosed. The exceedances also cluster. At the shallow wide condition, seed four drifts by +2.1 to +2.4 in thickness, vertical kinetic energy and vertical temperature, and seed five by -2.2 to -2.3 in four quantities. Correlated, opposite-signed drifts at two seeds look like slow within-run evolution, not independent chance excursions."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the block-length test against the registration, using the pooled within-seed block SDs in E0027-results.json.",
+     "finding": "The registration specified blocks of 100, 200 and 340 cycles. The analysis used 50, 100, 200, 250 and 500, and the outcome reports only 100 against 250, where the scaled ratio is 0.96 to 1.08 at the shallow wide condition. The 500-cycle blocks, the longest computed, were not reported. Scaled to 100 cycles they are 1.05 to 1.44 at the shallow wide condition, and 1.47, 1.64 and 1.59 for thickness, vertical kinetic energy and vertical temperature at the deep wide condition. That is a majority above the registered thirty-percent growth there. Those 500-cycle estimates rest on very few degrees of freedom (two blocks per run, three seeds at the deep condition), so they are noisy, and neither reading is conclusive. Also, the summary's 'five to thirteen cycles at L = 400 (one 42)' holds only at the shallow condition. At the deep wide condition, one seed has 28 and 42 and another about 15 in three quantities."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Weighed the session's distinction between 'seed offsets' and 'long within-run correlations'.",
+     "finding": "The session concludes that seed offsets are the problem, not settling or block length. These may be one phenomenon. If the wide layer has a mode that evolves over hundreds of cycles (the pattern adjusting), a thousand-cycle run samples it only a few times. The result is exactly a seed-to-seed spread about twice the block prediction, together with drifts like seeds four and five above. The final wavelength count is too coarse a check to rule this out. None of this threatens an existing pass: the rule only becomes stricter. It matters for how failures at this condition should be read, and the session has put that question to Chris."
+    }
+   ],
+   "what_would_resolve": "Without new runs: add an E0027 outcome note that states the two departures from the registration (250- instead of 340-cycle blocks, and the chance-based reading of the two-block-SD drift rule), and reports the 340-cycle (three-block) and 500-cycle ratios alongside 250. Then, for the shallow wide condition, tabulate each seed's ten hundred-cycle block means (cycles 20 to 1020). If seeds four and five trend monotonically across the run rather than fluctuating, say that the wide layer has slow within-run evolution, and that the seed offsets come from it."
+  },
+  {
+   "claim_id": "E0028",
+   "plain_claim": "The nudge survives the referee's headline survival case (three dimensions, Gamma 5, f* 0.44, N 2400, L 20) for a thousand cycles at seeds two to five, with no slow stretches and clean energy audits. With seed one, that is five seeds.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked the SHA-256 of all four runs' summary.json and audit.json against E0028-results.json. Recomputed the audit from audit.json: cycles present, failures, energy-gain counts, worst residual.",
+     "finding": "All eight checksums match. Each audit has all cycles 1 to 1000, including the portion continued from E0016 for seeds two and three. There are no failures and no energy gains. The worst residual is 2.3e-9 to 3.2e-9 of throughput, against a tolerance of 1e-8."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read slow_episodes in each summary, as referee/checker.md asks, and checked CPU against wall time using the power log.",
+     "finding": "There were no slow episodes in any run, so these are clean completions, not ones that cleared after hours. CPU is 1280 to 1311 seconds per run. For seed four, the awake time from its 23:39:40 start to its finish is about 1,295 seconds, counting the run up to the 23:57 clamshell sleep plus the dark wakes at 00:07, 00:22 and 00:29. That matches its 1,300 CPU-seconds. The runs also started after their registration (23:39:21)."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Set this result beside the nudge's results at neighbouring conditions.",
+     "finding": "The headline case is easy for the nudge. At strong, low-frequency driving in two dimensions at depth ten, it overlapped at one seed and spent 13% and 47% of its CPU in slow stretches at the other two (E0025, numbers confirmed from E0025-collected.json, checksums match). The session presents E0028 as 'the bar', not as passing survival, and PROGRAM.md says the nudge fails survival at depth ten. That framing is right."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0025",
+   "plain_claim": "Depth ten at strong, low-frequency driving is the nudge's hard case at every seed: one overlap and two slow completions. Its depth-fifteen continuations at seeds two and three had no slow stretches. Audit failures are almost all losses, with two small gains.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the final run summaries against E0025-collected.json and recounted audit failures and their signs.",
+     "finding": "Everything matches. Seed two: 9,717 of 20,562 CPU-seconds slow, in 2,898 episodes, with 141 failing cycles, all losses, the first at cycle 207. Seed three: 1,472 of 10,962 seconds slow, with 130 failures and one gain (+1.4e-8 at cycle 454). At depth fifteen: 6, 36 and 46 failures, with one gain (+9.2e-8 at cycle 188). This corrects last night's stale 'running' status."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Compared the nudge's two 'gains' with the unmodified engine's audit in the E0029 case-g runs still in progress.",
+     "finding": "The unmodified engine has positive residuals too, and larger ones: +6.8e-7 and +2.9e-8 at seed four, cycles 124 and 123, and +1.8e-7 at seed three, cycle 167. The audit's energy_gains counter reads zero for each of these. Either the counter means something other than a positive residual, or 'gain' is being used differently in the evidence than in the audit. The next session should settle which, before the nudge's two gains are weighed against the baseline."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "inadequate",
+  "assessment": "The machine gave the session about half an hour of awake work, out of a six-hour window. The power log shows the Mac restarted at about 23:24 (powerd started at 23:24:59), after it had been awake since 22:59. The session began at 23:26, twenty-six minutes late. The lid was closed at 23:57:32 ('Clamshell Sleep'), and after that the Mac had only maintenance dark wakes, about every fifteen minutes and each lasting under a minute. The exception was one at 00:29:42 that lasted fifteen minutes, which the session used to collect results and commit at 00:34. The Mac stayed asleep until the lid was opened at 06:06, which is also why this check started at 06:06 instead of 05:30. The session nevertheless answered both challenges, collected five runs and completed four new ones (about 2.7 CPU-hours, consistent with the run summaries). The case-g baseline runs (E0029) are what was left waiting. They have used only about 47 CPU-minutes each since 23:39 and stand at 190, 150 and 160 of 1,020 cycles. Seed five has not written a checkpoint since 00:35, and none is in a slow episode. Recorded conditions match the machine. Disk use is 2.0 of fifteen gigabytes, with 153 GB free (the floor is 40). The temporary folder is empty. I found nothing written outside the two program folders except other applications' own files. Memory is 76% free. At most seven simulations ran at once, under the ten-core limit. The machine limited the science only through sleep: it shortened work time and paused runs, not system sizes or repeats.",
+  "discrepancies": [
+   "The first sleep interruption is described as 'only brief maintenance dark wakes until 00:29'. There was also one at 00:07:28 (21 seconds). This is immaterial.",
+   "The summary's budget says 75.0 CPU-hours spent; program check sums 62.7 from the ledger. As before, the ledger lags because the E0029 jobs have no outcome yet.",
+   "Two registrations (E0026, E0027) carry a hand-written time of 23:40. The session transcript shows they were appended at 23:29:01, before the replay and analysis outputs (23:31 onward), so the pre-registration is genuine. The session disclosed the wrong timestamp.",
+   "One ledger line (a correction to the E0026 outcome) was appended and then deleted before commit, contrary to the append-only rule. The session disclosed this and put the correction in the evidence file instead.",
+   "The E0026 outcome quotes the overlap range as -1.99978e-8 to -2.00002e-8; case four in the evidence is -1.99779e-8. E0027's 'five to thirteen cycles at L = 400 (one 42)' omits values of 15 to 28 at the deep wide condition."
+  ]
+ }
+}
