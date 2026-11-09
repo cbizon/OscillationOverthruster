@@ -1,0 +1,262 @@
+{
+ "experiment": "E0026",
+ "what": "Instrumented replays of five plate-stick (3900896) failures. Scratch copy of the engine with counters only (no behaviour change): pressed-contact steps and grazing steps in stuck_pair_root, overall and for the failing stuck-free pair (indices from E0022's replays), and predictions of that pair that took either step. Replayed from the start in the referee's chunking, then one event at a time from a chunk before the failure, logging the pair's surface gap after every event involving either sphere. Case 1 logged every row (decimated copy kept: every 1000th row and the last 10000; columns t, type, i, partner, gap_after, SK_I, SK_J, pressed_watch, graze_watch, pred_watch_special, pressed_all, graze_all, vz_I, vz_J); cases 2-5 aggregate gap changes by whether the preceding prediction of the pair took a pressed step. Every replay reproduces its run's failure cycle and phase (E0022). Scripts: sequel-data/runs/tools/e0026_replay_watch.py (case 1), e0026_replay_watch2.py (cases 2-5); engine patch: the four counter lines described here, applied to method/plate-stick 3900896.",
+ "mechanism": "In every case the stuck (lower) and free (upper) sphere collide millions of times and never separate: after each collision the lower sphere is stuck again (captured), the relative normal speed is about zero, the pair is pressed (plate acceleration above -g), so stuck_pair_root takes two pressed steps (each to where the approach speed is 10 x STUCK_VN_MIN) and predicts the next collision 2.5e-12 later (case 1, constant). Exact arithmetic would allow about 1e-23 D of overlap per interval; observed is -1.4e-15 D per interval on average (case 1), i.e. position rounding (about one ulp of t) with a consistent sign over identical steps. Over millions of intervals this reaches the engine's -2e-8 limit. The grazing (sub-1e-12) step never fired in any run, and every pressed step in each run belonged to the failing pair.",
+ "cases": [
+  {
+   "case": "2D Gamma 5 f* 0.3 depth 10 N 1000 L 100 seed 1",
+   "watch_stuck_free": [
+    489,
+    508
+   ],
+   "error": "sphere pair overlaps",
+   "cycle_zero_based": 2,
+   "phase": 0.8795856661524988,
+   "gap_at_error": -2.0000000544584395e-08,
+   "cpu_s": 112.947839,
+   "pressed_steps_all": 28979071,
+   "pressed_steps_watched_pair": 28979071,
+   "grazing_steps_all": 0,
+   "pair_predictions_with_pressed_step": 28916875,
+   "event_by_event_from": "cycle 2, phase 0.78125",
+   "pair_collisions_logged": 14458792,
+   "interval_between_pair_collisions": "2.51354493e-12 at the 1st, 50th and 99th percentiles (constant), each after exactly 2 pressed steps",
+   "gap_change_per_interval": "mean -1.38e-15 (0.78 ulp of t), 1st-99th percentile -4.4e-15 to +6.9e-15",
+   "gap_first_below": {
+    "0": "row 37, t 8.4802",
+    "-1e-12": "t 9.271610669",
+    "-1e-10": "t 9.271610869",
+    "-1e-9": "t 9.271612676",
+    "-1e-8": "t 9.271629755"
+   },
+   "total_overlap_growth_over_pressed_intervals": -1.999941146024753e-08,
+   "lower_sphere_stuck_after_every_pair_collision": true
+  },
+  {
+   "case": "2D Gamma 5 f* 0.5 depth 10 N 1000 seed 1 L 100",
+   "watch_stuck_free": [
+    701,
+    690
+   ],
+   "error": "sphere pair overlaps",
+   "cycle_zero_based": 2,
+   "phase": 0.9881649405699872,
+   "gap_at_error": -2.0000000655606698e-08,
+   "cpu_s": 51.559631,
+   "pressed_steps_all": 12370676,
+   "pressed_steps_watched_pair": 12370676,
+   "grazing_steps_all": 0,
+   "pair_predictions_with_pressed_step": 12274318,
+   "pair_collisions": 6137324,
+   "stuck_after_pair_collision": 6137159,
+   "gap_change_over_intervals_after_pressed_prediction": -2.0000036293765788e-08,
+   "n_intervals_after_pressed": 6137158,
+   "gap_change_over_other_intervals_incl_approach": -0.0006405385584293821,
+   "n_other_intervals": 482,
+   "gap_first_below": {
+    "0.0": [
+     5.556629557239437,
+     2
+    ],
+    "-1e-12": [
+     6.249634688501386,
+     859
+    ],
+    "-1e-10": [
+     6.249635074113494,
+     35088
+    ],
+    "-1e-09": [
+     6.249638511174918,
+     340165
+    ],
+    "-1e-08": [
+     6.249670946497307,
+     3218960
+    ]
+   }
+  },
+  {
+   "case": "2D Gamma 5 f* 0.5 depth 10 N 1000 seed 2 L 100",
+   "watch_stuck_free": [
+    896,
+    883
+   ],
+   "error": "sphere pair overlaps",
+   "cycle_zero_based": 2,
+   "phase": 0.8399267392819214,
+   "gap_at_error": -2.0000000766629e-08,
+   "cpu_s": 25.402694,
+   "pressed_steps_all": 8273300,
+   "pressed_steps_watched_pair": 8273300,
+   "grazing_steps_all": 0,
+   "pair_predictions_with_pressed_step": 5284082,
+   "pair_collisions": 2642282,
+   "stuck_after_pair_collision": 2642120,
+   "gap_change_over_intervals_after_pressed_prediction": -1.9997072664423854e-08,
+   "n_intervals_after_pressed": 2642040,
+   "gap_change_over_other_intervals_incl_approach": -0.00033609734765460697,
+   "n_other_intervals": 707,
+   "gap_first_below": {
+    "0.0": [
+     4.755676097856553,
+     1
+    ],
+    "-1e-12": [
+     5.312156826354391,
+     5868
+    ],
+    "-1e-10": [
+     5.312156857652595,
+     18963
+    ],
+    "-1e-09": [
+     5.312157142120884,
+     137983
+    ],
+    "-1e-08": [
+     5.3121599820929095,
+     1326212
+    ]
+   }
+  },
+  {
+   "case": "2D Gamma 3.5 f* 0.3 depth 15 N 1500 seed 3 L 100",
+   "watch_stuck_free": [
+    1045,
+    1017
+   ],
+   "error": "sphere pair overlaps",
+   "cycle_zero_based": 0,
+   "phase": 0.9450728645721435,
+   "gap_at_error": -2.000000254298584e-08,
+   "cpu_s": 133.11136,
+   "pressed_steps_all": 67273250,
+   "pressed_steps_watched_pair": 67273250,
+   "grazing_steps_all": 0,
+   "pair_predictions_with_pressed_step": 33978350,
+   "pair_collisions": 16992243,
+   "stuck_after_pair_collision": 16991929,
+   "gap_change_over_intervals_after_pressed_prediction": -1.997786580609784e-08,
+   "n_intervals_after_pressed": 16989174,
+   "gap_change_over_other_intervals_incl_approach": -0.10411752812770536,
+   "n_other_intervals": 4312,
+   "gap_first_below": {
+    "0.0": [
+     11.583663692393213,
+     2
+    ],
+    "-1e-12": [
+     12.200595568706637,
+     259811
+    ],
+    "-1e-10": [
+     12.200615793432428,
+     1654752
+    ],
+    "-1e-09": [
+     12.200656513842402,
+     4463180
+    ],
+    "-1e-08": [
+     12.200768127985745,
+     12159880
+    ]
+   }
+  },
+  {
+   "case": "2D Gamma 5 f* 0.3 depth 15 N 1500 seed 1 L 100",
+   "watch_stuck_free": [
+    1047,
+    1067
+   ],
+   "error": "sphere pair overlaps",
+   "cycle_zero_based": 4,
+   "phase": 0.7479764126024269,
+   "gap_at_error": -2.000000259849699e-08,
+   "cpu_s": 47.812711,
+   "pressed_steps_all": 7759258,
+   "pressed_steps_watched_pair": 7759258,
+   "grazing_steps_all": 0,
+   "pair_predictions_with_pressed_step": 7400036,
+   "pair_collisions": 3701088,
+   "stuck_after_pair_collision": 3700018,
+   "gap_change_over_intervals_after_pressed_prediction": -2.0000244793649813e-08,
+   "n_intervals_after_pressed": 3700017,
+   "gap_change_over_other_intervals_incl_approach": -0.5468011874250066,
+   "n_other_intervals": 7997,
+   "gap_first_below": {
+    "0.0": [
+     8.655355964272703,
+     1
+    ],
+    "-1e-12": [
+     9.656324862446418,
+     1429
+    ],
+    "-1e-10": [
+     9.656324907820887,
+     19872
+    ],
+    "-1e-09": [
+     9.656325320166875,
+     187475
+    ],
+    "-1e-08": [
+     9.65632942921705,
+     1857648
+    ]
+   }
+  }
+ ],
+ "data": {
+  "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0026/",
+  "files": {
+   "c2.json": {
+    "size_bytes": 19261,
+    "sha256": "587af407fcd972b5baffe523619140a7db0303829c811e5cb302b20a9036f56c"
+   },
+   "c2.log": {
+    "size_bytes": 1501,
+    "sha256": "04a1efe3aba2b114db98840cc91be5717d523508f5b579c1c3b2991d8d6932a4"
+   },
+   "c3.json": {
+    "size_bytes": 19255,
+    "sha256": "c6f0f8d3e5d2bf5546ae79fe85cb1490675f0e56f2580d1af7e8c4e55e6a7b24"
+   },
+   "c3.log": {
+    "size_bytes": 1501,
+    "sha256": "a0f8728e4b8e147e04cdbf09848d286084caf3784127a9365d4759e774a179d5"
+   },
+   "c4.json": {
+    "size_bytes": 19838,
+    "sha256": "6ec0da6c5ef7a08d974832addd49715b6a34bf1205d183fafe46a2543ec33dfa"
+   },
+   "c4.log": {
+    "size_bytes": 1501,
+    "sha256": "7168a69d332b222ee07c5747cf4712f786d6ed8e37ae24a6fc662d80f74741bc"
+   },
+   "c5.json": {
+    "size_bytes": 19638,
+    "sha256": "12c2580ddb7c95423e433339c5d87e1575b7655d4161b696bdd7dca073123013"
+   },
+   "c5.log": {
+    "size_bytes": 1501,
+    "sha256": "02aaefcf6d0c623041102b99b3417f9a6863ce60429436a0dd2b828bb87ae204"
+   },
+   "log_decimated.npy": {
+    "size_bytes": 2738528,
+    "sha256": "b773dfc38701600505b5feedceba525001638f08179eb87a83bae875de7cf068"
+   },
+   "result.json": {
+    "size_bytes": 604,
+    "sha256": "37f6f3aef230f1e8b8a8a79fc8e09ba70fd13a991f0413dc13e1169b95170e88"
+   },
+   "run.log": {
+    "size_bytes": 391,
+    "sha256": "e9d45408def29674548c98d5bd863d602e8e373d62141adf004aa0f9c3991311"
+   }
+  }
+ },
+ "correction_to_ledger_outcome": "The E0026 outcome in ledger/experiments.jsonl says '99.9% or more' and quotes the range as -1.99978e-8 to -2.00002e-8. The correct range is -1.99779e-8 to -2.00002e-8, i.e. 99.89% (Gamma 3.5 f* 0.3 depth 15 seed 3) to 100% of the 2e-8 overlap depth. A second outcome record carrying this correction was appended and removed before commit, because program check allows one outcome per experiment. The conclusion is unchanged."
+}
