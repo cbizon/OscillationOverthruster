@@ -36,6 +36,8 @@ after `DIRECTION.md` at the start of every session.
     sphere pressed on a stuck one: they collide every 2.5e-12 time units
     without separating. The stall ends in an overlap built from rounding.
   - An option-4 design is proposed for review (D0015).
+  - Nov 9: redesigned per instruction (D0016, supersedes D0015): one
+    resting state, plate as supporter, modelled on González's drum.
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -74,6 +76,8 @@ after `DIRECTION.md` at the start of every session.
     session started at 23:26. No jobs were lost: both were already done.
   - Nov 8: clamshell sleep (lid closed) at 23:57 paused the session and its
     jobs. Blocker B0002.
+  - Nov 9: clamshell sleep again at 23:23, fifteen minutes in; jobs got
+    about 25 CPU-minutes each by 02:25. B0002 still open.
 
 ## Approaches under consideration
 
@@ -134,6 +138,7 @@ The five options in `notes/contact-options.md`.
 
 ### Option 4, persistent contact
 
+- Redesign proposed Nov 9: `evidence/D0016-option4-redesign.md` (D0016).
 - Not approved. Plate-stick's failures are exactly the pair contacts it is
   designed to handle.
 - A design for a vibrated layer is in
@@ -141,6 +146,28 @@ The five options in `notes/contact-options.md`.
   Chris).
 
 ## Current state
+
+### Nov 9 findings
+
+- **Case-g baseline (E0029):** the unmodified engine completed 1020 cycles
+  at seed 4 (1 of 5 seeds), with 3 positive residuals and 1 momentum-only
+  audit failure. Seeds 3 and 5 overlapped.
+- **Nudge vs case-g baseline (E0033):** all 3 seeds pass, but close to the
+  threshold in height and horizontal energy. The baseline drifts for about
+  300 cycles, and over the same window (cycles 20 to 120) the engines
+  agree. The referee's 20-cycle settling is too short at case g.
+- **Noise study (E0030, interim, f* 0.3 only):** at L 400, long-window
+  (500 to 2000 cycles) means differ across starts by about 1.2 to 1.6
+  times the block prediction. At L 200 the ratio is about 1. Wavelength
+  counts wander (13 to 16 at L 400) rather than lock in.
+- **Case b from the C state (E0032):** `tools/caseb_start.py` converts the
+  C restart (cycle 2700). Both engines have run 65 cycles of case b from it
+  with no slow stretch.
+- **E0027 superseded by E0035 (inconclusive):** registration departures stated; some
+  slow within-run trends at L 400.
+- Terminology from the Nov 9 instruction: "positive residual" for a
+  failing cycle whose energy residual is positive. The audit's
+  energy_gains counter counts collisions that gain energy.
 
 ### The engine on `main`
 
@@ -226,6 +253,17 @@ These are findings, not edits; the referee is his.
   settled layers instead of 5% (E0027).
 
 ## Next
+
+- Collect the background queues: E0030 (noise, 48 runs), E0031 (engine
+  comparison, 57 runs), E0032 (case-b pilot, 26 runs), E0034 (3D cells).
+  Queue logs are under `sequel-data/runs/E00xx.queue.log`. Tools:
+  `segrun.py`, `qx.sh` and `qx2.sh`, `census.py`, `engine_compare.py`,
+  `noise_analysis.py`, `caseb_start.py`.
+- Then report the engine comparison per condition and the noise study with
+  a pass-rule recommendation.
+- Wait for Chris on D0016.
+
+Earlier items (from Nov 8):
 
 - Collect E0028 (nudge, 3D Gamma 5, 1000 cycles, seeds 2 to 5) and E0029
   (unmodified case g, seeds 3 to 5, 1020 cycles). If a case-g baseline

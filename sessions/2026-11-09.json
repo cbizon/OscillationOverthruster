@@ -1,0 +1,141 @@
+{
+ "date": "2026-11-09",
+ "instruction": "instructions/2026-11-09.md",
+ "headline": "Tonight started the three runs you asked for (the noise study, the engine comparison, the case-b pilot) and wrote the option-four redesign. The Mac's lid was closed fifteen minutes in, so the runs got only about twenty-five minutes of CPU each. Still, the shallow noise study finished at the moderate frequency: in the widest box, long-window means differ between starts by up to about one and a half times what within-run blocks predict, and the half-width box doesn't show this. Last night's case-g runs also gave the first case-g baseline, and the nudge passes against it.",
+ "experiments": [
+  {
+   "experiment_id": "E0030",
+   "question": "How noisy are long-run means of the unmodified engine across independent starts, compared with what blocks within one run predict, at three box widths? Do pattern wavelength counts anneal?",
+   "what_was_done": "Eight independent starts per cell, three thousand cycles each, at the shallow moderate-driving condition (both frequencies, widths one hundred, two hundred and four hundred), run in twenty-cycle segments so the surface profile is saved after each segment. Restarting is bit for bit: the first hundred cycles reproduce last week's run exactly. Only the lower-frequency cells at the two larger widths have finished (eight starts each); four starts at the smallest width are done.",
+   "result": "In the widest box, for windows of one hundred to two hundred cycles, the spread between starts matches the block prediction (ratio near one). For windows of five hundred to two thousand cycles it is about one and a fifth to one and three fifths of the prediction for thickness, vertical energy and temperature, and plate contact. For vertical energy over a thousand cycles, the ninety-percent interval excludes one. In the half-width box the ratio is consistent with one at every window. Wavelength counts don't lock in: every start in the widest box wanders among thirteen to sixteen wavelengths over the run, and in the half-width box among five to eight. Correlation times of single quantities are one to eleven cycles.",
+   "takeaway": "Interim, one frequency only. The extra spread in the widest box comes from a slow mode, the wandering wavelength count, not from starts that stay different. It matters only for windows of several hundred cycles or more. A pass rule judged on hundred-cycle windows is about right at all widths, but a baseline for long windows in wide boxes needs several starts. A full recommendation waits for the higher-frequency cells."
+  },
+  {
+   "experiment_id": "E0031",
+   "question": "Condition by condition, how do the unmodified engine and the nudge fail: overlap, stall or frozen time, energy residuals by sign, or momentum?",
+   "what_was_done": "Built a census of every existing run by engine, condition and seed, and queued fifty-seven runs to fill the empty and thin cells: seeds one to three, a thousand cycles each, at the twelve two-dimensional conditions, plus the nudge's case-g runs continued to a thousand twenty cycles. Plate-stick is dropped.",
+   "result": "The census shows the unmodified engine had almost no runs on the strong-driving and deep two-dimensional grid, and none at all at the headline three-dimensional survival case. Tonight's first runs: at the deep moderate-driving low-frequency condition, time froze in the first cycle, as it did on November fifth. Three others sit in slow stretches. The nudge's continuations haven't started. An interim table is in the evidence.",
+   "takeaway": "Not enough yet to compare. The queue keeps running in the background and will be collected next session."
+  },
+  {
+   "experiment_id": "E0032",
+   "question": "Can case b be started so the unmodified engine survives the first landings: spheres given an upward push of a quarter, half or three quarters of the plate's peak speed, or the C code's equilibrated state at cycle two thousand seven hundred?",
+   "what_was_done": "Wrote a converter for the C code's restart file (it advances every sphere to the restart time and converts units and frame). Checked it against the reference bundle's trajectory: positions agree to single-precision rounding, and our first cycle from that state tracks the C code's mean height by phase within about two tenths of a percent. The same start files are copied for both engines.",
+   "result": "From the C state, both engines have run sixty-five cycles of case b with no slow stretch and no audit failure. The engines had previously failed case b at the first landing at every default start. The upward-push starts are queued behind them and haven't run.",
+   "takeaway": "The C code's state gets the unmodified engine into case b at last. If it holds to its hundred twenty cycles, it gives a case-b baseline from this engine, and the 3D C baseline becomes a cross-check rather than a necessity."
+  },
+  {
+   "experiment_id": "E0029",
+   "question": "Can the unmodified engine give a full baseline at Figure 1 case g?",
+   "what_was_done": "Collected the three runs left from last night.",
+   "result": "Seed four completed a thousand twenty cycles with no slow stretch. Its audit failed in four cycles: three positive residuals (the largest about seven in ten million of the cycle's energy throughput) and one momentum-only failure. Seeds three and five overlapped, at cycles three hundred thirty-two and one hundred eighty-five. Counting earlier seeds, the unmodified engine completes case g at one seed in five.",
+   "takeaway": "Case g now has a baseline from this engine. The unmodified engine's own positive residuals are larger than the nudge's two."
+  },
+  {
+   "experiment_id": "E0033",
+   "question": "Do the nudge's case-g runs agree with that baseline?",
+   "what_was_done": "Judged the three nudge runs with the referee's bulk tool, then compared equal windows.",
+   "result": "All three pass every quantity, but all deviate the same way and close to the threshold in height and horizontal energy. The baseline's own block means rise through its first three or four hundred-cycle blocks. Over the same cycles, twenty to a hundred twenty, the two engines agree closely.",
+   "takeaway": "A real pass but a weak one. Case g isn't settled by cycle twenty, so the referee's settling time is too short there. The nudge runs are being extended so they can be judged on settled cycles."
+  },
+  {
+   "experiment_id": "E0035",
+   "question": "The checker's open challenge: did last session's wide-box analysis depart from its registration, and do the layers evolve slowly within a run?",
+   "what_was_done": "Without new runs: stated both departures, computed the registered block length, and tested each run's ten hundred-cycle block means for a trend.",
+   "result": "At the registered block length, the shallow wide condition shows no growth. The deep wide condition grows past the registered thirty percent in three of seven quantities. Trends: eight of fifty-six run-quantities in the wide boxes, against about three expected by chance, clustered in single seeds. In the narrow boxes, three of seventy, about what chance gives.",
+   "takeaway": "Status changed to inconclusive. The wide boxes show some slow within-run evolution, which tonight's noise study confirms and attributes to the wandering wavelength count. Recorded as a new experiment that supersedes E0027. Disclosure: I first appended it as a second E0027 outcome and committed that locally. program check rejects a second outcome, so I undid that unpushed commit (soft reset) and recommitted with the line moved into E0035. Nothing else in the ledger changed."
+  }
+ ],
+ "claims_changed": [
+  {
+   "claim_id": "E0035",
+   "status": "inconclusive (was supported)",
+   "plain_statement": "In wide boxes, twenty cycles of settling and hundred-cycle blocks are adequate, and the seed offsets are a separate effect.",
+   "why": "The checker showed the analysis departed from its registration and that two seeds drift. The amended analysis finds trends in single seeds at the wide boxes, and the noise study shows a slow mode there."
+  }
+ ],
+ "questions": [
+  {
+   "question": "Do you approve the option-four redesign in evidence/D0016-option4-redesign.md and its five choices?",
+   "why_it_matters": "The choices are: one resting state with the plate as a supporter, released when effective gravity reaches zero; plate-law hits on resting spheres; one supporter by default, with a hull-based stability test built and compared; default sleep and wake speeds with every cutoff a setting and swept; no stored energy returned by default. It is modelled on Gonz\u00e1lez's drum, with a density-against-height check for locked-in voids and a test plan for each of six code versions. Each choice changes the model or adds a constant.",
+   "default_if_unanswered": "No code. Keep running the engine comparison and the case-b pilot."
+  },
+  {
+   "question": "Can the lid stay open overnight, or an external display stay attached?",
+   "why_it_matters": "For the second night running, clamshell sleep took the session down a quarter of an hour in. The jobs got about twenty-five CPU-minutes each in three hours.",
+   "default_if_unanswered": "Keep jobs resumable and record the blocker. Running locally is not working while the lid is closed."
+  },
+  {
+   "question": "Should the referee settle longer at case g in 3D (the baseline drifts for about three hundred cycles), and should a case-b baseline come from this engine started from the C code's state?",
+   "why_it_matters": "With twenty cycles of settling, case-g passes are weak and biased. Case b has no baseline at all from a default start.",
+   "default_if_unanswered": "Judge 3D runs on the referee's rule, and also report a settled-window comparison (cycles three hundred and later) alongside it."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Let the queued runs finish, then report the engine comparison condition by condition and the full noise study with a pass-rule recommendation.",
+   "rationale": "Both are already running and resumable; tonight's sleep, not cost, kept them from finishing."
+  },
+  {
+   "direction": "If the C-state case-b runs survive a hundred twenty cycles, extend the unmodified engine's run to a thousand twenty cycles as the case-b baseline. Propose a 3D C baseline from the same restart (about a quarter to a half minute per cycle, so roughly six to nine hours), with only bulk quantities exported.",
+   "rationale": "Case b is the one Figure 1 condition with no baseline. The C restart now loads cleanly into this engine."
+  },
+  {
+   "direction": "If D0016 is approved, build its first two code versions (settings only, then resting on the plate) with their tests.",
+   "rationale": "They are small, and the first must reproduce main bit for bit, which guards everything after it."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 74.4,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.4,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0002"
+ ],
+ "decisions_needing_you": [
+  "D0016"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-09T23:00:00-05:00",
+  "actual_start": "2026-11-09T23:08:12-05:00",
+  "ended": "2026-11-10T03:30:00-05:00",
+  "interruptions": [
+   {
+    "start": "2026-11-09T23:23:30-05:00",
+    "end": "2026-11-10T03:30:00-05:00",
+    "cause": "Clamshell Sleep (lid closed) per pmset, on AC. After that, only maintenance dark wakes of about one minute every fifteen minutes. The session resumed in a dark wake and wrapped up early in case the machine slept again. The machine slept again between commands: a check started at 02:26 finished at 03:26."
+   }
+  ],
+  "cpu_hours": 3.0,
+  "cores_available": 5,
+  "disk_free_gb": {
+   "start": 93,
+   "end": 95
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0030",
+    "reason": "Machine asleep; 23 of 48 runs still to finish (all of f* 0.5, half of L 100). Queue continues in the background."
+   },
+   {
+    "experiment_id": "E0031",
+    "reason": "Machine asleep; 3 runs live, 52 queued. The unmodified engine's stalled conditions may each use their 4 CPU-hour cap."
+   },
+   {
+    "experiment_id": "E0032",
+    "reason": "Machine asleep; the two C-state runs at cycle 65 of 120, the 24 upward-start runs queued."
+   },
+   {
+    "experiment_id": "E0034",
+    "reason": "Queued until the noise study's slots free up."
+   }
+  ],
+  "limits_hit": "Sleep, not the machine's size: with the lid closed, every job got about a fifth of an hour of CPU instead of three hours. No system was made smaller and no repeats were cut."
+ }
+}

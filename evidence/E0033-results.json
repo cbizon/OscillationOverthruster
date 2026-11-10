@@ -1,0 +1,369 @@
+{
+ "baseline_source": "/Users/bizon/Projects/experiments/sequel-data/runs/E0029/main-3d-g6-f0.84-s4/quantities.npz",
+ "threshold": 3.62,
+ "blocks": 10,
+ "baseline": {
+  "zcm": [
+   4.679830031240771,
+   0.003769620267496815
+  ],
+  "thickness": [
+   2.12213176017102,
+   0.003811379401383398
+  ],
+  "ke_vertical": [
+   1.149833836671858,
+   0.0006293752009605274
+  ],
+  "ke_horizontal": [
+   0.09749592678882377,
+   0.0011659415557972335
+  ],
+  "temp_vertical": [
+   0.2144209016857049,
+   0.0007637759875889066
+  ],
+  "temp_horizontal": [
+   0.09748099047402017,
+   0.001165264127919491
+  ],
+  "plate_contact": [
+   0.020364283333333334,
+   2.4730134062874384e-05
+  ]
+ },
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g6-f0.84",
+   "mode": 5,
+   "judge": {
+    "zcm": {
+     "baseline_mean": 4.679830031240771,
+     "baseline_sd": 0.003769620267496815,
+     "candidate_mean": 4.668974405764304,
+     "sigmas": -2.8797663175965056,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.12213176017102,
+     "baseline_sd": 0.003811379401383398,
+     "candidate_mean": 2.1152555278572214,
+     "sigmas": -1.8041322024521338,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 1.149833836671858,
+     "baseline_sd": 0.0006293752009605274,
+     "candidate_mean": 1.1507474139961524,
+     "sigmas": 1.4515623159289865,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09749592678882377,
+     "baseline_sd": 0.0011659415557972335,
+     "candidate_mean": 0.0933107197489925,
+     "sigmas": -3.5895513107169106,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.2144209016857049,
+     "baseline_sd": 0.0007637759875889066,
+     "candidate_mean": 0.21400194726253402,
+     "sigmas": -0.5485304984429331,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09748099047402017,
+     "baseline_sd": 0.001165264127919491,
+     "candidate_mean": 0.09329411496356102,
+     "sigmas": -3.5930699402328363,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.020364283333333334,
+     "baseline_sd": 2.4730134062874384e-05,
+     "candidate_mean": 0.02044421875,
+     "sigmas": 3.232308262601278,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drift_flags": [
+    "zcm",
+    "thickness",
+    "ke_vertical",
+    "ke_horizontal",
+    "temp_vertical",
+    "temp_horizontal"
+   ]
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s2",
+   "mode": 6,
+   "judge": {
+    "zcm": {
+     "baseline_mean": 4.679830031240771,
+     "baseline_sd": 0.003769620267496815,
+     "candidate_mean": 4.671583553981659,
+     "sigmas": -2.187614845510152,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.12213176017102,
+     "baseline_sd": 0.003811379401383398,
+     "candidate_mean": 2.114663304846635,
+     "sigmas": -1.959515056851681,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 1.149833836671858,
+     "baseline_sd": 0.0006293752009605274,
+     "candidate_mean": 1.1503434654746665,
+     "sigmas": 0.8097376605096712,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09749592678882377,
+     "baseline_sd": 0.0011659415557972335,
+     "candidate_mean": 0.0944952900584173,
+     "sigmas": -2.573573877255565,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.2144209016857049,
+     "baseline_sd": 0.0007637759875889066,
+     "candidate_mean": 0.21345794182201128,
+     "sigmas": -1.260788345459129,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09748099047402017,
+     "baseline_sd": 0.001165264127919491,
+     "candidate_mean": 0.09448123683915971,
+     "sigmas": -2.574312177803279,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.020364283333333334,
+     "baseline_sd": 2.4730134062874384e-05,
+     "candidate_mean": 0.0203709375,
+     "sigmas": 0.26907119264890333,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drift_flags": [
+    "zcm",
+    "ke_horizontal",
+    "temp_horizontal",
+    "plate_contact"
+   ]
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s3",
+   "mode": 5,
+   "judge": {
+    "zcm": {
+     "baseline_mean": 4.679830031240771,
+     "baseline_sd": 0.003769620267496815,
+     "candidate_mean": 4.670621116851219,
+     "sigmas": -2.442928925482152,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.12213176017102,
+     "baseline_sd": 0.003811379401383398,
+     "candidate_mean": 2.1150036635641714,
+     "sigmas": -1.8702143912152365,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 1.149833836671858,
+     "baseline_sd": 0.0006293752009605274,
+     "candidate_mean": 1.1500636850139967,
+     "sigmas": 0.3652008242269617,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09749592678882377,
+     "baseline_sd": 0.0011659415557972335,
+     "candidate_mean": 0.09391898135975094,
+     "sigmas": -3.0678599723011244,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.2144209016857049,
+     "baseline_sd": 0.0007637759875889066,
+     "candidate_mean": 0.21385032148015026,
+     "sigmas": -0.7470517728056043,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09748099047402017,
+     "baseline_sd": 0.001165264127919491,
+     "candidate_mean": 0.09389478469332227,
+     "sigmas": -3.077590474788629,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.020364283333333334,
+     "baseline_sd": 2.4730134062874384e-05,
+     "candidate_mean": 0.020378317708333333,
+     "sigmas": 0.5675009672134451,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drift_flags": [
+    "zcm",
+    "thickness",
+    "ke_horizontal",
+    "temp_horizontal"
+   ]
+  }
+ ],
+ "baseline_mode": 5,
+ "baseline_block_means": {
+  "zcm": [
+   4.669869994005628,
+   4.677326656711911,
+   4.6805440268034975,
+   4.682309298773192,
+   4.681831986433313,
+   4.681787930178965,
+   4.681693091863229,
+   4.6814210922966275,
+   4.681072917510051,
+   4.680443317831293
+  ],
+  "thickness": [
+   2.113602938166324,
+   2.117144737868062,
+   2.1217277739032308,
+   2.122495110291062,
+   2.1246066106574664,
+   2.1233831650989035,
+   2.1249674813667743,
+   2.1243188625694027,
+   2.1239182466454247,
+   2.1251526751435463
+  ],
+  "ke_vertical": [
+   1.1508573090091097,
+   1.150481813110492,
+   1.1497649381640367,
+   1.1498125435435333,
+   1.1498817374198882,
+   1.1502141818279799,
+   1.1497415612575492,
+   1.1498743000778506,
+   1.148952619905655,
+   1.148757362402484
+  ],
+  "ke_horizontal": [
+   0.09442461781095007,
+   0.09668959947901401,
+   0.09763445515933056,
+   0.09811570781839335,
+   0.09817947926016664,
+   0.09813530306245134,
+   0.09776945930861913,
+   0.09808759056307817,
+   0.09804476141644253,
+   0.09787829400979184
+  ],
+  "temp_vertical": [
+   0.21309149387847487,
+   0.2131759010669818,
+   0.21428349164173524,
+   0.21430769461143584,
+   0.2147413891256355,
+   0.21440206312716711,
+   0.21530884096282676,
+   0.21500584117227597,
+   0.21470562574953614,
+   0.21518667552098003
+  ],
+  "temp_horizontal": [
+   0.09441302229399501,
+   0.09667059148157381,
+   0.09761954307063053,
+   0.09810384969420025,
+   0.09816380221338879,
+   0.09811818991070446,
+   0.09775613452492907,
+   0.09807213624427095,
+   0.09802928556305492,
+   0.09786334974345405
+  ],
+  "plate_contact": [
+   0.020395776041666664,
+   0.020341317708333334,
+   0.020339401041666667,
+   0.02033028125,
+   0.0203775,
+   0.020364708333333335,
+   0.020372796874999998,
+   0.020354635416666666,
+   0.02035919791666667,
+   0.02040721875
+  ]
+ },
+ "same_window_means": {
+  "main-s4 cycles 20-120": {
+   "zcm": 4.669869994005628,
+   "thickness": 2.113602938166324,
+   "ke_vertical": 1.1508573090091097,
+   "ke_horizontal": 0.09442461781095007,
+   "temp_vertical": 0.21309149387847487,
+   "temp_horizontal": 0.09441302229399501,
+   "plate_contact": 0.020395776041666664
+  },
+  "E0013/3d-g6-f0.84 cycles 20-120": {
+   "zcm": 4.668974405764304,
+   "thickness": 2.1152555278572214,
+   "ke_vertical": 1.1507474139961524,
+   "ke_horizontal": 0.0933107197489925,
+   "temp_vertical": 0.21400194726253402,
+   "temp_horizontal": 0.09329411496356102,
+   "plate_contact": 0.02044421875
+  },
+  "E0014/nudge-3d-g6-f0.84-s2 cycles 20-120": {
+   "zcm": 4.671583553981659,
+   "thickness": 2.114663304846635,
+   "ke_vertical": 1.1503434654746665,
+   "ke_horizontal": 0.0944952900584173,
+   "temp_vertical": 0.21345794182201128,
+   "temp_horizontal": 0.09448123683915971,
+   "plate_contact": 0.0203709375
+  },
+  "E0014/nudge-3d-g6-f0.84-s3 cycles 20-120": {
+   "zcm": 4.670621116851219,
+   "thickness": 2.1150036635641714,
+   "ke_vertical": 1.1500636850139967,
+   "ke_horizontal": 0.09391898135975094,
+   "temp_vertical": 0.21385032148015026,
+   "temp_horizontal": 0.09389478469332227,
+   "plate_contact": 0.020378317708333333
+  }
+ },
+ "note": "Same-window check (not the referee's rule): the baseline run's own cycles 20-120 against the nudge runs' cycles 20-120. The baseline's block means rise through block 3-4 (zcm 4.670 -> 4.682, ke_horizontal 0.0944 -> 0.0981), so case g is not settled at cycle 20."
+}

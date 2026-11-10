@@ -1,0 +1,136 @@
+{
+ "experiment": "E0029",
+ "note": "Unmodified engine (main 3b3df66) at 3D Figure 1 case g, seeds 3-5, collected 2026-11-09 session. Seed 4 completed 1020 cycles; seeds 3 and 5 overlapped.",
+ "runs": [
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0029/main-3d-g6-f0.84-s3",
+   "commit": "3b3df66",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 3,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 332,
+   "failure_phase": 0.9015738918926891,
+   "cycles_completed": 332,
+   "cpu_seconds": 10783.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 167,
+     "energy_residual_rel": 1.8439498826204427e-07,
+     "momentum_residual_rel": 1.7690985000470336e-07
+    },
+    {
+     "cycle": 168,
+     "energy_residual_rel": -1.16355060801305e-07,
+     "momentum_residual_rel": 3.2990147346351154e-08
+    },
+    {
+     "cycle": 251,
+     "energy_residual_rel": 2.2292954991354957e-07,
+     "momentum_residual_rel": 1.86687588976277e-07
+    }
+   ],
+   "worst_energy_residual": 2.2292954991354957e-07,
+   "checkpoint_cycle": 330,
+   "data": {
+    "size_mb": 7.619,
+    "sha256": {
+     "summary.json": "bd827bf6d89ae53c3bbb80a79ed9b1f507bc3b098640e1830c3251f9492fd899",
+     "audit.json": "0259ee150174b88881d90743b6a7b4e1c66f794904f4fc4ca338f5c02c5d9bec"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0029/main-3d-g6-f0.84-s4",
+   "commit": "3b3df66",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "failure_cycle_zero_based": null,
+   "failure_phase": null,
+   "cycles_completed": 1020,
+   "cpu_seconds": 13757.0,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 123,
+     "energy_residual_rel": 2.8504225270175823e-08,
+     "momentum_residual_rel": 2.260997913876759e-08
+    },
+    {
+     "cycle": 124,
+     "energy_residual_rel": 6.809822421934675e-07,
+     "momentum_residual_rel": 1.5549331999731776e-07
+    },
+    {
+     "cycle": 279,
+     "energy_residual_rel": 1.0180600498824608e-07,
+     "momentum_residual_rel": 8.273314799483457e-08
+    },
+    {
+     "cycle": 407,
+     "energy_residual_rel": -1.3930098050689982e-09,
+     "momentum_residual_rel": 7.235891632180376e-08
+    }
+   ],
+   "worst_energy_residual": 6.809822421934675e-07,
+   "checkpoint_cycle": 1020,
+   "data": {
+    "size_mb": 9.464,
+    "sha256": {
+     "summary.json": "d8bcfae5b862d79794e161092227eaeaed1189222dcc853d88363773197a7e20",
+     "audit.json": "e4d65d7bb5c57744be789f01ddbba681e099d025d8104581bc15674a75c204ec"
+    }
+   }
+  },
+  {
+   "run": "/Users/bizon/Projects/experiments/sequel-data/runs/E0029/main-3d-g6-f0.84-s5",
+   "commit": "3b3df66",
+   "branch": "main",
+   "dim": 3,
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "N": 60000,
+   "L": 100.0,
+   "seed": 5,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "failure_cycle_zero_based": 185,
+   "failure_phase": 0.019264639221394306,
+   "cycles_completed": 185,
+   "cpu_seconds": 6796.5,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "audit_failures": [
+    {
+     "cycle": 167,
+     "energy_residual_rel": 1.9641431667776015e-07,
+     "momentum_residual_rel": 1.6675223461549166e-07
+    }
+   ],
+   "worst_energy_residual": 1.9641431667776015e-07,
+   "checkpoint_cycle": 180,
+   "data": {
+    "size_mb": 7.223,
+    "sha256": {
+     "summary.json": "af903af6550d2456b9679663e8c408265bc4863812f7947af356ceb414ba36b3",
+     "audit.json": "352a989239a0a8d486c3bd4803b1db2e2602ce3d4c6a85cbcdbfe2aadf341685"
+    }
+   }
+  }
+ ]
+}

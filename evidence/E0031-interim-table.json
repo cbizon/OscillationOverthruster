@@ -1,0 +1,1574 @@
+{
+ "cycles": 1000,
+ "conditions": {
+  "2D G3.5 f0.3 d10.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "unfinished",
+      "cycles": 960,
+      "exp": "E0031",
+      "slow_cpu_share": 0.831,
+      "pos_residuals": 1,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": 1.2625716675775503e-06,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "unfinished": 1
+    },
+    "pos_residuals": 1,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 960
+   },
+   "nudge": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   }
+  },
+  "2D G3.5 f0.3 d10.0 L400": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "overlap",
+      "cycles": 0,
+      "exp": "E0024",
+      "slow_cpu_share": 0.951,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "overlap",
+      "cycles": 1,
+      "exp": "E0024",
+      "slow_cpu_share": 0.968,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "overlap": 2
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 1
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  },
+  "2D G3.5 f0.3 d15.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "frozen_time",
+      "cycles": 0,
+      "exp": "E0031",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "frozen_time": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1,
+     "short": 2
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 1240
+   }
+  },
+  "2D G3.5 f0.3 d5.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0004",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 6,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0007",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 7,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0007",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 8,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0007",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 9,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0007",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 5,
+     "short": 4
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 5480
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0004",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0006",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0006",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0006",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 4
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 480
+   }
+  },
+  "2D G3.5 f0.3 d5.0 L400": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 5
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 5000
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  },
+  "2D G3.5 f0.5 d10.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 5
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 5000
+   },
+   "nudge": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   }
+  },
+  "2D G3.5 f0.5 d10.0 L400": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "cpu_cap_in_slow",
+      "cycles": 0,
+      "exp": "E0020",
+      "slow_cpu_share": 0.933,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0020",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "overlap",
+      "cycles": 0,
+      "exp": "E0020",
+      "slow_cpu_share": 0.924,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 3,
+     "cpu_cap_in_slow": 1,
+     "overlap": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 3000
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  },
+  "2D G3.5 f0.5 d15.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "unfinished",
+      "cycles": 0,
+      "exp": "E0031",
+      "slow_cpu_share": 0.988,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "unfinished": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0010",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0010",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1,
+     "short": 2
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 1240
+   }
+  },
+  "2D G3.5 f0.5 d5.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0031",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 1000
+   },
+   "nudge": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   }
+  },
+  "2D G3.5 f0.5 d5.0 L400": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 1000
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  },
+  "2D G5.0 f0.3 d10.0 L100": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "overlap",
+      "cycles": 162,
+      "exp": "E0008",
+      "slow_cpu_share": 0.856,
+      "pos_residuals": 0,
+      "neg_residuals": 8,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0025",
+      "slow_cpu_share": 0.473,
+      "pos_residuals": 0,
+      "neg_residuals": 141,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0025",
+      "slow_cpu_share": 0.134,
+      "pos_residuals": 1,
+      "neg_residuals": 129,
+      "momentum_only": 0,
+      "worst_pos": 1.4312217599144656e-08,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "overlap": 1,
+     "completed": 2
+    },
+    "pos_residuals": 1,
+    "neg_residuals": 278,
+    "momentum_only": 0,
+    "cycles": 2162
+   }
+  },
+  "2D G5.0 f0.3 d15.0 L100": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.711,
+      "pos_residuals": 0,
+      "neg_residuals": 11,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0025",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 6,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0025",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 36,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 53,
+    "momentum_only": 0,
+    "cycles": 3000
+   }
+  },
+  "2D G5.0 f0.3 d5.0 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "unfinished",
+      "cycles": 20,
+      "exp": "E0031",
+      "slow_cpu_share": 0.992,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "unfinished": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 20
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.004,
+      "pos_residuals": 0,
+      "neg_residuals": 21,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1,
+     "short": 2
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 21,
+    "momentum_only": 0,
+    "cycles": 1240
+   }
+  },
+  "2D G5.0 f0.5 d10.0 L100": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.002,
+      "pos_residuals": 0,
+      "neg_residuals": 77,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 1,
+     "short": 2
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 77,
+    "momentum_only": 0,
+    "cycles": 1240
+   }
+  },
+  "2D G5.0 f0.5 d15.0 L100": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 66,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0025",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 1,
+      "neg_residuals": 45,
+      "momentum_only": 0,
+      "worst_pos": 9.150797916109457e-08,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0016",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 2,
+     "short": 1
+    },
+    "pos_residuals": 1,
+    "neg_residuals": 111,
+    "momentum_only": 0,
+    "cycles": 2120
+   }
+  },
+  "2D G5.0 f0.5 d5.0 L400": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "overlap",
+      "cycles": 50,
+      "exp": "E0024",
+      "slow_cpu_share": 0.963,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "overlap": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 50
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0024",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  },
+  "3D G3.0 f0.44 d5.42 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "overlap",
+      "cycles": 0,
+      "exp": "E0011",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "frozen_time",
+      "cycles": 0,
+      "exp": "E0012",
+      "slow_cpu_share": 0.076,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "overlap",
+      "cycles": 0,
+      "exp": "E0019",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "overlap",
+      "cycles": 0,
+      "exp": "E0019",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "overlap": 3,
+     "frozen_time": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0013",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 120
+   }
+  },
+  "3D G5.0 f0.44 d5.42 L100": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0013",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 2,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 1
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 2,
+    "momentum_only": 0,
+    "cycles": 120
+   }
+  },
+  "3D G5.0 f0.44 d5.42 L20": {
+   "main": {
+    "runs": [],
+    "tally": {},
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 0
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0008",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 1,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0028",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0028",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0028",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0028",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "completed": 5
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 1,
+    "momentum_only": 0,
+    "cycles": 5000
+   }
+  },
+  "3D G6.0 f0.84 d5.42 L100": {
+   "main": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "cpu_cap",
+      "cycles": 586,
+      "exp": "E0014",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 5,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": 6.099999979778682e-07,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "overlap",
+      "cycles": 566,
+      "exp": "E0017",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "overlap",
+      "cycles": 332,
+      "exp": "E0029",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 2,
+      "neg_residuals": 1,
+      "momentum_only": 0,
+      "worst_pos": 2.2292954991354957e-07,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 4,
+      "end": "completed",
+      "cycles": 1000,
+      "exp": "E0029",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 3,
+      "neg_residuals": 0,
+      "momentum_only": 1,
+      "worst_pos": 6.809822421934675e-07,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 5,
+      "end": "overlap",
+      "cycles": 185,
+      "exp": "E0029",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 1,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": 1.9641431667776015e-07,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "cpu_cap": 1,
+     "overlap": 3,
+     "completed": 1
+    },
+    "pos_residuals": 11,
+    "neg_residuals": 1,
+    "momentum_only": 1,
+    "cycles": 2669
+   },
+   "nudge": {
+    "runs": [
+     {
+      "seed": 1,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0013",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 2,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0014",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     },
+     {
+      "seed": 3,
+      "end": "short(120)",
+      "cycles": 120,
+      "exp": "E0014",
+      "slow_cpu_share": 0.0,
+      "pos_residuals": 0,
+      "neg_residuals": 0,
+      "momentum_only": 0,
+      "worst_pos": null,
+      "energy_gain_collisions": 0
+     }
+    ],
+    "tally": {
+     "short": 3
+    },
+    "pos_residuals": 0,
+    "neg_residuals": 0,
+    "momentum_only": 0,
+    "cycles": 360
+   }
+  }
+ }
+}
