@@ -1,0 +1,104 @@
+{
+ "date": "2026-11-09",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "The session made no new claims of the 'contact method works' or 'physical result' class. It changed one status: the wide-box settling result (E0027) is now inconclusive, superseded by E0035, which answers my open challenge from November 8. It also collected the unmodified engine's case-g runs (E0029), judged the nudge against them (E0033), and started the noise study (E0030), the engine comparison (E0031, E0034) and the case-b pilot (E0032). program check passes. The latest approval is still Chris's from November 6.\n\nMain findings:\n\n(1) The noise study's interim conclusion is selective and partly wrong. The evidence file computes the start-to-start spread for windows beginning at cycle two hundred and again at cycle one thousand. The summary reports only the cycle-two-hundred windows. With windows from cycle one thousand, the half-width box (L 200) has seven of thirty-five ratios whose ninety-percent interval excludes one. They are about 1.4 to 1.6 for vertical energy, vertical temperature and thickness, at windows of one hundred to five hundred cycles. So 'in the half-width box the ratio is consistent with one at every window' is false. The narrowest box (L 100, four starts so far) has fifteen of thirty-five, with ratios near two. That undercuts the story that the extra spread is specific to the widest box and comes from its wandering wavelength count. It also undercuts 'a pass rule on hundred-cycle windows is about right at all widths'. Some exclusions are expected by chance: roughly one in ten of the intervals, and the quantities are correlated. The full study is not done, and none of this changes any existing pass. But the summary's reading should not carry into a pass-rule recommendation.\n\n(2) The noise analysis departs from its registration in two ways, and neither is stated. The registration says windows start 'after burn-in'. The analysis uses fixed starts at cycles two hundred and one thousand, although its own burn-in estimates reach 850 to 2,700 cycles for some quantities in the widest box. The registration also says to compare against the within-run block SD 'at the same W'. For windows of a thousand and two thousand cycles, the analysis instead extrapolates from hundred-cycle blocks, since a 3,000-cycle run has at most two such blocks. That is a defensible choice, but it should be said. The summary's 'correlation times one to eleven cycles' is also off: the evidence shows up to fifteen in the widest box and thirteen in the half-width box.\n\n(3) E0029 and E0033 hold. All six case-g checksums match. The audit failures and overlap cycles match the summary. The nudge's pass against the seed-four baseline is, as the session says, weak and biased by an unsettled window.\n\n(4) The case-b numbers in the summary have no evidence file: sixty-five cycles from the C state, positions agreeing to 8.8e-6, and mean height within 0.2 percent. They appear only in PROGRAM.md and the E0032 registration text. Since the session, both C-state runs completed all 120 cycles at about 06:01. Both audits are clean (worst residual 1.6e-11), with no slow episodes and about 2,240 CPU-seconds each.\n\n(5) The new evidence files (E0030, E0031, E0033) record no path, size or SHA-256 for the run outputs they summarise, as CLAUDE.md requires. Only E0029's does.\n\nRun conditions were inadequate for the second night running. The lid was closed at 23:23:30, fifteen minutes in. The recorded conditions match the power log.",
+ "reviews": [
+  {
+   "claim_id": "E0035",
+   "plain_claim": "Re-analysis of E0027 (supersedes it): at the registered block length, the shallow wide condition shows no block-length growth. The deep wide condition grows past thirty percent in three of seven quantities. Eight of fifty-six run-quantities in the wide boxes trend, against about three expected, clustered in single seeds. Status: inconclusive (was supported).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Compared the E0035 outcome with the resolution I asked for on November 8: state both departures, report the 340- and 500-cycle ratios, and tabulate the block means of each shallow-wide seed for trends.",
+     "finding": "Done as asked. Both departures are stated, with eleven of 133 above two, largest 2.78, matching my count. The 333-cycle ratios are given: 0.81 to 1.20 shallow wide, 0.97 to 1.36 deep wide with three of seven above 1.30. The 500-cycle ratios are reported with the honest caveat that the same estimate at L 100 scatters from 0.30 to 1.63. The trend test finds clustering in single seeds. Downgrading to inconclusive is the right response. The registration was written after the analysis had run once, and its 'at' time (23:16:30) predates the actual append at about 02:30. The record itself discloses both, so this is a documented re-analysis, not a pre-registered test."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked whether the new noise study supports the link E0035 draws ('slow within-run evolution, which the noise study attributes to the wandering wavelength count').",
+     "finding": "That attribution rests on E0030's start-200 windows only (see the E0030 entry). The narrowest box, which has only three or four wavelengths, shows as much excess spread or more from cycle one thousand. The E0035 statistics themselves stand. Its explanatory sentence should be held until E0030 is complete."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0030",
+   "plain_claim": "Interim noise study, f* 0.3 only: in the widest box, long-window means differ between starts by 1.2 to 1.6 times what within-run blocks predict, from a slow mode (the wandering wavelength count). The half-width box is consistent with one at every window. A pass rule on hundred-cycle windows is about right at all widths.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Recounted from E0030-interim.json, for each cell and window start, the ratios whose ninety-percent interval excludes one.",
+     "finding": "From cycle 200: L 400, six of thirty-five (thickness, vertical energy, vertical temperature and plate contact at W 1000, ratios 1.42 to 1.58; horizontal energy and temperature at W 200, about 0.54, below one). L 200, one (plate contact W 100, 0.52). L 100, four. From cycle 1000: L 400, six (horizontal energy and temperature at W 500 to 2000, 1.46 to 1.59). L 200, seven (thickness W 200 1.50; vertical energy and vertical temperature at W 100, 200 and 500, 1.42 to 1.56). L 100 (four starts), fifteen, ratios 1.6 to 2.3. The summary reports the cycle-200 picture for L 400 and L 200 and omits the rest. Its 'the half-width box doesn't show this' is false for windows from cycle 1000. Its 'about right at all widths for hundred-cycle windows' conflicts with L 200 and L 100 ratios of 1.5 to 1.95 at W 100 from cycle 1000. Its 'ratio near one for one hundred to two hundred cycles' in the widest box hides two significant ratios below one, at 0.54."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Compared the analysis with the registration's method ('windows after burn-in', 'within-run block SD at the same W') and read the burn-in estimates in the evidence.",
+     "finding": "The analysis uses fixed starts at 200 and 1000 instead of the burn-in. Its own burn-in estimates reach 850 (centre of mass) and 2,700 (vertical temperature) at L 400, 950 at L 200, and 1,400 at L 100. Those estimates are noisy, but they are the registered criterion. For W 1000 and 2000, the predicted SD is extrapolated from hundred-cycle blocks, so 'within_direct_over_pred' is null there. Neither departure is disclosed. The difference between the start-200 and start-1000 results is itself a sign that the choice of start matters."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the summary's numbers against the evidence.",
+     "finding": "The wavelength ranges are right: thirteen to sixteen at L 400, five to eight at L 200. The correlation times are not: the summary says one to eleven cycles, but the evidence has up to 15.1 (horizontal energy at L 400) and 12.9 (vertical energy at L 200). The evidence file has no paths, sizes or checksums for the 24 completed runs it summarises."
+    }
+   ],
+   "what_would_resolve": "When the f* 0.5 cells and the remaining L 100 starts finish, report both window starts (or a start set per quantity by the registered burn-in rule) for every cell. State the two departures from the registration. Give the count of interval exclusions per cell against the roughly one in ten expected by chance. Only then attribute any excess to width or to the wavelength count. Add path, size and SHA-256 for each run's summary.json and quantities.npz to the evidence file."
+  },
+  {
+   "claim_id": "E0029",
+   "plain_claim": "The unmodified engine completed 1020 cycles of 3D case g at seed four, the first case-g baseline from this engine. It had four audit failures: three positive residuals, the largest +6.8e-7, and one momentum-only failure. Seeds three and five overlapped, at cycles 332 and 185. Over five seeds it completes case g at one.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked all six SHA-256 values in E0029-collected.json against the files, and read the audit failures.",
+     "finding": "All six match. The failures and their signs are as stated. The positive residuals of up to +6.8e-7 of throughput belong to the unmodified engine, so they are a property of the baseline, not of a contact method. That settles the November 8 sign-convention question the way the session reports it."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0033",
+   "plain_claim": "The nudge's three case-g runs pass every bulk quantity against the seed-four baseline. All three deviate the same way and close to the threshold, because case g is not settled at cycle twenty.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Read E0033-results.json: the baseline block means, and the same-window means for both engines.",
+     "finding": "The baseline's block means rise across its first three or four blocks, as stated. Over the same cycles, twenty to 120, the nudge runs match it. The session reports this as a weak pass and does not claim it as agreement. It is also a single baseline seed, which the summary does not stress."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the order of registration and judging in the session transcript.",
+     "finding": "The registration was appended at 23:17:02, before the judging ran (23:17:29), so it was pre-registered. The outcome's detailed text was appended in the same command as the judging, so its 'at' of 23:17:30 is nominal. This doesn't affect the result."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0032",
+   "plain_claim": "Started from the C code's cycle-2700 state, both engines ran case b with no slow stretch and no audit failure: sixty-five cycles at the time of the summary. The converter matches the C trajectory to 8.8e-6 in position, and to within 0.2 percent in mean height by phase.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Looked for an evidence file for E0032 and read the two C-state run summaries.",
+     "finding": "There is no E0032 evidence file. The 65 cycles, 8.8e-6 and 0.2 percent appear only in PROGRAM.md and the registration text. After the session, both runs completed all 120 cycles (at 06:01). Both audits are clean, with worst residuals of 1.6e-11. Neither had slow episodes, and each used about 2,240 CPU-seconds over 24,330 wall-seconds. Their quantities and audit files differ (different checksums), so the two engines really did run differently. The unmodified engine's summary records commit 8144dee, because resume picks up the current HEAD. That commit changed only records, not granular/, so this is immaterial."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Weighed what a C-state start shows.",
+     "finding": "Starting from an equilibrated state avoids exactly the first-landing transient that fails at every default start. A case-b baseline from this start is legitimate for bulk comparison. It says nothing about survival from a default start, and the engine comparison should not count it as a case-b survival."
+    }
+   ],
+   "what_would_resolve": "Write evidence/E0032 with the converter check (position error, mean-height agreement by phase, and the file compared) and the two 120-cycle runs (outcome, audit, CPU, and path, size and SHA-256 of summary.json, audit.json and quantities.npz)."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "inadequate",
+  "assessment": "The session started at 23:08, eight minutes late. The power log shows the lid was opened at 22:17. The lid closed at 23:23:30 ('Clamshell Sleep', on AC). After that the Mac had only maintenance dark wakes, about a minute every fifteen minutes, through the morning, including during this check. Its last full wake was at 22:17, so this review also ran in dark wakes and took longer than the 45 minutes allowed. The session did much of its setup before the sleep: it registered six experiments, collected E0029, judged E0033, and queued every job. The 2D noise-study runs at f* 0.3 are fast, about 260 CPU-seconds for 3,000 cycles at L 400, so 24 of them finished. Left waiting by sleep: the f* 0.5 noise cells (five running now), the engine comparison (three unmodified runs live with about 41 CPU-minutes each, and the queue behind them), the case-b upward starts (two now running), and E0034. The machine limited the science only through sleep, not system size or repeats. Memory and disk are fine: 93 GB free (floor 40), sequel-data at 2.5 of 15 GB, and the temporary folder is empty. I found no stray files outside the program folders. Ten simulations are running now, at the ten-core limit. Briefly, while E0030's first five runs overlapped the E0031 and E0032 launches (about 23:16 to 23:18), there may have been eleven or twelve. The queues cap each experiment's jobs separately, not all jobs together.",
+  "discrepancies": [
+   "The summary's cpu_hours budget is 74.4; program check sums 71.4 from the ledger. The usual lag from collected runs without outcomes.",
+   "B0002's recurrence record says the session resumed in a dark wake at about 02:15. The final commit is at 03:27, consistent with the summary's 03:30 end.",
+   "runs/active.jsonl still lists 47 jobs, including the finished E0030 f* 0.3 runs and the two completed C-state case-b runs. CLAUDE.md asks for entries to be removed when collected. The E0030 runs were analysed in the interim evidence but left listed.",
+   "The concurrency cap in tools/qx2.sh is per experiment, or per named group. E0030, E0031 and E0032 were queued separately, so the ten-core budget is not enforced across them."
+  ]
+ }
+}
