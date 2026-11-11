@@ -55,6 +55,11 @@
  ],
  "questions": [
   {
+   "question": "Can you stop or fix the job that is filling the disk with swap (review_salt_components.py in the Dogsled b2 worktree), and restart the Mac if swap does not shrink?",
+   "why_it_matters": "Free disk went from forty-three gigabytes to under eight in three quarters of an hour. Nothing in this program can run until it is back above the floor, and a full disk puts everything on the Mac at risk.",
+   "default_if_unanswered": "The queues stay held and launch by themselves when free disk is back above the floor. I will not touch the other job."
+  },
+  {
    "question": "Do you approve the option-four redesign in evidence/D0016-option4-redesign.md and its five choices?",
    "why_it_matters": "It is the only route left for the strong-driving conditions, where the unmodified engine completes nothing and the nudge can only postpone an overlap. Tonight's phase finding supports its release rule.",
    "default_if_unanswered": "No code. Finish the held runs."
@@ -109,19 +114,19 @@
  "run_conditions": {
   "scheduled_start": "2026-11-10T23:00:00-05:00",
   "actual_start": "2026-11-10T23:08:23-05:00",
-  "ended": "2026-11-10T23:31:03-05:00",
+  "ended": "2026-11-10T23:52:26-05:00",
   "interruptions": [
    {
     "start": "2026-11-10T23:10:00-05:00",
-    "end": "2026-11-10T23:40:00-05:00",
-    "cause": "Not sleep: the Mac was awake on AC throughout. Free disk went below the forty-gigabyte floor at about 23:11 and kept falling, because a job outside the program (review_salt_components.py in a Dogsled b2 worktree, with twelve workers) grew to tens of gigabytes of memory and the system added a one-gigabyte swap file every minute or two. The session launched no simulations from then on; analysis of finished runs continued."
+    "end": "2026-11-10T23:52:26-05:00",
+    "cause": "Not sleep: the Mac was awake on AC throughout. Free disk went below the forty-gigabyte floor at about 23:11 and kept falling, because a job outside the program (review_salt_components.py in a Dogsled b2 worktree, with twelve workers) grew to tens of gigabytes of memory and the system added a one-gigabyte swap file every minute or two. The session launched no simulations from then on; analysis of finished runs continued. By 23:52 free disk was under eight gigabytes with fifty-five gigabytes of swap."
    }
   ],
-  "cpu_hours": 0.91,
+  "cpu_hours": 1.33,
   "cores_available": 0,
   "disk_free_gb": {
    "start": 43,
-   "end": 23
+   "end": 7
   },
   "unfinished_runs": [
    {
