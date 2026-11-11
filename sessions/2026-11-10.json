@@ -1,0 +1,142 @@
+{
+ "date": "2026-11-10",
+ "instruction": "instructions/fallback.md",
+ "headline": "No new instruction, so tonight followed the fallback: collect the queued runs and answer the checker. The full noise study is in, and it withdraws last night's reading: starts differ a little more than blocks predict only in horizontal energy at the patterned condition, with no trend in box width, and the pass rule is barely affected. Case b now runs in the unmodified engine from two kinds of start. Free disk fell below the floor twenty minutes in because another job on the Mac is swapping heavily, so no new runs were launched after that.",
+ "experiments": [
+  {
+   "experiment_id": "E0030",
+   "question": "How much do long-run means of the unmodified engine differ between independent starts, compared with what blocks within one run predict, at three box widths and two frequencies? Do wavelength counts settle?",
+   "what_was_done": "All forty-eight runs finished (eight starts per cell, three thousand cycles each). The analysis was redone as the checker asked: every cell is reported for three window starts, the two departures from the registration are stated, and interval exclusions are counted against the number expected by chance. I added a test that uses every hundred-cycle block of every run instead of one window per run (a one-way analysis of variance with a permutation test). Each run's files are listed with size and checksum.",
+   "result": "The checker was right and last night's reading is withdrawn. Counting single windows whose ninety-percent interval excludes one, the narrowest box at the lower frequency has about as many as the widest, the half-width box has few, and the counts change with the window start. The all-blocks test is steadier. At the lower frequency, where the layer is patterned, the variance between starts in horizontal kinetic energy (and horizontal temperature, which is nearly the same number) is about twice the block prediction in the narrowest and the widest box, and not in the half-width box. No other quantity shows it. At the higher frequency the layer has no pattern and the tests come out at the chance rate. Wavelength counts wander but agree between starts: every start in the half-width box spends its last thousand cycles mostly at seven wavelengths, and every start in the widest box at fourteen. Blocks within a run behave as independent, with a mild excess for five-hundred-cycle blocks in the widest patterned box.",
+   "takeaway": "Inconclusive against its hypothesis: there is a modest excess between starts at the patterned condition, but it does not grow with box width and is not starts holding different wavelength counts. For the pass rule it hardly matters. For a hundred-cycle mean judged against a ten-block baseline from another start, the extra variance widens the expected deviation by at most about five percent, so the threshold acts as roughly three and four tenths standard deviations instead of three point six one. I recommend keeping the rule for hundred-cycle windows and using several starts whenever whole runs of a thousand cycles or more are compared. One slip in the ledger text, which is append-only: it says the mild five-hundred-cycle excess is in four quantities; the evidence file shows five."
+  },
+  {
+   "experiment_id": "E0032",
+   "question": "Can case b be started so the unmodified engine survives its first landings: with an upward push of a quarter, half or three quarters of the plate's peak speed, or from the C code's equilibrated state?",
+   "what_was_done": "All twenty-six runs finished. I wrote the evidence file the checker found missing: the converter check recomputed from scratch, every run's outcome and audit, and file sizes and checksums.",
+   "result": "With a push of half or three quarters of the plate's peak speed, the unmodified engine completed thirty cycles at all four seeds, with no slow stretch and a clean audit. With a quarter it completed at one seed of four; one overlapped at the first landing and two ran out of their hour in the first cycles. The nudge completed at every seed and fraction. From the C code's state both engines completed a hundred and twenty cycles cleanly and agree with each other within one and a half standard errors on all seven quantities over the same cycles. The converter reproduces the C positions to single-precision rounding. One correction: last night I said our first cycle tracks the C code's mean height within two tenths of a percent; recomputed, the largest difference is about four tenths of a percent.",
+   "takeaway": "Supported. Case b is no longer out of reach for the unmodified engine: a gentler first impact is enough. As the checker said, these are not default-start survivals and are not counted as such in the engine comparison. A thousand-cycle baseline from the C state is registered and queued for both engines, but has not started (see the disk blocker)."
+  },
+  {
+   "experiment_id": "E0031",
+   "question": "Condition by condition, how do the unmodified engine and the nudge fail?",
+   "what_was_done": "Forty-two of fifty-seven runs have been launched and forty have ended; two are still running. The remaining fifteen (thirteen nudge continuations and two slow unmodified runs) are held by the disk blocker. An interim table, per-run audit detail and checksums are in the evidence. No outcome is recorded yet.",
+   "result": "On the two-dimensional grid the unmodified engine completes a thousand cycles at every seed only at the three shallow or moderate conditions where it never slows. At moderate driving in deeper layers it completes none, one or two seeds of three, depending on the condition. At strong driving it has not completed a single run at any depth or frequency: every run so far ended in an overlap or ran out of four CPU-hours inside a slow stretch, many within the first few cycles. The nudge completed a thousand cycles in every run but the one known overlap. Audit failures have opposite signs: across all runs the unmodified engine's failing cycles are nearly all energy gains, and the nudge's are nearly all small losses, mostly in cycles with several times the usual number of collisions. A side finding: every slow stretch of the unmodified engine, at every condition, starts between phase eighty-two and one hundred percent of the drive cycle (or just after), which is while the plate is pushing upward and before its downward acceleration exceeds gravity. In two dimensions about seventy to ninety percent of the tiny collisions in them are with the plate.",
+   "takeaway": "Interim, but the picture is already one-sided: at strong driving there is no baseline to be had from the unmodified engine on this grid. The phase finding fits the option-four redesign, whose resting state exists exactly in that window."
+  },
+  {
+   "experiment_id": "E0034",
+   "question": "The same comparison for the three-dimensional cells: does the unmodified engine stall at the headline survival case, and does the nudge get through case b from a default start at more seeds?",
+   "what_was_done": "Nothing ran. Its queue never started last night, and tonight it is held with the rest.",
+   "result": "No result.",
+   "takeaway": "Still to do; it launches by itself when free disk is back above the floor."
+  },
+  {
+   "experiment_id": "E0036",
+   "question": "Started from the C code's state, does the unmodified engine give a full thousand-cycle baseline at case b, and does the nudge agree with it?",
+   "what_was_done": "Registered and queued: both hundred-and-twenty-cycle runs are copied and continued. Held by the disk blocker.",
+   "result": "No result.",
+   "takeaway": "About ten CPU-hours once it starts."
+  }
+ ],
+ "claims_changed": [
+  {
+   "claim_id": "E0030",
+   "status": "inconclusive (interim reading withdrawn)",
+   "plain_statement": "Long-run means differ between starts by more than blocks predict, increasingly so in wider boxes, because the wavelength count anneals slowly.",
+   "why": "With all runs in and every block used, the excess is confined to horizontal energy at the patterned condition, shows no trend with width, and starts do not hold different wavelength counts. The checker's objections to the interim reading are accepted."
+  },
+  {
+   "claim_id": "E0032",
+   "status": "supported",
+   "plain_statement": "A gentler start gets the unmodified engine through the first landings of case b.",
+   "why": "All four seeds complete with a push of half or three quarters of the plate's peak speed, and the C code's state runs cleanly for a hundred and twenty cycles. The missing evidence file now exists."
+  }
+ ],
+ "questions": [
+  {
+   "question": "Do you approve the option-four redesign in evidence/D0016-option4-redesign.md and its five choices?",
+   "why_it_matters": "It is the only route left for the strong-driving conditions, where the unmodified engine completes nothing and the nudge can only postpone an overlap. Tonight's phase finding supports its release rule.",
+   "default_if_unanswered": "No code. Finish the held runs."
+  },
+  {
+   "question": "When free disk is under the floor because of other work on the Mac, not this program, may small runs still be launched?",
+   "why_it_matters": "Tonight the program's data was about two and a half gigabytes and unchanged, but swap from another job took free disk under the floor, and I held twenty-two runs that would each have written a few megabytes.",
+   "default_if_unanswered": "Keep holding all launches below the floor."
+  },
+  {
+   "question": "Should the pass rule stay as it is for hundred-cycle windows?",
+   "why_it_matters": "The noise study finds it effectively a few percent stricter than intended at the patterned condition, which is small. A change would have to be applied to every baseline.",
+   "default_if_unanswered": "Keep it, and compare whole runs only across several starts."
+  },
+  {
+   "question": "Is a case-b baseline from the C code's state acceptable for the bulk-physics check?",
+   "why_it_matters": "It is the only case-b baseline in sight for this engine. It avoids the start-up transient, so it says nothing about survival from a default start.",
+   "default_if_unanswered": "Build it and use it for bulk comparison only."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Let the held runs go once disk allows, then close the engine comparison with its final table and the three-dimensional cells.",
+   "rationale": "Everything is queued and resumable; only the disk floor stands in the way."
+  },
+  {
+   "direction": "Build the case-b baseline from the C state and judge the nudge against it; extend the nudge's case-g runs and judge them on settled cycles.",
+   "rationale": "These are the two Figure 1 conditions where the bulk-physics check is still missing or weak."
+  },
+  {
+   "direction": "If the redesign is approved, build its first two code versions with their tests.",
+   "rationale": "The first must reproduce the current engine bit for bit, which guards everything after it."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 133.6,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.6,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0002",
+  "B0003"
+ ],
+ "decisions_needing_you": [
+  "D0016"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-10T23:00:00-05:00",
+  "actual_start": "2026-11-10T23:08:23-05:00",
+  "ended": "2026-11-10T23:25:30-05:00",
+  "interruptions": [
+   {
+    "start": "2026-11-10T23:10:00-05:00",
+    "end": "2026-11-10T23:40:00-05:00",
+    "cause": "Not sleep: the Mac was awake on AC throughout. Free disk went below the forty-gigabyte floor at about 23:11 and kept falling, because a job outside the program (review_salt_components.py in a Dogsled b2 worktree, with twelve workers) grew to tens of gigabytes of memory and the system added a one-gigabyte swap file every minute or two. The session launched no simulations from then on; analysis of finished runs continued."
+   }
+  ],
+  "cpu_hours": 0.73,
+  "cores_available": 0,
+  "disk_free_gb": {
+   "start": 43,
+   "end": 30
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0031",
+    "reason": "Two unmodified-engine runs still inside slow stretches under their four CPU-hour caps; fifteen runs not launched because free disk was under the floor."
+   },
+   {
+    "experiment_id": "E0034",
+    "reason": "Not launched: free disk under the floor. Its queue also never started on Nov 9."
+   },
+   {
+    "experiment_id": "E0036",
+    "reason": "Registered tonight; not launched: free disk under the floor."
+   }
+  ],
+  "limits_hit": "Disk and memory, from other work on the Mac rather than from the program. The load average was above a hundred at the start and swap grew by about twenty gigabytes during the session, which took free disk under the floor. Twenty-two queued runs did not start, so the engine comparison is still interim and the case-b baseline has not begun. The three simulations already running still got about ninety percent of a core each. No system was made smaller and no repeats were cut."
+ }
+}

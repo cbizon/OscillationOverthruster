@@ -1,0 +1,1192 @@
+{
+ "experiment": "E0032",
+ "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0032/",
+ "converter_check": {
+  "compared_with": "/Users/bizon/Projects/experiments/granular_mean/reference/generated/b/trajectory.npz frame 0 (float32), z relative to plate_z[0]",
+  "max_abs_position_difference": 8.83356634062693e-06,
+  "rms_position_difference": 1.8386208279100176e-06,
+  "max_abs_diameter_difference": 2.220446049250313e-16,
+  "first_4_cycles_vs_C_trajectory": {
+   "main": {
+    "zcm": {
+     "max_abs_diff": 0.02276846061282134,
+     "max_rel_diff_to_mean": 0.004606274623183098,
+     "rel_diff_first_cycle": 0.0037723053251004193
+    },
+    "thickness": {
+     "max_abs_diff": 0.0191846783202565,
+     "max_rel_diff_to_mean": 0.00930812253937386,
+     "rel_diff_first_cycle": 0.007952156652599511
+    },
+    "ke_vertical": {
+     "max_abs_diff": 0.01776177629657516,
+     "max_rel_diff_to_mean": 0.015481554960854732,
+     "rel_diff_first_cycle": 0.015481554960854732
+    },
+    "ke_horizontal": {
+     "max_abs_diff": 0.009862323689532437,
+     "max_rel_diff_to_mean": 0.09840825276764513,
+     "rel_diff_first_cycle": 0.09141075596516006
+    },
+    "temp_vertical": {
+     "max_abs_diff": 0.05831686443580808,
+     "max_rel_diff_to_mean": 0.23469692431008282,
+     "rel_diff_first_cycle": 0.10168703058813873
+    },
+    "temp_horizontal": {
+     "max_abs_diff": 0.009875774380654345,
+     "max_rel_diff_to_mean": 0.09855331898191552,
+     "rel_diff_first_cycle": 0.09143584925670434
+    },
+    "plate_contact": {
+     "max_abs_diff": 0.0018166666666666678,
+     "max_rel_diff_to_mean": 0.07114666504751212,
+     "rel_diff_first_cycle": 0.04634324053553544
+    }
+   },
+   "nudge": {
+    "zcm": {
+     "max_abs_diff": 0.04393233781245165,
+     "max_rel_diff_to_mean": 0.008887926867073664,
+     "rel_diff_first_cycle": 0.0038355254258214374
+    },
+    "thickness": {
+     "max_abs_diff": 0.03133326997943442,
+     "max_rel_diff_to_mean": 0.015202439762563632,
+     "rel_diff_first_cycle": 0.00818409374895666
+    },
+    "ke_vertical": {
+     "max_abs_diff": 0.06592956700034769,
+     "max_rel_diff_to_mean": 0.057465660979980245,
+     "rel_diff_first_cycle": 0.01502401105696831
+    },
+    "ke_horizontal": {
+     "max_abs_diff": 0.016841004469251353,
+     "max_rel_diff_to_mean": 0.16804293560452982,
+     "rel_diff_first_cycle": 0.06602111488995023
+    },
+    "temp_vertical": {
+     "max_abs_diff": 0.05346653879994645,
+     "max_rel_diff_to_mean": 0.21517673028641218,
+     "rel_diff_first_cycle": 0.10453054481177462
+    },
+    "temp_horizontal": {
+     "max_abs_diff": 0.016840336660102206,
+     "max_rel_diff_to_mean": 0.1680547779500743,
+     "rel_diff_first_cycle": 0.06602858871986861
+    },
+    "plate_contact": {
+     "max_abs_diff": 0.003766666666666668,
+     "max_rel_diff_to_mean": 0.14751510367649298,
+     "rel_diff_first_cycle": 0.037857858465648805
+    }
+   }
+  },
+  "note": "Recomputed 2026-11-10. The 2026-11-09 summary said the first cycle tracks the C mean height by phase within 0.2 percent; the largest difference found here is 0.38 percent of the mean height in the first cycle (0.46 percent over four cycles, unmodified engine). Differences in the other quantities are larger (see first_4_cycles_vs_C_trajectory): this engine and the C code are different codes and their trajectories diverge within a cycle."
+ },
+ "table": {
+  "main-b-c2700": [
+   "s16538:completed@120"
+  ],
+  "main-b-up0.25": [
+   "s1:cpu_budget@1",
+   "s2:physical_failure@0",
+   "s3:cpu_budget@0",
+   "s4:completed@30"
+  ],
+  "main-b-up0.5": [
+   "s1:completed@30",
+   "s2:completed@30",
+   "s3:completed@30",
+   "s4:completed@30"
+  ],
+  "main-b-up0.75": [
+   "s1:completed@30",
+   "s2:completed@30",
+   "s3:completed@30",
+   "s4:completed@30"
+  ],
+  "nudge-b-c2700": [
+   "s16538:completed@120"
+  ],
+  "nudge-b-up0.25": [
+   "s1:completed@30",
+   "s2:completed@30",
+   "s3:completed@30",
+   "s4:completed@30"
+  ],
+  "nudge-b-up0.5": [
+   "s1:completed@30",
+   "s2:completed@30",
+   "s3:completed@30",
+   "s4:completed@30"
+  ],
+  "nudge-b-up0.75": [
+   "s1:completed@30",
+   "s2:completed@30",
+   "s3:completed@30",
+   "s4:completed@30"
+  ]
+ },
+ "runs": {
+  "main-b-c2700": {
+   "engine": "main",
+   "commit": "8144dee",
+   "seed": 16538,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 120,
+   "cycles_completed": 120,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 2237,
+   "wall_seconds": 24330,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.5675616668921652e-11,
+   "worst_momentum_residual": 3.9314367339564865e-12,
+   "events_per_particle_cycle": 143.6673902777778,
+   "start": {
+    "kind": "c_restart",
+    "path": "~/Projects/experiments/granular_mean/reference/generated/b/checkpoint.restart",
+    "c_cycle": 2700,
+    "seed_label": 16538,
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 757,
+     "sha256": "ef5f1360c31e5beff3812f3faa7aff016434e2f171096e7b0c39da8d8a054955"
+    },
+    "audit.json": {
+     "bytes": 45549,
+     "sha256": "6e2b02bcd457fee69522267e3b902ad4a2c91ced8b021dc8918ee026ec6014fd"
+    },
+    "quantities.npz": {
+     "bytes": 279114,
+     "sha256": "a9aa6dac036a8a7591e9fb595d47150af83384b1bcb262e8df033b113f54b009"
+    }
+   }
+  },
+  "main-b-up0.25-s1": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 1,
+   "outcome": "cpu_budget",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 1,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 3606,
+   "wall_seconds": 5706,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.0706264886544513e-09,
+   "worst_momentum_residual": 7.898495253169466e-10,
+   "events_per_particle_cycle": 50432.375283333335,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 750,
+     "sha256": "5cca1353f3d32a6811a1b7fc1fe3ffeb39851c447d884dedabb4aa4211807694"
+    },
+    "audit.json": {
+     "bytes": 383,
+     "sha256": "534addf506b28a89d5f69625a169a70410a81f8d247e1ebc7c7583db990b09e8"
+    },
+    "quantities.npz": {
+     "bytes": 4938,
+     "sha256": "ee0504b0bed2649c312df99dc51e6d6858a36fd4c72ad1d4ca598c8066d75936"
+    }
+   }
+  },
+  "main-b-up0.25-s2": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 2,
+   "outcome": "physical_failure",
+   "error": "sphere pair overlaps",
+   "cycles_requested": 30,
+   "cycles_completed": 0,
+   "failure_cycle": 0,
+   "failure_phase": 0.9922411051411808,
+   "cpu_seconds": 105,
+   "wall_seconds": 105,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 0.0,
+   "worst_momentum_residual": 0.0,
+   "events_per_particle_cycle": null,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 827,
+     "sha256": "e18d62ba47d0c72b516b62964b0cbe8897fb3f7b92556407f6af58a29244415a"
+    },
+    "audit.json": {
+     "bytes": 3,
+     "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "quantities.npz": {
+     "bytes": 4866,
+     "sha256": "db94bc8367007a536af6b26b4732443347a880d8403094b95446886737f57695"
+    }
+   }
+  },
+  "main-b-up0.25-s3": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 3,
+   "outcome": "cpu_budget",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 0,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 3601,
+   "wall_seconds": 5703,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 0.0,
+   "worst_momentum_residual": 0.0,
+   "events_per_particle_cycle": null,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 699,
+     "sha256": "a6c9d5ca63bbd81ce291ac17381eac695dcb855aa69846ff0a26da648ad3813c"
+    },
+    "audit.json": {
+     "bytes": 3,
+     "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "quantities.npz": {
+     "bytes": 4866,
+     "sha256": "5892133f8aeaae2abc6f7a73ca434866165abc7a64aee61f993df2b75ec95f46"
+    }
+   }
+  },
+  "main-b-up0.25-s4": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 468,
+   "wall_seconds": 470,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.498349387398259e-12,
+   "worst_momentum_residual": 1.7344358850277725e-12,
+   "events_per_particle_cycle": 150.04329777777778,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 750,
+     "sha256": "ac396530ee232c12f89439c87caad5c787800e60679739bb64f7ecfe8792e2f1"
+    },
+    "audit.json": {
+     "bytes": 11406,
+     "sha256": "539c9dd9a95ed8057a4a16050871b36894d5f281f67190b7e3c3cab3bd444dc1"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "946c79553ddf45c4b6ee7c46ce8388d2069264a1986216d3a8372921a35b3e02"
+    }
+   }
+  },
+  "main-b-up0.5-s1": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 566,
+   "wall_seconds": 5472,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 4.369791505187099e-12,
+   "worst_momentum_residual": 1.4393778108050478e-12,
+   "events_per_particle_cycle": 141.89182277777778,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 749,
+     "sha256": "c8a91512632a6247b58c3648bdff18f4b3a0b4853200657ae2b11219cfa83e5c"
+    },
+    "audit.json": {
+     "bytes": 11383,
+     "sha256": "319bb84cfbc62b21e71c6d68b491109b74c9359adbcab325c04b9683f04ec6bf"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "28723102b27cb9286bb5da17b2809b84abd2ea91b6b6fa13bf6c2fdfa39f13cb"
+    }
+   }
+  },
+  "main-b-up0.5-s2": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 470,
+   "wall_seconds": 472,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.7315167835904544e-12,
+   "worst_momentum_residual": 6.800837583941402e-13,
+   "events_per_particle_cycle": 141.96396888888887,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 756,
+     "sha256": "45716fa639f7d11f9a39b40433548928a7164d7a404e3c9378c52e39956c2860"
+    },
+    "audit.json": {
+     "bytes": 11419,
+     "sha256": "4079119b8eddf7476d802044f86e9a2cee9fcda92c196e860fce12ec09401f8b"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "2483e96947bb0835eb8814ce816564c5f489d5db31005ce60666c5af443e8f59"
+    }
+   }
+  },
+  "main-b-up0.5-s3": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 431,
+   "wall_seconds": 432,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.2674220262604724e-12,
+   "worst_momentum_residual": 8.288338961354598e-13,
+   "events_per_particle_cycle": 141.66176611111112,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 749,
+     "sha256": "9a0fde7e5a07f4db1f4683d5fe539539eca66dbae7ea4480d19d1c8522739ffe"
+    },
+    "audit.json": {
+     "bytes": 11369,
+     "sha256": "cd74991aba491122d37c8d00d0de900e0aed5021d11ab3dc8d48274bc7bedb82"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "d6ee18e3f870157f6d7865e845084018645731bafa685fd52448030cff760dcf"
+    }
+   }
+  },
+  "main-b-up0.5-s4": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 432,
+   "wall_seconds": 433,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.0565018521445494e-12,
+   "worst_momentum_residual": 6.377624878400076e-13,
+   "events_per_particle_cycle": 142.33312833333332,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 757,
+     "sha256": "a2612e671fb13c2643965140d510a2e06114dfd3fde36e0ca2dc256592b04b0e"
+    },
+    "audit.json": {
+     "bytes": 11359,
+     "sha256": "e30bd814655a46c8c2872a7bb6c40370486ba4509d8b98c0a4196fdef4977ae9"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "c567e1dff0fc84c3d488bbaf146a372615a6c5ce0fc494fb8e1cf8c7e2b33cf2"
+    }
+   }
+  },
+  "main-b-up0.75-s1": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 436,
+   "wall_seconds": 438,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.6106754437163226e-12,
+   "worst_momentum_residual": 1.3689264073069064e-12,
+   "events_per_particle_cycle": 138.98700333333332,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 751,
+     "sha256": "01584c139385d55bff1d95936a12c99dde0b5305c222ff8f7e258a5a6c92b859"
+    },
+    "audit.json": {
+     "bytes": 11351,
+     "sha256": "0b41756410252cee5993d33f5785d3b776fe0b9b0f38770b434f1c584f1720e9"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "afae8d761b92fdf0debc8612415f04c44b178c3a022a7900f193176637afa045"
+    }
+   }
+  },
+  "main-b-up0.75-s2": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 437,
+   "wall_seconds": 439,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.308456127687558e-12,
+   "worst_momentum_residual": 8.612040256755273e-13,
+   "events_per_particle_cycle": 138.23535055555556,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 748,
+     "sha256": "928b4820aa77772bc4abf3aa97a9b7932dee5ffc1d7b8e52a69cc8043bde4ca8"
+    },
+    "audit.json": {
+     "bytes": 11415,
+     "sha256": "0afbe8b9a98b2b233ff0fd2a00c56682542e1239f1e7bff4853ed7979b4b66d3"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "29116c95ce06b50b6c0b502f9261ba972c32843cd0e6c6376dab5c099efa7371"
+    }
+   }
+  },
+  "main-b-up0.75-s3": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 431,
+   "wall_seconds": 432,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.0394099589470578e-12,
+   "worst_momentum_residual": 9.969479355760935e-13,
+   "events_per_particle_cycle": 139.18212,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 741,
+     "sha256": "d48151a2d8611814a07572f46468a67c01e92a2b8e57643919bf35ae964914b2"
+    },
+    "audit.json": {
+     "bytes": 11404,
+     "sha256": "aec0c02f4852f505119485a49053c083bb44a7016c43f286b089a7a760dc2cbc"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "5e61fc040f5d62db2e12e3dcf15d35f3d01d121ea9c1f7e25c867fb637b33c4f"
+    }
+   }
+  },
+  "main-b-up0.75-s4": {
+   "engine": "main",
+   "commit": "dad7d7c",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 435,
+   "wall_seconds": 437,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.96529390046928e-12,
+   "worst_momentum_residual": 9.525974655738094e-13,
+   "events_per_particle_cycle": 139.0849427777778,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 746,
+     "sha256": "cd3acb49b2f1bee685883ba7f316af1065fb30987af04ee0b3793990b5c00033"
+    },
+    "audit.json": {
+     "bytes": 11404,
+     "sha256": "2af786c18be21df37c89b353bb9edd093909852f7969560abe66c8079c922ef0"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "245c770b8840caf4bdf736be98352fe32fee6373366392d5852c87b43dd66591"
+    }
+   }
+  },
+  "nudge-b-c2700": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 16538,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 120,
+   "cycles_completed": 120,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 2241,
+   "wall_seconds": 24334,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.5835072508202894e-11,
+   "worst_momentum_residual": 4.99111335140106e-12,
+   "events_per_particle_cycle": 143.84834402777778,
+   "start": {
+    "kind": "c_restart",
+    "path": "~/Projects/experiments/granular_mean/reference/generated/b/checkpoint.restart",
+    "c_cycle": 2700,
+    "seed_label": 16538,
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 784,
+     "sha256": "355e3551c8aa94490524fbfbc0548d44b81352eaf7c171585634fc7b187cba58"
+    },
+    "audit.json": {
+     "bytes": 45650,
+     "sha256": "5235b6bffd9ae731a139cb62722af3592e305a7aaa3bd66795445e151f645d5b"
+    },
+    "quantities.npz": {
+     "bytes": 279114,
+     "sha256": "a822875e4c709ec4f55759da56219dd25db1dc5cc4c33927071da126f5895358"
+    }
+   }
+  },
+  "nudge-b-up0.25-s1": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 458,
+   "wall_seconds": 459,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.833999135698191e-12,
+   "worst_momentum_residual": 7.909946932050703e-13,
+   "events_per_particle_cycle": 152.16050333333334,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 777,
+     "sha256": "5d6f712c64d593c78708cb10071f7167f1cbec953f1f6bc59b33f08fd44aec5b"
+    },
+    "audit.json": {
+     "bytes": 11395,
+     "sha256": "8073174fb2c927034dd8c3ded1809591856f48b2bcc9585281559a43fb14080e"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "22a34601a96e0a3afc8296c0917ab3cdf00fe7f1d44bc65049b398a2f7f6bc1b"
+    }
+   }
+  },
+  "nudge-b-up0.25-s2": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 458,
+   "wall_seconds": 459,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 4.571633981077218e-12,
+   "worst_momentum_residual": 1.211862907730721e-12,
+   "events_per_particle_cycle": 151.54953277777776,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 777,
+     "sha256": "98a8df1e237cafa8f7882303c8c27c2eb5b8be6288385979be05909185f5e5b1"
+    },
+    "audit.json": {
+     "bytes": 11412,
+     "sha256": "9ff82ffa6adc69e0db25a89f086dc710331f54745a295a8e199c7a3867e07853"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "34d924be865865412209daddb7ab556fd25259d04bffa0e296d77d78fd87015d"
+    }
+   }
+  },
+  "nudge-b-up0.25-s3": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 468,
+   "wall_seconds": 469,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.1342422478659544e-11,
+   "worst_momentum_residual": 1.4410276407260993e-12,
+   "events_per_particle_cycle": 155.1366111111111,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 778,
+     "sha256": "172cdbef45894aa0ca310b24ec3935f6658acd6907dfced288922a6771b991bc"
+    },
+    "audit.json": {
+     "bytes": 11366,
+     "sha256": "994b61c503a1e3644e5eb3d1fde3d933f5d36456594df21073db7337c2ee3981"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "ee288c04d520dcb0366bf588dd7b44799cb023a124d5766231198d0132a62e11"
+    }
+   }
+  },
+  "nudge-b-up0.25-s4": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 478,
+   "wall_seconds": 480,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.1692638398090637e-12,
+   "worst_momentum_residual": 1.5226825807730811e-12,
+   "events_per_particle_cycle": 152.5043072222222,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.25,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 778,
+     "sha256": "8974aae5f96e831af087397b5dba0697623b99fe775e8106b3254d1404138b09"
+    },
+    "audit.json": {
+     "bytes": 11379,
+     "sha256": "4824bc1c77d472c867fd048283a6a12e65c182eea9c1e0b8fbe49fe5a8ee973c"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "a7420c1a06899158fa38df94345128247ad4b1a59ce5e69fc54a73adaea7357e"
+    }
+   }
+  },
+  "nudge-b-up0.5-s1": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 564,
+   "wall_seconds": 5470,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.5005394257288635e-12,
+   "worst_momentum_residual": 1.3205747146291122e-12,
+   "events_per_particle_cycle": 141.6161988888889,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 785,
+     "sha256": "4fc1a1fc7a4edeace607654d486583bfe8045c50586c3bc713e43f42f4db6af0"
+    },
+    "audit.json": {
+     "bytes": 11375,
+     "sha256": "d2d11c71217eb7a660b8b74758aba230d3cb052579f0050d2fa411a3ea40f166"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "1733d33dba2202ce852ec49b61199d47d770ed92da64e1a67054bd621ee80604"
+    }
+   }
+  },
+  "nudge-b-up0.5-s2": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 471,
+   "wall_seconds": 472,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 1.5554675608351413e-12,
+   "worst_momentum_residual": 1.0932306693337657e-12,
+   "events_per_particle_cycle": 141.75941777777777,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 779,
+     "sha256": "40985a95923047ae9504205922dcf57dfe09ef12b43b77c59a8b801bc189cca2"
+    },
+    "audit.json": {
+     "bytes": 11359,
+     "sha256": "e8ba03bcaab391fd7198eaf462313a69b1b38691636bcd2474081c8ebe00ac9a"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "5d61684a0c57a427b1ebaa3d445f39714349df152508d3713c471af1b75078e6"
+    }
+   }
+  },
+  "nudge-b-up0.5-s3": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 433,
+   "wall_seconds": 434,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 4.0416499062321805e-12,
+   "worst_momentum_residual": 7.66623194045211e-13,
+   "events_per_particle_cycle": 141.99777666666665,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 778,
+     "sha256": "47f4dab95a47d0255353018c24731d83983a59f023467173431f2e87d2c3a2ce"
+    },
+    "audit.json": {
+     "bytes": 11387,
+     "sha256": "5ef7918a558302f0749835f9abc7a8cd33ee6866a34394b24538075c0a11a1b3"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "0207d4ce9d89a83419fcba3078ef7b575686a424fe3baea895b5d79126c9efda"
+    }
+   }
+  },
+  "nudge-b-up0.5-s4": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 432,
+   "wall_seconds": 432,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.0306451582812567e-12,
+   "worst_momentum_residual": 1.4383991155871801e-12,
+   "events_per_particle_cycle": 141.57412555555555,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.5,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 787,
+     "sha256": "2c1c0ee5882a2acb3756f5eef40a27dc50d7bebcdfda024dea6334c8f69c1c52"
+    },
+    "audit.json": {
+     "bytes": 11423,
+     "sha256": "503cb62363bdb3b1de0ce4d72b07c005d61286501798492a3c0e6d741b7d3261"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "303b386bb35c13bd6cd1752801037be7bdb090f888c937ea57c1a66b62dea87b"
+    }
+   }
+  },
+  "nudge-b-up0.75-s1": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 1,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 440,
+   "wall_seconds": 441,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.1966837640381826e-12,
+   "worst_momentum_residual": 1.0036389766600735e-12,
+   "events_per_particle_cycle": 139.08380277777778,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 780,
+     "sha256": "7d513177f6aa13c7f531bfcf8b3e226e2e743529939f945a2bc51a2eba3de5ad"
+    },
+    "audit.json": {
+     "bytes": 11413,
+     "sha256": "e905280f27a03963d0752028b83d1681391fb4c6cd1fb7c0c1e08615ccf4ba58"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "5f8efc4065437e0dcb3051a6e9138b269ac96f9b22a15603b9b6824d16b34ffc"
+    }
+   }
+  },
+  "nudge-b-up0.75-s2": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 2,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 430,
+   "wall_seconds": 431,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.0190509866984165e-12,
+   "worst_momentum_residual": 7.041353928664234e-13,
+   "events_per_particle_cycle": 138.4229688888889,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 778,
+     "sha256": "9981ab1ee9f224607104d02262b8279eaf70ecadf57526529cfaf002be3c6e3e"
+    },
+    "audit.json": {
+     "bytes": 11373,
+     "sha256": "8d868af52ae217f06e4eab8b87b40d78048b512e6c394b2f195717389d866d14"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "b2548a0142c4e33aec28d3a2a5b8ee023383648ab20bc256fa8f6a8d6e3aaf2c"
+    }
+   }
+  },
+  "nudge-b-up0.75-s3": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 3,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 434,
+   "wall_seconds": 436,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 2.814454871790122e-12,
+   "worst_momentum_residual": 6.585716498631445e-13,
+   "events_per_particle_cycle": 139.06229944444445,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 777,
+     "sha256": "587e06ac9a48a2e763679592833e21def9531b534af61215681b350671c16c66"
+    },
+    "audit.json": {
+     "bytes": 11401,
+     "sha256": "6c21176eb7e17f834e8116cfb3f0f1bfbaefeb67c15b4731c4819a19ef58d0d6"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "2f14897e15e9932590389b4090e22d0b03c5034bac55263a63caf48e6a020538"
+    }
+   }
+  },
+  "nudge-b-up0.75-s4": {
+   "engine": "method/nudge",
+   "commit": "b608fef",
+   "seed": 4,
+   "outcome": "completed",
+   "error": null,
+   "cycles_requested": 30,
+   "cycles_completed": 30,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "cpu_seconds": 420,
+   "wall_seconds": 421,
+   "slow_episodes": 0,
+   "audit_failing_cycles": [],
+   "worst_energy_residual": 3.413642301400621e-12,
+   "worst_momentum_residual": 9.072858613286296e-13,
+   "events_per_particle_cycle": 138.85144,
+   "start": {
+    "kind": "upward",
+    "vup_fraction": 0.75,
+    "base": "Simulation default start (fill 0.30, v_init 0.1)",
+    "written_by": "tools/caseb_start.py with main"
+   },
+   "files": {
+    "summary.json": {
+     "bytes": 769,
+     "sha256": "552d736b880d53e89dcdd9409e8885d6f29e129f1c6bf8d105a024d1a0c58dd4"
+    },
+    "audit.json": {
+     "bytes": 11397,
+     "sha256": "d76548d4153bd671feaeccfa72821451d907912808d9e9de6ed1e2b6751c00c6"
+    },
+    "quantities.npz": {
+     "bytes": 71754,
+     "sha256": "52648d146360a3d500b98d2a588b2be4452f329017bc02a748a0ae9af93d83ea"
+    }
+   }
+  }
+ },
+ "cpu_hours_total": 5.939444444444445,
+ "c_state_same_window": {
+  "note": "Descriptive only, not a referee judgment (no 10-block baseline exists at 120 cycles). Per-cycle means over cycles 20-120 of each engine started from the same C state; standard error of the main mean from five 20-cycle blocks; diff_over_se = (nudge - main) / (sqrt(2) x se).",
+  "quantities": {
+   "zcm": {
+    "main_mean": 4.963527307178375,
+    "nudge_mean": 4.964060851186665,
+    "diff": 0.0005335440082898657,
+    "main_se_from_5_blocks": 0.0002654443570891989,
+    "diff_over_se": 1.4212868959065432,
+    "main_first_block": 4.962907337534942,
+    "main_last_block": 4.964250107711601
+   },
+   "thickness": {
+    "main_mean": 2.062354662861555,
+    "nudge_mean": 2.063262478951685,
+    "diff": 0.0009078160901299093,
+    "main_se_from_5_blocks": 0.00043418102551882003,
+    "diff_over_se": 1.478468370730982,
+    "main_first_block": 2.0618385330676636,
+    "main_last_block": 2.0612516301851045
+   },
+   "ke_vertical": {
+    "main_mean": 1.1379967303084997,
+    "nudge_mean": 1.1379527154387878,
+    "diff": -4.401486971183921e-05,
+    "main_se_from_5_blocks": 8.299579261848113e-05,
+    "diff_over_se": -0.3749974771534805,
+    "main_first_block": 1.1380603218485443,
+    "main_last_block": 1.137724379686018
+   },
+   "ke_horizontal": {
+    "main_mean": 0.09795252795770973,
+    "nudge_mean": 0.09840902748610163,
+    "diff": 0.0004564995283918988,
+    "main_se_from_5_blocks": 0.0002803113509725505,
+    "diff_over_se": 1.151554908548752,
+    "main_first_block": 0.09709388805985159,
+    "main_last_block": 0.09790165801892388
+   },
+   "temp_vertical": {
+    "main_mean": 0.24109687350777897,
+    "nudge_mean": 0.24120485914563194,
+    "diff": 0.00010798563785296977,
+    "main_se_from_5_blocks": 0.00015060351014108603,
+    "diff_over_se": 0.5070092770418015,
+    "main_first_block": 0.24100244154251088,
+    "main_last_block": 0.24074867618691936
+   },
+   "temp_horizontal": {
+    "main_mean": 0.09793462335496685,
+    "nudge_mean": 0.09839253899730765,
+    "diff": 0.0004579156423408087,
+    "main_se_from_5_blocks": 0.0002819037617683018,
+    "diff_over_se": 1.148602111158448,
+    "main_first_block": 0.09707187560347277,
+    "main_last_block": 0.09788280452867455
+   },
+   "plate_contact": {
+    "main_mean": 0.024697807291666662,
+    "nudge_mean": 0.024699874999999993,
+    "diff": 2.06770833333092e-06,
+    "main_se_from_5_blocks": 7.2788177342548255e-06,
+    "diff_over_se": 0.20086923967521358,
+    "main_first_block": 0.024698124999999998,
+    "main_last_block": 0.02467591145833333
+   }
+  }
+ }
+}

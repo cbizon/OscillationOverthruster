@@ -78,6 +78,8 @@ after `DIRECTION.md` at the start of every session.
     jobs. Blocker B0002.
   - Nov 9: clamshell sleep again at 23:23, fifteen minutes in; jobs got
     about 25 CPU-minutes each by 02:25. B0002 still open.
+  - Nov 10: awake on AC all session. Another job on the Mac drove swap up
+    and free disk under the floor from 23:11; launches held (B0003).
 
 ## Approaches under consideration
 
@@ -147,6 +149,40 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 10 findings
+
+- **Noise study, final (E0030, inconclusive):** all 48 runs done. The Nov 9
+  interim reading is withdrawn, as the checker asked.
+  - Using every 100-cycle block (ANOVA), starts differ by more than blocks
+    predict only in horizontal kinetic energy and temperature at f* 0.3:
+    between-start variance about twice the prediction at L 100 and L 400,
+    not at L 200. Nothing at f* 0.5 (no pattern there).
+  - No trend with width. Wavelength counts wander but agree between starts
+    (7 at L 200 and 14 at L 400 over each start's last 1000 cycles).
+  - Pass rule: the extra variance widens a judged 100-cycle deviation by at
+    most 5.1%, so 3.61 acts as no less than 3.43. Recommendation: keep it;
+    compare whole runs only across several starts.
+- **Case-b pilot, final (E0032, supported):** an upward push of 1/2 or 3/4
+  of the plate's peak speed gets the unmodified engine through 30 cycles at
+  4 of 4 seeds (1 of 4 with 1/4). From the C state both engines ran 120
+  cycles cleanly. Evidence file written, with the converter check
+  recomputed (mean height within 0.38%, not the 0.2% stated Nov 9).
+- **Engine comparison, interim (E0031):** 42 of 57 runs launched.
+  - Unmodified engine at Gamma 5 (2D, L 100): no run has completed 1000
+    cycles at any depth or frequency.
+  - Nudge: every 1000-cycle run completed except the known overlap.
+  - Audit failures: unmodified nearly all gains (13 of 15 failing cycles),
+    nudge nearly all losses (664 of 668), counted over all run folders.
+  - Every slow stretch of the unmodified engine starts in phase 0.825 to
+    0.997, or just after phase 0 (31 of 1028 episodes): while the plate
+    pushes upward, before release. Table: `evidence/E0031-interim-2.json`.
+- **Disk (B0003):** free disk fell from 43 GB to below the 40 GB floor by
+  23:11, from swap by another job on the Mac (not the program: sequel-data
+  is 2.6 GB). No launches since. Held: 15 E0031 runs, 5 E0034 runs, 2 E0036
+  runs.
+- **Queue (D0017):** `tools/qx3.sh` caps live jobs across all experiments
+  (8) and holds launches while free disk is under 40.5 GB.
+
 ### Nov 9 findings
 
 - **Case-g baseline (E0029):** the unmodified engine completed 1020 cycles
@@ -156,13 +192,8 @@ The five options in `notes/contact-options.md`.
   threshold in height and horizontal energy. The baseline drifts for about
   300 cycles, and over the same window (cycles 20 to 120) the engines
   agree. The referee's 20-cycle settling is too short at case g.
-- **Noise study (E0030, interim, f* 0.3 only):** at L 400, long-window
-  (500 to 2000 cycles) means differ across starts by about 1.2 to 1.6
-  times the block prediction. At L 200 the ratio is about 1. Wavelength
-  counts wander (13 to 16 at L 400) rather than lock in.
 - **Case b from the C state (E0032):** `tools/caseb_start.py` converts the
-  C restart (cycle 2700). Both engines have run 65 cycles of case b from it
-  with no slow stretch.
+  C restart (cycle 2700).
 - **E0027 superseded by E0035 (inconclusive):** registration departures stated; some
   slow within-run trends at L 400.
 - Terminology from the Nov 9 instruction: "positive residual" for a
@@ -254,14 +285,19 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- Collect the background queues: E0030 (noise, 48 runs), E0031 (engine
-  comparison, 57 runs), E0032 (case-b pilot, 26 runs), E0034 (3D cells).
-  Queue logs are under `sequel-data/runs/E00xx.queue.log`. Tools:
-  `segrun.py`, `qx.sh` and `qx2.sh`, `census.py`, `engine_compare.py`,
-  `noise_analysis.py`, `caseb_start.py`.
-- Then report the engine comparison per condition and the noise study with
-  a pass-rule recommendation.
-- Wait for Chris on D0016.
+- Three queues are waiting on free disk (`sequel-data/runs/*.queue.log`):
+  the last 15 E0031 runs and E0034 (`E0031-34.rest.spec`), and the case-b
+  baseline E0036 (`E0036.spec`). They launch by themselves at 40.5 GB free.
+  If they are not running at the next session, check `ps` for `qx3.sh` and
+  restart them from the specs (lines already launched are in the logs).
+- Then: record E0031's and E0034's outcomes with
+  `tools/e0031_evidence.py`; judge the nudge against the E0036 baseline
+  (`bulk.py baseline`, `judge`); judge the nudge's case-g runs on settled
+  cycles once continued to 1020.
+- Wait for Chris on D0016, and on whether small runs may launch below the
+  disk floor when the program is not the cause.
+- Tools added Nov 10: `noise_final.py`, `e0032_evidence.py`,
+  `e0031_evidence.py`, `qx3.sh`, `e0036_run.sh`.
 
 Earlier items (from Nov 8):
 

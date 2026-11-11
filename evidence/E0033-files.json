@@ -1,0 +1,33 @@
+{
+ "note": "Added 2026-11-10 at the checker's request: path, size and SHA-256 of the run outputs that evidence/E0033-results.json summarises. Copies of the nudge runs sit under E0031 (nudge-3d-g6-f0.84-s1..3) waiting to be continued; these originals are unchanged.",
+ "files": {
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0029/main-3d-g6-f0.84-s4/quantities.npz": {
+   "bytes": 2352714,
+   "sha256": "476589e1a2eac39b09d0a84c6ee01afb526e65549b39692e20460d016d9ef02f"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g6-f0.84/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "4726de250e1f29a37d40150627ca8bf6fe38f158fbf47e6031be08538815cfaa"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s2/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "99882454c51270d7795516fffe83127b95b7493c5345950e62f0454666d8c403"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s3/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "6415d55597cea67b8ea41343c5983c9ee4fc9dd736b316460861f27a34ea4b13"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0013/3d-g6-f0.84/summary.json": {
+   "bytes": 789,
+   "sha256": "178f5146071089f87791d7d1fa11808236c0b3c4fa6a01cb2e9534e68c06d692"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s2/summary.json": {
+   "bytes": 780,
+   "sha256": "1598006cf388a3ad501b173599a22cf7075b194f5b95a80edf3a55bc4eb72940"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0014/nudge-3d-g6-f0.84-s3/summary.json": {
+   "bytes": 781,
+   "sha256": "22fd6e57e7995b650131a3daf7c232a5ab8f6f50c67a3d9d9af78b5a7f4803fa"
+  }
+ }
+}
