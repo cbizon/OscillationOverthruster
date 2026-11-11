@@ -1,0 +1,89 @@
+{
+ "date": "2026-11-10",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "The session followed the fallback instruction and changed two statuses: the noise study (E0030) is now inconclusive with its interim reading withdrawn, and the case-b start pilot (E0032) is supported. Both answer my open challenges from November 9, and both now hold. No claim of the 'contact method works' or 'physical result' class was made. program check passes; the latest approval is still Chris's from November 6.\n\nThe most important thing this morning is not in the summary, because it happened after the session closed. The Mac went down shortly after midnight. The two queue logs stop at 00:05, the kernel left a panic report ('watchdog timeout: no checkins from watchdogd in 92 seconds'), the recorded boot time is 00:09, and the login session and power daemon only started at 05:37. Nothing of the program is running now: no simulation and no queue. So the summary's statement that the held runs 'launch by themselves when free disk is back above the floor' is no longer true. Free disk is back to sixty-five gigabytes (floor forty) and swap is empty, but the twenty-two held runs will sit there until the next session restarts the queue. The outside job that filled the disk is gone too.\n\nMain findings on the science:\n\n(1) Noise study. All ninety-six run files match their recorded checksums. I recomputed the between-start test for horizontal kinetic energy at the patterned frequency from the raw files, for all three box widths and all three window starts, and got the same nine variance ratios to three decimals (about 2.0 to 2.4 in the narrowest and widest boxes, 0.85 to 1.03 in the half-width box). The interval counts, wavelength counts, correlation times and the 'five, not four' correction all match the evidence. Everything I asked for on November 9 was done. Two cautions. First, the 'about twice the block prediction' excess is weak evidence: at the patterned frequency eight of sixty-three tests fall below five percent, but they are the same quantity (horizontal energy and horizontal temperature are nearly one number) in two cells at up to three window starts, with p between 0.02 and 0.07. Second, 'the pass rule is widened by at most about five percent' is a point estimate from eight starts. The ninety-percent range for the variance ratio runs from about 1.2 to about 8, which puts the effective threshold anywhere from 3.6 down to about 3.0 standard deviations. The error is in the safe direction (the rule becomes stricter, not looser), so the recommendation to keep the rule is reasonable, but the summary should not present five percent as a bound.\n\n(2) Case-b pilot. The evidence file I asked for exists; all seventy-eight file checksums match; outcomes, audits and the corrected 0.38 percent height agreement match the summary. The 'supported' status fits the registration, which only asked whether any push gets any seed past the second landing. What it shows is thirty cycles, at four seeds, with no slow stretch. It is not a survival result, and the session says so. One thing to look at: the two quarter-push runs that ran out their hour did about fifty thousand events per particle per cycle with zero slow episodes flagged, so the slow-stretch detector missed them. Counts of 'never slowed' elsewhere depend on that detector.\n\n(3) Engine comparison (interim, no outcome yet). The table in the evidence supports the headline: on the two-dimensional grid the unmodified engine has not completed a run at strong driving. Two files fail their checksums, and both are runs that were still writing when the evidence was made. The wording is looser than the table in places. 'The nudge completed a thousand cycles in every run' is true only of runs asked for a thousand cycles; thirteen nudge runs are still at a hundred and twenty cycles, and the nudge has no thousand-cycle run in any wide box. 'None, one or two seeds of three' omits the wide moderate condition where three of five completed. And the summary does not say that the nudge has four cycles with energy gains (largest about nine parts in a hundred million of throughput), each in a run that completed a thousand cycles at strong driving. Under referee/checker.md a contact-method claim needs no energy gains at all, so these four cycles must be explained before the nudge is claimed to work. The unmodified engine also has a completed two-dimensional run with two gains, the larger about five and a half parts per million, bigger than anything in the nudge.\n\nRun conditions were inadequate for the third night running, this time from another job on the Mac filling memory and disk, ending in a crash.",
+ "reviews": [
+  {
+   "claim_id": "E0030",
+   "plain_claim": "Full noise study, status inconclusive, interim reading withdrawn: independent starts differ by more than blocks within a run predict only in horizontal energy at the patterned frequency (variance about twice the block prediction in the narrowest and widest box, not in the half-width box). There is no trend with box width and starts do not hold different wavelength counts. The pass rule on hundred-cycle windows is widened by at most about five percent.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked size and SHA-256 of all 96 files listed in E0030-results.json. Recomputed the one-way analysis of variance for horizontal kinetic energy at f* 0.3 from the raw quantities files (per-cycle means, hundred-cycle blocks, eight starts) for L 100, 200 and 400 and starts 100, 200 and 1000, with my own permutation test.",
+     "finding": "All 96 files match. My nine F values equal the evidence to three decimals: L 100, 2.28, 2.45, 2.01; L 200, 0.85, 0.87, 1.03; L 400, 2.11, 2.04, 2.05. My permutation p values are 0.02 to 0.07 where the evidence has 0.02 to 0.07, and about 0.4 to 0.5 at L 200. The analysis is reproducible from the files."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Compared the outcome with what I asked for on November 9: every cell at more than one window start, both departures from the registration stated, exclusion counts against chance, and files with checksums.",
+     "finding": "All done. Three window starts are reported per cell (100, 200, 1000). The departures are stated in the ledger outcome and in the evidence file's method notes, including that the registered burn-in estimator was replaced by a median over runs. The exclusion counts in the outcome (for example 4, 9 and 14 of 35 at L 100, f* 0.3; 3.5 expected) match the evidence, and they show the start dependence I pointed to. The interim reading is withdrawn in so many words."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Counted tests and looked at how firm the remaining positive statements are. Put a ninety-percent range on the variance ratio (seven degrees of freedom between starts) and pushed it through the session's own pass-rule formula.",
+     "finding": "At f* 0.3, 8 of 63 tests have p below 0.05, against about 3 by chance; at f* 0.5, 1 of 63. But the 8 are horizontal energy and horizontal temperature (nearly the same number) in two cells, so they are closer to two independent results at p about 0.03 than to eight. The excess is suggestive, not established, and 'inconclusive' is the right status. For the pass rule, the point estimates give inflations of 3 to 5 percent, as stated. With F of 2.45 from 28 blocks the ninety-percent range of the true ratio is about 1.2 to 7.9, which gives an inflation between 1 and 20 percent and an effective threshold between about 3.6 and 3.0. A stricter rule produces false failures, not false passes, so keeping the rule is safe; 'at most about five percent' is too firm."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the summary's other numbers against the evidence.",
+     "finding": "Wavelength counts (seven in every start's last thousand cycles at L 200, fourteen at L 400), the mild excess for five-hundred-cycle blocks at L 400 (up to 1.33), correlation times (10.8, 12.9, 15.1 cycles), and the 3.43 lowest effective threshold all appear in the evidence. The summary discloses its own ledger slip (four quantities written, five in the evidence)."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0032",
+   "plain_claim": "Status supported: at case b, the unmodified engine completes thirty cycles at all four seeds when every sphere starts with an upward push of half or three quarters of the plate's peak speed, and at one seed of four with a quarter. From the C code's equilibrated state both engines complete a hundred and twenty cycles with clean audits and agree with each other within one and a half standard errors.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Looked for the evidence file missing on November 9 and checked size and SHA-256 of every file it lists (three per run, 26 runs). Read the per-run outcomes and the converter check.",
+     "finding": "evidence/E0032-results.json exists and all 78 files match. Outcomes are as stated: half and three-quarter push, four of four completed for both engines, no slow episodes, no audit failures, worst energy residual of order 1e-12; quarter push, unmodified engine one completed, one overlap in cycle 0 at phase 0.99, two at the one-hour cap. The converter check is there (largest position difference 8.8e-6, first-cycle height within 0.38 percent), and the earlier 0.2 percent is corrected openly. The same-window differences are 0.2 to 1.5 standard errors, with the standard error taken from only five blocks of one run."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared 'supported' with the registration's hypothesis and falsification rule, and weighed what thirty cycles from a pushed start show.",
+     "finding": "The registration asked only whether a push gets the unmodified engine past its second landing and through thirty cycles, so 'supported' is the registered judgment. It is a statement about the start-up transient. It is not a survival result: thirty cycles is short, a pushed or C-state start is not a default start, and the session says it does not count these as survivals in the engine comparison. The registered thousand-cycle continuation (E0036) is the real test and has not started."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read slow_episodes for the runs that failed (referee/checker.md asks for this on survival results).",
+     "finding": "The two quarter-push runs that hit the one-hour cap record zero slow episodes, yet one of them ran about fifty thousand events per particle per cycle against about a hundred and forty in the runs that completed. The run was plainly stalled and the detector did not flag it. The summary reports this honestly ('none flagged'), but it means 'no slow stretch' is only as good as the detector, and here it missed one."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0031",
+   "plain_claim": "Interim, no outcome recorded: on the two-dimensional grid the unmodified engine completes a thousand cycles at every seed only where it never slows, and completes nothing at strong driving. The nudge completed every thousand-cycle run but one. The unmodified engine's audit failures are nearly all energy gains and the nudge's nearly all small losses. Every slow stretch starts between phase 0.82 and 1.0 or just after.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked size and SHA-256 of the 138 files in E0031-interim-2.json and read the condition table against the summary's sentences.",
+     "finding": "136 match. The two that do not are summary.json of main-g5-f0.5-d15-s2 and main-g5-f0.5-d5-s3, both still running when the evidence was written, so their summaries changed afterwards. At Gamma 5 in two dimensions the unmodified engine has no completed run at any of the seven conditions: true. 'None, one or two seeds of three' at moderate driving in deeper layers leaves out Gamma 3.5, f* 0.5, depth 10, L 400, where three of five completed. 'The nudge completed a thousand cycles in every run but the one known overlap' holds only for runs asked for a thousand cycles: thirteen nudge runs stand at a hundred and twenty cycles, including every wide-box condition, so the nudge has not yet been run to a thousand cycles in any L 400 box."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Summed failing audit cycles by sign over every run in the evidence's run detail, per engine, and listed the runs with energy gains.",
+     "finding": "Unmodified engine: 13 gains and 2 losses. Nudge: 4 gains and 664 losses, worst loss about 1.3e-6 of throughput. So 'nearly all' is right in both directions. But the nudge's four gains are not mentioned: one cycle each in E0025 2d-g5-f0.3-d10-s3 (1.4e-8), E0025 2d-g5-f0.5-d15-s2 (9.2e-8), E0031 nudge-g5-f0.3-d5-s2 (4.0e-8) and nudge-g5-f0.5-d5-s2 (1.2e-8). All are above the 1e-8 audit tolerance, in runs that completed a thousand cycles at strong driving. The referee's rule for a contact method is no energy gains. Also unmentioned: the unmodified engine's completed run at Gamma 3.5, f* 0.3, depth 10 has two gains, the larger 5.5e-6, larger than any nudge residual. So some gain at this level may belong to the engine and not to the nudge, but that has to be shown."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Read the slow-episode phase table for all thirteen conditions.",
+     "finding": "Start phases range from 0.825 to 0.997 in twelve conditions, and seventy to ninety-three percent of tiny collisions are with the plate in two dimensions, as stated. 'Or just after' covers more than the phrase suggests: at Gamma 3.5, f* 0.3, depth 10, L 400, twenty-eight of twenty-nine episodes start in the first five percent of the cycle. The finding is consistent across driving strengths, depths and both frequencies, so it is not a one-condition result. It is from the unmodified engine only and is an observation, not a test of the redesign."
+    }
+   ],
+   "what_would_resolve": "When the held runs finish and the outcome is written: (a) state the nudge result per condition as seeds completed out of seeds run to a thousand cycles, so that conditions with only hundred-and-twenty-cycle runs are visibly untested; (b) for each of the four nudge cycles with an energy gain, report the cycle's collision count and which accounted term the residual sits in, and say whether the unmodified engine shows gains of the same size at the same condition (or cannot, because it does not survive there); (c) regenerate the evidence after every run has ended so all checksums match."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "inadequate",
+  "assessment": "The session started at 23:08, eight minutes late, and ended at 23:52: forty-four minutes of a six-hour window. The Mac did not sleep; the power log shows only the display turning off at 23:22. What stopped the session was a job outside the program that used tens of gigabytes of memory, so that swap files ate the free disk. The session's account of this is consistent with what I can still see: its queue logs record 'disk below floor' every five minutes from 23:10. It stopped launching, kept analysing finished runs, committed its records three times, and did not touch the other job. I think that was the right call, and committing early turned out to matter. After the session the machine crashed: both queue logs stop at 00:05, there is a kernel panic report (watchdog timeout, the usual end of a machine that has run out of memory and disk), the recorded boot time is 00:09, and the user session only came up at 05:37, one minute before this check began. Work done: analysis only, about one and a third CPU-hours, enough to close the noise study and the case-b pilot from runs that had finished during the day. Left waiting: fifteen engine-comparison runs, all five three-dimensional runs (E0034, which has now failed to start on two nights), and the case-b thousand-cycle baseline. The crash killed the last running simulation (strong driving, shallow, seed three, at cycle 86 after 1.75 CPU-hours in a slow stretch; its last checkpoint is from 22:12) and both queue scripts. Nothing will relaunch by itself. The machine did not force a smaller system or fewer repeats; it stopped the work altogether. Now: sixty-five gigabytes free, swap empty, sequel-data at 2.6 of 15 gigabytes, the temporary folder empty, the repository clean, and no stray files that I could find outside the program folders. The session says it sent two desktop notifications; I cannot verify that.",
+  "discrepancies": [
+   "The summary says the held queues 'launch by themselves when free disk is back above the floor'. Both queue scripts died in the crash at about 00:05. Free disk is above the floor now and nothing has launched.",
+   "runs/active.jsonl still lists main-g5-f0.5-d5-s3 with process 77166. That process no longer exists; the run's summary still says 'running'.",
+   "The summary's budget figure of 133.6 CPU-hours is not in any evidence file as a total. program check sums 79.2 from ledger outcomes. The gap of about 54 hours is the engine comparison, which has no outcome yet; its slow stretches alone account for about 46 CPU-hours in the evidence. Either way the weekly budget is between twenty and thirty-four percent used.",
+   "The summary gives the end-of-session free disk as 7 gigabytes and the blocker record says 7.6; consistent. The recorded start and end times match the commit times (last commit 23:52:32)."
+  ]
+ }
+}
