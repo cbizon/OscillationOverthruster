@@ -1,7 +1,7 @@
 {
  "date": "2026-11-10",
  "instruction": "instructions/fallback.md",
- "headline": "No new instruction, so tonight followed the fallback: collect the queued runs and answer the checker. The full noise study is in, and it withdraws last night's reading: starts differ a little more than blocks predict only in horizontal energy at the patterned condition, with no trend in box width, and the pass rule is barely affected. Case b now runs in the unmodified engine from two kinds of start. Free disk fell below the floor twenty minutes in because another job on the Mac is swapping heavily, so no new runs were launched after that.",
+ "headline": "No new instruction, so tonight followed the fallback: collect the queued runs and answer the checker. The full noise study is in, and it withdraws last night's reading: starts differ a little more than blocks predict only in horizontal energy at the patterned condition, with no trend in box width, and the pass rule is barely affected. Case b now runs in the unmodified engine from two kinds of start. Free disk fell below the floor twenty minutes in because another job on the Mac is swapping heavily, so no new runs were launched after that. By half past eleven the disk was heading for full within minutes; I sent two desktop notifications and did not touch the other job.",
  "experiments": [
   {
    "experiment_id": "E0030",
@@ -109,7 +109,7 @@
  "run_conditions": {
   "scheduled_start": "2026-11-10T23:00:00-05:00",
   "actual_start": "2026-11-10T23:08:23-05:00",
-  "ended": "2026-11-10T23:25:30-05:00",
+  "ended": "2026-11-10T23:31:03-05:00",
   "interruptions": [
    {
     "start": "2026-11-10T23:10:00-05:00",
@@ -117,11 +117,11 @@
     "cause": "Not sleep: the Mac was awake on AC throughout. Free disk went below the forty-gigabyte floor at about 23:11 and kept falling, because a job outside the program (review_salt_components.py in a Dogsled b2 worktree, with twelve workers) grew to tens of gigabytes of memory and the system added a one-gigabyte swap file every minute or two. The session launched no simulations from then on; analysis of finished runs continued."
    }
   ],
-  "cpu_hours": 0.73,
+  "cpu_hours": 0.91,
   "cores_available": 0,
   "disk_free_gb": {
    "start": 43,
-   "end": 30
+   "end": 23
   },
   "unfinished_runs": [
    {
