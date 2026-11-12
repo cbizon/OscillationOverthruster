@@ -1,0 +1,144 @@
+{
+ "date": "2026-11-11",
+ "instruction": "instructions/2026-11-11.md",
+ "headline": "Tonight restarted the queues lost in last night's crash, set up the case-b baseline as instructed, and built the approved persistent-contact method through its third version, with tests. The third version gets no further than the second: every stall examined is a sphere rolling on the plate with another pressed on it, which the approved rest rule never puts to rest. The nudge's positive audit residuals turned out to be round-off in the engine's running energy totals, not energy from the nudge; a fix that leaves trajectories unchanged is on a branch for you to merge.",
+ "experiments": [
+  {
+   "experiment_id": "E0038",
+   "question": "Does the second version of persistent contact, which only lets spheres rest on the plate, behave like plate-stick on the conditions where the engine stalls?",
+   "what_was_done": "Ran it with the referee at the seven stalled two-dimensional conditions, one seed each, with a quarter of a CPU-hour per run.",
+   "result": "All seven runs stalled and reached their CPU cap, after between zero and twenty cycles, the same places the unmodified engine and plate-stick stop. No overlap, no audit failure, no energy gain.",
+   "takeaway": "As expected: resting on the plate alone does not touch the stall.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0039",
+   "question": "Does the third version, which also lets spheres rest on resting spheres, get further than the second?",
+   "what_was_done": "Same seven conditions, one seed, half a CPU-hour per run (twice the second version's). Then replayed four stalls from their seeds and tallied two hundred thousand events of each stall, particle by particle.",
+   "result": "No. It completed the same number of cycles as the second version at six of seven conditions and overlapped at the seventh. In all four stalls examined, one free sphere on the plate is rolling without slipping (its horizontal speed equals its spin's surface speed, between a few hundredths and about one unit), takes nearly every event, and has one sphere pressed on top of it. No sphere is resting at the time.",
+   "takeaway": "The approved rule rests a sphere only when its full speed relative to the plate is tiny, and a rolling sphere never is, so the chatter under it never ends. The pressed pairs that broke plate-stick are handled when they are still, but in a layer they are usually rolling. This is a design question for you.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0040",
+   "question": "Starting from the same states as the five plate-stick failures studied on November 8, does the third version get past the cycle where plate-stick overlapped?",
+   "what_was_done": "Three of the five starts are runs in the previous experiment; the other two were run here.",
+   "result": "One of five gets past plate-stick's failure cycle (and fails two cycles later). The other four stop in that same cycle, three at the CPU cap and one in an overlap after about a hundred million tiny collisions.",
+   "takeaway": "Same rolling-sphere mechanism. Falsified as registered.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0031",
+   "question": "The checker's items on the engine comparison: seeds completed out of seeds run, and what caused the nudge's four cycles where energy appeared from nowhere.",
+   "what_was_done": "Regenerated the interim table with a count of seeds that completed a thousand cycles among runs that have ended. Replayed each of the four cycles from the run's seed exactly as the referee runs it, measured the energy the nudge adds by lifting spheres, and split one cycle into a thousand windows to see where the residual builds up. Then went through the worst stretch of that cycle one event at a time, once as recorded and once with the engine's running energy totals started from zero.",
+   "result": "At the strong-driving two-dimensional conditions, the unmodified engine completed no run out of fifteen that have ended, and the nudge sixteen of seventeen. All four cycles replay bit for bit. The nudge's own lift accounts for less than a ten-thousandth of each residual, and no single collision gains energy. In the cycle examined, the residual grows smoothly over the first one percent of the cycle, where there are up to about a hundred thousand events in each thousandth of a cycle. Nearly all of that window's residual comes from pair collisions. With the running totals started from zero, the same events give a residual about a hundred thousand times smaller. Before the window the totals had grown to over a million, where each small per-collision energy change is rounded by up to a few parts in ten billion. A positive-residual cycle of the unmodified engine, replayed the same way, drops from about five parts per billion to about two parts in a hundred trillion with the fix.",
+   "takeaway": "The four cycles are not energy put in by the nudge; they are round-off in the engine's bookkeeping, which grows with the length of a run and shows in collision-heavy cycles. The same effect should touch any engine's audit late in long runs, with either sign. A fix on branch fix/energy-accumulators sums each call's terms from zero; it leaves every trajectory bit for bit unchanged. The comparison is still running.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0037",
+   "question": "Main case-b baseline: does the unmodified engine complete a thousand cycles from the half-push start at seeds one to four, and does the nudge agree with it?",
+   "what_was_done": "Registered with the burn-in fixed at three hundred cycles and a hard CPU cap of eight hours per run, and queued after the engine comparison and the three-dimensional cells, as instructed. The C-state runs stay as a cross-check.",
+   "result": "Queued; the runs start as the comparison runs finish and will run through tomorrow.",
+   "takeaway": "Nothing to report yet.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [
+  {
+   "claim_id": "E0038",
+   "status": "supported",
+   "plain_statement": "Resting on the plate alone stalls where plate-stick does.",
+   "why": "All seven runs stall at the cycles where the other engines stop."
+  },
+  {
+   "claim_id": "E0039",
+   "status": "falsified",
+   "plain_statement": "Resting on resting spheres gets the method further on the stalled conditions.",
+   "why": "Same cycles completed as the plate-only version, and the stalls are rolling spheres, which the rule never rests."
+  },
+  {
+   "claim_id": "E0040",
+   "status": "falsified",
+   "plain_statement": "The third version passes the cycles where plate-stick overlapped.",
+   "why": "Only one of the five starts gets past that cycle."
+  }
+ ],
+ "questions": [
+  {
+   "question": "How should a sphere rolling on the plate be handled? The approved rule rests a sphere only when it is slow in every direction, and a rolling sphere with another pressed on it is now the only stall seen. Options: (a) on the plate, rest on the vertical speed only and let the sphere keep rolling; I tried this on a side branch, and it fixes a lone rolling sphere but a layer then stalls at a sphere pressed on the rolling one; (b) a proper rolling-contact state, where spheres resting on a moving sphere move with it or the pair is integrated as a persistent contact; (c) add rolling resistance, which is a model change.",
+   "why_it_matters": "It decides whether the persistent-contact method can survive the strong-driving conditions at all. Everything else in the design behaves as intended in the tests.",
+   "default_if_unanswered": "No new method code. Keep the comparison and case-b baseline running, and look at how the nudge gets through the same rolling contacts, to inform the choice."
+  },
+  {
+   "question": "May I merge the energy-accumulator fix (branch fix/energy-accumulators, decision D0021) into main and carry it to the nudge and persistent-contact branches?",
+   "why_it_matters": "The energy audit is part of the evidence that a contact method works. Without the fix, long collision-heavy runs show audit failures that come from bookkeeping round-off, which can make a method look like it adds or loses energy when it doesn't.",
+   "default_if_unanswered": "Leave main alone. Read audit failures in chatter cycles as possibly bookkeeping, and check any that matter with the exact replay."
+  },
+  {
+   "question": "Should the fourth version (stability test and periodic check) wait until the rolling question is settled?",
+   "why_it_matters": "It does not touch the stall, so building it now spends effort on a version that may change underneath it.",
+   "default_if_unanswered": "Wait: no fourth version until the rolling question is settled."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Decide the rolling-contact treatment, then build it on its own branch from the third version and rerun the seven stalled conditions.",
+   "rationale": "It is the one mechanism left between the method and survival, and the diagnosis tools to judge a fix now exist."
+  },
+  {
+   "direction": "Finish the engine comparison and the case-b baseline, and judge the nudge against it.",
+   "rationale": "These are queued and run on their own; they complete the bulk-physics check where a baseline exists."
+  },
+  {
+   "direction": "Merge the accumulator fix and re-run the audits of the engine comparison's failing runs from their seeds, to see which audit failures remain.",
+   "rationale": "It separates real contact-method energy errors from bookkeeping, for both engines, at the cost of a few CPU-hours of replays."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 84.9,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.7,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [
+  "D0020",
+  "D0021"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-11T23:00:00-05:00",
+  "actual_start": "2026-11-11T23:07:40-05:00",
+  "ended": "2026-11-12T01:20:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 18.7,
+  "cores_available": 8,
+  "disk_free_gb": {
+   "start": 65,
+   "end": 54
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0031",
+    "reason": "Last unmodified-engine runs (Gamma 5, depths 10 and 15, seed 3; one resumed after the Nov 11 crash) and the three 3D nudge runs at case g are still running under their CPU caps; queue all-1111.rest.spec."
+   },
+   {
+    "experiment_id": "E0034",
+    "reason": "Five 3D runs launched at 00:37, still running."
+   },
+   {
+    "experiment_id": "E0037",
+    "reason": "Eight case-b baseline runs queued behind E0031 and E0034, about five CPU-hours each; they will run through Nov 12."
+   },
+   {
+    "experiment_id": "E0036",
+    "reason": "Two C-state cross-check runs queued last."
+   }
+  ],
+  "limits_hit": "No sleep; the Mac was awake on AC all session. Ten simulations ran at once from 23:16 (the budget limit), so the persistent-contact pilots used one seed each with CPU caps of a quarter and half an hour, and they took two to four slots ahead of the engine comparison for about ninety minutes until the main queue was raised to ten at 00:37. Three short diagnosis replays ran while one queued 3D run was paused (stopped and continued, no work lost) to stay within ten cores. From about 01:00 the outside Dogsled job that filled the disk on Nov 10 (review_salt_components.py) grew to ten gigabytes resident with eight gigabytes of swap; free disk fell from sixty-three to fifty-four gigabytes, then held steady through 01:15. Nothing was stopped or held. The session ended at 01:20, well before 05:00, because the remaining method work waits on two decisions (rolling contact, D0020; the accumulator fix, D0021) and the queued runs continue on their own. CPU hours count simulations only, from the runs' own records; the unit-test suites and the replays of single cycles (a few minutes each) are not included. Two ledger appends (three experiment outcomes and two blocker resolutions) were first written with a wrong field name and corrected before they were committed; ledger timestamps written as 01:05 to 01:25 are up to about twenty minutes later than the actual times."
+ }
+}
