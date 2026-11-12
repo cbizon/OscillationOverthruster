@@ -194,6 +194,18 @@
   "tools/residual_by_event_zeroed.py": {
    "size": 1765,
    "sha256": "d58ae1f7f2bde07d1faaf68afa95f06344d5b7750663d4ff8871504144af121f"
+  },
+  "E0031/replays/main273.json": {
+   "size": 223,
+   "sha256": "e551b2da121ec2005d31d37f0cc48f2054a6481a32998e527e832ced95025538"
+  },
+  "E0031/replays/fix273.json": {
+   "size": 224,
+   "sha256": "d3889073210c25ba5166587cd59cd4ee725a81ba89cb8d75ddfbd5800234397f"
+  },
+  "tools/residual_replay.py": {
+   "size": 1738,
+   "sha256": "2302ae179f738eee3f0333e33c287ca1c5de13f37d25dde56b111af90f9c2389"
   }
  },
  "by_event": {
@@ -232,5 +244,34 @@
    "cell": 4
   }
  },
- "mechanism_identified": "Event-by-event over the first 1/1024 of cycle 574 (113117 events): the residual (2.105e-06 in energy units) is carried by pair collisions (2.104e-06; plate 1.1e-09). Repeating the same window with the engine's energy accumulators set to zero at its start (bookkeeping only; identical event counts) gives a residual of 1.43e-11. Before the window the pair-dissipation accumulator held 1.63e+06, where one unit in the last place is about 2.3e-10, so each small per-collision energy change added to it is rounded by up to that much. The four positive-residual cycles are therefore round-off in the engine's running energy totals, which grow with run length, during cycles with many collisions. They are not energy put in by the nudge. The same effect should affect any engine's audit late in long chatter-heavy runs, with either sign."
+ "mechanism_identified": "Event-by-event over the first 1/1024 of cycle 574 (113117 events): the residual (2.105e-06 in energy units) is carried by pair collisions (2.104e-06; plate 1.1e-09). Repeating the same window with the engine's energy accumulators set to zero at its start (bookkeeping only; identical event counts) gives a residual of 1.43e-11. Before the window the pair-dissipation accumulator held 1.63e+06, where one unit in the last place is about 2.3e-10, so each small per-collision energy change added to it is rounded by up to that much. The four positive-residual cycles are therefore round-off in the engine's running energy totals, which grow with run length, during cycles with many collisions. They are not energy put in by the nudge. The same effect should affect any engine's audit late in long chatter-heavy runs, with either sign.",
+ "unmodified_engine_check": {
+  "run": "E0031/main-g5-f0.5-d5-s1 (unmodified engine, main)",
+  "main_replay": [
+   {
+    "cycle": 272,
+    "residual_rel": 3.188910161965387e-12,
+    "audit_residual_rel": 3.188910161965387e-12
+   },
+   {
+    "cycle": 273,
+    "residual_rel": 4.886295498794996e-09,
+    "audit_residual_rel": 4.886295498794996e-09
+   }
+  ],
+  "fix_branch_replay": [
+   {
+    "cycle": 272,
+    "residual_rel": 5.384651305397686e-14,
+    "audit_residual_rel": 3.188910161965387e-12
+   },
+   {
+    "cycle": 273,
+    "residual_rel": 1.5574128729423437e-14,
+    "audit_residual_rel": 4.886295498794996e-09
+   }
+  ],
+  "fix_commit": "fix/energy-accumulators 901a971 (trajectories bit-identical to main by its tests)",
+  "reading": "The unmodified engine's positive residual in cycle 273 (4.886e-09, reproduced exactly) falls to 1.56e-14 with per-call accumulation. Same bookkeeping round-off."
+ }
 }
