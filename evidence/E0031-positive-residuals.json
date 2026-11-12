@@ -1,0 +1,183 @@
+{
+ "experiment": "E0031",
+ "what": "Answer to the checker's Nov 10 item: explain each of the nudge's four positive-residual cycles in E0031 (the checker called them energy-gain cycles; the collision gain counter is zero in all four). Each run was replayed from its seed with the nudge engine (b608fef) exactly as referee/long_contact.py runs it (32 stops per cycle, re-sort after every cycle), and the per-cycle audit residual recomputed together with the potential energy the nudge adds by lifting spheres (EN_NUDGE, not booked by the audit).",
+ "cycles": [
+  {
+   "run": "nudge-g5-f0.5-d5-s2",
+   "cycle": 574,
+   "events_per_particle": 1143,
+   "median_events_per_particle_in_run": 96
+  },
+  {
+   "run": "nudge-g5-f0.3-d5-s3",
+   "cycle": 322,
+   "events_per_particle": 3178,
+   "median_events_per_particle_in_run": 241
+  },
+  {
+   "run": "nudge-g5-f0.3-d5-s2",
+   "cycle": 378,
+   "events_per_particle": 4990,
+   "median_events_per_particle_in_run": 278
+  },
+  {
+   "run": "nudge-g5-f0.5-d15-s3",
+   "cycle": 194,
+   "events_per_particle": 2033,
+   "median_events_per_particle_in_run": 3288
+  }
+ ],
+ "replays": {
+  "r194": [
+   {
+    "cycle": 193,
+    "residual_rel": -6.026061629469185e-12,
+    "audit_residual_rel": -6.026061629469185e-12,
+    "nudge_energy_rel": 3.284365599887686e-14,
+    "residual_minus_nudge_rel": -6.058905285468061e-12
+   },
+   {
+    "cycle": 194,
+    "residual_rel": 5.797226629046596e-08,
+    "audit_residual_rel": 5.797226629046596e-08,
+    "nudge_energy_rel": 1.017966709450923e-13,
+    "residual_minus_nudge_rel": 5.7972164493795006e-08
+   }
+  ],
+  "r322": [
+   {
+    "cycle": 321,
+    "residual_rel": -3.5786813734418455e-13,
+    "audit_residual_rel": -3.5786813734418455e-13,
+    "nudge_energy_rel": 2.801184114188211e-15,
+    "residual_minus_nudge_rel": -3.6066932145837277e-13
+   },
+   {
+    "cycle": 322,
+    "residual_rel": 1.6370790895142037e-08,
+    "audit_residual_rel": 1.6370790895142037e-08,
+    "nudge_energy_rel": 1.2040275893442025e-13,
+    "residual_minus_nudge_rel": 1.6370670492383103e-08
+   }
+  ],
+  "r378": [
+   {
+    "cycle": 377,
+    "residual_rel": -3.940125269909993e-11,
+    "audit_residual_rel": -3.940125269909993e-11,
+    "nudge_energy_rel": 7.761835163294721e-14,
+    "residual_minus_nudge_rel": -3.947887105073288e-11
+   },
+   {
+    "cycle": 378,
+    "residual_rel": 4.032261227086065e-08,
+    "audit_residual_rel": 4.032261227086065e-08,
+    "nudge_energy_rel": 3.0658047019301164e-13,
+    "residual_minus_nudge_rel": 4.032230569039045e-08
+   }
+  ],
+  "r574": [
+   {
+    "cycle": 573,
+    "residual_rel": -2.1038938747954108e-09,
+    "audit_residual_rel": -2.1038938747954108e-09,
+    "nudge_energy_rel": 8.482116119989046e-14,
+    "residual_minus_nudge_rel": -2.103978695956611e-09
+   },
+   {
+    "cycle": 574,
+    "residual_rel": 1.2367938431971089e-08,
+    "audit_residual_rel": 1.2367938431971089e-08,
+    "nudge_energy_rel": 1.625061988863813e-13,
+    "residual_minus_nudge_rel": 1.2367775925772202e-08
+   }
+  ]
+ },
+ "findings": [
+  "All four replays reproduce the audit residual bit for bit (1.237e-08, 1.637e-08, 4.032e-08, 5.797e-08 of throughput).",
+  "The nudge's own lift accounts for 1.0e-13 to 3.1e-13 of throughput in these cycles: it does not explain them.",
+  "No collision in any of the four cycles gains energy in its dissipation frame (energy_gains 0).",
+  "In cycle 574 of nudge-g5-f0.5-d5-s2, 99.9% of the residual builds up in the first 7 of 1024 windows of the cycle (phases 0 to 0.0068), which hold 32055 to 113117 events each, and grows smoothly with the event count rather than in one event.",
+  "Over the E0031 2D nudge cycles audited by 23:30 on Nov 11 (22406), audit failures occur only in cycles with more than 300 events per particle; 4 of 134 failures are positive, all in cycles above 1000 events per particle; the log of |residual| correlates with the log of events per particle (0.46).",
+  "Reading: the four cycles are the positive tail of an accounting drift that accumulates over hundreds of thousands of near-contact plate and pair events just after phase 0, when the plate moves fastest and per-event lab-frame energies are large compared with their changes. The exact per-event mechanism (which rounding) is not identified; it is not the nudge's lift and not a collision that gains energy."
+ ],
+ "locate574": {
+  "cycle": 574,
+  "residual_rel": 1.2367938431971089e-08,
+  "throughput": 540.5398501891796,
+  "top_windows": [
+   {
+    "phase": 0.0,
+    "residual_rel": 3.894428317577935e-09,
+    "events": 113117
+   },
+   {
+    "phase": 0.0009765625,
+    "residual_rel": 3.1854499622026015e-09,
+    "events": 102852
+   },
+   {
+    "phase": 0.001953125,
+    "residual_rel": 2.410918782981493e-09,
+    "events": 88145
+   },
+   {
+    "phase": 0.0029296875,
+    "residual_rel": 1.7037811562839646e-09,
+    "events": 75401
+   },
+   {
+    "phase": 0.00390625,
+    "residual_rel": 8.703045951894199e-10,
+    "events": 59543
+   },
+   {
+    "phase": 0.0048828125,
+    "residual_rel": 2.5104914360197154e-10,
+    "events": 44996
+   },
+   {
+    "phase": 0.005859375,
+    "residual_rel": 2.7126350771088197e-11,
+    "events": 32055
+   },
+   {
+    "phase": 0.0087890625,
+    "residual_rel": 1.2410616752732077e-11,
+    "events": 2158
+   }
+  ],
+  "share_top1": 0.31488095926406356,
+  "share_top8": 0.9989917877843206
+ },
+ "files": {
+  "E0031/replays/r194.json": {
+   "size": 423,
+   "sha256": "c61c46fda803b98e67bee59fd834be2404aa53639e5d04340d157b1e33eeb5d8"
+  },
+  "E0031/replays/r322.json": {
+   "size": 429,
+   "sha256": "11f8c2202632e9876075360d2b28608889d0dd9d1836949af7730ad2ac84e460"
+  },
+  "E0031/replays/r378.json": {
+   "size": 423,
+   "sha256": "f957902a91ac5348b1a351bd000ab08bf48e27160067df02c0bc233b0ecd53fb"
+  },
+  "E0031/replays/r574.json": {
+   "size": 427,
+   "sha256": "57bad08a706b0208330d47079ccfaff63b9903ca5589017db940bb13563fba91"
+  },
+  "E0031/replays/locate574.json": {
+   "size": 946,
+   "sha256": "778ed14e514ebb126a134c9b2db13cb15273aa57210f68bd70d40f9887f5b6ea"
+  },
+  "tools/nudge_residual_replay.py": {
+   "size": 1797,
+   "sha256": "eaeaef15487dfb937fc0ad13f635e5ff9712c04058787c4f4115b4657b5e2abf"
+  },
+  "tools/residual_locate.py": {
+   "size": 2042,
+   "sha256": "1a7cb58ea76c9977ce3b4a797c2c1c060a39f0ef7b03f4a0649b03a901f62b02"
+  }
+ }
+}

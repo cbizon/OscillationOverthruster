@@ -1,0 +1,42 @@
+{
+ "what": "Persistent contact (option 4, D0016 approved Nov 11) built on method/persistent-contact, worktree sequel-data/worktrees/persistent-contact. Tests run with the branch engine on PYTHONPATH and the main venv, 2026-11-11.",
+ "commits": {
+  "v1": "094056e",
+  "v2": "c52079f",
+  "v3": "e0f8a5f",
+  "slow_hit_test": "158add1"
+ },
+ "frozen_referee_tests": {
+  "passed": 74,
+  "failed": 0
+ },
+ "branch_tests": {
+  "passed": 133,
+  "xfailed": 1,
+  "failed": 0
+ },
+ "identity_with_main": "method off (v_sleep 0): bit-identical S, W, counters and energy terms to main at the end of each of 50 cycles at 3 2D conditions (Gamma 3.5: f* 0.3 depth 5, f* 0.5 depth 5, f* 0.3 depth 10; L 50, seed 1)",
+ "v2_tests": [
+  "rest, ride (z = z_p + h, v = v_p to 1e-12) and release at sin(om t) = 1/Gamma against the closed form",
+  "fast landing bounces; no rest while g_eff < 0; none with the method off",
+  "a sphere dropped on a Gamma 0.5 plate ends at rest after finitely many (10 to 50000) plate collisions",
+  "energy and momentum residuals below 1e-8 every cycle with sleeps, releases, slow and fast hits (2D, Gamma 2.2, v_sleep 3e-2)",
+  "restart with resting spheres bit-identical"
+ ],
+ "v3_tests": [
+  "two-sphere stack rests, rides and releases together (closed form)",
+  "pressed oblique pair at offsets 0.35 and 0.6 rests on its first hit; the steeper one is counted as a rest steeper than the friction angle",
+  "fast hit on the bottom of a three-sphere chain wakes the two above (cascade)",
+  "slow hit equals the plate collision operator along the line of centres",
+  "energy and momentum balance below 1e-8 with piles: up to 37 spheres resting on spheres at once in 15 cycles (2D, N 150, Gamma 2.2, v_sleep 3e-2, v_wakeup 6e-2)"
+ ],
+ "known_limitation_strict_xfail": "a sphere bounced off a resting one at 2e-3 rolls off at about 0.08 and stalls rolling on a Gamma 0.5 plate: the approved rule needs the full speed relative to the plate below v_sleep (D0020)",
+ "pile_test_counters": {
+  "sleep": 3408,
+  "wake_release": 73,
+  "wake_hit": 2358,
+  "wake_cascade": 977,
+  "rest_hit": 25964,
+  "steep_one_supporter": 1841
+ }
+}

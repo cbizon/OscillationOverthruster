@@ -1,0 +1,887 @@
+{
+ "runs": {
+  "pc2-2d-g3.5-f0.3-d15-s1": {
+   "exp": "E0038",
+   "engine": "158add1",
+   "outcome": "cpu_budget",
+   "cycles": 1,
+   "cycles_requested": 120,
+   "cpu_s": 900.0,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 83,
+   "slow_cpu_s": 867.5,
+   "audit_failures": 0,
+   "worst_energy_residual": 6.643529115234072e-15,
+   "energy_gains": 0
+  },
+  "pc2-2d-g3.5-f0.5-d15-s1": {
+   "exp": "E0038",
+   "engine": "158add1",
+   "outcome": "cpu_budget",
+   "cycles": 0,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 23,
+   "slow_cpu_s": 890.2,
+   "audit_failures": 0,
+   "worst_energy_residual": 0.0,
+   "energy_gains": 0
+  },
+  "pc2-2d-g5-f0.3-d10-s1": {
+   "exp": "E0038",
+   "engine": "c52079f",
+   "outcome": "cpu_budget",
+   "cycles": 2,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 11,
+   "slow_cpu_s": 887.0,
+   "audit_failures": 0,
+   "worst_energy_residual": 5.889865157234306e-15,
+   "energy_gains": 0
+  },
+  "pc2-2d-g5-f0.3-d15-s1": {
+   "exp": "E0038",
+   "engine": "c52079f",
+   "outcome": "cpu_budget",
+   "cycles": 4,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 4,
+   "slow_cpu_s": 883.8,
+   "audit_failures": 0,
+   "worst_energy_residual": 1.2080731190234763e-10,
+   "energy_gains": 0
+  },
+  "pc2-2d-g5-f0.3-d5-s1": {
+   "exp": "E0038",
+   "engine": "158add1",
+   "outcome": "cpu_budget",
+   "cycles": 20,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 47,
+   "slow_cpu_s": 880.8,
+   "audit_failures": 0,
+   "worst_energy_residual": 3.143112383539623e-13,
+   "energy_gains": 0,
+   "counters_at_last_checkpoint": {
+    "run": "pc2-2d-g5-f0.3-d5-s1",
+    "checkpoint_cycle": 20,
+    "events": 1147125,
+    "plate": 129151,
+    "pp": 696374,
+    "sleep": 0,
+    "wake_release": 0,
+    "wake_hit": 0,
+    "wake_cascade": 0,
+    "rest_hit": 0,
+    "steep_one_supporter": 0,
+    "rest_energy": 0.0,
+    "plate_dissipation": -36825.60185648929,
+    "resting_at_checkpoint": 0,
+    "on_spheres_at_checkpoint": 0
+   }
+  },
+  "pc2-2d-g5-f0.5-d10-s1": {
+   "exp": "E0038",
+   "engine": "c52079f",
+   "outcome": "cpu_budget",
+   "cycles": 4,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 1,
+   "slow_cpu_s": 897.6,
+   "audit_failures": 0,
+   "worst_energy_residual": 2.4603721281875437e-13,
+   "energy_gains": 0
+  },
+  "pc2-2d-g5-f0.5-d15-s1": {
+   "exp": "E0038",
+   "engine": "c52079f",
+   "outcome": "cpu_budget",
+   "cycles": 2,
+   "cycles_requested": 120,
+   "cpu_s": 900.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 38,
+   "slow_cpu_s": 877.4,
+   "audit_failures": 0,
+   "worst_energy_residual": 5.387659286730007e-14,
+   "energy_gains": 0
+  },
+  "pc3-2d-g3.5-f0.3-d15-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 1,
+   "cycles_requested": 120,
+   "cpu_s": 1800.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 83,
+   "slow_cpu_s": 1762.4,
+   "audit_failures": 0,
+   "worst_energy_residual": 6.643529115234072e-15,
+   "energy_gains": 0
+  },
+  "pc3-2d-g3.5-f0.5-d15-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 0,
+   "cycles_requested": 120,
+   "cpu_s": 1800.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 62,
+   "slow_cpu_s": 1777.2,
+   "audit_failures": 0,
+   "worst_energy_residual": 0.0,
+   "energy_gains": 0
+  },
+  "pc3-2d-g5-f0.3-d10-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 2,
+   "cycles_requested": 120,
+   "cpu_s": 1800.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 13,
+   "slow_cpu_s": 1795.7,
+   "audit_failures": 0,
+   "worst_energy_residual": 5.889865157234306e-15,
+   "energy_gains": 0
+  },
+  "pc3-2d-g5-f0.3-d15-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 4,
+   "cycles_requested": 120,
+   "cpu_s": 1800.2,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 7,
+   "slow_cpu_s": 1785.3,
+   "audit_failures": 0,
+   "worst_energy_residual": 1.2080731190234763e-10,
+   "energy_gains": 0
+  },
+  "pc3-2d-g5-f0.3-d5-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 20,
+   "cycles_requested": 120,
+   "cpu_s": 1800.1,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 68,
+   "slow_cpu_s": 1787.6,
+   "audit_failures": 0,
+   "worst_energy_residual": 3.143112383539623e-13,
+   "energy_gains": 0,
+   "counters_at_last_checkpoint": {
+    "run": "pc3-2d-g5-f0.3-d5-s1",
+    "checkpoint_cycle": 20,
+    "events": 1147125,
+    "plate": 129151,
+    "pp": 696374,
+    "sleep": 0,
+    "wake_release": 0,
+    "wake_hit": 0,
+    "wake_cascade": 0,
+    "rest_hit": 0,
+    "steep_one_supporter": 0,
+    "rest_energy": 0.0,
+    "plate_dissipation": -36825.60185648929,
+    "resting_at_checkpoint": 0,
+    "on_spheres_at_checkpoint": 0
+   }
+  },
+  "pc3-2d-g5-f0.5-d10-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "physical_failure",
+   "cycles": 4,
+   "cycles_requested": 120,
+   "cpu_s": 1545.0,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 4,
+   "failure_phase": 0.8257183437360852,
+   "slow_episodes": 2,
+   "slow_cpu_s": 1542.6,
+   "audit_failures": 0,
+   "worst_energy_residual": 2.4603721281875437e-13,
+   "energy_gains": 0
+  },
+  "pc3-2d-g5-f0.5-d15-s1": {
+   "exp": "E0039",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 2,
+   "cycles_requested": 120,
+   "cpu_s": 1800.3,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 63,
+   "slow_cpu_s": 1762.9,
+   "audit_failures": 0,
+   "worst_energy_residual": 5.387659286730007e-14,
+   "energy_gains": 0
+  },
+  "pc3-2d-g3.5-f0.3-d15-s3": {
+   "exp": "E0040",
+   "engine": "e0f8a5f",
+   "outcome": "physical_failure",
+   "cycles": 0,
+   "cycles_requested": 30,
+   "cpu_s": 203.9,
+   "error": "sphere pair overlaps",
+   "failure_cycle": 0,
+   "failure_phase": 0.93400136494076,
+   "slow_episodes": 1,
+   "slow_cpu_s": 200.1,
+   "audit_failures": 0,
+   "worst_energy_residual": 0.0,
+   "energy_gains": 0
+  },
+  "pc3-2d-g5-f0.5-d10-s2": {
+   "exp": "E0040",
+   "engine": "e0f8a5f",
+   "outcome": "cpu_budget",
+   "cycles": 2,
+   "cycles_requested": 30,
+   "cpu_s": 1800.2,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "slow_episodes": 2,
+   "slow_cpu_s": 1798.3,
+   "audit_failures": 0,
+   "worst_energy_residual": 1.1153423850615789e-14,
+   "energy_gains": 0
+  }
+ },
+ "diagnoses": {
+  "runs/E0039/diag-g3.5-f0.3-d15-s1.json": {
+   "cycle": 1,
+   "phase": 0.023776670379952503,
+   "time_advanced_over_events": 8.580823584680708e-06,
+   "events": 200000,
+   "event_types": {
+    "3": 144867,
+    "1": 55129,
+    "4": 1,
+    "5": 3
+   },
+   "kind_pairs": {
+    "(0.0, 'plate')": 144867,
+    "(0.0, 0.0)": 55129
+   },
+   "counters_during": {
+    "pp": 55129,
+    "plate": 144867,
+    "cell": 1,
+    "adv": 3,
+    "events": 200000,
+    "tinypp": 54938,
+    "tinypl": 144542,
+    "pred": 255129,
+    "pairs": 1441167,
+    "root": 255129
+   },
+   "resting_now": 2,
+   "top_particles": [
+    {
+     "particle": 314,
+     "events": 199977,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.4679620386443637,
+     "speed_rel_plate": 0.2435820025736372,
+     "vx": 0.08869748479368005,
+     "vz": 0.22685887280214168,
+     "spin_surface": 0.08869748479271931,
+     "vprev": 0.0886974847926213
+    },
+    {
+     "particle": 315,
+     "events": 55112,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 1.3568873367940584,
+     "speed_rel_plate": 0.28565705198818403,
+     "vx": 0.25673205131980287,
+     "vz": 0.12525416230890762,
+     "spin_surface": 0.107667310244237,
+     "vprev": 0.2761066159302628
+    },
+    {
+     "particle": 966,
+     "events": 2,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 4.803507277733565,
+     "speed_rel_plate": 0.22717694646262915,
+     "vx": -0.018142445638391548,
+     "vz": 0.2264513560797159,
+     "spin_surface": 0.0077387451333796224,
+     "vprev": 0.01957916090875874
+    },
+    {
+     "particle": 818,
+     "events": 2,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 1.334348981052829,
+     "speed_rel_plate": 0.22295662078660922,
+     "vx": -0.0043783398764412,
+     "vz": 0.22291362652944802,
+     "spin_surface": 0.006126001038203476,
+     "vprev": 0.00540531145607824
+    },
+    {
+     "particle": 1177,
+     "events": 2,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 1.9712139225962826,
+     "speed_rel_plate": 0.22594492080022702,
+     "vx": -0.009859698740384403,
+     "vz": 0.2257296913925364,
+     "spin_surface": 0.0005724086247508098,
+     "vprev": 0.007851927173129486
+    },
+    {
+     "particle": 1005,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 7.416532051846373,
+     "speed_rel_plate": 0.23423628856345766,
+     "vx": -0.030769504497887384,
+     "vz": 0.2322065383940295,
+     "spin_surface": 0.004263742510407078,
+     "vprev": 0.03086012917058688
+    }
+   ]
+  },
+  "runs/E0039/diag-g5-f0.3-d5-s1.json": {
+   "cycle": 20,
+   "phase": 0.9646042183759175,
+   "time_advanced_over_events": 1.1509371615758823e-06,
+   "events": 200000,
+   "event_types": {
+    "1": 43275,
+    "3": 156725
+   },
+   "kind_pairs": {
+    "(0.0, 0.0)": 43275,
+    "(0.0, 'plate')": 156725
+   },
+   "counters_during": {
+    "pp": 43275,
+    "plate": 156725,
+    "events": 200000,
+    "tinypp": 43270,
+    "tinypl": 156712,
+    "pred": 243275,
+    "pairs": 1346200,
+    "root": 243275
+   },
+   "resting_now": 0,
+   "top_particles": [
+    {
+     "particle": 313,
+     "events": 200000,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.44751245815755825,
+     "speed_rel_plate": 0.5546069494254791,
+     "vx": -0.22381330126330573,
+     "vz": 0.5074411044925871,
+     "spin_surface": 0.2238133012631396,
+     "vprev": 0.22381330126312268
+    },
+    {
+     "particle": 318,
+     "events": 43275,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.956302848001563,
+     "speed_rel_plate": 0.3792365433710302,
+     "vx": -0.1396066410064029,
+     "vz": 0.3526050788274562,
+     "spin_surface": 0.33880015057979346,
+     "vprev": 0.20848071625507902
+    }
+   ]
+  },
+  "runs/E0040/diag-g3.5-f0.3-d15-s3.json": {
+   "cycle": 0,
+   "phase": 0.9339809573665001,
+   "time_advanced_over_events": 5.437962546039898e-06,
+   "events": 200000,
+   "event_types": {
+    "3": 168940,
+    "1": 31060
+   },
+   "kind_pairs": {
+    "(0.0, 'plate')": 168940,
+    "(0.0, 0.0)": 31060
+   },
+   "counters_during": {
+    "pp": 31060,
+    "plate": 168940,
+    "events": 200000,
+    "tinypp": 30609,
+    "tinypl": 168392,
+    "pred": 231060,
+    "pairs": 1448498,
+    "root": 231060
+   },
+   "resting_now": 0,
+   "top_particles": [
+    {
+     "particle": 1045,
+     "events": 199994,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.3314952439383765,
+     "speed_rel_plate": 0.9609663777433968,
+     "vx": 0.040677351712307096,
+     "vz": 0.9601050631107713,
+     "spin_surface": 0.04067735170519468,
+     "vprev": 0.040677351716529496
+    },
+    {
+     "particle": 1017,
+     "events": 31056,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.6997020257674142,
+     "speed_rel_plate": 0.8773486563954029,
+     "vx": 0.010803786158439813,
+     "vz": 0.8772821342552586,
+     "spin_surface": 0.0011600410667341047,
+     "vprev": 0.08352460320448836
+    },
+    {
+     "particle": 1094,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 2.6644638505437754,
+     "speed_rel_plate": 0.965806456049642,
+     "vx": -0.03300781305514997,
+     "vz": 0.9652422467051913,
+     "spin_surface": 0.011663416122292743,
+     "vprev": 0.022088981414027552
+    },
+    {
+     "particle": 1106,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 2.312957254736892,
+     "speed_rel_plate": 0.9662022390727997,
+     "vx": -0.020923339371332946,
+     "vz": 0.9659756625603171,
+     "spin_surface": 0.012072675679314174,
+     "vprev": 0.033142405060986056
+    },
+    {
+     "particle": 667,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.3375879416781933,
+     "speed_rel_plate": 0.9631024174685255,
+     "vx": -0.0004706016591491582,
+     "vz": 0.9631023024932484,
+     "spin_surface": 0.0019974943333270524,
+     "vprev": 0.003950785741707161
+    },
+    {
+     "particle": 792,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.33211559010974856,
+     "speed_rel_plate": 0.9621479384565615,
+     "vx": -0.004762718305977139,
+     "vz": 0.9621361504436621,
+     "spin_surface": 0.005334341639677344,
+     "vprev": 0.007110259133181003
+    }
+   ]
+  },
+  "runs/E0040/diag-g5-f0.5-d10-s2.json": {
+   "cycle": 2,
+   "phase": 0.8399928397195475,
+   "time_advanced_over_events": 7.075317496330058e-07,
+   "events": 200000,
+   "event_types": {
+    "1": 53608,
+    "3": 146392
+   },
+   "kind_pairs": {
+    "(0.0, 0.0)": 53608,
+    "(0.0, 'plate')": 146392
+   },
+   "counters_during": {
+    "pp": 53608,
+    "plate": 146392,
+    "events": 200000,
+    "tinypp": 53607,
+    "tinypl": 146392,
+    "pred": 253608,
+    "pairs": 2282472,
+    "root": 253608
+   },
+   "resting_now": 0,
+   "top_particles": [
+    {
+     "particle": 896,
+     "events": 199999,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.4141487866995197,
+     "speed_rel_plate": 1.4206771794390787,
+     "vx": 1.0612897823252014,
+     "vz": 0.9444509760231616,
+     "spin_surface": 1.061289782266208,
+     "vprev": 1.0612897823022707
+    },
+    {
+     "particle": 883,
+     "events": 53607,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 1.2625368049951686,
+     "speed_rel_plate": 1.0909401386087767,
+     "vx": 0.7874391330777462,
+     "vz": 0.7550430436243385,
+     "spin_surface": 1.39426056621551,
+     "vprev": 0.8098986067553552
+    },
+    {
+     "particle": 21,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.419767609658809,
+     "speed_rel_plate": 1.0601620005862589,
+     "vx": 0.4961347330486674,
+     "vz": 0.936906502352175,
+     "spin_surface": 0.49427967666406575,
+     "vprev": 0.5100360790306612
+    },
+    {
+     "particle": 33,
+     "events": 1,
+     "kind": 0.0,
+     "sup": -1,
+     "z_above_plate": 0.4231845024122469,
+     "speed_rel_plate": 1.0678752799989826,
+     "vx": 0.5095736702044933,
+     "vz": 0.9384520703089891,
+     "spin_surface": 0.4939189872052674,
+     "vprev": 0.4961728814460692
+    }
+   ]
+  }
+ },
+ "plate_stick_seed1": {
+  "2d-g5-f0.5-d15-s1": {
+   "outcome": "physical_failure",
+   "cycles": 2,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g5-f0.3-d5-s1": {
+   "outcome": "physical_failure",
+   "cycles": 20,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g3.5-f0.5-d15-s1": {
+   "outcome": "physical_failure",
+   "cycles": 0,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g5-f0.5-d10-s1": {
+   "outcome": "physical_failure",
+   "cycles": 2,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g3.5-f0.3-d15-s1": {
+   "outcome": "physical_failure",
+   "cycles": 0,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g5-f0.3-d15-s1": {
+   "outcome": "physical_failure",
+   "cycles": 4,
+   "error": "sphere pair overlaps"
+  },
+  "2d-g5-f0.3-d10-s1": {
+   "outcome": "physical_failure",
+   "cycles": 2,
+   "error": "sphere pair overlaps"
+  }
+ },
+ "files": {
+  "runs/E0038/pc2-2d-g3.5-f0.3-d15-s1/summary.json": {
+   "size": 31957,
+   "sha256": "8c7d2492b41deda7cf8c0f3080a81013552345e3d7889b70db93e22ae2af0c23"
+  },
+  "runs/E0038/pc2-2d-g3.5-f0.3-d15-s1/audit.json": {
+   "size": 386,
+   "sha256": "f121d1a0fb482f286ac3e58f41d1b86a221bfd7ce35cdb8cd8a9dbda0b428a59"
+  },
+  "runs/E0038/pc2-2d-g3.5-f0.3-d15-s1/quantities.npz": {
+   "size": 4938,
+   "sha256": "b6421c10b46ce093f26748765a33cfd503435ff49da6dbdfd254cfd6d6cccf5e"
+  },
+  "runs/E0038/pc2-2d-g3.5-f0.5-d15-s1/summary.json": {
+   "size": 9178,
+   "sha256": "6e2cd95ffbaa36d0ff60365b11d87e0c59354a6f6f365a76f4997869c352c556"
+  },
+  "runs/E0038/pc2-2d-g3.5-f0.5-d15-s1/audit.json": {
+   "size": 3,
+   "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "runs/E0038/pc2-2d-g3.5-f0.5-d15-s1/quantities.npz": {
+   "size": 4650,
+   "sha256": "43332f26dfee7f7a753fd41d575f7c9da55a4ffb6a34923a258fa6ebfc459cb4"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d10-s1/summary.json": {
+   "size": 4756,
+   "sha256": "fb9509f3a5cf0f340e9c4514789ffa7aa5f3b2f385402e912b0a8e6548b49b00"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d10-s1/audit.json": {
+   "size": 743,
+   "sha256": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d10-s1/quantities.npz": {
+   "size": 9258,
+   "sha256": "d10b2ca5c362e1b351bd8bf5f2180f258632c944c0be331f6b8a761cdeadceb7"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d15-s1/summary.json": {
+   "size": 2168,
+   "sha256": "1aa70e6cc3489fccaec24a3a2db8871ebed8cbb67307be28dd2074d551c9acf9"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d15-s1/audit.json": {
+   "size": 1506,
+   "sha256": "33a1044d8dbc5885d43bc53f0bb99a21469d90b19be4e14a5c21f06a6190a736"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d15-s1/quantities.npz": {
+   "size": 13938,
+   "sha256": "71664dd445956552c2d30d91045af7ce8ae599ef727d2a63c9fd692bf4ec2fb6"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d5-s1/summary.json": {
+   "size": 18227,
+   "sha256": "9bea6e51581c60dc4a15d7a69d332e382aaa6933dc26746dbe08b90a0d8e0690"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d5-s1/audit.json": {
+   "size": 7420,
+   "sha256": "8074b076eeed00fbecf637be9e6615fcf6c4b48d3e5ed85f88452e8c2432560f"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d5-s1/quantities.npz": {
+   "size": 50874,
+   "sha256": "6ed69a3e9b1e9b827adbcd15565c896a0976a372d292da23aae1f2d7f931a99e"
+  },
+  "runs/E0038/pc2-2d-g5-f0.3-d5-s1/checkpoint.npz": {
+   "size": 112424,
+   "sha256": "2bb9843f3b8bd2d3166191370121d335324b194c016c2fd48d856650af44c9fe"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d10-s1/summary.json": {
+   "size": 1050,
+   "sha256": "a7d91cc4eb11bbcff46681a67f3a64f11c9d9321ae7805868fcaa67c1beb513f"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d10-s1/audit.json": {
+   "size": 1484,
+   "sha256": "7f3765781258730cb5fc36d30bfa48df66ac64702e0b920c3c8f7bec6cd64dfa"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d10-s1/quantities.npz": {
+   "size": 13722,
+   "sha256": "234cb595f73111272279130d358db7588eb0376bd746bb9e90e61ef7105e8149"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d15-s1/summary.json": {
+   "size": 14750,
+   "sha256": "6dc06a93da697eaf5ebfc3c1539b7733830a79279da19764bb3c777cf91779df"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d15-s1/audit.json": {
+   "size": 768,
+   "sha256": "0fafcf5fac060574025452ab9d7a8a5775f9ac1f74f9fa1b8fd9d6d438b08acf"
+  },
+  "runs/E0038/pc2-2d-g5-f0.5-d15-s1/quantities.npz": {
+   "size": 9114,
+   "sha256": "ed240138a1666d2e03a3066fca9399f8af8ae2bff8d1c817b0ca362939d862b1"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.3-d15-s1/summary.json": {
+   "size": 31950,
+   "sha256": "50caee2288f663c06b059552581c85e8fda6e20d7668c2f332048be04bb018f3"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.3-d15-s1/audit.json": {
+   "size": 386,
+   "sha256": "f121d1a0fb482f286ac3e58f41d1b86a221bfd7ce35cdb8cd8a9dbda0b428a59"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.3-d15-s1/quantities.npz": {
+   "size": 4938,
+   "sha256": "b6421c10b46ce093f26748765a33cfd503435ff49da6dbdfd254cfd6d6cccf5e"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.5-d15-s1/summary.json": {
+   "size": 23661,
+   "sha256": "4a35f0f7821c439d484592e98678a077e9a96509920a13278668726baa2fc7e9"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.5-d15-s1/audit.json": {
+   "size": 3,
+   "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "runs/E0039/pc3-2d-g3.5-f0.5-d15-s1/quantities.npz": {
+   "size": 4650,
+   "sha256": "43332f26dfee7f7a753fd41d575f7c9da55a4ffb6a34923a258fa6ebfc459cb4"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d10-s1/summary.json": {
+   "size": 5512,
+   "sha256": "2dfb9d99103ded87214008af6ee56efd89cb816eff5372e6e99af465ef88999b"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d10-s1/audit.json": {
+   "size": 743,
+   "sha256": "58050d95888fd9dcc8f347683d7156d714576aaf94ab21e36f48a0255ba82c75"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d10-s1/quantities.npz": {
+   "size": 9258,
+   "sha256": "d10b2ca5c362e1b351bd8bf5f2180f258632c944c0be331f6b8a761cdeadceb7"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d15-s1/summary.json": {
+   "size": 3288,
+   "sha256": "60fc6c7535287e7367e889ae194ff61ec653e5ddeff3c895a58d706fe0b1270e"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d15-s1/audit.json": {
+   "size": 1506,
+   "sha256": "33a1044d8dbc5885d43bc53f0bb99a21469d90b19be4e14a5c21f06a6190a736"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d15-s1/quantities.npz": {
+   "size": 13938,
+   "sha256": "71664dd445956552c2d30d91045af7ce8ae599ef727d2a63c9fd692bf4ec2fb6"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d5-s1/summary.json": {
+   "size": 26085,
+   "sha256": "20016ffc950837c24974b84dae52df6ca08103e248fa3931aafa6eafb5624cf6"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d5-s1/audit.json": {
+   "size": 7420,
+   "sha256": "8074b076eeed00fbecf637be9e6615fcf6c4b48d3e5ed85f88452e8c2432560f"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d5-s1/quantities.npz": {
+   "size": 50874,
+   "sha256": "6ed69a3e9b1e9b827adbcd15565c896a0976a372d292da23aae1f2d7f931a99e"
+  },
+  "runs/E0039/pc3-2d-g5-f0.3-d5-s1/checkpoint.npz": {
+   "size": 112424,
+   "sha256": "2bb9843f3b8bd2d3166191370121d335324b194c016c2fd48d856650af44c9fe"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d10-s1/summary.json": {
+   "size": 1558,
+   "sha256": "e2a184c8cd57a978bd935330cb40270bc538629f2e9fd4de1d08c486ea6f8201"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d10-s1/audit.json": {
+   "size": 1484,
+   "sha256": "7f3765781258730cb5fc36d30bfa48df66ac64702e0b920c3c8f7bec6cd64dfa"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d10-s1/quantities.npz": {
+   "size": 13722,
+   "sha256": "234cb595f73111272279130d358db7588eb0376bd746bb9e90e61ef7105e8149"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d15-s1/summary.json": {
+   "size": 23999,
+   "sha256": "264e427400504078a566e8fdc3d99fc53966cc7e3159bb1ed8850cae498bfbdc"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d15-s1/audit.json": {
+   "size": 768,
+   "sha256": "0fafcf5fac060574025452ab9d7a8a5775f9ac1f74f9fa1b8fd9d6d438b08acf"
+  },
+  "runs/E0039/pc3-2d-g5-f0.5-d15-s1/quantities.npz": {
+   "size": 9114,
+   "sha256": "ed240138a1666d2e03a3066fca9399f8af8ae2bff8d1c817b0ca362939d862b1"
+  },
+  "runs/E0039/diag-g3.5-f0.3-d15-s1.json": {
+   "size": 2255,
+   "sha256": "d68d103de7c48106314cc112123bbb986594fd448deee826fa3a26f3468e9da7"
+  },
+  "runs/E0039/diag-g5-f0.3-d5-s1.json": {
+   "size": 1042,
+   "sha256": "b6bc80fdf896a7c92dd5720d3fc58c50ee6b909c3aaccdcac574b8809b2802de"
+  },
+  "runs/E0040/pc3-2d-g3.5-f0.3-d15-s3/summary.json": {
+   "size": 1139,
+   "sha256": "93336753647089184acd40ee67c6ac80245687e99f33fa4c88680d53b8b00b31"
+  },
+  "runs/E0040/pc3-2d-g3.5-f0.3-d15-s3/audit.json": {
+   "size": 3,
+   "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "runs/E0040/pc3-2d-g3.5-f0.3-d15-s3/quantities.npz": {
+   "size": 4722,
+   "sha256": "ceef6154adc57fca368dcd486d080449247e291a639e632383c77165392afbf8"
+  },
+  "runs/E0040/pc3-2d-g5-f0.5-d10-s2/summary.json": {
+   "size": 1426,
+   "sha256": "54f20c10708ad83b0970ba12e64dc5cc0a94c9b1cf0add17a1ed42e3d803d1e5"
+  },
+  "runs/E0040/pc3-2d-g5-f0.5-d10-s2/audit.json": {
+   "size": 742,
+   "sha256": "0473ff82c671fff659de36c442336a7d0fd9cc671991f61eeb36cd9db26d3722"
+  },
+  "runs/E0040/pc3-2d-g5-f0.5-d10-s2/quantities.npz": {
+   "size": 9114,
+   "sha256": "b3bb60abe98563e163c18ab936d0ca5eb7a5bb3d8cad7e2bb539e8e91b637b2d"
+  },
+  "runs/E0040/diag-g3.5-f0.3-d15-s3.json": {
+   "size": 2217,
+   "sha256": "eb183d1805b2140b6819d0c0ead3b3580f928cab94ca0a890fc09a6aefb4b7b9"
+  },
+  "runs/E0040/diag-g5-f0.5-d10-s2.json": {
+   "size": 1598,
+   "sha256": "60c0d17d15c640145fa800e4d0a3154dbf52b01f550903d8a8297786aaa53240"
+  }
+ },
+ "summary": {
+  "v2_E0038": "7 of 7 conditions ended at the 0.25 h CPU cap inside a slow stretch, after 0, 1, 2, 2, 4, 4 and 20 cycles; no overlap, no audit failure, no energy gain.",
+  "v3_E0039": "6 of 7 ended at the 0.5 h CPU cap after the same number of cycles as v2 (0, 1, 2, 2, 4, 20); Gamma 5 f* 0.5 depth 10 overlapped in cycle 4 (v2 reached the cap there after 4 cycles). No audit failure, no energy gain.",
+  "v3_E0040": "Gamma 5 f* 0.5 depth 10 seed 2 reached the CPU cap after 2 cycles (plate-stick overlapped in zero-based cycle 2); Gamma 3.5 f* 0.3 depth 15 seed 3 overlapped in cycle 0 at phase 0.934 after a slow stretch of 100500000 events (plate-stick: cycle 0, phase 0.945).",
+  "E0026_cases_passed_by_v3": "1 of 5 completes the cycle in which plate-stick failed: Gamma 5 f* 0.5 depth 10 seed 1 (plate-stick zero-based cycle 2; v3 completed 4 cycles, then overlapped). The other 4 stop in plate-stick's failure cycle: f* 0.3 depth 10 seed 1 (cycle 2, CPU cap), f* 0.3 depth 15 seed 1 (cycle 4, CPU cap), f* 0.5 depth 10 seed 2 (cycle 2, CPU cap), Gamma 3.5 f* 0.3 depth 15 seed 3 (cycle 0, overlap).",
+  "diagnosis": "In all 4 stalls examined event by event (Gamma 3.5 f* 0.3 depth 15 seeds 1 and 3, Gamma 5 f* 0.5 depth 10 seed 2, Gamma 5 f* 0.3 depth 5 seed 1), one free sphere on the plate rolls without slip (horizontal speed equal to its spin surface speed: 0.0887, 0.0407, 1.06, 0.224) and takes nearly every event (tiny plate collisions and tiny collisions with one sphere pressed on it); no sphere is resting at the time. The approved rest rule needs the full speed relative to the plate below v_sleep, which a rolling sphere never has.",
+  "roll_variant": "Exploratory branch method/persistent-contact-roll (c3dd7b2, plate_rest = roll): the lone rolling sphere rests and rolls on, but a 2D layer (N 150, Gamma 2.2, v_sleep 3e-2) stalls in cycle 0 at a free sphere pressed on a rolling resting sphere, which cannot be a supporter."
+ }
+}
