@@ -178,6 +178,59 @@
   "tools/residual_locate.py": {
    "size": 2042,
    "sha256": "1a7cb58ea76c9977ce3b4a797c2c1c060a39f0ef7b03f4a0649b03a901f62b02"
+  },
+  "E0031/replays/by_event574.json": {
+   "size": 369,
+   "sha256": "ccaebff5bcba1ff519b2b9cb1605545d55ab5464a1ba177ad6a5078b21692057"
+  },
+  "E0031/replays/by_event574_zeroed.json": {
+   "size": 450,
+   "sha256": "b64f88734c74dc4e1caff8f657999a2fff39ed97e3057c1e098e7326dbe68d39"
+  },
+  "tools/residual_by_event.py": {
+   "size": 1620,
+   "sha256": "797f1e9805d9779ae4d2d6e49dff533f398308f4a4de1fc8eba8618f6b94b8d3"
+  },
+  "tools/residual_by_event_zeroed.py": {
+   "size": 1765,
+   "sha256": "d58ae1f7f2bde07d1faaf68afa95f06344d5b7750663d4ff8871504144af121f"
   }
- }
+ },
+ "by_event": {
+  "window": "cycle 574, phase 0 to 1/1024",
+  "events": 113117,
+  "residual_total": 2.1050927898613736e-06,
+  "residual_by_event_type": {
+   "advance": -9.094947017729282e-13,
+   "plate": 1.1086740414611995e-09,
+   "pair": 2.103985934809316e-06,
+   "cell": -9.094947017729282e-13
+  },
+  "events_by_type": {
+   "advance": 515,
+   "plate": 66610,
+   "pair": 45988,
+   "cell": 4
+  }
+ },
+ "by_event_zeroed": {
+  "accumulators": "zeroed at window start",
+  "magnitude_before": 1631072.83643882,
+  "window": "cycle 574, phase 0 to 1/1024",
+  "events": 113117,
+  "residual_total": 1.433875246184893e-11,
+  "residual_by_event_type": {
+   "advance": -9.094947017729282e-13,
+   "plate": -6.148859194162956e-11,
+   "pair": 7.764633380702435e-11,
+   "cell": -9.094947017729282e-13
+  },
+  "events_by_type": {
+   "advance": 515,
+   "plate": 66610,
+   "pair": 45988,
+   "cell": 4
+  }
+ },
+ "mechanism_identified": "Event-by-event over the first 1/1024 of cycle 574 (113117 events): the residual (2.105e-06 in energy units) is carried by pair collisions (2.104e-06; plate 1.1e-09). Repeating the same window with the engine's energy accumulators set to zero at its start (bookkeeping only; identical event counts) gives a residual of 1.43e-11. Before the window the pair-dissipation accumulator held 1.63e+06, where one unit in the last place is about 2.3e-10, so each small per-collision energy change added to it is rounded by up to that much. The four positive-residual cycles are therefore round-off in the engine's running energy totals, which grow with run length, during cycles with many collisions. They are not energy put in by the nudge. The same effect should affect any engine's audit late in long chatter-heavy runs, with either sign."
 }

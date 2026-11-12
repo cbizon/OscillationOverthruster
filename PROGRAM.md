@@ -38,6 +38,11 @@ after `DIRECTION.md` at the start of every session.
   - An option-4 design is proposed for review (D0015).
   - Nov 9: redesigned per instruction (D0016, supersedes D0015): one
     resting state, plate as supporter, modelled on González's drum.
+  - Nov 11: D0016 approved. v1 to v3 built and tested on
+    `method/persistent-contact`. v3 gets no further than v2 on the
+    stalled 2D conditions (E0039, E0040). Every stall examined is a
+    sphere rolling on the plate with a sphere pressed on it, which the
+    approved rest rule never rests (D0020).
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -72,6 +77,8 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 11 session: awake on AC throughout, no sleep events; the queues
+    lost to the Nov 11 00:05 kernel panic were restarted at 23:16.
   - Nov 8: the Mac rebooted at 23:23, after the scheduled 23:00 start. The
     session started at 23:26. No jobs were lost: both were already done.
   - Nov 8: clamshell sleep (lid closed) at 23:57 paused the session and its
@@ -140,14 +147,66 @@ The five options in `notes/contact-options.md`.
 
 ### Option 4, persistent contact
 
-- Redesign proposed Nov 9: `evidence/D0016-option4-redesign.md` (D0016).
-- Not approved. Plate-stick's failures are exactly the pair contacts it is
-  designed to handle.
-- A design for a vibrated layer is in
-  `evidence/D0015-option4-design.md` (proposed, with five choices for
-  Chris).
+- Design: `evidence/D0016-option4-redesign.md` (D0016), approved Nov 11
+  with all five choices. A slow hit on a resting sphere is a plate-law
+  collision with the impulse along the line of centres.
+- Branch `method/persistent-contact` (worktree
+  `sequel-data/worktrees/persistent-contact`):
+  - v1 094056e: settings and bookkeeping. With the method off it is
+    bit-identical to main.
+  - v2 c52079f: resting on the plate.
+  - v3 e0f8a5f: resting on resting spheres, one supporter, cascade wake.
+  - 158add1: explicit slow-hit test.
+  - Tests: 74 frozen, 133 branch, plus 1 strict xfail for the rolling
+    limitation (`evidence/D0016-build-v1-v3.json`). Details: D0019.
+- Pilots, 7 stalled 2D conditions at seed 1 (E0038, E0039, E0040):
+  - v2 stalls like plate-stick.
+  - v3 completes the same cycles as v2 at 6 of 7 conditions with twice
+    the CPU, and overlaps once.
+  - Of the five E0026 starts, v3 gets past plate-stick's failure cycle
+    in 1.
+- Diagnosis (4 stalls examined event by event): a free sphere rolls on
+  the plate without slip (speed 0.04 to 1.06), with one sphere pressed
+  on it. No sphere is resting at the time. Under the approved rule a
+  sphere rests only when its full speed is below v_sleep, which a
+  rolling sphere never is.
+- Exploratory `method/persistent-contact-roll` (c3dd7b2, `plate_rest =
+  roll`): resting on the plate keeps horizontal velocity and spin. The
+  lone rolling sphere is fixed, but a layer stalls at a sphere pressed
+  on a rolling resting one. Question for Chris (D0020).
+- Pinned worktrees for the pilots: `persistent-contact-v2`, `-v3`.
 
 ## Current state
+
+### Nov 11 findings
+
+- **Option four built (v1 to v3) and piloted.** See the RQ1 section and
+  Option 4. Main result: the remaining stall is a rolling sphere on the
+  plate with a sphere pressed on it (E0039, E0040, D0020).
+- **Nudge positive-residual cycles (E0031, checker item):** all four
+  replay bit for bit. The nudge's own lift is at most 3.1e-13 of
+  throughput, and no collision gains energy. Cause found: round-off in
+  the engine's run-long energy totals. In one collision-heavy window,
+  the residual is 2.1e-6 as run and 1.4e-11 with the totals started
+  from zero, on the same trajectory
+  (`evidence/E0031-positive-residuals.json`). Fix on
+  `fix/energy-accumulators` (901a971): terms summed per call from zero,
+  trajectories unchanged. Merge proposed (D0021). Until it is merged,
+  audit failures in chatter cycles may be bookkeeping, for either engine.
+- **Engine comparison, interim (E0031-interim-3):** in 2D at Gamma 5,
+  L 100, the unmodified engine completed 0 of 15 ended 1000-cycle runs
+  and the nudge 16 of 17. Still running: E0031's last unmodified runs,
+  E0034 and the 3D nudge runs.
+- **Case-b main baseline (E0037) registered and queued**, from the
+  half-push start, seeds 1 to 4, both engines, 1000 cycles, 8 CPU-hour
+  cap, burn-in fixed at 300 cycles (D0018). E0036 (C state) is kept as
+  a cross-check.
+- **Pass rule:** kept for 100-cycle windows. Whole runs are compared
+  only across several starts. The noise study's estimate (effective
+  threshold 3.43 rather than 3.61) is a point estimate, not a bound.
+- **Queue (D0018):** `tools/qx4.sh`, 10 live in total, holds below
+  25.5 GB free (hard floor 25 GB, Nov 11 instruction). Main queue spec:
+  `runs/all-1111.rest.spec`.
 
 ### Nov 10 findings
 
@@ -285,19 +344,27 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- Three queues are waiting on free disk (`sequel-data/runs/*.queue.log`):
-  the last 15 E0031 runs and E0034 (`E0031-34.rest.spec`), and the case-b
-  baseline E0036 (`E0036.spec`). They launch by themselves at 40.5 GB free.
-  If they are not running at the next session, check `ps` for `qx3.sh` and
-  restart them from the specs (lines already launched are in the logs).
-- Then: record E0031's and E0034's outcomes with
-  `tools/e0031_evidence.py`; judge the nudge against the E0036 baseline
-  (`bulk.py baseline`, `judge`); judge the nudge's case-g runs on settled
-  cycles once continued to 1020.
-- Wait for Chris on D0016, and on whether small runs may launch below the
-  disk floor when the program is not the cause.
-- Tools added Nov 10: `noise_final.py`, `e0032_evidence.py`,
-  `e0031_evidence.py`, `qx3.sh`, `e0036_run.sh`.
+- Collect the runs left going (`runs/active.jsonl`; queue
+  `all-1111.rest.queue.log`): E0031's last two unmodified runs, E0034,
+  E0037 (eight runs, about five CPU-hours each), then E0036. If the queue
+  is not running, restart it from the lines of `all-1111.rest.spec` not
+  yet in the log.
+- Then: final E0031/E0034 evidence (`tools/e0031_evidence.py`); judge the
+  nudge against the E0037 baseline (burn-in 300, 7 blocks, D0018).
+- Option four: wait for Chris on D0020 (rolling spheres). If he picks a
+  rolling-contact treatment, build it on its own branch from
+  `method/persistent-contact` and rerun E0039's conditions. v4 (hull,
+  tau_check) waits until the rolling question is settled, because it
+  doesn't touch the stall.
+- If D0021 is approved: merge `fix/energy-accumulators`, carry it to
+  `method/nudge` and `method/persistent-contact`, and replay the failing
+  audit cycles of both engines to see which failures remain.
+- The intrinsic sweep (when a candidate survives) includes v_wakeup =
+  v_sleep.
+- Tools added Nov 11: `qx4.sh`, `e0037_run.sh`, `pstat.py`,
+  `pc_counters.py`, `pc_stall_diag.py`, `pc_evidence.py`,
+  `nudge_residual_replay.py`, `residual_locate.py`,
+  `residual_by_event.py`, `residual_by_event_zeroed.py`.
 
 Earlier items (from Nov 8):
 
@@ -305,10 +372,7 @@ Earlier items (from Nov 8):
   (unmodified case g, seeds 3 to 5, 1020 cycles). If a case-g baseline
   completes, judge the nudge's case-g runs against it.
 - Wait for Chris on:
-  - the option-4 design (D0015);
   - how to treat the nudge's rare overlaps;
   - the Figure 1 comparison spec;
   - the case-b comparison;
   - the wide-box seed offsets (E0027).
-- If option 4 is approved, build it on `method/persistent-contact` from
-  plate-stick's plate frame.
