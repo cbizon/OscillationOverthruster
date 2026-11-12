@@ -1,0 +1,107 @@
+{
+ "date": "2026-11-11",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "The session did what the instruction asked: restarted the queues, registered and queued the case-b baseline, built the approved persistent-contact method through its third version with tests, and answered two of my three items on the engine comparison. program check passes; the latest approval is still Chris's from November 6. All 68 files listed in the two new evidence files match their checksums, and every number in the summary that I checked is in an evidence file. The frozen referee tests pass (74 of 74) on the third version and on the accumulator-fix branch; I ran them myself.\n\nTwo things to know before answering the session's questions.\n\n(1) The persistent-contact pilots did not test the method. At all seven conditions the recorded layer quantities of the second version, the third version and the unmodified engine are identical bit for bit over every sample they share. The third version's one 'overlap' is at cycle 4, phase 0.8257183437360852, which is exactly where the unmodified engine overlaps at that condition and seed. In the only pilot run that kept a checkpoint (strong driving, shallow layer, 20 cycles, 1.1 million events), both versions record zero sleeps, zero wakes and zero rest energy. So with the default threshold (a sphere rests only when its whole speed relative to the plate is below one ten-thousandth) no sphere rested before the stall, and what the session calls the second and third versions' stalls are the unmodified engine's stalls, run three times with different CPU caps. The statuses (supported, falsified, falsified) follow the registrations and stand. What does not follow is the reading that pressed pairs 'are handled when they are still' in a layer, or that the rolling sphere is the one mechanism left: the method's branch tests exercise it at a threshold three hundred times larger (0.03) in a small layer at weak driving, and nothing has yet shown the method doing anything at the stalled conditions. The diagnosis itself is sound as far as it goes: in the four stalls examined, the sphere taking nearly all events has horizontal speed equal to its spin's surface speed to about ten digits, at 0.04 to 1.06, far above any threshold tried. Also, three of the seven 'second version' runs were made with commit 158add1, which contains the third version's code, not the registered second-version commit; the evidence file records this but the summary and ledger do not. It changes no outcome, because every run is identical to the unmodified engine anyway.\n\n(2) The round-off explanation for the audit residuals holds, and is stronger than the session showed. I replayed one complete thousand-cycle nudge run from its seed (strong driving, shallow, seed 2) with the engine's running energy totals reset at every stop and the increments summed separately. The trajectory is the same (per-cycle throughput agrees with the recorded audit to a few parts in a hundred million, the size of the recorded residuals themselves). All seven cycles whose recorded residual exceeds one part in a billion, six negative and one positive, including both cycles that failed the audit as losses, fall below one part in a trillion. So in that run the nudge's recorded 'losses' are bookkeeping too, not only its one 'gain'. Gaps: the session replayed four positive cycles, but only two of them are among the four I listed on November 10; the two from the earlier nudge runs, including the largest (about nine parts in a hundred million), were not replayed, and there are now six positive nudge cycles in the table. The unmodified-engine cycle it replayed is below the audit tolerance; that engine's large residuals (five and a half parts per million in a completed moderate-driving run) are a hundred times bigger and unexamined. And round-off alone does not yet explain why the nudge's failures are 800 losses to 6 gains while the unmodified engine's are 13 gains to 2 losses. The fix is small (25 lines in run_events, sums per call from zero) and worth merging; re-auditing after it is the way to close these.\n\nBudget: the summary reports 84.9 CPU-hours, which is the ledger sum and leaves out experiments with no outcome yet. Summing the runs' own records gives about 201 CPU-hours at 05:45, half of the weekly 400, so the fifty-percent mark has been passed without a warning. Ten simulations are running now; the queue is on its last items (case-b baseline about two thirds done, the C-state cross-check about a quarter), so it will not run away.\n\nNew since the session closed, not yet reported: the unmodified engine at the three-dimensional Gamma 5 survival case reached its four-hour cap at all three seeds after 80, 42 and 32 cycles. The case-b baseline runs are at 215 to 825 of 1000 cycles with no slow stretch flagged at either engine.\n\nRun conditions were adequate, for the first time in four nights.",
+ "reviews": [
+  {
+   "claim_id": "E0038",
+   "plain_claim": "Status supported: the second version of persistent contact, which only lets spheres rest on the plate, stalls on the seven stalled two-dimensional conditions at the same cycles as plate-stick and the unmodified engine, with no overlap, audit failure or energy gain.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked size and SHA-256 of all 54 files in E0038-E0040-results.json, read each run's summary, and recomputed the audit outcome from each audit.json.",
+     "finding": "All 54 match. Seven of seven runs ended at the quarter-hour CPU cap after 0, 1, 2, 2, 4, 4 and 20 cycles, with 96 to 99.7 percent of the CPU inside slow stretches (between 1 and 83 episodes per run). No audit failure; worst residual about 1.2e-10. The outcome matches the registration's prediction."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared quantities.npz of each second-version run with the unmodified engine's run at the same condition and seed (E0031), sample by sample over the common length, and read the method counters in the one checkpoint kept.",
+     "finding": "Identical bit for bit at all seven conditions (29 to 671 samples each). The checkpoint at cycle 20 of the strong-driving shallow run shows sleep 0, wakes 0, rest energy 0 over 1.1 million events. The method never rested a sphere before the stall, so this is the unmodified engine. 'No energy gain' is therefore not evidence about the method's energy accounting; it has not been exercised at these conditions."
+    },
+    {
+     "check": "Silent substitution",
+     "what_was_done": "Read the engine commit recorded in each run's summary against the registration (c52079f).",
+     "finding": "Four runs used c52079f. Three (Gamma 3.5 at both frequencies, depth 15; Gamma 5, f* 0.3, depth 5) used 158add1, the head of the branch, which already contains the third version's engine changes. The evidence file shows the commit per run; the ledger outcome and summary do not mention it. No effect on the result, since nothing rested, but those three are not second-version runs."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0039",
+   "plain_claim": "Status falsified: the third version, which also lets spheres rest on resting spheres, gets no further than the second. Reading offered: every stall examined is a free sphere rolling on the plate without slipping with another pressed on it, which the approved rest rule never rests; pressed pairs are handled when still but in a layer they are usually rolling.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared the third version's quantities with the second version's and the unmodified engine's at every condition, and its one overlap with the unmodified engine's failure at the same condition and seed.",
+     "finding": "Third version, second version and unmodified engine are bit-identical over all common samples at all seven conditions. The third version's overlap at Gamma 5, f* 0.5, depth 10 is at cycle 4, phase 0.8257183437360852; the unmodified engine (E0031, same seed) overlaps at cycle 4, phase 0.8257183437360852. The checkpointed run shows zero sleeps. 'Falsified' is the right status under the registration (no more cycles than the second version). But the comparison is of one trajectory with itself: it says nothing about whether resting on resting spheres helps, because nothing was resting. 'The method works as intended in the tests' rests on branch tests run at v_sleep 0.03, three hundred times the pilot's 0.0001, in a layer of 150 spheres at Gamma 2.2."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read the four stall diagnoses and checked the rolling condition from the recorded velocities.",
+     "finding": "In each, one sphere takes 199,977 to 200,000 of 200,000 events and a second takes the pair collisions (31,000 to 55,000). The first sphere's horizontal speed and spin surface speed agree to between seven and ten digits (0.0887, 0.2238, 0.0407, 1.0613), so it is rolling without slip; its height above the plate is 0.33 to 0.47. Three diagnoses show no resting sphere and one shows two. The description is accurate. Since the method was inert, these are diagnoses of the unmodified engine's stall. Rolling speeds are 400 to 10,000 times the default threshold and above the 0.03 used in tests, so a larger threshold under the full-speed rule would not rest these spheres either; that part of the argument holds on the numbers."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Looked at what supports option (a) failing (rest on vertical speed only, keep rolling).",
+     "finding": "One exploratory run on a side branch: 150 spheres, Gamma 2.2, v_sleep 0.03, stalled in cycle 0. It is not registered, has no run files in the evidence, and is at none of the seven conditions. It is a hint, not a result."
+    }
+   ],
+   "what_would_resolve": "Before changing the design, show the method acting at the stalled conditions. Register a short sweep of v_sleep (for example 0.0001, 0.001, 0.01, 0.03, with v_wakeup as approved) for the third version at the seven conditions, and report per run the counts of sleeps, wakes and slow hits and the first sample at which the trajectory departs from the unmodified engine's. If nothing ever rests, say that the pilots only show the method is inert there. Run the vertical-only variant the same way at the same seven conditions with its files in evidence, so option (a) is judged on the conditions that matter. Record which commit each run used and keep it to the registered one."
+  },
+  {
+   "claim_id": "E0040",
+   "plain_claim": "Status falsified: from the five starts where plate-stick overlapped, the third version gets past plate-stick's failure cycle in only one.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the two new runs and the three reused ones against the registration's failure cycles (2, 2, 2, 0, 4).",
+     "finding": "Matches the evidence: Gamma 5, f* 0.5, depth 10, seed 1 completes four cycles and then overlaps; the other four stop in plate-stick's failure cycle (three at the half-hour cap; Gamma 3.5, f* 0.3, depth 15, seed 3 overlaps in cycle 0 at phase 0.934 after 100.5 million slow events). The registered rule (falsified if three or more fail) is met."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared with the unmodified engine at the one start that 'passed'.",
+     "finding": "The passing case is the run that is bit-identical to the unmodified engine and fails exactly where it fails. So the one success is the unmodified engine's, not the method's. The falsified status is unaffected; the count should not be quoted as partial progress."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0031",
+   "plain_claim": "No outcome yet. New this session: at strong driving in two dimensions the unmodified engine completed none of fifteen ended runs and the nudge sixteen of seventeen; and the nudge's four cycles with positive audit residuals are round-off in the engine's running energy totals, not energy added by the nudge. A fix that sums each call from zero leaves trajectories unchanged.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Independent replay, about three minutes of CPU: ran nudge-g5-f0.5-d5-s2 from its seed for 1000 cycles as the referee does, with the engine's energy totals set to zero before every call and the increments summed per cycle (checker/zero_each_cycle.py). Compared each cycle's residual with the recorded audit.",
+     "finding": "Seven cycles have a recorded residual above 1e-9 in size: cycles 272, 496, 573, 598, 676, 714 (negative, -2.1e-9 to -3.8e-8) and 574 (positive, 1.24e-8). With totals zeroed, all seven are between 5e-14 and 1e-12. Per-cycle throughput agrees with the recorded audit to between 2e-9 and 4e-8, the size of the recorded residuals, so it is the same trajectory. What remains is the size of the nudge's own unbooked lift (about 1.6e-13 in cycle 574, as the session reports). This confirms the mechanism for a whole run and for both signs, including the two cycles (496 and 676) that failed the audit as losses."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the 14 files in E0031-positive-residuals.json, the arithmetic in the summary, and which cycles were replayed against my November 10 list. Listed every run with positive failing cycles from E0031-interim-3.json.",
+     "finding": "All 14 files match. The arithmetic is right: 2.1e-6 against 1.4e-11 is a factor of about 150,000; the total was 1.63e6, where the last place is 2.3e-10. The four cycles replayed are all in E0031 runs. Two of them are the ones I listed; the other two I listed are in the earlier nudge runs (E0025, Gamma 5: f* 0.3, depth 10, seed 3, 1.4e-8; f* 0.5, depth 15, seed 2, 9.2e-8, the largest) and were not replayed. The table now has six positive nudge cycles and 800 negative. For the unmodified engine the session replayed cycle 273 of a strong-driving run, 4.9e-9, which is under the 1e-8 tolerance and so was never an audit failure; the failing ones (1.3e-6 and 5.5e-6 in the completed Gamma 3.5, f* 0.3, depth 10 run, and up to 6.8e-7 in three dimensions) were not."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read the fix's diff against main and ran the frozen referee tests against its worktree.",
+     "finding": "25 lines in granular/edmd.py: run_events accumulates into a local array and adds it to the run totals on return; plus one new test file. No change to event processing. 74 of 74 frozen tests pass. The audit still differences run-long totals once per call, which costs at most about 1e-12 of throughput per cycle at present run lengths. I see no reason not to merge it."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Recounted seeds completed out of seeds ended from the per-condition table in E0031-interim-3.json.",
+     "finding": "Strong driving, two dimensions, L 100: unmodified engine 0 of 15 ended (one still running at the snapshot), nudge 16 of 17 (one still running). Moderate driving: 16 of 22 and 18 of 18. Runs asked for only 120 cycles are counted separately, as I asked. The wide-box conditions still have no thousand-cycle nudge run. This answers item (a). Item (c), regenerating the evidence once every run has ended, is still to do; the snapshot is from about 01:10 with 37 names listed as still running or queued."
+    }
+   ],
+   "what_would_resolve": "Not required for the verdict, but to close the item: after the fix is merged or carried to the nudge branch, replay the two E0025 cycles and the unmodified engine's two failing cycles at Gamma 3.5, f* 0.3, depth 10, and report how many of each engine's failing cycles remain and with which sign. Write the E0031 outcome with evidence regenerated after the last run ends."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session started at 23:07:40, under eight minutes late, and ended at 01:20 by its own choice: the method work was waiting on two decisions and the queued runs carry on without it. That is two and a quarter hours of a six-hour window, but nothing was cut short by the machine. The power log shows no sleep or wake after 21:47 on November 11, and the machine has been up since the 00:09 reboot on November 11. Commit times (23:29 to 01:15) fit the recorded window. Work done: queues restarted at 23:16, four registrations, three method versions with tests, sixteen pilot runs, the residual replays, and a fix branch. The ten-core limit was reached from 23:16, so the pilots ran one seed each under quarter- and half-hour caps; since every pilot stalled within a few cycles, more CPU would not have changed them. Now, at 05:45: ten simulations running (eight case-b baseline, two C-state cross-check), all niced; 56 gigabytes free (floor 40); sequel-data at 2.8 of 15 gigabytes; the temporary folder empty; the repository clean; no stray files from the session's window that I could find in the home directory, /tmp or the usual cache folders. The outside job the summary mentions is no longer running, but about 6 of 7 gigabytes of swap are still in use, so memory was tight at some point overnight. Left waiting: the case-b baseline (215 to 825 of 1000 cycles), the cross-check (about 280 of 1020), and Chris's answers on rolling contact and the accumulator fix.",
+  "discrepancies": [
+   "Budget: the summary gives 84.9 CPU-hours spent of 400. That is the ledger total and omits experiments without an outcome (the engine comparison, the three-dimensional runs, the case-b baseline). The runs' own records sum to about 201 CPU-hours at 05:45 (engine comparison 66, case-b baseline 27, three-dimensional runs 13). The fifty-percent mark has been passed and the summary gave no warning; by my estimate the true figure at the end of the session was already near 155.",
+   "Free disk: the summary says it fell from 63 to 54 gigabytes from about 01:00 and held to 01:15; the blocker record written in the same session says 63 gigabytes at 01:15.",
+   "runs/active.jsonl lists 22 jobs; ten are alive. The twelve finished ones (the engine-comparison and three-dimensional runs) are still listed because the queue adds entries and nothing removes them.",
+   "The summary says the five three-dimensional runs were launched at 00:37; active.jsonl records their starts between 00:40 and 00:58. Decision D0021 is stamped 01:25 but was committed at 01:08; the summary admits its ledger times run late."
+  ]
+ }
+}
