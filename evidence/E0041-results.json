@@ -1,0 +1,377 @@
+{
+ "rows": [
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g3.5-f0.3-d15-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 71.3,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 3.926176571567825e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 548.3413722222223,
+   "plate_collisions": 3282575,
+   "pair_collisions": 76274232,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g3.5-f0.5-d15-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 34.9,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 3.518348799232517e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 246.2070666666667,
+   "plate_collisions": 1736814,
+   "pair_collisions": 35277633,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g5-f0.3-d10-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 23.1,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 2.3674059081069523e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 266.9204833333333,
+   "plate_collisions": 1510818,
+   "pair_collisions": 22056717,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g5-f0.3-d15-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 213.7,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 1.870718545383286e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 1522.0281444444445,
+   "plate_collisions": 12920923,
+   "pair_collisions": 226549194,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g5-f0.3-d5-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 2.3,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 3.847869113907605e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 43.923716666666664,
+   "plate_collisions": 77583,
+   "pair_collisions": 849902,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g5-f0.5-d10-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 16.4,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 2.455215326366997e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 174.03489166666668,
+   "plate_collisions": 1188489,
+   "pair_collisions": 15693111,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  },
+  {
+   "experiment": "E0041",
+   "run": "mu0-main-g5-f0.5-d15-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "mu": 0.0,
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 75.8,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "ended_inside_slow_episode": false,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "stalled_or_failed": false,
+   "error": null,
+   "failure_cycle": null,
+   "failure_phase": null,
+   "audit_failing": 0,
+   "failing_positive": 0,
+   "failing_negative": 0,
+   "worst_energy_residual": 2.912988926719489e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 535.5064222222222,
+   "plate_collisions": 4364141,
+   "pair_collisions": 79162471,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0
+  }
+ ],
+ "files": {
+  "E0041/mu0-main-g3.5-f0.3-d15-s1/summary.json": {
+   "bytes": 794,
+   "sha256": "632bca2142c0724c1d21e71f1b5c870fd376778f62614a1e7b26179e4c101504"
+  },
+  "E0041/mu0-main-g3.5-f0.3-d15-s1/audit.json": {
+   "bytes": 45408,
+   "sha256": "8c4bb8d92e4fb8f5df93c36557c37b486889ae3dcc004a58c3af0254944b7038"
+  },
+  "E0041/mu0-main-g3.5-f0.3-d15-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "10db98c8f609cd640d598e276a0f262494eb5d30ddf19ddafdae71600fb98ade"
+  },
+  "E0041/mu0-main-g3.5-f0.3-d15-s1/counters.json": {
+   "bytes": 699,
+   "sha256": "b709eed9ba3ba77a45ba9abb2224373914dc451cdb58c32e0c5d07a8d514f692"
+  },
+  "E0041/mu0-main-g3.5-f0.5-d15-s1/summary.json": {
+   "bytes": 794,
+   "sha256": "5d6017bc378598745663602dd5635cda3dcc2bb6232d9a4cdd8d858a48e464ed"
+  },
+  "E0041/mu0-main-g3.5-f0.5-d15-s1/audit.json": {
+   "bytes": 45464,
+   "sha256": "a71c6aebf34de8092272a082c7a358f8f5d00a5ab2db8d345d9b058a7b6e4254"
+  },
+  "E0041/mu0-main-g3.5-f0.5-d15-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "d189ecd85de2558fcd10931b756e37d686dbb56a876dbb8137e86963ed13ef65"
+  },
+  "E0041/mu0-main-g3.5-f0.5-d15-s1/counters.json": {
+   "bytes": 693,
+   "sha256": "9e9dba5642fe5b59799342d21b96559a5d528340a9d32ce47f9e525f23b0cea9"
+  },
+  "E0041/mu0-main-g5-f0.3-d10-s1/summary.json": {
+   "bytes": 803,
+   "sha256": "3a10978418564219e0e21e964ecefd666b41daa5505e8034c16886eca7f98679"
+  },
+  "E0041/mu0-main-g5-f0.3-d10-s1/audit.json": {
+   "bytes": 44595,
+   "sha256": "5944869efe5cafd62e13927fdc4a02fa078fbb60ca633dc261127a004f4ae2f0"
+  },
+  "E0041/mu0-main-g5-f0.3-d10-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "3df737a20ce27862aca0b5ca17d371efcb51201e47768351622394b1e5b592a5"
+  },
+  "E0041/mu0-main-g5-f0.3-d10-s1/counters.json": {
+   "bytes": 694,
+   "sha256": "082bcf6b23fc125913c1ef988250337d4980fbf5aaad9dd0a98d6e0fc3dac157"
+  },
+  "E0041/mu0-main-g5-f0.3-d15-s1/summary.json": {
+   "bytes": 803,
+   "sha256": "0e54b872757e3b96994f4393298e1df2a94e99db6659f87ff650055490a96e26"
+  },
+  "E0041/mu0-main-g5-f0.3-d15-s1/audit.json": {
+   "bytes": 45419,
+   "sha256": "34689e493b35a59d52768cc9da0197a6ebb0a8e636ba566163c1dfae8739bb8f"
+  },
+  "E0041/mu0-main-g5-f0.3-d15-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "ac8288e0df453276831659ebec60138d33a8390cccbdff20374100fef1bdd16c"
+  },
+  "E0041/mu0-main-g5-f0.3-d15-s1/counters.json": {
+   "bytes": 703,
+   "sha256": "fb590635e35f63935fb8ff7ad9e4c9edf61b1165a02d74796c1c72645c5cae39"
+  },
+  "E0041/mu0-main-g5-f0.3-d5-s1/summary.json": {
+   "bytes": 802,
+   "sha256": "77bf8354b871d4d6131c8ad8fd5227e80c2c1fe8fee06688b97888f09aece754"
+  },
+  "E0041/mu0-main-g5-f0.3-d5-s1/audit.json": {
+   "bytes": 44577,
+   "sha256": "305038d6944c6ff550c95cf0cbd9da20fecfb12fe268fb02160730612fbd1fe9"
+  },
+  "E0041/mu0-main-g5-f0.3-d5-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "87ced54c28431761700ebcf9cfd49057c3342329a238b220cac1cf318d525c89"
+  },
+  "E0041/mu0-main-g5-f0.3-d5-s1/counters.json": {
+   "bytes": 685,
+   "sha256": "fe8fe719c51308a219994479746c1b7ce7fb4639ddfea675f1e5119fa23ef36c"
+  },
+  "E0041/mu0-main-g5-f0.5-d10-s1/summary.json": {
+   "bytes": 796,
+   "sha256": "70b8fea0b00f47056b08dee0614b82fdbcfd921ab836bd293ca0eaacf9fef491"
+  },
+  "E0041/mu0-main-g5-f0.5-d10-s1/audit.json": {
+   "bytes": 44605,
+   "sha256": "e0c44ed7f7e35203f0c259a929612439fa4ff28682f38521a09c7c29e09c32cc"
+  },
+  "E0041/mu0-main-g5-f0.5-d10-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "08f064ca7cbdcb15bc7f92eecfa42bad3cf3d46885a35e7ac4f993bcf31b5953"
+  },
+  "E0041/mu0-main-g5-f0.5-d10-s1/counters.json": {
+   "bytes": 695,
+   "sha256": "47dddbaf57dfd3e8bfd311f86833df616af06a1ca3a9e882969de825d37e9e06"
+  },
+  "E0041/mu0-main-g5-f0.5-d15-s1/summary.json": {
+   "bytes": 793,
+   "sha256": "280c84cb1c89e672e5bcc959d8d25707814e5d960131401745ec5dc1e410e67b"
+  },
+  "E0041/mu0-main-g5-f0.5-d15-s1/audit.json": {
+   "bytes": 45411,
+   "sha256": "6fb33d702de9091f6cac29d49674e325fb6ec7d13ff2ef413e18f08d1dd14e92"
+  },
+  "E0041/mu0-main-g5-f0.5-d15-s1/quantities.npz": {
+   "bytes": 279114,
+   "sha256": "83eb5685fa2c66f5a1e079cd42b493cfd552059f9deb60d8c308b32a058d8ac5"
+  },
+  "E0041/mu0-main-g5-f0.5-d15-s1/counters.json": {
+   "bytes": 695,
+   "sha256": "a2b9a94dd797cc570563059a702a1418aed7511a5064614a18d04daecf2cfd0d"
+  }
+ }
+}
