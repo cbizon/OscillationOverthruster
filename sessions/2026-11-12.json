@@ -1,0 +1,176 @@
+{
+ "date": "2026-11-12",
+ "instruction": "instructions/2026-11-12.md",
+ "headline": "Tonight was for the frictionless test of the stall, the accumulator fix, and collecting the queue. With friction switched off the unmodified engine does not stall at any of the seven stalled conditions, so the stall is not purely a normal-direction problem: friction is what drives a pressed pair into it (collision speeds fall geometrically, about a thousand collisions instead of a hundred million), although once a contact has collapsed it stays stalled without friction. The accumulator fix is merged, and reruns show every audit failure of both engines was bookkeeping round-off. Free disk was under the hard floor from 23:38 because of other jobs on the Mac, so most of the follow-up runs are queued, not done.",
+ "experiments": [
+  {
+   "experiment_id": "E0041",
+   "question": "Does the unmodified engine still stall when friction is switched off?",
+   "what_was_done": "Ran the unmodified engine with the friction coefficient set to zero at the seven stalled two-dimensional conditions, one seed, 120 cycles each, through the referee.",
+   "result": "It does not stall. All seven runs completed 120 cycles in between two seconds and four minutes of CPU, with no slow stretch, a clean energy audit, and not a single collision slower than 1e-10. With friction the same engine stalls at these conditions within the first twenty cycles.",
+   "takeaway": "The registered hypothesis, that the stall would remain, is false. Friction is needed for the stall to form. One seed and 120 cycles so far; more seeds, 1020 cycles and the three-dimensional case are queued.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0043",
+   "question": "What does friction do: bring a contact into the stalled state, keep it there, or both? And what are the true speeds at a stall?",
+   "what_was_done": "For each of the seven conditions, ran the engine with friction to its first stall and described it with velocities taken at the event time. Then continued from that exact state twice, once unchanged and once with friction switched off. Separately, at four conditions, logged every collision of the stalling sphere on the way in, and repeated the approach with friction switched off shortly before the stall.",
+   "result": "At every stall a sphere sits on the plate with normal speed relative to the plate around 1e-11, rolling without slipping, and in six of seven a second sphere is pressed on it at an angle. Switching friction off after the stall has formed leaves it stalled at five of seven conditions. On the way in, the stalling sphere's collision speed drops from 1e-2 to 1e-10 in a few hundred to two thousand collisions; the paper's normal restitution alone would need over a hundred million. With friction off shortly before, the stall does not happen at any of the four.",
+   "takeaway": "The stall is an inelastic collapse through the tangential part of the collision law. The paper's normal restitution goes to one at low speed, which prevents collapse in the normal direction, but the tangential law has no such limit. Once collapsed, the contact is a resting contact and needs no friction to stay stalled, so your normal-direction picture is right about the resting state and the rolling was not the cause. Your check was also right: the earlier 'speed relative to plate' was computed at the wrong time."
+  },
+  {
+   "experiment_id": "E0042",
+   "question": "With friction off, does the normal rest rule (rest on the plate when only the vertical speed is small, keep sliding) act, and what does it change?",
+   "what_was_done": "Built the rule on a new branch from the third version, with tests, and ran it at the seven conditions with friction off, then began a sweep of the rest threshold. In this version every hit on a resting sphere wakes it.",
+   "result": "At the default threshold all seven runs complete. Spheres do rest, from none to several hundred times per run, but every rest is ended by a hit and none lasts until release. There are no slow hits, by construction. At thresholds ten times larger and above, the rule itself stalls: one run overlapped after a hundred million sleep-and-wake pairs and four ran out of CPU in the first cycles, at conditions the unmodified frictionless engine runs in a minute. I stopped the sweep after six of its twenty-one runs.",
+   "takeaway": "Because the frictionless engine does not stall, this pilot could not test survival. What it showed instead is a design rule: waking a resting sphere and recapturing it with zero restitution removes a fixed fraction of a pressed pair's energy at every hit, and that makes the pair collapse, the same way friction does.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0044",
+   "question": "With the accumulator fix, which audit failures remain, and with which sign?",
+   "what_was_done": "Reran from their seeds, with the fix, the two nudge runs holding the largest positive residuals and the unmodified run with the two largest failures, and compared trajectories and audits cycle by cycle.",
+   "result": "All three reruns follow the original trajectories bit for bit, and with the fix not one cycle fails the audit. Before the fix the two nudge runs had 130 and 46 failing cycles (one positive residual each, the rest negative) and the unmodified run had 2, both positive and both in cycles with about a million events per particle. After it the worst residual in any cycle is 1.7e-11, against a tolerance of 1e-8.",
+   "takeaway": "None remain. The audit failures of both engines, of either sign, were round-off in the engine's running totals, including the unmodified engine's large ones in cycles with about a million events per particle. The imbalance of signs between the engines was part of the same artefact.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0031",
+   "question": "Over a thousand cycles, condition by condition, does the nudge fail less often than the unmodified engine?",
+   "what_was_done": "Collected the last runs and regenerated the evidence after every run had ended.",
+   "result": "At strong driving in two dimensions the unmodified engine completed none of eighteen runs and the nudge seventeen of eighteen. The experiment is recorded as falsified on its second clause: at three conditions the nudge had more positive audit residuals per thousand cycles than the unmodified engine, which ran almost no cycles there.",
+   "takeaway": "The survival comparison stands. The clause that failed counted residuals that tonight's reruns show were bookkeeping.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0034",
+   "question": "Does the unmodified engine stall at the referee's three-dimensional survival case, and does the nudge get through case b from the default start?",
+   "what_was_done": "Collected the five runs.",
+   "result": "The unmodified engine reached its CPU cap at all three seeds after 80, 42 and 32 cycles. The nudge completed 120 cycles of case b at both new seeds.",
+   "takeaway": "As expected.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0037",
+   "question": "At case b, does the nudge agree with the unmodified engine on the bulk quantities?",
+   "what_was_done": "Collected the eight thousand-cycle runs from the half-push start and judged the nudge against the unmodified engine with the referee's rule, seed by seed, with the burn-in and block count fixed in advance.",
+   "result": "All eight runs completed with no slow stretch and a clean audit. The nudge passes on all seven quantities at all four seeds; the largest deviation is 2.69 block standard deviations against a threshold of 4.24.",
+   "takeaway": "The nudge leaves ordinary physics alone at case b. This is a condition without long contacts once started gently, so it does not test contact handling.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0036",
+   "question": "Same comparison from the C code's equilibrated state, as a cross-check.",
+   "what_was_done": "Collected both 1020-cycle runs and judged the nudge with the referee's standard rule.",
+   "result": "Both completed cleanly. The nudge passes on all seven quantities; the largest deviation is 1.06 block standard deviations against a threshold of 3.62.",
+   "takeaway": "Agrees with the main baseline.",
+   "graded_by_referee": true
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The stall is a collapse through friction, not through the normal restitution. Do you want the contact method to keep the paper's tangential law exactly and absorb the collapse with a resting state (the current plan), or do you want to see what a tangential law that becomes lossless at low speed would do, as a diagnostic only?",
+   "why_it_matters": "It changes what option four has to do. If the collapse is the paper's model working as written, the resting state must handle rolling and sliding contacts between spheres, which is most of the remaining work. A low-speed limit on the tangential law would be the analogue of what the paper already does for normal restitution, but it is a change to the collision model, which is yours to decide.",
+   "default_if_unanswered": "Keep the paper's law. Run the queued diagnostics (which part of the tangential law drives the collapse, and how much friction it takes) and report."
+  },
+  {
+   "question": "For rest on a sphere, is the tangent-plane proposal the right next build (decision D0024), frictionless first?",
+   "why_it_matters": "In the stalled pairs both contacts carry tangential motion, so a rule that stops the upper sphere does not reach them, and tonight showed that adding losses in the hit path makes things worse. The proposal keeps tangential velocity, errs only toward a small positive gap, and has a cost set by the rest threshold.",
+   "default_if_unanswered": "Build it on a branch without friction and test it on the case where the wake variant collapsed."
+  },
+  {
+   "question": "Slow hits on a sphere that rests but slides: is the 'held' collision acceptable (the plate holds the resting sphere vertically, it recoils horizontally), in place of the approved infinite-mass rule (decision D0022)?",
+   "why_it_matters": "The approved rule assumed a resting sphere that does not move. Applied to a sliding one it does not conserve horizontal momentum. The alternative I built first, waking on every hit, collapses.",
+   "default_if_unanswered": "Use the held collision for frictionless pilots only, and bring a version with friction to you before using it."
+  },
+  {
+   "question": "The merge of the accumulator fix is local, with one test-only commit on top that I made directly on main because the merge left a frozen test failing. Do you want to push main as it is, or redo the merge on GitHub (decision D0025)?",
+   "why_it_matters": "Your usual flow is to merge on GitHub, and this session may not push. Main is now the engine every new run uses.",
+   "default_if_unanswered": "Leave main as it is and keep working from it."
+  },
+  {
+   "question": "Other jobs on the Mac (two Dogsled worktrees) held ten gigabytes of swap from about 23:30, which put free disk under the hard floor for the rest of the session. Should the queue run anyway when the program's own data is small, or keep holding?",
+   "why_it_matters": "About eighty short runs, some twenty CPU-hours at most, waited all night. This is the third session limited by disk from outside the program.",
+   "default_if_unanswered": "Keep holding below the hard floor; the queue starts by itself when disk returns."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Finish the friction picture first: the queued runs (more seeds, 1020 cycles, the three-dimensional case, a scan of the friction coefficient, and which part of the tangential law does it).",
+   "rationale": "It is cheap, a day at most, and it decides what the contact method has to handle. One seed and 120 cycles is not enough to state it as a result."
+  },
+  {
+   "direction": "Then build rest on a sphere as proposed, without friction, followed by friction on the plate contact and on the pair: normal-only rest in the target model.",
+   "rationale": "The frictionless pilots cannot test survival, because nothing stalls without friction. Only the target model can."
+  },
+  {
+   "direction": "In parallel, take the nudge toward the acceptance checks it has not had: the wide two-dimensional boxes at a thousand cycles and the Figure 1 comparison once its specification is settled.",
+   "rationale": "It is still the only method that survives, its audit is now clean with the fix, and it passes bulk physics at case b. Its one overlap in a hundred runs is the open defect."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 238.1,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 2.8,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0004"
+ ],
+ "decisions_needing_you": [
+  "D0022",
+  "D0024",
+  "D0025"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-12T23:00:00-05:00",
+  "actual_start": "2026-11-12T23:07:54-05:00",
+  "ended": "2026-11-13T02:30:21-05:00",
+  "interruptions": [
+   {
+    "start": "2026-11-12T23:29:00-05:00",
+    "end": "2026-11-12T23:30:00-05:00",
+    "cause": "Free disk dipped to 23.3 GB, under the 25 GB hard floor, from swap used by other jobs on the Mac; the queues held new launches for about five minutes."
+   },
+   {
+    "start": "2026-11-12T23:38:00-05:00",
+    "end": "2026-11-13T02:30:21-05:00",
+    "cause": "Free disk at 19 to 22 GB, under the hard floor, for the rest of the session: swap grew from 5 to 10 GB with jobs from two Dogsled worktrees. No new simulation was launched after 23:38; seven already running were left to finish. The session itself kept working (blocker B0004)."
+   }
+  ],
+  "cpu_hours": 7.3,
+  "cores_available": 10,
+  "disk_free_gb": {
+   "start": 26,
+   "end": 21.7
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0043",
+    "reason": "Three of the seven collision-speed traces never launched (disk floor); queued. The outcome is recorded on the four that ran."
+   },
+   {
+    "experiment_id": "E0045",
+    "reason": "Held-hit pilot and threshold sweep, 28 short runs, never launched (disk floor); queued."
+   },
+   {
+    "experiment_id": "E0046",
+    "reason": "Frictionless baseline at more seeds, 1020 cycles and in three dimensions, 24 runs, never launched (disk floor); queued."
+   },
+   {
+    "experiment_id": "E0047",
+    "reason": "Friction-coefficient scan, 28 short runs, never launched (disk floor); queued."
+   },
+   {
+    "experiment_id": "E0048",
+    "reason": "Tangential-law variants, 7 short runs, never launched (disk floor); queued."
+   }
+  ],
+  "limits_hit": "The Mac was awake on AC all session, with no sleep events. Disk limited the science. Free disk was 26 GB at the start, already under the 40 GB floor, which the Nov 11 instruction allows for small runs when the program is not the cause (the program's data is 2.8 GB). From 23:38 it was under the 25 GB hard floor, because swap used by other jobs on the Mac doubled, and it stayed there. So only the first hour's runs were made: the frictionless baseline at one seed, the first rest-rule pilot and six runs of its sweep, the friction-switch runs, four of seven traces, and the three reruns with the accumulator fix, which were already running and took until 02:29. About eighty short runs, at most some twenty CPU-hours, are queued in one queue that launches by itself when free disk is back above 25.5 GB, at most nine at a time. The load average at the start was 3.7 on 14 cores, so cores were not a limit; at most ten simulations ran at once. Budget: 238 of 400 CPU-hours spent by the runs' own records, which is past the fifty percent mark and below eighty."
+ }
+}

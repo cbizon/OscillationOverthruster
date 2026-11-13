@@ -262,8 +262,8 @@ The five options in `notes/contact-options.md`.
   recorded sample, and every audit-failing cycle goes away: nudge 46 of
   46 (Gamma 5, f* 0.5, depth 15, seed 2), unmodified 2 of 2 (Gamma 3.5,
   f* 0.3, depth 10, seed 1; both were +1e-6 in cycles with about a
-  million events per particle), and @@E44@@. Worst residual after the fix:
-  about 8e-12. So the audit failures of both engines were bookkeeping
+  million events per particle), and nudge 130 of 130 (Gamma 5, f* 0.3, depth 10, seed 3). Worst
+  residual after the fix: 1.7e-11. So the audit failures of both engines were bookkeeping
   round-off, of either sign. This also bears on the note of Nov 6 in
   `notes/contact-options.md` that resting contact simulated as many
   collisions drifts energy: that drift has the same source.
@@ -282,8 +282,9 @@ The five options in `notes/contact-options.md`.
   seeds from the half-push start (largest deviation 2.69 block SDs,
   threshold 4.24 for 7 blocks) and from the C state (1.06, threshold
   3.62). Both engines ran 1000 cycles with no slow stretch.
-- **Budget:** 222 CPU-hours spent by the runs' own records
-  (`tools/budget.py`, D0026), 56% of 400. Past the 50% mark.
+- **Budget:** 238 CPU-hours spent by the runs' own records
+  (`tools/budget.py`, D0026; `evidence/budget-2026-11-12.json`), 60% of
+  400. Past the 50% mark, below 80%.
 - **Disk (B0004):** free disk was 26 GB at the start and 21 GB from
   23:38 on, from swap used by other jobs on the Mac. Launches held.
 

@@ -5,42 +5,42 @@
    "rerun": "E0044/nudgefix-g5-f0.3-d10-s3",
    "original_commit": "b608fef",
    "rerun_commit": "16f3334",
-   "rerun_outcome": "running",
-   "cycles_compared": 420,
-   "samples_compared": 13441,
+   "rerun_outcome": "completed",
+   "cycles_compared": 1000,
+   "samples_compared": 32001,
    "bulk_samples_bit_identical": true,
    "rerun_audit": {
     "failing": 0,
     "positive": 0,
     "negative": 0,
     "momentum_only": 0,
-    "worst_positive": 3.837547302768719e-12,
-    "worst_negative": -7.728322588004301e-12,
+    "worst_positive": 1.6956495079429432e-11,
+    "worst_negative": -7.821068753141939e-12,
     "worst_momentum": 1.644859387033164e-12
    },
    "original_audit": {
-    "failing": 45,
-    "positive": 0,
-    "negative": 45,
+    "failing": 130,
+    "positive": 1,
+    "negative": 129,
     "momentum_only": 0,
-    "worst_positive": 1.3648414277037406e-10,
+    "worst_positive": 1.4312217599144656e-08,
     "worst_negative": -5.379127635540944e-07,
-    "worst_momentum": 7.116842637742113e-11
+    "worst_momentum": 7.555934714323496e-10
    },
    "named_cycles": {
     "454": {
      "original": 1.4312217599144656e-08,
-     "rerun": null,
+     "rerun": 3.2477532985407036e-12,
      "original_momentum": 1.088978307696807e-11,
-     "rerun_momentum": null,
-     "rerun_passes": null,
+     "rerun_momentum": 8.874881315148821e-14,
+     "rerun_passes": true,
      "events_per_particle": 4088.832
     }
    },
    "still_failing_cycles": [],
    "original_slow_episodes": 1145,
-   "rerun_slow_episodes": 1081,
-   "rerun_cpu_hours": 1.96
+   "rerun_slow_episodes": 1145,
+   "rerun_cpu_hours": 2.95
   },
   {
    "original": "E0025/2d-g5-f0.5-d15-s2",
@@ -149,16 +149,16 @@
    "sha256": "66a85f41035854ee3911d2a1f389dede504afe23c253b793aaab95b10c28b9c6"
   },
   "E0044/nudgefix-g5-f0.3-d10-s3/summary.json": {
-   "bytes": 399362,
-   "sha256": "327c9be9af5dd3191c5f456506c98b55d927db597120a0f11b3dab9445838f08"
+   "bytes": 423197,
+   "sha256": "34fbd399e3e2389cd0c2aad648f1942445811e81a81c9f1dd699edc40ab51357"
   },
   "E0044/nudgefix-g5-f0.3-d10-s3/audit.json": {
-   "bytes": 156909,
-   "sha256": "10aca7529073d86a222f638db953b0560bf01bf0d68227b7c883c010fc665cd3"
+   "bytes": 373768,
+   "sha256": "eb54ddd4cc684404e2adc2b709bb89a9a1b57563f02347d443ce9130173d8cae"
   },
   "E0044/nudgefix-g5-f0.3-d10-s3/quantities.npz": {
-   "bytes": 970314,
-   "sha256": "b9e83b512673e36f49a93fb9118eb21358ecd936522723cbee8442cfcffe7d22"
+   "bytes": 2306634,
+   "sha256": "66a85f41035854ee3911d2a1f389dede504afe23c253b793aaab95b10c28b9c6"
   },
   "E0025/2d-g5-f0.5-d15-s2/summary.json": {
    "bytes": 1110,
