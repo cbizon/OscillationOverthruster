@@ -2,9 +2,15 @@ Prepare the morning debrief for the sequel research program, and wait for
 Chris to discuss it.
 
 Work in ~/Projects/experiments/sequel. Run `uv run --project ~/Projects/experiments/research-programs program check`. Read
-DIRECTION.md, PROGRAM.md, the latest session summary in sessions/, and the
-checker's review of it in reviews/. Then write the debrief for a scientist
-who didn't watch the night and hasn't read the session files or transcripts.
+DIRECTION.md, PROGRAM.md, the latest session summary in sessions/, the
+instruction it followed, and the checker's review of it in reviews/. Then
+write the debrief for a scientist who didn't watch the night and hasn't read
+the session files or transcripts.
+
+The instruction's "Asked" section is what Chris asked for, in
+Chris's words. The debrief answers those questions as they were
+asked. If the session answered a different question, or built something
+other than what was asked, say that; don't adopt the session's framing.
 
 Organize it around lines of research, not around the order of the night or
 the files you read. A line of research is one thread of work: a method being
@@ -17,23 +23,49 @@ about a line goes in its own section, in one place.
 2. Terms: a line each for the terms the debrief depends on (methods,
    conditions, checks). Define anything else where it is first used. Never
    use a name, label or id that the debrief hasn't introduced.
-3. One section per line of research that was active, each in this order:
+3. What you asked: each item from the instruction's "Asked" section, word
+   for word, followed by the answer in the same terms: yes, no, a number,
+   or "not answered" with why. Add the checker's verdict on whether it was
+   answered, and anything the session did differently from what was asked.
+   For a fallback night, say there was no instruction.
+4. One section per line of research that was active, each in this order:
    - what it is and why it is being done;
    - what was built or run (which conditions, how many starts, how long);
    - what the agent concluded;
    - what the checker found: whether each claim holds, is doubtful or is
      broken, and why. A challenged claim is not a headline result;
    - what stands, and what is still open.
-   Give numbers with what they mean.
-4. How the session ran: the checker's verdict and the facts behind it,
+   Give numbers with what they mean. Say which item under "What you asked"
+   the line serves, or that nobody asked for it.
+5. How the session ran: the checker's verdict and the facts behind it,
    anything `program check` reported (failures, approvals in the last day),
    the budget, and discrepancies in the records.
-5. Decisions for Chris: each of the agent's questions in plain
-   language, naming the line it belongs to, what happens by default, and
-   your recommendation with a one-line reason.
-6. A draft of tonight's instruction.
+6. Decisions for Chris: only questions Chris can answer
+   from this debrief alone, without reading the ledger. Put each in plain
+   language, in the terms Chris has used, with the line it belongs
+   to, what happens by default, and your recommendation with a one-line
+   reason. If you can't put a question that way, don't ask it: say the
+   agent's default applies.
+7. A draft of tonight's instruction, in the format below.
 
 Report only what the files say, and mark any inference of your own as
-yours. Then discuss. When Chris agrees on
-tonight's instruction (under about 250 words, written for the agent), save
-it as instructions/YYYY-MM-DD.md dated today and commit it on `main`.
+yours. Then discuss.
+
+## The instruction
+
+The instruction has two sections (see instructions/README.md):
+
+- `## Asked`: a numbered list of what Chris asked for in this
+  conversation, in Chris's own words, quoted and not paraphrased.
+  One item per request. Trim, but don't reword, merge or reinterpret.
+- `## Details`: what the agent needs to carry each item out (conditions,
+  order, approvals, housekeeping), written for the agent, each point tied to
+  an item by number or marked as housekeeping.
+
+Details may add to an item. They may not narrow or defer part of it. If you
+think part of a request should wait or be done differently, tell
+Chris so before saving, and put the agreed wording under Asked.
+
+When Chris agrees on tonight's instruction (Details under about 250
+words), save it as instructions/YYYY-MM-DD.md dated today and commit it on
+`main`.

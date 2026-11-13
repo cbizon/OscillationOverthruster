@@ -20,10 +20,30 @@ sessions or `PROGRAM.md`, start long jobs, or touch running ones.
    evidence, and "Known ways this goes wrong".
 2. `referee/checker.md`: this program's own checks, which you also run.
 3. The latest session summary in `sessions/` and the instruction it
-   followed.
+   followed. The instruction's "Asked" section is the scientist's own
+   wording.
 4. Records in `ledger/` added or changed by that session, and the evidence
    files they point to.
 5. Your previous review in `reviews/`, for challenges still open.
+
+## What was asked
+
+Read the instruction's "Asked" section and the summary's `answers`. For
+each item:
+
+- Is `asked` the item word for word?
+- Does the answer reply to that question, or to a different one? Compare
+  what was built and run with the item's words, not with the session's
+  description of it.
+- Did the work test anything? For a change under test, look for where its
+  output differs from the unchanged version; identical output means nothing
+  was tested.
+- Verdict: `answered`, `partly`, `not_answered`, or `different_question`,
+  with what you found.
+
+Also say how much of the session went to work no item asked for. Record
+this in the review's `answers`, and lead the review's summary with any item
+that was not answered as asked.
 
 ## Claims
 

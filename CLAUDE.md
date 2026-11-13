@@ -31,7 +31,9 @@ Who owns what:
    them unless an instruction says otherwise.
 3. Read `PROGRAM.md`, then the instruction for today in `instructions/`
    (`YYYY-MM-DD.md`, dated by the evening the session starts). If there is
-   none, follow `instructions/fallback.md`.
+   none, follow `instructions/fallback.md`. The instruction's "Asked"
+   section is what Chris wants to know, in Chris's words;
+   see "What was asked".
 4. Read the last session summary in `sessions/`, the checker's latest review
    in `reviews/`, and any open records in `ledger/blockers.jsonl` and
    `ledger/claims.jsonl`. Answer every open challenge this session: produce
@@ -42,6 +44,28 @@ Who owns what:
    what it reports comes first; if you can't fix it, record a blocker, write
    the summary, and stop.
 7. Do any start-of-session checks `BRIEF.md` lists.
+
+## What was asked
+
+The session exists to answer the items under "Asked" in the instruction, as
+they are worded. "Details" says how; where the two seem to disagree, "Asked"
+wins and you say so in the summary.
+
+- Before planning, write down for each item what result would answer it.
+  If your plan can't produce that result, change the plan, not the
+  question.
+- Don't replace a question with a neighbouring one you find more
+  interesting or easier to test. A finding nobody asked for goes in
+  `proposed_directions`; it doesn't take the night.
+- If an item is unclear, take the reading closest to the words, do that,
+  and say which reading you took. Don't build on a reading the words don't
+  support.
+- When you test a change (a method, a fix, a setting), first show that it
+  acted: where its output first differs from the unchanged version, and how
+  often the new code path ran. A run identical to the baseline tests
+  nothing, and you say so instead of reporting a result.
+- A choice the instruction didn't make that changes what is being tested is
+  a decision: record it, and list it under that item's `departures`.
 
 ## Where work goes, and keeping the machine clean
 
@@ -133,14 +157,23 @@ Leave at least 20 minutes. Write `sessions/YYYY-MM-DD.json`, dated like the
 instruction it followed (schema: `~/Projects/experiments/research-programs/schemas/session-summary.schema.json`),
 for a scientist who didn't watch the session:
 
+- `answers`: write this first. One entry per item under "Asked", in order:
+  `asked` is the item copied word for word; `status` is `answered`,
+  `partly` or `not_answered`; `answer` replies in the item's own terms (yes,
+  no, a number, or why there is no answer yet) before any explanation;
+  `departures` says where what you did differs from what was asked. Empty
+  on a fallback night.
 - `headline`: two or three sentences on what the session was for and what
-  was learned.
+  was learned. It may not claim more than `answers` does.
 - `experiments`: for each one, the question, what you did, what happened,
   and what it means, in plain language. No ids or abbreviations in the
   prose; numbers in words with their meaning.
 - `claims_changed`: claims whose status changed, with why.
 - `questions`: at most five, each with why it matters and what you'll do by
-  default if unanswered. Only ask what the data can't settle.
+  default if unanswered. Only ask what the data can't settle, and only what
+  Chris can answer from the summary alone, in the terms the
+  instruction used. If you can't put a question that way, apply your
+  default and report it.
 - `proposed_directions`: two or three, ranked, each with a rationale.
 - `budget`, `open_blockers`, and `run_conditions`.
 
