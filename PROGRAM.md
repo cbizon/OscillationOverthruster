@@ -43,6 +43,18 @@ after `DIRECTION.md` at the start of every session.
     stalled 2D conditions (E0039, E0040). Every stall examined is a
     sphere rolling on the plate with a sphere pressed on it, which the
     approved rest rule never rests (D0020).
+  - Nov 12: the stall needs friction to form. With mu = 0 the unmodified
+    engine runs every stalled 2D condition without a slow stretch (E0041).
+    With friction, the stalling sphere's collision speeds fall
+    geometrically, about a thousand collisions from 1e-2 to 1e-10, where
+    the paper's normal restitution alone would need about 1.4e8 (E0043):
+    an inelastic collapse through the tangential part of the collision
+    law. Once collapsed, the contact stays stalled with friction switched
+    off, so the resting state itself is a normal-direction problem.
+  - Nov 12: normal rest rule built and piloted without friction (E0042,
+    E0045). Any step that removes a fixed fraction of a pressed pair's
+    energy makes it collapse; waking and recapturing a resting sphere on
+    every hit is such a step.
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -77,6 +89,10 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 12 session: awake on AC, no sleep events. Free disk was under the
+    40 GB floor all session and under the 25 GB hard floor from 23:38
+    (swap from other jobs on the Mac, B0004), so most of the night's
+    queued runs could not launch.
   - Nov 11 session: awake on AC throughout, no sleep events; the queues
     lost to the Nov 11 00:05 kernel panic were restarted at 23:16.
   - Nov 8: the Mac rebooted at 23:23, after the scheduled 23:00 start. The
@@ -175,8 +191,101 @@ The five options in `notes/contact-options.md`.
   lone rolling sphere is fixed, but a layer stalls at a sphere pressed
   on a rolling resting one. Question for Chris (D0020).
 - Pinned worktrees for the pilots: `persistent-contact-v2`, `-v3`.
+- Nov 12, normal rest rule, `method/persistent-contact-normal` (setting
+  `rest_rule = normal`; the default stays D0016's `full`; D0022):
+  - 9923d8a: rest on the plate when the vertical speed relative to the
+    plate is below v_sleep; horizontal velocity and spin are kept, so the
+    sphere slides. Nothing rests on a sphere. Every hit on a resting
+    sphere wakes it (`normal_hit = wake`).
+  - 8b78fec: `normal_hit = held`: a slow hit from above is one collision
+    in which the plate holds the resting sphere vertically and it recoils
+    horizontally. Frictionless only.
+  - Tests: 74 frozen, 148 branch, 1 skipped, 1 strict xfail.
+  - Pinned pilot branches (defaults mu = 0 and the rule on; not for
+    merging): `method/persistent-contact-normal-mu0` (b40bfd4),
+    `method/persistent-contact-normal-held-mu0` (cba8c0c), and
+    `method/mu0-unmodified` (765c1f0) for the frictionless baseline.
+  - Proposal for rest on a sphere (D0024, for Chris):
+    `evidence/D0024-rest-on-sphere-proposal.md`.
+- **Next step, from the Nov 12 instruction: normal-only rest with
+  friction (mu = 0.5), the target model.** Not started. It needs sliding
+  friction for a resting sphere that slips on the plate, and a rule for
+  rest on a sphere (D0024).
 
 ## Current state
+
+### Nov 12 findings
+
+- **The stall needs friction to form (E0041, E0043).**
+  - With mu = 0 the unmodified engine completed 120 cycles at all seven
+    stalled 2D conditions (seed 1) with no slow stretch and not one
+    collision slower than 1e-10 (`evidence/E0041-results.json`).
+  - With friction, at the first stall of each condition the picture is the
+    same: a sphere on the plate, normal speed relative to the plate about
+    1e-11, rolling without slip, with a second sphere pressed on it 22 to
+    61 degrees from vertical. The Nov 11 "speed relative to plate" was
+    wrong, as Chris suspected: the tool took velocities at the last frame
+    time, not the event time. `tools/mu_switch.py` replaces it.
+  - On the way in, the stalling sphere's collision speed falls from 1e-2
+    to 1e-10 in 306 to 2097 collisions (four conditions traced), a factor
+    of 0.95 to 0.995 per collision. The paper's normal restitution alone
+    would take about 1.4e8.
+  - Friction switched off five chunks (500 N events) before the stall: no
+    stall in that cycle, 4 of 4. Friction switched off after the stall has
+    formed: still stalled at 5 of 7 (one clears, one partly).
+  - Reading: the paper's e(v) goes to 1 at low speed, which protects the
+    normal direction from inelastic collapse; the tangential law has no
+    such limit, so a pressed, oblique pair collapses through it. The
+    collapsed contact then needs no friction to stay stalled.
+  - Not yet done because free disk was under the floor (B0004): the last
+    three traces, seeds 2 and 3, 1020 cycles, the 3D case (E0046), the
+    friction scan (E0047), and which part of the tangential law does it
+    (E0048). All queued in `runs/all-1112c.spec`.
+- **Normal rest rule, frictionless pilots (E0042, E0045).** Built as the
+  Nov 12 instruction asked (see Option 4).
+  - Because the frictionless engine does not stall, these pilots cannot
+    test survival. They test whether the rule acts and what it changes.
+  - `normal_hit = wake`, v_sleep 1e-4: completes all seven conditions;
+    0 to 686 sleeps per run, every one ended by a hit, none by release.
+    No slow hits by construction.
+  - Same rule at v_sleep 1e-3 and above: collapses. Six sweep runs done:
+    one completed, one overlapped in cycle 6 after 1.04e8 sleep/wake
+    pairs, four stopped at their CPU cap in cycle 0 to 2 with 3e8 to 5e8
+    (`evidence/E0042-results.json`). The rule creates a stall where the
+    unmodified engine has none: each wake-and-recapture is a collision
+    with zero restitution.
+  - `normal_hit = held` ran the failing condition for 12 cycles at v_sleep
+    1e-3, 1e-2 and 3e-2 with ordinary event counts (trial, in the branch
+    tests). Its pilot (E0045) is queued.
+- **Accumulator fix merged and checked (D0021, D0025, E0044).** Reruns of
+  three runs with the fix are bit-identical to the originals in every
+  recorded sample, and every audit-failing cycle goes away: nudge 46 of
+  46 (Gamma 5, f* 0.5, depth 15, seed 2), unmodified 2 of 2 (Gamma 3.5,
+  f* 0.3, depth 10, seed 1; both were +1e-6 in cycles with about a
+  million events per particle), and @@E44@@. Worst residual after the fix:
+  about 8e-12. So the audit failures of both engines were bookkeeping
+  round-off, of either sign. This also bears on the note of Nov 6 in
+  `notes/contact-options.md` that resting contact simulated as many
+  collisions drifts energy: that drift has the same source.
+- **Numba cache hazard.** A test that loads `main`'s engine under a
+  second module name (`granular_main`) writes cache entries that break
+  the next plain import of `granular` if it is the first to compile
+  after a source change. It made a frozen test fail after the merge;
+  clearing `granular/__pycache__/*.nb*` fixes it. The branch tests on
+  `method/persistent-contact*` still load `main` that way.
+- **Engine comparison, final (E0031, E0034).** 2D, L 100, Gamma 5, seeds 1
+  to 3: unmodified 0 of 18 runs completed 1000 cycles, nudge 17 of 18.
+  E0031 is recorded falsified on its second clause (positive residuals
+  per 1000 cycles, at conditions where the unmodified engine ran almost
+  no cycles); E0044 shows those residuals were round-off.
+- **Nudge at case b (E0037, E0036).** Passes the bulk rule at all four
+  seeds from the half-push start (largest deviation 2.69 block SDs,
+  threshold 4.24 for 7 blocks) and from the C state (1.06, threshold
+  3.62). Both engines ran 1000 cycles with no slow stretch.
+- **Budget:** 222 CPU-hours spent by the runs' own records
+  (`tools/budget.py`, D0026), 56% of 400. Past the 50% mark.
+- **Disk (B0004):** free disk was 26 GB at the start and 21 GB from
+  23:38 on, from swap used by other jobs on the Mac. Launches held.
 
 ### Nov 11 findings
 
@@ -264,6 +373,9 @@ The five options in `notes/contact-options.md`.
 - It is the hardened import described in `README.md`. It fails loudly on
   physical violations, matches an all-pairs reference, and restarts bit for
   bit.
+- Since Nov 12 it includes the accumulator fix (merge 997eb49, D0021,
+  D0025): energy terms are summed per call from zero. Trajectories are
+  unchanged. Not pushed.
 - It stalls or overlaps in lasting contact:
   - at 3D Figure 1 case b, at the first landing, at all 4 seeds tried with
     the default start;
@@ -344,27 +456,28 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- Collect the runs left going (`runs/active.jsonl`; queue
-  `all-1111.rest.queue.log`): E0031's last two unmodified runs, E0034,
-  E0037 (eight runs, about five CPU-hours each), then E0036. If the queue
-  is not running, restart it from the lines of `all-1111.rest.spec` not
-  yet in the log.
-- Then: final E0031/E0034 evidence (`tools/e0031_evidence.py`); judge the
-  nudge against the E0037 baseline (burn-in 300, 7 blocks, D0018).
-- Option four: wait for Chris on D0020 (rolling spheres). If he picks a
-  rolling-contact treatment, build it on its own branch from
-  `method/persistent-contact` and rerun E0039's conditions. v4 (hull,
-  tau_check) waits until the rolling question is settled, because it
-  doesn't touch the stall.
-- If D0021 is approved: merge `fix/energy-accumulators`, carry it to
-  `method/nudge` and `method/persistent-contact`, and replay the failing
-  audit cycles of both engines to see which failures remain.
+- Check the queue `runs/all-1112c.spec` (log `all-1112c.queue.log`): it
+  holds while free disk is under 25.5 GB and launches by itself above
+  it. If it is not running, restart it from the lines not yet in the
+  log (`zsh tools/qx4.sh runs/all-1112c.spec 9`). It holds, in order: 3
+  E0043 traces, E0048 (7), E0045 pilot (7), E0046 seeds (14) and 3D (3),
+  E0047 (28), E0046 1020-cycle baselines (7), E0045 sweep (21), E0042's
+  remaining sweep runs (15).
+- Then write outcomes for E0042, E0043, E0045 to E0048. Evidence tools:
+  `tools/friction_evidence.py` (runs / e0043), `tools/e0042_table.py`.
+  Judge E0042 and E0045 pilots against E0046's 1020-cycle baselines with
+  `bulk.py`.
+- **Normal-only rest with friction (mu = 0.5), the target model** (Nov 12
+  instruction). Waits on Chris's answer to D0024 (rest on a sphere) and
+  D0022 (slow hits).
+- Chris to decide: push `main` (merge 997eb49 and test commit 0b15165
+  are local only, D0025).
 - The intrinsic sweep (when a candidate survives) includes v_wakeup =
   v_sleep.
-- Tools added Nov 11: `qx4.sh`, `e0037_run.sh`, `pstat.py`,
-  `pc_counters.py`, `pc_stall_diag.py`, `pc_evidence.py`,
-  `nudge_residual_replay.py`, `residual_locate.py`,
-  `residual_by_event.py`, `residual_by_event_zeroed.py`.
+- Tools added Nov 12: `lc_counters.py`, `mu_switch.py`,
+  `collapse_trace.py`, `tangential_variants.py`, `friction_evidence.py`,
+  `e0042_table.py`, `e0037_judge.py`, `e0044_compare.py`, `budget.py`.
+  `pc_stall_diag.py` is superseded by `mu_switch.py` (wrong time).
 
 Earlier items (from Nov 8):
 
