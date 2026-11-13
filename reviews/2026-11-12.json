@@ -1,0 +1,143 @@
+{
+ "date": "2026-11-12",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "The session made no claims; I reviewed its experiments. The main results stand, with one reading that goes further than the data. program check passes; the latest approval is still Chris's from November 6. All 310 files listed in the six new evidence files match their recorded size and checksum. The frozen referee tests pass on main after the local merge (74 of 74; I ran them).\n\nWhat stands. (1) With friction set to zero the unmodified engine ran all seven stalled two-dimensional conditions for 120 cycles with no slow stretch, no audit failure and no collision slower than 1e-10. I recomputed this from the run files; the engine branch differs from main by the one line that sets the friction coefficient, and each run records friction zero. It is one seed. (2) The accumulator fix removes every audit failure in the three rerun runs, and the reruns are bit-for-bit the original trajectories. I compared the files myself: 130, 46 and 2 failing cycles before, none after, worst residual 1.7e-11 against a tolerance of 1e-8. The audit failures of both engines in these runs were bookkeeping. (3) The collected runs (engine comparison, three-dimensional survival case, case-b bulk comparison) are reported correctly, apart from one count in the ledger.\n\nWhat goes further than the data. The summary states as fact that the stall is an inelastic collapse through the tangential part of the collision law. What was shown is that friction is needed for the stall to form, and that the stalling sphere's collision speed falls eight decades in 306 to 2097 collisions at four conditions. Which part of the tangential law does it is the queued experiment that never launched. Also, the test of whether a formed stall survives switching friction off is weaker than '5 of 7' suggests: at one of the five (Gamma 3.5, f* 0.3, depth 15) the stalled engine performs no collisions at all, only plate events that are found and skipped with time not advancing, so friction cannot matter there. The informative count is four of six. In every stall examined the gaps are slightly negative (1e-14 to 2e-11 inside the plate) and 71 to 100 percent of events are plate events with no collision applied, so the stalled state is the engine at round-off, and how it behaves there says little about a physical resting contact. Chris should weigh this before answering the first question (whether to try a tangential law that becomes lossless at low speed): the diagnostic that would say whether the rolling limit is responsible has not run.\n\nThe rest-rule pilot is reported fairly, but its threshold sweep covered only the two Gamma 3.5 conditions (6 of 21 runs), so the 'design rule' drawn from it rests on two conditions. I could not run the frozen tests on the new method branch (the worktree could not build its environment) and did not pursue it.\n\nState now, 05:45: free disk is 22 gigabytes, still under the 25 gigabyte hard floor, and the queue of about eighty runs has held since 23:38 (its log shows a hold every five minutes through 05:37). The Dogsled jobs the session names are no longer running, but 7.6 gigabytes of swap are still allocated. Even with all swap released free disk would be about 31 gigabytes: above the hard floor, below the 40 gigabyte floor in budgets.yaml. The disk is 98 percent full with other material; this is not the program's data (2.8 of 15 gigabytes). Because of the hold instruction I ran no simulations of my own, so the neighbouring-condition and other-seed checks I would normally do on the frictionless result are left to the queued runs.\n\nRules: the session merged the accumulator fix into main locally and then committed a test-only change directly on main (recorded as a decision, raised as a question). Main is not pushed. Chris's usual flow is to merge on GitHub; he should decide whether to keep this. One slip of my own: running the tests in a method worktree created a virtual environment folder there; I removed it.",
+ "reviews": [
+  {
+   "claim_id": "E0041",
+   "plain_claim": "Status falsified: with friction switched off, the unmodified engine does not stall at any of the seven two-dimensional conditions where it stalls with friction. Friction is needed for the stall to form.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Silent substitution",
+     "what_was_done": "Diffed the engine branch against the registered main commit, read each run's recorded commit and friction coefficient, and recomputed the audit outcome from each audit.json.",
+     "finding": "The branch differs from main 0b15165 in one line of granular/sim.py (friction coefficient 0.5 to 0). All seven runs record commit 765c1f0, friction 0, 120 cycles completed, no slow episode. Recomputed: no failing cycle, no energy gain, worst residual 2.9e-13, zero plate or pair collisions slower than 1e-10. CPU between about 8 and 214 seconds. Matches the evidence file."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Asked whether the frictionless layers are simply more agitated, so that long contacts never arise. Compared 100-cycle means (cycles 20 to 120) with the one with-friction run that got that far, and read the with-friction runs' slow episodes.",
+     "finding": "At Gamma 3.5, f* 0.5, depth 15 the frictionless layer is 22 percent thicker (7.33 against 6.01) with a similar share of spheres at the plate (0.010 against 0.008), as the session says. That is the only condition where the comparison exists. The frictionless runs do have spheres bouncing on the plate at low speed (several hundred events per sphere per cycle), so contacts are being pressed; they just never reach tiny speeds. My own estimate from the paper's restitution law agrees: a sphere bouncing from speed 0.01 needs about eight time units, more than two drive periods, to die out, so it cannot collapse within a cycle. With friction, the same seven conditions first slow in cycles 0 to 20; one of them (Gamma 3.5, f* 0.5, depth 15) then completed 1000 cycles, but with 135 slow stretches taking 3.09 of its 3.25 CPU-hours. 'Stalls within the first twenty cycles' is right if stall means the first slow stretch."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Looked for other seeds, longer runs, three dimensions or neighbouring conditions.",
+     "finding": "None exist. One seed, 120 cycles, two dimensions only. The runs that would cover this (two more seeds, 1020 cycles, the three-dimensional survival case) are registered and queued but held by the disk floor. I did not run one myself because free disk is under the hard floor. The summary says plainly that one seed is not enough to state it as a result; I agree."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0043",
+   "plain_claim": "Status supported: friction brings a contact into the stalled state and is not needed to keep it there. Reading offered: the stall is an inelastic collapse through the tangential part of the paper's collision law; once collapsed the contact is a resting contact, so the normal-direction picture is right about the resting state.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read all seven friction-switch records and the four traces in the evidence file against the registration's two rules, and checked the summary's numbers.",
+     "finding": "The registered judgement is met and the numbers are right. Stalled state: normal speed relative to the plate between 9e-16 and 9e-11, slip at the plate 2e-13 to 6e-10, a second sphere pressed on at 22 to 61 degrees in six of seven. Friction off after the stall: a normal chunk appears at two of seven (rule: falsified at four or more). Fall from 1e-2 to 1e-10 in 306, 793, 1043 and 2097 collisions (rule: falsified above a million). The recorded falls are roughly steady in the logarithm with about half a decade of scatter, so 'geometric' is a fair description. The power-law figure of 1.4e8 collisions for the normal restitution alone is correct arithmetic. So the status stands."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Looked at what the engine is doing in each stalled state: event types, collision counts and gaps in the diagnosis, and in the two 300-chunk continuations.",
+     "finding": "At Gamma 3.5, f* 0.3, depth 15 the stall is a single sphere (no pressed partner) with all 200,000 events of one type, plate events where the sphere is not approaching and no collision is applied, and time advancing by exactly zero. Both continuations ran 45 million events with zero plate and zero pair collisions. Friction acts only in collisions, so switching it off there tests nothing. Of the six stalls that do have collisions, four persist with friction off, one clears and one partly clears. In all seven the sphere's gap to the plate is slightly negative (1e-14 to 2e-11) and 71 to 100 percent of the diagnosed events are these skipped plate events. The stalled state is the engine working at round-off, not a clean physical resting contact, so 'needs no friction to stay stalled' describes the engine's inability to leave that state more than it describes the physics."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Checked what supports the mechanism named in the summary and PROGRAM.md (collapse through the tangential law, whose rolling-limit coefficient does not go to one at low speed).",
+     "finding": "Nothing direct. The evidence is that friction is necessary (E0041, and friction switched off five chunks before the stall at four conditions gives no stall in the rest of that cycle) and that speeds fall fast. The experiment that separates the rolling limit from Coulomb sliding (rolling coefficient set to one; friction made very large) is registered and has not run. In one case (Gamma 3.5, f* 0.3, depth 15) friction was switched off 0.015 of a period before the stall, after the fall had begun (the fall takes about 0.04 of a period), and the run then covered only the remaining 0.028 of the period; that one is weak on its own. Three of the seven traces never ran. The mechanism is a reasonable hypothesis, stated in the summary as a finding."
+    }
+   ],
+   "what_would_resolve": "Run the queued tangential-law variants and the three remaining traces, and state the mechanism only as far as they show. Report the friction-off-after-stall result as four of six, with the collision-free stall counted separately and described as what it is (an event loop with no collisions and no time advance). For that condition, repeat the friction-off-before test from before the fall begins and continue past the end of the cycle. Until then, word the result as: friction is necessary for the stall to form at these seven conditions (one seed)."
+  },
+  {
+   "claim_id": "E0042",
+   "plain_claim": "Status falsified: without friction, the normal rest rule (rest on the plate when only the vertical speed is small; every hit wakes) completes at the default threshold but collapses at larger thresholds. Reading offered: waking and recapturing a resting sphere removes a fixed fraction of a pressed pair's energy at each hit and makes it collapse, as friction does.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read all thirteen run records in the evidence file against the registration and the summary.",
+     "finding": "Matches. Default threshold: seven of seven complete, sleeps 0, 0, 1, 1, 4, 504 and 686, no audit failure, no energy gain; all runs used the registered commit b40bfd4. Sweep: at ten times the threshold one run completed (186 sleeps) and one overlapped after 104 million sleeps; at a hundred and three hundred times, all four stopped at the quarter-hour CPU cap with 310 to 548 million sleeps. The falsifier (any run failing to complete) is met. The summary's 'at thresholds ten times larger and above, the rule itself stalls' is loose: at ten times, one of two completed."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked which conditions the sweep covered.",
+     "finding": "Only Gamma 3.5 at f* 0.3 and 0.5, depth 15: six of the 21 registered runs. The session stopped the sweep once the falsifier was met and says so in the ledger, but the summary does not say the collapse was seen at two conditions only. The 'design rule' is plausible and consistent with these runs; it has not been tested at Gamma 5. The two default-threshold runs with no sleeps are identical to the unmodified frictionless runs, so five of seven, not seven, show the rule acting."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the audit fields of the runs; tried to run the frozen tests on the method branch.",
+     "finding": "No failing audit cycle and no energy gain in any of the thirteen runs, including the collapsed ones. Energy removed by resting is at most 5.4e-13 of plate dissipation at the default threshold, so the audit there barely exercises the rule. I could not run the frozen tests in the method worktree (its environment failed to build from that location) and did not pursue it; the session's own branch tests are not referee evidence. No claim that the method works is made, so this is not blocking."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0044",
+   "plain_claim": "Status supported: with the accumulator fix, reruns of two nudge runs and one unmodified run follow the original trajectories exactly and have no audit-failing cycle. The audit failures of both engines in these runs, of either sign, were round-off in the engine's running totals.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Compared every array in each rerun's quantities.npz with the original's byte for byte, and recounted failing cycles by sign from the six audit.json files.",
+     "finding": "All three pairs are identical over 32,001 samples. Failing cycles before and after: 130 (1 gain, 129 losses) to 0; 46 (1 gain, 45 losses) to 0; 2 (both gains) to 0. Named cycles: 454 from +1.4e-8 to 3.2e-12; 188 from +9.2e-8 to -1.7e-13; 286 from +1.3e-6 to -1.0e-12; 961 from +5.5e-6 to -4.1e-12. Worst residual after the fix 1.7e-11, worst momentum residual 1.8e-12. Events per particle in each cycle are unchanged, so the same events were processed. This closes the item I left open on November 11, including the unmodified engine's large residuals."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Checked the audit tolerance and the engine commits recorded in the runs.",
+     "finding": "Tolerance is 1e-8 in originals and reruns. The nudge reruns used 16f3334 as registered. The unmodified rerun records main at 2e86d8b, not the registered 0b15165: it ran from the main checkout, whose head moved as the session committed records. There is no engine, referee or test difference between the two commits, so the result is unaffected, but runs made from the main checkout will keep recording whatever the head happens to be."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Considered how far the conclusion reaches.",
+     "finding": "Three runs were rerun, chosen as the ones with the largest gains. Together with my full-run replay on November 11 that is four runs in which every failure vanished. 'Every audit failure of both engines was bookkeeping', as the headline puts it, is an extrapolation to the other 800-odd failing cycles; a likely one, since the mechanism is the same, but only future runs on the fixed engine will show it directly. Separately, the first nudge run has 1145 slow stretches in a thousand cycles, taking about 0.4 of its 3 CPU-hours: it completes, but it is not a run that never slowed down."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0031",
+   "plain_claim": "Outcome recorded as falsified on its second clause (more positive audit residuals for the nudge at three conditions), with the survival comparison standing: at strong driving in two dimensions the unmodified engine completed none of eighteen runs and the nudge seventeen of eighteen. Also collected: the unmodified engine stops at its CPU cap at the three-dimensional survival case after 80, 42 and 32 cycles.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Recounted outcomes from the final table in the evidence file, which was regenerated with no run still going.",
+     "finding": "Gamma 5, box width 100: unmodified engine 0 of 18 (10 overlaps, 8 at the CPU cap inside a slow stretch); nudge 17 of 18, one overlap at cycle 162. Positive failing cycles for the nudge: 6. All as stated. One error in the ledger outcome: at Gamma 3.5, seeds 1 to 3, the table shows six unmodified failures of eighteen (two at f* 0.3 depth 10, three at f* 0.3 depth 15, one at f* 0.5 depth 15), not five. The summary does not quote that number. The wide boxes still have only 120-cycle nudge runs."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked whether the clause that failed still means anything after the reruns.",
+     "finding": "It counted positive residuals that the reruns show were round-off, at conditions where the unmodified engine ran 6 to 86 cycles against the nudge's thousands. 'Falsified' is the correct status under the registration, and the summary is right that it carries no information about energy added by the nudge. The comparison of audit signs should be redone on the fixed engine before anything is said about the nudge's energy accounting."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0037",
+   "plain_claim": "Status supported (with its cross-check from the C code's state): at case b, started gently, the nudge agrees with the unmodified engine on all seven bulk quantities at all four seeds; largest deviation 2.69 block standard deviations against a threshold of 4.24, and 1.06 against 3.62 in the cross-check.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Read the registration for when the burn-in, block count and threshold were fixed, and found the thresholds and largest deviations in the evidence file.",
+     "finding": "The registration of November 11 fixes the 300-cycle burn-in and seven blocks before the runs, with the threshold taken from the referee's bulk.py for seven blocks (4.24; the standard ten-block rule gives 3.62 and is used for the cross-check). The same windows apply to both engines. The numbers 2.69 and 1.06 are in the evidence file. The threshold is wider than the standard one because there are fewer baseline blocks, not because it was loosened after the fact."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Checked what the comparison can and cannot show.",
+     "finding": "As the summary says itself, the unmodified engine does not stall at case b from this start, so this shows the nudge leaves ordinary motion alone; it is not a test of contact handling. All eight runs record no slow stretch."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "strained",
+  "assessment": "The session started at 23:07:54, eight minutes late, and ended at 02:30 by its own choice, three and a half hours of a six-hour window. Commit times (23:09 to 02:30) fit. The power log shows no sleep or wake in the window. The machine limited the science through disk, for the third session: free disk was 26 gigabytes at the start (under the 40 gigabyte floor, allowed for small runs by the November 11 instruction) and under the 25 gigabyte hard floor from 23:38. Only the first half hour's launches happened: the frictionless baseline, the rest-rule pilot and six sweep runs, the friction-switch runs, four of seven traces and the three reruns. About eighty short runs for five experiments never started and are still held at 05:45; they will not start until someone frees disk. The three instructed items were all answered at pilot level, which is why this is strained and not inadequate, but every follow-up that would turn one seed into a result is waiting. CPU used by the session's runs sums to about 7.3 hours from the run records, as reported. Now: no simulation running, one queue shell waiting; free disk 22 gigabytes; swap 7.6 of 9.2 gigabytes allocated although the outside jobs have gone; sequel-data 2.8 of 15 gigabytes; temporary folder empty; repository clean; active.jsonl empty. I found no files written by the session outside its two folders apart from the package manager's cache.",
+  "discrepancies": [
+   "The summary puts the disk shortfall down to swap from other jobs. Swap explains the drop below the hard floor, but with all swap released free disk would be about 31 gigabytes, still under the 40 gigabyte floor in budgets.yaml. The disk is 98 percent full with other material. At 05:45 the named jobs are not running and swap has not been released.",
+   "The queue left running (tools/qx4.sh on all-1112c.spec, process 35967) is not recorded in runs/active.jsonl and is not under caffeinate. It only waits and launches, and the jobs it launches are recorded and caffeinated, but CLAUDE.md asks for every job left running to be listed.",
+   "The unmodified-engine rerun for the accumulator check records commit 2e86d8b, not the registered 0b15165 (no engine difference). The instruction asked for the registered commit on every run.",
+   "The ledger outcome for the engine comparison says the unmodified engine failed 5 of 18 runs at Gamma 3.5; the evidence table shows 6.",
+   "The summary gives 238.1 CPU-hours spent, from the runs' own records; program check reports 221.3 from the ledger. The summary's figure is the better one and it gives the fifty-percent warning as asked. Neither applies the budget's weekly period: the total is since November 5.",
+   "The summary gives the end time as 02:30:21; the last blocker record is stamped 02:30:45.",
+   "The session committed a merge and a test-only change directly on main. The merge was ordered by the instruction and the test change is recorded as a decision, but code on main without a branch is outside the usual rule, and main is unpushed."
+  ]
+ }
+}
