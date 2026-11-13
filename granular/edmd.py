@@ -696,8 +696,20 @@ def schedule(i, t, S, cellof, head, nxt, ev_t, ev_type, ev_p, tree, P, IP,
 # ----------------------------------------------------------------------------
 
 @njit(cache=True)
+def add_terms(en_total, en):
+    """Add one call's energy and impulse terms to the run totals (the
+    largest single gain is a maximum, not a sum)."""
+    for k in range(NEN):
+        if k == EN_MAX_GAIN:
+            if en[k] > en_total[k]:
+                en_total[k] = en[k]
+        else:
+            en_total[k] += en[k]
+
+
+@njit(cache=True)
 def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
-               P, IP, t_stop, max_events, cnt, en):
+               P, IP, t_stop, max_events, cnt, en_total):
     """Process all events with time < t_stop (or until max_events).
     Returns 0 if t_stop was reached, 1 if max_events was hit.
 
@@ -711,7 +723,14 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
     through potential energy.  So the layer's energy change equals plate
     work plus the three dissipations, and any other change is energy the
     contact handling put in or took out unaccounted.  A contact method must
-    route every velocity or position change it makes through these terms."""
+    route every velocity or position change it makes through these terms.
+
+    The terms are summed over this call in a local array that starts at
+    zero and added to en_total on return.  Adding each event's small change
+    straight into run-long totals rounds it to the totals' last place, which
+    grows with run length (about 2e-10 at a total of 1.6e6) and showed up as
+    spurious audit residuals in collision-heavy cycles (E0031)."""
+    en = np.zeros(NEN)
     g = P[P_G]
     Kin = P[P_K]
     A = P[P_A]
@@ -723,8 +742,10 @@ def run_events(S, W, mass, cellof, head, nxt, prv, ev_t, ev_type, ev_p, tree,
         i = tree[1]
         t = ev_t[i]
         if t >= t_stop:
+            add_terms(en_total, en)
             return 0
         if nev >= max_events:
+            add_terms(en_total, en)
             return 1
         nev += 1
         cnt[C_EVENTS] += 1
