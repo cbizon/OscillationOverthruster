@@ -55,6 +55,13 @@ after `DIRECTION.md` at the start of every session.
     E0045). Any step that removes a fixed fraction of a pressed pair's
     energy makes it collapse; waking and recapturing a resting sphere on
     every hit is such a step.
+  - Nov 13: the Nov 12 reading is narrowed (D0030). With friction off the
+    engine stalled in 1 of 43 runs on the 2D grid (E0046), so friction
+    makes the stall far more likely but is not required. "Collapse through
+    the tangential law" is a hypothesis; the run that would test it was
+    dropped.
+  - Nov 13: option 4 is paused by instruction: no builds, no pilots, and
+    nothing built on the plate-only rest rule.
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -66,6 +73,13 @@ after `DIRECTION.md` at the start of every session.
   rate, up and down transitions coincide within run-to-run spread.
 - Depends on RQ1 for any condition with long contacts.
 - Status: open.
+  - Nov 13: plan written, `evidence/phase-diagram-plan.md`, with costs in
+    `evidence/phase-diagram-plan-costs.json`. The sweep is not started;
+    it waits for Chris.
+  - Three engines: nudge (friction), frictionless (unmodified engine,
+    mu = 0; a comparison model approved Nov 13 for the phase diagram
+    only), and baseline (unmodified engine with friction) where it runs.
+  - Pilots (E0050 to E0052): see Current state.
 
 ### RQ3: Does the model produce oscillons?
 
@@ -89,6 +103,10 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 13 session: awake on AC, no sleep events; free disk 47 GB, above
+    the floor all session. Six jobs of another program (grapenuts) ran
+    throughout, so the session used at most seven cores and its timings
+    are upper estimates.
   - Nov 12 session: awake on AC, no sleep events. Free disk was under the
     40 GB floor all session and under the 25 GB hard floor from 23:38
     (swap from other jobs on the Mac, B0004), so most of the night's
@@ -207,14 +225,74 @@ The five options in `notes/contact-options.md`.
     `method/mu0-unmodified` (765c1f0) for the frictionless baseline.
   - Proposal for rest on a sphere (D0024, for Chris):
     `evidence/D0024-rest-on-sphere-proposal.md`.
-- **Next step, from the Nov 12 instruction: normal-only rest with
-  friction (mu = 0.5), the target model.** Not started. It needs sliding
-  friction for a resting sphere that slips on the plate, and a rule for
-  rest on a sphere (D0024).
+- **Paused (Nov 13 instruction).** No builds, no pilots; do not build on
+  the plate-only rest rule. The step that was next, normal-only rest with
+  friction, was not started. E0045 (held-hit pilot and sweep) and the
+  rest of E0042's sweep were dropped with the friction diagnostics
+  (D0031).
 
 ## Current state
 
+### Nov 13 findings
+
+- **Phase-diagram plan written** (`evidence/phase-diagram-plan.md`). Its
+  main points:
+  - 3D at L 100, N 60000, six f* values, Gamma covered by ramps and by
+    holds at the seven Figure 1 conditions; 2D on the referee's grid in
+    wider boxes.
+  - Hysteresis by stepwise ramps (`tools/ramp.py`), at the experimental
+    rate (0.002 in Gamma per cycle) and slower, with four checks against
+    a ramp that is too fast; the decisive one is two long holds at one
+    Gamma from the two branches.
+  - Cost about 410 CPU-hours for everything; 22 for the first stage (2D,
+    depths 5 and 10).
+- **No-friction baseline runs (E0046, E0049).**
+  - 38 of 39 runs completed with no slow stretch: every 1020-cycle run
+    (12 grid points, seed 1), the 3D Gamma 5 case at three seeds (300
+    cycles, 90 CPU-seconds each), and the five grid points not run
+    before.
+  - One stalled: 2D Gamma 5, f* 0.3, depth 15, seed 3, in cycle 10 at
+    phase 0.902, with 8.5e8 collisions slower than 1e-10 before its CPU
+    cap. Not yet examined event by event.
+  - The frictionless engine now has three seeds and a ten-block
+    1020-cycle baseline at all 12 points of the 2D grid
+    (`evidence/E0046-E0049-grid.json`).
+- **Cost and feasibility pilot (E0050), Gamma 2 to 7, one seed, 30 to 60
+  cycles.**
+  - Frictionless: 29 of 29 runs complete, no slow stretch.
+  - Nudge: 25 of 28. It stops at its CPU cap at 2D Gamma 2.0 and 2.5
+    (f* 0.3, depth 10) and at 3D Gamma 2.2 (45 s per cycle at N 15000,
+    against 7 at Gamma 3).
+  - Baseline: 15 of 28. Nothing at Gamma 2.0 to 2.2.
+  - 3D cost per particle per cycle at Gamma 3, f* 0.44: frictionless
+    0.11 ms, nudge and baseline 0.32 ms. The same at L 50 and L 100.
+- **Ramp pilot (E0052), 2D, f* 0.3, depth 5, L 200, one seed.**
+  - `tools/ramp.py` drives the referee step by step; an unchanged-Gamma
+    step is bit-identical to a continuous run; no audit failure.
+  - Frictionless: three complete loops over Gamma 1.8 to 3.0. Amplitude
+    rises from about Gamma 2.0. No loop at 25 or 100 cycles per step.
+  - With friction, down from 3.0: the nudge reaches 2.15 and stops at
+    2.1 (CPU cap); the baseline reaches 2.25 and overlaps at 2.2. The
+    pattern has died away by about 2.25 to 2.3, so both stop in the flat
+    state just below it. Their layer thickness agrees within 0.075 at all
+    16 common steps.
+  - Not a result: one seed, snapshot amplitudes.
+- **Pattern identifier (E0051), `tools/pattern_id.py`.**
+  - On the seven labelled Figure 1 reference runs: planform right 7 of 7,
+    temporal period 6 of 7 (thresholds set beforehand).
+  - On our own 1000-cycle case-b runs: 4 of 8 called stripes. Contrast
+    and wavelength are the same in all eight; the stripes still have
+    defects. Registered rule failed; planform needs Chris's eye or
+    longer runs.
+- **Budget:** 242 of 400 CPU-hours by the runs' own records
+  (`evidence/budget-2026-11-13.json`), 61%. Past 50%, below 80%.
+- **Disk:** 47 GB free at the start, 46 at the end; B0004 resolved.
+
 ### Nov 12 findings
+
+Narrowed on Nov 13 (D0030): read the first item below with the RQ1 status
+note. Friction is not required for the stall; the tangential-law mechanism
+is a hypothesis.
 
 - **The stall needs friction to form (E0041, E0043).**
   - With mu = 0 the unmodified engine completed 120 cycles at all seven
@@ -457,24 +535,33 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- Check the queue `runs/all-1112c.spec` (log `all-1112c.queue.log`): it
-  holds while free disk is under 25.5 GB and launches by itself above
-  it. If it is not running, restart it from the lines not yet in the
-  log (`zsh tools/qx4.sh runs/all-1112c.spec 9`). It holds, in order: 3
-  E0043 traces, E0048 (7), E0045 pilot (7), E0046 seeds (14) and 3D (3),
-  E0047 (28), E0046 1020-cycle baselines (7), E0045 sweep (21), E0042's
-  remaining sweep runs (15).
-- Then write outcomes for E0042, E0043, E0045 to E0048. Evidence tools:
-  `tools/friction_evidence.py` (runs / e0043), `tools/e0042_table.py`.
-  Judge E0042 and E0045 pilots against E0046's 1020-cycle baselines with
-  `bulk.py`.
-- **Normal-only rest with friction (mu = 0.5), the target model** (Nov 12
-  instruction). Waits on Chris's answer to D0024 (rest on a sphere) and
-  D0022 (slow hits).
+- **Wait for Chris on the plan** (`evidence/phase-diagram-plan.md`,
+  section 9): what the 400 CPU-hours cover, the f* list and Gamma range,
+  whether depth 15 in 2D is wanted, and whether to run 3D loops with
+  friction that cannot reach the flat state.
+- If told to go ahead, in the plan's order:
+  1. build the field recorder (a wrapper like `lc_counters.py` saving the
+     height field's spectrum every frame) and the 2D amplitude band; test
+     the temporal-period rule on data it was not chosen on; register
+     thresholds;
+  2. stage A: 2D loops at depths 5 and 10, three engines, two rates,
+     three seeds, with the two-start holds;
+  3. 3D frictionless onset loops at f* 0.27 and 0.44.
+- The frictionless stall (E0046, Gamma 5, f* 0.3, depth 15, seed 3) has
+  not been examined. `tools/mu_switch.py` and `tools/collapse_trace.py`
+  would do it. Proposed, not started: the Nov 13 instruction dropped the
+  friction diagnostics.
+- Option 4 is paused. E0045, E0047, E0048 and the unrun parts of E0042
+  and E0043 are dropped (D0031); `runs/all-1112c.spec` is not to be
+  restarted.
 - Chris to decide: push `main` (merge 997eb49 and test commit 0b15165
   are local only, D0025).
 - The intrinsic sweep (when a candidate survives) includes v_wakeup =
   v_sleep.
+- Tools added Nov 13: `ramp.py`, `ramp_table.py`, `pattern_id.py`,
+  `run_table.py`, `file_records.py`, `e0046_50_evidence.py`,
+  `plan_costs.py`. Queue specs: `mu0-1113.spec`, `E0050.spec`,
+  `E0052.spec`.
 - Tools added Nov 12: `lc_counters.py`, `mu_switch.py`,
   `collapse_trace.py`, `tangential_variants.py`, `friction_evidence.py`,
   `e0042_table.py`, `e0037_judge.py`, `e0044_compare.py`, `budget.py`.

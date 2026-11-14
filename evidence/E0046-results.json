@@ -1,0 +1,1542 @@
+{
+ "experiment": "E0046",
+ "engine": "method/mu0-unmodified 765c1f0 (main 0b15165 with default mu = 0)",
+ "rows": [
+  {
+   "run": "mu0-main-3d-g5-f0.44-L20-s1",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "depth": 5.42,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 1,
+   "cycles_requested": 300,
+   "outcome": "completed",
+   "cycles_completed": 300,
+   "cpu_seconds": 89.3,
+   "cpu_seconds_per_cycle": 0.298,
+   "cpu_ms_per_particle_cycle": 0.124,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 5.834759881642808e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 73.127325,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-3d-g5-f0.44-L20-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "depth": 5.42,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 2,
+   "cycles_requested": 300,
+   "outcome": "completed",
+   "cycles_completed": 300,
+   "cpu_seconds": 90.4,
+   "cpu_seconds_per_cycle": 0.301,
+   "cpu_ms_per_particle_cycle": 0.1255,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.3136777806064454e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 73.81884305555555,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-3d-g5-f0.44-L20-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 3,
+   "gamma": 5.0,
+   "f_star": 0.44,
+   "depth": 5.42,
+   "N": 2400,
+   "L": 20.0,
+   "seed": 3,
+   "cycles_requested": 300,
+   "outcome": "completed",
+   "cycles_completed": 300,
+   "cpu_seconds": 89.9,
+   "cpu_seconds_per_cycle": 0.3,
+   "cpu_ms_per_particle_cycle": 0.1248,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.0641898378469217e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 73.13300833333334,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d15-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 741.5,
+   "cpu_seconds_per_cycle": 0.727,
+   "cpu_ms_per_particle_cycle": 0.4846,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.514170333940323e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 522.1210163398692,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 24.19725,
+     "block_sd": 0.15317
+    },
+    "thickness": {
+     "mean": 19.33816,
+     "block_sd": 0.19039
+    },
+    "ke_vertical": {
+     "mean": 11.35065,
+     "block_sd": 0.18808
+    },
+    "ke_horizontal": {
+     "mean": 3.38008,
+     "block_sd": 0.36527
+    },
+    "temp_vertical": {
+     "mean": 7.87569,
+     "block_sd": 0.38836
+    },
+    "temp_horizontal": {
+     "mean": 3.23413,
+     "block_sd": 0.36445
+    },
+    "plate_contact": {
+     "mean": 0.01666,
+     "block_sd": 0.00093
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d15-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 62.1,
+   "cpu_seconds_per_cycle": 0.518,
+   "cpu_ms_per_particle_cycle": 0.3452,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.370962051704746e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 507.0764888888889,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d15-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 66.7,
+   "cpu_seconds_per_cycle": 0.556,
+   "cpu_ms_per_particle_cycle": 0.3705,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.9416649096491714e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 541.9533055555555,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d15-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 385.1,
+   "cpu_seconds_per_cycle": 0.378,
+   "cpu_ms_per_particle_cycle": 0.2517,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.840338152474099e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 247.42414836601307,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 13.7495,
+     "block_sd": 0.02603
+    },
+    "thickness": {
+     "mean": 7.38261,
+     "block_sd": 0.04275
+    },
+    "ke_vertical": {
+     "mean": 3.42687,
+     "block_sd": 0.01499
+    },
+    "ke_horizontal": {
+     "mean": 0.52699,
+     "block_sd": 0.01398
+    },
+    "temp_vertical": {
+     "mean": 1.45739,
+     "block_sd": 0.01997
+    },
+    "temp_horizontal": {
+     "mean": 0.51621,
+     "block_sd": 0.01325
+    },
+    "plate_contact": {
+     "mean": 0.00988,
+     "block_sd": 6e-05
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d15-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 32.2,
+   "cpu_seconds_per_cycle": 0.268,
+   "cpu_ms_per_particle_cycle": 0.1789,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 5.73987663875788e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 247.67595555555556,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d15-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 32.2,
+   "cpu_seconds_per_cycle": 0.268,
+   "cpu_ms_per_particle_cycle": 0.1789,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.8723758048416854e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 247.7290111111111,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d10-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 165.7,
+   "cpu_seconds_per_cycle": 0.162,
+   "cpu_ms_per_particle_cycle": 0.1624,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 2.64819652391611e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 188.7875343137255,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 24.23058,
+     "block_sd": 0.20357
+    },
+    "thickness": {
+     "mean": 15.00783,
+     "block_sd": 0.73549
+    },
+    "ke_vertical": {
+     "mean": 10.41101,
+     "block_sd": 0.41759
+    },
+    "ke_horizontal": {
+     "mean": 2.49191,
+     "block_sd": 0.31238
+    },
+    "temp_vertical": {
+     "mean": 6.57813,
+     "block_sd": 0.74008
+    },
+    "temp_horizontal": {
+     "mean": 2.32366,
+     "block_sd": 0.25905
+    },
+    "plate_contact": {
+     "mean": 0.00999,
+     "block_sd": 0.00075
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d10-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 25.3,
+   "cpu_seconds_per_cycle": 0.211,
+   "cpu_ms_per_particle_cycle": 0.2109,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 8.441349510760858e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 316.3247083333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d10-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 24.8,
+   "cpu_seconds_per_cycle": 0.206,
+   "cpu_ms_per_particle_cycle": 0.2065,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 5.1798154780443326e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 310.4499083333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d15-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 831.0,
+   "cpu_seconds_per_cycle": 0.815,
+   "cpu_ms_per_particle_cycle": 0.5432,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.1058745306905381e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 589.8343888888888,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 36.46467,
+     "block_sd": 1.18556
+    },
+    "thickness": {
+     "mean": 22.39878,
+     "block_sd": 3.50259
+    },
+    "ke_vertical": {
+     "mean": 16.75648,
+     "block_sd": 1.6724
+    },
+    "ke_horizontal": {
+     "mean": 4.62031,
+     "block_sd": 1.55364
+    },
+    "temp_vertical": {
+     "mean": 9.79077,
+     "block_sd": 2.75092
+    },
+    "temp_horizontal": {
+     "mean": 3.3239,
+     "block_sd": 1.07676
+    },
+    "plate_contact": {
+     "mean": 0.00906,
+     "block_sd": 0.00138
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d15-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 196.3,
+   "cpu_seconds_per_cycle": 1.636,
+   "cpu_ms_per_particle_cycle": 1.0903,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 2.5611169010141514e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 1421.1779277777778,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d15-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "cpu_budget",
+   "cycles_completed": 10,
+   "cpu_seconds": 900.1,
+   "cpu_seconds_per_cycle": 90.015,
+   "cpu_ms_per_particle_cycle": 60.0097,
+   "slow_episodes": 1,
+   "slow_cpu_seconds": 885.3,
+   "first_slow_cycle": 10,
+   "first_slow_phase": 0.902,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.2158658634291778e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 58016.193333333336,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 577923327,
+   "pair_collisions_slower_than_1e_10": 273532332,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d5-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 17.2,
+   "cpu_seconds_per_cycle": 0.017,
+   "cpu_ms_per_particle_cycle": 0.0337,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 6.287713788017141e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 44.43243529411765,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 13.19957,
+     "block_sd": 0.03914
+    },
+    "thickness": {
+     "mean": 8.17788,
+     "block_sd": 0.06923
+    },
+    "ke_vertical": {
+     "mean": 4.8897,
+     "block_sd": 0.04724
+    },
+    "ke_horizontal": {
+     "mean": 1.2521,
+     "block_sd": 0.02709
+    },
+    "temp_vertical": {
+     "mean": 3.41879,
+     "block_sd": 0.03527
+    },
+    "temp_horizontal": {
+     "mean": 1.23348,
+     "block_sd": 0.02525
+    },
+    "plate_contact": {
+     "mean": 0.00534,
+     "block_sd": 0.00027
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d5-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.4,
+   "cpu_seconds_per_cycle": 0.011,
+   "cpu_ms_per_particle_cycle": 0.0226,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.434385404879276e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 43.71253333333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.3-d5-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.3,
+   "cpu_seconds_per_cycle": 0.011,
+   "cpu_ms_per_particle_cycle": 0.0224,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.8022065457198834e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 43.524033333333335,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d10-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 178.3,
+   "cpu_seconds_per_cycle": 0.175,
+   "cpu_ms_per_particle_cycle": 0.1748,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.803874514123811e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 173.90600490196078,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 11.71285,
+     "block_sd": 0.18849
+    },
+    "thickness": {
+     "mean": 6.3197,
+     "block_sd": 0.22316
+    },
+    "ke_vertical": {
+     "mean": 3.82255,
+     "block_sd": 0.13683
+    },
+    "ke_horizontal": {
+     "mean": 0.78487,
+     "block_sd": 0.06833
+    },
+    "temp_vertical": {
+     "mean": 2.31171,
+     "block_sd": 0.78092
+    },
+    "temp_horizontal": {
+     "mean": 0.71957,
+     "block_sd": 0.06323
+    },
+    "plate_contact": {
+     "mean": 0.01298,
+     "block_sd": 0.00064
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d10-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 14.8,
+   "cpu_seconds_per_cycle": 0.123,
+   "cpu_ms_per_particle_cycle": 0.1231,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.4654780719270397e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 174.73356666666666,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d10-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 13.6,
+   "cpu_seconds_per_cycle": 0.113,
+   "cpu_ms_per_particle_cycle": 0.1134,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.622605409929929e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 162.97755,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d15-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 788.8,
+   "cpu_seconds_per_cycle": 0.773,
+   "cpu_ms_per_particle_cycle": 0.5155,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 2.672764929467177e-12,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 519.1306535947713,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 17.18222,
+     "block_sd": 0.37614
+    },
+    "thickness": {
+     "mean": 8.08683,
+     "block_sd": 0.67891
+    },
+    "ke_vertical": {
+     "mean": 6.29915,
+     "block_sd": 0.78365
+    },
+    "ke_horizontal": {
+     "mean": 0.84437,
+     "block_sd": 0.37992
+    },
+    "temp_vertical": {
+     "mean": 1.65901,
+     "block_sd": 0.67682
+    },
+    "temp_horizontal": {
+     "mean": 0.76207,
+     "block_sd": 0.32935
+    },
+    "plate_contact": {
+     "mean": 0.01052,
+     "block_sd": 0.00145
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d15-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 97.3,
+   "cpu_seconds_per_cycle": 0.811,
+   "cpu_ms_per_particle_cycle": 0.5405,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 1.543088600748587e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 689.7844888888889,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d15-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 56.0,
+   "cpu_seconds_per_cycle": 0.467,
+   "cpu_ms_per_particle_cycle": 0.3111,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.4329189230782665e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 429.8902777777778,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  }
+ ],
+ "summary": {
+  "runs": 24,
+  "completed": 23,
+  "runs_with_slow_stretch": 1,
+  "total_cpu_hours": 1.36,
+  "audit_failing_cycles": 0,
+  "groups": {
+   "seeds_2_3_120_cycles": {
+    "runs": 14,
+    "completed": 13
+   },
+   "seed_1_1020_cycles": {
+    "runs": 7,
+    "completed": 7
+   },
+   "three_d_300_cycles": {
+    "runs": 3,
+    "completed": 3,
+    "cpu_seconds": [
+     89.3,
+     90.4,
+     89.9
+    ]
+   }
+  }
+ },
+ "stalled_run": {
+  "run": "mu0-main-g5-f0.3-d15-s3",
+  "condition": "2D, Gamma 5, f* 0.3, depth 15, L 100, N 1500, seed 3",
+  "outcome": "cpu_budget",
+  "cycles_completed": 10,
+  "cpu_seconds": 900.1,
+  "slow_episode": {
+   "start_cycle": 10,
+   "start_phase": 0.9022092554823015,
+   "events": 851100000,
+   "cpu_seconds": 885.349599999998,
+   "slowest_advance_per_event": 1.291040400512126e-13,
+   "reached_cycle": 10,
+   "reached_phase": 0.9022178387712719,
+   "end_cycle": null
+  },
+  "plate_collisions_slower_than_1e_10": 577923327,
+  "pair_collisions_slower_than_1e_10": 273532332,
+  "note": "The slow stretch started in cycle 10 at phase 0.902 and was still open when the run reached its 0.25 h CPU cap. Not examined event by event tonight."
+ },
+ "verdict": "falsified by the registered rule: 1 of 24 runs has a slow stretch and stopped at its CPU cap inside it.",
+ "run_folder_bytes": 29876224,
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s1/summary.json",
+   "bytes": 785,
+   "sha256": "66bb9b6714cea0db268f36f9f5e2b6f31f169f4e3883f5385724eecdc0369fef"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s1/counters.json",
+   "bytes": 745,
+   "sha256": "361fbed28384cef1b7042db46baea96512615a427eb1d5dc3607656e629a12bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s1/audit.json",
+   "bytes": 113872,
+   "sha256": "872a9a7bff0b1417dede4609a4d3725083380b14ff714dd37bc9ce324f3f4eb5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s1/quantities.npz",
+   "bytes": 693834,
+   "sha256": "1e68eabb2238f335e7cca75269833cbffe0322d8edfc7f09ca84f165dbdcb3ff"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s2/summary.json",
+   "bytes": 794,
+   "sha256": "9c4fe1f73bcefb8e1a4b2dbffed0ef8426fa0b0042bf35398068d46a90a50c6e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s2/counters.json",
+   "bytes": 746,
+   "sha256": "718398e44df75fa57ec7a55ee8c032e31c794b55603cbf7f8a31dea86a18e43f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s2/audit.json",
+   "bytes": 113727,
+   "sha256": "6fbf15e7d3c7ca985220cb07d8fc10955460b566b8476a1a716b4af383f280b9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s2/quantities.npz",
+   "bytes": 693834,
+   "sha256": "69849a1bab5d3d6cda666ad668bf41ebbb784979ff179b9baa420116267d2b18"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s3/summary.json",
+   "bytes": 793,
+   "sha256": "2ff76f77b3270095dd159c918297582c2e610864d3c5e3f163a48f3dc9a01663"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s3/counters.json",
+   "bytes": 742,
+   "sha256": "bf4b799b61859a36df03941d8dd7d1d3be529e96027e2267134e2f559d99e36a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s3/audit.json",
+   "bytes": 113901,
+   "sha256": "ecf34af7fc0a3165c14b0d84853b86c3f2f1f0f6558ef33b80ccc40df062160e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-3d-g5-f0.44-L20-s3/quantities.npz",
+   "bytes": 693834,
+   "sha256": "2d977f158f08fbf5f51f955507464422bc7fcf4838a74b20c917c35dea9f0c3e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s1-1020/summary.json",
+   "bytes": 795,
+   "sha256": "b72d1de5b9dfa5babb29e1130ac89bf796450df1e76734ee99d54de555d80cde"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s1-1020/counters.json",
+   "bytes": 753,
+   "sha256": "97c1416af6db428a1e1e092108ef21844a4bb65bae16a648640c697941f23ff4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s1-1020/audit.json",
+   "bytes": 386497,
+   "sha256": "1d8dbbc68131b0d62c62ca1839ec989f4057e1bc8c8e363e779832afe09a7476"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "81f85f8362e7d2a214b97fe88e7c5e05560db3230de7213fbcf8b0e0e659903d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s1-1020/baseline.json",
+   "bytes": 2568,
+   "sha256": "3dbd1af0370b504a1725927cf3e1e579ad840c5312cfd3214fef5a0368d42a8f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s2/summary.json",
+   "bytes": 794,
+   "sha256": "ccc590fee8230dd50333975bc447700ac06a6901acc06541f2d6da9f5317d04a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s2/counters.json",
+   "bytes": 746,
+   "sha256": "2ef1abb2c421b8b2acc942a587ed6587a0bfbeb004ea4e1e4ca4b4767a1adf53"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s2/audit.json",
+   "bytes": 45288,
+   "sha256": "1402db71c61248698e8e5c65604a514fb7a2a4ab2ce1c363710dfb3ef7e25226"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "c4b6ebdc7f2fff3a3d7de0ff6fa6664a669e2b5af09e3883f308e88f21709c06"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s3/summary.json",
+   "bytes": 802,
+   "sha256": "65267c0bb7b4856af0a68e2007ad4238caa9534e7b8550ced58236dcc26fd785"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s3/counters.json",
+   "bytes": 747,
+   "sha256": "a04686a72b5aa7405fdc21def214c6798c3ea349b0d90e63b9eb3624a3780986"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s3/audit.json",
+   "bytes": 45355,
+   "sha256": "bb93f2d8f1aa4b5fcd8f36bb4f518dc473e0b05dd3b1d36958a17be92749042f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.3-d15-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "dc7d8b7e2fab5b71c7552c8e4925923b994f692f49e9954686981d21a4bb01ba"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s1-1020/summary.json",
+   "bytes": 798,
+   "sha256": "443631629eee6e3d9b0fc5ec61d32e0ff03243e98c46dfd2da7a885e0e218e43"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s1-1020/counters.json",
+   "bytes": 752,
+   "sha256": "adc0f0c126459c5276c975a259fabbaeb853f79c3e1eac5b26fc6de124a38315"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s1-1020/audit.json",
+   "bytes": 386920,
+   "sha256": "7c4cfb54c7dd0f7bc3097ba865c98b64418077d2fb6f3c5ee12a873519a26cb9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "190972343d36aa66b8de338773b95ad529d5916ca9afac7dfe15c78094af1764"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s1-1020/baseline.json",
+   "bytes": 2620,
+   "sha256": "0da9758427ffd3e87ac1a694a0ab2bc3203883216b3e0bb4918d1cc7c0ced1af"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s2/summary.json",
+   "bytes": 795,
+   "sha256": "7f297094ca298a4db2b056d034d658a49c8d046cf05a61c4ba2403358d3abfe2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s2/counters.json",
+   "bytes": 741,
+   "sha256": "38e2ea3d0963e634cf040a99e8ccb2d920abf1099c6dfcc0d7a015f9eeb744fc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s2/audit.json",
+   "bytes": 45486,
+   "sha256": "8387da843933cf81a47b9e04860d11bc028feee7a6e661c0e0091c648b27bd9e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "72d96a0fb60b86f1134217fee025df2fca40724cce7ad1bc3c600e67842692b4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s3/summary.json",
+   "bytes": 805,
+   "sha256": "01a75f04bd17cb09cf5dc0b1b3cf25f921c05da6d34f62c7b91eb9a606c4f68f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s3/counters.json",
+   "bytes": 739,
+   "sha256": "0784035314612d5da33cbf2f66e34b5265bbd9272dbe2134a8b9f1b69992b850"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s3/audit.json",
+   "bytes": 45347,
+   "sha256": "e438ed2e8b66c60d4f38259b57b4129a12313399c48295b62fadc391c5d5ea95"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g3.5-f0.5-d15-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "759c8451d658168d7a9f9c5075fa1b35e4f0113c10e80f9d8eeaad30d7548734"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s1-1020/summary.json",
+   "bytes": 796,
+   "sha256": "c9327c417e3a12b72cc7d0368a08054d150a137dac2928013cb17ac8849fb5e0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s1-1020/counters.json",
+   "bytes": 747,
+   "sha256": "1fed3eebc8577bf38b7047a02b06530ffb19cea9c87979d75a0b1ab304473b95"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s1-1020/audit.json",
+   "bytes": 379522,
+   "sha256": "aa8962f8eec2251873d277a3ddf336ef7b32fcd2ca629c2943d3571e4e072c4e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "6d50c9b1c5944f109ff3186421d537662701f69464cd0645fc26fdea1a5321f9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s1-1020/baseline.json",
+   "bytes": 2541,
+   "sha256": "f4ca4a013a0f654e2a8acd0c37775b6772c66e986c0e4259f4432a9e751022e9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s2/summary.json",
+   "bytes": 794,
+   "sha256": "2de45d5cc225378a98d68dbe1c29c6b7af7c5e29d11c4c9d63d8071b573376c5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s2/counters.json",
+   "bytes": 739,
+   "sha256": "00aa68a266518fed584039e1eaa5b78a12e9ed6853b682b52b915120fc02498f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s2/audit.json",
+   "bytes": 44503,
+   "sha256": "ec2ea197f066e0bd29474b90ecab2353c6d1631a0c630b320abb0e5f17eab3f3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "b1757157ee090bf54011a4d90f427dcb41d68db9cd9fac9be8b210a3c758e5ce"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s3/summary.json",
+   "bytes": 806,
+   "sha256": "0e461d39aa8979986e41290072a4e3b3a3c84c110c3937cc33ff659c75c60143"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s3/counters.json",
+   "bytes": 740,
+   "sha256": "15876db4f384ecfa2858a20be7fc53b4515b5c0465b94f0ea89c1d4befdbe0c3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s3/audit.json",
+   "bytes": 44557,
+   "sha256": "236a91876571142170e709d7ab68d2e9cd1c53d94d280d152854936671feeb45"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d10-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "e239a91a9eab4db8ef081e1c47e3ec96da625ccd56ca6a867c216288e6c1330f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s1-1020/summary.json",
+   "bytes": 798,
+   "sha256": "1ef1af90b20eaf365b535cba257d94aa08767cee0d6bacd371a479cd25aea9e8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s1-1020/counters.json",
+   "bytes": 756,
+   "sha256": "8b13ac42df4f8dc47a7257ed840254d397b5e5c1855f30c0abe4a9227487a1a3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s1-1020/audit.json",
+   "bytes": 387981,
+   "sha256": "dbdc22bff0c99ca4c9ed0c0fb561e0d09e205fa82168461badc6a238eb0d6417"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "6717080bd696ff2680bbf2642ed25b94f292b2ae7ef939588d4f605bcc1b6ba5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s1-1020/baseline.json",
+   "bytes": 2574,
+   "sha256": "6790ce17140ce280f5c2163078bb75aa035c06cea745f17a3fd658b0a8802852"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s2/summary.json",
+   "bytes": 799,
+   "sha256": "f05c0eb3c91708fd36e9093e7b400ec4336050fb36e6dca251b7bce0cbb26c7a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s2/counters.json",
+   "bytes": 749,
+   "sha256": "e8818570cb61cec48dbde5945f4a22a3e2b40d5b7b245d427a68fc9093768535"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s2/audit.json",
+   "bytes": 45437,
+   "sha256": "c53e9a709c69e105b62a8ed373602432dac618affa7cb6f9d67928935218358d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "b2be03efe8c4f86e38b7ee104a96f60fa617dddfe1be343b85af3155dd59e338"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s3/summary.json",
+   "bytes": 1075,
+   "sha256": "fa7377bb82a622bb776e524d950046287a8f4ccce69f7754630407113beddc76"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s3/counters.json",
+   "bytes": 779,
+   "sha256": "c28d909dfbe9dc0b8c3a89677a2eeeb35848c0c378d77ed18f4837d953f243ee"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s3/audit.json",
+   "bytes": 3808,
+   "sha256": "caf74e83a41dee7f51bc41f65c6caaa380c21f0e64fba8bf02dee110327c794a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d15-s3/quantities.npz",
+   "bytes": 27690,
+   "sha256": "2dcc1d9196645624e5dfef63eceebdd2b9d7608c24752736b5f73594966b8b8a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s1-1020/summary.json",
+   "bytes": 795,
+   "sha256": "dd0ff5aff6fdf1bbc0de5270d97fd75d2258c961b5834adcc6df9ec45227d204"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s1-1020/counters.json",
+   "bytes": 741,
+   "sha256": "82823789e7730304f655005aa267302064dcb363c5ceb0d297119a7344759465"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s1-1020/audit.json",
+   "bytes": 379848,
+   "sha256": "4a681920ad8cefb62c3f462aa7e62d4d1df9f5164bb90acc497729396ded5994"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "cdfc34f5d43243fd2aedfc626699422187c435d7d2b338b77a0df85c0e614d5b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s1-1020/baseline.json",
+   "bytes": 2537,
+   "sha256": "cc739b3622743d884641973f97b4fa79d6e810cc625f6ddcc709306bb5d439b6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s2/summary.json",
+   "bytes": 793,
+   "sha256": "58bf8759512381bc1854830e7f35282afc273b4ff862156937651c3edd6ae866"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s2/counters.json",
+   "bytes": 733,
+   "sha256": "0a567ba6a233523d8aee7fda8534961b321e12a3b62f5f5748c49cb949706973"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s2/audit.json",
+   "bytes": 44552,
+   "sha256": "78a77a187f4280675e888818d824aa40d2bee93ce979e84eacc16a14cb3b0918"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "6b5e67d7f748fa6a418bb6244b53070582f0cdc9b899f061c1710b555bc505d5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s3/summary.json",
+   "bytes": 804,
+   "sha256": "d64561aa97027c0e3d3c411ae050cfdccb766ae7b8b57c3ada297ca9e01126fd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s3/counters.json",
+   "bytes": 731,
+   "sha256": "eb6f8fc20f938f87f9bf8bacbc7ea68a1d22962b2544379b88e3ea5fb43f253f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s3/audit.json",
+   "bytes": 44603,
+   "sha256": "9d0ffb8e03dac107f8b65cf9b652b9b48a784e7d8823aa23899858d06aacc2bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.3-d5-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "e10293b31f5930a67e0492b5efb68571e11f4dd1e60724029786911f4d909335"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s1-1020/summary.json",
+   "bytes": 807,
+   "sha256": "7c39784239b41c70afc0408659ac26b9b073377e0f91def0ac59f6c892ab438d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s1-1020/counters.json",
+   "bytes": 752,
+   "sha256": "266fc920dc0eaed78310d2a652388f80831e733225259b38e727efea490766a8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s1-1020/audit.json",
+   "bytes": 380527,
+   "sha256": "c1f015d43c2786597a7e9c828f79873c58864d506ad53b541d093aa057b0fd78"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "476a6f58367e0713f189c1bb35eb27d4bd8ce80af3b47b77a69a24d853d8915e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s1-1020/baseline.json",
+   "bytes": 2551,
+   "sha256": "779ff0f6ea501c7c09d82130d98a5ca3a3f0ee0a718e1dc4ab53f59a50d2330f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s2/summary.json",
+   "bytes": 797,
+   "sha256": "1b4d9e8affcaf1bd659a0abe7f2eede64cf97b30e77a641012a55e27efb5f958"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s2/counters.json",
+   "bytes": 739,
+   "sha256": "492cc4f83598147e464f846ee850f67d72ee2b7fcee70bf636e081e4d15af76d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s2/audit.json",
+   "bytes": 44627,
+   "sha256": "b387fb6e6becc0e6143fda1a96a48f3e2f4cec5b12052d4f2604b5a41a19b76c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "13f1d53453861e73df5d146646b7ac4f456a1b9108e827b4b156a3357113b9f3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s3/summary.json",
+   "bytes": 795,
+   "sha256": "621772b74790b54e57205fb8be0fe391cc2eb656a4916a1075d296947c6244ed"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s3/counters.json",
+   "bytes": 743,
+   "sha256": "1d4bd2057dbc1a358569692f8f27bb4611fb7943588a551d4ec4c16a979a4399"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s3/audit.json",
+   "bytes": 44560,
+   "sha256": "8ed1c16cc547dae77e40927bb518d2672c22a6df981cd95fe9a46e31d380bedf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d10-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "65c15d38479559a6ac17a098a7c453b42658724f8e8248e129d4f21d3e7e0de9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s1-1020/summary.json",
+   "bytes": 797,
+   "sha256": "c27d8c2c5e88fa294161c48c9bb2956b0c49e28e3d530e1649869f92f1584c77"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s1-1020/counters.json",
+   "bytes": 755,
+   "sha256": "d2643bffdef03967ac71fc49dcce260477c28fd3ae604ea8a4282ba63c57930c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s1-1020/audit.json",
+   "bytes": 387393,
+   "sha256": "8c98daccf1e53322af3248f3d8e4b6bf13227ccc8e214c80c507bbf0204a6ee2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "929962311ac6c86b936710a72e001ab188dd4fe977fdb1b55a166dc4ca65a2b8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s1-1020/baseline.json",
+   "bytes": 2602,
+   "sha256": "1c2b73ca6348f26a3ced7f541df561fdbd2a9fab30875a0d756fd8f4880be8b6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s2/summary.json",
+   "bytes": 795,
+   "sha256": "8c70ee19d99a8735e845521c071040be3538692a0d2487aa9437393915ce4ea7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s2/counters.json",
+   "bytes": 746,
+   "sha256": "22a3831206797e67225b6d587c335bc167dd527268b9acdec74b7fa511813e10"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s2/audit.json",
+   "bytes": 45509,
+   "sha256": "77e330ca3ff172f3e0f0839044b8751cc05f56c47ed640d734f1d9a5daf9e82e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "ff376ae7bcbd85f3780ecedaaa9fdc028d639cd94ea13dc8fadd86f938c4d296"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s3/summary.json",
+   "bytes": 796,
+   "sha256": "776ae13fa0546cc240cc55aa74025c70c2996ca1772ddd71c8e73865c575fbe8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s3/counters.json",
+   "bytes": 743,
+   "sha256": "e90c1d8c73cbbf07d84c185d2876af44bf7d545013a235e531172eeb2b335a5f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s3/audit.json",
+   "bytes": 45442,
+   "sha256": "0a15e18f977aa975e11ff802ea363e144a731cb45f5872460d8912ba701a594b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0046/mu0-main-g5-f0.5-d15-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "ce96d7c93c5f206bf17df3b32dd1273c78e284de2bb18ed996c656f48f85d2a3"
+  }
+ ]
+}

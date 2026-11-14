@@ -1,0 +1,132 @@
+{
+ "date": "2026-11-13",
+ "instruction": "instructions/2026-11-13.md",
+ "answers": [
+  {
+   "asked": "We have now two methods that can run in most conditions we know about: nudge and no-friction baseline. Baseline runs some places. I think we should fill in a phase diagram for each. The somewhat difficult part will be handling hysteresis. So maybe the agent can come up with a plan around this tonight.",
+   "status": "answered",
+   "answer": "Yes: the plan is written, in evidence/phase-diagram-plan.md, and the sweep has not been started. In short: a phase diagram for each engine in three dimensions at the paper's box (60000 spheres, width 100) and six frequencies, with Gamma covered by slow stepwise ramps up and down rather than separate runs, plus long runs at the seven Figure 1 conditions for the patterns themselves; and a two-dimensional version first, on the referee's grid, because it is cheap. Hysteresis is handled by ramping at the experimental rate (0.002 in Gamma per drive cycle) and slower, and telling a real loop from a ramp that is too fast by four checks, the decisive one being two long runs at one Gamma inside the loop, one started flat and one started patterned. Everything costs about 410 CPU-hours; the first stage (two dimensions, depths 5 and 10, all engines) costs 22. Two things from tonight's pilots correct the starting point. First, the nudge does not run where a hysteresis loop has to go: at Gamma 2.0 to 2.2, just below where patterns start, it is 6 to several hundred times slower or stops, and the baseline with friction does not run at all; the no-friction engine runs there without trouble. In a two-dimensional ramp down from Gamma 3 the nudge reached 2.15 and the baseline 2.25, both just below where the pattern died out (about 2.25 to 2.3). Second, the no-friction baseline is not stall-free: of the 39 no-friction baseline runs you asked for, 38 completed cleanly and one stalled (two dimensions, Gamma 5, f* 0.3, depth 15, seed 3, in cycle 10). On identifying patterns automatically: pattern against flat and the wavelength work, and on the labelled reference runs the pattern is named correctly in 7 of 7 and half against quarter frequency in 6 of 7; stripes against squares does not yet work on our own 1000-cycle runs (4 of 8 stripe runs called stripes), so that is for your eye or for longer runs. The literature says a no-friction layer should give stripes only and start about 30% lower in acceleration, so the no-friction phase diagram is expected to differ from the paper's; the check on the nudge is the baseline with friction where it runs.",
+   "departures": "Three small experiments were run beyond pure timing, recorded as a decision: a cost and feasibility pilot of all three engines from Gamma 2 to 7 (one seed, 30 to 60 cycles), a test of the pattern identifier on the labelled reference runs (analysis only), and a ramp pilot at one two-dimensional condition (five ramps, 16 CPU-minutes). The ramp pilot goes further than 'pilots to measure cost'; I ran it because the plan had to say how a ramp is driven and neither that nor the engines' behaviour on a ramp had been tried. No transition point or pattern boundary is reported from any of them. For the five added grid points the instruction did not say how many seeds or cycles; I gave each seed 1 for 1020 cycles and seeds 2 and 3 for 120, the same as the other seven points. The three-dimensional no-friction runs are the ones in the stopped queue: 2400 spheres, 300 cycles, not the full 60000-sphere box. Hysteresis numbers from experiment in the plan come from a literature check through arXiv texts and abstracts tonight, not from the journal papers."
+  },
+  {
+   "asked": "Pause option 4.",
+   "status": "answered",
+   "answer": "Paused. Nothing was built, piloted or run on any option-four branch tonight, and nothing builds on the plate-only rest rule. The option-four runs still waiting in the stopped queue were dropped with the friction diagnostics.",
+   "departures": "None: nothing was done that differs from what was asked."
+  }
+ ],
+ "headline": "Tonight was for a plan to fill in a phase diagram for each engine, with hysteresis, plus the no-friction baseline runs. The plan is written and costed (about 410 CPU-hours in all, 22 for a two-dimensional first stage), and the sweep is not started. The pilots behind it show that the engines with friction stop just below the onset of patterns, exactly where a hysteresis loop has to turn around, and that the no-friction engine, while it runs everywhere else tried, stalled in one of 39 baseline runs.",
+ "experiments": [
+  {
+   "experiment_id": "E0046",
+   "question": "Does the unmodified engine with friction off stay free of the stall at more seeds, for 1020 cycles, and in three dimensions?",
+   "what_was_done": "Ran the 24 no-friction baseline runs from the stopped queue as they were registered: the seven two-dimensional conditions that stall with friction at seeds 2 and 3 for 120 cycles, the same seven at seed 1 for 1020 cycles, and the three-dimensional Gamma 5 case (2400 spheres) at three seeds for 300 cycles.",
+   "result": "23 of 24 completed with no slow stretch and a clean energy audit, including all seven 1020-cycle runs and all three three-dimensional runs (about 90 CPU-seconds each, against about 1300 for 1000 cycles with the nudge). One run stalled: Gamma 5, f* 0.3, depth 15, seed 3 went into a slow stretch in cycle 10, at phase 0.90 while the plate pushes upward, and was still in it when it reached its quarter-hour CPU cap, after 850 million events with 850 million collisions slower than 1e-10.",
+   "takeaway": "The registered expectation, no stall in any run, is false. Without friction the stall is rare (1 of 43 two-dimensional runs so far) but it exists, so last night's statement that friction is needed for the stall to form is withdrawn; friction makes it far more likely. The stalled run has not been looked at event by event.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0049",
+   "question": "Does the no-friction engine also run the five grid points where it had not been tried (the ones where the engine with friction runs too)?",
+   "what_was_done": "Ran each of the five points at seed 1 for 1020 cycles and at seeds 2 and 3 for 120 cycles, two-dimensional, width 100.",
+   "result": "All 15 runs completed with no slow stretch, no collision slower than 1e-10 and a clean audit, in six CPU-minutes altogether.",
+   "takeaway": "The no-friction engine now has three seeds and a 1020-cycle baseline (ten blocks of 100 cycles) at all twelve points of the two-dimensional grid.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0050",
+   "question": "Across the range of Gamma a phase diagram covers, which engine runs, and what does a cycle cost?",
+   "what_was_done": "Ran the nudge, the no-friction engine and the baseline with friction for 60 cycles in two dimensions at Gamma 2.0, 2.5, 3, 4, 6 and 7 (two frequencies, depths 5 and 10), and for 30 cycles in three dimensions in a quarter-size box (15000 spheres) at four conditions, plus one full-size no-friction run. One seed each; 85 runs, 2.7 CPU-hours.",
+   "result": "The no-friction engine completed 29 of 29 without a slow stretch. The nudge completed 25 of 28: it reached its CPU cap at Gamma 2.0 and 2.5 at depth 10 (f* 0.3) and at Gamma 2.2 in three dimensions, where a cycle took 45 seconds against 7 at Gamma 3. The baseline with friction completed 15 of 28 and nothing at Gamma 2.0 to 2.2. In three dimensions at Gamma 3, f* 0.44 a cycle costs 0.11 milliseconds per sphere without friction and 0.32 with the nudge or the baseline, the same in the quarter-size and the full box: 6.5 and 19 seconds per cycle for 60000 spheres.",
+   "takeaway": "Two of the three things I expected were wrong: the nudge does not run everywhere, and cost is not a simple function of frequency (it falls with Gamma and, for the nudge, rises steeply below Gamma 2.5). The low-Gamma range, where the layer spends most of the cycle on the plate, is where the engines with friction fail. Timings were taken beside six jobs of another program and are upper estimates.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0051",
+   "question": "Can a pattern be identified automatically from the positions: pattern or flat, wavelength, half or quarter frequency, and stripes, squares or hexagons?",
+   "what_was_done": "Wrote an identifier that works on the layer's height field and ran it, with thresholds fixed beforehand, on the seven labelled Figure 1 reference runs, then unchanged on our own long three-dimensional runs. Analysis only.",
+   "result": "On the reference runs it names the pattern correctly in 7 of 7 and the time period in 6 of 7. The contrast that separates a pattern from a flat layer is 45 to 127 for the six patterned runs against 1.9 for the flat one. On our own eight 1000-cycle runs at the stripe condition (Gamma 3, f* 0.44) it finds the same contrast (60 to 78) and wavelength (19.4 to 19.8 diameters) in all eight but calls only 4 of them stripes: the measure of how parallel the pattern is comes out at 0.42 to 0.65, between the reference stripes (0.79, after 2700 cycles) and the reference squares and hexagons (0.07 to 0.23). At Gamma 6 the same measure rises with run length, from about 0.2 at 120 cycles to 0.4 to 0.75 at 1020.",
+   "takeaway": "The test I registered failed (it needed 7 of 8). Pattern against flat, wavelength and time period can be automatic. Naming stripes against squares cannot yet, in runs of 1000 cycles, because the stripes still have defects; it needs your eye or longer runs. A simpler rule for the time period gets 7 of 7 but I chose it after seeing the miss, so it is untested.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0052",
+   "question": "Can Gamma be ramped step by step through the referee without touching the engine, and what does an up-and-down loop look like at two ramp rates?",
+   "what_was_done": "Wrote a ramp tool that starts each step from the previous step's final state with only Gamma changed, and ran five ramps at one two-dimensional condition (f* 0.3, depth 5, width 200, one seed) in steps of 0.05 between Gamma 1.8 and 3.0: the no-friction engine up then down at 25 and at 100 cycles per step, and down then up at 25; the nudge and the baseline with friction down from 3.0.",
+   "result": "A step with Gamma unchanged is bit-for-bit a continuous run, and no step of any ramp failed the energy audit. Without friction all three loops completed; the wave amplitude rises from the flat level at about Gamma 2.0, and the up and down branches agree (layer thickness within 0.09 on average at 25 cycles per step and 0.055 at 100, over a range from 1.5 to 5): no loop at either rate. With friction, the nudge got down to 2.15 and hit its CPU cap at 2.1, where a cycle cost 36 seconds against 0.04 at Gamma 2.4 and above; the baseline got to 2.25 and failed with overlapping spheres at 2.2. The pattern had died away by about 2.25 to 2.3. The nudge and the baseline agree in layer thickness within 0.075 at all 16 steps they share.",
+   "takeaway": "The ramp method works and is cheap. It is a pilot, one seed with amplitudes from single snapshots, so no onset value is claimed. It shows the difficulty in advance: with friction, a loop can only turn around in the narrow range between where the pattern dies and where the engine stops.",
+   "graded_by_referee": true
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Is the 400 CPU-hours a week, or for the program so far? 242 are spent since November 5.",
+   "why_it_matters": "The whole plan costs about 410. If the limit is weekly, the two-dimensional stage and all the no-friction three-dimensional work (160) fit in one week. If it is for the program, 158 are left and that is all there is.",
+   "default_if_unanswered": "Treat it as for the program so far and spend nothing beyond the first stage without asking."
+  },
+  {
+   "question": "May I start the first stage of the sweep: two dimensions, depths 5 and 10, all three engines, three seeds, two ramp rates (about 22 CPU-hours, one night)?",
+   "why_it_matters": "It tests the hysteresis method end to end where it is cheap, and measures how close to the pattern's lower edge the nudge can get at each depth and frequency, which decides whether three-dimensional loops with friction are worth their cost.",
+   "default_if_unanswered": "Do not start it. Build the tool that records the pattern amplitude at every frame, fix the thresholds, and wait."
+  },
+  {
+   "question": "With friction, both engines stop just below where the pattern dies (Gamma 2.1 to 2.25 in the two-dimensional pilot). Is a loop that turns around at the lowest Gamma the engine reaches good enough for you, or should hysteresis with friction wait for a contact method that runs at Gamma 2?",
+   "why_it_matters": "The transition where experiments see hysteresis (flat to squares, low frequency, with friction) is exactly there. Without friction the engine runs, but the literature says it gives stripes only and no hysteresis is expected.",
+   "default_if_unanswered": "Run the loops with friction as far down as the engines go, in two dimensions only, and report how much margin there was."
+  },
+  {
+   "question": "Do you want depth 15 in two dimensions in full (92 CPU-hours), reduced to one seed and one ramp rate (about 20), or left out?",
+   "why_it_matters": "It is nearly a quarter of the whole plan's cost for the part that is only a filter.",
+   "default_if_unanswered": "Run it reduced: one seed and one ramp rate, about 20 CPU-hours."
+  },
+  {
+   "question": "The no-friction engine stalled once (Gamma 5, f* 0.3, depth 15, seed 3). Do you want that stall examined event by event, although you dropped the friction diagnostics?",
+   "why_it_matters": "It decides whether no-friction is a safe comparison engine for long ramps at deep layers, and it bears on what causes the stall. The tools exist; it is an hour or two of CPU.",
+   "default_if_unanswered": "Leave it, and give every no-friction run in the sweep a CPU cap so a stall is recorded rather than waited on."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Start the two-dimensional stage of the plan (depths 5 and 10), after building the amplitude recorder.",
+   "rationale": "Cheapest part, tests the hysteresis checks for real, and tells us where the nudge's lower limit lies before any three-dimensional time is spent with friction."
+  },
+  {
+   "direction": "Then the three-dimensional no-friction onset loops at f* 0.27 and 0.44, and the no-friction runs at the seven Figure 1 conditions for you to rate.",
+   "rationale": "The no-friction engine is the only one that crosses the onset freely, and it costs a third of the nudge. The prediction to test is stated in the plan: onset near Gamma 2.1 to 2.2, stripes at both frequencies, no loop."
+  },
+  {
+   "direction": "Examine the one no-friction stall.",
+   "rationale": "Last night's account of the stall rested on friction being necessary. It is not, and one event-by-event look would say whether this stall is the same state reached more slowly."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 242.3,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 3.0,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [
+  "D0032",
+  "D0025"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-13T23:00:00-05:00",
+  "actual_start": "2026-11-13T23:07:34-05:00",
+  "ended": "2026-11-14T00:08:42-05:00",
+  "interruptions": [],
+  "cpu_hours": 4.5,
+  "cores_available": 5,
+  "disk_free_gb": {
+   "start": 47,
+   "end": 46
+  },
+  "unfinished_runs": [],
+  "limits_hit": "Awake on AC all session, no sleep or wake events in the power log. Free disk 47 GB at the start and 46 at the end, above the floor throughout; memory 76 to 79 percent free; the program's data is 3.0 of 15 GB. Six jobs of another program (grapenuts) held six cores all session (load average 8.6 at the start, 19 with our runs), so I kept to seven simulations at once; all timings in the cost pilot are therefore upper estimates. Nothing else limited the science. The session ended early by choice: both items were answered and the instruction says not to start the sweep. CPU-hours are the sum of the runs' own records (1.36, 0.10, 2.70 and 0.26) plus a few minutes of analysis. One thing outside the program's folders: the literature check ran as a helper whose fetch tool saved four PDF files in the session's own tool-results folder under ~/.claude; I did not open or remove them."
+ }
+}

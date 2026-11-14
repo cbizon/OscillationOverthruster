@@ -1,0 +1,745 @@
+{
+ "experiment": "E0051",
+ "thresholds": {
+  "CONTRAST_MIN": 8.0,
+  "COHERENCE_MIN": 0.5,
+  "SKEW_MIN": 0.3,
+  "note": "written into tools/pattern_id.py before the reference trajectories were read; contrast had been seen on three sequel checkpoints (20 to 62, shuffled 2.0 to 2.5). Not changed afterwards."
+ },
+ "calibration_reference_cases": [
+  {
+   "case": "a",
+   "manifest_pattern": "squares",
+   "manifest_temporal_period": 2,
+   "label_at_largest_amplitude": "squares",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "squares": 117,
+    "flat": 8,
+    "hexagons": 4
+   },
+   "frames": 129,
+   "temporal_period_registered_rule": 2,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": 2,
+   "period_correct_posthoc_rule": true,
+   "contrast": 115.23,
+   "null_contrast_max": 2.36,
+   "wavelength": 35.16,
+   "wavelengths_in_box": 2.84,
+   "coherence": 0.124,
+   "skew": -0.106,
+   "m2": 0.021,
+   "m4": 0.913,
+   "m6": 0.021,
+   "rms_min": 0.4218,
+   "rms_max": 3.5276,
+   "corr_1_cycle": -0.673,
+   "corr_2_cycles": 0.927,
+   "corr_4_cycles": 0.962,
+   "high_amplitude_frames_only": {
+    "corr_1": -0.703,
+    "pairs_1": 48,
+    "corr_2": 0.966,
+    "pairs_2": 32,
+    "corr_4": 0.962,
+    "pairs_4": 1
+   }
+  },
+  {
+   "case": "b",
+   "manifest_pattern": "stripes",
+   "manifest_temporal_period": 2,
+   "label_at_largest_amplitude": "stripes",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "stripes": 104,
+    "flat": 25
+   },
+   "frames": 129,
+   "temporal_period_registered_rule": 2,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": 2,
+   "period_correct_posthoc_rule": true,
+   "contrast": 71.62,
+   "null_contrast_max": 2.54,
+   "wavelength": 19.68,
+   "wavelengths_in_box": 5.08,
+   "coherence": 0.794,
+   "skew": 0.009,
+   "m2": 0.917,
+   "m4": 0.832,
+   "m6": 0.735,
+   "rms_min": 0.1551,
+   "rms_max": 0.8057,
+   "corr_1_cycle": -0.605,
+   "corr_2_cycles": 0.703,
+   "corr_4_cycles": 0.887,
+   "high_amplitude_frames_only": {
+    "corr_1": -0.814,
+    "pairs_1": 47,
+    "corr_2": 0.867,
+    "pairs_2": 32,
+    "corr_4": 0.887,
+    "pairs_4": 1
+   }
+  },
+  {
+   "case": "cd",
+   "manifest_pattern": "hexagons",
+   "manifest_temporal_period": 2,
+   "label_at_largest_amplitude": "hexagons",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "hexagons": 113,
+    "squares": 6,
+    "flat": 10
+   },
+   "frames": 129,
+   "temporal_period_registered_rule": 2,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": 2,
+   "period_correct_posthoc_rule": true,
+   "contrast": 127.22,
+   "null_contrast_max": 2.28,
+   "wavelength": 23.54,
+   "wavelengths_in_box": 4.25,
+   "coherence": 0.069,
+   "skew": -0.818,
+   "m2": 0.127,
+   "m4": 0.193,
+   "m6": 0.673,
+   "rms_min": 0.1829,
+   "rms_max": 1.6558,
+   "corr_1_cycle": -0.607,
+   "corr_2_cycles": 0.807,
+   "corr_4_cycles": 0.932,
+   "high_amplitude_frames_only": {
+    "corr_1": -0.858,
+    "pairs_1": 32,
+    "corr_2": 0.921,
+    "pairs_2": 32,
+    "corr_4": 0.932,
+    "pairs_4": 1
+   }
+  },
+  {
+   "case": "e",
+   "manifest_pattern": "flat",
+   "manifest_temporal_period": null,
+   "label_at_largest_amplitude": "flat",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "squares": 27,
+    "flat": 102
+   },
+   "frames": 129,
+   "temporal_period_registered_rule": null,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": null,
+   "period_correct_posthoc_rule": true,
+   "contrast": 1.94,
+   "null_contrast_max": 2.84,
+   "wavelength": 5.24,
+   "wavelengths_in_box": 19.08,
+   "coherence": 0.181,
+   "skew": 0.159,
+   "m2": 0.1,
+   "m4": 0.196,
+   "m6": 0.119,
+   "rms_min": 0.1158,
+   "rms_max": 0.5224,
+   "corr_1_cycle": 0.206,
+   "corr_2_cycles": 0.178,
+   "corr_4_cycles": -0.078,
+   "high_amplitude_frames_only": {
+    "corr_1": 0.253,
+    "pairs_1": 32,
+    "corr_2": 0.366,
+    "pairs_2": 13,
+    "corr_4": null,
+    "pairs_4": 0
+   }
+  },
+  {
+   "case": "f",
+   "manifest_pattern": "squares",
+   "manifest_temporal_period": 4,
+   "label_at_largest_amplitude": "squares",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "squares": 202,
+    "hexagons": 17,
+    "stripes": 38
+   },
+   "frames": 257,
+   "temporal_period_registered_rule": "unclear",
+   "period_correct_registered_rule": false,
+   "temporal_period_posthoc_rule": 4,
+   "period_correct_posthoc_rule": true,
+   "contrast": 57.95,
+   "null_contrast_max": 2.5,
+   "wavelength": 34.66,
+   "wavelengths_in_box": 2.89,
+   "coherence": 0.225,
+   "skew": -0.1,
+   "m2": 0.272,
+   "m4": 0.756,
+   "m6": 0.413,
+   "rms_min": 0.5136,
+   "rms_max": 2.5386,
+   "corr_1_cycle": -0.08,
+   "corr_2_cycles": -0.383,
+   "corr_4_cycles": 0.83,
+   "high_amplitude_frames_only": {
+    "corr_1": 0.398,
+    "pairs_1": 1,
+    "corr_2": -0.37,
+    "pairs_2": 94,
+    "corr_4": 0.853,
+    "pairs_4": 64
+   }
+  },
+  {
+   "case": "g",
+   "manifest_pattern": "stripes",
+   "manifest_temporal_period": 4,
+   "label_at_largest_amplitude": "stripes",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "stripes": 162,
+    "squares": 41,
+    "hexagons": 2,
+    "flat": 52
+   },
+   "frames": 257,
+   "temporal_period_registered_rule": 4,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": 4,
+   "period_correct_posthoc_rule": true,
+   "contrast": 45.01,
+   "null_contrast_max": 2.58,
+   "wavelength": 19.44,
+   "wavelengths_in_box": 5.14,
+   "coherence": 0.529,
+   "skew": 0.082,
+   "m2": 0.525,
+   "m4": 0.479,
+   "m6": 0.479,
+   "rms_min": 0.1775,
+   "rms_max": 0.7829,
+   "corr_1_cycle": 0.014,
+   "corr_2_cycles": -0.596,
+   "corr_4_cycles": 0.718,
+   "high_amplitude_frames_only": {
+    "corr_1": 0.847,
+    "pairs_1": 1,
+    "corr_2": -0.801,
+    "pairs_2": 94,
+    "corr_4": 0.863,
+    "pairs_4": 63
+   }
+  },
+  {
+   "case": "h",
+   "manifest_pattern": "hexagons",
+   "manifest_temporal_period": 4,
+   "label_at_largest_amplitude": "hexagons",
+   "label_correct": true,
+   "labels_over_all_frames": {
+    "hexagons": 224,
+    "squares": 12,
+    "flat": 21
+   },
+   "frames": 257,
+   "temporal_period_registered_rule": 4,
+   "period_correct_registered_rule": true,
+   "temporal_period_posthoc_rule": 4,
+   "period_correct_posthoc_rule": true,
+   "contrast": 98.2,
+   "null_contrast_max": 2.93,
+   "wavelength": 24.11,
+   "wavelengths_in_box": 4.15,
+   "coherence": 0.124,
+   "skew": -0.6,
+   "m2": 0.041,
+   "m4": 0.215,
+   "m6": 0.282,
+   "rms_min": 0.2538,
+   "rms_max": 1.9036,
+   "corr_1_cycle": 0.066,
+   "corr_2_cycles": -0.683,
+   "corr_4_cycles": 0.846,
+   "high_amplitude_frames_only": {
+    "corr_1": -0.77,
+    "pairs_1": 8,
+    "corr_2": -0.77,
+    "pairs_2": 84,
+    "corr_4": 0.933,
+    "pairs_4": 64
+   }
+  }
+ ],
+ "calibration_summary": {
+  "labels_correct": 7,
+  "of": 7,
+  "temporal_period_correct_registered_rule": 6,
+  "temporal_period_correct_posthoc_rule": 7,
+  "posthoc_rule": "period = the smallest of 1, 2, 4 drive cycles at which the mean field correlation exceeds +0.5; chosen after seeing the registered rule fail at case f (correlation at two cycles -0.383, rule needs below -0.5). Not an independent test."
+ },
+ "test_sequel_runs": [
+  {
+   "run": "E0037/main-b-up0.5-s1",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "stripes",
+   "contrast": 61.63,
+   "null_contrast_max": 2.47,
+   "wavelength": 19.63,
+   "coherence": 0.544,
+   "skew": 0.063,
+   "m2": 0.548,
+   "rms": 0.6261
+  },
+  {
+   "run": "E0037/main-b-up0.5-s2",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "stripes",
+   "contrast": 78.07,
+   "null_contrast_max": 2.62,
+   "wavelength": 19.82,
+   "coherence": 0.645,
+   "skew": 0.029,
+   "m2": 0.782,
+   "rms": 0.628
+  },
+  {
+   "run": "E0037/main-b-up0.5-s3",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "stripes",
+   "contrast": 61.14,
+   "null_contrast_max": 2.57,
+   "wavelength": 19.47,
+   "coherence": 0.563,
+   "skew": 0.065,
+   "m2": 0.487,
+   "rms": 0.6398
+  },
+  {
+   "run": "E0037/main-b-up0.5-s4",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "squares",
+   "contrast": 63.04,
+   "null_contrast_max": 2.48,
+   "wavelength": 19.43,
+   "coherence": 0.419,
+   "skew": 0.098,
+   "m2": 0.27,
+   "rms": 0.6411
+  },
+  {
+   "run": "E0037/nudge-b-up0.5-s1",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "squares",
+   "contrast": 59.97,
+   "null_contrast_max": 3.15,
+   "wavelength": 19.5,
+   "coherence": 0.49,
+   "skew": 0.022,
+   "m2": 0.374,
+   "rms": 0.6329
+  },
+  {
+   "run": "E0037/nudge-b-up0.5-s2",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "stripes",
+   "contrast": 68.42,
+   "null_contrast_max": 2.62,
+   "wavelength": 19.63,
+   "coherence": 0.601,
+   "skew": 0.066,
+   "m2": 0.706,
+   "rms": 0.6406
+  },
+  {
+   "run": "E0037/nudge-b-up0.5-s3",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "squares",
+   "contrast": 65.4,
+   "null_contrast_max": 2.69,
+   "wavelength": 19.69,
+   "coherence": 0.435,
+   "skew": 0.018,
+   "m2": 0.437,
+   "rms": 0.6283
+  },
+  {
+   "run": "E0037/nudge-b-up0.5-s4",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "cycle": 1000,
+   "label": "squares",
+   "contrast": 61.63,
+   "null_contrast_max": 2.45,
+   "wavelength": 19.64,
+   "coherence": 0.484,
+   "skew": 0.004,
+   "m2": 0.547,
+   "rms": 0.631
+  },
+  {
+   "run": "E0011/main-3d-g6-f0.84",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 6,
+   "label": "flat",
+   "contrast": 5.17,
+   "null_contrast_max": 2.41,
+   "wavelength": 24.99,
+   "coherence": 0.156,
+   "skew": 0.111,
+   "m2": 0.09,
+   "rms": 0.333
+  },
+  {
+   "run": "E0013/3d-g6-f0.84",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 120,
+   "label": "squares",
+   "contrast": 17.15,
+   "null_contrast_max": 2.37,
+   "wavelength": 19.56,
+   "coherence": 0.217,
+   "skew": 0.038,
+   "m2": 0.339,
+   "rms": 0.3708
+  },
+  {
+   "run": "E0014/baseline-main-3d-g6-f0.84",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 550,
+   "label": "squares",
+   "contrast": 18.02,
+   "null_contrast_max": 2.49,
+   "wavelength": 19.6,
+   "coherence": 0.345,
+   "skew": 0.078,
+   "m2": 0.4,
+   "rms": 0.3699
+  },
+  {
+   "run": "E0014/nudge-3d-g6-f0.84-s2",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 120,
+   "label": "squares",
+   "contrast": 12.89,
+   "null_contrast_max": 2.77,
+   "wavelength": 19.55,
+   "coherence": 0.22,
+   "skew": 0.068,
+   "m2": 0.251,
+   "rms": 0.3656
+  },
+  {
+   "run": "E0014/nudge-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 120,
+   "label": "squares",
+   "contrast": 17.71,
+   "null_contrast_max": 2.66,
+   "wavelength": 19.72,
+   "coherence": 0.266,
+   "skew": 0.04,
+   "m2": 0.34,
+   "rms": 0.3841
+  },
+  {
+   "run": "E0015/main-3d-g6-f0.84-s2",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 120,
+   "label": "squares",
+   "contrast": 15.1,
+   "null_contrast_max": 2.42,
+   "wavelength": 19.43,
+   "coherence": 0.211,
+   "skew": 0.079,
+   "m2": 0.297,
+   "rms": 0.3815
+  },
+  {
+   "run": "E0015/main-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 120,
+   "label": "squares",
+   "contrast": 14.58,
+   "null_contrast_max": 2.61,
+   "wavelength": 19.38,
+   "coherence": 0.213,
+   "skew": -0.041,
+   "m2": 0.104,
+   "rms": 0.367
+  },
+  {
+   "run": "E0029/main-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 330,
+   "label": "squares",
+   "contrast": 18.3,
+   "null_contrast_max": 2.47,
+   "wavelength": 19.68,
+   "coherence": 0.243,
+   "skew": 0.029,
+   "m2": 0.095,
+   "rms": 0.3783
+  },
+  {
+   "run": "E0029/main-3d-g6-f0.84-s4",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 1020,
+   "label": "squares",
+   "contrast": 19.85,
+   "null_contrast_max": 2.22,
+   "wavelength": 19.32,
+   "coherence": 0.458,
+   "skew": 0.078,
+   "m2": 0.473,
+   "rms": 0.3712
+  },
+  {
+   "run": "E0029/main-3d-g6-f0.84-s5",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 180,
+   "label": "squares",
+   "contrast": 12.52,
+   "null_contrast_max": 2.24,
+   "wavelength": 19.68,
+   "coherence": 0.42,
+   "skew": -0.013,
+   "m2": 0.665,
+   "rms": 0.3642
+  },
+  {
+   "run": "E0031/nudge-3d-g6-f0.84-s1",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 1020,
+   "label": "stripes",
+   "contrast": 22.94,
+   "null_contrast_max": 2.44,
+   "wavelength": 19.82,
+   "coherence": 0.75,
+   "skew": 0.048,
+   "m2": 0.912,
+   "rms": 0.3931
+  },
+  {
+   "run": "E0031/nudge-3d-g6-f0.84-s2",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 1020,
+   "label": "squares",
+   "contrast": 18.26,
+   "null_contrast_max": 2.64,
+   "wavelength": 19.36,
+   "coherence": 0.393,
+   "skew": 0.116,
+   "m2": 0.272,
+   "rms": 0.3713
+  },
+  {
+   "run": "E0031/nudge-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "cycle": 1020,
+   "label": "squares",
+   "contrast": 18.97,
+   "null_contrast_max": 2.67,
+   "wavelength": 19.62,
+   "coherence": 0.46,
+   "skew": -0.029,
+   "m2": 0.503,
+   "rms": 0.3763
+  }
+ ],
+ "test_summary": {
+  "case_b_runs": 8,
+  "case_b_labelled_stripes": 4,
+  "case_b_coherence_range": [
+   0.419,
+   0.645
+  ],
+  "case_b_contrast_range": [
+   59.97,
+   78.07
+  ],
+  "case_b_wavelength_range": [
+   19.43,
+   19.82
+  ],
+  "reference_case_b_coherence": 0.794,
+  "reference_squares_and_hexagons_coherence": [
+   0.124,
+   0.069,
+   0.225,
+   0.124
+  ],
+  "case_g_runs": [
+   {
+    "run": "E0011/main-3d-g6-f0.84",
+    "cycle": 6,
+    "label": "flat",
+    "coherence": 0.156,
+    "contrast": 5.17
+   },
+   {
+    "run": "E0013/3d-g6-f0.84",
+    "cycle": 120,
+    "label": "squares",
+    "coherence": 0.217,
+    "contrast": 17.15
+   },
+   {
+    "run": "E0014/baseline-main-3d-g6-f0.84",
+    "cycle": 550,
+    "label": "squares",
+    "coherence": 0.345,
+    "contrast": 18.02
+   },
+   {
+    "run": "E0014/nudge-3d-g6-f0.84-s2",
+    "cycle": 120,
+    "label": "squares",
+    "coherence": 0.22,
+    "contrast": 12.89
+   },
+   {
+    "run": "E0014/nudge-3d-g6-f0.84-s3",
+    "cycle": 120,
+    "label": "squares",
+    "coherence": 0.266,
+    "contrast": 17.71
+   },
+   {
+    "run": "E0015/main-3d-g6-f0.84-s2",
+    "cycle": 120,
+    "label": "squares",
+    "coherence": 0.211,
+    "contrast": 15.1
+   },
+   {
+    "run": "E0015/main-3d-g6-f0.84-s3",
+    "cycle": 120,
+    "label": "squares",
+    "coherence": 0.213,
+    "contrast": 14.58
+   },
+   {
+    "run": "E0029/main-3d-g6-f0.84-s3",
+    "cycle": 330,
+    "label": "squares",
+    "coherence": 0.243,
+    "contrast": 18.3
+   },
+   {
+    "run": "E0029/main-3d-g6-f0.84-s4",
+    "cycle": 1020,
+    "label": "squares",
+    "coherence": 0.458,
+    "contrast": 19.85
+   },
+   {
+    "run": "E0029/main-3d-g6-f0.84-s5",
+    "cycle": 180,
+    "label": "squares",
+    "coherence": 0.42,
+    "contrast": 12.52
+   },
+   {
+    "run": "E0031/nudge-3d-g6-f0.84-s1",
+    "cycle": 1020,
+    "label": "stripes",
+    "coherence": 0.75,
+    "contrast": 22.94
+   },
+   {
+    "run": "E0031/nudge-3d-g6-f0.84-s2",
+    "cycle": 1020,
+    "label": "squares",
+    "coherence": 0.393,
+    "contrast": 18.26
+   },
+   {
+    "run": "E0031/nudge-3d-g6-f0.84-s3",
+    "cycle": 1020,
+    "label": "squares",
+    "coherence": 0.46,
+    "contrast": 18.97
+   }
+  ],
+  "case_g_coherence_by_cycles": {
+   "at_120": [
+    0.217,
+    0.22,
+    0.266,
+    0.211,
+    0.213
+   ],
+   "at_180_to_550": [
+    0.345,
+    0.243,
+    0.42
+   ],
+   "at_1020": [
+    0.458,
+    0.75,
+    0.393,
+    0.46
+   ]
+  }
+ },
+ "verdict": "falsified by the registered rule: calibration gives 7 of 7 planform labels but 6 of 7 temporal periods (case f unclear), and the test gives 4 of 8 case-b sequel runs labelled stripes (rule: at least 7).",
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0051/ref-v1.jsonl",
+   "bytes": 3841,
+   "sha256": "38693a2a5ef80279342cc00efac002334f1a135c67bcd4526326851d20376da9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0051/sequel-v1.jsonl",
+   "bytes": 6886,
+   "sha256": "ded7f80789c01e1ac075b4bead4196504ab5117fb468754ac42ae348177a3618"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0051/period-posthoc.json",
+   "bytes": 833,
+   "sha256": "5ee9329af850931923230a73f349c18de7720e7a968f28f37202c15e9a8b526b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/pattern_id.py",
+   "bytes": 7738,
+   "sha256": "bede10ef5f6bdcd0c5b82e9f2d97c6d0fdb12898475a0349301bf1d9af49b748"
+  }
+ ]
+}

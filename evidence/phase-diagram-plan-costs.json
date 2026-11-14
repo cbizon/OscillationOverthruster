@@ -1,0 +1,118 @@
+{
+ "rates_ms_per_particle_cycle": {
+  "two_d": {
+   "frictionless": {
+    "5": 0.0897,
+    "10": 0.1658,
+    "15": 0.4487
+   },
+   "nudge": {
+    "5": 0.0347,
+    "10": 0.2312,
+    "15": 0.735
+   },
+   "nudge_depth_15_is_assumed": "frictionless depth-15 rate times the nudge/frictionless ratio at depth 10 (Gamma 2.5 and above); not measured"
+  },
+  "three_d": {
+   "frictionless_gamma3_f044": 0.1082,
+   "frictionless_gamma2p2_f03": 0.3431,
+   "nudge_gamma3_f044": 0.3184,
+   "nudge_gamma5_f044_N2400": 0.5392,
+   "nudge_gamma2p2_f03": 3.0035,
+   "nudge_gamma3_f03": 0.4604
+  }
+ },
+ "boxes": {
+  "two_d_N": {
+   "5": 1000,
+   "10": 4000,
+   "15": 6000
+  },
+  "two_d_L": {
+   "5": 200,
+   "10": 400,
+   "15": 400
+  },
+  "three_d": {
+   "N": 60000,
+   "L": 100,
+   "depth": 5.42
+  }
+ },
+ "cycles": {
+  "two_d_full_loop": 5225,
+  "two_d_nudge_loop": 4875,
+  "two_d_window_per_seed": 6125,
+  "three_d_onset_loop": 1025,
+  "three_d_scout": 2175
+ },
+ "stages_cpu_hours": {
+  "2D scout, depth 5, frictionless (2 f*, 1 seed)": 0.3,
+  "2D scout, depth 5, nudge (2 f*, 1 seed)": 0.1,
+  "2D onset window, depth 5, frictionless (2 f*, 3 seeds, 2 rates)": 0.9,
+  "2D onset window, depth 5, nudge (2 f*, 3 seeds, 2 rates)": 0.4,
+  "2D scout, depth 10, frictionless (2 f*, 1 seed)": 1.9,
+  "2D scout, depth 10, nudge (2 f*, 1 seed)": 2.5,
+  "2D onset window, depth 10, frictionless (2 f*, 3 seeds, 2 rates)": 6.8,
+  "2D onset window, depth 10, nudge (2 f*, 3 seeds, 2 rates)": 9.4,
+  "2D scout, depth 15, frictionless (2 f*, 1 seed)": 7.8,
+  "2D scout, depth 15, nudge (2 f*, 1 seed)": 11.9,
+  "2D onset window, depth 15, frictionless (2 f*, 3 seeds, 2 rates)": 27.5,
+  "2D onset window, depth 15, nudge (2 f*, 3 seeds, 2 rates)": 45.0,
+  "3D frictionless onset loops (f* 0.27, 0.33, 0.44; 3 seeds)": 47.5,
+  "3D frictionless onset loop at 100 cycles per step (f* 0.44, 1 seed)": 16.0,
+  "3D frictionless scout above onset (6 f*, 1 seed)": 25.0,
+  "3D frictionless long holds at the 7 Figure 1 conditions (2000 + 2 x 1000 cycles)": 49.3,
+  "3D nudge long holds at Figure 1 conditions a, cd, e, f, h (3 seeds x 1000 cycles)": 95.6,
+  "3D nudge onset loops (f* 0.27, 0.44; 3 seeds); one 24-cycle timing, uncertain by a factor 2 or more": 61.7
+ },
+ "per_f_star": {
+  "three_d_frictionless_onset_loop": {
+   "0.27": 6.5,
+   "0.33": 5.3,
+   "0.44": 4.0
+  },
+  "three_d_frictionless_scout": {
+   "0.27": 6.4,
+   "0.33": 5.2,
+   "0.38": 4.5,
+   "0.44": 3.9,
+   "0.6": 2.9,
+   "0.84": 2.1
+  },
+  "three_d_frictionless_holds": {
+   "a": 11.8,
+   "b": 7.2,
+   "cd": 8.4,
+   "e": 7.2,
+   "f": 6.8,
+   "g": 3.8,
+   "h": 4.2
+  },
+  "three_d_nudge_holds": {
+   "a": 25.9,
+   "cd": 18.4,
+   "f": 14.9,
+   "h": 9.3,
+   "e": 27.0
+  },
+  "three_d_nudge_onset_loop": {
+   "0.27": 12.7,
+   "0.44": 7.8
+  }
+ },
+ "totals": {
+  "two_d_depths_5_and_10": 22.3,
+  "two_d_depth_15": 92.2,
+  "three_d_frictionless": 137.8,
+  "three_d_nudge": 157.3,
+  "everything": 409.6
+ },
+ "seconds_per_cycle_3d": {
+  "frictionless_gamma3_f044": 6.5,
+  "nudge_gamma3_f044": 19.1,
+  "nudge_gamma2p2_f03": 180.0,
+  "frictionless_gamma2p2_f03": 20.6
+ },
+ "note": "The engine with friction and no contact method is not costed separately: where it runs it costs about what the nudge does, and its ramps end at the first step that stalls (capped at 0.05 h in 2D)."
+}

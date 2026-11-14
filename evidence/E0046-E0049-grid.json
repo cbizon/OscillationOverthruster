@@ -1,0 +1,290 @@
+{
+ "note": "Frictionless unmodified engine, 2D grid, L 100: every run so far (E0041, E0046, E0049)",
+ "points": {
+  "g3.5-f0.3-d15": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g3.5-f0.5-d15": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g5.0-f0.3-d10": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g5.0-f0.3-d15": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "cpu_budget",
+    "slow_episodes": 1
+   }
+  ],
+  "g5.0-f0.3-d5": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g5.0-f0.5-d10": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g5.0-f0.5-d15": [
+   {
+    "seed": 1,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g3.5-f0.3-d10": [
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g3.5-f0.3-d5": [
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g3.5-f0.5-d10": [
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g3.5-f0.5-d5": [
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ],
+  "g5.0-f0.5-d5": [
+   {
+    "seed": 1,
+    "cycles_requested": 1020,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 2,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   },
+   {
+    "seed": 3,
+    "cycles_requested": 120,
+    "outcome": "completed",
+    "slow_episodes": 0
+   }
+  ]
+ },
+ "points_total": 12,
+ "runs_total": 43,
+ "runs_completed_without_slow_stretch": 42
+}

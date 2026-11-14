@@ -1,0 +1,969 @@
+{
+ "experiment": "E0049",
+ "engine": "method/mu0-unmodified 765c1f0",
+ "rows": [
+  {
+   "run": "mu0-main-g3.5-f0.3-d10-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 189.0,
+   "cpu_seconds_per_cycle": 0.185,
+   "cpu_ms_per_particle_cycle": 0.1853,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.915142101007215e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 206.98899901960786,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 16.19026,
+     "block_sd": 0.08768
+    },
+    "thickness": {
+     "mean": 12.85325,
+     "block_sd": 0.09496
+    },
+    "ke_vertical": {
+     "mean": 7.57422,
+     "block_sd": 0.08782
+    },
+    "ke_horizontal": {
+     "mean": 2.02616,
+     "block_sd": 0.11769
+    },
+    "temp_vertical": {
+     "mean": 5.3419,
+     "block_sd": 0.15145
+    },
+    "temp_horizontal": {
+     "mean": 1.99409,
+     "block_sd": 0.09092
+    },
+    "plate_contact": {
+     "mean": 0.02078,
+     "block_sd": 0.00073
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d10-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 15.1,
+   "cpu_seconds_per_cycle": 0.126,
+   "cpu_ms_per_particle_cycle": 0.1262,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.5187826856237144e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 201.42010833333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d10-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 15.2,
+   "cpu_seconds_per_cycle": 0.127,
+   "cpu_ms_per_particle_cycle": 0.1268,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.354147018433258e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 201.95999166666667,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d5-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 20.5,
+   "cpu_seconds_per_cycle": 0.02,
+   "cpu_ms_per_particle_cycle": 0.0402,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.50730469298684e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 48.26544117647059,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 8.99582,
+     "block_sd": 0.02204
+    },
+    "thickness": {
+     "mean": 5.98941,
+     "block_sd": 0.10667
+    },
+    "ke_vertical": {
+     "mean": 3.4844,
+     "block_sd": 0.03953
+    },
+    "ke_horizontal": {
+     "mean": 0.87579,
+     "block_sd": 0.02632
+    },
+    "temp_vertical": {
+     "mean": 2.14023,
+     "block_sd": 0.0563
+    },
+    "temp_horizontal": {
+     "mean": 0.86095,
+     "block_sd": 0.02907
+    },
+    "plate_contact": {
+     "mean": 0.01219,
+     "block_sd": 0.00018
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d5-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.7,
+   "cpu_seconds_per_cycle": 0.014,
+   "cpu_ms_per_particle_cycle": 0.0279,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.058232701714348e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 49.00963333333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.3-d5-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.6,
+   "cpu_seconds_per_cycle": 0.014,
+   "cpu_ms_per_particle_cycle": 0.0273,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.553109554526861e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 48.06558333333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d10-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 70.5,
+   "cpu_seconds_per_cycle": 0.069,
+   "cpu_ms_per_particle_cycle": 0.0691,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 7.605200919290854e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 97.73535980392157,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 9.06829,
+     "block_sd": 0.03913
+    },
+    "thickness": {
+     "mean": 4.36666,
+     "block_sd": 0.06045
+    },
+    "ke_vertical": {
+     "mean": 2.00156,
+     "block_sd": 0.02287
+    },
+    "ke_horizontal": {
+     "mean": 0.2554,
+     "block_sd": 0.01421
+    },
+    "temp_vertical": {
+     "mean": 0.73696,
+     "block_sd": 0.02453
+    },
+    "temp_horizontal": {
+     "mean": 0.25206,
+     "block_sd": 0.01378
+    },
+    "plate_contact": {
+     "mean": 0.01392,
+     "block_sd": 6e-05
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d10-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 8.3,
+   "cpu_seconds_per_cycle": 0.069,
+   "cpu_ms_per_particle_cycle": 0.0692,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 2.8912058644219196e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 98.93861666666666,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d10-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 8.2,
+   "cpu_seconds_per_cycle": 0.068,
+   "cpu_ms_per_particle_cycle": 0.0683,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 5.132385178077177e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 98.83345,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d5-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 10.0,
+   "cpu_seconds_per_cycle": 0.01,
+   "cpu_ms_per_particle_cycle": 0.0196,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.712023592701166e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 25.30451568627451,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 4.74237,
+     "block_sd": 0.00298
+    },
+    "thickness": {
+     "mean": 2.45691,
+     "block_sd": 0.005
+    },
+    "ke_vertical": {
+     "mean": 1.0671,
+     "block_sd": 0.0018
+    },
+    "ke_horizontal": {
+     "mean": 0.21004,
+     "block_sd": 0.00079
+    },
+    "temp_vertical": {
+     "mean": 0.57477,
+     "block_sd": 0.0023
+    },
+    "temp_horizontal": {
+     "mean": 0.20937,
+     "block_sd": 0.00087
+    },
+    "plate_contact": {
+     "mean": 0.01677,
+     "block_sd": 8e-05
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d5-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.1,
+   "cpu_seconds_per_cycle": 0.009,
+   "cpu_ms_per_particle_cycle": 0.0189,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.481101699873823e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 25.43095,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g3.5-f0.5-d5-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.1,
+   "cpu_seconds_per_cycle": 0.009,
+   "cpu_ms_per_particle_cycle": 0.0188,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.559317880175109e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 25.3314,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d5-s1-1020",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 1,
+   "cycles_requested": 1020,
+   "outcome": "completed",
+   "cycles_completed": 1020,
+   "cpu_seconds": 8.7,
+   "cpu_seconds_per_cycle": 0.008,
+   "cpu_ms_per_particle_cycle": 0.017,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.458010901224678e-13,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 22.695480392156863,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": {
+    "zcm": {
+     "mean": 6.19733,
+     "block_sd": 0.00544
+    },
+    "thickness": {
+     "mean": 3.07663,
+     "block_sd": 0.0136
+    },
+    "ke_vertical": {
+     "mean": 1.48274,
+     "block_sd": 0.00601
+    },
+    "ke_horizontal": {
+     "mean": 0.35262,
+     "block_sd": 0.00336
+    },
+    "temp_vertical": {
+     "mean": 0.98083,
+     "block_sd": 0.01166
+    },
+    "temp_horizontal": {
+     "mean": 0.35172,
+     "block_sd": 0.00329
+    },
+    "plate_contact": {
+     "mean": 0.00805,
+     "block_sd": 8e-05
+    }
+   }
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d5-s2",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 2,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.0,
+   "cpu_seconds_per_cycle": 0.008,
+   "cpu_ms_per_particle_cycle": 0.0166,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 4.6020719773923855e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 23.005850000000002,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  },
+  {
+   "run": "mu0-main-g5-f0.5-d5-s3",
+   "engine_branch": "method/mu0-unmodified",
+   "commit": "765c1f0",
+   "dim": 2,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "L": 100.0,
+   "seed": 3,
+   "cycles_requested": 120,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 1.0,
+   "cpu_seconds_per_cycle": 0.008,
+   "cpu_ms_per_particle_cycle": 0.0163,
+   "slow_episodes": 0,
+   "slow_cpu_seconds": 0,
+   "first_slow_cycle": null,
+   "first_slow_phase": null,
+   "error": null,
+   "failure_cycle": null,
+   "audit_failing": 0,
+   "worst_energy_residual": 3.238790746156408e-14,
+   "energy_gains": 0,
+   "events_per_particle_cycle": 22.630133333333333,
+   "mu": 0.0,
+   "plate_collisions_slower_than_1e_10": 0,
+   "pair_collisions_slower_than_1e_10": 0,
+   "baseline_10_blocks_from_cycle_20": null
+  }
+ ],
+ "summary": {
+  "runs": 15,
+  "completed": 15,
+  "runs_with_slow_stretch": 0,
+  "collisions_slower_than_1e_10": 0,
+  "audit_failing_cycles": 0,
+  "worst_energy_residual": 7.605200919290854e-13,
+  "total_cpu_hours": 0.1
+ },
+ "verdict": "supported: all 15 runs completed with no slow stretch.",
+ "run_folder_bytes": 18427904,
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s1-1020/summary.json",
+   "bytes": 799,
+   "sha256": "9669ea51c3eb60fe99b4cbe105c9052e7f312e8d06e5fa10be4bb8626a63a8ce"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s1-1020/counters.json",
+   "bytes": 748,
+   "sha256": "e6a9951d63bc090056094ca5777448f300212e100ba7d508adb0105e62bcc069"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s1-1020/audit.json",
+   "bytes": 379569,
+   "sha256": "f9de491b706d0b021922e7968e3529aa75190281e0d93ed03fd6043e35c216c2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "450a805b98afe87891dfb8922832cddacfb4280bcc4b8a6973ef68ef1077ce52"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s1-1020/baseline.json",
+   "bytes": 2537,
+   "sha256": "a82d78febd8bb18132f9f7603c31b07cd5f54949fa7b7b511ec49b9426d5ce14"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s2/summary.json",
+   "bytes": 807,
+   "sha256": "567da41693a293cf5c57c842c05e185293226d370b4ded706cbf553f9fa10a6f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s2/counters.json",
+   "bytes": 739,
+   "sha256": "d932429f98d81539b790cabaf062f553a828bf842e48bbcbe126433744276f92"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s2/audit.json",
+   "bytes": 44529,
+   "sha256": "f1c49c425ff4d961dd9289603eafe9e40a63edd79ff6d1dd30cc3e9773d72ddb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "d03436eeec77019907ec1ae77524134f88902bf29f3a17c0b4de40c7f60c4fe1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s3/summary.json",
+   "bytes": 797,
+   "sha256": "3e4445e3c642d8ad39dd3eb21230df7cea4da1ca413247813c3e793b70736597"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s3/counters.json",
+   "bytes": 740,
+   "sha256": "c33f4edbe3cedad797cfe72f413a0bb2d02e9dcd166eb7518b304f64865b0bf8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s3/audit.json",
+   "bytes": 44611,
+   "sha256": "efd4f0e8cbe7f8ade76586f43da7030ca11988057d4c23f55ce122d3a09132c3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d10-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "6e199f8a19ce422b3fac2363d58849dd54614caf98b9189914cbccb70914ea85"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s1-1020/summary.json",
+   "bytes": 803,
+   "sha256": "38cdec9f2bda23c2ac23186445d3e72831fc21c3d69026f309ce04ae7de73c06"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s1-1020/counters.json",
+   "bytes": 743,
+   "sha256": "26d72d851d5225403a6c53dc2a9d172d177eb0ba578e5eac3bc4bfebf607bfb6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s1-1020/audit.json",
+   "bytes": 380267,
+   "sha256": "fbbd80c9c098f9ed7b1c98ce3abca785fbbb00f1cbb5bf2dd112ff8544f90861"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "0a089f0ed80789c702193eb248991819712e89e7a653177925516bc27d56d7e3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s1-1020/baseline.json",
+   "bytes": 2543,
+   "sha256": "c4f62f76c35e188051cdc44b61ad01e447f703c0e5689b107f52cec136dd276a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s2/summary.json",
+   "bytes": 792,
+   "sha256": "63f532afec364a7c87ab206a100dfec4cf6b8f20441b3cf497e725a2d98914a4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s2/counters.json",
+   "bytes": 733,
+   "sha256": "f6a62747b9f8517675b986f6af7710a67e34218797f7bc41c488289fd44081c5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s2/audit.json",
+   "bytes": 44595,
+   "sha256": "0833858194c764d1afd9afe92e896dcba8656e022d450da266e9e0eb5aaaf959"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "8eb8e50dd756a834d31422db1d23c0130ee1d4165ff537e6587372bc57069446"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s3/summary.json",
+   "bytes": 802,
+   "sha256": "a8bc175c3bbb04b1cc30a08e4dafc15ba23b89ebb6b94344afce938f72fe86f0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s3/counters.json",
+   "bytes": 735,
+   "sha256": "5a8ba1692c57d9e6813dba1afaae2b774aa20fd18015278d118b2d297f3972a7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s3/audit.json",
+   "bytes": 44654,
+   "sha256": "9e3b5696a4b0a5268793e00a3e7baee4ca818032d458364f5267e2583fdb1e49"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.3-d5-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "cb8fe1df942c04f29743e8624482fae0f2bf8f9393cf58f1d8d701c1153d419e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s1-1020/summary.json",
+   "bytes": 795,
+   "sha256": "fa6140f81d3753c68f71db1e99ded5917a0b35538d997607eb8f404e82f41135"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s1-1020/counters.json",
+   "bytes": 744,
+   "sha256": "3d258b275081e56709bb1c5ad5b0555b93d8e710f5c79ea0380eed971e435147"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s1-1020/audit.json",
+   "bytes": 380357,
+   "sha256": "a757893eb3d770583083725a771e7fba08b3c372126c992d619b837cd0e563c1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "330f69583290e01b2a29d431e76c9fccd7b30f22cc403c8e94455b275598ad66"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s1-1020/baseline.json",
+   "bytes": 2578,
+   "sha256": "d3a896b580d22caa60dc7212e632a966c25d2f08a5e4931b093576a1085e518b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s2/summary.json",
+   "bytes": 794,
+   "sha256": "c3b733362a14425d33a852213985f4a0b247276fd525e11c18e57dbffcf1c6bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s2/counters.json",
+   "bytes": 737,
+   "sha256": "2e2b408e66a1dc689a44d6d4eb590036c5c165dca779eef3f1f260e79453354a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s2/audit.json",
+   "bytes": 44630,
+   "sha256": "3a2e7dfa156f92728432e0ae7b0b214d9111fef201db3712f06303a49b37718c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "fd1b88cd79f4d30eb66068347b242db8ed0091e554e5cc615d4853de1672432f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s3/summary.json",
+   "bytes": 783,
+   "sha256": "cbd8889ebe589658306bb8c407284ac096ef3fa45a53ef2bfdaf94411262d1b1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s3/counters.json",
+   "bytes": 737,
+   "sha256": "6f1f02547793c117cc6bbc9264c9f98fb919c81d53047b73313b551969e1407e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s3/audit.json",
+   "bytes": 44649,
+   "sha256": "328c88a79a4782cc4287552b156e90be85624e86ab2ef17f515b1bb904fe66ba"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d10-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "cc64104c87cbe5718b5017b8812f7a77b951987cf6bb91dc6f27380106c28881"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s1-1020/summary.json",
+   "bytes": 791,
+   "sha256": "140c828842428a929a17e0d6d040abc3e67202696543a226996ed3aa5bbc7344"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s1-1020/counters.json",
+   "bytes": 738,
+   "sha256": "734091e7dd9c4b4858cf98578ee2828ef381e965542597942612219ccb244b0e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s1-1020/audit.json",
+   "bytes": 378428,
+   "sha256": "ca73b74929d8d2acc610f624c05d666a6f51d33cd7aec12622add9b0d00f0b2b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "8f46c043b28d240ae3e5f2609fd785d8de86e6e4b9d69efa84366aa31f2593df"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s1-1020/baseline.json",
+   "bytes": 2566,
+   "sha256": "849e5e5a2efa0c4deebdd29427ec58d92fc5bda575a2d366225f1243cd0ed475"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s2/summary.json",
+   "bytes": 784,
+   "sha256": "e856885f266a648c17fb3f580f807b6b9c698f8721b65293e83647b7d25229c8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s2/counters.json",
+   "bytes": 728,
+   "sha256": "5fa024835076da237c5ba395f41744d49de6b09e192e9e90dcdd88ea8720e905"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s2/audit.json",
+   "bytes": 44438,
+   "sha256": "0de73634f2aedaae31ac6f6249ab9d8b5abd9800e5a90eea2726a3a6de8e4b7d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "de548a5c6747e7cd203bcd0a9543a7cfa00ad582bda97d85979647cd6597f9c8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s3/summary.json",
+   "bytes": 782,
+   "sha256": "91164339900136381db424a039877d97c774ff5b8cffd5cadce89b8d5821472d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s3/counters.json",
+   "bytes": 727,
+   "sha256": "8084bce10f0cb013c1e44e562cd9be1df0cf389daecc93ced7b4e465f3b91cdf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s3/audit.json",
+   "bytes": 44335,
+   "sha256": "ea6996abc4f450f01a0257db93ff6aa8dca62c3f60c1546ffad218f5a615cbe6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g3.5-f0.5-d5-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "05939d5e8012d0b702d043649dc6b5f60c7736e4603eb93b660a11c0e2b59d95"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s1-1020/summary.json",
+   "bytes": 801,
+   "sha256": "0cd961856b9ff5f058396980c9862e87befcbd1d1480eeced6e096f0036c9d45"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s1-1020/counters.json",
+   "bytes": 738,
+   "sha256": "d967b87d6f2aa09be83220c7f588279801542c76408693ae4810874b980067cc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s1-1020/audit.json",
+   "bytes": 378764,
+   "sha256": "80cbfaaf36fa62e1fd9172620509648a40ce68176c0658b3236b47eea7408df9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s1-1020/quantities.npz",
+   "bytes": 2352714,
+   "sha256": "42e19e8561b86e0e7527853b5f3f23c0e1001333870e557e8e2a39cc2572664a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s1-1020/baseline.json",
+   "bytes": 2570,
+   "sha256": "27afc799e6ec2cc00c0edf8901852b40016e591eaa4c712e5599398d2a72d7d1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s2/summary.json",
+   "bytes": 794,
+   "sha256": "fc1f7b7bad86e3e8f7f234424b3cfb5490ded8a6e8c634fbdd790dcdc09fe20d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s2/counters.json",
+   "bytes": 723,
+   "sha256": "1636a7335cfb72ce4221be7daec43b6d8d55419934bab153347a437e66b952e2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s2/audit.json",
+   "bytes": 44405,
+   "sha256": "ab5f38c039ae95a4a07f7d09fd29499c0b56fe08b494f550ba612fa173d93c96"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s2/quantities.npz",
+   "bytes": 279114,
+   "sha256": "e02c353dc1caf5a307eefe9abdcc6113120c86c567a3658ee70a3894d9118b5e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s3/summary.json",
+   "bytes": 792,
+   "sha256": "f4916d06fc2d6e5682b9d0bc0d285cc39cf62f3dd06d53069fa6f14a397991d6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s3/counters.json",
+   "bytes": 728,
+   "sha256": "6b0e79b7a43989e7f1f71e61abd628bfc3ce4b23ecb78d1eab3caa253e3eb17b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s3/audit.json",
+   "bytes": 44466,
+   "sha256": "1032c57741f8198635e0d079fb4b6513f51f100f781644bcf7f2abf4e5098c06"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0049/mu0-main-g5-f0.5-d5-s3/quantities.npz",
+   "bytes": 279114,
+   "sha256": "24a8269f49e17fabafe95830aa61160279bf320718e576d87579791216e0f365"
+  }
+ ]
+}
