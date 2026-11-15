@@ -1,0 +1,140 @@
+{
+ "date": "2026-11-14",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "There was no instruction for the night, so there are no asked items to grade. The fallback gives two rules that pulled apart: follow the top proposed direction (start the two-dimensional stage, after building the recorder) and apply the stated default to every unanswered question (do not start it; build the recorder, fix the thresholds, wait). The session took the default and did not start the sweep, and recorded that reading as a decision. I agree with it: starting the sweep is what Chris was asked to approve. Everything run last night is either an answer to my four points on the plan or part of 'build the recorder and fix the thresholds'. Nothing went to unrelated work. The session made no claims; it recorded two of its four experiments as failed on its own tests, both honestly.\n\nWhat I checked and found sound. All 1,579 files and tools listed in the four new evidence files match their recorded size and checksum. I compared every step of the three recorded no-friction ramps with the unrecorded ones from November 13 myself: 147 of 147 end in identical states and identical referee quantities, with 235,347 frames recorded, so the recorder does not alter a run. I reran the frozen analysis on three of the seed-11 ramps and got the session's transition points exactly. The analysis file was last changed at 23:44 and the seed-11 runs were launched at 23:46, so it was not adjusted after seeing them. The first-stage price adds up from its parts (no-friction 14.4, nudge 35.3, baseline 14.3, total 64.1 CPU-hours) and the plan total (525) follows from it. No ramp step failed the energy audit. The analysis and ramp tools are now on a branch (tools/phase-diagram) and are byte-identical to the copies the runs used, which closes my housekeeping note from the last review.\n\nThree things Chris should know before approving the first stage.\n\n(1) The steadiness figure in the summary belongs to an amplitude the plan no longer uses. 'About twice as steady as a snapshot' (3.6 percent of the range against 7.0) is for the amplitude as first registered. That one was replaced the same night by a noise-corrected amplitude, because the first one rose in a layer with no pattern. I ran the registered steadiness test on the replacement, on the same 100-cycle loop: its up and down branches differ by 7.2 percent of its range, no better than single snapshots. The replacement is better at telling flat from patterned, but it was never put through the test the first one narrowly failed, and the summary does not say so.\n\n(2) The rule places a transition to within one or two steps of 0.05 in Gamma, not better, at 25 cycles per step. I ran one ramp the session did not: the unmodified engine with friction at depth 5, f* 0.3, seed 11, down from Gamma 3 and back up from its floor (about three CPU-minutes, with the recorder and the frozen rule). Its pattern ends at Gamma 2.58 going down and starts at 2.48 going up, a 'loop' of minus 0.1, which is the wrong sign for hysteresis and so is noise. The nudge at the same seed gives 2.53 both ways, and on its up branch the hold at 2.5 misses the threshold by 0.004 of a diameter, which would have moved that point by a step. So the first stage as designed can show a loop wider than about 0.1 in Gamma and cannot show a narrower one from a single ramp; the up-down differences of 0.05 to 0.1 in the pilots mean nothing, as the session says.\n\n(3) That same ramp answers a question the session's numbers raise. At depth 5, f* 0.3 the pattern starts at Gamma 2.08 without friction but ends at 2.53 with the nudge, a gap of 0.45. With my baseline ramp at 2.48 to 2.58, the two engines with friction agree with each other to within the rule's noise, so the gap is friction and not the nudge. One seed; it is a pointer, not a result. It also means the no-friction engine's diagram is a diagram of a different material, not a stand-in for the one with friction.\n\nSmaller points. The 'no pattern at depth 5, f* 0.5' reading depends on the tolerance floor of a tenth of a diameter that was chosen after seeing that run: the corrected amplitude still drifts up with Gamma there (0.06 at the bottom to 0.14 at the top, against a threshold of 0.16), and the earlier tolerance would have flagged it. The spectrum has no peak there (strongest mode about twice the median), which supports the reading, but the margin is thin. The summary's 'the nudge slows 8 to 50 times before its floor' is the seed-1 ramps measured against each ramp's cheapest step; seed 11 gave 113 times at depth 5 and the plan says 8 to 110. The first-stage price includes 7.2 CPU-hours for the baseline with friction at depth 10, f* 0.3, where it cannot start from rest and stops at Gamma 2.85 with the pattern still present; those runs cannot give a transition point. Every price rests on one seed per engine and condition, timed while the machine was heavily shared. The period rule's 16 of 16 is two conditions with repeats, both patterned, as the session says; the runs' behaviour in time had not been looked at before, so it is a fair test of those two. I did not rerun it.\n\nHousekeeping: program check passes; the latest approval is still Chris's of November 6. Free disk 45 gigabytes (floor 40), program data 3.5 of 15 gigabytes, tmp empty, no jobs running, active.jsonl empty. I found no files written outside the program's two folders during the session apart from the app's own logs. program check now counts 183 of 400 CPU-hours for the week (46 percent); the session's 198 was right when it ended and older runs have since left the seven-day window.",
+ "answers": [],
+ "reviews": [
+  {
+   "claim_id": "E0053",
+   "plain_claim": "Recorded as failed, narrowly: the recorder of the layer's surface shape leaves all 147 ramp steps identical to unrecorded runs, and the registered amplitude is 7.9 times larger in the patterned layer than in the flat one, but it is 0.509 times as variable between up and down branches as a snapshot where at most 0.5 was required.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Compared every array of every step's final state and referee quantities in the three recorded ramps with the unrecorded ramps of November 13, with my own script, and counted recorded frames. Checked that the November 13 runs really had no recorder. Verified 305 files and tools against checksums.",
+     "finding": "147 of 147 steps identical in state and in referee quantities; 235,347 frames; the November 13 runs contain no field files. The recorder acted (it wrote a record at every step) and changed nothing. I did not repeat the stop-and-resume check, whose output the session deleted."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Recomputed the registered test from the 100-cycle loop with the session's analysis tool, for the registered amplitude and for the noise-corrected one adopted afterwards.",
+     "finding": "Registered amplitude: 1.52 at Gamma 3.0 against 0.19 at 1.8 (ratio 7.9), up-down difference 3.6 percent of range. These match. The adopted noise-corrected amplitude gives 7.2 percent of its range on the same loop, against 7.0 for snapshots. The evidence file was rebuilt after the outcome was written, which the session disclosed (decision D0036); the registered numbers are unchanged. The failed verdict was not softened."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0054",
+   "plain_claim": "Recorded as supported: the rule that says whether a pattern repeats every two or every four drive cycles named 16 of 16 three-dimensional runs correctly (10 at Gamma 3, f* 0.44 and 6 at Gamma 6, f* 0.84), nudge and baseline alike.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked whether these runs' behaviour in time had been seen when the rule was chosen on November 13, by reading that night's evidence. Read the margins for each of the 16 runs. Verified 41 files against checksums.",
+     "finding": "On November 13 these runs were examined only as single snapshots at their last cycle, so their period was unseen and the test is fair. Margins are wide: the winning correlation is 0.68 or more against a threshold of 0.5 and the nearest wrong answer is at 0.02. It is two conditions with repeats, both patterned, with nine cycles of data each; there is no flat case and no case that repeats every cycle. The session states all of this. I did not rerun it."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0055",
+   "plain_claim": "Recorded as supported: on downward ramps in two dimensions the nudge reaches Gamma 2.05 to 2.25 and the unmodified engine with friction 2.2 to 2.35, except at depth 10, f* 0.3 where the unmodified engine cannot start from rest and stops at 2.85; the nudge slows 8 to 50 times before its floor; the first stage is repriced at 64 CPU-hours.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the audit count for every ramp in the evidence and verified 694 files and tools against checksums. Ran one more ramp with friction myself (see E0056) and read its audit.",
+     "finding": "No failing audit cycle in any step of any ramp, including mine. The floors in the summary match the evidence (nudge 2.05, 2.25, 2.15 or 2.2 with the early turn; baseline 2.2, 2.35, and 2.85 from the nudge's state)."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Added up the first-stage price from the per-condition figures and compared the slowdown figures in the summary, the evidence and the plan.",
+     "finding": "The parts add to 14.4, 35.3 and 14.3 CPU-hours, total 64.1, and the plan total of 525 follows. Each figure rests on one seed per engine and condition. The price includes 7.2 CPU-hours for the baseline at depth 10, f* 0.3, where it gives no transition point. The summary's '8 to 50 times' is measured against each ramp's cheapest step at seed 1; the evidence file's own slowdown field gives 3.4 for the nudge at depth 10, f* 0.3 because its first step, from rest, was itself slow; seed 11 gave 113 times at depth 5, and the plan says 8 to 110. The baseline stopping at depth 10, f* 0.3 from the nudge's state is one attempt."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the timings against the performance evidence class.",
+     "finding": "The timings were taken with seven simulations beside up to ten jobs of another program on fourteen cores. They are per-process CPU times, so usable as upper estimates for planning, which is all they are used for. They are not performance claims and none is made."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Looked at the departures from the registration: the baseline started from the nudge's state, the up branches from each floor, and the repeat with an earlier turn.",
+     "finding": "All three were added after the registered runs and are recorded as departures (decision D0035). The early-turn rule (turn at the first step using more than half its time allowance) was introduced after one failure and tried once, at the condition where the failure happened. It has not been tried at any other condition."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0056",
+   "plain_claim": "Recorded as failed: with the analysis frozen, four of five predictions held on a new seed; the miss is the nudge at depth 5, f* 0.3, whose pattern ends at Gamma 2.53 where 2.15 to 2.40 was predicted.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Compared the analysis tool's modification time and checksum with the registration and launch times, and reran it on three of the six seed-11 ramps.",
+     "finding": "The tool was last modified at 23:44, the registration is stamped 23:44:26 and the runs were launched at 23:46; its checksum matches the evidence file. My rerun gives the same transition points: no friction, depth 5: 2.075 both ways; nudge, depth 5: 2.525 both ways from 17 flat holds; nudge, depth 10: 2.425 down and 2.475 up from 6 flat holds. The ramp tool did gain an option after launch, off by default, as disclosed."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "The nudge's pattern ends 0.45 in Gamma above where the no-friction pattern starts at the same condition. To see whether that is friction or the nudge, I ran the unmodified engine with friction at depth 5, f* 0.3, seed 11, down from Gamma 3.0 and back up from its floor, with the recorder and the frozen rule (164 CPU-seconds; output in sequel-data/checker/1114).",
+     "finding": "The unmodified engine reached Gamma 2.3, had nine flat holds, and by the rule its pattern ends at 2.575 going down and starts at 2.475 going up. The nudge gives 2.525. The two engines with friction agree within the rule's noise and both sit about 0.45 above the no-friction engine, so the shift is friction. Their layer thickness also agrees step by step (2.11 against 2.11 at Gamma 2.5, 1.59 against 1.58 at 2.3). One seed."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Looked at how close holds near the transition sit to the threshold, in the session's ramps and in mine.",
+     "finding": "On the nudge's up branch the hold at Gamma 2.5 has amplitude 0.136 against a threshold of 0.140; a hair more and the transition would be one step lower. My baseline ramp gives an up-down difference of minus 0.1, the wrong sign for a loop. At 25 cycles per step the rule is good to one or two steps of 0.05 and no better. The session says the same of its own small differences and claims no transition point."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked the 'no pattern at depth 5, f* 0.5' prediction against the tolerance floor chosen after seeing seed 1.",
+     "finding": "The corrected amplitude there still rises with Gamma, from about 0.06 at the bottom to 0.14 at the top (seed 1) and 0.14 (seed 11), against a threshold of about 0.16. With the earlier tolerance some holds would have been flagged. The spectrum shows no peak (strongest mode about twice the median, against 5 to 20 where a pattern is present), so 'no pattern' is the fair reading, but the prediction held with a thin margin and on a constant set from the same condition."
+    }
+   ]
+  },
+  {
+   "claim_id": "D0035",
+   "plain_claim": "Method choices for the hysteresis measurement: a noise-corrected amplitude in place of the registered one, a flat level from the five lowest holds, a tolerance of five scatters or a tenth of a diameter, engines with friction turning one step before their floor, and the baseline allowed to start from the nudge's state.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Silent substitution",
+     "what_was_done": "Ran the steadiness test registered for the first amplitude on the amplitude that replaced it.",
+     "finding": "7.2 percent of range between up and down branches on the 100-cycle loop, against 3.6 for the registered amplitude and 7.0 for snapshots. The summary's 'about twice as steady' therefore does not describe the measure the sweep will use. The replacement is disclosed and reasoned; what is missing is its own result on the registered test."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Read which constants were set after seeing data and what they were then tested on.",
+     "finding": "The noise correction, the flat-level rule and the tenth-of-a-diameter floor were all set on seed 1 and tested on seed 11 at the same conditions and engines. That is a real test of repeatability and it mostly passed. It is not a test at another depth, frequency or in three dimensions, and the floor is an absolute height that will not scale to depth 15 or to the three-dimensional box without checking."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Considered the baseline being started from the nudge's state.",
+     "finding": "A baseline run that begins from a state the method under test produced is no longer an independent check of that method. It was used once, is disclosed, and gave no transition point. It should not be used in the sweep for any comparison between the two engines."
+    }
+   ],
+   "what_would_resolve": "In one session, with no new long runs: (a) report the registered steadiness test for the noise-corrected amplitude on the existing 100-cycle loop and say in the plan what width of loop the rule can resolve at 25 and at 100 cycles per step (my figure is about 0.1 in Gamma at 25); (b) rerun the existing no-friction ramps' analysis at a second band and a second tolerance floor and show the transition points move by no more than one step; (c) state in the plan that the baseline started from the nudge's state is not used for engine comparisons."
+  },
+  {
+   "claim_id": "D0032",
+   "plain_claim": "Open from the last review: the phase-diagram plan, proposed for Chris's approval. Revised last night: the nudge's three-dimensional diagram is spelled out and a scan added (74 CPU-hours at most), the first stage is repriced at 64 CPU-hours with all three engines, the budget is stated per week, and the transition point is defined for engines that reach few flat holds. Total about 525 CPU-hours.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Went through the four things I asked for on November 13 against the revised plan, the cost file and decision D0034.",
+     "finding": "All four are done. (a) The nudge's part is stated and a scan priced; whether six frequencies or three is put to Chris. (b) The first stage is priced per engine and condition from measured ramps, including slow steps and capped steps; I checked the sums. (c) The budget is stated per seven days from program check. (d) The rule is coded and was exercised on engines with 6 to 17 flat holds and on one with none, where it correctly gives no transition point. The plan remains a proposal; the sweep was not started."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Looked for what the revised first stage still cannot deliver.",
+     "finding": "The baseline with friction cannot run at depth 10, f* 0.3, so there the nudge has no independent check with friction; the stage still spends 7.2 CPU-hours on it. Loops narrower than about 0.1 in Gamma will not be resolved at the faster ramp rate (see D0035). The weekly budget has room for the stage (183 of 400 used now), but the whole plan at 525 is more than one week's limit."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session started eight minutes late (23:08) and ended at 00:33, using an hour and twenty-five minutes of its six-hour window by choice: its default was not to start the sweep and the work short of that was finished. The power log shows the Mac woke at 17:34 on November 14 and has no sleep or wake entry after that, so nothing interrupted it. No jobs were left running and active.jsonl is empty. Free disk is 45 gigabytes, above the 40 gigabyte floor; memory is 79 percent free now. The recorded 5.1 CPU-hours is the sum of the four experiments' records (5.12). The machine did not limit the science, but it was heavily shared with another program, so every cost figure from the night is an upper estimate; the first-stage price inherits that. What is waiting is Chris's approval to start the first stage, for the second night running.",
+  "discrepancies": [
+   "The budget block gives 197.855 of 400 CPU-hours; program check now gives 182.825 (46 percent). The difference is runs that have since left the seven-day window, not an error.",
+   "The load averages recorded for the start (17) and the peak (52) cannot be checked afterwards; the load now is about 1. Another program's results folder was being written during the session, which is consistent with the sharing described.",
+   "The summary's 'the nudge slows 8 to 50 times' differs from the plan's '8 to 110 times' and from the evidence file's own slowdown field (3.4 at depth 10, f* 0.3); the figures use different reference steps and seeds."
+  ]
+ }
+}
