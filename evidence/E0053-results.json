@@ -1,0 +1,4609 @@
+{
+ "experiment": "E0053",
+ "condition": "2D, f* 0.3, depth 5, L 200, N 1000, seed 1, frictionless engine 765c1f0, Gamma 1.8 to 3.0 in steps of 0.05; the three frictionless ramps of E0052 rerun with tools/field_recorder.py. One seed: calibration, no transition point is a result.",
+ "recorder_changes_nothing": {
+  "steps_compared": 147,
+  "checkpoints_identical": 147,
+  "referee_quantities_identical": 147,
+  "frame_counts_right": 147,
+  "how": "every array of each step's checkpoint.npz and quantities.npz compared with np.array_equal against the same step of E0052 (run without the recorder); frames recorded must be 32 per cycle plus one and their times equal the referee's"
+ },
+ "recorder_acted": {
+  "steps": 147,
+  "frames_recorded": 235347,
+  "note": "32 frames per cycle plus the frame at the start of each hold"
+ },
+ "resume_check": {
+  "run": "2D, Gamma 2.5, f* 0.3, N 1000, L 200, seed 1, 60 cycles, checkpoint every 7; stopped by a CPU cap in cycle 41 with 180 recorded frames later than its last checkpoint (cycle 35), then resumed",
+  "result": "all arrays of fields.npz and of the final checkpoint equal those of an uninterrupted 60-cycle run",
+  "note": "run in sequel-data/tmp and deleted; repeatable from the commands in the session record"
+ },
+ "band_amplitude": {
+  "definition": "A_raw (the amplitude registered in E0053) = sqrt of the time-mean over all frames of a hold of the height-field variance in Fourier modes 3 to L/8 of the box (bins of 2 D). In the step tables A is the noise-corrected amplitude adopted afterwards (D0035) and A_first, A_second its halves.",
+  "registered_test_on_100_cycle_loop": {
+   "A_at_gamma_3": 1.5236,
+   "A_at_gamma_1p8": 0.1928,
+   "ratio": 7.9,
+   "ratio_needed": 5,
+   "up_down_rms_difference_over_range_A": 0.0356,
+   "up_down_rms_difference_over_range_snapshot": 0.07,
+   "A_over_snapshot": 0.509,
+   "needed_at_most": 0.5,
+   "verdict": "first clause holds (7.9); second clause fails narrowly (0.509 against 0.5)"
+  },
+  "on_25_cycle_loops": {
+   "mu0-updown-h25": {
+    "ratio": 7.43,
+    "A": 0.0655,
+    "snapshot": 0.0966,
+    "A_over_snapshot": 0.678
+   },
+   "mu0-downup-h25": {
+    "ratio": 8.26,
+    "A": 0.0772,
+    "snapshot": 0.0859,
+    "A_over_snapshot": 0.899
+   }
+  }
+ },
+ "transition_rule_applied": {
+  "mu0-updown-h100": {
+   "flat_level": 0.0894,
+   "flat_scatter": 0.0139,
+   "transitions": {
+    "up": {
+     "steps": 25,
+     "flat_steps": 6,
+     "gamma_first_patterned": 2.1,
+     "gamma_transition": 2.075,
+     "unsettled_at_transition": false,
+     "gamma_fit": 1.9965,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "down": {
+     "steps": 24,
+     "flat_steps": 6,
+     "gamma_first_patterned": 2.1,
+     "gamma_transition": 2.075,
+     "unsettled_at_transition": false,
+     "gamma_fit": 2.0,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "width": 0.0
+   },
+   "unsettled_holds": 10
+  },
+  "mu0-updown-h25": {
+   "flat_level": 0.0862,
+   "flat_scatter": 0.0083,
+   "transitions": {
+    "up": {
+     "steps": 25,
+     "flat_steps": 6,
+     "gamma_first_patterned": 2.1,
+     "gamma_transition": 2.075,
+     "unsettled_at_transition": false,
+     "gamma_fit": 2.0681,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "down": {
+     "steps": 24,
+     "flat_steps": 5,
+     "gamma_first_patterned": 2.05,
+     "gamma_transition": 2.025,
+     "unsettled_at_transition": false,
+     "gamma_fit": 2.0077,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "width": 0.05
+   },
+   "unsettled_holds": 13
+  },
+  "mu0-downup-h25": {
+   "flat_level": 0.0726,
+   "flat_scatter": 0.0194,
+   "transitions": {
+    "up": {
+     "steps": 24,
+     "flat_steps": 5,
+     "gamma_first_patterned": 2.1,
+     "gamma_transition": 2.075,
+     "unsettled_at_transition": false,
+     "gamma_fit": 1.9941,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "down": {
+     "steps": 25,
+     "flat_steps": 5,
+     "gamma_first_patterned": 2.05,
+     "gamma_transition": 2.025,
+     "unsettled_at_transition": false,
+     "gamma_fit": 1.9908,
+     "fit_points": 9,
+     "fit_is_extrapolation": false
+    },
+    "width": 0.05
+   },
+   "unsettled_holds": 20
+  }
+ },
+ "transition_rule_note": "Computed with the rule as finally fixed (plan section 5; noise-corrected amplitude, robust flat level, tolerance max(5 s, 0.1 D)) to show it can be applied; one seed, frictionless: calibration, not a result.",
+ "ramps": {
+  "mu0-updown-h100": {
+   "identity": {
+    "steps": 49,
+    "checkpoints_identical": 49,
+    "quantities_identical": 49,
+    "frame_counts_right": 49,
+    "differing": []
+   },
+   "amplitude": {
+    "common_gammas": 24,
+    "A_at_3": 1.5236,
+    "A_at_1p8": 0.1928,
+    "ratio": 7.9,
+    "A_updown_rms": 0.0481,
+    "A_range": 1.3529,
+    "A_updown_over_range": 0.0356,
+    "snap_updown_rms": 0.1376,
+    "snap_range": 1.9654,
+    "snap_updown_over_range": 0.07,
+    "flat_level": 0.0894,
+    "flat_scatter": 0.0139,
+    "transitions": {
+     "up": {
+      "steps": 25,
+      "flat_steps": 6,
+      "gamma_first_patterned": 2.1,
+      "gamma_transition": 2.075,
+      "unsettled_at_transition": false,
+      "gamma_fit": 1.9965,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "down": {
+      "steps": 24,
+      "flat_steps": 6,
+      "gamma_first_patterned": 2.1,
+      "gamma_transition": 2.075,
+      "unsettled_at_transition": false,
+      "gamma_fit": 2.0,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "width": 0.0
+    },
+    "unsettled_holds": 10
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 1.8,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.1192,
+     "A_raw": 0.1911,
+     "A": 0.0894,
+     "A_first": 0.0911,
+     "A_second": 0.093,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 3.4,
+     "thickness": 1.4805,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 1,
+     "gamma": 1.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0965,
+     "A_raw": 0.2036,
+     "A": 0.1085,
+     "A_first": 0.1084,
+     "A_second": 0.0931,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 3.5,
+     "thickness": 1.525,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 2,
+     "gamma": 1.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0799,
+     "A_raw": 0.2215,
+     "A": 0.0889,
+     "A_first": 0.0924,
+     "A_second": 0.1049,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 2.9,
+     "thickness": 1.5818,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 3,
+     "gamma": 1.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0645,
+     "A_raw": 0.2444,
+     "A": 0.1012,
+     "A_first": 0.1075,
+     "A_second": 0.0871,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 2.2,
+     "thickness": 1.6763,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 4,
+     "gamma": 2.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0546,
+     "A_raw": 0.3093,
+     "A": 0.0855,
+     "A_first": 0.0725,
+     "A_second": 0.0686,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 1.6,
+     "thickness": 1.8471,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 5,
+     "gamma": 2.05,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0476,
+     "A_raw": 0.3992,
+     "A": 0.1285,
+     "A_first": 0.1492,
+     "A_second": 0.1379,
+     "peak_mode": 9,
+     "wavelength": 22.2,
+     "peak_over_median": 2.1,
+     "thickness": 2.059,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 6,
+     "gamma": 2.1,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0448,
+     "A_raw": 0.5064,
+     "A": 0.2223,
+     "A_first": 0.1815,
+     "A_second": 0.2431,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 3.5,
+     "thickness": 2.2862,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 7,
+     "gamma": 2.15,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0464,
+     "A_raw": 0.7581,
+     "A": 0.5154,
+     "A_first": 0.5252,
+     "A_second": 0.5294,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 13.0,
+     "thickness": 2.5433,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 8,
+     "gamma": 2.2,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.048,
+     "A_raw": 0.9102,
+     "A": 0.6489,
+     "A_first": 0.6325,
+     "A_second": 0.6322,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 17.6,
+     "thickness": 2.7495,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 9,
+     "gamma": 2.25,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0473,
+     "A_raw": 0.9525,
+     "A": 0.6259,
+     "A_first": 0.6485,
+     "A_second": 0.6105,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 11.6,
+     "thickness": 2.8845,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 10,
+     "gamma": 2.3,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.046,
+     "A_raw": 0.9754,
+     "A": 0.594,
+     "A_first": 0.6384,
+     "A_second": 0.6366,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.9,
+     "thickness": 2.9758,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 11,
+     "gamma": 2.35,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0468,
+     "A_raw": 1.0833,
+     "A": 0.7208,
+     "A_first": 0.7515,
+     "A_second": 0.7169,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.9,
+     "thickness": 3.1504,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0464,
+     "A_raw": 1.1537,
+     "A": 0.8134,
+     "A_first": 0.7688,
+     "A_second": 0.8871,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 11.9,
+     "thickness": 3.3495,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 13,
+     "gamma": 2.45,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0455,
+     "A_raw": 1.1722,
+     "A": 0.858,
+     "A_first": 0.873,
+     "A_second": 0.8197,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 16.9,
+     "thickness": 3.4255,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 14,
+     "gamma": 2.5,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0431,
+     "A_raw": 1.2393,
+     "A": 0.7943,
+     "A_first": 0.8042,
+     "A_second": 0.8798,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 8.5,
+     "thickness": 3.6129,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 15,
+     "gamma": 2.55,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0443,
+     "A_raw": 1.3727,
+     "A": 0.9771,
+     "A_first": 1.0672,
+     "A_second": 0.9282,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 12.7,
+     "thickness": 3.8561,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 16,
+     "gamma": 2.6,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0422,
+     "A_raw": 1.2912,
+     "A": 0.9336,
+     "A_first": 0.9592,
+     "A_second": 0.8882,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 11.0,
+     "thickness": 3.8337,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 17,
+     "gamma": 2.65,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.041,
+     "A_raw": 1.3389,
+     "A": 0.9428,
+     "A_first": 0.9301,
+     "A_second": 0.944,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 10.7,
+     "thickness": 3.9823,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 18,
+     "gamma": 2.7,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0398,
+     "A_raw": 1.3804,
+     "A": 0.9467,
+     "A_first": 0.9824,
+     "A_second": 0.9212,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.7,
+     "thickness": 4.1262,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 19,
+     "gamma": 2.75,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0389,
+     "A_raw": 1.4315,
+     "A": 0.9995,
+     "A_first": 1.0468,
+     "A_second": 0.9719,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.0,
+     "thickness": 4.2587,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 20,
+     "gamma": 2.8,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0375,
+     "A_raw": 1.4231,
+     "A": 0.9523,
+     "A_first": 0.9032,
+     "A_second": 1.0108,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 6.1,
+     "thickness": 4.3931,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 21,
+     "gamma": 2.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0376,
+     "A_raw": 1.4827,
+     "A": 1.0118,
+     "A_first": 1.0195,
+     "A_second": 0.941,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 7.6,
+     "thickness": 4.5221,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 22,
+     "gamma": 2.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.036,
+     "A_raw": 1.526,
+     "A": 1.022,
+     "A_first": 1.1175,
+     "A_second": 0.9496,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.9,
+     "thickness": 4.6717,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 23,
+     "gamma": 2.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0359,
+     "A_raw": 1.4785,
+     "A": 0.9526,
+     "A_first": 0.9134,
+     "A_second": 1.0178,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 5.8,
+     "thickness": 4.6429,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 24,
+     "gamma": 3.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0346,
+     "A_raw": 1.5236,
+     "A": 0.9038,
+     "A_first": 0.8694,
+     "A_second": 0.9484,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 4.2,
+     "thickness": 4.8814,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 25,
+     "gamma": 2.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0352,
+     "A_raw": 1.544,
+     "A": 1.009,
+     "A_first": 0.9974,
+     "A_second": 1.06,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 6.7,
+     "thickness": 4.7984,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 26,
+     "gamma": 2.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0364,
+     "A_raw": 1.5046,
+     "A": 0.9609,
+     "A_first": 1.0377,
+     "A_second": 0.9065,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 6.6,
+     "thickness": 4.6401,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 27,
+     "gamma": 2.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0382,
+     "A_raw": 1.4536,
+     "A": 1.0052,
+     "A_first": 1.0571,
+     "A_second": 0.9504,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.7,
+     "thickness": 4.3839,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 28,
+     "gamma": 2.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0387,
+     "A_raw": 1.4286,
+     "A": 0.9712,
+     "A_first": 0.9883,
+     "A_second": 1.0159,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.6,
+     "thickness": 4.3558,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 29,
+     "gamma": 2.75,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0384,
+     "A_raw": 1.3596,
+     "A": 0.9448,
+     "A_first": 0.9529,
+     "A_second": 0.9641,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.1,
+     "thickness": 4.1272,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 30,
+     "gamma": 2.7,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0399,
+     "A_raw": 1.3869,
+     "A": 0.9462,
+     "A_first": 0.9836,
+     "A_second": 0.9515,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.9,
+     "thickness": 4.1383,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 31,
+     "gamma": 2.65,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0414,
+     "A_raw": 1.358,
+     "A": 0.9515,
+     "A_first": 1.0092,
+     "A_second": 0.8901,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.4,
+     "thickness": 3.9985,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 32,
+     "gamma": 2.6,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0411,
+     "A_raw": 1.285,
+     "A": 0.904,
+     "A_first": 0.8648,
+     "A_second": 0.933,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.3,
+     "thickness": 3.8597,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 33,
+     "gamma": 2.55,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0436,
+     "A_raw": 1.2584,
+     "A": 0.8703,
+     "A_first": 0.9009,
+     "A_second": 0.8502,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.9,
+     "thickness": 3.738,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 34,
+     "gamma": 2.5,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0647,
+     "A_raw": 1.1852,
+     "A": 0.7815,
+     "A_first": 0.7553,
+     "A_second": 0.8068,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.9,
+     "thickness": 3.5577,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 35,
+     "gamma": 2.45,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0643,
+     "A_raw": 1.1559,
+     "A": 0.7643,
+     "A_first": 0.8365,
+     "A_second": 0.7707,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.5,
+     "thickness": 3.4066,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 36,
+     "gamma": 2.4,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0695,
+     "A_raw": 1.2542,
+     "A": 0.9588,
+     "A_first": 0.9561,
+     "A_second": 0.9614,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 19.5,
+     "thickness": 3.3938,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 37,
+     "gamma": 2.35,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0683,
+     "A_raw": 1.0505,
+     "A": 0.6968,
+     "A_first": 0.7241,
+     "A_second": 0.6683,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 14.1,
+     "thickness": 3.1053,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 38,
+     "gamma": 2.3,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0708,
+     "A_raw": 1.0426,
+     "A": 0.7099,
+     "A_first": 0.6608,
+     "A_second": 0.7782,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 15.8,
+     "thickness": 2.9907,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 39,
+     "gamma": 2.25,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0683,
+     "A_raw": 0.9805,
+     "A": 0.6727,
+     "A_first": 0.6062,
+     "A_second": 0.7331,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 12.1,
+     "thickness": 2.9029,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 3201
+    },
+    {
+     "step": 40,
+     "gamma": 2.2,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0678,
+     "A_raw": 0.8427,
+     "A": 0.5079,
+     "A_first": 0.5232,
+     "A_second": 0.5206,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 7.1,
+     "thickness": 2.7127,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 41,
+     "gamma": 2.15,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0674,
+     "A_raw": 0.7488,
+     "A": 0.4382,
+     "A_first": 0.4425,
+     "A_second": 0.4339,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 8.2,
+     "thickness": 2.5448,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 42,
+     "gamma": 2.1,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0658,
+     "A_raw": 0.5886,
+     "A": 0.3436,
+     "A_first": 0.3634,
+     "A_second": 0.3053,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 5.3,
+     "thickness": 2.348,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 43,
+     "gamma": 2.05,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0661,
+     "A_raw": 0.3989,
+     "A": 0.1474,
+     "A_first": 0.1565,
+     "A_second": 0.1243,
+     "peak_mode": 9,
+     "wavelength": 22.2,
+     "peak_over_median": 1.9,
+     "thickness": 2.0877,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 44,
+     "gamma": 2.0,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0768,
+     "A_raw": 0.3105,
+     "A": 0.0732,
+     "A_first": 0.0692,
+     "A_second": 0.0596,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 1.6,
+     "thickness": 1.8655,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 45,
+     "gamma": 1.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.0963,
+     "A_raw": 0.2536,
+     "A": 0.0919,
+     "A_first": 0.1114,
+     "A_second": 0.0671,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 2.2,
+     "thickness": 1.6815,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 46,
+     "gamma": 1.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.1145,
+     "A_raw": 0.2154,
+     "A": 0.084,
+     "A_first": 0.0915,
+     "A_second": 0.092,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 2.5,
+     "thickness": 1.573,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 47,
+     "gamma": 1.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.128,
+     "A_raw": 0.2084,
+     "A": 0.08,
+     "A_first": 0.0789,
+     "A_second": 0.0919,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 3.0,
+     "thickness": 1.534,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    },
+    {
+     "step": 48,
+     "gamma": 1.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 100,
+     "cpu_seconds_per_cycle": 0.1673,
+     "A_raw": 0.1946,
+     "A": 0.1127,
+     "A_first": 0.1012,
+     "A_second": 0.1177,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 4.3,
+     "thickness": 1.4744,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 3201
+    }
+   ]
+  },
+  "mu0-updown-h25": {
+   "identity": {
+    "steps": 49,
+    "checkpoints_identical": 49,
+    "quantities_identical": 49,
+    "frame_counts_right": 49,
+    "differing": []
+   },
+   "amplitude": {
+    "common_gammas": 24,
+    "A_at_3": 1.4791,
+    "A_at_1p8": 0.199,
+    "ratio": 7.43,
+    "A_updown_rms": 0.0905,
+    "A_range": 1.3809,
+    "A_updown_over_range": 0.0655,
+    "snap_updown_rms": 0.2051,
+    "snap_range": 2.1246,
+    "snap_updown_over_range": 0.0966,
+    "flat_level": 0.0862,
+    "flat_scatter": 0.0083,
+    "transitions": {
+     "up": {
+      "steps": 25,
+      "flat_steps": 6,
+      "gamma_first_patterned": 2.1,
+      "gamma_transition": 2.075,
+      "unsettled_at_transition": false,
+      "gamma_fit": 2.0681,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "down": {
+      "steps": 24,
+      "flat_steps": 5,
+      "gamma_first_patterned": 2.05,
+      "gamma_transition": 2.025,
+      "unsettled_at_transition": false,
+      "gamma_fit": 2.0077,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "width": 0.05
+    },
+    "unsettled_holds": 13
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 1.8,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.1256,
+     "A_raw": 0.183,
+     "A": 0.0806,
+     "A_first": 0.0427,
+     "A_second": 0.1006,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 3.7,
+     "thickness": 1.4798,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 1,
+     "gamma": 1.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.095,
+     "A_raw": 0.1943,
+     "A": 0.0888,
+     "A_first": 0.0835,
+     "A_second": 0.0768,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 3.1,
+     "thickness": 1.5167,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 2,
+     "gamma": 1.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0805,
+     "A_raw": 0.2124,
+     "A": 0.0862,
+     "A_first": 0.0851,
+     "A_second": 0.1014,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 2.6,
+     "thickness": 1.5703,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 3,
+     "gamma": 1.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0635,
+     "A_raw": 0.2339,
+     "A": 0.0362,
+     "A_first": 0.0422,
+     "A_second": 0.0709,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 1.9,
+     "thickness": 1.6717,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 4,
+     "gamma": 2.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0548,
+     "A_raw": 0.2849,
+     "A": 0.0746,
+     "A_first": 0.0922,
+     "A_second": 0.0539,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 1.6,
+     "thickness": 1.7963,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 5,
+     "gamma": 2.05,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0492,
+     "A_raw": 0.4054,
+     "A": 0.1731,
+     "A_first": 0.0503,
+     "A_second": 0.245,
+     "peak_mode": 10,
+     "wavelength": 20.0,
+     "peak_over_median": 2.9,
+     "thickness": 2.0621,
+     "patterned": false,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 6,
+     "gamma": 2.1,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0459,
+     "A_raw": 0.5199,
+     "A": 0.2288,
+     "A_first": 0.2451,
+     "A_second": 0.2192,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 3.1,
+     "thickness": 2.2882,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 7,
+     "gamma": 2.15,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0457,
+     "A_raw": 0.6692,
+     "A": 0.4247,
+     "A_first": 0.3969,
+     "A_second": 0.4673,
+     "peak_mode": 9,
+     "wavelength": 22.2,
+     "peak_over_median": 5.3,
+     "thickness": 2.4913,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 8,
+     "gamma": 2.2,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0457,
+     "A_raw": 0.7368,
+     "A": 0.3647,
+     "A_first": 0.3607,
+     "A_second": 0.469,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 5.5,
+     "thickness": 2.6338,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 9,
+     "gamma": 2.25,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0487,
+     "A_raw": 1.0547,
+     "A": 0.7764,
+     "A_first": 0.7454,
+     "A_second": 0.8535,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 18.0,
+     "thickness": 2.9795,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 10,
+     "gamma": 2.3,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0506,
+     "A_raw": 1.1087,
+     "A": 0.8621,
+     "A_first": 0.8546,
+     "A_second": 0.8695,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 19.4,
+     "thickness": 3.0723,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 11,
+     "gamma": 2.35,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0494,
+     "A_raw": 1.1795,
+     "A": 0.8883,
+     "A_first": 1.0164,
+     "A_second": 0.8309,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 19.7,
+     "thickness": 3.2462,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0463,
+     "A_raw": 1.1669,
+     "A": 0.7619,
+     "A_first": 0.7954,
+     "A_second": 0.8304,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 8.4,
+     "thickness": 3.347,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 13,
+     "gamma": 2.45,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0472,
+     "A_raw": 1.2842,
+     "A": 0.9535,
+     "A_first": 0.967,
+     "A_second": 1.0332,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 15.8,
+     "thickness": 3.5503,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 14,
+     "gamma": 2.5,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0473,
+     "A_raw": 1.3937,
+     "A": 1.0034,
+     "A_first": 1.0096,
+     "A_second": 1.0114,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 13.1,
+     "thickness": 3.7533,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 15,
+     "gamma": 2.55,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0459,
+     "A_raw": 1.4056,
+     "A": 1.0588,
+     "A_first": 1.0404,
+     "A_second": 1.0143,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 18.9,
+     "thickness": 3.8002,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 16,
+     "gamma": 2.6,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0454,
+     "A_raw": 1.4827,
+     "A": 1.0566,
+     "A_first": 1.0475,
+     "A_second": 1.1098,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 18.3,
+     "thickness": 4.03,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 17,
+     "gamma": 2.65,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0431,
+     "A_raw": 1.4076,
+     "A": 0.9793,
+     "A_first": 1.0056,
+     "A_second": 0.9976,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 13.8,
+     "thickness": 4.0419,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 18,
+     "gamma": 2.7,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0414,
+     "A_raw": 1.3511,
+     "A": 0.9693,
+     "A_first": 0.9017,
+     "A_second": 0.9907,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.5,
+     "thickness": 4.0391,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 19,
+     "gamma": 2.75,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0413,
+     "A_raw": 1.3783,
+     "A": 0.849,
+     "A_first": 0.8837,
+     "A_second": 0.8885,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.0,
+     "thickness": 4.129,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 20,
+     "gamma": 2.8,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0413,
+     "A_raw": 1.5328,
+     "A": 0.9834,
+     "A_first": 1.0324,
+     "A_second": 1.0044,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.3,
+     "thickness": 4.4486,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 21,
+     "gamma": 2.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0399,
+     "A_raw": 1.4603,
+     "A": 1.016,
+     "A_first": 1.0876,
+     "A_second": 0.9629,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 8.5,
+     "thickness": 4.3385,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 22,
+     "gamma": 2.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0385,
+     "A_raw": 1.4924,
+     "A": 1.0354,
+     "A_first": 1.011,
+     "A_second": 1.045,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.3,
+     "thickness": 4.4155,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 23,
+     "gamma": 2.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0393,
+     "A_raw": 1.5458,
+     "A": 0.9949,
+     "A_first": 1.1215,
+     "A_second": 0.9602,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.6,
+     "thickness": 4.6896,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 24,
+     "gamma": 3.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0351,
+     "A_raw": 1.4791,
+     "A": 0.8246,
+     "A_first": 0.7212,
+     "A_second": 0.9775,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 4.2,
+     "thickness": 4.9726,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 25,
+     "gamma": 2.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0378,
+     "A_raw": 1.5639,
+     "A": 0.9904,
+     "A_first": 1.115,
+     "A_second": 0.9777,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.0,
+     "thickness": 4.7322,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 26,
+     "gamma": 2.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0378,
+     "A_raw": 1.5152,
+     "A": 0.9919,
+     "A_first": 1.0715,
+     "A_second": 1.0716,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.4,
+     "thickness": 4.5304,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 27,
+     "gamma": 2.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.037,
+     "A_raw": 1.4688,
+     "A": 0.9479,
+     "A_first": 0.9228,
+     "A_second": 0.9484,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 6.8,
+     "thickness": 4.5909,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 28,
+     "gamma": 2.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0396,
+     "A_raw": 1.4932,
+     "A": 0.989,
+     "A_first": 0.9954,
+     "A_second": 0.9594,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 7.1,
+     "thickness": 4.3028,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 29,
+     "gamma": 2.75,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0377,
+     "A_raw": 1.3145,
+     "A": 0.8747,
+     "A_first": 0.983,
+     "A_second": 0.7509,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.7,
+     "thickness": 4.055,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 30,
+     "gamma": 2.7,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0398,
+     "A_raw": 1.3512,
+     "A": 0.9357,
+     "A_first": 0.8345,
+     "A_second": 1.027,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 10.7,
+     "thickness": 4.0478,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 31,
+     "gamma": 2.65,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0421,
+     "A_raw": 1.3938,
+     "A": 1.0314,
+     "A_first": 0.9917,
+     "A_second": 1.0183,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.6,
+     "thickness": 4.1063,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 32,
+     "gamma": 2.6,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0422,
+     "A_raw": 1.3019,
+     "A": 0.8453,
+     "A_first": 0.8999,
+     "A_second": 0.8019,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.7,
+     "thickness": 3.8895,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 33,
+     "gamma": 2.55,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0431,
+     "A_raw": 1.2762,
+     "A": 0.891,
+     "A_first": 0.918,
+     "A_second": 0.9209,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 9.2,
+     "thickness": 3.7099,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 34,
+     "gamma": 2.5,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0532,
+     "A_raw": 1.3412,
+     "A": 0.9628,
+     "A_first": 0.9684,
+     "A_second": 0.9889,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 14.1,
+     "thickness": 3.7144,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 35,
+     "gamma": 2.45,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0427,
+     "A_raw": 1.0744,
+     "A": 0.6564,
+     "A_first": 0.782,
+     "A_second": 0.6473,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 7.1,
+     "thickness": 3.3782,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 36,
+     "gamma": 2.4,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0458,
+     "A_raw": 1.1396,
+     "A": 0.7622,
+     "A_first": 0.7986,
+     "A_second": 0.7692,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 10.2,
+     "thickness": 3.3761,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 37,
+     "gamma": 2.35,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0455,
+     "A_raw": 1.0363,
+     "A": 0.7847,
+     "A_first": 0.7465,
+     "A_second": 0.8105,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 12.7,
+     "thickness": 3.106,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 38,
+     "gamma": 2.3,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0458,
+     "A_raw": 0.9451,
+     "A": 0.6625,
+     "A_first": 0.6458,
+     "A_second": 0.6561,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 12.8,
+     "thickness": 2.9248,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 39,
+     "gamma": 2.25,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0469,
+     "A_raw": 0.9135,
+     "A": 0.595,
+     "A_first": 0.6672,
+     "A_second": 0.6286,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 8.2,
+     "thickness": 2.8503,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 40,
+     "gamma": 2.2,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0481,
+     "A_raw": 0.8724,
+     "A": 0.5553,
+     "A_first": 0.4928,
+     "A_second": 0.7072,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 9.0,
+     "thickness": 2.7381,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 41,
+     "gamma": 2.15,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0472,
+     "A_raw": 0.6949,
+     "A": 0.4494,
+     "A_first": 0.4707,
+     "A_second": 0.3891,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 9.6,
+     "thickness": 2.518,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 42,
+     "gamma": 2.1,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.045,
+     "A_raw": 0.4719,
+     "A": 0.2265,
+     "A_first": 0.2075,
+     "A_second": 0.226,
+     "peak_mode": 9,
+     "wavelength": 22.2,
+     "peak_over_median": 3.0,
+     "thickness": 2.2548,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 43,
+     "gamma": 2.05,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0486,
+     "A_raw": 0.4525,
+     "A": 0.2196,
+     "A_first": 0.2406,
+     "A_second": 0.1782,
+     "peak_mode": 10,
+     "wavelength": 20.0,
+     "peak_over_median": 2.8,
+     "thickness": 2.1404,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 44,
+     "gamma": 2.0,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0552,
+     "A_raw": 0.3069,
+     "A": 0.0839,
+     "A_first": 0.1013,
+     "A_second": 0.0752,
+     "peak_mode": 10,
+     "wavelength": 20.0,
+     "peak_over_median": 2.0,
+     "thickness": 1.8555,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 45,
+     "gamma": 1.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0654,
+     "A_raw": 0.2506,
+     "A": 0.0873,
+     "A_first": 0.0595,
+     "A_second": 0.1063,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 1.9,
+     "thickness": 1.6869,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 46,
+     "gamma": 1.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0774,
+     "A_raw": 0.2151,
+     "A": 0.078,
+     "A_first": 0.0713,
+     "A_second": 0.1044,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 3.0,
+     "thickness": 1.5922,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 47,
+     "gamma": 1.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.097,
+     "A_raw": 0.2052,
+     "A": 0.0536,
+     "A_first": 0.0,
+     "A_second": 0.1005,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 2.3,
+     "thickness": 1.5209,
+     "patterned": false,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 48,
+     "gamma": 1.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.1121,
+     "A_raw": 0.2149,
+     "A": 0.1045,
+     "A_first": 0.1178,
+     "A_second": 0.1261,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 4.5,
+     "thickness": 1.5046,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    }
+   ]
+  },
+  "mu0-downup-h25": {
+   "identity": {
+    "steps": 49,
+    "checkpoints_identical": 49,
+    "quantities_identical": 49,
+    "frame_counts_right": 49,
+    "differing": []
+   },
+   "amplitude": {
+    "common_gammas": 24,
+    "A_at_3": 1.4798,
+    "A_at_1p8": 0.1792,
+    "ratio": 8.26,
+    "A_updown_rms": 0.1079,
+    "A_range": 1.3977,
+    "A_updown_over_range": 0.0772,
+    "snap_updown_rms": 0.1875,
+    "snap_range": 2.1827,
+    "snap_updown_over_range": 0.0859,
+    "flat_level": 0.0726,
+    "flat_scatter": 0.0194,
+    "transitions": {
+     "up": {
+      "steps": 24,
+      "flat_steps": 5,
+      "gamma_first_patterned": 2.1,
+      "gamma_transition": 2.075,
+      "unsettled_at_transition": false,
+      "gamma_fit": 1.9941,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "down": {
+      "steps": 25,
+      "flat_steps": 5,
+      "gamma_first_patterned": 2.05,
+      "gamma_transition": 2.025,
+      "unsettled_at_transition": false,
+      "gamma_fit": 1.9908,
+      "fit_points": 9,
+      "fit_is_extrapolation": false
+     },
+     "width": 0.05
+    },
+    "unsettled_holds": 20
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 3.0,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0343,
+     "A_raw": 1.4717,
+     "A": 0.9104,
+     "A_first": 0.6821,
+     "A_second": 1.074,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 5.8,
+     "thickness": 4.7911,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 1,
+     "gamma": 2.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0369,
+     "A_raw": 1.5769,
+     "A": 1.1225,
+     "A_first": 1.0894,
+     "A_second": 1.0674,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.8,
+     "thickness": 4.7874,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 2,
+     "gamma": 2.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0391,
+     "A_raw": 1.4797,
+     "A": 0.9604,
+     "A_first": 0.9859,
+     "A_second": 1.0154,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.9,
+     "thickness": 4.599,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 3,
+     "gamma": 2.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0394,
+     "A_raw": 1.5068,
+     "A": 1.0564,
+     "A_first": 1.1198,
+     "A_second": 0.9127,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 8.5,
+     "thickness": 4.3907,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 4,
+     "gamma": 2.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0388,
+     "A_raw": 1.4118,
+     "A": 0.8932,
+     "A_first": 0.6958,
+     "A_second": 1.0645,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 5.9,
+     "thickness": 4.3544,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 5,
+     "gamma": 2.75,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0395,
+     "A_raw": 1.2844,
+     "A": 0.8202,
+     "A_first": 0.7006,
+     "A_second": 0.925,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 6.4,
+     "thickness": 4.128,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 6,
+     "gamma": 2.7,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0409,
+     "A_raw": 1.2439,
+     "A": 0.8295,
+     "A_first": 0.9223,
+     "A_second": 0.7144,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.3,
+     "thickness": 3.9556,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 7,
+     "gamma": 2.65,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0406,
+     "A_raw": 1.3334,
+     "A": 0.9395,
+     "A_first": 0.9461,
+     "A_second": 0.9265,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.5,
+     "thickness": 4.0047,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 8,
+     "gamma": 2.6,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0413,
+     "A_raw": 1.2717,
+     "A": 0.8895,
+     "A_first": 0.7999,
+     "A_second": 0.9101,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 6.5,
+     "thickness": 3.8682,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 9,
+     "gamma": 2.55,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.043,
+     "A_raw": 1.2575,
+     "A": 0.8584,
+     "A_first": 0.8936,
+     "A_second": 0.8711,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.5,
+     "thickness": 3.6916,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 10,
+     "gamma": 2.5,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0458,
+     "A_raw": 1.1954,
+     "A": 0.8466,
+     "A_first": 0.9089,
+     "A_second": 0.7476,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 9.2,
+     "thickness": 3.5647,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 11,
+     "gamma": 2.45,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0441,
+     "A_raw": 1.1257,
+     "A": 0.801,
+     "A_first": 0.7807,
+     "A_second": 0.7986,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 7.6,
+     "thickness": 3.4356,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0449,
+     "A_raw": 1.0578,
+     "A": 0.731,
+     "A_first": 0.6549,
+     "A_second": 0.7861,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 8.2,
+     "thickness": 3.301,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 13,
+     "gamma": 2.35,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0477,
+     "A_raw": 1.0855,
+     "A": 0.8205,
+     "A_first": 0.7973,
+     "A_second": 0.8227,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 16.1,
+     "thickness": 3.1599,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 14,
+     "gamma": 2.3,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0479,
+     "A_raw": 1.0224,
+     "A": 0.7671,
+     "A_first": 0.6773,
+     "A_second": 0.8511,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 13.4,
+     "thickness": 3.0443,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 15,
+     "gamma": 2.25,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0468,
+     "A_raw": 0.8549,
+     "A": 0.589,
+     "A_first": 0.5925,
+     "A_second": 0.5685,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 10.7,
+     "thickness": 2.7872,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 16,
+     "gamma": 2.2,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0492,
+     "A_raw": 0.849,
+     "A": 0.5813,
+     "A_first": 0.5341,
+     "A_second": 0.6553,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 13.2,
+     "thickness": 2.7237,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 17,
+     "gamma": 2.15,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0504,
+     "A_raw": 0.8266,
+     "A": 0.5501,
+     "A_first": 0.576,
+     "A_second": 0.5243,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 12.8,
+     "thickness": 2.5683,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 18,
+     "gamma": 2.1,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.049,
+     "A_raw": 0.653,
+     "A": 0.3696,
+     "A_first": 0.423,
+     "A_second": 0.2794,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 6.7,
+     "thickness": 2.3823,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 19,
+     "gamma": 2.05,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0485,
+     "A_raw": 0.4666,
+     "A": 0.2098,
+     "A_first": 0.2816,
+     "A_second": 0.1844,
+     "peak_mode": 8,
+     "wavelength": 25.0,
+     "peak_over_median": 5.4,
+     "thickness": 2.1468,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 20,
+     "gamma": 2.0,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0539,
+     "A_raw": 0.3159,
+     "A": 0.0672,
+     "A_first": 0.0,
+     "A_second": 0.1205,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 1.9,
+     "thickness": 1.8654,
+     "patterned": false,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 21,
+     "gamma": 1.95,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.066,
+     "A_raw": 0.2404,
+     "A": 0.056,
+     "A_first": 0.0578,
+     "A_second": 0.0306,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 1.6,
+     "thickness": 1.6822,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 22,
+     "gamma": 1.9,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0835,
+     "A_raw": 0.207,
+     "A": 0.0712,
+     "A_first": 0.0759,
+     "A_second": 0.0,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 2.1,
+     "thickness": 1.5608,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 23,
+     "gamma": 1.85,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0942,
+     "A_raw": 0.2081,
+     "A": 0.0595,
+     "A_first": 0.0896,
+     "A_second": 0.1062,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 3.4,
+     "thickness": 1.5375,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 24,
+     "gamma": 1.8,
+     "direction": "down",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.1243,
+     "A_raw": 0.1792,
+     "A": 0.0726,
+     "A_first": 0.0667,
+     "A_second": 0.1206,
+     "peak_mode": 5,
+     "wavelength": 40.0,
+     "peak_over_median": 3.5,
+     "thickness": 1.4651,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 25,
+     "gamma": 1.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.09,
+     "A_raw": 0.2098,
+     "A": 0.0871,
+     "A_first": 0.1014,
+     "A_second": 0.0515,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 3.0,
+     "thickness": 1.5302,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 26,
+     "gamma": 1.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0775,
+     "A_raw": 0.2098,
+     "A": 0.094,
+     "A_first": 0.0855,
+     "A_second": 0.0915,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 2.6,
+     "thickness": 1.571,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 27,
+     "gamma": 1.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0647,
+     "A_raw": 0.2288,
+     "A": 0.0633,
+     "A_first": 0.0887,
+     "A_second": 0.0631,
+     "peak_mode": 3,
+     "wavelength": 66.7,
+     "peak_over_median": 2.4,
+     "thickness": 1.6574,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 28,
+     "gamma": 2.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0544,
+     "A_raw": 0.2868,
+     "A": 0.1009,
+     "A_first": 0.108,
+     "A_second": 0.085,
+     "peak_mode": 4,
+     "wavelength": 50.0,
+     "peak_over_median": 2.0,
+     "thickness": 1.8089,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 29,
+     "gamma": 2.05,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0539,
+     "A_raw": 0.3628,
+     "A": 0.061,
+     "A_first": 0.1206,
+     "A_second": 0.1661,
+     "peak_mode": 11,
+     "wavelength": 18.2,
+     "peak_over_median": 2.0,
+     "thickness": 2.0127,
+     "patterned": false,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 30,
+     "gamma": 2.1,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0473,
+     "A_raw": 0.5784,
+     "A": 0.3507,
+     "A_first": 0.3588,
+     "A_second": 0.37,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 8.9,
+     "thickness": 2.3126,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 31,
+     "gamma": 2.15,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0457,
+     "A_raw": 0.7059,
+     "A": 0.449,
+     "A_first": 0.4164,
+     "A_second": 0.489,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 12.2,
+     "thickness": 2.5204,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 32,
+     "gamma": 2.2,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0489,
+     "A_raw": 0.8723,
+     "A": 0.6049,
+     "A_first": 0.5742,
+     "A_second": 0.6695,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 18.7,
+     "thickness": 2.7294,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 33,
+     "gamma": 2.25,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0502,
+     "A_raw": 1.0474,
+     "A": 0.7453,
+     "A_first": 0.7587,
+     "A_second": 0.8546,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 21.9,
+     "thickness": 2.9644,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 34,
+     "gamma": 2.3,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0499,
+     "A_raw": 1.1411,
+     "A": 0.8822,
+     "A_first": 0.846,
+     "A_second": 0.977,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 23.5,
+     "thickness": 3.133,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 35,
+     "gamma": 2.35,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0488,
+     "A_raw": 1.1855,
+     "A": 0.9473,
+     "A_first": 0.9053,
+     "A_second": 0.964,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 27.7,
+     "thickness": 3.2897,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 36,
+     "gamma": 2.4,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.049,
+     "A_raw": 1.2234,
+     "A": 0.9132,
+     "A_first": 0.9954,
+     "A_second": 0.9142,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 16.9,
+     "thickness": 3.3536,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 37,
+     "gamma": 2.45,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0451,
+     "A_raw": 1.1577,
+     "A": 0.8482,
+     "A_first": 0.8562,
+     "A_second": 0.7951,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 14.9,
+     "thickness": 3.4025,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 38,
+     "gamma": 2.5,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0458,
+     "A_raw": 1.2364,
+     "A": 0.9242,
+     "A_first": 0.8472,
+     "A_second": 0.9822,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 11.8,
+     "thickness": 3.6129,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 39,
+     "gamma": 2.55,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0456,
+     "A_raw": 1.406,
+     "A": 1.0192,
+     "A_first": 1.0338,
+     "A_second": 1.0426,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 11.9,
+     "thickness": 3.8492,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 40,
+     "gamma": 2.6,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0432,
+     "A_raw": 1.3417,
+     "A": 0.968,
+     "A_first": 1.0497,
+     "A_second": 0.9344,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 12.1,
+     "thickness": 3.8977,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 41,
+     "gamma": 2.65,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.044,
+     "A_raw": 1.5156,
+     "A": 1.0832,
+     "A_first": 1.0009,
+     "A_second": 1.1596,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 9.7,
+     "thickness": 4.1753,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 42,
+     "gamma": 2.7,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0418,
+     "A_raw": 1.4739,
+     "A": 1.0831,
+     "A_first": 1.1434,
+     "A_second": 0.997,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 13.4,
+     "thickness": 4.1594,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 43,
+     "gamma": 2.75,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0409,
+     "A_raw": 1.4519,
+     "A": 1.0793,
+     "A_first": 1.1359,
+     "A_second": 1.0086,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 14.0,
+     "thickness": 4.1742,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 44,
+     "gamma": 2.8,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0386,
+     "A_raw": 1.4145,
+     "A": 0.9897,
+     "A_first": 1.0373,
+     "A_second": 0.9433,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 7.6,
+     "thickness": 4.3429,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 45,
+     "gamma": 2.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0381,
+     "A_raw": 1.5194,
+     "A": 1.0776,
+     "A_first": 1.0156,
+     "A_second": 1.1279,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 11.4,
+     "thickness": 4.6951,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 46,
+     "gamma": 2.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0371,
+     "A_raw": 1.5394,
+     "A": 1.0252,
+     "A_first": 0.9577,
+     "A_second": 1.1003,
+     "peak_mode": 7,
+     "wavelength": 28.6,
+     "peak_over_median": 10.5,
+     "thickness": 4.809,
+     "patterned": true,
+     "unsettled": true,
+     "frames": 801
+    },
+    {
+     "step": 47,
+     "gamma": 2.95,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0359,
+     "A_raw": 1.4728,
+     "A": 0.8801,
+     "A_first": 0.9072,
+     "A_second": 0.8318,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 6.2,
+     "thickness": 4.8048,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    },
+    {
+     "step": 48,
+     "gamma": 3.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 0.0348,
+     "A_raw": 1.488,
+     "A": 0.9403,
+     "A_first": 0.8807,
+     "A_second": 0.9626,
+     "peak_mode": 6,
+     "wavelength": 33.3,
+     "peak_over_median": 5.3,
+     "thickness": 4.8433,
+     "patterned": true,
+     "unsettled": false,
+     "frames": 801
+    }
+   ]
+  }
+ },
+ "cpu_hours": 0.114,
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
+   "bytes": 7864,
+   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 9549,
+   "sha256": "4b59b2e68839ed9444f76cbcc87d399bd199dbe2b58c020c1616ccdd6d3857ae"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp.py",
+   "bytes": 7229,
+   "sha256": "d181f808c35bb30fefcabed3a48d1091aadafaeef7b0e12621a6fc8625fa1cf7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp_table.py",
+   "bytes": 2272,
+   "sha256": "4b62b931af044bcf24a10c47a67b0bf0079f3f961171527d6cc21d648a135ea5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/period_rule.py",
+   "bytes": 2540,
+   "sha256": "14dd6a09bfc87d5dc071ba4dc80f4d4cadadf09d67a28b669ce8c3a21e4a0c8b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/continue_run.py",
+   "bytes": 2176,
+   "sha256": "c41c1438ce4fa815d1b301f044dd4afefe87af7534920399b883eec091dba3bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/pattern_id.py",
+   "bytes": 7738,
+   "sha256": "bede10ef5f6bdcd0c5b82e9f2d97c6d0fdb12898475a0349301bf1d9af49b748"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0053_identity.py",
+   "bytes": 1521,
+   "sha256": "5df15d539ec9ebda3a0d31ab6d54a4a9e6c44fe5160cf5a94871688dc2fda771"
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/ramp.jsonl",
+   "bytes": 9007,
+   "sha256": "01cc3f63e23bfa23a95e069dd7cd04b36d21cc01d3968e68bec5dc7a2c1f09fc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-000-g1.8/fields.npz",
+   "bytes": 474480,
+   "sha256": "c0c21749a043c702c4dea781f4e5e0ac521908d4462b045d1e27d20ba28bec1c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-001-g1.85/fields.npz",
+   "bytes": 474542,
+   "sha256": "667b4cf325054d312810e6548a53d020d422b4919ccf2bcbde71281b77da3a2e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-002-g1.9/fields.npz",
+   "bytes": 474537,
+   "sha256": "b3c7a41e97cf294ebddccdb9c0388f322ee6746672aec7049fb159a9fb1a4cb3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-003-g1.95/fields.npz",
+   "bytes": 474972,
+   "sha256": "03715fe31434c41256d15c82f35bec8e8e9da84781bbb0f74ea8a0b809e1247c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-004-g2.0/fields.npz",
+   "bytes": 475190,
+   "sha256": "f4fea5a9f2e266855ff19e9af790d4c2057b5297a1aa4dd7de017e1de4ac2ee0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-005-g2.05/fields.npz",
+   "bytes": 476065,
+   "sha256": "b8fb35aba713887bbc8c42b160fd20e30b47c66b3614ae5b2ccf7477cd9a2bab"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-006-g2.1/fields.npz",
+   "bytes": 476884,
+   "sha256": "b69c2100e0d37197739fe1ef570997c23fe3098e279ae01f2384d87f79c089ca"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-007-g2.15/fields.npz",
+   "bytes": 477827,
+   "sha256": "de10eaa981c7b3f272e79fbd5e8a3675a95a3010f98d6d48e8c1bc88a17171b1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-008-g2.2/fields.npz",
+   "bytes": 477967,
+   "sha256": "3c1b44bc89ef792ba3ebdf127268d59b345d04b84e58abf8fcc194b9ab590594"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-009-g2.25/fields.npz",
+   "bytes": 477835,
+   "sha256": "2873bff3e99d6592eb23327a82f3782a34cd4eb5b02e428662854774d748195d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-010-g2.3/fields.npz",
+   "bytes": 477922,
+   "sha256": "b31060dfec524018f005daf82ee9198d3db50975ba04d648821694668d0918cd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-011-g2.35/fields.npz",
+   "bytes": 477906,
+   "sha256": "f5a822b5fc9a33a4c165723a84127fa08e6542a5d381faa289096e90ec0a5c57"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-012-g2.4/fields.npz",
+   "bytes": 477598,
+   "sha256": "63ec1357eaad758c5cc3215c6cbe1e4578f0cf9ac822ba1efac247e40989d728"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-013-g2.45/fields.npz",
+   "bytes": 477490,
+   "sha256": "a0b20f68325c98ffe8352912f2b7bf041b895731ab338db13224aa2d2dbe1f21"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-014-g2.5/fields.npz",
+   "bytes": 477517,
+   "sha256": "a6f0b681f109417a8877039bd981bd41c6cd445a738c41d2c47d31c4580e1051"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-015-g2.55/fields.npz",
+   "bytes": 477515,
+   "sha256": "ca1ab093b5f6436a19192a94996d25e4de909a77cddc648b0bcf98629e3c7615"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-016-g2.6/fields.npz",
+   "bytes": 477118,
+   "sha256": "d3a88bdeb6bd4b7686e312f7b493a8c034c5b60757d5e2211094200f1a73be75"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-017-g2.65/fields.npz",
+   "bytes": 477055,
+   "sha256": "a41847c4740fc36a862bff4fcff72f4481823f1acedc7004e6f66fbd557b9625"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-018-g2.7/fields.npz",
+   "bytes": 476899,
+   "sha256": "fb2454f309f34b3ce9924b667b0f45005724b0206c2e37b1e80eb9c01e6613eb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-019-g2.75/fields.npz",
+   "bytes": 477126,
+   "sha256": "5ff4d71bbcf7b980c96aef0e0b86919be5ef1e44352e3fed02b5a9c361eb0182"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-020-g2.8/fields.npz",
+   "bytes": 476965,
+   "sha256": "85c311dd08c7f4eae55e97e5e91e02b75ea1b23e07abd214332e562d2cf43787"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-021-g2.85/fields.npz",
+   "bytes": 476761,
+   "sha256": "7457520bb174cb720bb6e27ea6de1230ec01c9abcaadef45035ceee342d2d028"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-022-g2.9/fields.npz",
+   "bytes": 476819,
+   "sha256": "f3a5c64ee6c51e1ad1c528828482b67fe38626f75c9ac4c55b07fdcf060eccc5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-023-g2.95/fields.npz",
+   "bytes": 476584,
+   "sha256": "c473aeedd0d750415f2c71be0ef729c92318d5a5d414d5fe001a14fd82f9edf8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-024-g3.0/fields.npz",
+   "bytes": 476643,
+   "sha256": "afe80de7fa04708266b35eb07fde8c294baa4c8b66c078eae582be6329840b4b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-025-g2.95/fields.npz",
+   "bytes": 476836,
+   "sha256": "48751d3fd84a62623cbde92ed7e45b3a2b3133067dbbb6d69cf7271139f9fda0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-026-g2.9/fields.npz",
+   "bytes": 476807,
+   "sha256": "ce6003e24508f4b794490d7d00a6b8678a6bdef86b55049daf7a1d0a0fc8f1a0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-027-g2.85/fields.npz",
+   "bytes": 476914,
+   "sha256": "d95060ff57eeef15b5a56ab3eae54877c6b6b40ef7a7d99676d97d2ee86ecd83"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-028-g2.8/fields.npz",
+   "bytes": 476776,
+   "sha256": "e2a431f274202ba5f9c1d403f0fcfb8c12beaf24bbc84f61719be41bf5da425a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-029-g2.75/fields.npz",
+   "bytes": 476814,
+   "sha256": "cddd393c37f78058e3fe7830f6420d4fde2017d0f33fb4381f1d9b31a68adc94"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-030-g2.7/fields.npz",
+   "bytes": 477085,
+   "sha256": "ca3e1fa76eb08a9fbeee8495bbfec0d3be7199176f869ebae2d1001ddc783772"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-031-g2.65/fields.npz",
+   "bytes": 476917,
+   "sha256": "f4a568f171680f1c9cdf27b5367796039950bdb47eab39d0712d146183d87d0b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-032-g2.6/fields.npz",
+   "bytes": 477250,
+   "sha256": "b69bfc8ad7b6d94abce0c60499fe33f9cb3c42feb21edc7e35e45014f48d9fa4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-033-g2.55/fields.npz",
+   "bytes": 477282,
+   "sha256": "4e63b1ddc21de19b881a2eca39e5de67e96eb4450d0705036c9ebc70f10a4db9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-034-g2.5/fields.npz",
+   "bytes": 477334,
+   "sha256": "b9b9f750fb4bcc7c176d6d7c2ad4f264c9880d52d4b8d941731310017eb573cd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-035-g2.45/fields.npz",
+   "bytes": 477563,
+   "sha256": "4bd5c8409ad151d260d87ad43a55f34faa436a14c687f26df727129a0466e138"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-036-g2.4/fields.npz",
+   "bytes": 478008,
+   "sha256": "85b7622ad33c3d608107647bfe5b82f5d86d845288a9b5a081bf10d7794b6fa9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-037-g2.35/fields.npz",
+   "bytes": 477795,
+   "sha256": "ff42f66c72638c9f5d7c0099090637cffd4ccf1f8b80019814cb8775fa3751c3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-038-g2.3/fields.npz",
+   "bytes": 477868,
+   "sha256": "ba5a7c29cbbf6a8e4474460c8b35730e91d739b7254f6a79524299ea5bc8a43d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-039-g2.25/fields.npz",
+   "bytes": 478148,
+   "sha256": "a3eec39b63b89f7d2efe4f0e7fac66f2d94bad291c689c28d756d519415b4227"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-040-g2.2/fields.npz",
+   "bytes": 477951,
+   "sha256": "17b7cd63dabc52d2bcad2a07a8ffe7c4f0a0c87b32c28113243658562a6183ae"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-041-g2.15/fields.npz",
+   "bytes": 477907,
+   "sha256": "5e0de5856d5b93df1df3fd4395d6c334666be359e3d64953d0c4ccce98b068b4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-042-g2.1/fields.npz",
+   "bytes": 477258,
+   "sha256": "48d3e8bac389436a34232f3be01e1ab743fc71d59b77cf642d5bd5c147f97b5d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-043-g2.05/fields.npz",
+   "bytes": 475962,
+   "sha256": "295ab20381f2f7ba8c1bf4312de87526804d1e49f87aba8624909fb4aa63ea6a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-044-g2.0/fields.npz",
+   "bytes": 475466,
+   "sha256": "de60d1dfa4307f431f26686ec6370c0beffdec629f520bfa796bd7426c4ea034"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-045-g1.95/fields.npz",
+   "bytes": 475204,
+   "sha256": "fc62e5fd34be6f851c42e6ba4aa360dd67667904419b9170755beb67b131541a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-046-g1.9/fields.npz",
+   "bytes": 474379,
+   "sha256": "ff040d9bc03c545308b72f4388e59363085c08108b0b26e92db9dd76f7e1cf5a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-047-g1.85/fields.npz",
+   "bytes": 474509,
+   "sha256": "cb5d2bcb7e3a52d3cbe26370981ca3afe4e28a6019142d4a1fc06c37591f8cd1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-048-g1.8/fields.npz",
+   "bytes": 474421,
+   "sha256": "7a8a6d7f37861da0e33b690f3101f313dc4ef136be9622dfb385a4c209b447d6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-000-g1.8/summary.json",
+   "bytes": 793,
+   "sha256": "15b3db6dac7e3333a9f66acf4248bf8c829abc3ca28d4168d8c53707a88d5f8c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-001-g1.85/summary.json",
+   "bytes": 784,
+   "sha256": "b0cfa4b21cbb4bc4dfb9cec40320231de3f402a2f0a06a2fdd1ed7d8f4527916"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-002-g1.9/summary.json",
+   "bytes": 782,
+   "sha256": "1a4686f56beb74c92705a5784abfacc3d7cdeea5510df20415eaffa758eec6fc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-003-g1.95/summary.json",
+   "bytes": 786,
+   "sha256": "5af0662bd7e6f34bc2b255924d8e5b43ecaa255d8387a77aa259f4bc2f05ed3f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-004-g2.0/summary.json",
+   "bytes": 792,
+   "sha256": "7bf865f20faec23847e3e8843089cf2a3e87877af5c8f0be2475e36d0abf1976"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-005-g2.05/summary.json",
+   "bytes": 786,
+   "sha256": "868d40e5a861c974ed2d8e9ee1011decdd92d79d0af43fc397b9aacefa49b246"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-006-g2.1/summary.json",
+   "bytes": 784,
+   "sha256": "efcace9b1ba81e5f63fba2b583bf18c4bf691d948cb4fdf11f39b516173eaed8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-007-g2.15/summary.json",
+   "bytes": 793,
+   "sha256": "8a733713cffb585d5b995601cdfc64d06064569e237ad85e9235b56aaa517672"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-008-g2.2/summary.json",
+   "bytes": 792,
+   "sha256": "ee3d4a4e12ddfc2b45ea341fabc526dd21f94c7ae3dd30dfd0676bab14ca31bc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-009-g2.25/summary.json",
+   "bytes": 784,
+   "sha256": "76bf9d811ad055ae87053cd44bfa77258106c1d94ac68725d9fe7a7815137608"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-010-g2.3/summary.json",
+   "bytes": 781,
+   "sha256": "740a07caf99b152e29b3f37f4cc5f60e66468bd8aca6bbd82ddd01be729dd119"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-011-g2.35/summary.json",
+   "bytes": 785,
+   "sha256": "8d9daa3a57a1bf75f8bada095bca098ccb375db0e00dcd095c903adbaf1597a9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-012-g2.4/summary.json",
+   "bytes": 785,
+   "sha256": "4735f24a3fef6382b7f8af753380b37bdd52856687dde901516c6db9b4e7fe1c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-013-g2.45/summary.json",
+   "bytes": 785,
+   "sha256": "61f5508c09f104577de643b592dd43251dde4d60e66806a2f7514065b6270d69"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-014-g2.5/summary.json",
+   "bytes": 794,
+   "sha256": "5dcf50d96f8d53020258bb042fdc53aa610fd92366b1a463f8136240ed0672a2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-015-g2.55/summary.json",
+   "bytes": 796,
+   "sha256": "fe177ab3ef2a8fed934622a2351a91d2fba98e0c4a518b628f4695070a56fe64"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-016-g2.6/summary.json",
+   "bytes": 793,
+   "sha256": "2486b033e6c824738202c8505e8c7535f6e8aa4d07800055eaa398297720692b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-017-g2.65/summary.json",
+   "bytes": 793,
+   "sha256": "29a4666cec11e8840bdcb7ba8fee3064c5230a57f2ef23b41b2999058eb24f91"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-018-g2.7/summary.json",
+   "bytes": 803,
+   "sha256": "df4a9eb52689a606368943adfc9be916a11bc74ac7c615cea24e7cbfa5f38674"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-019-g2.75/summary.json",
+   "bytes": 787,
+   "sha256": "0a7c37bb19c41fb19943b23fd34555111464cb51302ffbbbf9978aff724c1e04"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-020-g2.8/summary.json",
+   "bytes": 783,
+   "sha256": "6d85d53b46d0558743e73867bffcd272e3c0b1329b9c6a6127fc49ca602fd7b8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-021-g2.85/summary.json",
+   "bytes": 786,
+   "sha256": "23b4fb4a5a27b029be02459f322b93b8445b42c3c288c8ad2abd163c7f79d40b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-022-g2.9/summary.json",
+   "bytes": 803,
+   "sha256": "bbda0b99b7a9cc9488f848be4607d10098aa05ed519c34e4ec4fb86176f26f59"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-023-g2.95/summary.json",
+   "bytes": 794,
+   "sha256": "b6968f002fa359546b9aeb357cd79a4998969c67927d99df3166560b42c987ad"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-024-g3.0/summary.json",
+   "bytes": 794,
+   "sha256": "5ff79c78a11b4d22f0325b9f31e39435acedb286adff5c20591fc57e45915683"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-025-g2.95/summary.json",
+   "bytes": 793,
+   "sha256": "291387336e7821d73f0d0977eeaa02757363eec0a1b14911837c1b003aaa7789"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-026-g2.9/summary.json",
+   "bytes": 795,
+   "sha256": "2d2668103350b398e07bb5075841ff21ba8cc5f536fddaa79af73d69cd07f677"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-027-g2.85/summary.json",
+   "bytes": 801,
+   "sha256": "5b5174ce390d39935a37b79ea781587ea67817129340c54c836dfaa8681ef7e3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-028-g2.8/summary.json",
+   "bytes": 793,
+   "sha256": "fa51a2c7bd18dbc28e0353b207914f99151c6bf95495ea586cef07a4c10a92ff"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-029-g2.75/summary.json",
+   "bytes": 792,
+   "sha256": "e60981da17df75ac7901ec0b0a774dd32cf2e4244cceeb76f12cb7a63dbfbfc0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-030-g2.7/summary.json",
+   "bytes": 802,
+   "sha256": "424658f87e0d87844b90ec85a94e603742acf1d42814a965805031f5741bccb3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-031-g2.65/summary.json",
+   "bytes": 784,
+   "sha256": "a92777f830de5c1e00e894cead120fda2b1634f95abc0e1e0b87445e951a655f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-032-g2.6/summary.json",
+   "bytes": 784,
+   "sha256": "c1be91fff636f8c551e25201fd828f11ddc30743245d3652a2dc3a5b2a5acdee"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-033-g2.55/summary.json",
+   "bytes": 786,
+   "sha256": "0ce51dd5d9ad2a20698b9774290f5419ae63840468fd7baba68a25c34258a602"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-034-g2.5/summary.json",
+   "bytes": 795,
+   "sha256": "0cffa2631423d76b9a092333f731ec64752d9d2e8e3cc2c82e903fca3a963961"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-035-g2.45/summary.json",
+   "bytes": 786,
+   "sha256": "85de5fa7d5b3e36e5c175725ee3d44f788571300d2c038308f210600f8febbe2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-036-g2.4/summary.json",
+   "bytes": 795,
+   "sha256": "bee21a0a38e6d452655ffeff69cb0b82f5bc5f1d5e56909cb3adcdaf4e5e50b3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-037-g2.35/summary.json",
+   "bytes": 794,
+   "sha256": "055edbf81a8a3c8c11b6332da14f6c77be2aa6777fe0bfe4209dec49c4e9432a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-038-g2.3/summary.json",
+   "bytes": 804,
+   "sha256": "873250b475c1a4ea03710065e6f675ac3f943210e345e623d2b116acb8a90135"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-039-g2.25/summary.json",
+   "bytes": 795,
+   "sha256": "86b7ad8979928d8f9b008b69b5a12342c15f429a03c7d9a163c67a5fab42b192"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-040-g2.2/summary.json",
+   "bytes": 784,
+   "sha256": "669c4a4c8667446ae793642e2d2831f85addff23292dd1d7d70f63d155989886"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-041-g2.15/summary.json",
+   "bytes": 794,
+   "sha256": "8d7ab9481698f81d128f910e838239cdeed3f1b130da01d88671b79802196bdd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-042-g2.1/summary.json",
+   "bytes": 794,
+   "sha256": "5fb93d33da0fb77e27649106e5237803a1393eaeee0673ed6671bdb07b49fa0b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-043-g2.05/summary.json",
+   "bytes": 786,
+   "sha256": "60952394958016e86975315143f5304e117b42ce216b23b9542fe8cfd0c8be16"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-044-g2.0/summary.json",
+   "bytes": 785,
+   "sha256": "83edb20fc3c6fc8cbc8b8299d6af5557cadc0d1fbddaab6c63a18f7fa6bf3f6d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-045-g1.95/summary.json",
+   "bytes": 787,
+   "sha256": "22b4ffc9654a2b494b04c7da2c93c1cbef1a05761c27c744e8ba7ac6841ef539"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-046-g1.9/summary.json",
+   "bytes": 795,
+   "sha256": "d7e9e99545c89f5d36dd027050ca2fba367322716e3bc196bf9679c73a9fba57"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-047-g1.85/summary.json",
+   "bytes": 797,
+   "sha256": "8f3f0f45de5816228069cd589da29e7ee9e53ea471321aab8e4288aee184b619"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h100/step-048-g1.8/summary.json",
+   "bytes": 794,
+   "sha256": "9bc81d0529faa0e9ee714783702dff8d9222a572b1a66533c7d66975f5069166"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/ramp.jsonl",
+   "bytes": 8947,
+   "sha256": "d102b1c8fe9dcbcb98075f4d9188f731f4243a39c28334bb99bab13c9fad5f5c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-000-g1.8/fields.npz",
+   "bytes": 120559,
+   "sha256": "fd0e90af8cf65552d710ded1ce88a76170db2b02450c74f12236b2004d205b22"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-001-g1.85/fields.npz",
+   "bytes": 120664,
+   "sha256": "533d914526783c498bd0460cbffc039676b18c2b3ab0a66654445cbe11d5c56b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-002-g1.9/fields.npz",
+   "bytes": 120564,
+   "sha256": "1f7a3ecd6bcd467c58f21f391cfceafcf2e4c77f96cdec89136c051dacb5bd19"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-003-g1.95/fields.npz",
+   "bytes": 120748,
+   "sha256": "beecc372a8d89e692411029d85622274bd5634efe64e373c08e5633a20d48e37"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-004-g2.0/fields.npz",
+   "bytes": 120778,
+   "sha256": "efc3981e41e3854545a9b2c3b96fa91a4ee38a4f4bb4a30859c36f398f05dbcb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-005-g2.05/fields.npz",
+   "bytes": 121053,
+   "sha256": "2ca4421f465983b3a0f102875be20ba2f076a4238f9d8d8c16eceecd14324340"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-006-g2.1/fields.npz",
+   "bytes": 121206,
+   "sha256": "8c9f0d0f26d44ea67098ffb41f90452ea780140565485d7d711d1d4d8ee43588"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-007-g2.15/fields.npz",
+   "bytes": 121290,
+   "sha256": "a26db81ba106f43c1cc0f4842281ae90f6374687482fd690a79602aa20508977"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-008-g2.2/fields.npz",
+   "bytes": 121221,
+   "sha256": "853f858bc5a620decb181c9a9f76671f6e20ea255573c2c26920bdb97173e293"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-009-g2.25/fields.npz",
+   "bytes": 121514,
+   "sha256": "af9ce8de40125a85b7e8c52fdff6a0e714f9c4b38c144218a8e8b3079e51b098"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-010-g2.3/fields.npz",
+   "bytes": 121450,
+   "sha256": "d03c6180860a25548e8aa516e6b0d263e9d52776b0db1e5df47dbb3de9b32d20"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-011-g2.35/fields.npz",
+   "bytes": 121490,
+   "sha256": "4b8774dda3bb99e19ff9f09a7adf3ae63c41841c2cc51bbd3b8f15ed17319e7c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-012-g2.4/fields.npz",
+   "bytes": 121470,
+   "sha256": "ba012571b10ec3d37d38e477b601d6dd701cc7c16e730d8582fbd5e7430942ec"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-013-g2.45/fields.npz",
+   "bytes": 121443,
+   "sha256": "144afef6abc48d1ad645ea238e8fec3e541740d69af4a74b8008b9d9f342b555"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-014-g2.5/fields.npz",
+   "bytes": 121359,
+   "sha256": "d9f7ef2caa45403548ef59ce3211cfdd3a489845651f049fca93aa15be925246"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-015-g2.55/fields.npz",
+   "bytes": 121310,
+   "sha256": "55ec3366d2cbe4f79cfecbcbd281ce91133c1b4e26c35ed3f93a99d06f73a1b6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-016-g2.6/fields.npz",
+   "bytes": 121339,
+   "sha256": "43793a6ccc04fb8ea7d0e2683170a4b461a98d33f246819663fd88eddf849039"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-017-g2.65/fields.npz",
+   "bytes": 121321,
+   "sha256": "cc41da3e64c00c74a41d540fed27e24c9b2fe10ab33dc2249458d774dc5df013"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-018-g2.7/fields.npz",
+   "bytes": 121252,
+   "sha256": "8af0a41c53abd18b7a56c657efa58a8b62c28fa712e2effa7d80a0043d4fc3a4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-019-g2.75/fields.npz",
+   "bytes": 121184,
+   "sha256": "d18cb4626a8bef8136c8d995f2effd8da74cf0b1863aab5cf489bd7ea576e7c4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-020-g2.8/fields.npz",
+   "bytes": 121230,
+   "sha256": "aa375c496bfe70a5e8c3d4820131c80410da7c90f8211be7a927a796fbd2546a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-021-g2.85/fields.npz",
+   "bytes": 121175,
+   "sha256": "3aaebbec0c43264cee81101aadcf66bbc40d22d44555403f6e689e29fe234371"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-022-g2.9/fields.npz",
+   "bytes": 121202,
+   "sha256": "2f81390a9c551949bde2a1cba8c822ba32865c9da39b3b619375528d3fa73911"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-023-g2.95/fields.npz",
+   "bytes": 121215,
+   "sha256": "0b25f0b192f1b901cfecaa7afd18e01ab5a4099f10e0f1529adbb7405062672f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-024-g3.0/fields.npz",
+   "bytes": 120978,
+   "sha256": "093b526ecd5c411b880a0fad4cc496c28227780336e339953bcd0164766d0212"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-025-g2.95/fields.npz",
+   "bytes": 121189,
+   "sha256": "63e0da273c4ca6cf1485e3423de824536c4c2a1c6876d8a5d877fa9539e13ff0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-026-g2.9/fields.npz",
+   "bytes": 121203,
+   "sha256": "8670faac437d98ebdbc4d20802c4b2c9e31d3a6e9dade464c12fbfcd6631955d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-027-g2.85/fields.npz",
+   "bytes": 121049,
+   "sha256": "af29e90109e915e0eda85768c770986f4130e34d51cd84a48a0fb48004128de7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-028-g2.8/fields.npz",
+   "bytes": 121200,
+   "sha256": "bd5c98a5bca8416fa1c31083fa029c83f0943f5b325c471a0220091c65e097d8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-029-g2.75/fields.npz",
+   "bytes": 121192,
+   "sha256": "f61b892896e001c24ffc2320e16599e09f44fe56f3cc96113cf44702825d94f6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-030-g2.7/fields.npz",
+   "bytes": 121244,
+   "sha256": "f0acf87bd4facba23ddcb9cef9081e8d4907ef8e181236230f0f6871b66c99ff"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-031-g2.65/fields.npz",
+   "bytes": 121293,
+   "sha256": "e0a1a262a6bf2589c769e5c4121d70129dbe7b2d178b445521a6812460b07e57"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-032-g2.6/fields.npz",
+   "bytes": 121248,
+   "sha256": "a07a4c53b8c34284cba283676073dd6829a50d158a08dafc7454b80319c0974f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-033-g2.55/fields.npz",
+   "bytes": 121332,
+   "sha256": "215f11952fc6a3a55ca15dec0e19cadb6d9a4f5797bba7a0998ce8caef8004fe"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-034-g2.5/fields.npz",
+   "bytes": 121434,
+   "sha256": "4347707f1901899e3de072355b7dfcbd9c8ba8cb89399bacd61dd7a4c6e5a0cc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-035-g2.45/fields.npz",
+   "bytes": 121328,
+   "sha256": "41b7c5ee015f80580ab6e3b98931f8fa221ba3aa19e3868313e37c125d9debcf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-036-g2.4/fields.npz",
+   "bytes": 121354,
+   "sha256": "62bf6d16f0c77d229b39ecea6b7417ed8f61c1617e18b6575f04584ae96f2b1f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-037-g2.35/fields.npz",
+   "bytes": 121373,
+   "sha256": "83893ec87a514529028706ad6123b0f7b450e6c598aa98a0d27fb18a62e209dd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-038-g2.3/fields.npz",
+   "bytes": 121441,
+   "sha256": "405e4101542bfcc5b1dd0b7e349fc3e0b9ac6c819fa5652910b88db54eb6f981"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-039-g2.25/fields.npz",
+   "bytes": 121416,
+   "sha256": "d4fa5e5b4aa396815eea9042bd70556e729dad71045063b1b5dd7c5049e99b17"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-040-g2.2/fields.npz",
+   "bytes": 121461,
+   "sha256": "95abe967a373732321d2c110d747be88f9f1bf47f318c4ea50d27ddba5dad517"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-041-g2.15/fields.npz",
+   "bytes": 121271,
+   "sha256": "58bfc25f3e66d8f285bf161c3d4a4e822191ff26d1a0176a58cc8538b917e98b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-042-g2.1/fields.npz",
+   "bytes": 120997,
+   "sha256": "14d2abf3ae96080140d13799348d88f32d7989c638ffe8de924603736223ff09"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-043-g2.05/fields.npz",
+   "bytes": 121114,
+   "sha256": "8870c64c64d749ab445410d1d9ddcb3a98b3c3b3de3d347a3946f79d6407d68f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-044-g2.0/fields.npz",
+   "bytes": 120800,
+   "sha256": "4e9b4fcdfec4a0f37335cabd3bab26611e613b53105a18cab35994c29a4cc3f4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-045-g1.95/fields.npz",
+   "bytes": 120719,
+   "sha256": "c8445c23e08994faeb6419e2b722e4dc512a524aaeb6cd3c613a0e9cdd72c548"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-046-g1.9/fields.npz",
+   "bytes": 120647,
+   "sha256": "50f60740974faf5039d6873f806deff6a8338d959d23128d71c573fffce83465"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-047-g1.85/fields.npz",
+   "bytes": 120634,
+   "sha256": "32c1c688eb7070f130d8cca8a4e69215098cc085f67ed85bd422626ece107561"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-048-g1.8/fields.npz",
+   "bytes": 120659,
+   "sha256": "9c015aa43021c6afa8ffffde09092149924d2389b1d906d74479ee85fb5ac7ff"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-000-g1.8/summary.json",
+   "bytes": 791,
+   "sha256": "ab5805dfa68992c7d1de391acee2a835047886e6d6afd2fb6338078d2f57fd5e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-001-g1.85/summary.json",
+   "bytes": 782,
+   "sha256": "8ab4c5c81100816fc6c65c92144e950772dc85bcb2f75626274d74f9bd9aa481"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-002-g1.9/summary.json",
+   "bytes": 782,
+   "sha256": "1ecf2ad3a4dc8b7db84fc101d8402bb41a71f4a0d6d7756a9bbc79cfa8f854fa"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-003-g1.95/summary.json",
+   "bytes": 783,
+   "sha256": "20bbe3b026592816f97c7f486afa0add6ad3c6b35b2c188521e65502f14cd76f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-004-g2.0/summary.json",
+   "bytes": 781,
+   "sha256": "4795e7b4d07cb70633547ddff9f0fa66e0abd1a1c82c5517b4b0703e78b40eca"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-005-g2.05/summary.json",
+   "bytes": 794,
+   "sha256": "dbdf0746ef97716540d00cba4f62a3ea301710ea19e28323d45e6b981ddc5291"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-006-g2.1/summary.json",
+   "bytes": 783,
+   "sha256": "188a675e631acd62f79a2488b63d22b0b7f426efe4d5541e460feba2abd1f292"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-007-g2.15/summary.json",
+   "bytes": 780,
+   "sha256": "30058fd358fd0b4b4d77ab27a542b0f640f6e19794e9170c0867c5688a9dbca2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-008-g2.2/summary.json",
+   "bytes": 789,
+   "sha256": "dfac6a0233381c5dcbfb7730e73a5b650f38a881ee192075977a05b802a9e9cb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-009-g2.25/summary.json",
+   "bytes": 792,
+   "sha256": "a9567920a1299b82d6f59f6e570ac10dfafb37759c4747f7b51f95a02be63f6c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-010-g2.3/summary.json",
+   "bytes": 801,
+   "sha256": "77cb440d956b67b21271515f61d41307882dfabae7b010f77ac0ac247439ed39"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-011-g2.35/summary.json",
+   "bytes": 784,
+   "sha256": "a11463b8292ed09b265f77ca7ceeb85a9d987de7f615fc72db0b24f009988d5a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-012-g2.4/summary.json",
+   "bytes": 783,
+   "sha256": "63ac4a3e18814255afe47340e6f8382173339aeba5c17e2a06e89c6bfd55fcb0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-013-g2.45/summary.json",
+   "bytes": 785,
+   "sha256": "951baf8386d736ca71ce089a1d5eb2c92ba56a5c7405a6f3828cbb3c3046c324"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-014-g2.5/summary.json",
+   "bytes": 781,
+   "sha256": "75ad4cf95104455c1902c47a105e4a64288e2bd8ff60acb9837a9f4e7a1e4c1f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-015-g2.55/summary.json",
+   "bytes": 794,
+   "sha256": "e29b09bec619d66dc4a794dd7d811515f4f5af9363ea8b5ba3efbaf5ffd01b2b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-016-g2.6/summary.json",
+   "bytes": 800,
+   "sha256": "2a482f14020b4e12f3281d8828ba9c425915696cc3d138f2c1ee24aad724098e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-017-g2.65/summary.json",
+   "bytes": 794,
+   "sha256": "29dd540a96f091327062a0b09711e53f40c4274ac52b1783d3809647cce0bf35"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-018-g2.7/summary.json",
+   "bytes": 793,
+   "sha256": "d30f8259b463255b5afaae28506d330bce74ee4e8385a2647a1e0e28b79cc044"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-019-g2.75/summary.json",
+   "bytes": 784,
+   "sha256": "3ecc59d67c38b3d68169ea09d6e0efaff3b818cf72ef1e8eff8cae3679e699ea"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-020-g2.8/summary.json",
+   "bytes": 782,
+   "sha256": "9baa81b185b109c5a03f28715095952b11ce80f4f33069a32be199ec148c773e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-021-g2.85/summary.json",
+   "bytes": 785,
+   "sha256": "e015f9881c03ba0d91add6b79a812c324f31d1a475f85cfd023746ab4a74fef3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-022-g2.9/summary.json",
+   "bytes": 792,
+   "sha256": "64fd1613519cf68ba688fb9a6c651d1b0fc9bc7f1af297d4c77e987a756d2066"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-023-g2.95/summary.json",
+   "bytes": 786,
+   "sha256": "bef57095a5b6911d8d51beb7a6a6331bd8af513dc6ab8095ea83f2c4845d2ab4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-024-g3.0/summary.json",
+   "bytes": 783,
+   "sha256": "cd11ea2a960376b3d770cfb5abb239a0bcdbaf89dd1cbe423ed759d7eecd9e38"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-025-g2.95/summary.json",
+   "bytes": 804,
+   "sha256": "41846b4c98842e24a924f4c1566b15c3b2e50561eb571fc0c81c16d166b35f94"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-026-g2.9/summary.json",
+   "bytes": 792,
+   "sha256": "29312a3ef7aa0d97895c71a8066c70de00ed387e35dfd4ecab720e7c6f04b460"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-027-g2.85/summary.json",
+   "bytes": 794,
+   "sha256": "d3f9b8c298fb5f85a4e72b23b24382443cd1db48d353c64ee32779abeaf43b89"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-028-g2.8/summary.json",
+   "bytes": 781,
+   "sha256": "2f5ba09afb0e52eb2842868cdc1a54756467432bf525281c79619effd00eb0a3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-029-g2.75/summary.json",
+   "bytes": 785,
+   "sha256": "16162fb662f31c6e0709843241342abb7888cbcadd74620cb43dba658e50bb63"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-030-g2.7/summary.json",
+   "bytes": 784,
+   "sha256": "81b2302160d5b8a2884882ccff0ffc8c3f08db9432582edc5c62c93cb267c6d1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-031-g2.65/summary.json",
+   "bytes": 783,
+   "sha256": "fd8611e3cbe7442236c778aa633f81f631863f9ec3aeb33d01450fc3d2f6abd7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-032-g2.6/summary.json",
+   "bytes": 793,
+   "sha256": "70b1dbcf7774539fad8431bfc55b9335011ccaf48bd4d1f03681ef005a3c8d9a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-033-g2.55/summary.json",
+   "bytes": 794,
+   "sha256": "d3060e91ce7ecc8624064e21e82c42d3b5d0e97549f89c55a449e15065889757"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-034-g2.5/summary.json",
+   "bytes": 782,
+   "sha256": "db20d3fc0d7fe6a6f06e87ae618d51bb6e43c1c9cba49b5c45d5d022cbfa8eae"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-035-g2.45/summary.json",
+   "bytes": 792,
+   "sha256": "c01b1d2c0401bae27cf785a2699d3c7671a329aaaf520f3641e67e2d050a794d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-036-g2.4/summary.json",
+   "bytes": 791,
+   "sha256": "f2a38a50bf4e49ed663ef560f719ace3aac4486817b05088c90f9f70b21d17b8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-037-g2.35/summary.json",
+   "bytes": 785,
+   "sha256": "0186f1018a8fd88a0d4e1213c47f3d61db59f403b911a9303d1b2d57d5c55527"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-038-g2.3/summary.json",
+   "bytes": 784,
+   "sha256": "87d7786d3d6153c4e251f618d2055b5825ffa2dee69c51e5142a870385b59bbd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-039-g2.25/summary.json",
+   "bytes": 785,
+   "sha256": "eb69723bd89285fc07d82971d14226c1d99aaa8e92092a96e8b649a34fc332cd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-040-g2.2/summary.json",
+   "bytes": 792,
+   "sha256": "92c4ffe37c54f11d5b2c00e2303f3c39e35e5ba4db4d0a82675381df077efd7f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-041-g2.15/summary.json",
+   "bytes": 784,
+   "sha256": "a2c70776e17cb52a1f0006188b64d7d8da2f5eb379deb89900dd60601777482c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-042-g2.1/summary.json",
+   "bytes": 792,
+   "sha256": "5d7c643150739d90e6b7ccd1a733f0a673340f2d0cb882462b56f96b5f7b4b7f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-043-g2.05/summary.json",
+   "bytes": 795,
+   "sha256": "c60b81d2fce2af5c6408b9c497117de5d1a3933db8d6b72fbc2b881e53bd2087"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-044-g2.0/summary.json",
+   "bytes": 784,
+   "sha256": "34645c36ffbf615e8ef80a22e217aeabf1b20c4454e85c15f8c5cd253e79d21e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-045-g1.95/summary.json",
+   "bytes": 784,
+   "sha256": "b7b459c9f0c58221a4243f20e5af0e4484966f604069f12d248b9c01f08c49f9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-046-g1.9/summary.json",
+   "bytes": 783,
+   "sha256": "8f0f48c28cd448caa0e68b5ded95fc025764ee9cb14e4b9f27a094efa6939aeb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-047-g1.85/summary.json",
+   "bytes": 784,
+   "sha256": "c44b672f87c2e9a28a209eb41d3b0fd54a720ceeb13c8b60e4452befbdd831eb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-updown-h25/step-048-g1.8/summary.json",
+   "bytes": 784,
+   "sha256": "8a5350dcdeebfc0f012ef7e2def52509e591a3f7dc8b9abbf5de56afefa48425"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/ramp.jsonl",
+   "bytes": 9018,
+   "sha256": "92d1bcfff7149418b5b41083d7d8c7ee7ba1cbe8b28ddf71128512d5a295c309"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-000-g3.0/fields.npz",
+   "bytes": 121290,
+   "sha256": "a7fc4e5bbbc7c91c86fff389bcca47f891c090ecc368ddd30c1024beed94b405"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-001-g2.95/fields.npz",
+   "bytes": 121215,
+   "sha256": "bb92af5eebad31f2ff62b9ee936454f14ede2f85289608f47271720876abe7a8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-002-g2.9/fields.npz",
+   "bytes": 121134,
+   "sha256": "ebc662b2c8db4d140abc1876e502768b04b0320d9bfb27169ba52a3fe46ff7eb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-003-g2.85/fields.npz",
+   "bytes": 121217,
+   "sha256": "a0a2828668fc6a7c54860d30e8bfa4cef146db071dc07a05230f93723cec5cab"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-004-g2.8/fields.npz",
+   "bytes": 121181,
+   "sha256": "7aa3ddd5839f6b6b27d90239b711df73b8b6490ddf6ac8879c2d789e452bba49"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-005-g2.75/fields.npz",
+   "bytes": 121121,
+   "sha256": "30a5285c6f6c67fa7b113e0065b12c0a95628acc43dd982d90469b477267498e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-006-g2.7/fields.npz",
+   "bytes": 121148,
+   "sha256": "8dae39bba12b2c9fe93bb6082f7397c868c1916a17cd2156b73b8f6fb192e69b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-007-g2.65/fields.npz",
+   "bytes": 121215,
+   "sha256": "47d83304944bb0cbabde1cabc2aee0134b1884b2b4d5a1d7e2d1d32288557938"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-008-g2.6/fields.npz",
+   "bytes": 121266,
+   "sha256": "06cf5076dc9be10f4004a7cf966bf94755807b1e5ac0e72796a904f85aa345c5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-009-g2.55/fields.npz",
+   "bytes": 121282,
+   "sha256": "b960d0147b3f2fe91032710ee14a167f8b109b4ee8649c61f6aeafd366d83c16"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-010-g2.5/fields.npz",
+   "bytes": 121292,
+   "sha256": "c025db56c0eb1ce7acce930ed02bb740af5397c4105596cd20a982d860d60531"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-011-g2.45/fields.npz",
+   "bytes": 121281,
+   "sha256": "6d08ef410259ed0e8e8269eefa7e6d0cd6f38b51e166e8af4426443d74d4842f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-012-g2.4/fields.npz",
+   "bytes": 121301,
+   "sha256": "389122849b515db807591e7f43ae9c78f77abaa160fced8555b8b0f15dbebe3f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-013-g2.35/fields.npz",
+   "bytes": 121423,
+   "sha256": "bd4400ce6080c026c5e1a5eb9a96e096c2e03ba1608f7b88bb5638c4515cca5a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-014-g2.3/fields.npz",
+   "bytes": 121477,
+   "sha256": "94f29995922032b5f70c6175280045117cddd7050236f2af6a55802468ccdc40"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-015-g2.25/fields.npz",
+   "bytes": 121282,
+   "sha256": "9642991805b266fb5c229b0813ea197b83e09e5b7f91ccdd52752a94215d48d4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-016-g2.2/fields.npz",
+   "bytes": 121352,
+   "sha256": "266f0da35dbdd7187f3b47dd118e8f25bad6104fd97833e253efc8ba42ef145e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-017-g2.15/fields.npz",
+   "bytes": 121511,
+   "sha256": "fb75ad87871ab2871685ca057d5d038b4ffcd7df53b2a62cc945b4adf565496f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-018-g2.1/fields.npz",
+   "bytes": 121348,
+   "sha256": "8eb2105d1d3f76477604a571ff2700394341ffdecf6f266c5ea596de7c1203a2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-019-g2.05/fields.npz",
+   "bytes": 121068,
+   "sha256": "bbeead86a4dbd4df929ff0a18c1ba9201d30e3fbc2766316bb599281a4c7ce65"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-020-g2.0/fields.npz",
+   "bytes": 120763,
+   "sha256": "5f35eabfd3abb0867a3a4bec00d230ff3208c1ff9b8ed6e57751fcc21da97061"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-021-g1.95/fields.npz",
+   "bytes": 120695,
+   "sha256": "72555637521a620cc060651e1b84be3c7626b217e466a54e791e22ef644395a3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-022-g1.9/fields.npz",
+   "bytes": 120370,
+   "sha256": "e782ea9ac9314cdd5da9c0bf218a64c63f4308e5cb02815f4e5c7913eeb0833e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-023-g1.85/fields.npz",
+   "bytes": 120668,
+   "sha256": "ec106c9e1d2cafba378877de37517b1a542909f6709272423edf00b4ee44bf9f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-024-g1.8/fields.npz",
+   "bytes": 120415,
+   "sha256": "762a84a3b66c6f123ef78a031cb93cb5bcf3bf6f85dbb785a21c8ad90eb62422"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-025-g1.85/fields.npz",
+   "bytes": 120572,
+   "sha256": "2aa38f00ed4549bb47ac6f14ff15d24bec0e7b4b50c33be633a38e2bbcdcaa1b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-026-g1.9/fields.npz",
+   "bytes": 120624,
+   "sha256": "c7f7972b31f343022452b512a6fe8cbe33f3cf9da5368c0100f1cb67f429605d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-027-g1.95/fields.npz",
+   "bytes": 120602,
+   "sha256": "8497800f659be36fd06720e7de47f93e6076c9cdeb643b89d9a1c82996926c7a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-028-g2.0/fields.npz",
+   "bytes": 120836,
+   "sha256": "4256b41fec35979b68dfbceba536ead8ac5a3c6dbec54312577638407d05d76a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-029-g2.05/fields.npz",
+   "bytes": 120889,
+   "sha256": "767bdb41fbb78647bf51a4273b761f20662f25c1c7902b4f322e9fe0f4dae291"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-030-g2.1/fields.npz",
+   "bytes": 121209,
+   "sha256": "263b18510806aac4cf82ffb63de521b8d58770773ea67657f89bbedd85547c71"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-031-g2.15/fields.npz",
+   "bytes": 121314,
+   "sha256": "753141305801b7a5e071d9991a7987b7b088300e73ed204f8185ca0b61798300"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-032-g2.2/fields.npz",
+   "bytes": 121384,
+   "sha256": "19aec6aa1a5dee2e082e8c1deacaf0c6dd93609285ef3dd58f7dcaef9dfd1249"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-033-g2.25/fields.npz",
+   "bytes": 121505,
+   "sha256": "8dc3b9cfe9d84e71f7d6801fba0b84a2b295e30869f8343e469e1ec1122320d4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-034-g2.3/fields.npz",
+   "bytes": 121492,
+   "sha256": "ee7f384fe0bea4ff876532effa36c628edba4a230daa1f5428ff1c224e047322"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-035-g2.35/fields.npz",
+   "bytes": 121470,
+   "sha256": "3cd65e3c537a35445f87ee3afef94c905e8c9a82f52715beb58749608053c4de"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-036-g2.4/fields.npz",
+   "bytes": 121481,
+   "sha256": "3a53940caf550cd6c836970620ba53e815833b8e7333279e70c80b18be0f33d1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-037-g2.45/fields.npz",
+   "bytes": 121316,
+   "sha256": "57a43f09baad27f157fe1315f6bc43b4cd2685d97fb799486dbf646ac79d4aed"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-038-g2.5/fields.npz",
+   "bytes": 121392,
+   "sha256": "7edaf32ccafbda6bc61875532624a21fc37bbd33b385385213d5d7a3e102fe09"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-039-g2.55/fields.npz",
+   "bytes": 121364,
+   "sha256": "086d85c1bc85a2c9a09563dd2e0f6aaebff5fa6601c03233b9cb810fd7778cf9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-040-g2.6/fields.npz",
+   "bytes": 121241,
+   "sha256": "fd5a0b4c6ebd68b762ef83ef454da27a5ae9f3a12244fd701c808407c10ad78f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-041-g2.65/fields.npz",
+   "bytes": 121316,
+   "sha256": "3c7b0722c549f430ce00c87681d84df42e8d103641f46328f99bf0ec410af3f7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-042-g2.7/fields.npz",
+   "bytes": 121323,
+   "sha256": "4d05f07fe2abdf691046d55f386048a5d1d7b56f48b3a9f48e524abad20f8b51"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-043-g2.75/fields.npz",
+   "bytes": 121313,
+   "sha256": "ac6e285e95306992688d4f7118df0ecfa637eb485cb80dbaf33b11b2153fd4c4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-044-g2.8/fields.npz",
+   "bytes": 121182,
+   "sha256": "66fc1a472fc2d7be1654003c544884c74ca0d56fba0e46997c40eae2caa23706"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-045-g2.85/fields.npz",
+   "bytes": 121173,
+   "sha256": "d66275e5826c82eadfdca7ec068895f34d135956d1f90abb1781b8b2fdfb5392"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-046-g2.9/fields.npz",
+   "bytes": 121144,
+   "sha256": "08b7601fac34ac920cec0570f07a13544be4b354515154c176ebb30212fd8095"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-047-g2.95/fields.npz",
+   "bytes": 121063,
+   "sha256": "d1fa76ba4212796d1a1f1d3ac1e4533a4dbb9b4448f70ed8f40f8d6318543969"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-048-g3.0/fields.npz",
+   "bytes": 121115,
+   "sha256": "c04a378830449de8dba48dcfcb05412263e30eef19764f6267f8be7cd5377c8d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-000-g3.0/summary.json",
+   "bytes": 789,
+   "sha256": "829f038ce147d7852050db58ebee39b9a8afe68f9725110a80a96cf16bbd98b5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-001-g2.95/summary.json",
+   "bytes": 783,
+   "sha256": "0b086c5664a63edca7518565a118286f69a1e4c547ff5a6fb97a3d422ee2be9d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-002-g2.9/summary.json",
+   "bytes": 792,
+   "sha256": "a59baf424ad894b2343706c257841476eef203b4925af625777d3cf7d95381ed"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-003-g2.85/summary.json",
+   "bytes": 802,
+   "sha256": "ad15f24c265e5c3fafaca0f8f51409247244386949e68e6e14926c190aec8351"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-004-g2.8/summary.json",
+   "bytes": 791,
+   "sha256": "8451a445d6051444c6f3cb0fbb95f493b89fb84dd2da41871d680afc976d5463"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-005-g2.75/summary.json",
+   "bytes": 782,
+   "sha256": "6d8ca796800dcfd64417c641dc5db3d70386a286ccbaca61463510cebf82e095"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-006-g2.7/summary.json",
+   "bytes": 782,
+   "sha256": "3abb9ffca55117a29066c72269363d29ac881c946e5dbd1ed36e4332b3eb52d3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-007-g2.65/summary.json",
+   "bytes": 792,
+   "sha256": "90c082d9f066edc1789d061f8cfc9e340ca00c250463d6093526efb81953af61"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-008-g2.6/summary.json",
+   "bytes": 780,
+   "sha256": "c4fd7d2917e3685d9bf5ea79b4cdfa5b7a8574ab3b631c27f3c8146ebf6eaec5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-009-g2.55/summary.json",
+   "bytes": 794,
+   "sha256": "d31ccb9c8975706ccc06963a59aae4c79f8c61211e880a984510b180bd516e42"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-010-g2.5/summary.json",
+   "bytes": 801,
+   "sha256": "6dd2edcd6c77f00db440845b7b6613fc757be8875cc112025cb432927c656141"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-011-g2.45/summary.json",
+   "bytes": 782,
+   "sha256": "74fbc43d2014ea784113733a3d7e85d231a1a809d62dd04d315945ed41f4467b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-012-g2.4/summary.json",
+   "bytes": 783,
+   "sha256": "28f6188612c2ffe4884c3bb0721e6b96a8ae280e07088382987cbea70c244a21"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-013-g2.35/summary.json",
+   "bytes": 792,
+   "sha256": "19aa3aa85b1dabf79d715232860651ab440b1cf315f88a160dc9070a5c06eb52"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-014-g2.3/summary.json",
+   "bytes": 794,
+   "sha256": "303cc691b2fafc2dfc908ccac8b0fc61bae73f5cbf6b27d6d51055c24fd9d111"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-015-g2.25/summary.json",
+   "bytes": 793,
+   "sha256": "6975b681c3423bc69e93f1dc43b2d05da891710065203216f109503e1af4e372"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-016-g2.2/summary.json",
+   "bytes": 783,
+   "sha256": "07eb07394719156408c197b5c2f6d4f00aeb63a3f780cbab3d95389bf1a97367"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-017-g2.15/summary.json",
+   "bytes": 785,
+   "sha256": "98119951a16f99663d1a9ea607a7f35542275747491c95126783746748e8fbc6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-018-g2.1/summary.json",
+   "bytes": 792,
+   "sha256": "c3b98b8ea42e406ff49ca3b000b9add2fc31665f04637a557c435651c294ae39"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-019-g2.05/summary.json",
+   "bytes": 795,
+   "sha256": "d67343aa160cde2ecbb7dc303bf1f42b34d4877579e7100efabc2a8f70a2df29"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-020-g2.0/summary.json",
+   "bytes": 793,
+   "sha256": "b89cb68569ccc5d0972fcca392bfd6480074ac6747fa904ad0032274c63ab6d4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-021-g1.95/summary.json",
+   "bytes": 794,
+   "sha256": "30810acdad8883847298ccd061d90c21b1fa87cf4c533f10ad86ef647cc3fe27"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-022-g1.9/summary.json",
+   "bytes": 783,
+   "sha256": "3339539b7203fa474a12345398370828afc0b7e254a9e8238721a15c0f639eeb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-023-g1.85/summary.json",
+   "bytes": 782,
+   "sha256": "1cbf1593f4976108924a8e19337bfde0fdde4eccd1d1ece8dd1dd943a76fce2f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-024-g1.8/summary.json",
+   "bytes": 785,
+   "sha256": "81334c4cdc364504917075b74c62deae881deece55def45cfb9885369f17f884"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-025-g1.85/summary.json",
+   "bytes": 784,
+   "sha256": "c16b801a506f186121f859dca49d1f168ae4d02b22d88bd8df4ddd2b5e937225"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-026-g1.9/summary.json",
+   "bytes": 784,
+   "sha256": "f489b0f15a991266e225cb0fdfd685590048562db958db0c7fc49ab8e6b2de22"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-027-g1.95/summary.json",
+   "bytes": 796,
+   "sha256": "d3ccebbf383837b48985a226336042f65eddc2f93fd942f8fa146e0da49627ae"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-028-g2.0/summary.json",
+   "bytes": 792,
+   "sha256": "3e3227d9804d7f78a73a8b747e4246f327b0d9c3e044e41f4f27c0e4722e7669"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-029-g2.05/summary.json",
+   "bytes": 795,
+   "sha256": "2c8635abc47620dcb0aa45b5c1d23be41701d5274453260cc1e15a9aa2e52772"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-030-g2.1/summary.json",
+   "bytes": 784,
+   "sha256": "f2638386da2402938bb57bfbe11e0f1dfe331eca52bb81d51f92898086595e93"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-031-g2.15/summary.json",
+   "bytes": 786,
+   "sha256": "c87dda87e1ef21aeba2b601a2e44b30c31a55c071d5a6f24f6cc16671ecd405a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-032-g2.2/summary.json",
+   "bytes": 785,
+   "sha256": "7c8e2020320adfdc01cbe1385b22079d58b35b0c372461d0239d0bc8d5f64444"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-033-g2.25/summary.json",
+   "bytes": 786,
+   "sha256": "1226b1437e15be3b0835ba872cffda0c194142c922a4ca522832ce95cf3b30f4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-034-g2.3/summary.json",
+   "bytes": 794,
+   "sha256": "9ad5864f43f562a754a7b05589586ea8d4bbe2af485a1ac53063e90c67087f49"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-035-g2.35/summary.json",
+   "bytes": 785,
+   "sha256": "527f73030a846bf07fb8d61afb99905167bfc3edc01db51b1116c146837e9345"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-036-g2.4/summary.json",
+   "bytes": 790,
+   "sha256": "455f89a4af0cbe4accb3e71f859bcfaad7f82b732acf755dcf0ac36701d8db03"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-037-g2.45/summary.json",
+   "bytes": 795,
+   "sha256": "f85a387478d8d350e31f949d614f6a858b0799a67aacf293e6116962c4002bd6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-038-g2.5/summary.json",
+   "bytes": 793,
+   "sha256": "c247c910129dff1e6d08f0ebc419cbd10e3642a2801beda5f46aaca0ed8947e7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-039-g2.55/summary.json",
+   "bytes": 784,
+   "sha256": "76f4ecfd6728d464d10d21be0e908f6bdaacfb20182f382c53b67e3d8aaa5a67"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-040-g2.6/summary.json",
+   "bytes": 792,
+   "sha256": "c09487f500305267daf6632f6230a9ae6baa337ca6a9c6a50d054507e2dfdd4c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-041-g2.65/summary.json",
+   "bytes": 786,
+   "sha256": "1d5a818a091395690b68af52eb872afb80d0c7ca7ebba9e8398edf0b411c5337"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-042-g2.7/summary.json",
+   "bytes": 794,
+   "sha256": "b9241d2f076aab83d38f47ec47d4fb5bb525e52f785c8d2a6e4c50040f87efd2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-043-g2.75/summary.json",
+   "bytes": 785,
+   "sha256": "27b2c71dc0533392e1ec8ece902d0d8eeae0bef76606ce4836138faf5519abf2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-044-g2.8/summary.json",
+   "bytes": 794,
+   "sha256": "926c228634544821818b12e167b6b73f9110157f334cfea5a275173c1470ac42"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-045-g2.85/summary.json",
+   "bytes": 794,
+   "sha256": "a0984a9d9ba2fefb2357ead943710fb873c9910f772cb7d0eb7740b219905404"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-046-g2.9/summary.json",
+   "bytes": 801,
+   "sha256": "b80e2cb9c5c3709d06e9afa9911689c72f79014f5f25fa93f22f00b888f8bc58"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-047-g2.95/summary.json",
+   "bytes": 784,
+   "sha256": "93dc9f61be48c9ca7d8ac027fbbd33bf27c510fa680260a8d664d3aede81e94d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0053/mu0-downup-h25/step-048-g3.0/summary.json",
+   "bytes": 792,
+   "sha256": "c663bc3e3b1e7b30b047fce94f49bb3d9f551653594837312ef195860f08f188"
+  }
+ ],
+ "run_folder_bytes": 75485184
+}

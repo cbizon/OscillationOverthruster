@@ -1,8 +1,52 @@
 # Phase diagram plan
 
-Written in the session of 2026-11-13 for the instruction of that date. A plan
-only: the sweep has not been started. Numbers come from tonight's pilots and
-earlier runs; each is in the evidence file named beside it.
+Written in the session of 2026-11-13 for the instruction of that date, and
+revised in the session of 2026-11-14 (no new instruction that night) in
+answer to the checker's review of Nov 13. A plan only: the sweep has not been
+started. Numbers come from pilots and earlier runs; each is in the evidence
+file named beside it. "Tonight" in sections 1 and 2 means Nov 13.
+
+## 0. What changed on Nov 14
+
+The checker asked for four things before the first stage starts; each is
+answered here, and the tools the plan listed as "needs building" are built.
+
+- **(a) What the nudge's 3D diagram consists of.** On Nov 13 the nudge had
+  no scan in Gamma in 3D, so "a phase diagram for each" was true only of
+  the frictionless engine. The plan now has a stage I: a nudge scan above
+  onset at the same six f\* as the frictionless one (74 CPU-hours, an upper
+  estimate). The nudge's 3D diagram is then stage I, the holds of stage G
+  and the onset loops of stage H. Section 3 says so. In 3D every engine has
+  one depth, 5.42, the paper's.
+- **(b) Stage A repriced, with the baseline.** Each engine is now priced
+  from its own measured ramp at each of the four conditions, slow steps and
+  capped step included, plus the two-start holds, which the Nov 13 price
+  left out: 64 CPU-hours (frictionless 14, nudge 35, baseline 14), against
+  22 on Nov 13. Section 7.
+- **(c) The budget** is 400 CPU-hours in any seven days (`budgets.yaml`,
+  as `program check` counts it), not for the program. Section 7.
+- **(d) The transition point is redefined** so that it can be applied to an
+  engine that stops soon after its pattern dies, and the up branch starts
+  from the step where the engine turns. Section 5.
+- **Built and tested** (`E0053-results.json`, `E0054-results.json`,
+  `E0056-results.json`): the field recorder, the amplitude the loops are
+  drawn in, the transition rule as code, the turn at an engine's floor, and
+  the temporal-period rule tested on runs it was not chosen on (16 of 16).
+- **Three things the Nov 14 pilots changed** (`E0055-results.json`,
+  `E0056-results.json`; one seed each, so they shape the plan and are not
+  results):
+  - Measured by the new amplitude, the nudge reaches the flat state with
+    room: its pattern is gone 0.13 to 0.43 in Gamma above its floor, with
+    6 to 17 flat holds in a loop (five loops, four conditions). The Nov 13
+    figure (a margin of 0.1 at depth 5, f\* 0.3, where it is now 0.43)
+    came from an amplitude that included shot noise. The margin is
+    smallest at depth 10, f\* 0.3 (0.13 and 0.18 at two seeds).
+  - The baseline with friction is of little use at depth 10, f\* 0.3: it
+    does not start from rest at Gamma 3.0 and, started from the nudge's
+    state, stops at Gamma 2.8, while still patterned.
+  - In 2D at depth 5, f\* 0.5 there is no pattern between Gamma 1.8 and
+    3.0 with any engine; at depth 10, f\* 0.5 the onset is weak and gradual.
+    The f\* 0.3 conditions are where a 2D onset loop can be read.
 
 Terms used throughout:
 
@@ -29,7 +73,9 @@ they shape the plan and are not results.
   the nudge's cost in 3D (`E0050-results.json`). It is not stall-free,
   though: one of tonight's 39 frictionless baseline runs stalled
   (`E0046-results.json`).
-- **Both engines with friction stop just below the pattern onset.** At
+- **Both engines with friction stop just below the pattern onset.**
+  (Revised Nov 14, section 0: with the noise-corrected amplitude the nudge's
+  pattern ends 0.13 to 0.43 above its floor.) At
   Gamma 2.0 to 2.2 the layer spends most of the cycle on the plate. There the
   nudge is 6 to several hundred times slower than at Gamma 3,
   and the baseline does not run at all. In a 2D ramp down from Gamma 3.0 the
@@ -107,6 +153,19 @@ What this means for the plan:
     value the engine reaches (with friction), steps of 0.05;
   - a scout loop above onset, 2.7 to 7.0, steps of 0.1;
   - holds at the seven Figure 1 conditions, for the patterns themselves.
+- **What each engine gets in 3D** (revised Nov 14):
+  - frictionless: onset loops at f\* 0.27, 0.33, 0.44 (stages C, D), the
+    scout above onset at all six f\* (E), holds at all seven Figure 1
+    conditions (F);
+  - nudge: the same scout above onset at all six f\*, Gamma 2.7 to 7.0
+    (stage I, new), holds at the seven Figure 1 conditions (two exist,
+    five in stage G), and onset loops at f\* 0.27 and 0.44 down to its
+    floor (H);
+  - baseline: holds only where it runs (cases b and g so far). No ramps in
+    3D: it fails at start-up and below about Gamma 2.3 to 2.8 in the
+    pilots.
+  - One depth, 5.42, for every engine. A second depth in 3D is not in this
+    plan.
 
 ### 2D (the fast filter)
 
@@ -137,8 +196,8 @@ field: mean particle height in bins of 2.5 D (2 D in 2D).
     to 78 (Gamma 3) and 13 to 23 (Gamma 6).
   - Threshold 8, set before the reference runs were read.
   - Not usable in 2D as it stands: a flat 2D layer has box-sized sloshing
-    modes that score high. In 2D the measure is the height field's
-    root-mean-square amplitude inside a band around the expected wavelength.
+    modes that score high. In 2D the measure is the band amplitude A
+    defined under "Amplitude" below.
 - **Wavelength**: from the same ring. All eight of our Gamma 3 runs give
   19.4 to 19.8.
 - **Temporal period** (half or quarter of the drive frequency): correlation
@@ -146,11 +205,35 @@ field: mean particle height in bins of 2.5 D (2 D in 2D).
   - The rule I registered got 6 of 7 reference cases; the squares at a
     quarter frequency came out unclear.
   - A simpler rule (the smallest lag at which the correlation exceeds 0.5)
-    gets 7 of 7, but I chose it after seeing the failure. It needs a test on
-    data it was not chosen on.
-- **Amplitude**, the quantity the hysteresis loops are drawn in:
-  root-mean-square of the height field, averaged over the frames of each
-  hold. See "Needs building".
+    gets 7 of 7, but I chose it after seeing the failure.
+  - Tested Nov 14 on runs it was not chosen on (`E0054-results.json`):
+    16 of 16. Ten of our case-b runs (expected period 2) and six case-g
+    runs (expected 4), each continued nine cycles with the recorder. The
+    winning correlations are 0.89 to 0.90 (case b) and 0.68 to 0.69
+    (case g) against the threshold 0.5. It is two conditions with repeats,
+    both patterned: no flat case and no period-1 case were in the test.
+- **Amplitude A**, the quantity the hysteresis loops are drawn in (defined
+  and tested Nov 14, `tools/loop_analysis.py`):
+  - From the recorder: the variance of the height field carried by each
+    Fourier mode of the box, at all 32 frames of every cycle, averaged over
+    the hold.
+  - Band: modes 3 to L/8 (wavelengths from a third of the box down to 8 D).
+    Modes 1 and 2 are box-sized sloshing.
+  - Noise-corrected: A squared is the band's total minus the band's width
+    times its median mode. Shot noise in the bin means is spread evenly
+    over modes and grows with the layer's thickness; a pattern is a peak.
+    Without the correction the amplitude rises smoothly with Gamma in a
+    layer with no pattern (depth 5, f\* 0.5) and the transition rule
+    reported an onset there.
+  - On the frictionless pilot loop (depth 5, f\* 0.3): flat level 0.09 D,
+    patterned 0.9 to 1.0 D.
+  - In 3D the same with rings of wavenumber instead of modes, from ring 2
+    (at L 100 the patterns sit at rings 3 to 5; rings 1 and 2 hold under
+    2% of the variance in patterned states). On the 16 recorded 3D holds
+    (`E0054-results.json`) A is 0.41 to 0.42 D at case b, the same for
+    the nudge and the baseline, and 0.44 to 0.46 at case g. No flat 3D
+    state has been recorded and no 3D ramp run, so the 3D flat level and
+    the choice of ring 2 are to be checked on the first 3D loop.
 - **Planform** (stripes, squares, hexagons): two measures on the field
   filtered to the pattern's wavelength.
   - Coherence: 1 when the pattern is locally parallel lines, 0 when it is a
@@ -179,48 +262,128 @@ the same condition):
   will call flat;
 - oscillon candidates, when RQ3 starts.
 
-### Needs building (no engine or referee change)
+### Built on Nov 14 (no engine or referee change)
 
-- **A field recorder.** The referee saves bulk quantities at 32 frames per
-  cycle but not the height field, so tonight's amplitudes are single
-  snapshots at the end of a hold and scatter by about 20%. A wrapper like
-  `lc_counters.py` can save the height field's spectrum at every frame, and
-  the field itself twice a cycle, without changing the run. About 13 MB per
-  1000 cycles in 3D.
-- **The 2D amplitude band** and the test of the temporal-period rule on new
-  data.
-- Thresholds are fixed in the registration before the sweep.
+- **The field recorder**, `tools/field_recorder.py`: wraps the referee's
+  run and saves the height field's spectrum at every frame and the field
+  itself four times a cycle.
+  - It changes nothing: all 147 steps of the three frictionless pilot
+    loops, rerun with it, end in checkpoints identical to those without it
+    (`E0053-results.json`). A run stopped mid-cycle and resumed gives the
+    same record as an uninterrupted one.
+  - Size of the field record: 4.8 kB per cycle in 2D at L 200, 9.3 at
+    L 400, 27 in 3D (27 MB per 1000 cycles). Totals in section 7.
+- **The thresholds, fixed here before the sweep** (all in
+  `tools/loop_analysis.py` and `tools/period_rule.py`; a change after this
+  is a new registration):
+  - band: modes 3 to L/8; noise correction by the band median;
+  - flat level: median of A over the five lowest-Gamma holds of the ramp;
+    scatter: 1.4826 times their median absolute deviation;
+  - patterned: A above the flat level by more than five times the scatter
+    or 0.1 D, whichever is larger;
+  - unsettled hold: halves differing by more than the same tolerance or
+    10% of A;
+  - temporal period: smallest of 1, 2, 4 cycles with correlation above
+    0.5; contrast below 8 is flat;
+  - planform thresholds as on Nov 13 (coherence 0.5, skewness 0.3),
+    reported with their numbers and not trusted alone.
+- The tools are now on a branch, `tools/phase-diagram`, with tests.
 
 ## 5. Hysteresis
 
 ### Protocol
 
-- **Stepwise ramps**, `sequel-data/runs/tools/ramp.py`: each step starts
-  from the previous step's final state with only Gamma changed, at a
-  whole-cycle boundary where the plate is at its mean height. Each step is
-  a complete referee run with its own audit.
+- **Stepwise ramps**, `tools/ramp.py`: each step starts from the previous
+  step's final state with only Gamma changed, at a whole-cycle boundary
+  where the plate is at its mean height. Each step is a complete referee
+  run with its own audit, recorded with the field recorder.
 - **Step** 0.05 in Gamma at onset, 0.1 in the scout.
 - **Rates**: 25 cycles per step of 0.05 is the experimental rate (0.002 per
   cycle). Also 100 cycles per step; 400 where a loop is seen.
 - **Direction**:
-  - frictionless: up from flat (Gamma 1.7 or 1.8), then down;
-  - with friction: down from a patterned state (Gamma 3.0), turn at the
-    lowest step the engine completes, then up. The engines cannot start
-    below onset.
+  - frictionless: up from flat (Gamma 1.8), then down;
+  - with friction: down from a patterned state (Gamma 3.0), turn, then up.
+    The engines cannot start below onset.
+- **Where an engine with friction turns** (added Nov 14,
+  `ramp.py --turn-on-stop --turn-above-fraction 0.5`):
+  - Each step has a CPU cap: 0.1 hours per 25 cycles for the nudge, 0.05
+    for the baseline, four times that at 100 cycles per step.
+  - The ramp turns at the first down step that uses more than half its cap,
+    or at the last completed step if one stops outright. That Gamma is the
+    engine's **floor** for the loop. The up branch starts from that step's
+    final state.
+  - Why half the cap: in the pilot the nudge at depth 10, f\* 0.5 completed
+    Gamma 2.2 going down (245 of 360 seconds) and then did not complete it
+    going up from 2.15. Turned at 2.2 it completed the loop
+    (`E0055-results.json`).
+  - If the baseline cannot start from rest at Gamma 3.0, it starts from the
+    nudge's state there (same model, same seed). Said in the results where
+    used.
 
 ### Defining a transition point
 
-- The order parameter is the hold's mean amplitude A.
-- **Gamma_up**: on the up branch, the first step where A exceeds the flat
-  level by more than five times the flat level's scatter between holds, and
-  stays above for the next two steps. **Gamma_down**: on the down branch,
-  the last such step.
-- Flat level and scatter are measured in the same run, from the steps at
-  the low end of the ramp.
-- Also reported: A squared against Gamma near onset. A continuous onset
-  gives a straight line reaching zero at the threshold; a jump is a
-  discontinuous one.
+Revised Nov 14; the rule is code, `tools/loop_analysis.py`.
+
+- The order parameter is the hold's amplitude A (section 4).
+- **Flat level F and scatter s**: the median of A over the five
+  lowest-Gamma holds of the ramp, both branches, and 1.4826 times their
+  median absolute deviation. Median, so that one hold that is still
+  patterned among the five does not set the level.
+- **Patterned hold**: A above F by more than max(5 s, 0.1 D).
+- **Gamma_up**: on the up branch, the midpoint between the lowest step that
+  is patterned together with the two steps above it, and the flat step
+  below it. **Gamma_down**: the same on the down branch.
 - **Hysteresis width** = Gamma_up minus Gamma_down.
+- Also reported: the zero crossing of a straight line through A squared
+  minus F squared against Gamma, over the patterned steps within 0.4 of
+  the transition. A continuous onset gives a straight line reaching zero
+  at the threshold; a jump is a discontinuous one. Where the onset is weak
+  and gradual (2D, depth 10, f\* 0.5) the step rule moves by 0.1 to 0.15
+  with the choice of flat holds and the fit is the steadier number.
+- **An engine that turns with few flat holds** (the checker's point):
+  - Three or more holds that are not patterned: F and s come from the
+    engine's own lowest five holds, as above. In the pilots the nudge had
+    6 to 17 flat holds per loop where there is a pattern, and the baseline
+    10 at depth 10, f\* 0.5.
+  - Fewer than three: F and s are borrowed from the frictionless ramp's
+    flat holds at the same condition, and said to be borrowed.
+  - A branch whose lowest step is still patterned has **no transition
+    point**: the transition is reported as "below the floor", with the
+    floor's Gamma, and the fit's zero crossing is given as an
+    extrapolation only. No width is reported for that loop. (Pilot: the
+    baseline at depth 10, f\* 0.3.)
+  - The up branch starts at the floor, so Gamma_up is defined whenever the
+    floor is flat.
+- **Tested on a seed it was not set on** (`E0056-results.json`): the rule
+  and amplitude were fixed on seed-1 pilots and then run unchanged on seed
+  11. Four of five predictions held: the three frictionless ones
+  (transition within 0.1 of seed 1 at depth 5 and depth 10, f\* 0.3; none
+  at depth 5, f\* 0.5) and the nudge at depth 10, f\* 0.3 (2.43 at both
+  seeds, from its own flat holds). The fifth failed: for the nudge at
+  depth 5, f\* 0.3 I predicted 2.15 to 2.40 from the Nov 13 snapshot
+  amplitude and the rule gives 2.53. The uncorrected amplitude of the same
+  run does fall until about 2.3, as on Nov 13; between 2.3 and 2.5 it is
+  the layer thinning, with no peak in the spectrum. So the prediction was
+  wrong because of the measure it was drawn from, and with friction the
+  2D pattern ends near 2.5, not 2.25 (one seed).
+- What the rule gave on the pilots, to show it can be applied (one seed
+  each, 25 cycles per step unless said; not results):
+
+  | 2D condition | engine | floor | flat holds | Gamma_down | Gamma_up |
+  | --- | --- | --- | --- | --- | --- |
+  | depth 5, f\* 0.3 | frictionless, seed 1 (three loops) | none | 10 to 12 | 2.03 to 2.08 | 2.08 |
+  | depth 5, f\* 0.3 | frictionless, seed 11 | none | 12 | 2.08 | 2.08 |
+  | depth 5, f\* 0.3 | nudge, seed 11 | 2.10 | 17 | 2.53 | 2.53 |
+  | depth 5, f\* 0.5 | all three | 2.05 to 2.2 with friction | all | none | none |
+  | depth 10, f\* 0.3 | frictionless, seed 1 | none | 16 | 2.18 | 2.23 |
+  | depth 10, f\* 0.3 | frictionless, seed 11 | none | 17 | 2.18 | 2.23 |
+  | depth 10, f\* 0.3 | nudge, seed 1 | 2.25 | 9 | 2.43 | 2.53 |
+  | depth 10, f\* 0.3 | nudge, seed 11 | 2.30 | 6 | 2.43 | 2.48 |
+  | depth 10, f\* 0.3 | baseline, seed 1 | 2.85 | 0 | below the floor | none |
+  | depth 10, f\* 0.5 | frictionless, seed 1 | none | 36 | 2.73 | 2.78 |
+  | depth 10, f\* 0.5 | frictionless, seed 11 | none | 37 | 2.68 | 2.73 |
+  | depth 10, f\* 0.5 | nudge, seed 1 | 2.20 | 15 | 2.53 | 2.63 |
+  | depth 10, f\* 0.5 | baseline, seed 1 | 2.35 | 10 | 2.63 | 2.58 |
 
 ### Telling hysteresis from a ramp that is too fast
 
@@ -243,22 +406,39 @@ all pre-registered:
    of Gamma_up and of Gamma_down across seeds (RQ2's own falsification
    rule).
 
-What the pilot showed about this (2D, f\* 0.3, depth 5, frictionless, one
+What the pilots showed about this (2D, f\* 0.3, depth 5, frictionless, one
 seed): up and down branches agree in layer thickness to 0.09 on average at
 25 cycles per step and 0.055 at 100, with thickness running from 1.5 to 5
-over the ramp. No loop at either rate, as expected without friction. It
-also shows the snapshot amplitude is too noisy to place a threshold to
-better than about 0.1 in Gamma, hence the field recorder.
+over the ramp. No loop at either rate, as expected without friction.
+
+With the recorder (Nov 14, same loops): the hold-mean amplitude's up-down
+difference is 3.6% of its range at 100 cycles per step, against 7.0% for
+the snapshot amplitude. About twice as smooth, a little short of the factor
+of two I registered (`E0053-results.json`); at 25 cycles per step the gain
+is smaller (6.6% against 9.7%), because the pattern's own amplitude wanders
+over tens of cycles. So a 25-cycle hold places a transition to one step
+(0.05), not better, and three seeds are needed for anything finer.
+
+At depth 10, f\* 0.3 the frictionless up branch lags the down branch at 25
+cycles per step (A of 0.95 against 1.64 at Gamma 2.3). That is the
+too-fast ramp these checks exist for, and a reason to expect the deep
+layers to need the 100-cycle rate.
 
 ### The risk
 
-With friction, the loop has to go below the pattern's lower threshold while
-the engine still runs. In the 2D pilot the margin was 0.1 in Gamma for the
-nudge and none to spare for the baseline. In 3D at Gamma 2.2 the nudge ran
-24 cycles at 45 seconds per cycle in a quarter-size box. If the 3D lower
-threshold is near 2.2, as in experiment, the nudge may not reach it at
-affordable cost. The 2D stage will show how the nudge's floor depends on
-depth and f\* before any 3D time is spent on it.
+Revised Nov 14. With friction, the loop has to go below the pattern's
+lower threshold while the engine still runs.
+
+- By the noise-corrected amplitude the nudge manages it in 2D at all four
+  conditions piloted: the pattern is gone 0.13 to 0.43 in Gamma above its
+  floor (least at depth 10, f\* 0.3). Its cost per cycle rises 8 to 110
+  times between Gamma 3 and the floor, which the caps bound.
+- The baseline does not at depth 10, f\* 0.3, and has little room
+  elsewhere (floors 2.2 to 2.35). Loops with friction therefore rest on the
+  nudge, with the baseline as a check on the down branch where it runs.
+- In 3D at Gamma 2.2 the nudge ran 24 cycles at 45 seconds per cycle in a
+  quarter-size box. Whether its 3D floor leaves the same room is not
+  known; stage H is still last and still uncertain.
 
 ## 6. Seeds and comparing engines
 
@@ -303,53 +483,106 @@ taken with six jobs of another program running, so they are upper estimates.
 - Cost goes as 1/f\* at fixed Gamma, falls as Gamma rises, and for the
   nudge rises steeply below Gamma 2.5.
 
-Estimates (`phase-diagram-plan-costs.json`), in CPU-hours:
+Estimates, in CPU-hours. Stage A and stage I are from the Nov 14 repricing
+(`phase-diagram-plan-costs-v2.json`); the rest are the Nov 13 prices
+(`phase-diagram-plan-costs.json`), unchanged.
 
 | Stage | What | CPU-hours |
 | --- | --- | --- |
-| A | 2D, depths 5 and 10: scout loops over Gamma 1.8 to 7 (one seed) and onset loops (three seeds, two rates), frictionless and nudge | 22 |
-| B | 2D, depth 15, the same | 92 |
+| A | 2D, depths 5 and 10, three engines: onset loops (three seeds, two rates), two-start holds (three seeds), scout above Gamma 3 (one seed) | 64 |
+| B | 2D, depth 15, the same (Nov 13 price; nudge rate assumed, baseline not priced) | 92 |
 | C | 3D frictionless onset loops, f\* 0.27, 0.33, 0.44, three seeds | 48 |
 | D | 3D frictionless onset loop at the slow rate, f\* 0.44, one seed | 16 |
 | E | 3D frictionless scout above onset, six f\*, one seed | 25 |
 | F | 3D frictionless holds at the seven Figure 1 conditions (2000 cycles, plus two seeds of 1000) | 49 |
 | G | 3D nudge holds at the five Figure 1 conditions not yet run, three seeds of 1000 cycles | 96 |
 | H | 3D nudge onset loops, f\* 0.27 and 0.44, three seeds | 62, uncertain by a factor of two or more |
-| | Total | 410 |
+| I | 3D nudge scout above onset, Gamma 2.7 to 7.0, six f\*, one seed (new) | 74, an upper estimate |
+| | Total | 525 |
 
-- The baseline is not costed separately. Where it runs it costs what the
-  nudge does, and its ramps end at the first step that stalls.
-- The largest single run is about 13 CPU-hours (one nudge onset loop at
-  f\* 0.27), inside the 40-hour per-run limit.
-- **Against the budget**: 242 of 400 CPU-hours are spent since November 5.
-  If the 400 is per calendar week, stages A, C, D, E and F (160) fit in one
-  week and G and H need a second. If it is for the program so far, there
-  are 158 left, just short of A, C, D, E and F together.
+Stage A by condition and engine (each from that engine's measured ramp at
+that condition: `E0052`, `E0053`, `E0055`, `E0056`):
+
+| 2D condition | frictionless | nudge | baseline |
+| --- | --- | --- | --- |
+| depth 5, f\* 0.3 | 0.4 | 2.8 | 0.8 |
+| depth 5, f\* 0.5 | 0.2 | 2.3 | 0.3 |
+| depth 10, f\* 0.3 | 9.5 | 19.9 | 7.2 |
+| depth 10, f\* 0.5 | 4.4 | 10.3 | 6.0 |
+| all four | 14.4 | 35.3 | 14.3 |
+
+- How stage A is priced: a loop at 25 cycles per step costs what the
+  measured loop cost, slow steps and capped step included; a loop at 100
+  cycles per step four times that; three seeds of each. Two-start holds
+  are two 1000-cycle runs per seed at the Gamma just above the engine's
+  own down transition. The scout runs 3.0 to 7.0 and back at the engine's
+  rate at Gamma 3 (an upper estimate, cost falls with Gamma).
+- **Caps**: per step, 0.1 CPU-hours per 25 cycles for the nudge and the
+  frictionless engine, 0.05 for the baseline; four times that at 100
+  cycles per step. A loop cannot cost more than its steps times its cap.
+- The Nov 13 price for stage A was 22. The difference: the baseline (14)
+  was not priced, the nudge's slow steps near its floor were not priced
+  (a 25-cycle loop costs 0.15 to 0.17 hours at depth 5, 13 to 15 times
+  the Nov 13 figure, and 0.5 to 0.8 at depth 10, 1.5 to 2.6 times), and
+  the two-start holds were left out.
+- The nudge at depth 10 is 30 of the 64.
+- One seed stands behind each price, and the timings were taken beside 3
+  to about 10 jobs of another program.
+- **Stage I** uses the nudge's rate at Gamma 3, f\* 0.44 (0.32 ms per
+  sphere per cycle) scaled by 0.44 / f\*, as stage E does for the
+  frictionless engine. Cost falls with Gamma (0.6 of this at Gamma 4), so
+  it is an upper estimate. Tonight's nine-cycle continuations at case b
+  ran at 0.24 ms per sphere per cycle with either engine, on a quieter
+  machine.
+- The largest single run is still about 13 CPU-hours (one nudge onset loop
+  at f\* 0.27 in 3D), inside the 40-hour per-run limit.
+- **Against the budget** (corrected Nov 14): the limit is 400 CPU-hours in
+  any seven days. `program check` counted 208 of 400 at the start of the
+  Nov 14 session, before that session's own few hours. The plan in full is
+  about 525, so it takes at least two weeks of budget whatever the order;
+  stage A fits in the current week with room to spare.
+- **Disk**: the field record and per-step checkpoints of stage A come to
+  about 3 GB (a three-seed, two-rate set of loops is 0.17 GB at depth 5 and
+  0.35 GB at depth 10, per engine and f\*). 3D adds 27 MB per 1000 cycles.
+  The program's data is 3.5 of 15 GB now.
 
 ## 8. What to run first
 
-1. **Build and test the field recorder and the 2D amplitude band**; register
-   the thresholds. No simulation cost.
-2. **Stage A** (22 CPU-hours, one night): the whole 2D picture at depths 5
-   and 10 for all three engines, with the rate check and the two-start
-   holds. This tests the hysteresis protocol end to end where it is cheap,
-   and measures the nudge's floor against depth and f\*.
+1. ~~Build and test the field recorder and the 2D amplitude band; register
+   the thresholds.~~ Done Nov 14 (section 4).
+2. **Stage A** (64 CPU-hours, two nights at ten cores or fewer): the 2D
+   picture at depths 5 and 10 for all three engines, with the rate check
+   and the two-start holds. This tests the hysteresis protocol end to end
+   where it is cheap. The f\* 0.3 conditions carry the onset loops; at
+   f\* 0.5 the pilots found no pattern (depth 5) or a weak one (depth 10)
+   below Gamma 3, so there the scout above 3 matters more than the onset
+   window.
 3. **Stage C at f\* 0.27 and 0.44, then 0.33** (48): the first 3D onset
    loops, frictionless. Prediction stated in advance: onset near Gamma 2.1
    to 2.2, stripes at both f\*, no loop.
 4. **Stage F** (49): the frictionless Figure 1, for Chris to rate beside the
    reference.
-5. **Stages D and E**, then **G**.
-6. **Stage H last**, and only if stage A shows the nudge reaching the flat
-   state with room to spare.
+5. **Stages D and E**, then **I and G**: the nudge's scan above onset
+   beside the frictionless one, then its holds.
+6. **Stage H last.** Stage A no longer decides it alone (the nudge has room
+   in 2D); what is unknown is its cost at Gamma 2.2 to 2.5 in the full 3D
+   box. A single nudge down-ramp at f\* 0.44 with the caps on would
+   measure that for a few CPU-hours before the three-seed loops are
+   committed.
 7. **Stage B** (depth 15 in 2D) is the poorest value: 92 CPU-hours for the
    filter. Proposed at one seed and one rate (about 20) unless depth 15
    shows something depths 5 and 10 do not.
 
 ## 9. Choices that are Chris's
 
-- Whether the 400 CPU-hours is per week or for the program so far.
+- Whether to start stage A.
+- Whether the nudge's 3D diagram as now listed (section 3: scan above onset
+  at six f\*, seven holds, two onset loops) is what "a phase diagram for
+  each" should mean, or whether three f\* would do for the scan (about
+  half the 74 CPU-hours).
 - Whether a 3D loop with friction that cannot reach the flat state is worth
   running as a down-branch only.
 - The f\* list and the Gamma range.
 - Whether stage B is wanted at all.
+- Settled since Nov 13: the 400 CPU-hours are per seven days
+  (`budgets.yaml`).

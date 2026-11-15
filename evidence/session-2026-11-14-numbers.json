@@ -1,0 +1,305 @@
+{
+ "what": "Numbers quoted in the session summary of 2026-11-14 and the plan revision, derived from the evidence files named",
+ "sources": [
+  "evidence/E0053-results.json",
+  "evidence/E0054-results.json",
+  "evidence/E0055-results.json",
+  "evidence/E0056-results.json",
+  "evidence/phase-diagram-plan-costs-v2.json"
+ ],
+ "loops": [
+  {
+   "condition": "2D depth 5, f* 0.3",
+   "engine": "nudge",
+   "seed": 11,
+   "floor_gamma": 2.1,
+   "flat_holds": 17,
+   "gamma_down": 2.525,
+   "gamma_up": 2.525,
+   "width": 0.0,
+   "margin_pattern_end_above_floor": 0.425,
+   "slowdown_at_floor": 113.3
+  },
+  {
+   "condition": "2D depth 10, f* 0.3",
+   "engine": "nudge",
+   "seed": 1,
+   "floor_gamma": 2.25,
+   "flat_holds": 9,
+   "gamma_down": 2.425,
+   "gamma_up": 2.525,
+   "width": 0.1,
+   "margin_pattern_end_above_floor": 0.175,
+   "slowdown_at_floor": 3.4
+  },
+  {
+   "condition": "2D depth 10, f* 0.3",
+   "engine": "nudge",
+   "seed": 11,
+   "floor_gamma": 2.3,
+   "flat_holds": 6,
+   "gamma_down": 2.425,
+   "gamma_up": 2.475,
+   "width": 0.05,
+   "margin_pattern_end_above_floor": 0.125,
+   "slowdown_at_floor": 1.0
+  },
+  {
+   "condition": "2D depth 10, f* 0.5",
+   "engine": "nudge",
+   "seed": 1,
+   "floor_gamma": 2.2,
+   "flat_holds": 15,
+   "gamma_down": 2.525,
+   "gamma_up": 2.625,
+   "width": 0.1,
+   "margin_pattern_end_above_floor": 0.325,
+   "slowdown_at_floor": 13.9
+  },
+  {
+   "condition": "2D depth 5, f* 0.5",
+   "engine": "nudge",
+   "seed": 1,
+   "floor_gamma": 2.05,
+   "flat_holds": 39,
+   "gamma_down": null,
+   "gamma_up": null,
+   "width": null,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 50.4
+  },
+  {
+   "condition": "2D depth 5, f* 0.5",
+   "engine": "baseline",
+   "seed": 1,
+   "floor_gamma": 2.2,
+   "flat_holds": 33,
+   "gamma_down": null,
+   "gamma_up": null,
+   "width": null,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 4.5
+  },
+  {
+   "condition": "2D depth 10, f* 0.5",
+   "engine": "baseline",
+   "seed": 1,
+   "floor_gamma": 2.35,
+   "flat_holds": 10,
+   "gamma_down": 2.625,
+   "gamma_up": 2.575,
+   "width": -0.05,
+   "margin_pattern_end_above_floor": 0.275,
+   "slowdown_at_floor": 2.0
+  },
+  {
+   "condition": "2D depth 10, f* 0.3",
+   "engine": "baseline",
+   "seed": 1,
+   "floor_gamma": 2.85,
+   "flat_holds": 0,
+   "gamma_down": null,
+   "gamma_up": null,
+   "width": null,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 0.4
+  },
+  {
+   "condition": "2D depth 5, f* 0.3",
+   "engine": "frictionless",
+   "seed": 11,
+   "floor_gamma": 1.8,
+   "flat_holds": 12,
+   "gamma_down": 2.075,
+   "gamma_up": 2.075,
+   "width": 0.0,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 3.3
+  },
+  {
+   "condition": "2D depth 10, f* 0.3",
+   "engine": "frictionless",
+   "seed": 1,
+   "floor_gamma": 1.8,
+   "flat_holds": 16,
+   "gamma_down": 2.175,
+   "gamma_up": 2.225,
+   "width": 0.05,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 4.1
+  },
+  {
+   "condition": "2D depth 10, f* 0.3",
+   "engine": "frictionless",
+   "seed": 11,
+   "floor_gamma": 1.8,
+   "flat_holds": 17,
+   "gamma_down": 2.175,
+   "gamma_up": 2.225,
+   "width": 0.05,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 2.8
+  },
+  {
+   "condition": "2D depth 10, f* 0.5",
+   "engine": "frictionless",
+   "seed": 1,
+   "floor_gamma": 1.8,
+   "flat_holds": 36,
+   "gamma_down": 2.725,
+   "gamma_up": 2.775,
+   "width": 0.05,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 3.3
+  },
+  {
+   "condition": "2D depth 10, f* 0.5",
+   "engine": "frictionless",
+   "seed": 11,
+   "floor_gamma": 1.8,
+   "flat_holds": 37,
+   "gamma_down": 2.675,
+   "gamma_up": 2.725,
+   "width": 0.05,
+   "margin_pattern_end_above_floor": null,
+   "slowdown_at_floor": 3.1
+  }
+ ],
+ "nudge_margin_range": [
+  0.13,
+  0.43
+ ],
+ "nudge_margins_rounded": [
+  0.43,
+  0.18,
+  0.13,
+  0.33
+ ],
+ "nudge_flat_holds_range_where_patterned": [
+  6,
+  17
+ ],
+ "nudge_floor_range": [
+  2.05,
+  2.3
+ ],
+ "baseline_floor_range": [
+  2.2,
+  2.35
+ ],
+ "baseline_floor_depth_10_f_0p3": 2.85,
+ "nudge_slowdown_range_rounded": [
+  8,
+  110
+ ],
+ "nudge_gamma_down_rounded": {
+  "depth 5, f* 0.3": 2.53,
+  "depth 10, f* 0.3": 2.43
+ },
+ "frictionless_gamma_rounded": {
+  "depth 5, f* 0.3": 2.08,
+  "depth 10, f* 0.3 down": 2.18,
+  "depth 10, f* 0.3 up": 2.23
+ },
+ "prediction_v": {
+  "predicted": [
+   2.15,
+   2.4
+  ],
+  "found": 2.525,
+  "found_rounded": 2.53
+ },
+ "recorder": {
+  "steps_identical": 147,
+  "steps": 147,
+  "frames": 235347,
+  "separation_factor": 7.9,
+  "required": 5,
+  "smoothness_ratio": 0.509,
+  "required_at_most": 0.5,
+  "hold_mean_updown_percent_of_range": 3.6,
+  "snapshot_updown_percent_of_range": 7.0,
+  "at_25_cycles_percent": [
+   6.6,
+   9.7
+  ]
+ },
+ "period_rule": {
+  "right": 16,
+  "of": 16,
+  "needed": 15,
+  "case_b_runs": 10,
+  "case_g_runs": 6,
+  "cycles_continued": 9
+ },
+ "validation": {
+  "predictions_holding": 4,
+  "of": 5,
+  "seed": 11,
+  "calibration_seed": 1
+ },
+ "plan": {
+  "stage_A_cpu_hours": 64.1,
+  "stage_A_rounded": 64,
+  "stage_A_nov13": 22,
+  "by_engine_rounded": {
+   "frictionless": 14,
+   "nudge": 35,
+   "baseline": 14
+  },
+  "stage_I_cpu_hours": 73.6,
+  "stage_I_rounded": 74,
+  "stage_I_three_f_star_about": 37,
+  "total": 525.0,
+  "total_rounded": 525,
+  "total_nov13": 410,
+  "depth_15_full": 92,
+  "depth_15_reduced_about": 20,
+  "storage_stage_A_gb_about": 3,
+  "frequencies_in_scan": 6,
+  "figure_1_conditions": 7,
+  "onset_loops": 2
+ },
+ "cpu_hours_tonight": {
+  "by_experiment": {
+   "E0053": 0.114,
+   "E0054": 0.516,
+   "E0055": 2.779,
+   "E0056": 1.706
+  },
+  "total": 5.12,
+  "total_rounded": 5.1
+ },
+ "budget": {
+  "weekly_limit": 400,
+  "program_check_at_start": 208.16,
+  "program_check_at_end": 197.855,
+  "percent_at_end": 49,
+  "rolling_days": 7,
+  "program_total_by_runs_records": 246.1
+ },
+ "run_conditions": {
+  "load_average_at_start": [
+   17.06,
+   8.04,
+   5.62
+  ],
+  "load_average_peak_seen": 52.23,
+  "cores": 14,
+  "other_program_jobs": [
+   3,
+   10
+  ],
+  "own_jobs_at_once_max": 7,
+  "disk_free_gb_start": 46,
+  "disk_free_gb_end": 45,
+  "data_gb": 3.5,
+  "data_limit_gb": 15,
+  "memory_free_percent": [
+   66,
+   77
+  ],
+  "sleep_wake_events": 0,
+  "minutes_late": 8
+ }
+}

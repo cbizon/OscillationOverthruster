@@ -80,6 +80,9 @@ after `DIRECTION.md` at the start of every session.
     mu = 0; a comparison model approved Nov 13 for the phase diagram
     only), and baseline (unmodified engine with friction) where it runs.
   - Pilots (E0050 to E0052): see Current state.
+  - Nov 14 (no instruction; fallback): plan revised for the checker's four
+    points; recorder, amplitude, transition rule and period rule built and
+    tested (E0053 to E0056). The sweep is still not started.
 
 ### RQ3: Does the model produce oscillons?
 
@@ -103,6 +106,10 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 14 session: awake on AC, no sleep events; free disk 46 GB at the
+    start. Another program (grapenuts) ran 3 to about 10 jobs; load
+    average reached 52 around 23:50 with our seven. Timings are upper
+    estimates again.
   - Nov 13 session: awake on AC, no sleep events; free disk 47 GB, above
     the floor all session. Six jobs of another program (grapenuts) ran
     throughout, so the session used at most seven cores and its timings
@@ -232,6 +239,61 @@ The five options in `notes/contact-options.md`.
   (D0031).
 
 ## Current state
+
+### Nov 14 findings
+
+No instruction for the night; the fallback applies. The sweep was not
+started (D0033). Everything below is from one seed per condition unless
+said, and none of it is a physical result.
+
+- **Plan revised** (`evidence/phase-diagram-plan.md`, section 0; D0034) for
+  the checker's four points:
+  - the nudge's 3D diagram is spelled out and a nudge scan above onset is
+    added (stage I, 74 CPU-hours, upper estimate);
+  - stage A (2D, depths 5 and 10) is repriced from measured ramps with the
+    baseline included: 64 CPU-hours, not 22; the whole plan about 525;
+  - the budget is 400 CPU-hours per seven days (`budgets.yaml`);
+  - the transition point is redefined so it applies to an engine that
+    turns with few flat holds.
+- **Field recorder built** (`tools/field_recorder.py`, E0053). It saves the
+  height field's spectrum at every referee frame. All 147 steps of the
+  three Nov 13 frictionless ramps, rerun with it, end bit-identical.
+- **Order parameter** (D0035): the band amplitude A with the white part of
+  the spectrum removed.
+  - The plain band amplitude I registered separates flat from patterned by
+    a factor of 7.9, but is only about twice as smooth as a snapshot (0.509
+    against the 0.5 I required: E0053 recorded falsified).
+  - It also rises with Gamma from shot noise where there is no pattern, so
+    it was replaced (E0055).
+- **Transition rule as code** (`tools/loop_analysis.py`): flat level from
+  the lowest five holds (median, robust scatter); patterned if above it by
+  max(5 scatter, 0.1 D), three steps running.
+- **Rule tested on a seed it was not set on** (E0056, seed 11): 4 of 5
+  predictions held; recorded falsified.
+  - Frictionless: transitions within 0.05 of seed 1 at depth 5 and depth
+    10, f* 0.3; none at depth 5, f* 0.5.
+  - Nudge, depth 10, f* 0.3: 2.43 on the way down at both seeds.
+  - Missed: nudge, depth 5, f* 0.3. Predicted 2.15 to 2.40 from the Nov 13
+    snapshot amplitude; the rule gives 2.53. The snapshot amplitude tracks
+    the layer thinning between 2.5 and 2.3, with no spectral peak.
+- **Temporal-period rule** (E0054): 16 of 16 on our own case-b and case-g
+  runs, which it was not chosen on. Two conditions, both patterned.
+- **Engines with friction on a down ramp** (E0055, E0056; 2D, 25 cycles
+  per step):
+  - Nudge floors: 2.05 to 2.30. Its pattern ends 0.13 to 0.43 above the
+    floor (least at depth 10, f* 0.3), so its loops have 6 to 17 flat
+    holds. Cost per cycle rises 8 to 110 times toward the floor.
+  - Baseline floors: 2.2 to 2.35, and 2.85 at depth 10, f* 0.3, where it
+    cannot start from rest at Gamma 3 and stops while still patterned.
+  - A step that just completes going down may not complete going up;
+    `ramp.py` now turns at the first step above half its CPU cap.
+- **2D at f* 0.5**: no pattern between Gamma 1.8 and 3.0 at depth 5 with
+  any engine; a weak, gradual one at depth 10.
+- **Tools on a branch**: `tools/phase-diagram` (worktree
+  `sequel-data/worktrees/tools-phase-diagram`), with tests.
+- **Budget:** 5.1 CPU-hours tonight (E0053 0.11, E0054 0.52, E0055 2.78,
+  E0056 1.71). See the session summary for the weekly count.
+- **Disk:** 46 GB free at the start, program data 3.5 of 15 GB.
 
 ### Nov 13 findings
 
@@ -536,17 +598,18 @@ These are findings, not edits; the referee is his.
 ## Next
 
 - **Wait for Chris on the plan** (`evidence/phase-diagram-plan.md`,
-  section 9): what the 400 CPU-hours cover, the f* list and Gamma range,
-  whether depth 15 in 2D is wanted, and whether to run 3D loops with
-  friction that cannot reach the flat state.
+  section 9): whether to start stage A; whether the nudge's 3D diagram as
+  now listed is what he meant; the f* list and Gamma range; depth 15 in
+  2D; 3D loops with friction that cannot reach the flat state.
 - If told to go ahead, in the plan's order:
-  1. build the field recorder (a wrapper like `lc_counters.py` saving the
-     height field's spectrum every frame) and the 2D amplitude band; test
-     the temporal-period rule on data it was not chosen on; register
-     thresholds;
-  2. stage A: 2D loops at depths 5 and 10, three engines, two rates,
-     three seeds, with the two-start holds;
-  3. 3D frictionless onset loops at f* 0.27 and 0.44.
+  1. stage A: 2D loops at depths 5 and 10, three engines, two rates,
+     three seeds, with the two-start holds (64 CPU-hours). Register the
+     thresholds as they stand in `tools/loop_analysis.py`;
+  2. 3D frictionless onset loops at f* 0.27 and 0.44;
+  3. before 3D nudge loops: one capped nudge down-ramp at f* 0.44 to
+     measure its cost at Gamma 2.2 to 2.5 in the full box.
+- Not yet exercised: the recorder and amplitude on a 3D ramp (only on 3D
+  holds, E0054).
 - The frictionless stall (E0046, Gamma 5, f* 0.3, depth 15, seed 3) has
   not been examined. `tools/mu_switch.py` and `tools/collapse_trace.py`
   would do it. Proposed, not started: the Nov 13 instruction dropped the
@@ -558,6 +621,11 @@ These are findings, not edits; the referee is his.
   are local only, D0025).
 - The intrinsic sweep (when a candidate survives) includes v_wakeup =
   v_sleep.
+- Tools added Nov 14: `field_recorder.py`, `loop_analysis.py`,
+  `loops_table.py`, `period_rule.py`, `continue_run.py`,
+  `plan_costs_v2.py`, `e0053_identity.py`, `e0053_54_evidence.py`,
+  `e0055_56_evidence.py`. Queue specs: `E0053.spec`, `all-1114.spec`,
+  `all-1114b.spec`, `E0055b.spec`, `E0055d.spec`.
 - Tools added Nov 13: `ramp.py`, `ramp_table.py`, `pattern_id.py`,
   `run_table.py`, `file_records.py`, `e0046_50_evidence.py`,
   `plan_costs.py`. Queue specs: `mu0-1113.spec`, `E0050.spec`,

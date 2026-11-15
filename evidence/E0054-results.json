@@ -1,0 +1,895 @@
+{
+ "experiment": "E0054",
+ "rule": "period = smallest of 1, 2, 4 drive cycles at which the height field's correlation with itself exceeds +0.5, at the kept frame of largest mean variance; 'flat' if contrast < 8; else 'unclear'. Fixed in the registration.",
+ "data": "16 existing 60000-sphere runs continued 9 cycles each from their final checkpoints with the field recorder; expected period from the paper's Figure 1 labels (case b half the drive frequency, case g a quarter)",
+ "right": 16,
+ "of": 16,
+ "needed": 15,
+ "case_b": {
+  "runs": 10,
+  "right": 10,
+  "corr_1": [
+   -0.828,
+   -0.816
+  ],
+  "corr_2": [
+   0.894,
+   0.899
+  ],
+  "corr_4": [
+   0.877,
+   0.887
+  ],
+  "contrast": [
+   54.49,
+   92.45
+  ]
+ },
+ "case_g": {
+  "runs": 6,
+  "right": 6,
+  "corr_1": [
+   0.012,
+   0.023
+  ],
+  "corr_2": [
+   -0.433,
+   -0.408
+  ],
+  "corr_4": [
+   0.678,
+   0.691
+  ],
+  "contrast": [
+   38.67,
+   68.19
+  ],
+  "of_which_120_cycle_runs": 5
+ },
+ "margins": "Smallest winning correlation: 0.678 (case g, lag 4) against the threshold 0.5; largest losing correlation at a shorter lag: 0.023. The rule registered on Nov 13 (two cycles apart below -0.5 for a quarter-frequency pattern) would have missed all six case-g runs (-0.408 to -0.433), as it missed the reference case f.",
+ "limits": "Two conditions, both patterned; no flat case and no period-1 case in the test. The 16 runs are 10 at one condition and 6 at another, so the test is of two conditions with repeats, not 16 independent cases. Nine cycles give 8, 7 and 5 pairs for the three lags.",
+ "amplitude_3d_side_note": {
+  "what": "Not part of the test: the noise-corrected ring-band amplitude of each nine-cycle hold, rings 2 to 20 of the 40 x 40 height field. It shows the 3D branch of the recorder gives an amplitude; no flat 3D state has been recorded, so the 3D flat level is unknown.",
+  "case_b_main": [
+   0.4065,
+   0.4176
+  ],
+  "case_b_nudge": [
+   0.4095,
+   0.42
+  ],
+  "case_g": [
+   0.4387,
+   0.4598
+  ],
+  "peak_ring": [
+   5
+  ],
+  "rings_1_and_2_share_of_variance": [
+   0.012,
+   0.017
+  ]
+ },
+ "planform_side_note": "Not part of the test: at the frame used here the stripe/squares coherence of the ten case-b runs is 0.40 to 0.72 (4 called stripes, 6 squares), the same ambiguity as on Nov 13.",
+ "runs": [
+  {
+   "run": "runs/E0054/E0013-3d-g6-f0.84",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "method/nudge",
+   "seed": 1,
+   "source_cycles": 120,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2423,
+    "8": 0.218,
+    "16": 0.2547,
+    "24": 0.3454
+   },
+   "corr_1": 0.023,
+   "corr_2": -0.43,
+   "corr_4": 0.678,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 49.84,
+   "wavelength": 19.57,
+   "coherence": 0.241,
+   "label": "squares",
+   "period": 4,
+   "source_run": "runs/E0013/3d-g6-f0.84",
+   "source_engine_commit": "b608fef",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 91.606007,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4452,
+   "rings_1_and_2_share_of_variance": 0.016
+  },
+  {
+   "run": "runs/E0054/E0014-nudge-3d-g6-f0.84-s2",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "method/nudge",
+   "seed": 2,
+   "source_cycles": 120,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2363,
+    "8": 0.2122,
+    "16": 0.2469,
+    "24": 0.3358
+   },
+   "corr_1": 0.016,
+   "corr_2": -0.428,
+   "corr_4": 0.681,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 38.67,
+   "wavelength": 19.48,
+   "coherence": 0.231,
+   "label": "squares",
+   "period": 4,
+   "source_run": "runs/E0014/nudge-3d-g6-f0.84-s2",
+   "source_engine_commit": "b608fef",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 92.298605,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4387,
+   "rings_1_and_2_share_of_variance": 0.017
+  },
+  {
+   "run": "runs/E0054/E0014-nudge-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "method/nudge",
+   "seed": 3,
+   "source_cycles": 120,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2497,
+    "8": 0.2244,
+    "16": 0.2598,
+    "24": 0.3521
+   },
+   "corr_1": 0.016,
+   "corr_2": -0.433,
+   "corr_4": 0.68,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 48.67,
+   "wavelength": 19.75,
+   "coherence": 0.266,
+   "label": "squares",
+   "period": 4,
+   "source_run": "runs/E0014/nudge-3d-g6-f0.84-s3",
+   "source_engine_commit": "b608fef",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 91.448286,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4513,
+   "rings_1_and_2_share_of_variance": 0.016
+  },
+  {
+   "run": "runs/E0054/E0015-main-3d-g6-f0.84-s2",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "main",
+   "seed": 2,
+   "source_cycles": 120,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2398,
+    "8": 0.2163,
+    "16": 0.2518,
+    "24": 0.3418
+   },
+   "corr_1": 0.02,
+   "corr_2": -0.408,
+   "corr_4": 0.68,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 42.99,
+   "wavelength": 19.45,
+   "coherence": 0.268,
+   "label": "squares",
+   "period": 4,
+   "source_run": "runs/E0015/main-3d-g6-f0.84-s2",
+   "source_engine_commit": "317b79e",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 91.474327,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4451,
+   "rings_1_and_2_share_of_variance": 0.017
+  },
+  {
+   "run": "runs/E0054/E0015-main-3d-g6-f0.84-s3",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "main",
+   "seed": 3,
+   "source_cycles": 120,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2479,
+    "8": 0.2232,
+    "16": 0.2602,
+    "24": 0.3546
+   },
+   "corr_1": 0.012,
+   "corr_2": -0.42,
+   "corr_4": 0.691,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 45.88,
+   "wavelength": 19.44,
+   "coherence": 0.259,
+   "label": "squares",
+   "period": 4,
+   "source_run": "runs/E0015/main-3d-g6-f0.84-s3",
+   "source_engine_commit": "317b79e",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 92.51190799999999,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4523,
+   "rings_1_and_2_share_of_variance": 0.017
+  },
+  {
+   "run": "runs/E0054/E0029-main-3d-g6-f0.84-s4",
+   "gamma": 6.0,
+   "f_star": 0.84,
+   "engine": "main",
+   "seed": 4,
+   "source_cycles": 1020,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 24,
+   "variance_by_frame": {
+    "0": 0.2516,
+    "8": 0.2255,
+    "16": 0.2634,
+    "24": 0.3573
+   },
+   "corr_1": 0.02,
+   "corr_2": -0.42,
+   "corr_4": 0.69,
+   "pairs": [
+    8,
+    7,
+    5
+   ],
+   "contrast": 68.19,
+   "wavelength": 19.36,
+   "coherence": 0.513,
+   "label": "stripes",
+   "period": 4,
+   "source_run": "runs/E0029/main-3d-g6-f0.84-s4",
+   "source_engine_commit": "3b3df66",
+   "expected_period": 4,
+   "right": true,
+   "cpu_seconds": 90.565909,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4598,
+   "rings_1_and_2_share_of_variance": 0.014
+  },
+  {
+   "run": "runs/E0054/E0036-main-b-c2700",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "main",
+   "seed": 16538,
+   "source_cycles": 1020,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.402,
+    "8": 0.0557,
+    "16": 0.0759,
+    "24": 0.3448
+   },
+   "corr_1": -0.816,
+   "corr_2": 0.899,
+   "corr_4": 0.887,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 56.66,
+   "wavelength": 19.6,
+   "coherence": 0.467,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0036/main-b-c2700",
+   "source_engine_commit": "e5e50bf",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 130.316074,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4152,
+   "rings_1_and_2_share_of_variance": 0.015
+  },
+  {
+   "run": "runs/E0054/E0036-nudge-b-c2700",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "method/nudge",
+   "seed": 16538,
+   "source_cycles": 1020,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.404,
+    "8": 0.0557,
+    "16": 0.0747,
+    "24": 0.3454
+   },
+   "corr_1": -0.822,
+   "corr_2": 0.899,
+   "corr_4": 0.879,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 58.69,
+   "wavelength": 19.75,
+   "coherence": 0.431,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0036/nudge-b-c2700",
+   "source_engine_commit": "b608fef",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 132.023652,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4142,
+   "rings_1_and_2_share_of_variance": 0.015
+  },
+  {
+   "run": "runs/E0054/E0037-main-b-up0.5-s1",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "main",
+   "seed": 1,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.3984,
+    "8": 0.0542,
+    "16": 0.0753,
+    "24": 0.3459
+   },
+   "corr_1": -0.819,
+   "corr_2": 0.898,
+   "corr_4": 0.88,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 72.79,
+   "wavelength": 19.62,
+   "coherence": 0.553,
+   "label": "stripes",
+   "period": 2,
+   "source_run": "runs/E0037/main-b-up0.5-s1",
+   "source_engine_commit": "e5e50bf",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 127.76969500000001,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4146,
+   "rings_1_and_2_share_of_variance": 0.014
+  },
+  {
+   "run": "runs/E0054/E0037-main-b-up0.5-s2",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "main",
+   "seed": 2,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.3998,
+    "8": 0.0536,
+    "16": 0.0753,
+    "24": 0.3471
+   },
+   "corr_1": -0.828,
+   "corr_2": 0.897,
+   "corr_4": 0.879,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 92.45,
+   "wavelength": 19.84,
+   "coherence": 0.715,
+   "label": "stripes",
+   "period": 2,
+   "source_run": "runs/E0037/main-b-up0.5-s2",
+   "source_engine_commit": "e5e50bf",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 128.93921,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4176,
+   "rings_1_and_2_share_of_variance": 0.012
+  },
+  {
+   "run": "runs/E0054/E0037-main-b-up0.5-s3",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "main",
+   "seed": 3,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.398,
+    "8": 0.0546,
+    "16": 0.0727,
+    "24": 0.3379
+   },
+   "corr_1": -0.823,
+   "corr_2": 0.896,
+   "corr_4": 0.884,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 61.14,
+   "wavelength": 19.47,
+   "coherence": 0.563,
+   "label": "stripes",
+   "period": 2,
+   "source_run": "runs/E0037/main-b-up0.5-s3",
+   "source_engine_commit": "e5e50bf",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 130.194428,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4065,
+   "rings_1_and_2_share_of_variance": 0.013
+  },
+  {
+   "run": "runs/E0054/E0037-main-b-up0.5-s4",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "main",
+   "seed": 4,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.3968,
+    "8": 0.0547,
+    "16": 0.0745,
+    "24": 0.3399
+   },
+   "corr_1": -0.821,
+   "corr_2": 0.894,
+   "corr_4": 0.877,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 54.49,
+   "wavelength": 19.42,
+   "coherence": 0.462,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0037/main-b-up0.5-s4",
+   "source_engine_commit": "e5e50bf",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 130.41906600000002,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4106,
+   "rings_1_and_2_share_of_variance": 0.013
+  },
+  {
+   "run": "runs/E0054/E0037-nudge-b-up0.5-s1",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "method/nudge",
+   "seed": 1,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.4059,
+    "8": 0.054,
+    "16": 0.0758,
+    "24": 0.3529
+   },
+   "corr_1": -0.822,
+   "corr_2": 0.897,
+   "corr_4": 0.883,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 58.88,
+   "wavelength": 19.49,
+   "coherence": 0.47,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0037/nudge-b-up0.5-s1",
+   "source_engine_commit": "b608fef",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 133.039396,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.42,
+   "rings_1_and_2_share_of_variance": 0.012
+  },
+  {
+   "run": "runs/E0054/E0037-nudge-b-up0.5-s2",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "method/nudge",
+   "seed": 2,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.4051,
+    "8": 0.0558,
+    "16": 0.0751,
+    "24": 0.3457
+   },
+   "corr_1": -0.823,
+   "corr_2": 0.898,
+   "corr_4": 0.88,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 68.42,
+   "wavelength": 19.63,
+   "coherence": 0.601,
+   "label": "stripes",
+   "period": 2,
+   "source_run": "runs/E0037/nudge-b-up0.5-s2",
+   "source_engine_commit": "b608fef",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 131.964245,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4165,
+   "rings_1_and_2_share_of_variance": 0.014
+  },
+  {
+   "run": "runs/E0054/E0037-nudge-b-up0.5-s3",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "method/nudge",
+   "seed": 3,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.393,
+    "8": 0.0541,
+    "16": 0.0732,
+    "24": 0.3378
+   },
+   "corr_1": -0.821,
+   "corr_2": 0.896,
+   "corr_4": 0.885,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 62.14,
+   "wavelength": 19.65,
+   "coherence": 0.404,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0037/nudge-b-up0.5-s3",
+   "source_engine_commit": "b608fef",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 131.97056,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4095,
+   "rings_1_and_2_share_of_variance": 0.013
+  },
+  {
+   "run": "runs/E0054/E0037-nudge-b-up0.5-s4",
+   "gamma": 3.0,
+   "f_star": 0.44,
+   "engine": "method/nudge",
+   "seed": 4,
+   "source_cycles": 1000,
+   "cycles": 9,
+   "outcome": "completed",
+   "frame_used": 0,
+   "variance_by_frame": {
+    "0": 0.4015,
+    "8": 0.0547,
+    "16": 0.0772,
+    "24": 0.3498
+   },
+   "corr_1": -0.819,
+   "corr_2": 0.898,
+   "corr_4": 0.88,
+   "pairs": [
+    9,
+    8,
+    6
+   ],
+   "contrast": 60.9,
+   "wavelength": 19.64,
+   "coherence": 0.47,
+   "label": "squares",
+   "period": 2,
+   "source_run": "runs/E0037/nudge-b-up0.5-s4",
+   "source_engine_commit": "b608fef",
+   "expected_period": 2,
+   "right": true,
+   "cpu_seconds": 131.89574100000002,
+   "peak_ring": 5,
+   "A_rings_2_up": 0.4166,
+   "rings_1_and_2_share_of_variance": 0.014
+  }
+ ],
+ "cpu_hours": 0.516,
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
+   "bytes": 7864,
+   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 9549,
+   "sha256": "4b59b2e68839ed9444f76cbcc87d399bd199dbe2b58c020c1616ccdd6d3857ae"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp.py",
+   "bytes": 7229,
+   "sha256": "d181f808c35bb30fefcabed3a48d1091aadafaeef7b0e12621a6fc8625fa1cf7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp_table.py",
+   "bytes": 2272,
+   "sha256": "4b62b931af044bcf24a10c47a67b0bf0079f3f961171527d6cc21d648a135ea5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/period_rule.py",
+   "bytes": 2540,
+   "sha256": "14dd6a09bfc87d5dc071ba4dc80f4d4cadadf09d67a28b669ce8c3a21e4a0c8b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/continue_run.py",
+   "bytes": 2176,
+   "sha256": "c41c1438ce4fa815d1b301f044dd4afefe87af7534920399b883eec091dba3bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/pattern_id.py",
+   "bytes": 7738,
+   "sha256": "bede10ef5f6bdcd0c5b82e9f2d97c6d0fdb12898475a0349301bf1d9af49b748"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0053_identity.py",
+   "bytes": 1521,
+   "sha256": "5df15d539ec9ebda3a0d31ab6d54a4a9e6c44fe5160cf5a94871688dc2fda771"
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/period_rule.jsonl",
+   "bytes": 6746,
+   "sha256": "c7b7ca0e780305fc879ca9b4e38e4d0fd27ba729e9bdb40f3d6fc7dceef2584b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0013-3d-g6-f0.84/fields.npz",
+   "bytes": 245558,
+   "sha256": "eb1d486631db89558ef97a40672e4486342fc14baeeaf505b56a2dad52e73b88"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0014-nudge-3d-g6-f0.84-s2/fields.npz",
+   "bytes": 245588,
+   "sha256": "625f6341ea526e03203086869b638ee18d25d4f43426d5e5532f4677e8a61b57"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0014-nudge-3d-g6-f0.84-s3/fields.npz",
+   "bytes": 245480,
+   "sha256": "5d6c51d23613c3849c08513d87609a3cb8fb738e885ff0bbfe1abe266c2221dd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0015-main-3d-g6-f0.84-s2/fields.npz",
+   "bytes": 245480,
+   "sha256": "24327163304ef379c79204681430538df709a77789ec23ea1148889ab39579ca"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0015-main-3d-g6-f0.84-s3/fields.npz",
+   "bytes": 245510,
+   "sha256": "dd00f4d790816ff39bfebe7027511a4be59987637b0ab542a5a5269aebd15d3f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0029-main-3d-g6-f0.84-s4/fields.npz",
+   "bytes": 245443,
+   "sha256": "15474c4ca0fa9a3d166b230b5440fdca6c56fcd98f92d5dab9d8ee5a8896333b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0036-main-b-c2700/fields.npz",
+   "bytes": 246048,
+   "sha256": "7addcbc48d9ae72d2a506b22eb18acdb02a0252ff6b5f5ed23608210e550f343"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0036-nudge-b-c2700/fields.npz",
+   "bytes": 246052,
+   "sha256": "8b101da7e0669070bd940108f81232e1b719873516c91b25648c2c105e9b3661"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s1/fields.npz",
+   "bytes": 246070,
+   "sha256": "9bba661a4746cf4deef05fca16fefc7b05ba48ea6895248bb7000dd3e13f1504"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s2/fields.npz",
+   "bytes": 246086,
+   "sha256": "f29aaab72a54e83d11a463f64bd202f26ef332e2f3b2697b892203e23c721c7f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s3/fields.npz",
+   "bytes": 246124,
+   "sha256": "374436b91c6fbb7e002ca3d4d37f0f7c27cf7bcc2b05f3bf89149aadfc774cb0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s4/fields.npz",
+   "bytes": 246088,
+   "sha256": "60c5f61f3cf702b2adbc3051e364fc817d2b58c613137e32a12c6106f3a5bd83"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s1/fields.npz",
+   "bytes": 246171,
+   "sha256": "fb2a3a5167cbff45e3e9e65bfa4e2b65e280290f2d1c4eb2422dc9327ed810ce"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s2/fields.npz",
+   "bytes": 246075,
+   "sha256": "ee60a8d7e57edf3c8978ce6d35b0ed856573cac3bce099aae95d3a4dc9bde3ba"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s3/fields.npz",
+   "bytes": 246021,
+   "sha256": "1c050e69cdc670173995d720f49c21f8cf2ca4c0d7f37246c542bfb205957e69"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s4/fields.npz",
+   "bytes": 246114,
+   "sha256": "86c21c85a93f7796c7b9b63ef4f2500033b5cae38a4c56c8f918520148854ebe"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0013-3d-g6-f0.84/summary.json",
+   "bytes": 775,
+   "sha256": "40cfefe1b6daf012244e32820a9a81f49d5178976a72a683bef4d04e1a03451a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0014-nudge-3d-g6-f0.84-s2/summary.json",
+   "bytes": 775,
+   "sha256": "9ea41fed2aa6ca559c571e45fb72db9a3f225959cff9a49e2694cf61e8382d30"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0014-nudge-3d-g6-f0.84-s3/summary.json",
+   "bytes": 773,
+   "sha256": "9c07807cab70f6ac3bb122a93a9ddfaf383a238ffa7a93c4c8da7f79fa58cdcf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0015-main-3d-g6-f0.84-s2/summary.json",
+   "bytes": 745,
+   "sha256": "6cfa6ed267cbf9536f58734199e5d58b2d2556136e1314a531e4c7ac81928871"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0015-main-3d-g6-f0.84-s3/summary.json",
+   "bytes": 754,
+   "sha256": "62ef25a074c5671a1b2d424be31ac2171eeea87fa8105faad6e9652bffb4c609"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0029-main-3d-g6-f0.84-s4/summary.json",
+   "bytes": 747,
+   "sha256": "40c8f826f1800b82f9ccf8f916b11f65fa338886cd2f2d01fb3dc153630c741e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0036-main-b-c2700/summary.json",
+   "bytes": 748,
+   "sha256": "0b96f51e89051e592bc4f5057440e19a187e4c40f8ab3e73e843e8ec0fba7a49"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0036-nudge-b-c2700/summary.json",
+   "bytes": 781,
+   "sha256": "29d20316f90b8cb192ff9642dc3614edffa246df6c26e13d9431366f87a2b74a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s1/summary.json",
+   "bytes": 754,
+   "sha256": "2919cbd91bc8a07edc9083570c16d047eaa5263f7d9823dfdc736a59f2398162"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s2/summary.json",
+   "bytes": 748,
+   "sha256": "eb884bbc8cdc1fe1e92ba825e355cd03ecca9ac5ed72c7af158a72c8a7ea4a21"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s3/summary.json",
+   "bytes": 749,
+   "sha256": "d415351b158d0c78852747252daa8a9c1545798b40d73ee7cda07221b8fd5209"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-main-b-up0.5-s4/summary.json",
+   "bytes": 754,
+   "sha256": "acba9b89676d7cf362a705aee1e6436dcc1ab65cc0071ed06d1541f7f2ac3957"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s1/summary.json",
+   "bytes": 778,
+   "sha256": "537bf16dd66119a1ade5d7fb8f935a9c8e88f40538312a0c47f0a0bd6dc9a5cb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s2/summary.json",
+   "bytes": 777,
+   "sha256": "6aee117f88ca293743573b9caec3f3b0589872927a1306090d1f74c44fcc79cb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s3/summary.json",
+   "bytes": 776,
+   "sha256": "60455ec27bd87373366c7619debe7ccdb01e35ada99044921bd3a62bcf83d430"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0054/E0037-nudge-b-up0.5-s4/summary.json",
+   "bytes": 786,
+   "sha256": "f2e7e4d3dad744f607d3fc715001a6708bf1e30601d448419453c887af592472"
+  }
+ ],
+ "run_folder_bytes": 112246784
+}

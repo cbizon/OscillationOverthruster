@@ -1,0 +1,100 @@
+{
+ "date": "2026-11-14",
+ "instruction": "instructions/fallback.md",
+ "answers": [],
+ "headline": "There was no instruction, so by the fallback rule I applied my own stated default: the sweep was not started, and the night went on what the plan needed first. The phase-diagram plan is revised for the four points the checker raised (the first two-dimensional stage costs 64 CPU-hours, not 22, and the whole plan about 525), and the measuring tools it depends on are built and tested: a recorder of the layer's surface shape that does not alter a run, an amplitude to draw hysteresis loops in, and the rule that places a transition. Pilots at one seed each show that the nudge does reach the flat state on a downward ramp with room to spare, and that the unmodified engine with friction is close to useless at depth 10.",
+ "experiments": [
+  {
+   "experiment_id": "E0053",
+   "question": "Can the height of the layer's surface be recorded at every frame of a run without changing the run, and does the amplitude made from it tell a flat layer from a patterned one more steadily than last night's single snapshots?",
+   "what_was_done": "Wrote a recorder that listens in on the referee's own measurement of each frame and saves, 32 times per drive cycle, how much of the surface's unevenness sits at each wavelength. Reran last night's three no-friction ramps (two dimensions, depth 5, f* 0.3, Gamma 1.8 to 3.0 and back) with it and compared every step with last night's.",
+   "result": "All 147 steps end in exactly the same state, number for number, as without the recorder, and a run stopped mid-cycle and resumed gives the same record as one left alone. The amplitude I had registered is 7.9 times larger in the patterned layer at Gamma 3.0 than in the flat one at 1.8 (5 was required). It is about twice as steady as a snapshot, but not quite the factor of two I required: the up and down branches differ by 3.6 percent of the range against 7.0 for snapshots, a ratio of 0.509 where 0.5 was the bar.",
+   "takeaway": "The recorder is safe to use everywhere. The experiment is recorded as failed on its second test, narrowly. A hold of 25 cycles places a transition to one step of 0.05 in Gamma and no better, because the pattern's own strength wanders over tens of cycles.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0055",
+   "question": "What does a downward ramp cost with friction where it had not been tried (depth 10, and depth 5 at the higher frequency), and how low can each engine go? The checker asked for this before the first stage is priced.",
+   "what_was_done": "Ramped Gamma down from 3.0 in steps of 0.05, 25 cycles a step, in two dimensions at depth 5 with f* 0.5 and at depth 10 with f* 0.3 and 0.5, with the nudge, the unmodified engine with friction (the baseline) and the no-friction engine, one seed each, with the recorder on. Where an engine stopped, the ramp turned and went back up from its last good step.",
+   "result": "The nudge got down to Gamma 2.05 to 2.25 and the baseline to 2.2 to 2.35, except at depth 10, f* 0.3, where the baseline could not start from rest at Gamma 3.0 and, handed the nudge's state, stopped at 2.85 with the pattern still there. The nudge slows 8 to 50 times before its floor; the baseline slows only 2 to 5 times and then stops abruptly. The no-friction engine ran every loop. No step failed the energy audit. Two things about measuring came out of it. At depth 5, f* 0.5 there is no pattern at all between Gamma 1.8 and 3.0 with any engine, yet my registered amplitude rose steadily there, from particle noise that grows as the layer loosens; I replaced it with one that subtracts that noise. And the nudge at depth 10, f* 0.5 failed its first step back up from its floor, so the ramp tool now turns one step early, at the first step that uses more than half its time allowance; with that it completed the loop.",
+   "takeaway": "The first stage is repriced from these ramps at 64 CPU-hours (no-friction 14, nudge 35, baseline 14). The baseline cannot serve as the check on the nudge at depth 10, f* 0.3. Onset loops in two dimensions are only readable at f* 0.3.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0056",
+   "question": "Do the amplitude and the transition rule, which I adjusted after seeing the seed-1 pilots, give the same answers on a seed they were not adjusted on?",
+   "what_was_done": "Wrote down five predictions, then ran the same ramps at seed 11 with the analysis frozen: the no-friction engine up and down at depth 5 (f* 0.3 and 0.5) and depth 10 (f* 0.3), and the nudge down and back up at f* 0.3 at depths 5 and 10.",
+   "result": "4 of 5 held. Without friction the pattern starts at Gamma 2.08 at depth 5 and at 2.18 going down and 2.23 going up at depth 10, the same steps as seed 1, and none is found at depth 5, f* 0.5. The nudge at depth 10 loses its pattern at 2.43 at both seeds, measured from its own six flat steps. The one miss: for the nudge at depth 5, f* 0.3 I predicted the pattern would end between 2.15 and 2.40, from last night's snapshot amplitude, and the rule puts it at 2.53. Looking at the same run, the uncorrected amplitude does keep falling until about 2.3, but the spectrum has no peak below 2.5: that fall is the layer thinning, not a pattern fading.",
+   "takeaway": "Recorded as failed, because one prediction missed; the miss came from the old measure the prediction was drawn from, and it changes the picture usefully. By the corrected amplitude the nudge's pattern ends 0.13 to 0.43 in Gamma above the lowest Gamma it can run, leaving 6 to 17 flat steps in a loop, where last night's figure was 0.1. These are single seeds at one ramp rate: no transition point here is a result, and the small differences between up and down branches (0.05 to 0.1) are what a ramp of this speed would give anyway.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0054",
+   "question": "Does the rule that says whether a pattern repeats every two or every four drive cycles work on runs it was not chosen on?",
+   "what_was_done": "Continued 16 of our existing 60000-sphere runs for 9 cycles each with the recorder: 10 at the paper's stripe condition at Gamma 3 (repeats every two cycles) and 6 at the stripe condition at Gamma 6 (every four), with the nudge and with the baseline.",
+   "result": "16 of 16 named correctly (15 needed), with wide margins.",
+   "takeaway": "The rule can be used. The test covers two conditions, both patterned; it has not been tried on a flat layer.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "May I start the first stage of the sweep: two dimensions, depths 5 and 10, nudge, no-friction and baseline, three seeds, two ramp rates, with the two long runs from opposite starts at one Gamma? It now costs 64 CPU-hours, not 22.",
+   "why_it_matters": "It is the first real hysteresis measurement, and everything it needs is now built and tested. The weekly budget has room: 198 of 400 CPU-hours are counted for the last seven days.",
+   "default_if_unanswered": "Do not start it. On another night without instruction I would run two single cost pilots in the full three-dimensional box (one no-friction ramp across the onset to measure the flat level there, one nudge ramp downward at f* 0.44 to find what it costs below Gamma 2.5), a few CPU-hours each, and nothing else."
+  },
+  {
+   "question": "For the nudge in three dimensions, the plan now has a scan from Gamma 2.7 to 7 at six frequencies (74 CPU-hours at most), long runs at the seven Figure 1 conditions, and onset loops at two frequencies. Is that what you meant by a phase diagram for the nudge, or would three frequencies do for the scan?",
+   "why_it_matters": "The checker pointed out that last night's plan gave the nudge no scan in three dimensions at all. Six frequencies costs about twice what three would.",
+   "default_if_unanswered": "Six frequencies, the same as for the no-friction engine, run after the no-friction stages."
+  },
+  {
+   "question": "Do you want depth 15 in two dimensions in full (92 CPU-hours), reduced to one seed and one ramp rate (about 20), or left out? (Asked last night as well.)",
+   "why_it_matters": "It is the most expensive part of the two-dimensional filter, and the baseline already fails at depth 10.",
+   "default_if_unanswered": "Reduced: one seed and one ramp rate, after depths 5 and 10."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Start the first stage: two-dimensional loops at depths 5 and 10 with all three engines.",
+   "rationale": "The tools are built, the rule has been tested on a fresh seed, and the cost is known from measured ramps. It would give the first transition points with three seeds and two ramp rates, and the first test of whether a loop survives a slower ramp."
+  },
+  {
+   "direction": "Two single pilots in the full three-dimensional box: a no-friction ramp across the onset and a nudge ramp downward at f* 0.44.",
+   "rationale": "The amplitude has only been used on three-dimensional runs at fixed Gamma; its flat level in three dimensions is unknown, and the nudge's cost below Gamma 2.5 in the full box rests on one short timing in a quarter-size box."
+  },
+  {
+   "direction": "Examine the one no-friction stall event by event.",
+   "rationale": "Carried over from last night. It decides whether the no-friction engine is safe for long ramps in deep layers."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 197.855,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 3.5,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [
+  "D0032"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-14T23:00:00-05:00",
+  "actual_start": "2026-11-14T23:08:11-05:00",
+  "ended": "2026-11-15T00:33:04-05:00",
+  "interruptions": [],
+  "cpu_hours": 5.1,
+  "cores_available": 6,
+  "disk_free_gb": {
+   "start": 46,
+   "end": 45
+  },
+  "unfinished_runs": [],
+  "limits_hit": "Awake on AC all session, no sleep or wake events in the power log. Free disk 46 GB at the start and 45 at the end, above the floor; memory 66 to 77 percent free; the program's data is 3.5 of 15 GB. The machine was shared again: another program (grapenuts) ran 3 jobs at the start and about 10 for a while around 23:50. The load average was 17 when the session began (8 averaged over five minutes, from which the 6 free cores), and reached 52 with my 7 jobs running, on 14 cores. I kept to 7 simulations at once. CPU time per run is measured per process, so the costs are usable, but they are upper estimates and the runs took longer by the clock than they would alone. Nothing limited the science. The session started 8 minutes late and ended early by choice: the default I had stated was not to start the sweep, and what could be done short of that is done. CPU-hours are the sum of the four experiments' own records (0.11, 0.52, 2.78, 1.71). Budget: 49 percent of the weekly CPU limit is in use by program check's count (it was 52 percent at the start of the session; older runs have left the seven-day window), so it is back under the 50 percent mark. By the runs' own records the program has used 246.1 CPU-hours since November 5."
+ }
+}
