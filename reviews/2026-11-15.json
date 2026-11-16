@@ -1,0 +1,109 @@
+{
+ "date": "2026-11-15",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "There was no instruction for the night, so there are no asked items to grade. The session read the fallback the same way as the night before (do not start the sweep; answer the checker; run the two single pilots it had told Chris it would run) and recorded that as a decision. I agree with the reading. Nothing went to work outside that. It made no claims.\n\nThe main fact of the night is the machine, not the science. The power log shows the lid was opened at 19:08 and closed at 23:26, nineteen minutes after the session started. From then on the Mac has been awake for about one minute in every fifteen (31 sleeps between 23:00 and 06:05). The session wrote its records in those wakes and stopped at 00:41. The two pilots are still running at about six percent of full speed: at 06:03 the no-friction loop had finished 6 of 41 steps and the nudge ramp 6 of 21. At this pace they need roughly two more days; with the lid open, about three hours. The lid was still closed when I ran, so this review was also written one minute at a time and took longer than its 45 minutes of wall clock.\n\nWhat I checked and found sound. My three requests on the measuring choices (the review of November 14) are all answered, from existing data, and the plan now says each in plain words. I recounted the robustness table from the evidence file: of 48 transition points, 32 do not move, 13 move by one step of 0.05 in Gamma and 3 move by two steps, all on one ramp, as reported; no transition appears or vanishes. The steadiness figures (7.2 percent of range for the plan's amplitude, 7.0 for snapshots, 3.6 for the amplitude first registered) match mine. The session predicted no point would move more than one step and recorded the miss as a failure without softening it. All three tools listed for that analysis match their checksums, and the tools on the branch are identical to the copies the runs used. For the pilots, the per-cycle costs and CPU-hours in the summary follow from the step records (528.6 and 454.9 CPU-seconds for 25 cycles each without friction; 0.273, 0.312 and 0.003 CPU-hours sum to 0.59). No completed step in either pilot has a slow stretch or a failing energy audit, including the steps finished since the summary.\n\nThree things Chris should know.\n\n(1) Without friction, where no hysteresis is expected, a loop at 25 cycles per step usually comes out with the sign of hysteresis anyway. From the same evidence table: across the six ramps and five analysis variants, 18 of 30 loop widths are positive (0.05, twice 0.1), 11 are zero and one is negative. That is the pattern taking time to grow on the way up. So in the first stage a loop of 0.05 to 0.1 in Gamma with friction is not evidence of hysteresis by itself; it has to be wider than the no-friction loop at the same rate, or survive the slower rate. The plan's 'cannot show a width under about 0.15' is a fair, slightly cautious statement of this, but it is a judgement from these numbers, not a measured resolution.\n\n(2) In three dimensions the question about the height floor is the opposite of the one the summary answers. The flat layer reads 0.025 of a diameter with a scatter of 0.0008, so the threshold there is set entirely by the fixed floor of 0.1: a pattern has to be four times the flat reading before the rule sees it. The summary says the floor is 'not too low'. The risk is that it is too high and places the onset late. The pilot's steps near onset will show this when collected. Also, the plan says the three-dimensional band starts at ring 2 and the code starts at ring 3; with ring 2 the flat reading doubles to 0.053. The evidence file reports both, the summary mentions neither.\n\n(3) The cost worry in the summary has eased. The no-friction steps get cheaper as Gamma rises: 21, 18, 16, 14, 13 and 12 CPU-seconds per cycle from Gamma 1.7 to 1.95. If the way down costs what the way up does, the loop comes to somewhere under four CPU-hours, above the three estimated but probably inside the 4.5 it registered as its limit. The nudge has gone from 14.6 to 16.9 CPU-seconds per cycle between Gamma 3.0 and 2.75, a slow rise, with nothing yet on the range below 2.5 that the pilot is for.\n\nSmaller points. The 'wider band' variant only adds one mode (2 instead of 3 at the low end) because the recorder kept nothing above an eighth of the box; the session says so, but it makes that variant a weak test. The summary marks both pilots as graded by the referee; nothing has been graded yet beyond the per-step energy audit. Two files in each pilot's interim evidence no longer match their recorded checksums because the jobs have kept writing to them (the step list and the summary of the step then in progress); that is expected and the files are labelled interim.\n\nHousekeeping: program check passes; the latest approval is still Chris's of November 6. Free disk 46 gigabytes (floor 40), program data 3.6 of 15 gigabytes, tmp empty, memory 61 percent free. Two jobs are running, both listed in active.jsonl, two cores against a limit of ten. The only files changed outside the program's two folders during the session belong to other applications and other Claude sessions. program check counts 168 of 400 CPU-hours for the week (42 percent).",
+ "answers": [],
+ "reviews": [
+  {
+   "claim_id": "E0057",
+   "plain_claim": "Recorded as failed, narrowly: when the wavelength band and the smallest height that counts as a pattern are changed one at a time, 45 of 48 transition points on the six no-friction ramps at f* 0.3 move by one step of 0.05 in Gamma or less and 3 move by two steps, where none was predicted to move more than one; and the amplitude the plan uses differs between the way up and the way down by 7.2 percent of its range, no steadier than a single snapshot (7.0).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Recounted every shift from the evidence file's table of transition points with my own script, compared the plan-rule values with the ones I reran on November 14, and verified the three analysis tools against their checksums and against the copies on the tools branch.",
+     "finding": "48 points: 32 unmoved, 13 moved one step, 3 moved two steps, all on the depth 5, seed 1, 25-cycle ramp (both points under the narrower band, the down point under the doubled floor). The plan-rule values are the ones I got before (2.075 both ways for seed 11 at depth 5). The analysis defaults are unchanged. The failed verdict stands as recorded. The steadiness figures are the same test I ran and give the same numbers."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Looked at how different the variants really are, and at the conditions left out of the judgement.",
+     "finding": "The wider band adds a single mode, because nothing above an eighth of the box was recorded; the registration foresaw this. The f* 0.5 ramps are reported and not judged: at depth 10 points move by up to 0.1, at depth 5 no variant finds a pattern, including the halved floor, which settles my earlier worry that 'no pattern' there rested on the floor. Only no-friction ramps were reanalysed; the engines with friction, which reach few flat holds, were not."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Computed the loop width (up point minus down point) for each of the six judged ramps under each of the five analysis variants from the evidence table.",
+     "finding": "18 of 30 widths are positive (sixteen of 0.05, two of 0.1), 11 are zero, one is minus 0.05. Without friction no hysteresis is expected, so this is ramp lag with the sign of hysteresis. The plan's figure of about 0.15 for the narrowest loop a single 25-cycle ramp can show is a judgement consistent with these numbers, not a measurement."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0058",
+   "plain_claim": "Interim, nothing judged: in the full three-dimensional box without friction the first two holds, at Gamma 1.7 and 1.75, are flat with amplitude 0.026 and 0.025 of a diameter and cost 21 and 18 CPU-seconds per cycle; the run is left going.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the step list of the running job (read only) at 06:03 and checked the evidence file's entries against checksums.",
+     "finding": "Six steps complete, Gamma 1.7 to 1.95, none with a slow stretch or a failing audit; the worst energy residual is a few parts in a hundred trillion. Costs per cycle fall from 21.1 to 11.6 CPU-seconds. Ten of twelve listed files match; the two that differ are the step list and an in-progress step summary, which the job has since extended."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Compared the flat reading with the rule's threshold in three dimensions, and the band the code uses with the one the plan states.",
+     "finding": "Flat level 0.025 with scatter 0.0008, so the threshold is the flat level plus the fixed floor of 0.1: four times the flat reading. The floor was set in two dimensions. The summary's 'not too low' is true; whether it is too high, and so places the onset late, is untested until the steps near onset are in. The plan says the band starts at ring 2 and the code uses ring 3; from ring 2 the flat level is 0.053. The evidence reports both and the summary does not mention it."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Projected the loop's cost from the six finished steps.",
+     "finding": "Six steps took 0.65 CPU-hours and each is cheaper than the last. If the way down costs what the way up does the loop comes to under four CPU-hours: above the estimate of three, probably inside the registered limit of 4.5. The summary's 'perhaps more than 4.5' was drawn from the two most expensive steps."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0059",
+   "plain_claim": "Interim, nothing judged: the nudge, started from its own striped state at Gamma 3 in the full three-dimensional box and ramped down, cost 14.6 and 15.0 CPU-seconds per cycle at Gamma 3.0 and 2.95 with stripes of amplitude 0.42 and 0.40 of a diameter; the run is left going.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the step list of the running job (read only) at 06:03 and checked the evidence file's entries against checksums.",
+     "finding": "Steps down to Gamma 2.75 are complete with no slow stretch and no failing audit. Cost per cycle rises slowly, 14.6 at 3.0 to 16.9 at 2.75. Twelve of fourteen listed files match; the two that differ were still being written. Nothing yet below Gamma 2.5, which is what the pilot is for, as the summary says."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Read the registration and the decision on how the ramp starts and stops.",
+     "finding": "It starts from the nudge's own 1000-cycle state, which is right for a cost pilot of the nudge and is recorded (decision D0038). The step allowance of half a CPU-hour was chosen for this box without a prior measurement; the 'floor' it finds will be the floor for that allowance, one seed, one frequency."
+    }
+   ]
+  },
+  {
+   "claim_id": "D0035",
+   "plain_claim": "Open from the last review as doubtful: the measuring choices for the hysteresis sweep (noise-corrected amplitude, flat level from the lowest holds, tolerance of five scatters or a tenth of a diameter, the baseline allowed to start from the nudge's state). I asked for the steadiness test on the amplitude actually used, a second band and floor, and a statement that a baseline started from the nudge's state is not used to compare engines.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Silent substitution",
+     "what_was_done": "Went through the three requests against the new evidence file and the plan's new section.",
+     "finding": "All three are done. The plan now says the 'twice as steady' figure belonged to the dropped amplitude, gives the width a single ramp can resolve, reports the second band and floor with the failed prediction, and rules out the nudge-started baseline for engine comparisons. The rule itself was not changed after seeing the variants."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked what is still untested about the constants.",
+     "finding": "The fixed floor is still an absolute height set at depths 5 and 10 in two dimensions. Depth 15 is unchecked and the three-dimensional check is waiting on the pilot (see E0058). The plan lists this as open. It does not block the first stage, which is depths 5 and 10 in two dimensions."
+    }
+   ]
+  },
+  {
+   "claim_id": "D0032",
+   "plain_claim": "Still a proposal awaiting Chris: the phase-diagram plan, about 525 CPU-hours in all, first stage 64 CPU-hours in two dimensions. Unchanged last night except for a new section on what the measurement can and cannot resolve.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read the plan's diff and checked that the sweep was not started.",
+     "finding": "Only the new section and one sentence of the header changed. No sweep runs exist. The points from my last review that were not for the session to fix still stand: the first stage spends 7.2 CPU-hours on a baseline that cannot give a transition point at depth 10, f* 0.3, and its faster ramp rate will show loops of 0.05 to 0.1 without friction that are lag, so results with friction need to be read against the no-friction loops."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "inadequate",
+  "assessment": "The session started about eight minutes late and had nineteen minutes of a normal machine. The power log shows the lid opened at 19:08 and a clamshell sleep at 23:26:35; after that the Mac woke for about a minute every fifteen until I looked at 06:03, with the lid still closed. The session used those wakes to write its records and ended at 00:41, an hour and a half into a six-hour window. The two pilots, about seven CPU-hours of work, had by 06:03 received about 0.65 and 0.66 CPU-hours and finished 6 steps each; they are checkpointed per step, listed in active.jsonl and still running. Nothing else was waiting on the machine, since the sweep awaits Chris's approval for the third night. The machine did limit the science: neither pilot produced anything on the question it was run for. Free disk is 46 gigabytes, above the floor of 40; memory 61 percent free. The recorded 0.59 CPU-hours matches the step records. This is the third night lost this way (November 8, 9 and 15), and the checker ran under the same conditions.",
+  "discrepancies": [
+   "The interruptions list has three gaps, ending 00:23:47. The power log shows a fourth before the session ended (asleep 00:24:48 to 00:41:27, apart from nine seconds at 00:26). The summary says in words that the pattern was continuing.",
+   "The budget block gives 183.41 of 400 CPU-hours; program check now gives 168.238 (42 percent). Older runs have left the seven-day window; not an error.",
+   "program check reports disk as 0 of 15 gigabytes because it sums the ledger; the folder is 3.6 gigabytes, as the summary's 3.5 says.",
+   "The summary marks the two unfinished pilots as graded by the referee. Only the per-step energy audit has been applied to them.",
+   "The start time of 23:07:39 and the starting load average cannot be checked afterwards; the pilots' launch at 23:10:41 is consistent with it."
+  ]
+ }
+}
