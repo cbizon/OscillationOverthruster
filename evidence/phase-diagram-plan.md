@@ -1,8 +1,9 @@
 # Phase diagram plan
 
-Written in the session of 2026-11-13 for the instruction of that date, and
+Written in the session of 2026-11-13 for the instruction of that date,
 revised in the session of 2026-11-14 (no new instruction that night) in
-answer to the checker's review of Nov 13. A plan only: the sweep has not been
+answer to the checker's review of Nov 13, and added to on 2026-11-15
+(section 0a). A plan only: the sweep has not been
 started. Numbers come from pilots and earlier runs; each is in the evidence
 file named beside it. "Tonight" in sections 1 and 2 means Nov 13.
 
@@ -47,6 +48,47 @@ answered here, and the tools the plan listed as "needs building" are built.
   - In 2D at depth 5, f\* 0.5 there is no pattern between Gamma 1.8 and
     3.0 with any engine; at depth 10, f\* 0.5 the onset is weak and gradual.
     The f\* 0.3 conditions are where a 2D onset loop can be read.
+
+## 0a. What changed on Nov 15
+
+No instruction again; the sweep is still not started. The checker's review
+of Nov 14 asked for three things about the measuring choices (D0035). The
+rule itself is not changed: it stays as fixed in section 4.
+
+- **(a) Steadiness of the amplitude the plan uses**
+  (`E0057-results.json`). On the 100-cycles-per-step frictionless loop the
+  noise-corrected amplitude A differs between up and down branches by 7.2%
+  of its range, against 7.0% for single snapshots and 3.6% for the plain
+  band amplitude first registered. So "about twice as steady as a
+  snapshot" in section 5 describes the plain amplitude, not A. A is better
+  at telling flat from patterned (it does not rise in a layer with no
+  pattern); it is no steadier than a snapshot.
+- **What width of loop the rule can resolve.**
+  - At 25 cycles per step: eight frictionless loops, where no hysteresis is
+    expected, give widths of 0 or +0.05; the checker's baseline ramp gives
+    -0.1; and a transition point moves by up to 0.1 with the analysis
+    choices in (b). A single loop at this rate cannot show a width under
+    about 0.15 in Gamma. Three seeds narrow that; by how much is not
+    measured.
+  - At 100 cycles per step: one loop exists (width 0). Its resolution is
+    not measured and cannot be finer than the step, 0.05.
+- **(b) A second band and a second tolerance floor**
+  (`E0057-results.json`). The six frictionless f\* 0.3 loops were
+  reanalysed with the band widened (modes 2 to L/8), narrowed (5 to L/12),
+  and the floor at 0.05 D and 0.2 D, one change at a time. 45 of 48
+  transition points move by one step (0.05) or less; 3 move by two steps,
+  all on one loop (depth 5, seed 1, 25 cycles per step). No transition
+  appears or disappears. I had predicted none would move by more than one
+  step, so that prediction failed. At depth 5, f\* 0.5 no variant finds a
+  transition, including the 0.05 floor.
+- **(c) The baseline started from the nudge's state is not an independent
+  check.** Where the unmodified engine with friction cannot start from
+  rest and is handed the nudge's state (section 5, "Where an engine with
+  friction turns"), its run is not used for any comparison between the two
+  engines. It can show only where the unmodified engine stops.
+- Still open from the same review: the 0.1 D floor is an absolute height
+  set in 2D at depths 5 and 10. Whether it suits the 3D box is what the
+  3D pilot of Nov 15 is for (below, when collected); depth 15 is unchecked.
 
 Terms used throughout:
 

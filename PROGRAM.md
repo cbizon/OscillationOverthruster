@@ -84,6 +84,10 @@ after `DIRECTION.md` at the start of every session.
     points; recorder, amplitude, transition rule and period rule built and
     tested (E0053 to E0056). The sweep is still not started.
 
+  - Nov 15 (no instruction; fallback): the checker's points on the amplitude
+    answered (E0057); two 3D pilots launched (E0058, E0059) and left
+    running after the lid was closed at 23:26 (B0005).
+
 ### RQ3: Does the model produce oscillons?
 
 - Hypothesis: localized, period-two excitations exist in a range of driving
@@ -106,6 +110,9 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 15 session: lid closed at 23:26, 19 minutes in (clamshell sleep on
+    AC, B0005). Only maintenance wakes after that; two jobs left running.
+    Third such night (Nov 8, 9, 15).
   - Nov 14 session: awake on AC, no sleep events; free disk 46 GB at the
     start. Another program (grapenuts) ran 3 to about 10 jobs; load
     average reached 52 around 23:50 with our seven. Timings are upper
@@ -239,6 +246,37 @@ The five options in `notes/contact-options.md`.
   (D0031).
 
 ## Current state
+
+### Nov 15 findings
+
+No instruction; fallback, default applied (D0037). The sweep is not started.
+
+- **Lid closed at 23:26 (B0005).** The session and both pilots ran only in
+  maintenance wakes after that. Records were written at the first wake.
+- **Checker's points on the amplitude (E0057, falsified narrowly;
+  `evidence/E0057-results.json`; plan section 0a):**
+  - The noise-corrected amplitude A is no steadier than a snapshot: up and
+    down branches differ by 7.2% of its range on the 100-cycle loop
+    (snapshots 7.0%, the dropped plain amplitude 3.6%).
+  - With a wider band, a narrower band, and the floor at 0.05 D or 0.2 D,
+    45 of 48 frictionless f* 0.3 transition points move by one step or
+    less, 3 by two steps (one loop). None appears or disappears.
+  - A single loop at 25 cycles per step cannot show a width under about
+    0.15 in Gamma. At 100 cycles per step this is not measured.
+  - A baseline started from the nudge's state is not used for engine
+    comparisons (plan, section 0a).
+- **3D pilots, running** (`runs/active.jsonl`; evidence files are interim):
+  - E0058: frictionless loop, N 60000, f* 0.44, Gamma 1.7 to 2.7 and back.
+    2 of 41 steps. Flat-layer A is 0.025 D at Gamma 1.7 and 1.75 (the
+    floor is 0.1 D). Cost there 18 to 21 CPU-seconds per cycle.
+  - E0059: nudge down-ramp from its 1000-cycle Gamma 3.0 state, cap 0.5
+    CPU-hours per step, ends at the first step that fails. 3 steps done
+    (3.0, 2.95), 14.6 and 15.0 CPU-seconds per cycle.
+  - Rebuild the evidence with `tools/e0058_59_evidence.py` when they end,
+    then record the outcomes.
+- **Tools:** `loop_analysis.py` takes the band's upper edge as a parameter;
+  `e0057_variants.py`, `e0058_59_evidence.py`, `e0059_run.sh`. Branch
+  `tools/phase-diagram` (36be34e and after). Queue spec `all-1115.spec`.
 
 ### Nov 14 findings
 
@@ -597,6 +635,11 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
+- **Collect E0058 and E0059** (left running Nov 15; resumable by rerunning
+  the lines in `runs/all-1115.spec`). Judge them against their
+  registrations, record outcomes, remove them from `runs/active.jsonl`,
+  and reprice the plan's 3D stages (C, D, H) from them.
+- B0005 is open: the lid.
 - **Wait for Chris on the plan** (`evidence/phase-diagram-plan.md`,
   section 9): whether to start stage A; whether the nudge's 3D diagram as
   now listed is what he meant; the f* list and Gamma range; depth 15 in

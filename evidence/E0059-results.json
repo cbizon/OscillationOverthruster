@@ -1,0 +1,236 @@
+{
+ "experiment": "E0059",
+ "what": "Pilot: one nudge ramp downward in the full 3D box (N 60000, L 100, f* 0.44, seed 1) from the final state of its 1000-cycle run at Gamma 3.0 (runs/E0037/nudge-b-up0.5-s1), 25 cycles per step of 0.05, CPU cap 0.5 h per step, ending at the first step that does not complete. One seed.",
+ "ramp_ended": false,
+ "predictions": {
+  "i": {
+   "what": "every step from 3.0 to 2.5 completes at under three times the Gamma 3.0 cost per cycle",
+   "completed": [
+    3.0,
+    2.95,
+    2.9
+   ],
+   "worst_ratio": 1.05,
+   "holds": null
+  },
+  "ii": {
+   "what": "floor (lowest Gamma completed inside 0.5 CPU-hours per 25 cycles) between 2.15 and 2.45",
+   "floor": 2.9,
+   "holds": null
+  },
+  "iii": {
+   "what": "no audit failure in any completed step",
+   "audit_failing_cycles": 0,
+   "worst_energy_residual": 3.1260824981175044e-13,
+   "holds": null
+  }
+ },
+ "seconds_per_cycle_by_gamma": {
+  "3.0": 14.5702,
+  "2.95": 15.0142,
+  "2.9": 15.2748
+ },
+ "cost_ratio_to_gamma_3": {
+  "3.0": 1.0,
+  "2.95": 1.03,
+  "2.9": 1.05
+ },
+ "with_own_flat_level": {
+  "ramp": "runs/E0059/nudge-3d-f0.44",
+  "engine_branch": "method/nudge",
+  "engine_commit": "16f3334",
+  "band_from_ring": 3,
+  "steps_completed": 3,
+  "steps_not_completed": [],
+  "floor_gamma": 2.9,
+  "cpu_seconds": 1121.5,
+  "audit_failing_cycles": 0,
+  "worst_energy_residual": 3.1260824981175044e-13,
+  "slow_episode_steps": 0,
+  "flat_level": 0.4039,
+  "flat_scatter": 0.0206,
+  "flat_from_gammas": [
+   2.9,
+   2.95,
+   3.0
+  ],
+  "flat_holds": 3,
+  "flat_borrowed": null,
+  "transitions": {
+   "up": {
+    "steps": 0,
+    "flat_steps": 0
+   },
+   "down": {
+    "steps": 3,
+    "flat_steps": 3
+   }
+  },
+  "steps": [
+   {
+    "step": 0,
+    "gamma": 3.0,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 14.5702,
+    "cpu_seconds": 364.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.4178,
+    "A_first": 0.4134,
+    "A_second": 0.4211,
+    "A_raw": 0.4698,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 41.4,
+    "thickness": 2.0658,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 1,
+    "gamma": 2.95,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 15.0142,
+    "cpu_seconds": 375.4,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.4039,
+    "A_first": 0.4007,
+    "A_second": 0.4063,
+    "A_raw": 0.456,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 36.6,
+    "thickness": 2.0488,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 2,
+    "gamma": 2.9,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 15.2748,
+    "cpu_seconds": 381.9,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3863,
+    "A_first": 0.3832,
+    "A_second": 0.3894,
+    "A_raw": 0.4382,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 30.9,
+    "thickness": 2.0303,
+    "patterned": false,
+    "unsettled": false
+   }
+  ]
+ },
+ "with_flat_level_borrowed_from_frictionless": {
+  "flat_level": 0.0251,
+  "flat_scatter": 0.0008,
+  "flat_borrowed": "runs/E0058/mu0-3d-f0.44",
+  "flat_holds": 0,
+  "transitions": {
+   "up": {
+    "steps": 0,
+    "flat_steps": 0
+   },
+   "down": {
+    "steps": 3,
+    "flat_steps": 0,
+    "gamma_first_patterned": 2.9,
+    "gamma_transition": null,
+    "not_reached": "lowest step of this branch (Gamma 2.9) is still patterned",
+    "unsettled_at_transition": false
+   }
+  },
+  "patterned_by_gamma": {
+   "3.0": true,
+   "2.95": true,
+   "2.9": true
+  }
+ },
+ "cpu_hours": 0.312,
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
+   "bytes": 7864,
+   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 9738,
+   "sha256": "670fddbe04719d61212f3d021b21d1c0c350e636aeab759ca9f7bc4dc17fccb7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp.py",
+   "bytes": 7229,
+   "sha256": "d181f808c35bb30fefcabed3a48d1091aadafaeef7b0e12621a6fc8625fa1cf7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/continue_run.py",
+   "bytes": 2176,
+   "sha256": "c41c1438ce4fa815d1b301f044dd4afefe87af7534920399b883eec091dba3bf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0059_run.sh",
+   "bytes": 960,
+   "sha256": "c902a7605028086a52ddc4b0308b6c387c773312e571488265ce2ff0fcbdfb97"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0058_59_evidence.py",
+   "bytes": 9993,
+   "sha256": "07c3e17b37ccd5ba66113ea5304a3dae40a7e542c72ab2778cd7aac65a87d91a"
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/ramp.jsonl",
+   "bytes": 362,
+   "sha256": "919ecb4c115e7bebd5b635b7847f887599ced4db1128d97260271abf4629de89"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-000-g3.0/fields.npz",
+   "bytes": 668980,
+   "sha256": "c3263b7e6a5ad624a708041debd67dcd3609568fb05587b823beb26a47a5a662"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-001-g2.95/fields.npz",
+   "bytes": 668911,
+   "sha256": "f56d5d22a2a8bf514a2bb231a25e24cb147e98374e795a67b41c6378d30a89ba"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-002-g2.9/fields.npz",
+   "bytes": 668916,
+   "sha256": "5958390e3b9632c2b408a8f0408d1dc919f28bcd08405b2affba8286f5213610"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-000-g3.0/summary.json",
+   "bytes": 777,
+   "sha256": "8b7dc563ff4e3027c39a37bacb9c0b86f3d08177034e26b37007a5b73c7ff89c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-001-g2.95/summary.json",
+   "bytes": 772,
+   "sha256": "588c46f2c06348c0e8dcb8603484f438e3df472f53979a87934e66ea7e998608"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-002-g2.9/summary.json",
+   "bytes": 778,
+   "sha256": "4c42cec91e6896bc734041ae2aca5db1262cf871c8b41069e75edf9c1e96afc7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-003-g2.85/summary.json",
+   "bytes": 245,
+   "sha256": "8e7d1f203780764235b4eb198f5ac227ee4699cf5ee6583f4db0c82d6c2621f0"
+  }
+ ],
+ "run_folder_bytes": 29192192
+}

@@ -1,0 +1,718 @@
+{
+ "experiment": "E0057",
+ "what": "The checker's points (a) and (b) on D0035 (review of Nov 14), computed from the existing recorded frictionless ramps. No new runs.",
+ "a_steadiness": {
+  "test": "E0053's registered test: rms difference between up and down branches of the hold amplitude at the same Gamma, over the amplitude's range, on the frictionless 2D loop at depth 5, f* 0.3, 100 cycles per step; the same for E0052's single snapshots",
+  "noise_corrected_A": 0.0718,
+  "registered_A_raw": 0.0356,
+  "snapshot": 0.07,
+  "A_over_snapshot": 1.026,
+  "checker_figure_for_A": 0.072,
+  "reading": "The noise-corrected amplitude the plan uses is no steadier than a single snapshot by this test (0.072 against 0.070); the registered raw amplitude was (0.036). Subtracting the white level removes a steady part of the signal and leaves the fluctuating part.",
+  "all_loops": {
+   "mu0-updown-h100": {
+    "common_gammas": 24,
+    "A": {
+     "updown_rms": 0.0682,
+     "range": 0.9488,
+     "updown_over_range": 0.0718
+    },
+    "A_raw": {
+     "updown_rms": 0.0481,
+     "range": 1.3529,
+     "updown_over_range": 0.0356
+    },
+    "snapshot": {
+     "updown_rms": 0.1376,
+     "range": 1.9654,
+     "updown_over_range": 0.07
+    },
+    "A_over_snapshot": 1.026
+   },
+   "mu0-updown-h25": {
+    "common_gammas": 24,
+    "A": {
+     "updown_rms": 0.112,
+     "range": 1.0226,
+     "updown_over_range": 0.1095
+    },
+    "A_raw": {
+     "updown_rms": 0.0905,
+     "range": 1.3809,
+     "updown_over_range": 0.0655
+    },
+    "snapshot": {
+     "updown_rms": 0.2051,
+     "range": 2.1246,
+     "updown_over_range": 0.0966
+    },
+    "A_over_snapshot": 1.134
+   },
+   "mu0-downup-h25": {
+    "common_gammas": 24,
+    "A": {
+     "updown_rms": 0.1273,
+     "range": 1.0665,
+     "updown_over_range": 0.1193
+    },
+    "A_raw": {
+     "updown_rms": 0.1079,
+     "range": 1.3977,
+     "updown_over_range": 0.0772
+    },
+    "snapshot": {
+     "updown_rms": 0.1875,
+     "range": 2.1827,
+     "updown_over_range": 0.0859
+    },
+    "A_over_snapshot": 1.389
+   }
+  }
+ },
+ "a_resolvable_width": {
+  "frictionless_loop_widths_by_cycles_per_step": {
+   "100": {
+    "d5-f0.3-s1-h100": 0.0
+   },
+   "25": {
+    "d5-f0.3-s1-h25": 0.05,
+    "d5-f0.3-s1-h25-downup": 0.05,
+    "d5-f0.3-s11-h25": 0.0,
+    "d10-f0.3-s1-h25": 0.05,
+    "d10-f0.3-s11-h25": 0.05,
+    "d5-f0.5-s1-h25": null,
+    "d5-f0.5-s11-h25": null,
+    "d10-f0.5-s1-h25": 0.05,
+    "d10-f0.5-s11-h25": 0.05
+   }
+  },
+  "checker_baseline_loop_width_25_cycles": -0.1,
+  "reading": "At 25 cycles per step eight frictionless loops, where no hysteresis is expected, give widths of 0 or +0.05, and the checker's baseline ramp gives -0.1; with (b) below, a single transition point is good to about 0.1 in Gamma, so a single 25-cycle loop cannot show a loop narrower than about 0.15. At 100 cycles per step there is one loop (width 0): its resolution is not measured, and cannot be better than the step, 0.05."
+ },
+ "b_variants": {
+  "variants": {
+   "d5-f0.3-s1-h100": {
+    "ramp": "E0053/mu0-updown-h100",
+    "cycles_per_step": 100,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0894,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.125,
+      "down": 2.075,
+      "flat_level": 0.1042,
+      "flat_scatter": 0.0273,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.125,
+      "down": 2.075,
+      "flat_level": 0.0376,
+      "flat_scatter": 0.0126,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.0
+      }
+     },
+     "floor 0.05": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0894,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.125,
+      "down": 2.075,
+      "flat_level": 0.0894,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.0
+      }
+     }
+    }
+   },
+   "d5-f0.3-s1-h25": {
+    "ramp": "E0053/mu0-updown-h25",
+    "cycles_per_step": 25,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.0862,
+      "flat_scatter": 0.0083,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.0975,
+      "flat_scatter": 0.0145,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.175,
+      "down": 2.125,
+      "flat_level": 0.0462,
+      "flat_scatter": 0.0073,
+      "shift_from_plan": {
+       "up": 0.1,
+       "down": 0.1
+      }
+     },
+     "floor 0.05": {
+      "up": 2.025,
+      "down": 2.025,
+      "flat_level": 0.0862,
+      "flat_scatter": 0.0083,
+      "shift_from_plan": {
+       "up": -0.05,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.125,
+      "down": 2.125,
+      "flat_level": 0.0862,
+      "flat_scatter": 0.0083,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.1
+      }
+     }
+    }
+   },
+   "d5-f0.3-s1-h25-downup": {
+    "ramp": "E0053/mu0-downup-h25",
+    "cycles_per_step": 25,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.0726,
+      "flat_scatter": 0.0194,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.106,
+      "flat_scatter": 0.0077,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.039,
+      "flat_scatter": 0.0258,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.05": {
+      "up": 2.075,
+      "down": 2.025,
+      "flat_level": 0.0726,
+      "flat_scatter": 0.0194,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0726,
+      "flat_scatter": 0.0194,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.05
+      }
+     }
+    }
+   },
+   "d5-f0.3-s11-h25": {
+    "ramp": "E0056/mu0-d5-f0.3-s11",
+    "cycles_per_step": 25,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0913,
+      "flat_scatter": 0.0191,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.075,
+      "down": 2.125,
+      "flat_level": 0.1143,
+      "flat_scatter": 0.0107,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.05
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0471,
+      "flat_scatter": 0.0128,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.05": {
+      "up": 2.075,
+      "down": 2.075,
+      "flat_level": 0.0913,
+      "flat_scatter": 0.0191,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.125,
+      "down": 2.125,
+      "flat_level": 0.0913,
+      "flat_scatter": 0.0191,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.05
+      }
+     }
+    }
+   },
+   "d10-f0.3-s1-h25": {
+    "ramp": "E0055/mu0-d10-f0.3",
+    "cycles_per_step": 25,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.2447,
+      "flat_scatter": 0.0085,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.275,
+      "down": 2.175,
+      "flat_level": 0.2907,
+      "flat_scatter": 0.0012,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.152,
+      "flat_scatter": 0.0156,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.05": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.2447,
+      "flat_scatter": 0.0085,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.275,
+      "down": 2.175,
+      "flat_level": 0.2447,
+      "flat_scatter": 0.0085,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.0
+      }
+     }
+    }
+   },
+   "d10-f0.3-s11-h25": {
+    "ramp": "E0056/mu0-d10-f0.3-s11",
+    "cycles_per_step": 25,
+    "judged": true,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.2351,
+      "flat_scatter": 0.0258,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.2894,
+      "flat_scatter": 0.0252,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.225,
+      "down": 2.225,
+      "flat_level": 0.1586,
+      "flat_scatter": 0.0119,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.05
+      }
+     },
+     "floor 0.05": {
+      "up": 2.225,
+      "down": 2.175,
+      "flat_level": 0.2351,
+      "flat_scatter": 0.0258,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.225,
+      "down": 2.225,
+      "flat_level": 0.2351,
+      "flat_scatter": 0.0258,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.05
+      }
+     }
+    }
+   },
+   "d5-f0.5-s1-h25": {
+    "ramp": "E0055/mu0-d5-f0.5",
+    "cycles_per_step": 25,
+    "judged": false,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0574,
+      "flat_scatter": 0.0159,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.078,
+      "flat_scatter": 0.0285,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0436,
+      "flat_scatter": 0.011,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "floor 0.05": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0574,
+      "flat_scatter": 0.0159,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "floor 0.2": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0574,
+      "flat_scatter": 0.0159,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     }
+    }
+   },
+   "d5-f0.5-s11-h25": {
+    "ramp": "E0056/mu0-d5-f0.5-s11",
+    "cycles_per_step": 25,
+    "judged": false,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0837,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0884,
+      "flat_scatter": 0.0107,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0393,
+      "flat_scatter": 0.0062,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "floor 0.05": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0837,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     },
+     "floor 0.2": {
+      "up": null,
+      "down": null,
+      "flat_level": 0.0837,
+      "flat_scatter": 0.0139,
+      "shift_from_plan": {
+       "up": null,
+       "down": null
+      }
+     }
+    }
+   },
+   "d10-f0.5-s1-h25": {
+    "ramp": "E0055/mu0-d10-f0.5",
+    "cycles_per_step": 25,
+    "judged": false,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.775,
+      "down": 2.725,
+      "flat_level": 0.2179,
+      "flat_scatter": 0.0262,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.775,
+      "down": 2.725,
+      "flat_level": 0.2456,
+      "flat_scatter": 0.0187,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.675,
+      "down": 2.625,
+      "flat_level": 0.1384,
+      "flat_scatter": 0.0159,
+      "shift_from_plan": {
+       "up": -0.1,
+       "down": -0.1
+      }
+     },
+     "floor 0.05": {
+      "up": 2.775,
+      "down": 2.725,
+      "flat_level": 0.2179,
+      "flat_scatter": 0.0262,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.825,
+      "down": 2.825,
+      "flat_level": 0.2179,
+      "flat_scatter": 0.0262,
+      "shift_from_plan": {
+       "up": 0.05,
+       "down": 0.1
+      }
+     }
+    }
+   },
+   "d10-f0.5-s11-h25": {
+    "ramp": "E0056/mu0-d10-f0.5-s11",
+    "cycles_per_step": 25,
+    "judged": false,
+    "variants": {
+     "plan (modes 3 to L/8, floor 0.1)": {
+      "up": 2.725,
+      "down": 2.675,
+      "flat_level": 0.1928,
+      "flat_scatter": 0.0208,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "wider band (modes 2 to L/8)": {
+      "up": 2.725,
+      "down": 2.675,
+      "flat_level": 0.2242,
+      "flat_scatter": 0.0107,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "narrower band (modes 5 to L/12)": {
+      "up": 2.725,
+      "down": 2.675,
+      "flat_level": 0.1373,
+      "flat_scatter": 0.0039,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.05": {
+      "up": 2.725,
+      "down": 2.675,
+      "flat_level": 0.1928,
+      "flat_scatter": 0.0208,
+      "shift_from_plan": {
+       "up": 0.0,
+       "down": 0.0
+      }
+     },
+     "floor 0.2": {
+      "up": 2.825,
+      "down": 2.775,
+      "flat_level": 0.1928,
+      "flat_scatter": 0.0208,
+      "shift_from_plan": {
+       "up": 0.1,
+       "down": 0.1
+      }
+     }
+    }
+   }
+  },
+  "judged": {
+   "conditions": "f* 0.3",
+   "transition_points_compared": 48,
+   "largest_shift": 0.1,
+   "shifts_over_one_step": [
+    [
+     "d5-f0.3-s1-h25",
+     "narrower band (modes 5 to L/12)",
+     "up",
+     0.1
+    ],
+    [
+     "d5-f0.3-s1-h25",
+     "narrower band (modes 5 to L/12)",
+     "down",
+     0.1
+    ],
+    [
+     "d5-f0.3-s1-h25",
+     "floor 0.2",
+     "down",
+     0.1
+    ]
+   ],
+   "appeared_or_disappeared": [],
+   "passes": false
+  },
+  "note": "The recorder stored modes 1 to L/8 only, so the wider band is modes 2 to L/8, not 2 to L/4 as first intended (stated in the registration). f* 0.5 ramps are reported, not judged.",
+  "reading": "45 of 48 f* 0.3 transition points move by at most one step (0.05); 3 move by two steps (0.1), all on one loop (depth 5, seed 1, 25 cycles per step): both points under the narrower band and the down point under the 0.2 floor. No transition appears or disappears. Registered prediction fails. At depth 5, f* 0.5 no variant finds a transition, including the 0.05 floor."
+ },
+ "cpu_hours": 0.003,
+ "source_evidence": [
+  "evidence/E0053-results.json",
+  "evidence/E0055-results.json",
+  "evidence/E0056-results.json"
+ ],
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 9738,
+   "sha256": "670fddbe04719d61212f3d021b21d1c0c350e636aeab759ca9f7bc4dc17fccb7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0057_variants.py",
+   "bytes": 5040,
+   "sha256": "3ed327a8d6dfb4295b147addf097734288492833319d6b6c219f82a59c633f6d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp_table.py",
+   "bytes": 2272,
+   "sha256": "4b62b931af044bcf24a10c47a67b0bf0079f3f961171527d6cc21d648a135ea5"
+  }
+ ]
+}

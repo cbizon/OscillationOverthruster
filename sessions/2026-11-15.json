@@ -1,0 +1,119 @@
+{
+ "date": "2026-11-15",
+ "instruction": "instructions/fallback.md",
+ "answers": [],
+ "headline": "There was no instruction, so I applied my stated default again: the sweep was not started; I answered the checker's open challenge on the measuring choices and launched the two single pilots in the full three-dimensional box. The Mac's lid was closed 19 minutes into the session, so the machine has since run only in one-minute maintenance wakes and the two pilots have barely begun (2 of 41 and 3 of 21 steps); they are left running. What was learned is from the checker's analysis: the amplitude the plan uses is no steadier than a single snapshot, and a single loop at the faster ramp rate cannot show a hysteresis narrower than about 0.15 in Gamma.",
+ "experiments": [
+  {
+   "experiment_id": "E0057",
+   "question": "The checker asked two things about the amplitude and the rule that places a transition: how steady is the amplitude the plan actually uses, and do the transition points depend on the choices of wavelength band and of the smallest height that counts as a pattern?",
+   "what_was_done": "No new runs. I reanalysed the recorded no-friction ramps from the last two nights. For steadiness, I repeated the test registered for the first amplitude on the noise-corrected one that replaced it. For robustness, I recomputed every transition point on the six ramps at f* 0.3 with the band widened, with it narrowed, and with the height floor halved (0.05 of a diameter) and doubled (0.2), one change at a time.",
+   "result": "Steadiness: on the loop with 100 cycles per step, the plan's amplitude differs between the way up and the way down by 7.2 percent of its range; single snapshots differ by 7.0 percent and the first amplitude by 3.6. That is the checker's figure exactly. Robustness: of 48 transition points, 45 move by one step of 0.05 in Gamma or not at all, and 3 move by two steps, all on one ramp (depth 5, seed 1, 25 cycles per step). No transition appears or vanishes. I had predicted that none would move more than one step. At depth 5 with f* 0.5, where the rule finds no pattern, none of the variants finds one either, including the halved floor.",
+   "takeaway": "Recorded as failed, narrowly. The plan's amplitude is better than the first at telling a flat layer from a patterned one but is no steadier than a snapshot, and last night's 'about twice as steady' described the amplitude the plan dropped. A transition point from one ramp at 25 cycles per step is good to about 0.1 in Gamma, so one such loop cannot show a width under about 0.15. At 100 cycles per step there is only one loop to go on. The plan now says all this, and says that a baseline run started from the nudge's state is not used to compare the two engines. The rule itself is unchanged.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0058",
+   "question": "In the full three-dimensional box, what does the amplitude read in a flat layer, can the transition rule be applied there, and what does a no-friction loop across the onset cost?",
+   "what_was_done": "Started one no-friction loop with 60000 spheres at f* 0.44: Gamma from 1.7 up to 2.7 and back in steps of 0.05, 25 cycles a step, with the recorder on. Launched at 23:10.",
+   "result": "Not finished: 2 of 41 steps were done when I wrote this, because the machine slept (see run conditions). The first two holds, at Gamma 1.7 and 1.75, are flat, with amplitude 0.026 and 0.025 of a diameter, against 0.42 in the nudge's striped state at Gamma 3. They cost 21 and 18 CPU-seconds per cycle, about three times the 6.5 measured at Gamma 3. No slow stretch and a clean energy audit so far.",
+   "takeaway": "Too early to judge anything I registered. Two things already show: the flat level in three dimensions is far below the 0.1-diameter floor, so the floor is not too low there; and the loop will cost more than the three CPU-hours I estimated if the low-Gamma rate holds, perhaps more than the 4.5 I set as its limit. The job is left running and will be collected next session.",
+   "graded_by_referee": true
+  },
+  {
+   "experiment_id": "E0059",
+   "question": "What does the nudge cost below Gamma 2.5 in the full three-dimensional box, and where does it stop? The plan's price for the nudge's onset loops there rests on one short timing in a quarter-size box.",
+   "what_was_done": "Took the final state of the nudge's existing 1000-cycle striped run at Gamma 3.0, f* 0.44, held it 25 cycles with the recorder, and started ramping Gamma down in steps of 0.05, 25 cycles a step, with half a CPU-hour allowed per step. The ramp ends at the first step that does not finish.",
+   "result": "Not finished: 3 steps were done when I wrote this (Gamma 3.0 and 2.95), at 14.6 and 15.0 CPU-seconds per cycle, with stripes of amplitude 0.42 and 0.40 of a diameter and a clean audit.",
+   "takeaway": "Nothing yet on the question asked, which is about Gamma below 2.5. The job is left running and will be collected next session.",
+   "graded_by_referee": true
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Can the Mac's lid stay open overnight (or a display stay attached)? It was closed at 23:26 tonight.",
+   "why_it_matters": "With the lid closed the machine sleeps whatever the session does, as on November 8 and 9. Tonight's two pilots got about a quarter of an hour of computing in the first hour. If overnight sessions cannot be relied on locally, that is the evidence for moving to Sterling or Hatteras.",
+   "default_if_unanswered": "Leave the two pilots running; they finish whenever the machine is next awake for about four hours, at low priority. Collect them next session and start nothing new until then."
+  },
+  {
+   "question": "May I start the first stage of the sweep: two dimensions, depths 5 and 10, nudge, no-friction and baseline, three seeds, two ramp rates, 64 CPU-hours? (Asked for the third night.)",
+   "why_it_matters": "Everything it needs is built. After the checker's analysis you should expect it to show only loops wider than about 0.15 in Gamma at the faster rate; the slower rate and three seeds are what could show a narrower one.",
+   "default_if_unanswered": "Do not start it. Collect the two pilots and reprice the three-dimensional stages from them."
+  },
+  {
+   "question": "For the nudge in three dimensions, six frequencies for the scan above onset (74 CPU-hours at most), or three? And depth 15 in two dimensions: in full (92 CPU-hours), reduced to one seed and one rate (about 20), or left out? (Both carried over.)",
+   "why_it_matters": "They set about a quarter of the plan's cost.",
+   "default_if_unanswered": "Six frequencies, after the no-friction stages; depth 15 reduced."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Collect the two three-dimensional pilots and reprice the plan's three-dimensional stages from them.",
+   "rationale": "They are already running and are what the three-dimensional prices and the three-dimensional flat level hang on. The first two holds suggest the no-friction onset loops cost more than planned."
+  },
+  {
+   "direction": "Start the first stage: two-dimensional loops at depths 5 and 10 with all three engines.",
+   "rationale": "Unchanged from last night; it needs your go-ahead. It is the first real hysteresis measurement and the first test of whether a loop survives a slower ramp."
+  },
+  {
+   "direction": "Examine the one no-friction stall event by event.",
+   "rationale": "Carried over. It decides whether the no-friction engine is safe for long ramps in deep layers."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 183.41,
+   "limit": 400
+  },
+  "disk_gb": {
+   "spent": 3.5,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0005"
+ ],
+ "decisions_needing_you": [
+  "D0032"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-15T23:00:00-05:00",
+  "actual_start": "2026-11-15T23:07:39-05:00",
+  "ended": "2026-11-16T00:41:39-05:00",
+  "interruptions": [
+   {
+    "start": "2026-11-15T23:26:35-05:00",
+    "end": "2026-11-15T23:51:39-05:00",
+    "cause": "Lid closed on AC power: 'Clamshell Sleep' in the power log at 23:26:35 and 23:26:47. One 21-second maintenance wake at 23:36. The session and both jobs were suspended."
+   },
+   {
+    "start": "2026-11-15T23:52:41-05:00",
+    "end": "2026-11-16T00:07:43-05:00",
+    "cause": "Maintenance sleep again after a one-minute wake; lid still closed."
+   },
+   {
+    "start": "2026-11-16T00:08:45-05:00",
+    "end": "2026-11-16T00:23:47-05:00",
+    "cause": "Maintenance sleep again after a one-minute wake; lid still closed. The pattern (about one minute awake in every fifteen) was continuing when the summary was written."
+   }
+  ],
+  "cpu_hours": 0.59,
+  "cores_available": 12,
+  "disk_free_gb": {
+   "start": 46,
+   "end": 46
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0058",
+    "reason": "2 of 41 steps; suspended by sleep, left running, resumable from its last step"
+   },
+   {
+    "experiment_id": "E0059",
+    "reason": "3 of 21 steps at most; suspended by sleep, left running, resumable from its last step"
+   }
+  ],
+  "limits_hit": "The closed lid limited everything after 23:26: the two pilots, about seven CPU-hours of work between them, got roughly a quarter of an hour each, and the session itself only ran during maintenance wakes, so I wrote the records at the first chance instead of at the end. Before that the machine was quiet (load average 1.4 at the start, from which 12 free cores of 14; nobody else's jobs), 46 GB free disk, memory 56 percent free, program data 3.5 of 15 GB. CPU-hours are the completed steps' own records (no-friction 0.273, nudge 0.312, analysis 0.003); the two steps in progress are not counted. Budget: about 46 percent of the weekly CPU limit by program check, under the 50 percent mark. One correction to my own records: the blocker line I first wrote had a field the schema does not allow, so I rewrote that line before committing it; nothing committed was edited."
+ }
+}
