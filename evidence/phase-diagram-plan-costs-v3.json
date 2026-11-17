@@ -29,18 +29,18 @@
  },
  "no_friction_total": 79.2,
  "no_friction_repriced_cpu_hours": {
-  "0.84": 11.6,
-  "0.74": 12.5,
-  "0.65": 13.5,
-  "0.57": 14.6,
-  "0.5": 16.0,
-  "0.44": 13.2,
-  "0.38": 20.5,
-  "0.33": 23.8,
-  "0.3": 28.4,
-  "0.27": 31.6
+  "0.84": 8.2,
+  "0.74": 9.2,
+  "0.65": 10.5,
+  "0.57": 11.6,
+  "0.5": 12.9,
+  "0.44": 13.3,
+  "0.38": 17.3,
+  "0.33": 22.9,
+  "0.3": 22.7,
+  "0.27": 25.2
  },
- "no_friction_repriced_total": 185.7,
+ "no_friction_repriced_total": 153.8,
  "no_friction_repriced_basis": "f* 0.44: 3.1 measured up to 2.7 and back plus 172 steps at the rate measured so far above 2.7; other f*: that times 0.44/f* times the ratio measured so far at that f*. Measured with ten jobs running, so an upper estimate",
  "no_friction_basis": "measured 3.1 CPU-hours for Gamma 1.7 to 2.7 and back at f* 0.44 (E0058) plus 172 steps above 2.7 at an assumed 4 s per cycle, times 0.44/f*",
  "nudge_price_cpu_hours": {
@@ -68,63 +68,63 @@
   "rows": [
    {
     "f_star": 0.84,
-    "steps": 11,
-    "gamma_reached": 2.2,
-    "measured_cpu_hours": 0.876,
-    "priced_cpu_hours": 0.525,
-    "ratio": 1.67
+    "steps": 107,
+    "gamma_reached": 6.15,
+    "measured_cpu_hours": 4.132,
+    "priced_cpu_hours": 3.524,
+    "ratio": 1.17
    },
    {
     "f_star": 0.74,
-    "steps": 10,
-    "gamma_reached": 2.15,
-    "measured_cpu_hours": 0.883,
-    "priced_cpu_hours": 0.555,
-    "ratio": 1.59
+    "steps": 98,
+    "gamma_reached": 6.55,
+    "measured_cpu_hours": 4.253,
+    "priced_cpu_hours": 3.67,
+    "ratio": 1.16
    },
    {
     "f_star": 0.65,
-    "steps": 9,
-    "gamma_reached": 2.1,
-    "measured_cpu_hours": 0.88,
-    "priced_cpu_hours": 0.584,
-    "ratio": 1.51
+    "steps": 93,
+    "gamma_reached": 6.3,
+    "measured_cpu_hours": 4.609,
+    "priced_cpu_hours": 3.967,
+    "ratio": 1.16
    },
    {
     "f_star": 0.57,
-    "steps": 8,
-    "gamma_reached": 2.05,
-    "measured_cpu_hours": 0.877,
-    "priced_cpu_hours": 0.613,
-    "ratio": 1.43
+    "steps": 84,
+    "gamma_reached": 5.85,
+    "measured_cpu_hours": 4.602,
+    "priced_cpu_hours": 4.087,
+    "ratio": 1.13
    },
    {
     "f_star": 0.5,
-    "steps": 7,
-    "gamma_reached": 2.0,
-    "measured_cpu_hours": 0.879,
-    "priced_cpu_hours": 0.637,
-    "ratio": 1.38
+    "steps": 76,
+    "gamma_reached": 5.45,
+    "measured_cpu_hours": 4.592,
+    "priced_cpu_hours": 4.16,
+    "ratio": 1.1
    },
    {
     "f_star": 0.38,
-    "steps": 5,
-    "gamma_reached": 1.9,
-    "measured_cpu_hours": 0.879,
-    "priced_cpu_hours": 0.657,
-    "ratio": 1.34
+    "steps": 59,
+    "gamma_reached": 4.6,
+    "measured_cpu_hours": 4.614,
+    "priced_cpu_hours": 4.136,
+    "ratio": 1.12
    },
    {
     "f_star": 0.33,
-    "steps": 4,
-    "gamma_reached": 1.85,
-    "measured_cpu_hours": 0.864,
-    "priced_cpu_hours": 0.64,
-    "ratio": 1.35
+    "steps": 41,
+    "gamma_reached": 3.7,
+    "measured_cpu_hours": 4.648,
+    "priced_cpu_hours": 3.612,
+    "ratio": 1.29
    }
   ],
-  "f044_mean_seconds_per_cycle_above_2p7": 8.46,
-  "f044_steps_above_2p7": 15,
+  "f044_mean_seconds_per_cycle_above_2p7": 8.56,
+  "f044_steps_above_2p7": 77,
   "assumed_seconds_per_cycle_above_2p7": 4.0
  },
  "deeper_layers": {
@@ -132,12 +132,12 @@
    "N": 120000,
    "cost_factor": 3.8,
    "onset_only_loops_repriced_cpu_hours": {
-    "0.84": 10.9,
-    "0.74": 11.8,
-    "0.65": 12.7,
-    "0.57": 13.7
+    "0.84": 7.7,
+    "0.74": 8.6,
+    "0.65": 9.9,
+    "0.57": 10.9
    },
-   "onset_only_four_loops_total": 49.1,
+   "onset_only_four_loops_total": 37.1,
    "onset_only_basis": "Gamma 1.7 to 3.0 and back, 53 of the 213 steps, at the repriced no-friction cost times the depth factor (low-Gamma steps cost more than the average step, so this is a lower estimate)",
    "no_friction_loop_cpu_hours": {
     "0.84": 15.5,
@@ -186,12 +186,12 @@
    "N": 180000,
    "cost_factor": 15.0,
    "onset_only_loops_repriced_cpu_hours": {
-    "0.84": 43.3,
-    "0.74": 46.7,
-    "0.65": 50.4,
-    "0.57": 54.5
+    "0.84": 30.6,
+    "0.74": 34.3,
+    "0.65": 39.2,
+    "0.57": 43.3
    },
-   "onset_only_four_loops_total": 194.9,
+   "onset_only_four_loops_total": 147.4,
    "onset_only_basis": "Gamma 1.7 to 3.0 and back, 53 of the 213 steps, at the repriced no-friction cost times the depth factor (low-Gamma steps cost more than the average step, so this is a lower estimate)",
    "no_friction_loop_cpu_hours": {
     "0.84": 61.5,
@@ -246,7 +246,7 @@
   }
  },
  "deeper_layers_basis": "not measured in 3D: the per-particle factor is the 2D no-friction ratio between depths, the wavelength is the experimental relation lambda/H = 1.0 + 1.1 f*^-1.32 (Umbanhowar and Swinney 2000); a single 20-cycle hold at depth 10.84 would replace the factor for about 0.2 CPU-hours",
- "week_fraction_after_no_friction_pass": 0.88,
+ "week_fraction_after_no_friction_pass": 0.8,
  "slow_loop_at_f044": {
   "window": [
    1.9,

@@ -279,9 +279,15 @@ a physical result.
     `evidence/fastpass-figures/`). The session summary has the count at
     the time it was written.
   - No slow stretch, audit failure or incomplete step so far.
-  - Cost: about 190 CPU-hours for the ten, not the 80 registered
-    (`evidence/phase-diagram-plan-costs-v3.json`). Prediction (ii) of the
-    registration (each loop under twice its price) is in doubt.
+  - Cost: about 154 CPU-hours for the ten, not the 80 registered
+    (`evidence/phase-diagram-plan-costs-v3.json`; the first hour suggested
+    190).
+  - On the way up (680 of 2130 steps): f\* 0.33 to 0.44 have a strong
+    pattern from the first onset (A 0.6 to 1.4 D). f\* 0.50 to 0.84 have a
+    weak first pattern (A at most 0.09 to 0.15 D) that fades by Gamma 3.0
+    to 4.0, then a sharp second rise to 0.65 to 1.1 D starting at Gamma
+    4.1 (f\* 0.50) to 5.3 (f\* 0.84). Two loops have turned at 7.0. The
+    fields have not been looked at; the patterns are not named.
 - **No transition point** is computed. Deliverable: amplitude against
   Gamma, both branches, per frequency and model (`tools/loop_figure.py`,
   SVG).
@@ -295,8 +301,8 @@ a physical result.
 - **Nudge and baseline loops: none run.** Nudge loops priced at 16 to 49
   CPU-hours each, about 300 for ten; f\* 0.33, 0.30, 0.27 are at or over
   the per-run limit. Two were queued and withdrawn before starting
-  (E0061 abandoned, D0041): the no-friction pass alone takes the week to
-  about 89% of the CPU budget.
+  (E0061 abandoned, D0041) when the no-friction pass looked like taking
+  the week to 89% of the CPU budget; on the later price it is about 80%.
 - **Freezing with friction off (E0062, falsified on one prediction).**
   Region-freezing build pinned as `method/persistent-contact-mu0`
   (8372586), 2D grid, seed 1, 120 cycles, four thresholds.
@@ -322,7 +328,7 @@ a physical result.
 - **Plan** revised (section 0b): fast pass, prices, deeper layers next
   with their cost.
 - **Budget:** see the session summary. Past 50% once the loops' CPU is
-  counted; will pass 80% before they finish.
+  counted; about 80% when they finish.
 - **Tools:** `ramp.py` (total CPU cap, checkpoint pruning), `qx5.sh`,
   `loop_figure.py`, `fastpass_evidence.py`, `freeze_recorder.py`,
   `e0062_evidence.py`, `stall_neighbours.py`, `e0063_evidence.py`,
@@ -724,7 +730,7 @@ These are findings, not edits; the referee is his.
   - Rebuild evidence and figures (`tools/fastpass_evidence.py`), judge
     against the registration when all ten have ended, record the outcome.
   - Check the weekly CPU count first: the pass is expected to reach about
-    89%. At 100% stop the queue and ask.
+    80%. At 100% stop the queue and ask.
 - **Slow loops are Chris's to place.** Start none unasked. Candidates are
   in the Nov 16 summary; redo the list from the finished figures.
 - **Nudge loops** (the second model): only as the budget allows, highest

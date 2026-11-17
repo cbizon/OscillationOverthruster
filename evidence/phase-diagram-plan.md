@@ -32,12 +32,13 @@ the figures in `fastpass-figures/`.
   loop, at the experiments' ramp rate (0.002 in Gamma per cycle).
 - **Models, in this order:** no friction, nudge, baseline.
   - No friction: all ten loops are running or queued (E0060). Priced at
-    80 CPU-hours; repriced from their first hour at about 190, because the
-    cost per cycle above Gamma 2.7 is about 8.7 seconds at f\* 0.44 (I had
-    assumed 4) and the other frequencies run 1.4 to 1.7 times the scaled
-    f\* 0.44 cost. Ten jobs were running, so 190 is an upper estimate. No
-    loop is near the 40 CPU-hour per-run limit except f\* 0.30 and 0.27
-    (29 and 32); each loop stops itself at 38.
+    80 CPU-hours; repriced from the first 680 steps at about 154, because
+    the cost per cycle above Gamma 2.7 is about 8.6 seconds at f\* 0.44 (I
+    had assumed 4) and the other frequencies run 1.1 to 1.3 times the
+    scaled f\* 0.44 cost (the first hour alone suggested 190). Ten jobs
+    were running, so this is somewhat high. No loop is near the 40
+    CPU-hour per-run limit (the dearest, f\* 0.27, is about 25); each loop
+    stops itself at 38.
   - Nudge: it cannot hold the flat state cheaply (its cost climbs from 15
     seconds per cycle at Gamma 3.0 to 55 at 2.25 and it does not finish a
     step at 2.2 in half a CPU-hour, `E0059-results.json`), so its loop is
@@ -53,7 +54,7 @@ the figures in `fastpass-figures/`.
     2.8 and at Gamma 5; its loops would be short branches. To be run where
     it can, after the nudge, with the start of `E0032`.
 - **Budget.** The weekly limit is 400 CPU-hours and 167 were counted
-  before tonight. The no-friction pass alone takes the week to about 89
+  before tonight. The no-friction pass alone takes the week to about 80
   percent on the repriced figure. The nudge and baseline passes need
   further weeks at this limit, or a larger limit, or fewer frequencies.
 - **Slow loops** are Chris's to place from the figures. Nothing slow is
