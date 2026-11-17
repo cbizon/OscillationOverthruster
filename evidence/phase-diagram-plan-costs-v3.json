@@ -1,0 +1,241 @@
+{
+ "note": "Nov 16. Fast pass: Gamma 1.7 to 7.0 and back, steps of 0.05, 25 cycles per step, one seed, N 60000, L 100, depth 5.42.",
+ "f_star": [
+  0.84,
+  0.74,
+  0.65,
+  0.57,
+  0.5,
+  0.44,
+  0.38,
+  0.33,
+  0.3,
+  0.27
+ ],
+ "no_friction_price_cpu_hours": {
+  "0.84": 4.1,
+  "0.74": 4.7,
+  "0.65": 5.3,
+  "0.57": 6.1,
+  "0.5": 7.0,
+  "0.44": 7.9,
+  "0.38": 9.1,
+  "0.33": 10.5,
+  "0.3": 11.6,
+  "0.27": 12.9
+ },
+ "no_friction_total": 79.2,
+ "no_friction_repriced_cpu_hours": {
+  "0.84": 11.7,
+  "0.74": 12.6,
+  "0.65": 13.6,
+  "0.57": 14.9,
+  "0.5": 16.3,
+  "0.44": 13.5,
+  "0.38": 21.2,
+  "0.33": 24.6,
+  "0.3": 29.0,
+  "0.27": 32.2
+ },
+ "no_friction_repriced_total": 189.6,
+ "no_friction_repriced_basis": "f* 0.44: 3.1 measured up to 2.7 and back plus 172 steps at the rate measured so far above 2.7; other f*: that times 0.44/f* times the ratio measured so far at that f*. Measured with ten jobs running, so an upper estimate",
+ "no_friction_basis": "measured 3.1 CPU-hours for Gamma 1.7 to 2.7 and back at f* 0.44 (E0058) plus 172 steps above 2.7 at an assumed 4 s per cycle, times 0.44/f*",
+ "nudge_price_cpu_hours": {
+  "0.84": 15.7,
+  "0.74": 17.8,
+  "0.65": 20.3,
+  "0.57": 23.2,
+  "0.5": 26.4,
+  "0.44": 30.0,
+  "0.38": 34.7,
+  "0.33": 40.0,
+  "0.3": 44.0,
+  "0.27": 48.9
+ },
+ "nudge_total": 301.0,
+ "nudge_over_per_run_limit": [
+  0.33,
+  0.3,
+  0.27
+ ],
+ "nudge_basis": "E0059: 2.6 CPU-hours for one descent from Gamma 3.0 to the floor at f* 0.44, done three times, plus 160 steps above 3.0 at an assumed 20 s per cycle, times 0.44/f*",
+ "baseline": "not priced: it has to be started with an upward push (E0032) and stops below Gamma 2.3 to 2.8; where it runs it costs what the nudge does (plan section 7)",
+ "price_check_so_far": {
+  "note": "steps finished by the time this file was written, against the f* 0.44 cost at the same Gamma times 0.44/f*; ten jobs were running at once",
+  "rows": [
+   {
+    "f_star": 0.84,
+    "steps": 9,
+    "gamma_reached": 2.1,
+    "measured_cpu_hours": 0.752,
+    "priced_cpu_hours": 0.452,
+    "ratio": 1.66
+   },
+   {
+    "f_star": 0.74,
+    "steps": 8,
+    "gamma_reached": 2.05,
+    "measured_cpu_hours": 0.746,
+    "priced_cpu_hours": 0.472,
+    "ratio": 1.58
+   },
+   {
+    "f_star": 0.65,
+    "steps": 7,
+    "gamma_reached": 2.0,
+    "measured_cpu_hours": 0.73,
+    "priced_cpu_hours": 0.49,
+    "ratio": 1.49
+   },
+   {
+    "f_star": 0.57,
+    "steps": 7,
+    "gamma_reached": 2.0,
+    "measured_cpu_hours": 0.798,
+    "priced_cpu_hours": 0.559,
+    "ratio": 1.43
+   },
+   {
+    "f_star": 0.5,
+    "steps": 6,
+    "gamma_reached": 1.95,
+    "measured_cpu_hours": 0.789,
+    "priced_cpu_hours": 0.57,
+    "ratio": 1.38
+   },
+   {
+    "f_star": 0.38,
+    "steps": 4,
+    "gamma_reached": 1.85,
+    "measured_cpu_hours": 0.758,
+    "priced_cpu_hours": 0.556,
+    "ratio": 1.36
+   },
+   {
+    "f_star": 0.33,
+    "steps": 3,
+    "gamma_reached": 1.8,
+    "measured_cpu_hours": 0.702,
+    "priced_cpu_hours": 0.511,
+    "ratio": 1.37
+   }
+  ],
+  "f044_mean_seconds_per_cycle_above_2p7": 8.66,
+  "f044_steps_above_2p7": 13,
+  "assumed_seconds_per_cycle_above_2p7": 4.0
+ },
+ "deeper_layers": {
+  "depth 10.84": {
+   "N": 120000,
+   "cost_factor": 3.8,
+   "no_friction_loop_cpu_hours": {
+    "0.84": 15.5,
+    "0.74": 17.8,
+    "0.65": 20.0,
+    "0.57": 23.0,
+    "0.5": 26.4,
+    "0.44": 29.8,
+    "0.38": 34.4,
+    "0.33": 39.7,
+    "0.3": 43.8,
+    "0.27": 48.7
+   },
+   "ten_loops_cpu_hours": 299.0,
+   "over_per_run_limit": [
+    0.3,
+    0.27
+   ],
+   "wavelength_from_dispersion_relation": {
+    "0.84": 25.8,
+    "0.74": 28.6,
+    "0.65": 31.9,
+    "0.57": 35.9,
+    "0.5": 40.6,
+    "0.44": 46.1,
+    "0.38": 53.6,
+    "0.33": 62.4,
+    "0.3": 69.3,
+    "0.27": 78.0
+   },
+   "wavelengths_across_L100": {
+    "0.84": 3.9,
+    "0.74": 3.5,
+    "0.65": 3.1,
+    "0.57": 2.8,
+    "0.5": 2.5,
+    "0.44": 2.2,
+    "0.38": 1.9,
+    "0.33": 1.6,
+    "0.3": 1.4,
+    "0.27": 1.3
+   },
+   "checkpoint_mb": 13.4
+  },
+  "depth 16.26": {
+   "N": 180000,
+   "cost_factor": 15.0,
+   "no_friction_loop_cpu_hours": {
+    "0.84": 61.5,
+    "0.74": 70.5,
+    "0.65": 79.5,
+    "0.57": 91.5,
+    "0.5": 105.0,
+    "0.44": 118.5,
+    "0.38": 136.5,
+    "0.33": 157.5,
+    "0.3": 174.0,
+    "0.27": 193.5
+   },
+   "ten_loops_cpu_hours": 1188.0,
+   "over_per_run_limit": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33,
+    0.3,
+    0.27
+   ],
+   "wavelength_from_dispersion_relation": {
+    "0.84": 38.8,
+    "0.74": 42.9,
+    "0.65": 47.8,
+    "0.57": 53.8,
+    "0.5": 60.9,
+    "0.44": 69.1,
+    "0.38": 80.4,
+    "0.33": 93.5,
+    "0.3": 103.9,
+    "0.27": 117.0
+   },
+   "wavelengths_across_L100": {
+    "0.84": 2.6,
+    "0.74": 2.3,
+    "0.65": 2.1,
+    "0.57": 1.9,
+    "0.5": 1.6,
+    "0.44": 1.4,
+    "0.38": 1.2,
+    "0.33": 1.1,
+    "0.3": 1.0,
+    "0.27": 0.9
+   },
+   "checkpoint_mb": 20.1
+  }
+ },
+ "deeper_layers_basis": "not measured in 3D: the per-particle factor is the 2D no-friction ratio between depths, the wavelength is the experimental relation lambda/H = 1.0 + 1.1 f*^-1.32 (Umbanhowar and Swinney 2000); a single 20-cycle hold at depth 10.84 would replace the factor for about 0.2 CPU-hours",
+ "slow_loop_at_f044": {
+  "window": [
+   1.9,
+   2.6
+  ],
+  "step": 0.05,
+  "cycles_per_step": 100,
+  "steps": 29,
+  "cpu_hours": 8.1,
+  "sixteen_times_slower_cpu_hours": 32.3
+ }
+}

@@ -1,71 +1,127 @@
 {
  "experiment": "E0058",
  "what": "Pilot: one frictionless loop across the onset in the full 3D box (N 60000, L 100, depth 5.42, f* 0.44, seed 1), Gamma 1.7 to 2.7 and back in steps of 0.05, 25 cycles per step. One seed, one rate: no transition point here is a result.",
- "loop_complete": false,
+ "loop_complete": true,
  "predictions": {
   "i": {
    "what": "all 41 steps complete, no slow episode, no audit failure",
-   "steps_completed": 2,
+   "steps_completed": 41,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
-   "holds": null
+   "holds": true
   },
   "ii": {
    "what": "flat level below 0.2 D and the Gamma 2.7 up-branch hold patterned",
-   "flat_level": 0.0251,
-   "A_at_2p7_up": null,
-   "patterned_at_2p7_up": null,
-   "holds": null
+   "flat_level": 0.0246,
+   "A_at_2p7_up": 0.5559,
+   "patterned_at_2p7_up": true,
+   "holds": true
   },
   "iii": {
    "what": "down-branch transition between Gamma 2.0 and 2.4",
-   "gamma_down": null,
-   "holds": null
+   "gamma_down": 2.075,
+   "holds": true
   },
   "iv": {
    "what": "loop under 4.5 CPU-hours",
-   "cpu_hours": 0.273,
-   "holds": null
+   "cpu_hours": 3.109,
+   "holds": true
   }
  },
  "seconds_per_cycle": {
-  "lowest": 18.1956,
+  "lowest": 7.2931,
   "highest": 21.1436,
   "by_gamma_up": {
    "1.7": 21.1436,
-   "1.75": 18.1956
+   "1.75": 18.1956,
+   "1.8": 15.8304,
+   "1.85": 13.9517,
+   "1.9": 12.5408,
+   "1.95": 11.6032,
+   "2.0": 10.9617,
+   "2.05": 10.0863,
+   "2.1": 9.9537,
+   "2.15": 10.09,
+   "2.2": 9.9691,
+   "2.25": 9.7522,
+   "2.3": 9.2675,
+   "2.35": 9.0959,
+   "2.4": 8.8399,
+   "2.45": 8.6124,
+   "2.5": 8.3827,
+   "2.55": 8.3057,
+   "2.6": 7.7439,
+   "2.65": 7.6078,
+   "2.7": 7.2931
   },
-  "by_gamma_down": {}
+  "by_gamma_down": {
+   "2.65": 7.5553,
+   "2.6": 7.6322,
+   "2.55": 7.8335,
+   "2.5": 8.1141,
+   "2.45": 8.4145,
+   "2.4": 8.9718,
+   "2.35": 8.9494,
+   "2.3": 9.1488,
+   "2.25": 9.4046,
+   "2.2": 9.6873,
+   "2.15": 9.8411,
+   "2.1": 10.0496,
+   "2.05": 10.6907,
+   "2.0": 11.1746,
+   "1.95": 11.8163,
+   "1.9": 12.4808,
+   "1.85": 13.5958,
+   "1.8": 15.8595,
+   "1.75": 17.8072,
+   "1.7": 19.442
+  }
  },
  "ramp": {
   "ramp": "runs/E0058/mu0-3d-f0.44",
   "engine_branch": "method/mu0-unmodified",
   "engine_commit": "765c1f0",
   "band_from_ring": 3,
-  "steps_completed": 2,
+  "steps_completed": 41,
   "steps_not_completed": [],
   "floor_gamma": 1.7,
-  "cpu_seconds": 983.5,
+  "cpu_seconds": 11192.4,
   "audit_failing_cycles": 0,
-  "worst_energy_residual": 1.996254317888731e-14,
+  "worst_energy_residual": 8.452772620745852e-13,
   "slow_episode_steps": 0,
-  "flat_level": 0.0251,
-  "flat_scatter": 0.0008,
+  "flat_level": 0.0246,
+  "flat_scatter": 0.0019,
   "flat_from_gammas": [
    1.7,
-   1.75
+   1.7,
+   1.75,
+   1.75,
+   1.8
   ],
-  "flat_holds": 2,
+  "flat_holds": 19,
   "flat_borrowed": null,
   "transitions": {
    "up": {
-    "steps": 2,
-    "flat_steps": 2
+    "steps": 21,
+    "flat_steps": 11,
+    "gamma_first_patterned": 2.25,
+    "gamma_transition": 2.225,
+    "unsettled_at_transition": false,
+    "gamma_fit": 2.181,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
    },
    "down": {
-    "steps": 0,
-    "flat_steps": 0
-   }
+    "steps": 20,
+    "flat_steps": 8,
+    "gamma_first_patterned": 2.1,
+    "gamma_transition": 2.075,
+    "unsettled_at_transition": false,
+    "gamma_fit": 2.0345,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
+   },
+   "width": 0.15
   },
   "steps": [
    {
@@ -109,21 +165,853 @@
     "thickness": 1.5566,
     "patterned": false,
     "unsettled": false
+   },
+   {
+    "step": 2,
+    "gamma": 1.8,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 15.8304,
+    "cpu_seconds": 395.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0233,
+    "A_first": 0.0276,
+    "A_second": 0.0,
+    "A_raw": 0.1373,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 1.3,
+    "thickness": 1.611,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 3,
+    "gamma": 1.85,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 13.9517,
+    "cpu_seconds": 348.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0298,
+    "A_first": 0.0277,
+    "A_second": 0.0088,
+    "A_raw": 0.1531,
+    "peak_mode": 19,
+    "wavelength": 5.3,
+    "peak_over_median": 1.3,
+    "thickness": 1.7024,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 4,
+    "gamma": 1.9,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 12.5408,
+    "cpu_seconds": 313.5,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0312,
+    "A_first": 0.0046,
+    "A_second": 0.0389,
+    "A_raw": 0.172,
+    "peak_mode": 16,
+    "wavelength": 6.2,
+    "peak_over_median": 1.3,
+    "thickness": 1.79,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 5,
+    "gamma": 1.95,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 11.6032,
+    "cpu_seconds": 290.1,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0328,
+    "A_first": 0.0227,
+    "A_second": 0.0331,
+    "A_raw": 0.1915,
+    "peak_mode": 6,
+    "wavelength": 16.7,
+    "peak_over_median": 1.3,
+    "thickness": 1.8591,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 6,
+    "gamma": 2.0,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 10.9617,
+    "cpu_seconds": 274.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0,
+    "A_first": 0.0,
+    "A_second": 0.0,
+    "A_raw": 0.2038,
+    "peak_mode": 9,
+    "wavelength": 11.1,
+    "peak_over_median": 1.2,
+    "thickness": 1.9145,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 7,
+    "gamma": 2.05,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 10.0863,
+    "cpu_seconds": 252.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0,
+    "A_first": 0.0,
+    "A_second": 0.0098,
+    "A_raw": 0.2201,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 1.3,
+    "thickness": 1.9643,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 8,
+    "gamma": 2.1,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.9537,
+    "cpu_seconds": 248.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0,
+    "A_first": 0.0244,
+    "A_second": 0.0243,
+    "A_raw": 0.232,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 1.6,
+    "thickness": 2.0044,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 9,
+    "gamma": 2.15,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 10.09,
+    "cpu_seconds": 252.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0738,
+    "A_first": 0.0424,
+    "A_second": 0.0921,
+    "A_raw": 0.2538,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 1.8,
+    "thickness": 2.0488,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 10,
+    "gamma": 2.2,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.9691,
+    "cpu_seconds": 249.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0988,
+    "A_first": 0.0877,
+    "A_second": 0.1087,
+    "A_raw": 0.2697,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 2.9,
+    "thickness": 2.0902,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 11,
+    "gamma": 2.25,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.7522,
+    "cpu_seconds": 243.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.1576,
+    "A_first": 0.1324,
+    "A_second": 0.1752,
+    "A_raw": 0.3015,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 4.2,
+    "thickness": 2.1368,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 12,
+    "gamma": 2.3,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.2675,
+    "cpu_seconds": 231.7,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.2312,
+    "A_first": 0.2051,
+    "A_second": 0.2553,
+    "A_raw": 0.3535,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 6.5,
+    "thickness": 2.1909,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 13,
+    "gamma": 2.35,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.0959,
+    "cpu_seconds": 227.4,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3391,
+    "A_first": 0.2984,
+    "A_second": 0.3755,
+    "A_raw": 0.4365,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 16.2,
+    "thickness": 2.2548,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 14,
+    "gamma": 2.4,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.8399,
+    "cpu_seconds": 221.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.428,
+    "A_first": 0.4157,
+    "A_second": 0.4385,
+    "A_raw": 0.5065,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 31.4,
+    "thickness": 2.3066,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 15,
+    "gamma": 2.45,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.6124,
+    "cpu_seconds": 215.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.4765,
+    "A_first": 0.4639,
+    "A_second": 0.4884,
+    "A_raw": 0.5518,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 37.9,
+    "thickness": 2.3497,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 16,
+    "gamma": 2.5,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.3827,
+    "cpu_seconds": 209.6,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.508,
+    "A_first": 0.5056,
+    "A_second": 0.5099,
+    "A_raw": 0.5869,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 37.7,
+    "thickness": 2.3898,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 17,
+    "gamma": 2.55,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.3057,
+    "cpu_seconds": 207.6,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5091,
+    "A_first": 0.5009,
+    "A_second": 0.5172,
+    "A_raw": 0.5916,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 32.9,
+    "thickness": 2.4221,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 18,
+    "gamma": 2.6,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.7439,
+    "cpu_seconds": 193.6,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5263,
+    "A_first": 0.5219,
+    "A_second": 0.5305,
+    "A_raw": 0.6083,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 34.3,
+    "thickness": 2.4573,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 19,
+    "gamma": 2.65,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.6078,
+    "cpu_seconds": 190.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5353,
+    "A_first": 0.5231,
+    "A_second": 0.5473,
+    "A_raw": 0.6173,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 40.1,
+    "thickness": 2.4884,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 20,
+    "gamma": 2.7,
+    "direction": "up",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.2931,
+    "cpu_seconds": 182.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5559,
+    "A_first": 0.5476,
+    "A_second": 0.5623,
+    "A_raw": 0.6363,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 44.3,
+    "thickness": 2.5209,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 21,
+    "gamma": 2.65,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.5553,
+    "cpu_seconds": 188.9,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5447,
+    "A_first": 0.5363,
+    "A_second": 0.553,
+    "A_raw": 0.625,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 44.3,
+    "thickness": 2.4913,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 22,
+    "gamma": 2.6,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.6322,
+    "cpu_seconds": 190.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5403,
+    "A_first": 0.533,
+    "A_second": 0.5476,
+    "A_raw": 0.6201,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 43.0,
+    "thickness": 2.4619,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 23,
+    "gamma": 2.55,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 7.8335,
+    "cpu_seconds": 195.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5297,
+    "A_first": 0.5174,
+    "A_second": 0.5404,
+    "A_raw": 0.6048,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 45.4,
+    "thickness": 2.426,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 24,
+    "gamma": 2.5,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.1141,
+    "cpu_seconds": 202.9,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5211,
+    "A_first": 0.5187,
+    "A_second": 0.5234,
+    "A_raw": 0.5951,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 41.1,
+    "thickness": 2.3954,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 25,
+    "gamma": 2.45,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.4145,
+    "cpu_seconds": 210.4,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.5019,
+    "A_first": 0.4985,
+    "A_second": 0.5046,
+    "A_raw": 0.5742,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 40.8,
+    "thickness": 2.361,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 26,
+    "gamma": 2.4,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.9718,
+    "cpu_seconds": 224.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.4804,
+    "A_first": 0.4628,
+    "A_second": 0.4967,
+    "A_raw": 0.5549,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 35.0,
+    "thickness": 2.3267,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 27,
+    "gamma": 2.35,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 8.9494,
+    "cpu_seconds": 223.7,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.4432,
+    "A_first": 0.449,
+    "A_second": 0.4366,
+    "A_raw": 0.5181,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 32.7,
+    "thickness": 2.2873,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 28,
+    "gamma": 2.3,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.1488,
+    "cpu_seconds": 228.7,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3956,
+    "A_first": 0.3886,
+    "A_second": 0.4024,
+    "A_raw": 0.4778,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 26.9,
+    "thickness": 2.2475,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 29,
+    "gamma": 2.25,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.4046,
+    "cpu_seconds": 235.1,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.382,
+    "A_first": 0.3852,
+    "A_second": 0.3786,
+    "A_raw": 0.4619,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 27.1,
+    "thickness": 2.2124,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 30,
+    "gamma": 2.2,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.6873,
+    "cpu_seconds": 242.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3405,
+    "A_first": 0.3411,
+    "A_second": 0.3388,
+    "A_raw": 0.4226,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 21.0,
+    "thickness": 2.1683,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 31,
+    "gamma": 2.15,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 9.8411,
+    "cpu_seconds": 246.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.2705,
+    "A_first": 0.294,
+    "A_second": 0.2425,
+    "A_raw": 0.3637,
+    "peak_mode": 5,
+    "wavelength": 20.0,
+    "peak_over_median": 11.6,
+    "thickness": 2.1076,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 32,
+    "gamma": 2.1,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 10.0496,
+    "cpu_seconds": 251.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.1369,
+    "A_first": 0.1656,
+    "A_second": 0.1,
+    "A_raw": 0.2733,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 3.3,
+    "thickness": 2.0295,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 33,
+    "gamma": 2.05,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 10.6907,
+    "cpu_seconds": 267.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0694,
+    "A_first": 0.0764,
+    "A_second": 0.0634,
+    "A_raw": 0.2321,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 3.1,
+    "thickness": 1.9717,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 34,
+    "gamma": 2.0,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 11.1746,
+    "cpu_seconds": 279.4,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0514,
+    "A_first": 0.065,
+    "A_second": 0.0298,
+    "A_raw": 0.212,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 1.9,
+    "thickness": 1.9255,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 35,
+    "gamma": 1.95,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 11.8163,
+    "cpu_seconds": 295.4,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0276,
+    "A_first": 0.0192,
+    "A_second": 0.0335,
+    "A_raw": 0.1939,
+    "peak_mode": 9,
+    "wavelength": 11.1,
+    "peak_over_median": 1.3,
+    "thickness": 1.8673,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 36,
+    "gamma": 1.9,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 12.4808,
+    "cpu_seconds": 312.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0244,
+    "A_first": 0.0219,
+    "A_second": 0.0183,
+    "A_raw": 0.1803,
+    "peak_mode": 9,
+    "wavelength": 11.1,
+    "peak_over_median": 1.2,
+    "thickness": 1.8077,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 37,
+    "gamma": 1.85,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 13.5958,
+    "cpu_seconds": 339.9,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0264,
+    "A_first": 0.0252,
+    "A_second": 0.0271,
+    "A_raw": 0.1595,
+    "peak_mode": 19,
+    "wavelength": 5.3,
+    "peak_over_median": 1.3,
+    "thickness": 1.7303,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 38,
+    "gamma": 1.8,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 15.8595,
+    "cpu_seconds": 396.5,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0253,
+    "A_first": 0.0257,
+    "A_second": 0.0259,
+    "A_raw": 0.144,
+    "peak_mode": 19,
+    "wavelength": 5.3,
+    "peak_over_median": 1.3,
+    "thickness": 1.6408,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 39,
+    "gamma": 1.75,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 17.8072,
+    "cpu_seconds": 445.2,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0295,
+    "A_first": 0.027,
+    "A_second": 0.0,
+    "A_raw": 0.1316,
+    "peak_mode": 6,
+    "wavelength": 16.7,
+    "peak_over_median": 1.4,
+    "thickness": 1.5694,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 40,
+    "gamma": 1.7,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 19.442,
+    "cpu_seconds": 486.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0,
+    "A_first": 0.0221,
+    "A_second": 0.0,
+    "A_raw": 0.1241,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 1.6,
+    "thickness": 1.523,
+    "patterned": false,
+    "unsettled": false
    }
   ]
  },
  "band_from_ring_2": {
-  "flat_level": 0.0534,
-  "flat_scatter": 0.0041,
+  "flat_level": 0.0559,
+  "flat_scatter": 0.0024,
   "transitions": {
    "up": {
-    "steps": 2,
-    "flat_steps": 2
+    "steps": 21,
+    "flat_steps": 12,
+    "gamma_first_patterned": 2.3,
+    "gamma_transition": 2.275,
+    "unsettled_at_transition": false,
+    "gamma_fit": 2.1359,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
    },
    "down": {
-    "steps": 0,
-    "flat_steps": 0
-   }
+    "steps": 20,
+    "flat_steps": 9,
+    "gamma_first_patterned": 2.15,
+    "gamma_transition": 2.125,
+    "unsettled_at_transition": false,
+    "gamma_fit": 1.9955,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
+   },
+   "width": 0.15
   },
   "A_by_step": [
    {
@@ -135,10 +1023,205 @@
     "gamma": 1.75,
     "direction": "up",
     "A": 0.0562
+   },
+   {
+    "gamma": 1.8,
+    "direction": "up",
+    "A": 0.0559
+   },
+   {
+    "gamma": 1.85,
+    "direction": "up",
+    "A": 0.0536
+   },
+   {
+    "gamma": 1.9,
+    "direction": "up",
+    "A": 0.0539
+   },
+   {
+    "gamma": 1.95,
+    "direction": "up",
+    "A": 0.0482
+   },
+   {
+    "gamma": 2.0,
+    "direction": "up",
+    "A": 0.0323
+   },
+   {
+    "gamma": 2.05,
+    "direction": "up",
+    "A": 0.0
+   },
+   {
+    "gamma": 2.1,
+    "direction": "up",
+    "A": 0.0
+   },
+   {
+    "gamma": 2.15,
+    "direction": "up",
+    "A": 0.0657
+   },
+   {
+    "gamma": 2.2,
+    "direction": "up",
+    "A": 0.0943
+   },
+   {
+    "gamma": 2.25,
+    "direction": "up",
+    "A": 0.1501
+   },
+   {
+    "gamma": 2.3,
+    "direction": "up",
+    "A": 0.2247
+   },
+   {
+    "gamma": 2.35,
+    "direction": "up",
+    "A": 0.3359
+   },
+   {
+    "gamma": 2.4,
+    "direction": "up",
+    "A": 0.425
+   },
+   {
+    "gamma": 2.45,
+    "direction": "up",
+    "A": 0.473
+   },
+   {
+    "gamma": 2.5,
+    "direction": "up",
+    "A": 0.5059
+   },
+   {
+    "gamma": 2.55,
+    "direction": "up",
+    "A": 0.505
+   },
+   {
+    "gamma": 2.6,
+    "direction": "up",
+    "A": 0.5228
+   },
+   {
+    "gamma": 2.65,
+    "direction": "up",
+    "A": 0.5316
+   },
+   {
+    "gamma": 2.7,
+    "direction": "up",
+    "A": 0.554
+   },
+   {
+    "gamma": 2.65,
+    "direction": "down",
+    "A": 0.5419
+   },
+   {
+    "gamma": 2.6,
+    "direction": "down",
+    "A": 0.5364
+   },
+   {
+    "gamma": 2.55,
+    "direction": "down",
+    "A": 0.5274
+   },
+   {
+    "gamma": 2.5,
+    "direction": "down",
+    "A": 0.5179
+   },
+   {
+    "gamma": 2.45,
+    "direction": "down",
+    "A": 0.4987
+   },
+   {
+    "gamma": 2.4,
+    "direction": "down",
+    "A": 0.4785
+   },
+   {
+    "gamma": 2.35,
+    "direction": "down",
+    "A": 0.4409
+   },
+   {
+    "gamma": 2.3,
+    "direction": "down",
+    "A": 0.3928
+   },
+   {
+    "gamma": 2.25,
+    "direction": "down",
+    "A": 0.3802
+   },
+   {
+    "gamma": 2.2,
+    "direction": "down",
+    "A": 0.3363
+   },
+   {
+    "gamma": 2.15,
+    "direction": "down",
+    "A": 0.2679
+   },
+   {
+    "gamma": 2.1,
+    "direction": "down",
+    "A": 0.1334
+   },
+   {
+    "gamma": 2.05,
+    "direction": "down",
+    "A": 0.0715
+   },
+   {
+    "gamma": 2.0,
+    "direction": "down",
+    "A": 0.0606
+   },
+   {
+    "gamma": 1.95,
+    "direction": "down",
+    "A": 0.0349
+   },
+   {
+    "gamma": 1.9,
+    "direction": "down",
+    "A": 0.0436
+   },
+   {
+    "gamma": 1.85,
+    "direction": "down",
+    "A": 0.0537
+   },
+   {
+    "gamma": 1.8,
+    "direction": "down",
+    "A": 0.0535
+   },
+   {
+    "gamma": 1.75,
+    "direction": "down",
+    "A": 0.0575
+   },
+   {
+    "gamma": 1.7,
+    "direction": "down",
+    "A": 0.0225
    }
   ]
  },
- "cpu_hours": 0.273,
+ "cpu_hours": 3.109,
  "tools": [
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
@@ -174,8 +1257,8 @@
  "files": [
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/ramp.jsonl",
-   "bytes": 377,
-   "sha256": "6ff317e30dffa40d6e7ef6c11f84869afca8437f7122bc6088bc1e41dbb67bdc"
+   "bytes": 7561,
+   "sha256": "dc6239da19afe672b8ab09052888c869e722029c5502f63fe496603bf8d4fe4c"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-000-g1.7/fields.npz",
@@ -186,6 +1269,201 @@
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-001-g1.75/fields.npz",
    "bytes": 667790,
    "sha256": "d5bf0dfbcf25792f950d6f5cdb110b9fde7256349f6fae0cf37ac73245d68cee"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-002-g1.8/fields.npz",
+   "bytes": 667594,
+   "sha256": "2158e6430c3e30977c2eaa5df080cbb7a44a2f7ffb631ed6644e1d718bb28a0c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-003-g1.85/fields.npz",
+   "bytes": 667500,
+   "sha256": "5d7d924eca08053ae2753c82b859aeaabd394c3babb4c559bbc8ac8425190131"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-004-g1.9/fields.npz",
+   "bytes": 667680,
+   "sha256": "3508cbec24f19dc30478d024af6f14b314fc91bac49ce1c4898345c30e2fc1e2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-005-g1.95/fields.npz",
+   "bytes": 667522,
+   "sha256": "5558b16e1e1d3533c998c19d25c32f14723c6ad3f30eab0fadad5f0b5472733f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-006-g2.0/fields.npz",
+   "bytes": 667547,
+   "sha256": "ce1180294d341106c40c80dde9e5e01c2b0eff18541caa22ee5b4bdcaad7e425"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-007-g2.05/fields.npz",
+   "bytes": 667547,
+   "sha256": "0bfe8925dd1a4ff0e0fa50feca590dfdd135ecdfb9a38611c724d761db012f83"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-008-g2.1/fields.npz",
+   "bytes": 667653,
+   "sha256": "3f88b12a8b98ff23527abc4b0560e141f191d4b3d6e6cca5ff9a3fb85c8576b5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-009-g2.15/fields.npz",
+   "bytes": 667803,
+   "sha256": "318b267f175f256625540ceed939dd75d5c7d1b0dd92e1ffea639f13990b728d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-010-g2.2/fields.npz",
+   "bytes": 668146,
+   "sha256": "fd15bb4696b318dd66410ff658c084f9a032a78d95e7588249767cfbea9d47f2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-011-g2.25/fields.npz",
+   "bytes": 668485,
+   "sha256": "fbfe2b04f1e1c44177874b210e1dd3731b5c761cbd1f601590d38097b66f2799"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-012-g2.3/fields.npz",
+   "bytes": 669043,
+   "sha256": "492da3b9e65c910b90742a353ea24498239d7a1151acd6dcb48827c0e4d14e05"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-013-g2.35/fields.npz",
+   "bytes": 669788,
+   "sha256": "c070141fe40795aad2d6a41c3b67bf03b03fc9cb7b4a00004abbe877826dd50d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-014-g2.4/fields.npz",
+   "bytes": 669500,
+   "sha256": "c1b5470087363ca9dd8569ddff7ce6a8b29c1cdccc5116e397e7c8654d1284c7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-015-g2.45/fields.npz",
+   "bytes": 669323,
+   "sha256": "abcf35280a21da6a922045dbe25da66a2fc7e5ef3f80453cdedcd17a37212c2b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-016-g2.5/fields.npz",
+   "bytes": 668701,
+   "sha256": "95f07157371d2f73547dd8fde59e943765e1b0f44ef657aa932fed55ddd9b9f8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-017-g2.55/fields.npz",
+   "bytes": 668737,
+   "sha256": "966f402e6cc20a31db17ed54a70ab7f37ac4f46c48b9559ac7fbedf52991f751"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-018-g2.6/fields.npz",
+   "bytes": 668427,
+   "sha256": "8a6b3ef7371713568673060857c2a9eefe808ded557df2a5aee9a50e2a907733"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-019-g2.65/fields.npz",
+   "bytes": 668251,
+   "sha256": "910eaaa32040f9da5f2b3a30c48ff6855fb7b0a3eb1a8c59fee132bdb58ea991"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-020-g2.7/fields.npz",
+   "bytes": 667958,
+   "sha256": "bee52fb64b985bddad32add78c8eaa8e26355901e6560c0cad2dfbff9bbcb19e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-021-g2.65/fields.npz",
+   "bytes": 668284,
+   "sha256": "21da177a02a0fb46cc6dd17ab4236ade249e266471c2124e05b59ba7c75e3f41"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-022-g2.6/fields.npz",
+   "bytes": 668294,
+   "sha256": "f12eff525cba2c2737a3c20bfbb3c1fcaadbf0e9a34c9a124d9aa044922565ed"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-023-g2.55/fields.npz",
+   "bytes": 668580,
+   "sha256": "8840a60d5018465fbfdb92fecddf4044cfd04d083533b89e3f72f85eda67439c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-024-g2.5/fields.npz",
+   "bytes": 668456,
+   "sha256": "189b4fb8a64cd4216e2d716ead045bca60562895e524392861561f15ed1f1963"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-025-g2.45/fields.npz",
+   "bytes": 668622,
+   "sha256": "476690cf33ccbbd9b51eb2f19301735f0a322712961fc87366401db5b0b353d7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-026-g2.4/fields.npz",
+   "bytes": 668893,
+   "sha256": "5ad55497c7946a4dc709c93f2776256468f3ed290210ffee44779f601caa0ed0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-027-g2.35/fields.npz",
+   "bytes": 669322,
+   "sha256": "2c7a2b30ef7f49c5832edbdd068bf41de7915db5c5c01bc4481703025a85d632"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-028-g2.3/fields.npz",
+   "bytes": 669716,
+   "sha256": "e48d8fd2880bf02e505a267abf8b8e50e8f0e9d88a598d0b3e12705d6112ac6d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-029-g2.25/fields.npz",
+   "bytes": 669887,
+   "sha256": "4e413de08478f11ee2f3a6e7683319241a6f5022c6fdbd5a04b4760e39dadafd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-030-g2.2/fields.npz",
+   "bytes": 669694,
+   "sha256": "d523a494ef1afa2f4674e586a402d0649bcb40fc007c862af030fc81233080fb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-031-g2.15/fields.npz",
+   "bytes": 669247,
+   "sha256": "bf7708fea7e2ad20d694ce0f5d39efdd33cba6471867c890cddf4055f107e267"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-032-g2.1/fields.npz",
+   "bytes": 668302,
+   "sha256": "e80953cea2a20b8b72fddd7c4e92ae4de5c453109120a17690491b66e6437274"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-033-g2.05/fields.npz",
+   "bytes": 667902,
+   "sha256": "ccf7d8c94bd02f17329bdff65ed5b4b1e4901fe644136ea217f31601838528b2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-034-g2.0/fields.npz",
+   "bytes": 667651,
+   "sha256": "ffc264ab7e3c8640d847dcd9fe1eff93453049f8bfbe8a2e2eef0df5b31e9d96"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-035-g1.95/fields.npz",
+   "bytes": 667676,
+   "sha256": "9adb6e30ca8657b66063beb3f054e434dc7f3ea2bb7f5ef3a26723a14e19deba"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-036-g1.9/fields.npz",
+   "bytes": 667411,
+   "sha256": "c71a34968fa7eff2c3bd5ddcf89c47b66f8f6692b595511a594cb059e29f7353"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-037-g1.85/fields.npz",
+   "bytes": 667643,
+   "sha256": "f7f417fa65008562af9eb0c86bf7923e37652f0bceabea3a4672dfb1d3b463b7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-038-g1.8/fields.npz",
+   "bytes": 667589,
+   "sha256": "c73e866ad8e538fab5522101669f215ea3db36f7c77f7b038b4e31ce429cb3f8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-039-g1.75/fields.npz",
+   "bytes": 667713,
+   "sha256": "fe511c56347a76c1c01132cc09ec96f5916d6d472b96e9d298cca3648fee3959"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-040-g1.7/fields.npz",
+   "bytes": 667927,
+   "sha256": "24a478f2a78cc3601f9e92675a075ea949a894581be564b00df3c4662db76bbc"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-000-g1.7/summary.json",
@@ -199,9 +1477,199 @@
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-002-g1.8/summary.json",
-   "bytes": 244,
-   "sha256": "18518ba11f7c4555ee266384a41c72f7f30100e9f380e5dc3a9b48499c8d77b6"
+   "bytes": 797,
+   "sha256": "d910736441438b5fcff6b52c664a5ce96c30041f9dbea81320bdb9d120c7f2b5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-003-g1.85/summary.json",
+   "bytes": 796,
+   "sha256": "dba0f8ec65ab4ab811f25a14aab43183c4b049b34cdedac89c5e897fa740c01a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-004-g1.9/summary.json",
+   "bytes": 796,
+   "sha256": "68a5c6be9eb526308a6b1e6e231d13a805daac52540362a718ad026e93f1eb62"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-005-g1.95/summary.json",
+   "bytes": 789,
+   "sha256": "0f5f88d5f5a7db87c80343458a6eec9aac4d518c66fa6cfc2d45a7cc7f72f4ad"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-006-g2.0/summary.json",
+   "bytes": 805,
+   "sha256": "99ced90f7e62864354ba5757515bc316963de49bdc6d040ecb24840bee9d4377"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-007-g2.05/summary.json",
+   "bytes": 805,
+   "sha256": "a133eb52557d532b2f8b986e00cb8bc25c555d7c0e3753f5082b7a7c28ef7662"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-008-g2.1/summary.json",
+   "bytes": 789,
+   "sha256": "dc6156b48acceaa25bb6fb8271d16c1c70d265d15f5a092375421cd0aba79fd8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-009-g2.15/summary.json",
+   "bytes": 805,
+   "sha256": "1ca44a0c93d3acd4abebacabf1c003fc71fe2bb37d84008836dcb4ed3b2cc296"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-010-g2.2/summary.json",
+   "bytes": 793,
+   "sha256": "94699ea6c0daf790c54037588d4dd31c4f03298a8db52d55cf6ec942bc10c013"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-011-g2.25/summary.json",
+   "bytes": 797,
+   "sha256": "730b1aa75b88dfdf7ff90c9cb33cd265a78cff143d25f62612b2b3b2ebb616c7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-012-g2.3/summary.json",
+   "bytes": 796,
+   "sha256": "4099703ca1c1dd7d8b2fc86e43d22539238e594a6a21ce622c3de65d6db49e8c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-013-g2.35/summary.json",
+   "bytes": 797,
+   "sha256": "c7cd6b33d4e4a8d7861f7f369e2092c2937370464f200f349d4f5c90c4c3b04c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-014-g2.4/summary.json",
+   "bytes": 788,
+   "sha256": "025cb9981203e270e5cb06be060465d8c9e035034a0fad065e8fb459519093d8"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-015-g2.45/summary.json",
+   "bytes": 796,
+   "sha256": "b1252d195a5510cf4f261f8c341370328797dc2de178a1f7c92779ffc4d05360"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-016-g2.5/summary.json",
+   "bytes": 796,
+   "sha256": "564602742c6615f9176b0e7b750c56b06f5b25f405fdf955c9369fd657c5fd8d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-017-g2.55/summary.json",
+   "bytes": 806,
+   "sha256": "cdecef5b04ff93713ea2e66a3dfa163ba46d8f2457bb10c8654f950a81c6e8bb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-018-g2.6/summary.json",
+   "bytes": 797,
+   "sha256": "b03e0eade7d6e1e4b5227bbefbca272efdb68d98b5b98a8a9e0093d491886912"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-019-g2.65/summary.json",
+   "bytes": 791,
+   "sha256": "820dc241911526c0492c7db7272f1011314cb2429c005deaad07bb10433a6235"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-020-g2.7/summary.json",
+   "bytes": 802,
+   "sha256": "4c758a54e99b349e43b1525b97ed33504b06a8d45ccf339b46f80ac140d14ccf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-021-g2.65/summary.json",
+   "bytes": 806,
+   "sha256": "e4e1105ce2c4c69a66996e6ad7337ac3d7581ddd6068103805f0b5c336b3fc9a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-022-g2.6/summary.json",
+   "bytes": 796,
+   "sha256": "d88d322c33d2ea397603dcf07f121c373e035dd78258e20b167e1afd6f9cb937"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-023-g2.55/summary.json",
+   "bytes": 799,
+   "sha256": "e4da2cc77d24a28e89ec64237a233b9c019902b502790ecb638cb2ff2a11bfee"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-024-g2.5/summary.json",
+   "bytes": 797,
+   "sha256": "f942b2c1ab9e04c8e36f9bc7bf166953c88f263932e08926cfcef80f866e550b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-025-g2.45/summary.json",
+   "bytes": 791,
+   "sha256": "12016457a24cbd3ef3803bc5ab7a8cf72e7b220284f2b57a30bc7d648ad69da3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-026-g2.4/summary.json",
+   "bytes": 794,
+   "sha256": "6fd55ac5e14fb1228f0b4ab3c9a014fd590be2a3d57998ef5aee5ae23ef866a6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-027-g2.35/summary.json",
+   "bytes": 799,
+   "sha256": "0452612fa2696e4cbd98a97004db17f110547cdf29735fd62a3ade384c5e8f84"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-028-g2.3/summary.json",
+   "bytes": 802,
+   "sha256": "7c1b1faf4d22854375f0e930f01410c98faf4a0a0cb07c91bece67b5e8ed1226"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-029-g2.25/summary.json",
+   "bytes": 799,
+   "sha256": "7599ca920b5f8d486ba9bfcd9efc4810eeceee0d5060e267f8a0b38846ad24cd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-030-g2.2/summary.json",
+   "bytes": 806,
+   "sha256": "6cfa4eb1453d7615c6261f04b05c2c99c97bc940906e643d903b956b9612a8ca"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-031-g2.15/summary.json",
+   "bytes": 790,
+   "sha256": "b339a252f22a0f6b0fe87665b25ac4873f8d95b14fa82e6b7ebac8139da713fe"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-032-g2.1/summary.json",
+   "bytes": 804,
+   "sha256": "0610bead2a3b876ad350ca887dbeef15a71fb001a65120d3dd4ae89f93cc0d0a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-033-g2.05/summary.json",
+   "bytes": 789,
+   "sha256": "98056aeb405c7a7c58af9d6aa6b8547951f817ba8d01d66a667ab6ee6b17d6e6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-034-g2.0/summary.json",
+   "bytes": 805,
+   "sha256": "592ae7f96500876d22558da73dd3934b7d0b0ad82f73d40f102ecd773ad0b8e7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-035-g1.95/summary.json",
+   "bytes": 796,
+   "sha256": "4e86b8058a8a0219befbad7b9e57ec1f62e2af50ba66feff5e08428034723f75"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-036-g1.9/summary.json",
+   "bytes": 788,
+   "sha256": "9336fa20b4446b46ecbb971070113dac393e43a8f2ee375550f5f478cd22be47"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-037-g1.85/summary.json",
+   "bytes": 805,
+   "sha256": "8fbd1f93f8f3e550e77047b6d7dc234b9482a222094f62363a9d0ebe17c2ee9d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-038-g1.8/summary.json",
+   "bytes": 789,
+   "sha256": "1da7815c7924308ca4a0c3b2f21e95ac6932f81c2b7109f56b897113e51ebc1c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-039-g1.75/summary.json",
+   "bytes": 789,
+   "sha256": "4345e26ef90a65b93f0a06835008d466dcd19fa5c214cd4d558bfa33618d2acf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/step-040-g1.7/summary.json",
+   "bytes": 792,
+   "sha256": "d508ae5dc8997c97ccf5d0335266a83b25898ab1daedc3dee88ceb5eccd56b9e"
   }
  ],
- "run_folder_bytes": 21708800
+ "run_folder_bytes": 306798592
 }

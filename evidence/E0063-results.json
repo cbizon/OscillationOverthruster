@@ -1,0 +1,1220 @@
+{
+ "experiment": "E0063",
+ "what": "Neighbours of the stalling spheres at the first stall of the unmodified engine with friction, seven 2D conditions, seed 1 (the E0043 stalls), read from the same deterministic replay; times in sqrt(D/g), speeds in sqrt(gD), gaps in D.",
+ "replays_match_E0043": 7,
+ "stalls": 7,
+ "pair_stalls": 6,
+ "predictions": {
+  "i": {
+   "what": "lower sphere has two partners due within 1e-6 at every stall (free-flight due times)",
+   "stalls_with_delta_two_under_1e_6": 3,
+   "stalls_with_two_touching_partners": 7,
+   "holds": false
+  },
+  "ii": {
+   "what": "at fewer than four stalls, contacts within 1e-3 D balance the push on the lower sphere",
+   "balanced_within_1e_3": 1,
+   "balanced_within_1e_9": 0,
+   "balanced_within_1e_2": 4,
+   "balanced_within_1e_1": 6,
+   "holds": true
+  },
+  "iii": {
+   "what": "at fewer than four stalls the upper sphere has two partners due within 1e-6",
+   "count": 0,
+   "holds": true
+  }
+ },
+ "rows": [
+  {
+   "stall": "g3.5-f0.3-d15-s1",
+   "cycle": 0,
+   "phase": 0.9869,
+   "period": 12.91,
+   "effective_gravity_over_g": 1.29,
+   "same_stall_as_E0043": true,
+   "pair": null,
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 59,
+     "0.001": 262,
+     "0.01": 510,
+     "0.1": 784
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 6,
+     "0.001": 54,
+     "0.01": 128,
+     "0.1": 272
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 0,
+     "delta 1e-06, speed 0.0001": 0,
+     "delta 1e-06, speed 0.01": 0,
+     "delta 0.0001, speed 1e-06": 0,
+     "delta 0.0001, speed 0.0001": 0,
+     "delta 0.0001, speed 0.01": 53,
+     "delta 0.001, speed 1e-06": 0,
+     "delta 0.001, speed 0.0001": 0,
+     "delta 0.001, speed 0.01": 172,
+     "delta 0.01, speed 1e-06": 0,
+     "delta 0.01, speed 0.0001": 1,
+     "delta 0.01, speed 0.01": 275
+    }
+   },
+   "cpu_seconds": 6.6,
+   "lower": {
+    "speed_rel_plate": 0.000197,
+    "horizontal_speed": 0.000197,
+    "vertical_speed_rel_plate": 8.88e-16,
+    "contacts_within": {
+     "1e-09": 3,
+     "1e-06": 3,
+     "0.0001": 4,
+     "0.001": 4,
+     "0.01": 4,
+     "0.1": 5
+    },
+    "touching": [
+     {
+      "partner": 1022,
+      "angle_from_up_deg": -29.9,
+      "gap": -1.51e-12,
+      "normal_relative_speed": 1.71e-09,
+      "due_in_free_flight": null
+     },
+     {
+      "partner": 1039,
+      "angle_from_up_deg": 30.2,
+      "gap": -2.23e-13,
+      "normal_relative_speed": 9.93e-14,
+      "due_in_free_flight": null
+     },
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -1.62e-14,
+      "normal_relative_speed": -8.88e-16,
+      "due_in_free_flight": 6.9e-16
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 1005,
+      "angle_from_up_deg": -90.0,
+      "gap": 2.87e-05,
+      "normal_relative_speed": 0.000294,
+      "due_in": null
+     },
+     {
+      "partner": 1038,
+      "angle_from_up_deg": 89.9,
+      "gap": 0.0486,
+      "normal_relative_speed": -0.00289,
+      "due_in": 16.8
+     }
+    ],
+    "delta_two_free_flight": 16.8,
+    "partners_due_now": 3,
+    "next_approaching_partner_due_in": 16.8,
+    "next_approaching_partner_due_in_periods": 1.3,
+    "next_approaching_partner_speed": 0.00289,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g3.5-f0.5-d15-s1",
+   "cycle": 0,
+   "phase": 0.8978,
+   "period": 7.746,
+   "effective_gravity_over_g": 3.1,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 38.8,
+    "gap": -4.91e-13
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 30,
+     "0.001": 174,
+     "0.01": 408,
+     "0.1": 763
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 5,
+     "0.001": 29,
+     "0.01": 101,
+     "0.1": 275
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 0,
+     "delta 1e-06, speed 0.0001": 0,
+     "delta 1e-06, speed 0.01": 0,
+     "delta 0.0001, speed 1e-06": 0,
+     "delta 0.0001, speed 0.0001": 0,
+     "delta 0.0001, speed 0.01": 0,
+     "delta 0.001, speed 1e-06": 0,
+     "delta 0.001, speed 0.0001": 0,
+     "delta 0.001, speed 0.01": 2,
+     "delta 0.01, speed 1e-06": 0,
+     "delta 0.01, speed 0.0001": 0,
+     "delta 0.01, speed 0.01": 8
+    }
+   },
+   "cpu_seconds": 2.5,
+   "lower": {
+    "speed_rel_plate": 0.272,
+    "horizontal_speed": 0.272,
+    "vertical_speed_rel_plate": -8.34e-11,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 2,
+     "0.01": 2,
+     "0.1": 3
+    },
+    "touching": [
+     {
+      "partner": 427,
+      "angle_from_up_deg": 38.8,
+      "gap": -4.91e-13,
+      "normal_relative_speed": 1.43e-10,
+      "due_in_free_flight": null
+     },
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -4.88e-15,
+      "normal_relative_speed": 8.34e-11,
+      "due_in_free_flight": -2.69e-11
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 413,
+      "angle_from_up_deg": -43.4,
+      "gap": 0.034,
+      "normal_relative_speed": -0.0292,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": null,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": null,
+    "next_approaching_partner_due_in_periods": null,
+    "next_approaching_partner_speed": null,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": false,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 0.607,
+    "horizontal_speed": 0.348,
+    "vertical_speed_rel_plate": -0.498,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 1,
+     "0.01": 1,
+     "0.1": 3
+    },
+    "touching": [
+     {
+      "partner": 412,
+      "angle_from_up_deg": -141.2,
+      "gap": -4.91e-13,
+      "normal_relative_speed": 1.43e-10,
+      "due_in_free_flight": null
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 428,
+      "angle_from_up_deg": 11.4,
+      "gap": 0.0178,
+      "normal_relative_speed": -0.0719,
+      "due_in": null
+     },
+     {
+      "partner": 442,
+      "angle_from_up_deg": 79.2,
+      "gap": 0.0657,
+      "normal_relative_speed": -0.162,
+      "due_in": 0.408
+     }
+    ],
+    "delta_two_free_flight": null,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": 0.408,
+    "next_approaching_partner_due_in_periods": 0.0527,
+    "next_approaching_partner_speed": 0.162,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": false,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g5-f0.3-d10-s1",
+   "cycle": 2,
+   "phase": 0.8797,
+   "period": 10.541,
+   "effective_gravity_over_g": 4.43,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 24.4,
+    "gap": -9.76e-14
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 17,
+     "0.001": 137,
+     "0.01": 345,
+     "0.1": 517
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 1,
+     "0.001": 14,
+     "0.01": 85,
+     "0.1": 186
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 1,
+     "delta 1e-06, speed 0.0001": 1,
+     "delta 1e-06, speed 0.01": 1,
+     "delta 0.0001, speed 1e-06": 1,
+     "delta 0.0001, speed 0.0001": 1,
+     "delta 0.0001, speed 0.01": 2,
+     "delta 0.001, speed 1e-06": 1,
+     "delta 0.001, speed 0.0001": 1,
+     "delta 0.001, speed 0.01": 11,
+     "delta 0.01, speed 1e-06": 1,
+     "delta 0.01, speed 0.0001": 1,
+     "delta 0.01, speed 0.01": 32
+    }
+   },
+   "cpu_seconds": 2.7,
+   "lower": {
+    "speed_rel_plate": 0.0315,
+    "horizontal_speed": 0.0315,
+    "vertical_speed_rel_plate": 1.55e-11,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 2,
+     "0.01": 3,
+     "0.1": 3
+    },
+    "touching": [
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -1.24e-13,
+      "normal_relative_speed": -1.55e-11,
+      "due_in_free_flight": 3.5e-12
+     },
+     {
+      "partner": 508,
+      "angle_from_up_deg": 24.4,
+      "gap": -9.76e-14,
+      "normal_relative_speed": -4.3e-11,
+      "due_in_free_flight": 0.0
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 479,
+      "angle_from_up_deg": -89.7,
+      "gap": 0.00199,
+      "normal_relative_speed": -0.0378,
+      "due_in": 0.0528
+     }
+    ],
+    "delta_two_free_flight": 3.5e-12,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": 0.0528,
+    "next_approaching_partner_due_in_periods": 0.00501,
+    "next_approaching_partner_speed": 0.0378,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 0.217,
+    "horizontal_speed": 0.192,
+    "vertical_speed_rel_plate": -0.101,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 1,
+     "0.01": 2,
+     "0.1": 5
+    },
+    "touching": [
+     {
+      "partner": 489,
+      "angle_from_up_deg": -155.6,
+      "gap": -9.76e-14,
+      "normal_relative_speed": -4.3e-11,
+      "due_in_free_flight": 0.0
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 509,
+      "angle_from_up_deg": 25.9,
+      "gap": 0.00599,
+      "normal_relative_speed": -0.00694,
+      "due_in": null
+     },
+     {
+      "partner": 498,
+      "angle_from_up_deg": -88.4,
+      "gap": 0.0254,
+      "normal_relative_speed": 0.123,
+      "due_in": null
+     },
+     {
+      "partner": 507,
+      "angle_from_up_deg": 85.0,
+      "gap": 0.0261,
+      "normal_relative_speed": -0.0749,
+      "due_in": 0.36
+     },
+     {
+      "partner": 499,
+      "angle_from_up_deg": -31.4,
+      "gap": 0.075,
+      "normal_relative_speed": 0.154,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": 0.36,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": 0.36,
+    "next_approaching_partner_due_in_periods": 0.0342,
+    "next_approaching_partner_speed": 0.0749,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g5-f0.3-d15-s1",
+   "cycle": 2,
+   "phase": 0.9004,
+   "period": 12.91,
+   "effective_gravity_over_g": 3.93,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 22.0,
+    "gap": -2.01e-13
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 31,
+     "0.001": 153,
+     "0.01": 418,
+     "0.1": 689
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 2,
+     "0.001": 19,
+     "0.01": 93,
+     "0.1": 231
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 0,
+     "delta 1e-06, speed 0.0001": 0,
+     "delta 1e-06, speed 0.01": 0,
+     "delta 0.0001, speed 1e-06": 0,
+     "delta 0.0001, speed 0.0001": 0,
+     "delta 0.0001, speed 0.01": 2,
+     "delta 0.001, speed 1e-06": 0,
+     "delta 0.001, speed 0.0001": 0,
+     "delta 0.001, speed 0.01": 16,
+     "delta 0.01, speed 1e-06": 0,
+     "delta 0.01, speed 0.0001": 0,
+     "delta 0.01, speed 0.01": 27
+    }
+   },
+   "cpu_seconds": 6.9,
+   "lower": {
+    "speed_rel_plate": 0.647,
+    "horizontal_speed": 0.647,
+    "vertical_speed_rel_plate": -4.77e-11,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 3,
+     "0.01": 3,
+     "0.1": 3
+    },
+    "touching": [
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -6.87e-13,
+      "normal_relative_speed": 4.77e-11,
+      "due_in_free_flight": -1.21e-11
+     },
+     {
+      "partner": 815,
+      "angle_from_up_deg": -22.0,
+      "gap": -2.01e-13,
+      "normal_relative_speed": 8.9e-11,
+      "due_in_free_flight": null
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 889,
+      "angle_from_up_deg": 90.3,
+      "gap": 0.000161,
+      "normal_relative_speed": -0.0591,
+      "due_in": 0.00272
+     }
+    ],
+    "delta_two_free_flight": 0.00272,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": 0.00272,
+    "next_approaching_partner_due_in_periods": 0.000211,
+    "next_approaching_partner_speed": 0.0591,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 1.29,
+    "horizontal_speed": 1.26,
+    "vertical_speed_rel_plate": -0.25,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 1,
+     "0.01": 3,
+     "0.1": 5
+    },
+    "touching": [
+     {
+      "partner": 849,
+      "angle_from_up_deg": 158.0,
+      "gap": -2.01e-13,
+      "normal_relative_speed": 8.9e-11,
+      "due_in_free_flight": null
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 814,
+      "angle_from_up_deg": 90.7,
+      "gap": 0.00155,
+      "normal_relative_speed": -0.0345,
+      "due_in": 0.0451
+     },
+     {
+      "partner": 796,
+      "angle_from_up_deg": -86.3,
+      "gap": 0.0092,
+      "normal_relative_speed": 0.261,
+      "due_in": null
+     },
+     {
+      "partner": 870,
+      "angle_from_up_deg": 29.3,
+      "gap": 0.019,
+      "normal_relative_speed": -0.174,
+      "due_in": 0.109
+     },
+     {
+      "partner": 797,
+      "angle_from_up_deg": -28.4,
+      "gap": 0.0585,
+      "normal_relative_speed": 0.014,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": 0.109,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": 0.0451,
+    "next_approaching_partner_due_in_periods": 0.00349,
+    "next_approaching_partner_speed": 0.0345,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g5-f0.3-d5-s1",
+   "cycle": 20,
+   "phase": 0.9646,
+   "period": 7.454,
+   "effective_gravity_over_g": 2.1,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 61.5,
+    "gap": -8.95e-12
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 7,
+     "0.01": 59,
+     "0.1": 196
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 0,
+     "0.001": 0,
+     "0.01": 10,
+     "0.1": 50
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 1,
+     "delta 1e-06, speed 0.0001": 1,
+     "delta 1e-06, speed 0.01": 1,
+     "delta 0.0001, speed 1e-06": 1,
+     "delta 0.0001, speed 0.0001": 1,
+     "delta 0.0001, speed 0.01": 1,
+     "delta 0.001, speed 1e-06": 1,
+     "delta 0.001, speed 0.0001": 1,
+     "delta 0.001, speed 0.01": 1,
+     "delta 0.01, speed 1e-06": 1,
+     "delta 0.01, speed 0.0001": 1,
+     "delta 0.01, speed 0.01": 1
+    }
+   },
+   "cpu_seconds": 2.0,
+   "lower": {
+    "speed_rel_plate": 0.224,
+    "horizontal_speed": 0.224,
+    "vertical_speed_rel_plate": -9.7e-12,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 2,
+     "0.01": 3,
+     "0.1": 4
+    },
+    "touching": [
+     {
+      "partner": 318,
+      "angle_from_up_deg": 61.5,
+      "gap": -8.95e-12,
+      "normal_relative_speed": -1.72e-11,
+      "due_in_free_flight": 0.0
+     },
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -9.1e-15,
+      "normal_relative_speed": 9.7e-12,
+      "due_in_free_flight": -4.61e-12
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 314,
+      "angle_from_up_deg": -30.4,
+      "gap": 0.0028,
+      "normal_relative_speed": -0.0161,
+      "due_in": 0.175
+     },
+     {
+      "partner": 306,
+      "angle_from_up_deg": -89.9,
+      "gap": 0.0216,
+      "normal_relative_speed": 0.0536,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": 0.0,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": 0.175,
+    "next_approaching_partner_due_in_periods": 0.0234,
+    "next_approaching_partner_speed": 0.0161,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 0.208,
+    "horizontal_speed": 0.14,
+    "vertical_speed_rel_plate": -0.155,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 2,
+     "0.01": 2,
+     "0.1": 4
+    },
+    "touching": [
+     {
+      "partner": 313,
+      "angle_from_up_deg": -118.5,
+      "gap": -8.95e-12,
+      "normal_relative_speed": -1.72e-11,
+      "due_in_free_flight": 0.0
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 317,
+      "angle_from_up_deg": 117.9,
+      "gap": 0.000839,
+      "normal_relative_speed": 0.0195,
+      "due_in": null
+     },
+     {
+      "partner": 324,
+      "angle_from_up_deg": 58.6,
+      "gap": 0.0144,
+      "normal_relative_speed": 0.199,
+      "due_in": null
+     },
+     {
+      "partner": 319,
+      "angle_from_up_deg": 2.4,
+      "gap": 0.0944,
+      "normal_relative_speed": 0.268,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": null,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": null,
+    "next_approaching_partner_due_in_periods": null,
+    "next_approaching_partner_speed": null,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g5-f0.5-d10-s1",
+   "cycle": 4,
+   "phase": 0.8253,
+   "period": 6.325,
+   "effective_gravity_over_g": 5.45,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 31.4,
+    "gap": -6.68e-12
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 18,
+     "0.001": 127,
+     "0.01": 304,
+     "0.1": 539
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 0,
+     "0.001": 20,
+     "0.01": 75,
+     "0.1": 192
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 1,
+     "delta 1e-06, speed 0.0001": 1,
+     "delta 1e-06, speed 0.01": 1,
+     "delta 0.0001, speed 1e-06": 1,
+     "delta 0.0001, speed 0.0001": 1,
+     "delta 0.0001, speed 0.01": 1,
+     "delta 0.001, speed 1e-06": 1,
+     "delta 0.001, speed 0.0001": 1,
+     "delta 0.001, speed 0.01": 3,
+     "delta 0.01, speed 1e-06": 1,
+     "delta 0.01, speed 0.0001": 1,
+     "delta 0.01, speed 0.01": 7
+    }
+   },
+   "cpu_seconds": 2.8,
+   "lower": {
+    "speed_rel_plate": 0.191,
+    "horizontal_speed": 0.191,
+    "vertical_speed_rel_plate": -1.71e-11,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 2,
+     "0.01": 3,
+     "0.1": 5
+    },
+    "touching": [
+     {
+      "partner": 762,
+      "angle_from_up_deg": -31.4,
+      "gap": -6.68e-12,
+      "normal_relative_speed": -5.21e-12,
+      "due_in_free_flight": 0.0
+     },
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -8.88e-14,
+      "normal_relative_speed": 1.71e-11,
+      "due_in_free_flight": -3.13e-12
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 785,
+      "angle_from_up_deg": 89.6,
+      "gap": 0.00168,
+      "normal_relative_speed": -0.0164,
+      "due_in": 0.103
+     },
+     {
+      "partner": 774,
+      "angle_from_up_deg": 29.6,
+      "gap": 0.0115,
+      "normal_relative_speed": 0.0427,
+      "due_in": null
+     },
+     {
+      "partner": 761,
+      "angle_from_up_deg": -89.9,
+      "gap": 0.053,
+      "normal_relative_speed": 0.0361,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": 0.0,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": 0.103,
+    "next_approaching_partner_due_in_periods": 0.0162,
+    "next_approaching_partner_speed": 0.0164,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 0.103,
+    "horizontal_speed": 0.0281,
+    "vertical_speed_rel_plate": -0.0994,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 1,
+     "0.01": 3,
+     "0.1": 6
+    },
+    "touching": [
+     {
+      "partner": 773,
+      "angle_from_up_deg": 148.6,
+      "gap": -6.68e-12,
+      "normal_relative_speed": -5.21e-12,
+      "due_in_free_flight": 0.0
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 763,
+      "angle_from_up_deg": -30.2,
+      "gap": 0.0012,
+      "normal_relative_speed": 0.0337,
+      "due_in": null
+     },
+     {
+      "partner": 761,
+      "angle_from_up_deg": -147.9,
+      "gap": 0.00432,
+      "normal_relative_speed": -0.146,
+      "due_in": 0.0297
+     },
+     {
+      "partner": 774,
+      "angle_from_up_deg": 88.3,
+      "gap": 0.0184,
+      "normal_relative_speed": 0.164,
+      "due_in": null
+     },
+     {
+      "partner": 775,
+      "angle_from_up_deg": 29.4,
+      "gap": 0.0257,
+      "normal_relative_speed": 0.14,
+      "due_in": null
+     },
+     {
+      "partner": 751,
+      "angle_from_up_deg": -89.1,
+      "gap": 0.036,
+      "normal_relative_speed": -0.123,
+      "due_in": 0.297
+     }
+    ],
+    "delta_two_free_flight": 0.0297,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": 0.0297,
+    "next_approaching_partner_due_in_periods": 0.0047,
+    "next_approaching_partner_speed": 0.146,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   }
+  },
+  {
+   "stall": "g5-f0.5-d15-s1",
+   "cycle": 2,
+   "phase": 0.8309,
+   "period": 7.746,
+   "effective_gravity_over_g": 5.37,
+   "same_stall_as_E0043": true,
+   "pair": {
+    "line_of_centres_from_vertical_deg": 26.4,
+    "gap": -4.96e-13
+   },
+   "layer_control": {
+    "note": "spheres (of N) whose second distinct partner is due within delta, on present free flights; 'slow' also requires both normal speeds below the speed given",
+    "second_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 40,
+     "0.001": 218,
+     "0.01": 473,
+     "0.1": 826
+    },
+    "third_partner_within": {
+     "1e-09": 0,
+     "1e-06": 0,
+     "0.0001": 4,
+     "0.001": 39,
+     "0.01": 119,
+     "0.1": 285
+    },
+    "second_within_and_slow": {
+     "delta 1e-06, speed 1e-06": 0,
+     "delta 1e-06, speed 0.0001": 0,
+     "delta 1e-06, speed 0.01": 0,
+     "delta 0.0001, speed 1e-06": 0,
+     "delta 0.0001, speed 0.0001": 0,
+     "delta 0.0001, speed 0.01": 2,
+     "delta 0.001, speed 1e-06": 0,
+     "delta 0.001, speed 0.0001": 0,
+     "delta 0.001, speed 0.01": 19,
+     "delta 0.01, speed 1e-06": 0,
+     "delta 0.01, speed 0.0001": 0,
+     "delta 0.01, speed 0.01": 31
+    }
+   },
+   "cpu_seconds": 4.6,
+   "lower": {
+    "speed_rel_plate": 0.317,
+    "horizontal_speed": 0.317,
+    "vertical_speed_rel_plate": -8.84e-11,
+    "contacts_within": {
+     "1e-09": 2,
+     "1e-06": 2,
+     "0.0001": 2,
+     "0.001": 2,
+     "0.01": 2,
+     "0.1": 3
+    },
+    "touching": [
+     {
+      "partner": "plate",
+      "angle_from_up_deg": 180.0,
+      "gap": -1.98e-11,
+      "normal_relative_speed": 8.84e-11,
+      "due_in_free_flight": -1.65e-11
+     },
+     {
+      "partner": 727,
+      "angle_from_up_deg": 26.4,
+      "gap": -4.96e-13,
+      "normal_relative_speed": 1.9e-10,
+      "due_in_free_flight": null
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 709,
+      "angle_from_up_deg": -89.7,
+      "gap": 0.0334,
+      "normal_relative_speed": 0.211,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": null,
+    "partners_due_now": 2,
+    "next_approaching_partner_due_in": null,
+    "next_approaching_partner_due_in_periods": null,
+    "next_approaching_partner_speed": null,
+    "balance": {
+     "push_from_upper": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": false,
+      "0.1": true
+     },
+     "effective_gravity": {
+      "1e-09": true,
+      "1e-06": true,
+      "0.0001": true,
+      "0.001": true,
+      "0.01": true,
+      "0.1": true
+     }
+    }
+   },
+   "upper": {
+    "speed_rel_plate": 1.09,
+    "horizontal_speed": 1.03,
+    "vertical_speed_rel_plate": -0.355,
+    "contacts_within": {
+     "1e-09": 1,
+     "1e-06": 1,
+     "0.0001": 1,
+     "0.001": 1,
+     "0.01": 1,
+     "0.1": 2
+    },
+    "touching": [
+     {
+      "partner": 726,
+      "angle_from_up_deg": -153.6,
+      "gap": -4.96e-13,
+      "normal_relative_speed": 1.9e-10,
+      "due_in_free_flight": null
+     }
+    ],
+    "not_touching": [
+     {
+      "partner": 728,
+      "angle_from_up_deg": 5.3,
+      "gap": 0.0282,
+      "normal_relative_speed": 0.223,
+      "due_in": null
+     }
+    ],
+    "delta_two_free_flight": null,
+    "partners_due_now": 1,
+    "next_approaching_partner_due_in": null,
+    "next_approaching_partner_due_in_periods": null,
+    "next_approaching_partner_speed": null,
+    "balance": {
+     "effective_gravity": {
+      "1e-09": false,
+      "1e-06": false,
+      "0.0001": false,
+      "0.001": false,
+      "0.01": false,
+      "0.1": false
+     }
+    }
+   }
+  }
+ ],
+ "cpu_hours": 0.0078,
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/stall_neighbours.py",
+   "bytes": 11076,
+   "sha256": "01a72a7b6556b8884eaaaa77f5d41bf6ff680411b8d40101b56c4c1cfca8680e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0063_evidence.py",
+   "bytes": 6026,
+   "sha256": "f0302937403a68457b1ab313d7bd87064f3a20b986b4006b53ee6b51bd4c958f"
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g3.5-f0.3-d15-s1.json",
+   "bytes": 3381,
+   "sha256": "ace0549c8b80c258eac10973605a8e25e7f75f18fca1ac021d91d80fdce094cd"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g3.5-f0.5-d15-s1.json",
+   "bytes": 4944,
+   "sha256": "79c9eeed7cf4e452dc795bdab7144e2d989db7839f914c488ae0a962c9dc773b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g5-f0.3-d10-s1.json",
+   "bytes": 5389,
+   "sha256": "ebd9a9ec9a21d889015c2e4bd88cfa9d0ef31929bcf7f1b10c56742cf0547cd0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g5-f0.3-d15-s1.json",
+   "bytes": 5396,
+   "sha256": "fa8de68a0f1609f06965e193b36f7a36ac6bb61013e5491af76a39fba71b4974"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g5-f0.3-d5-s1.json",
+   "bytes": 5290,
+   "sha256": "b11268d0829243d11c2090b15fc7f8aa292e2a085eb57b161a38417ff2e6d501"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g5-f0.5-d10-s1.json",
+   "bytes": 5884,
+   "sha256": "c0a39aa65215c6db1af4c529d1b97f50216cd783f645183a5f0a7f6cf4f473e1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0063/nb-g5-f0.5-d15-s1.json",
+   "bytes": 4699,
+   "sha256": "198a46d12fb63281d416568b636926caa46b14b132abc435ab9a3534d67b4567"
+  }
+ ]
+}

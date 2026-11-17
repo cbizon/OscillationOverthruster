@@ -1,60 +1,104 @@
 {
  "experiment": "E0059",
  "what": "Pilot: one nudge ramp downward in the full 3D box (N 60000, L 100, f* 0.44, seed 1) from the final state of its 1000-cycle run at Gamma 3.0 (runs/E0037/nudge-b-up0.5-s1), 25 cycles per step of 0.05, CPU cap 0.5 h per step, ending at the first step that does not complete. One seed.",
- "ramp_ended": false,
+ "ramp_ended": true,
  "predictions": {
   "i": {
    "what": "every step from 3.0 to 2.5 completes at under three times the Gamma 3.0 cost per cycle",
    "completed": [
     3.0,
     2.95,
-    2.9
+    2.9,
+    2.85,
+    2.8,
+    2.75,
+    2.7,
+    2.65,
+    2.6,
+    2.55,
+    2.5
    ],
-   "worst_ratio": 1.05,
-   "holds": null
+   "worst_ratio": 1.7,
+   "holds": true
   },
   "ii": {
    "what": "floor (lowest Gamma completed inside 0.5 CPU-hours per 25 cycles) between 2.15 and 2.45",
-   "floor": 2.9,
-   "holds": null
+   "floor": 2.25,
+   "holds": true
   },
   "iii": {
    "what": "no audit failure in any completed step",
    "audit_failing_cycles": 0,
-   "worst_energy_residual": 3.1260824981175044e-13,
-   "holds": null
+   "worst_energy_residual": 6.851415718254115e-13,
+   "holds": true
   }
  },
  "seconds_per_cycle_by_gamma": {
   "3.0": 14.5702,
   "2.95": 15.0142,
-  "2.9": 15.2748
+  "2.9": 15.2748,
+  "2.85": 15.7783,
+  "2.8": 16.1907,
+  "2.75": 16.9006,
+  "2.7": 17.3825,
+  "2.65": 17.8261,
+  "2.6": 20.5301,
+  "2.55": 22.3305,
+  "2.5": 24.7981,
+  "2.45": 27.0332,
+  "2.4": 28.833,
+  "2.35": 33.1727,
+  "2.3": 36.1396,
+  "2.25": 54.7329
  },
  "cost_ratio_to_gamma_3": {
   "3.0": 1.0,
   "2.95": 1.03,
-  "2.9": 1.05
+  "2.9": 1.05,
+  "2.85": 1.08,
+  "2.8": 1.11,
+  "2.75": 1.16,
+  "2.7": 1.19,
+  "2.65": 1.22,
+  "2.6": 1.41,
+  "2.55": 1.53,
+  "2.5": 1.7,
+  "2.45": 1.86,
+  "2.4": 1.98,
+  "2.35": 2.28,
+  "2.3": 2.48,
+  "2.25": 3.76
  },
  "with_own_flat_level": {
   "ramp": "runs/E0059/nudge-3d-f0.44",
   "engine_branch": "method/nudge",
   "engine_commit": "16f3334",
   "band_from_ring": 3,
-  "steps_completed": 3,
-  "steps_not_completed": [],
-  "floor_gamma": 2.9,
-  "cpu_seconds": 1121.5,
-  "audit_failing_cycles": 0,
-  "worst_energy_residual": 3.1260824981175044e-13,
-  "slow_episode_steps": 0,
-  "flat_level": 0.4039,
-  "flat_scatter": 0.0206,
-  "flat_from_gammas": [
-   2.9,
-   2.95,
-   3.0
+  "steps_completed": 16,
+  "steps_not_completed": [
+   {
+    "gamma": 2.2,
+    "outcome": "cpu_budget",
+    "cycles": 20,
+    "cpu_seconds": 1806.6,
+    "error": null
+   }
   ],
-  "flat_holds": 3,
+  "floor_gamma": 2.25,
+  "cpu_seconds": 11219.3,
+  "audit_failing_cycles": 0,
+  "worst_energy_residual": 6.851415718254115e-13,
+  "slow_episode_steps": 0,
+  "flat_level": 0.0395,
+  "flat_scatter": 0.0203,
+  "flat_from_gammas": [
+   2.25,
+   2.3,
+   2.35,
+   2.4,
+   2.45
+  ],
+  "flat_holds": 6,
   "flat_borrowed": null,
   "transitions": {
    "up": {
@@ -62,8 +106,14 @@
     "flat_steps": 0
    },
    "down": {
-    "steps": 3,
-    "flat_steps": 3
+    "steps": 16,
+    "flat_steps": 6,
+    "gamma_first_patterned": 2.55,
+    "gamma_transition": 2.525,
+    "unsettled_at_transition": false,
+    "gamma_fit": 2.4074,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
    }
   },
   "steps": [
@@ -85,7 +135,7 @@
     "wavelength": 20.0,
     "peak_over_median": 41.4,
     "thickness": 2.0658,
-    "patterned": false,
+    "patterned": true,
     "unsettled": false
    },
    {
@@ -106,7 +156,7 @@
     "wavelength": 20.0,
     "peak_over_median": 36.6,
     "thickness": 2.0488,
-    "patterned": false,
+    "patterned": true,
     "unsettled": false
    },
    {
@@ -127,37 +177,347 @@
     "wavelength": 20.0,
     "peak_over_median": 30.9,
     "thickness": 2.0303,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 3,
+    "gamma": 2.85,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 15.7783,
+    "cpu_seconds": 394.5,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3718,
+    "A_first": 0.3674,
+    "A_second": 0.3763,
+    "A_raw": 0.4241,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 33.0,
+    "thickness": 2.0119,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 4,
+    "gamma": 2.8,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 16.1907,
+    "cpu_seconds": 404.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3587,
+    "A_first": 0.3539,
+    "A_second": 0.3641,
+    "A_raw": 0.4105,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 36.4,
+    "thickness": 1.9916,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 5,
+    "gamma": 2.75,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 16.9006,
+    "cpu_seconds": 422.5,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3458,
+    "A_first": 0.3404,
+    "A_second": 0.3524,
+    "A_raw": 0.3969,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 40.3,
+    "thickness": 1.9683,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 6,
+    "gamma": 2.7,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 17.3825,
+    "cpu_seconds": 434.6,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.3254,
+    "A_first": 0.3248,
+    "A_second": 0.3256,
+    "A_raw": 0.3771,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 42.9,
+    "thickness": 1.9348,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 7,
+    "gamma": 2.65,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 17.8261,
+    "cpu_seconds": 445.7,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.2894,
+    "A_first": 0.2935,
+    "A_second": 0.2847,
+    "A_raw": 0.3449,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 35.8,
+    "thickness": 1.8912,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 8,
+    "gamma": 2.6,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 20.5301,
+    "cpu_seconds": 513.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.2387,
+    "A_first": 0.2372,
+    "A_second": 0.2408,
+    "A_raw": 0.3013,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 20.7,
+    "thickness": 1.8392,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 9,
+    "gamma": 2.55,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 22.3305,
+    "cpu_seconds": 558.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.1765,
+    "A_first": 0.1869,
+    "A_second": 0.1669,
+    "A_raw": 0.2511,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 9.7,
+    "thickness": 1.7861,
+    "patterned": true,
+    "unsettled": false
+   },
+   {
+    "step": 10,
+    "gamma": 2.5,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 24.7981,
+    "cpu_seconds": 620.0,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.1294,
+    "A_first": 0.1305,
+    "A_second": 0.127,
+    "A_raw": 0.2134,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 7.6,
+    "thickness": 1.7459,
     "patterned": false,
     "unsettled": false
+   },
+   {
+    "step": 11,
+    "gamma": 2.45,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 27.0332,
+    "cpu_seconds": 675.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0936,
+    "A_first": 0.0977,
+    "A_second": 0.0876,
+    "A_raw": 0.1904,
+    "peak_mode": 3,
+    "wavelength": 33.3,
+    "peak_over_median": 5.1,
+    "thickness": 1.7113,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 12,
+    "gamma": 2.4,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 28.833,
+    "cpu_seconds": 720.8,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0395,
+    "A_first": 0.0376,
+    "A_second": 0.0348,
+    "A_raw": 0.1595,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 2.0,
+    "thickness": 1.6585,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 13,
+    "gamma": 2.35,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 33.1727,
+    "cpu_seconds": 829.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0416,
+    "A_first": 0.0227,
+    "A_second": 0.0518,
+    "A_raw": 0.1461,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 2.0,
+    "thickness": 1.613,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 14,
+    "gamma": 2.3,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 36.1396,
+    "cpu_seconds": 903.5,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0258,
+    "A_first": 0.034,
+    "A_second": 0.0314,
+    "A_raw": 0.134,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 1.6,
+    "thickness": 1.5684,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 15,
+    "gamma": 2.25,
+    "direction": "down",
+    "outcome": "completed",
+    "cycles": 25,
+    "cpu_seconds_per_cycle": 54.7329,
+    "cpu_seconds": 1368.3,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": 0.0165,
+    "A_first": 0.0226,
+    "A_second": 0.0056,
+    "A_raw": 0.1234,
+    "peak_mode": 4,
+    "wavelength": 25.0,
+    "peak_over_median": 1.5,
+    "thickness": 1.509,
+    "patterned": false,
+    "unsettled": false
+   },
+   {
+    "step": 16,
+    "gamma": 2.2,
+    "direction": "down",
+    "outcome": "cpu_budget",
+    "cycles": 20,
+    "cpu_seconds_per_cycle": 90.3285,
+    "cpu_seconds": 1806.6,
+    "slow_episodes": 0,
+    "audit_failing": 0,
+    "A": null,
+    "A_first": null,
+    "A_second": null,
+    "A_raw": null,
+    "peak_mode": null,
+    "wavelength": null,
+    "peak_over_median": null,
+    "thickness": null,
+    "patterned": null,
+    "unsettled": null
    }
   ]
  },
  "with_flat_level_borrowed_from_frictionless": {
-  "flat_level": 0.0251,
-  "flat_scatter": 0.0008,
-  "flat_borrowed": "runs/E0058/mu0-3d-f0.44",
-  "flat_holds": 0,
+  "flat_level": 0.0395,
+  "flat_scatter": 0.0203,
+  "flat_borrowed": null,
+  "flat_holds": 6,
   "transitions": {
    "up": {
     "steps": 0,
     "flat_steps": 0
    },
    "down": {
-    "steps": 3,
-    "flat_steps": 0,
-    "gamma_first_patterned": 2.9,
-    "gamma_transition": null,
-    "not_reached": "lowest step of this branch (Gamma 2.9) is still patterned",
-    "unsettled_at_transition": false
+    "steps": 16,
+    "flat_steps": 6,
+    "gamma_first_patterned": 2.55,
+    "gamma_transition": 2.525,
+    "unsettled_at_transition": false,
+    "gamma_fit": 2.4074,
+    "fit_points": 9,
+    "fit_is_extrapolation": false
    }
   },
   "patterned_by_gamma": {
    "3.0": true,
    "2.95": true,
-   "2.9": true
+   "2.9": true,
+   "2.85": true,
+   "2.8": true,
+   "2.75": true,
+   "2.7": true,
+   "2.65": true,
+   "2.6": true,
+   "2.55": true,
+   "2.5": false,
+   "2.45": false,
+   "2.4": false,
+   "2.35": false,
+   "2.3": false,
+   "2.25": false,
+   "2.2": null
   }
  },
- "cpu_hours": 0.312,
+ "cpu_hours": 3.116,
  "tools": [
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
@@ -193,8 +553,8 @@
  "files": [
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/ramp.jsonl",
-   "bytes": 362,
-   "sha256": "919ecb4c115e7bebd5b635b7847f887599ced4db1128d97260271abf4629de89"
+   "bytes": 2921,
+   "sha256": "209e071574c36c6b8d4342a3b70fa27ab4a9928fa12786ad6c20670024962196"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-000-g3.0/fields.npz",
@@ -210,6 +570,76 @@
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-002-g2.9/fields.npz",
    "bytes": 668916,
    "sha256": "5958390e3b9632c2b408a8f0408d1dc919f28bcd08405b2affba8286f5213610"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-003-g2.85/fields.npz",
+   "bytes": 668860,
+   "sha256": "2986217815013b30d6f5d0272b4966f5bd5459f235cf8c42668ef54cf37bc2d1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-004-g2.8/fields.npz",
+   "bytes": 668845,
+   "sha256": "f7e28ab5b1c0ee96fd0efab87a36f0dfa2d2edd4712390dafec5474ad11c6186"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-005-g2.75/fields.npz",
+   "bytes": 668807,
+   "sha256": "f130468497d7a8f60030306e802e66adf9223129a4a2bbbc1d7421f06ee1a26f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-006-g2.7/fields.npz",
+   "bytes": 668474,
+   "sha256": "1da54b92c95fc20157e90ad21619f9f6bfc9b9635554123c9370702fa699a99c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-007-g2.65/fields.npz",
+   "bytes": 668399,
+   "sha256": "4591ef1e8adc028b1c138564d405d010e4d515fc33ad1973a9a5fb00b7aa5663"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-008-g2.6/fields.npz",
+   "bytes": 668379,
+   "sha256": "d5643b9a18d2a61fd504c9877e2dd08ed56c94b4e990131dce01cbd1992ce766"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-009-g2.55/fields.npz",
+   "bytes": 668160,
+   "sha256": "590a503811f0b2dc672c17d20b7fb861f3f2d1982808f02f5841a160276fe280"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-010-g2.5/fields.npz",
+   "bytes": 667977,
+   "sha256": "8e986d69b833fc8173be4bc91c2d17be87a3d0d5cddd8233a1aaeaab521abfcb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-011-g2.45/fields.npz",
+   "bytes": 667719,
+   "sha256": "834aba58437301881653df7daec061dc35deb5d5129c7249fbb1df4ec68e3e9d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-012-g2.4/fields.npz",
+   "bytes": 667331,
+   "sha256": "98c1ec134cf3bbfca20946c71e0a30d307119c6825de4ebde206d445531f22ad"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-013-g2.35/fields.npz",
+   "bytes": 667141,
+   "sha256": "ff277e2cfa33adbb3c0fb31e43188dcc3927621884ebe821af71c4fb0c4ef905"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-014-g2.3/fields.npz",
+   "bytes": 666996,
+   "sha256": "b3d212d952cdfdace655823c9144eaf9405881972388aed70af0dd96fce33bd5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-015-g2.25/fields.npz",
+   "bytes": 667014,
+   "sha256": "247cc99182116e8aca938121b8e4e9df075c46935e73919e80c43c8470d634f3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-016-g2.2/fields.npz",
+   "bytes": 555071,
+   "sha256": "6cdc20bbb138b6125ff08c155795ebe72405fa6365b45dd3d55c236fbcfdc6d3"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-000-g3.0/summary.json",
@@ -228,9 +658,74 @@
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-003-g2.85/summary.json",
-   "bytes": 245,
-   "sha256": "8e7d1f203780764235b4eb198f5ac227ee4699cf5ee6583f4db0c82d6c2621f0"
+   "bytes": 788,
+   "sha256": "452e5b058cf5f2d2f950aa523a73f08e84712dfeb8a4aeb3eab961ff36968770"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-004-g2.8/summary.json",
+   "bytes": 786,
+   "sha256": "49d1ae1c2f453c15b97f351f1bf978ba79744d8dad58a3e2035aa0e833fca818"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-005-g2.75/summary.json",
+   "bytes": 778,
+   "sha256": "a9f1e658e2fdc477679b4f25afc6d4afeda88bc014b0deedb73130a053b3078c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-006-g2.7/summary.json",
+   "bytes": 777,
+   "sha256": "a3d30cf2fc002234b9cc03fa8f6ca658381af356680409fb74d7763360bb25fc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-007-g2.65/summary.json",
+   "bytes": 778,
+   "sha256": "aaf3e226e84100535eab6f5925c9c1f053073980de7311535b988241cd46877c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-008-g2.6/summary.json",
+   "bytes": 775,
+   "sha256": "3d3050e915e966a5d5afb5afb50d7ef8318cb57ac426358dff6d36135deeb880"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-009-g2.55/summary.json",
+   "bytes": 786,
+   "sha256": "9e0a4e2e8b66e0e50529214faa9b020fff9cf2e9a174e1c62a470107e9705e00"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-010-g2.5/summary.json",
+   "bytes": 776,
+   "sha256": "b9a09a23de2992ba70007fa1cef7e8c63e526e240ece2677611ec2912d478c8a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-011-g2.45/summary.json",
+   "bytes": 778,
+   "sha256": "3d3b7bc9b64538d94a89e96ac6b963dbb01be045385799beb70597b59f23bbd3"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-012-g2.4/summary.json",
+   "bytes": 777,
+   "sha256": "3c991bb50e765f64bcb080e68d91d115c3557398544476486a46442320ddbcac"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-013-g2.35/summary.json",
+   "bytes": 778,
+   "sha256": "1685735698ed3f337ecdbdab6f9a130f86a2a6b6af72f28893c02db3c295158e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-014-g2.3/summary.json",
+   "bytes": 769,
+   "sha256": "2c7aa5cf5ac320544fab98c96727a64b168c8c0ca4b5619d58746aababef81a4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-015-g2.25/summary.json",
+   "bytes": 780,
+   "sha256": "79e14a35f17f4486708aebceab1d459dc252777a3df33ce758e0e22230a44898"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0059/nudge-3d-f0.44/step-016-g2.2/summary.json",
+   "bytes": 775,
+   "sha256": "e45e1815992994850854e766770e4479ace5539babe3e770890153b9b029ca4e"
   }
  ],
- "run_folder_bytes": 29192192
+ "run_folder_bytes": 127078400
 }
