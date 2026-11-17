@@ -1,0 +1,151 @@
+{
+ "date": "2026-11-16",
+ "reviewer_model": "claude-fable-5-2",
+ "summary": "No item was answered with a different question, and no part of the night went to work nobody asked for. Items 1, 5, 6 and 7 are answered; items 2, 3 and 4 are partly answered, as the session says, because the loops need another day or more and only the no-friction model has run. The machine behaved: lid open, on mains power, no sleep at all.\n\nOne thing matters before anyone reads the figures. The amplitude that is plotted only counts wavelengths of a third of the box and shorter (33 particle diameters and below). I went back to the recorded height fields and found that at the lower frequencies and high driving most of the structure is longer than that, so the plotted amplitude leaves it out.\n\n- At f* 0.50 and 0.44, from about Gamma 4.5 upward, a quarter to two thirds of the height variance sits at wavelengths of half the box and the whole box. At Gamma 7.0 it is 64 percent at both frequencies. At f* 0.38 it is half from Gamma 5.0. So the curves that level off near one diameter above Gamma 5 are not the whole story there; the layer is doing something box-sized that the plot does not show. With one or two wavelengths in a 100-wide box this is also where the box itself starts to decide the pattern.\n- Where the summary says the first pattern 'fades to nothing measurable' at the higher frequencies, there is a box-sized structure just before the second rise: at f* 0.84 and Gamma 4.5 the whole-box wavelength reads 0.19 of a diameter (half of all the variance), at f* 0.50 and Gamma 4.0 it reads 0.30, at f* 0.65 and Gamma 4.0 it reads 0.09. The session did not look at the fields, and neither did I, so I do not name it; a front between two halves of the layer bouncing out of step would look like this.\n- The two loops still queued, f* 0.30 and 0.27, are the ones most at risk: the experimental wavelength relation the session uses for deeper layers gives about 35 and 39 diameters at this depth, which is 2.9 and 2.6 wavelengths across the box, at or beyond the edge of what the amplitude counts.\n\nNone of this changes what ran; it is all in the recorded fields and needs only a redrawing. The dashed 'raw' line in the figures does not help, since it uses the same wavelength limit.\n\nWhat I confirmed. I reran the session's analysis on all eight running loops and every amplitude in the evidence file came back the same (684 steps, no mismatch); every number I checked in the summary is in the evidence. At 05:41 the loops stood at 987 of 2130 steps, still with no slow stretch, no energy-audit failure and no step that failed to complete. The freezing-test totals recount exactly from the per-run table (1, 134, 124741 and 180250 rests; 97 and 94 percent ended by the next hit), and I recomputed its energy balance from the audit terms for all 5345 cycles: no failure, no energy gain. The pinned freezing branch differs from the region-freezing branch by one line, the friction coefficient. The seven stall tables give the counts in the summary (balancing third contact within 0.001 of a diameter at 1 of 6, within 0.01 at 4, within 0.1 at 6).\n\nNews since the summary, from my rerun (one seed, fast rate, so no more than a pointer). Two loops have now come back down through their second rise. At f* 0.84 the way down is higher than the way up by about 0.1 of a diameter between Gamma 5.05 and 5.4 (at 5.15: 0.05 up, 0.16 down), which is a shift of about 0.1 in Gamma. At f* 0.74 it is the same between 4.65 and 4.9 (at 4.8: 0.21 up, 0.35 down), and then the other way round, the way up higher by up to 0.1, between 5.0 and 5.35. These gaps are a good deal smaller than the one at the first onset at f* 0.44 (0.24 of a diameter, over 0.35 in Gamma).\n\nSmaller points.\n- Stalls: five of the seven examined stalls happen in the first three cycles of the run and a sixth in the fifth (cycles 0, 0, 2, 2, 2, 4; one at cycle 20). They are the layer's first landings from its starting state, not a settled layer. The summary does not say this. The answer to item 7 is still the answer for those stalls, but whether a side neighbour is 'usually a few hundredths of a diameter away' in a settled layer is not shown.\n- Freezing: the session's ledger gives the worst energy residual as 1.6e-13; I find 2.9e-13 over all 48 runs. Both are a thousand times smaller than anything that matters.\n- Budget: program check counts 167 of 400 CPU-hours (42 percent) because it does not see running jobs. With the loops' 51 so far the week is at about 218 (55 percent). My straight-line projection of the eight running loops is about 100 CPU-hours, in line with the session's 154 for all ten, so about 80 percent when the pass ends. Three loops (f* 0.65, 0.38, 0.33) are heading for a little under twice their registered price, which was the registered limit.\n- Withdrawing the two nudge loops cost nothing: they were queued behind the no-friction loops and would not have started overnight.\n- Disk: 43 gigabytes free against a floor of 40, program data 5.5 of 15 gigabytes and growing by about 1.5 more before the pass ends. That leaves roughly a gigabyte of margin over the floor; anything else that fills the disk today will cross it.\n\nHousekeeping: program check passes; the latest approval is still Chris's of November 6. tmp is empty. Eight simulations running at 05:40, all in active.jsonl, each capped at 38 CPU-hours, against a limit of ten cores; memory 60 percent free. Nothing written outside the two program folders apart from the app's own task-output files. The evidence files for the two pilots list older checksums for two tools (the ramp driver and the analysis script) because both were extended later in the session; the diffs are a CPU cap, checkpoint pruning and a guard for a step with no output yet, none of which changes a number.",
+ "answers": [
+  {
+   "asked": "\"There's no real point to predefining a 'transition point'. For a Gamma sweep just plot amplitude as a function of gamma going up and down.\"",
+   "verdict": "answered",
+   "finding": "Yes. No transition point is computed in anything delivered; the figures are amplitude against Gamma with the two branches and the steps still to do. I rendered two of them and they are as described. The pilot numbers are right: the branches at f* 0.44 differ by 0.05 or more from Gamma 2.0 to 2.4, at most 0.24 at 2.2. Caveat on 'amplitude': it counts only wavelengths up to a third of the box, which leaves out most of the structure at low frequency and high Gamma (see the summary). Only the no-friction model and one nudge pilot have figures."
+  },
+  {
+   "asked": "\"Pick configurations (3d only). Pick frequencies (say 10). At the fast rate go up and down in gamma. Look at the amplitude plots. Near transition go back and go up and down much slower to look for hysteresis just at those points.\"",
+   "verdict": "partly",
+   "finding": "As the session says: started, not finished. Configuration, ten frequencies, range, step, hold and seed are as instructed and recorded. 684 of 2130 steps at the summary, 987 when I looked. No slow loop was started, and the list of where to put them gives windows and rates as asked. Every amplitude quoted for the way up matches my rerun. Two of the candidate windows (the second rise at f* 0.84 and 0.74) now have a way down: the gap there is about 0.1 in Gamma, smaller than at the first onset at f* 0.44."
+  },
+  {
+   "asked": "\"Do that all for the different models.\"",
+   "verdict": "partly",
+   "finding": "Only the no-friction model has loops. Nothing was run for the nudge or the baseline; the answer for those is prices and, for the nudge, where it stops (from the pilot left running the night before, which I checked: cost per cycle 15 seconds at Gamma 3.0, 55 at 2.25, did not finish 2.2). The baseline was not priced. The instruction put no-friction first and expected several nights, so this is the expected state, but 'all for the different models' is one model of three so far and at ten frequencies will not fit the week's budget."
+  },
+  {
+   "asked": "\"Gamma: whole range, let's see what it can do.\"",
+   "verdict": "partly",
+   "finding": "The loops are set to 1.7 to 7.0 and back; six of the eight running have now reached 7.0 and turned (two at the time of the summary). The engine has completed every step asked of it. What the figures show at the top of the range is incomplete for f* 0.50 and below, where most of the structure is longer than the plotted amplitude counts."
+  },
+  {
+   "asked": "\"Configurations: let's start there [the paper's layer], but our plan should be to add depths: the hysteresis should be more obvious in deeper layers.\"",
+   "verdict": "answered",
+   "finding": "Yes: only the paper's layer ran, and the plan has a new section adding depths with costs. The cost factors (3.8 and 15 times) and the wavelengths are scaled from two-dimensional runs and an experimental relation, not measured, and the plan says so. The same relation says the paper's depth already has fewer than three wavelengths across the box at f* 0.30 and 0.27."
+  },
+  {
+   "asked": "\"Add the no-friction freezing test to tonight's instruction.\" \"2D is fine for the freezing test. That said, I am mostly just curious whether we get freezing in that case; it's not really that valuable.\"",
+   "verdict": "answered",
+   "finding": "Yes, and it says first whether freezing acted, as asked: at the current threshold eleven of twelve runs are identical to the baseline and are reported as testing nothing. The totals, the phases at which spheres rest, the largest groups, the failures and the bulk comparison all recount from the per-run table. The run at the highest threshold changes two settings at once, which the session states. Two cores, 1.1 CPU-hours, no follow-up."
+  },
+  {
+   "asked": "\"What holds up a ball is multiple contacts that balance the force on the ball. So really, our freezing ideas are bad because we are trying to freeze something in an unphysical way... in 2d i can see an approach where instead of freezing at one contact, we can freeze when velocities are low and ball B is scheduled to hit both A and C within some delta. In 3D I guess there is also a ball D? This also should help with the balls on the plate where balls on the side are what constrain the central ball.\" Asked whether the agent should check the existing stalls against this criterion tonight: \"Yes, add it.\"",
+   "verdict": "answered",
+   "finding": "Yes, for the seven stalls examined: per stall, neighbours by gap, their directions, when they are due, and whether the criterion fires, with the two readings the session had to choose spelled out. The counts match the per-stall tables. It reran the seven replays (28 CPU-seconds) because the saved ones held only the pair; that departs from 'no new engine runs' and is declared. Not said: six of the seven stalls are in the first five cycles of the run, before the layer has settled."
+  }
+ ],
+ "reviews": [
+  {
+   "claim_id": "E0060",
+   "plain_claim": "Interim, nothing claimed as physics: ten no-friction loops in the paper's three-dimensional layer; 684 of 2130 steps done with no slow stretch, no energy-audit failure and no incomplete step. On the way up the pattern is strong from the first onset at f* 0.33 to 0.44; at f* 0.50 to 0.84 the first pattern is weak and fades by Gamma 3 to 4, and a second sharp rise follows between Gamma 4.1 and 5.4.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Silent substitution",
+     "what_was_done": "Reran the session's analysis script on the eight running loops, read only, and compared every step in the evidence file with my output. Then read the recorded spectra directly and split the height variance by wavelength, at every half unit of Gamma, for six of the loops.",
+     "finding": "All 684 amplitudes match. But the plotted amplitude starts at the third ring (wavelength a third of the box). At f* 0.50 and 0.44 the two longer rings hold 24 to 64 percent of the variance from Gamma 4.5 to 7.0, and at f* 0.38 about half from Gamma 5.0; at f* 0.84, 0.65 and 0.33 they hold under a tenth except at single points. Just before the second rise there is a whole-box structure the amplitude reads as zero: 0.19 of a diameter at f* 0.84, Gamma 4.5; 0.30 at f* 0.50, Gamma 4.0. The limit was set for the first onset in the pilot and carried over to the whole range without a check."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read every completed step record of all eight loops at 05:41.",
+     "finding": "998 step records (including the pilot steps copied in), none with a slow stretch, none with a failing audit; worst energy residual 4e-12."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Compared the two branches wherever both now exist.",
+     "finding": "At 25 cycles a step the way down sits above the way up by about 0.1 of a diameter across the second rise at f* 0.84 (Gamma 5.05 to 5.4) and f* 0.74 (4.65 to 4.9), and at f* 0.74 the sign reverses between 5.0 and 5.35. Above the rises the two branches wander by 0.1 to 0.15 from step to step with either sign, so a gap of 0.1 at one seed is at the edge of what a single loop can show. The session draws no conclusion from the branches, correctly."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Projected each loop's cost from its steps so far against the registered limit of twice its price.",
+     "finding": "Straight-line projections: 7.5, 8.5, 10.2, 11.2, 12.4, 13.2, 16.8 and 19.6 CPU-hours for f* 0.84 down to 0.33, against limits of 8.2, 9.4, 10.6, 12.2, 14, 15.8, 18.2 and 21. All inside, three of them narrowly; higher Gamma steps at low frequency cost more than the average so far, so f* 0.38 and 0.33 may pass their limit. None is near the 40 CPU-hour per-run limit and each is capped at 38."
+    }
+   ],
+   "what_would_resolve": "From the fields already recorded, with no new runs: redraw each figure with a second curve for the two long rings (or one amplitude over all rings), so a reader sees where the structure has left the plotted band; say for each frequency above which Gamma the long rings hold more than a quarter of the variance; look at the stored height field at f* 0.84, Gamma 4.5 and f* 0.50, Gamma 4.0 and say what the box-sized structure is; and before the f* 0.30 and 0.27 loops are read, check which ring their first pattern peaks in."
+  },
+  {
+   "claim_id": "E0058",
+   "plain_claim": "The no-friction pilot loop across the onset at f* 0.44 in the full box finished: 41 steps, no slow stretch, no audit failure, 3.1 CPU-hours; flat layer 0.025 of a diameter, 0.56 at Gamma 2.7; the two branches are apart between about Gamma 2.05 and 2.4 by up to 0.24 of a diameter. One seed at the fast rate, not a result about hysteresis.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Recomputed the branch differences and the cost from the evidence file's step table and verified the 83 run files against their checksums.",
+     "finding": "Differences of 0.05, 0.07, 0.14, 0.20, 0.24, 0.22, 0.16, 0.10 and 0.05 from Gamma 2.0 to 2.4, under 0.03 elsewhere; 3.109 CPU-hours. All run files match. On the way up the amplitude reads exactly zero at Gamma 2.0 to 2.1 because the noise correction clips it; the raw reading rises smoothly through there, so the lower end of the gap is less sharp than the solid line suggests."
+    },
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Checked what the session concludes from the gap.",
+     "finding": "Nothing beyond 'this is what a pattern that needs time to grow would also give', which is right. The ledger record still quotes transition points from the dropped rule; they were that experiment's registered prediction and are not used in the summary or figures."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0059",
+   "plain_claim": "The nudge pilot at f* 0.44 in the full box, ramped down from Gamma 3.0: every step to 2.25 completed, the step at 2.2 ran out of its half CPU-hour; cost per cycle 15 seconds at 3.0, 25 at 2.5, 55 at 2.25; the pattern is gone (0.04 or less) from Gamma 2.4 down; no audit failure.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Read the step table and checked the 35 run files against their checksums.",
+     "finding": "Numbers as stated; all run files match. One frequency, one seed, and the floor is set by the half-hour allowance, all of which the summary says. The nudge loop the session proposes for other frequencies (down to 'its floor') is priced from this single descent."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0062",
+   "plain_claim": "With friction off, the region-freezing build freezes almost nothing at the current rest threshold (one rest in twelve runs, eleven runs identical to the baseline) and only a handful of spheres for moments when the threshold is raised a hundredfold (at most 5 of 1500 at once at 1e-2, 17 at 3e-2), while raising it makes runs fail (1 of 12 at 1e-2, 5 of 12 at 3e-2). No energy-audit failure.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Recomputed the energy balance from the terms in every run's audit file (plate work, plate, pair and wall dissipation against the energy change), 5345 cycles over 48 runs.",
+     "finding": "No failing cycle, no energy gain, largest residual 7e-13 of the plate work by my sum and 2.9e-13 as recorded. The session's ledger says 1.6e-13; the difference is immaterial."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Recounted, per threshold, runs with any rest, runs identical to the baseline, rests and how they ended, the largest count at once, the frames in which spheres rest, and the failures, from the per-run table. Checked that no run with a rest was counted as identical and the reverse.",
+     "finding": "All totals match. Runs with no rest are identical to the baseline in every case and are reported as testing nothing. Resting spheres appear only in frames 22 to 31 and 0 to 1 of 32. The five failures at 3e-2 are three solver give-ups, one overlap and one CPU limit, as stated."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Diffed the pinned branch against the region-freezing branch and read how the baseline was compared.",
+     "finding": "One line differs: the friction coefficient. The comparison uses the referee's rule against the unmodified no-friction engine's long runs at the same conditions and seed. The 3e-2 column also raises the wake threshold, so it is not a clean step in one setting; declared."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0063",
+   "plain_claim": "At the seven examined stalls, the two-contact criterion would fire on the sphere on the plate at all six pressed-pair stalls only if touching contacts count as scheduled and 'low velocity' means closing speed; those two contacts never balance the push; a balancing third neighbour is within 0.001 of a diameter at 1 of 6 stalls, 0.01 at 4, 0.1 at 6. The seventh stall is one slow sphere with three balanced touching contacts.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Read the cycle and phase of each stall in the per-stall tables.",
+     "finding": "The stalls are at cycles 0, 0, 2, 2, 2, 4 and 20. Six of seven are the layer's first few landings from its starting arrangement. They are the stalls the instruction named ('already examined'), so the answer stands for them; it should not be read as how neighbours sit around a stalled pair in a settled layer. The four later stalls of the persistent-contact engine were not examined, as the session says."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Rebuilt the summary's counts from the seven per-stall tables: touching contacts, balance by gap, due times and speeds of the nearest approaching neighbour, speeds of both spheres, and the whole-layer control.",
+     "finding": "All match: balance at 1, 4 and 6 of 6; due times 0.003, 0.05, 0.10 and 0.18 at closing speeds 0.016 to 0.06, none approaching at 2; upper sphere touching only the lower one at all 6; 10 to 19 percent of the layer with three partners due at delta 0.1. The seven files match their checksums. The two readings that decide whether the criterion 'fires' are the session's and are put to Chris as a question, which is the right place for them."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session started seven and a half minutes late (23:07:37) and ended at 03:52, about an hour before the window closed, with everything collected or left running and resumable. The power log has no sleep, wake or dark-wake event from 18:52 on November 16 until I looked at 05:40; the lid is open and the Mac is on mains power. Work done: both pilots collected, ten loops priced and eight started within four minutes of the start, the freezing test (48 runs) and the stall analysis finished in the first hour, the plan revised. What is waiting is wall clock only: eight loops at one core each have each had about 6.4 CPU-hours; the first should finish this morning, the two at the lowest running frequencies tonight or later, and the two queued ones about a day after that. The machine limited the science in one way: the ten-core limit and the length of the loops mean the night shows mostly the way up. The recorded 37.97 CPU-hours matches the run records (36.9 for the loops, 1.1 for the freezing test).",
+  "discrepancies": [
+   "The budget block gives 203.7 CPU-hours spent, which is the ledger's 167 plus the loops at the end of the session; program check shows 166.8 (42 percent) because running jobs are not in the ledger. By 05:41 the true figure was about 218 (55 percent).",
+   "Program data was 5.1 gigabytes at the end of the session and 5.5 at 05:40, as the loops write; program check reports disk as 0 of 15 because it sums the ledger.",
+   "The summary says that for about a minute at 23:18 twelve simulations ran against the limit of ten. The queue logs are consistent with it but do not time it; I could not confirm or bound it.",
+   "The last commit message says the summary was refreshed at 03:55; the commit and the recorded end are both 03:52.",
+   "The start time and the starting load average cannot be checked afterwards; the loops' launch at 23:11 is consistent."
+  ]
+ }
+}
