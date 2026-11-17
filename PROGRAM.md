@@ -62,6 +62,12 @@ after `DIRECTION.md` at the start of every session.
     dropped.
   - Nov 13: option 4 is paused by instruction: no builds, no pilots, and
     nothing built on the plate-only rest rule.
+  - Nov 16: two side checks by instruction, with option 4 still paused.
+    The region-freezing build with friction off freezes almost nothing
+    (E0062). At the seven examined stalls, the sphere on the plate always
+    has two touching contacts that do not balance the push on it; the
+    balancing side neighbour is close but not touching (E0063). Chris's
+    view (Nov 16): freeze only when several contacts balance the force.
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -88,6 +94,12 @@ after `DIRECTION.md` at the start of every session.
     answered (E0057); two 3D pilots launched (E0058, E0059) and left
     running after the lid was closed at 23:26 (B0005).
 
+  - Nov 16: the staged plan is replaced by a fast pass (instruction of
+    Nov 16; plan section 0b): 3D only, ten f\*, Gamma 1.7 to 7.0 and back,
+    no transition point, slow loops placed by Chris from the figures. The
+    no-friction pass is running (E0060). Both pilots collected (E0058,
+    E0059, supported).
+
 ### RQ3: Does the model produce oscillons?
 
 - Hypothesis: localized, period-two excitations exist in a range of driving
@@ -110,6 +122,10 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 16 session: awake on AC, lid open, no sleep events (B0005
+    resolved). Nothing else running at the start. Ten cores were not
+    enough to finish the night's main job: the ten loops need about two
+    days.
   - Nov 15 session: lid closed at 23:26, 19 minutes in (clamshell sleep on
     AC, B0005). Only maintenance wakes after that; two jobs left running.
     Third such night (Nov 8, 9, 15).
@@ -246,6 +262,72 @@ The five options in `notes/contact-options.md`.
   (D0031).
 
 ## Current state
+
+### Nov 16 findings
+
+Instruction of Nov 16 (seven items). One seed everywhere; nothing below is
+a physical result.
+
+- **Fast pass, no friction (E0060, running).** Ten loops in the paper's 3D
+  layer (N 60000, L 100), f\* 0.27 to 0.84 (D0039), Gamma 1.7 to 7.0 and
+  back, steps of 0.05, 25 cycles per step.
+  - Eight run at a time; f\* 0.30 and 0.27 are queued
+    (`runs/fastpass-1116b.spec`, `tools/qx5.sh`). Each loop stops itself at
+    38 CPU-hours and keeps checkpoints at Gamma multiples of 0.5.
+  - Progress, figures and per-step amplitudes: rebuild with
+    `tools/fastpass_evidence.py` (writes `evidence/E0060-results.json` and
+    `evidence/fastpass-figures/`). The session summary has the count at
+    the time it was written.
+  - No slow stretch, audit failure or incomplete step so far.
+  - Cost: about 190 CPU-hours for the ten, not the 80 registered
+    (`evidence/phase-diagram-plan-costs-v3.json`). Prediction (ii) of the
+    registration (each loop under twice its price) is in doubt.
+- **No transition point** is computed. Deliverable: amplitude against
+  Gamma, both branches, per frequency and model (`tools/loop_figure.py`,
+  SVG).
+- **Pilots collected.**
+  - E0058 (no friction, f\* 0.44, Gamma 1.7 to 2.7 and back): supported.
+    Flat level 0.025 D; branches apart between Gamma 2.05 and 2.4 at the
+    fast rate (0.10 D up against 0.34 D down at 2.2). 3.1 CPU-hours.
+  - E0059 (nudge descent from 3.0 at f\* 0.44): supported. Floor 2.25 at
+    half a CPU-hour per step; cost 15 s per cycle at 3.0, 55 at 2.25;
+    pattern gone from 2.4 down.
+- **Nudge and baseline loops: none run.** Nudge loops priced at 16 to 49
+  CPU-hours each, about 300 for ten; f\* 0.33, 0.30, 0.27 are at or over
+  the per-run limit. Two were queued and withdrawn before starting
+  (E0061 abandoned, D0041): the no-friction pass alone takes the week to
+  about 89% of the CPU budget.
+- **Freezing with friction off (E0062, falsified on one prediction).**
+  Region-freezing build pinned as `method/persistent-contact-mu0`
+  (8372586), 2D grid, seed 1, 120 cycles, four thresholds.
+  - v_sleep 1e-4: one rest in 12 runs; 11 runs identical to the baseline.
+  - 1e-3: 134 rests. 1e-2: 124,741. 3e-2 (v_wakeup also 3e-2): 180,250.
+  - At most 5 (1e-2) and 17 (3e-2) of 1500 spheres resting at a recorded
+    frame; largest region 3 and 6; only while the plate pushes up. 97%
+    and 94% of rests end at the next hit.
+  - No audit failure. Bulk passes except one run at 3e-2.
+  - Runs fail as the threshold rises: 1 of 12 at 1e-2, 5 of 12 at 3e-2.
+- **Stalls against the multi-contact criterion (E0063, falsified on one
+  prediction).** Seven E0043 stalls replayed and read
+  (`tools/stall_neighbours.py`).
+  - Six are a sphere on the plate with one pressed on it. The lower one
+    touches the plate and the presser only; those never balance the push.
+  - A balancing neighbour is within 1e-3 D at 1 of 6, 1e-2 D at 4, 1e-1 D
+    at 6; due in 0.003 to 0.18 time units at 4, not approaching at 2.
+  - The spheres are not slow (0.03 to 1.3); only the contact closing
+    speeds are (1e-11 to 1e-10). A contact that has just bounced has no
+    scheduled collision.
+  - The seventh is one slow sphere held by two above it: three touching,
+    balanced contacts.
+- **Plan** revised (section 0b): fast pass, prices, deeper layers next
+  with their cost.
+- **Budget:** see the session summary. Past 50% once the loops' CPU is
+  counted; will pass 80% before they finish.
+- **Tools:** `ramp.py` (total CPU cap, checkpoint pruning), `qx5.sh`,
+  `loop_figure.py`, `fastpass_evidence.py`, `freeze_recorder.py`,
+  `e0062_evidence.py`, `stall_neighbours.py`, `e0063_evidence.py`,
+  `plan_costs_v3.py`, `session_1116.py`. Branch `tools/phase-diagram`
+  (c738269 and after).
 
 ### Nov 15 findings
 
@@ -635,24 +717,23 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect E0058 and E0059** (left running Nov 15; resumable by rerunning
-  the lines in `runs/all-1115.spec`). Judge them against their
-  registrations, record outcomes, remove them from `runs/active.jsonl`,
-  and reprice the plan's 3D stages (C, D, H) from them.
-- B0005 is open: the lid.
-- **Wait for Chris on the plan** (`evidence/phase-diagram-plan.md`,
-  section 9): whether to start stage A; whether the nudge's 3D diagram as
-  now listed is what he meant; the f* list and Gamma range; depth 15 in
-  2D; 3D loops with friction that cannot reach the flat state.
-- If told to go ahead, in the plan's order:
-  1. stage A: 2D loops at depths 5 and 10, three engines, two rates,
-     three seeds, with the two-start holds (64 CPU-hours). Register the
-     thresholds as they stand in `tools/loop_analysis.py`;
-  2. 3D frictionless onset loops at f* 0.27 and 0.44;
-  3. before 3D nudge loops: one capped nudge down-ramp at f* 0.44 to
-     measure its cost at Gamma 2.2 to 2.5 in the full box.
-- Not yet exercised: the recorder and amplitude on a 3D ramp (only on 3D
-  holds, E0054).
+- **Collect E0060** (ten no-friction loops, left running Nov 16).
+  - Check `runs/active.jsonl` and the queue (`fastpass-1116b.spec`); a
+    loop that stopped resumes by rerunning its line from
+    `runs/fastpass-1116.spec` (finished steps are skipped).
+  - Rebuild evidence and figures (`tools/fastpass_evidence.py`), judge
+    against the registration when all ten have ended, record the outcome.
+  - Check the weekly CPU count first: the pass is expected to reach about
+    89%. At 100% stop the queue and ask.
+- **Slow loops are Chris's to place.** Start none unasked. Candidates are
+  in the Nov 16 summary; redo the list from the finished figures.
+- **Nudge loops** (the second model): only as the budget allows, highest
+  f\* first, nothing priced over 40 CPU-hours; register anew (E0061 was
+  abandoned). Baseline loops after that, with the upward-push start.
+- **Deeper layers** (plan section 0b): a 20-cycle hold at depth 10.84
+  first, then onset-only loops at four f\*. Wait for Chris.
+- Option 4 stays paused. No design work on the multi-contact criterion
+  unless asked.
 - The frictionless stall (E0046, Gamma 5, f* 0.3, depth 15, seed 3) has
   not been examined. `tools/mu_switch.py` and `tools/collapse_trace.py`
   would do it. Proposed, not started: the Nov 13 instruction dropped the

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" font-family="Helvetica, Arial, sans-serif" font-size="13">
 <rect width="900" height="520" fill="white"/>
-<text x="86" y="24" font-size="16">no friction, f* 0.74: 3D, N 60000, depth 5.42, seed 1, 25 cycles per step; 8 of 213 steps, running</text>
+<text x="86" y="24" font-size="16">no friction, f* 0.74: 3D, N 60000, depth 5.42, seed 1, 25 cycles per step; 10 of 213 steps, running</text>
 <line x1="86" x2="880" y1="425.0" y2="425.0" stroke="#e4e4e4"/>
 <text x="78" y="429.0" text-anchor="end">0.0</text>
 <line x1="86" x2="880" y1="300.0" y2="300.0" stroke="#e4e4e4"/>
@@ -34,8 +34,8 @@
 <rect x="86" y="50" width="794" height="375" fill="none" stroke="#444"/>
 <text x="483.0" y="463" text-anchor="middle">Gamma</text>
 <text transform="translate(18 237.5) rotate(-90)" text-anchor="middle">pattern amplitude A (particle diameters)</text>
-<polyline fill="none" stroke="#1f5fbf" stroke-width="1.5" points="100.4,398.1 107.7,401.8 114.9,412.2 122.1,398.5 129.3,396.5 136.5,418.5 143.7,402.1 151.0,404.1"/>
-<polyline fill="none" stroke="#1f5fbf" stroke-width="0.8" stroke-dasharray="3 3" points="100.4,289.8 107.7,285.0 114.9,282.0 122.1,277.5 129.3,274.1 136.5,266.9 143.7,264.1 151.0,258.9"/>
+<polyline fill="none" stroke="#1f5fbf" stroke-width="1.5" points="100.4,398.1 107.7,401.8 114.9,412.2 122.1,398.5 129.3,396.5 136.5,418.5 143.7,402.1 151.0,404.1 158.2,389.1 165.4,378.6"/>
+<polyline fill="none" stroke="#1f5fbf" stroke-width="0.8" stroke-dasharray="3 3" points="100.4,289.8 107.7,285.0 114.9,282.0 122.1,277.5 129.3,274.1 136.5,266.9 143.7,264.1 151.0,258.9 158.2,251.9 165.4,247.0"/>
 <circle cx="100.4" cy="398.1" r="3" fill="#1f5fbf"/>
 <circle cx="107.7" cy="401.8" r="3" fill="#1f5fbf"/>
 <circle cx="114.9" cy="412.2" r="3" fill="#1f5fbf"/>
@@ -44,10 +44,10 @@
 <circle cx="136.5" cy="418.5" r="3" fill="#1f5fbf"/>
 <circle cx="143.7" cy="402.1" r="3" fill="#1f5fbf"/>
 <circle cx="151.0" cy="404.1" r="3" fill="#1f5fbf"/>
+<circle cx="158.2" cy="389.1" r="3" fill="#1f5fbf"/>
+<circle cx="165.4" cy="378.6" r="3" fill="#1f5fbf"/>
 <circle cx="98" cy="66" r="4" fill="#1f5fbf" stroke="#1f5fbf" stroke-width="1.4"/>
-<text x="108" y="70">way up (8 holds)</text>
-<line x1="158.2" x2="158.2" y1="475" y2="485" stroke="#999" stroke-width="2"/>
-<line x1="165.4" x2="165.4" y1="475" y2="485" stroke="#999" stroke-width="2"/>
+<text x="108" y="70">way up (10 holds)</text>
 <line x1="172.6" x2="172.6" y1="475" y2="485" stroke="#999" stroke-width="2"/>
 <line x1="179.8" x2="179.8" y1="475" y2="485" stroke="#999" stroke-width="2"/>
 <line x1="187.1" x2="187.1" y1="475" y2="485" stroke="#999" stroke-width="2"/>

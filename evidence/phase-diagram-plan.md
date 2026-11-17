@@ -7,6 +7,83 @@ answer to the checker's review of Nov 13, and added to on 2026-11-15
 started. Numbers come from pilots and earlier runs; each is in the evidence
 file named beside it. "Tonight" in sections 1 and 2 means Nov 13.
 
+**Nov 16: the sweep has started, on a different footing (section 0b).
+Where section 0b and the sections after it disagree, 0b holds.**
+
+## 0b. What changed on Nov 16
+
+The instruction of Nov 16 replaces the staged plan below with a fast pass
+and Chris's own placing of slow loops. Prices are in
+`phase-diagram-plan-costs-v3.json`; progress is in `E0060-results.json` and
+the figures in `fastpass-figures/`.
+
+- **No transition point.** The transition rule, the comparison against the
+  no-friction loop and the two-start holds (section 5) are dropped from
+  what is delivered. A sweep is shown as it is: amplitude against Gamma,
+  the way up and the way down marked, steps not done shown. One figure per
+  frequency and model. The rule's code stays in `loop_analysis.py` and is
+  not applied.
+- **The 2D stages (A, B) are dropped.** 3D only.
+- **Fast pass.** The paper's layer (N 60000, L 100, depth 5.42), ten f\*
+  (0.27, 0.30, 0.33, 0.38, 0.44, 0.50, 0.57, 0.65, 0.74, 0.84: Figure 1's
+  range and values, the expected squares-to-stripes changeover, the rest
+  spaced evenly in log f\*; D0039), Gamma 1.7 to 7.0 and back in steps of
+  0.05, 25 cycles per step, one seed. That is 213 holds and 5,325 cycles a
+  loop, at the experiments' ramp rate (0.002 in Gamma per cycle).
+- **Models, in this order:** no friction, nudge, baseline.
+  - No friction: all ten loops are running or queued (E0060). Priced at
+    80 CPU-hours; repriced from their first hour at about 190, because the
+    cost per cycle above Gamma 2.7 is about 8.7 seconds at f\* 0.44 (I had
+    assumed 4) and the other frequencies run 1.4 to 1.7 times the scaled
+    f\* 0.44 cost. Ten jobs were running, so 190 is an upper estimate. No
+    loop is near the 40 CPU-hour per-run limit except f\* 0.30 and 0.27
+    (29 and 32); each loop stops itself at 38.
+  - Nudge: it cannot hold the flat state cheaply (its cost climbs from 15
+    seconds per cycle at Gamma 3.0 to 55 at 2.25 and it does not finish a
+    step at 2.2 in half a CPU-hour, `E0059-results.json`), so its loop is
+    the branch it can run: default start at Gamma 3.0, down to its floor,
+    up to 7.0 and back down to just above the floor. Priced at 16 to 35
+    CPU-hours for f\* 0.84 down to 0.38, and 40, 44 and 49 for 0.33, 0.30
+    and 0.27, which are at or over the per-run limit and would be reported,
+    not started. About 300 CPU-hours for the ten on that price, and more if
+    the no-friction correction carries over. None is running: two were
+    queued and withdrawn before starting (D0041).
+  - Baseline (friction, no contact method): not priced as loops. In 3D it
+    needs an upward push to start at Gamma 3 and stops below Gamma 2.3 to
+    2.8 and at Gamma 5; its loops would be short branches. To be run where
+    it can, after the nudge, with the start of `E0032`.
+- **Budget.** The weekly limit is 400 CPU-hours and 167 were counted
+  before tonight. The no-friction pass alone takes the week to about 89
+  percent on the repriced figure. The nudge and baseline passes need
+  further weeks at this limit, or a larger limit, or fewer frequencies.
+- **Slow loops** are Chris's to place from the figures. Nothing slow is
+  running. Candidates are listed in the session summary of Nov 16; the
+  first is at f\* 0.44 without friction, Gamma 1.9 to 2.6 and back, where
+  the pilot's two branches differ: 8 CPU-hours at 100 cycles per step
+  (four times slower), 32 at 400 (sixteen times slower).
+- **Deeper layers, next** (item 5 of the instruction: hysteresis should be
+  more obvious in deeper layers). Not measured in 3D yet; the figures below
+  scale tonight's prices by the number of spheres and by the 2D cost per
+  sphere at each depth.
+  - Twice the depth (10.84, N 120000): about 3.8 times the cost. Ten
+    no-friction loops about 300 CPU-hours on the first price, more on the
+    repriced one; f\* 0.30 and 0.27 would pass the per-run limit.
+  - Three times the depth (16.26, N 180000): about 15 times the cost;
+    every loop passes the per-run limit. Not proposed as full loops.
+  - The wavelength grows with depth (lambda/H = 1.0 + 1.1 f\*^-1.32), so
+    at L 100 and depth 10.84 the box holds 3.9 wavelengths at f\* 0.84,
+    2.8 at 0.57, 2.2 at 0.44 and 1.3 at 0.27. Low frequencies, where
+    squares and the larger hysteresis are expected, need a wider box,
+    which multiplies the cost again (four times for L 200).
+  - Proposed order: (1) one 20-cycle hold at depth 10.84, f\* 0.57, Gamma
+    3, about 0.2 CPU-hours, to replace the 2D-derived factor with a
+    measurement; (2) no-friction loops at depth 10.84 over the onset only
+    (Gamma 1.7 to 3.0 and back, 53 steps instead of 213) at four
+    frequencies, 0.84, 0.74, 0.65, 0.57, where the box still holds about
+    three wavelengths; (3) the full Gamma range and the lower frequencies
+    only where step 2 shows the branches apart. Step 2 is about a quarter
+    of the full loops' cost.
+
 ## 0. What changed on Nov 14
 
 The checker asked for four things before the first stage starts; each is

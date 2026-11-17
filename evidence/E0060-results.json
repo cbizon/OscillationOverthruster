@@ -5,9 +5,9 @@
  "loops_planned": 10,
  "loops_complete": 0,
  "loops_running": 8,
- "steps_completed": 79,
+ "steps_completed": 90,
  "steps_planned": 2130,
- "cpu_hours": 7.73,
+ "cpu_hours": 8.61,
  "price_cpu_hours": 79.2,
  "loops": [
   {
@@ -15,11 +15,11 @@
    "f_star": 0.84,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 9,
-   "gamma_reached": 2.1,
+   "steps_completed": 11,
+   "gamma_reached": 2.2,
    "direction_now": "up",
    "price_cpu_hours": 4.1,
-   "cpu_hours": 0.752,
+   "cpu_hours": 0.876,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -202,27 +202,65 @@
      "wavelength": 33.3,
      "peak_over_median": 1.8,
      "thickness": 1.6075
+    },
+    {
+     "step": 9,
+     "gamma": 2.15,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 229.9,
+     "cpu_seconds_per_cycle": 9.1972,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0513,
+     "A_first": 0.0492,
+     "A_second": 0.0476,
+     "A_raw": 0.1363,
+     "peak_mode": 3,
+     "wavelength": 33.3,
+     "peak_over_median": 2.8,
+     "thickness": 1.6247
+    },
+    {
+     "step": 10,
+     "gamma": 2.2,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 217.0,
+     "cpu_seconds_per_cycle": 8.6792,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0461,
+     "A_first": 0.0482,
+     "A_second": 0.0437,
+     "A_raw": 0.1344,
+     "peak_mode": 3,
+     "wavelength": 33.3,
+     "peak_over_median": 2.4,
+     "thickness": 1.638
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.84/ramp.jsonl",
-     "bytes": 1631,
-     "sha256": "48dc39e8236bd5c614a2ae1065fd31eddb62631625133cc71625791cb84d99ca"
+     "bytes": 2000,
+     "sha256": "06491b2da44395ddc728e536b6a73bc641dcb3c52a6c37df9fc7880b2175056c"
     }
    ],
-   "bytes": 33705984
+   "bytes": 35213312
   },
   {
    "name": "mu0-3d-f0.74",
    "f_star": 0.74,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 8,
-   "gamma_reached": 2.05,
+   "steps_completed": 10,
+   "gamma_reached": 2.15,
    "direction_now": "up",
    "price_cpu_hours": 4.7,
-   "cpu_hours": 0.746,
+   "cpu_hours": 0.883,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -386,27 +424,65 @@
      "wavelength": 5.3,
      "peak_over_median": 1.4,
      "thickness": 1.6455
+    },
+    {
+     "step": 8,
+     "gamma": 2.1,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 253.8,
+     "cpu_seconds_per_cycle": 10.1522,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0287,
+     "A_first": 0.025,
+     "A_second": 0.0317,
+     "A_raw": 0.1385,
+     "peak_mode": 3,
+     "wavelength": 33.3,
+     "peak_over_median": 1.9,
+     "thickness": 1.6647
+    },
+    {
+     "step": 9,
+     "gamma": 2.15,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 238.0,
+     "cpu_seconds_per_cycle": 9.5196,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0371,
+     "A_first": 0.0396,
+     "A_second": 0.0345,
+     "A_raw": 0.1424,
+     "peak_mode": 3,
+     "wavelength": 33.3,
+     "peak_over_median": 2.3,
+     "thickness": 1.6805
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.74/ramp.jsonl",
-     "bytes": 1470,
-     "sha256": "a8e3b145684ad429e1cc3d9c141bb1f5e82dd53aaf5bfabf178f2944e1556d28"
+     "bytes": 1847,
+     "sha256": "7fd1220f4559d4b51566c93417881e53f2bb941b9457a884b61232a4524e54f0"
     }
    ],
-   "bytes": 32952320
+   "bytes": 34459648
   },
   {
    "name": "mu0-3d-f0.65",
    "f_star": 0.65,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 8,
-   "gamma_reached": 2.05,
+   "steps_completed": 9,
+   "gamma_reached": 2.1,
    "direction_now": "up",
    "price_cpu_hours": 5.3,
-   "cpu_hours": 0.808,
+   "cpu_hours": 0.88,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -570,27 +646,46 @@
      "wavelength": 5.3,
      "peak_over_median": 1.3,
      "thickness": 1.7105
+    },
+    {
+     "step": 8,
+     "gamma": 2.1,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 260.2,
+     "cpu_seconds_per_cycle": 10.4078,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0314,
+     "A_first": 0.0372,
+     "A_second": 0.0242,
+     "A_raw": 0.154,
+     "peak_mode": 4,
+     "wavelength": 25.0,
+     "peak_over_median": 1.6,
+     "thickness": 1.732
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.65/ramp.jsonl",
-     "bytes": 1469,
-     "sha256": "346214cc288ba7770c9b82d41f56f21bc186c0acc0bacd6d53404add137ab9f4"
+     "bytes": 1650,
+     "sha256": "1e4e57c0faa3a787d6a7fdc8012e787e216f6cfc4ef15a807cfba20b8244d9a0"
     }
    ],
-   "bytes": 32956416
+   "bytes": 33710080
   },
   {
    "name": "mu0-3d-f0.57",
    "f_star": 0.57,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 7,
-   "gamma_reached": 2.0,
+   "steps_completed": 8,
+   "gamma_reached": 2.05,
    "direction_now": "up",
    "price_cpu_hours": 6.1,
-   "cpu_hours": 0.798,
+   "cpu_hours": 0.877,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -735,27 +830,46 @@
      "wavelength": 5.3,
      "peak_over_median": 1.3,
      "thickness": 1.7527
+    },
+    {
+     "step": 7,
+     "gamma": 2.05,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 286.7,
+     "cpu_seconds_per_cycle": 11.4694,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0091,
+     "A_first": 0.0232,
+     "A_second": 0.0142,
+     "A_raw": 0.1656,
+     "peak_mode": 3,
+     "wavelength": 33.3,
+     "peak_over_median": 1.3,
+     "thickness": 1.7785
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.57/ramp.jsonl",
-     "bytes": 1289,
-     "sha256": "a9ae6a129c834c61d6b09f0b0ad410b5b59f6e34d74cb4450f0db540d9590579"
+     "bytes": 1471,
+     "sha256": "e4f535c924ab7cbafb256edae29559477514bfddc09659f6d0bb668834553a5a"
     }
    ],
-   "bytes": 25473024
+   "bytes": 32952320
   },
   {
    "name": "mu0-3d-f0.50",
    "f_star": 0.5,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 6,
-   "gamma_reached": 1.95,
+   "steps_completed": 7,
+   "gamma_reached": 2.0,
    "direction_now": "up",
    "price_cpu_hours": 7.0,
-   "cpu_hours": 0.789,
+   "cpu_hours": 0.879,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -881,27 +995,46 @@
      "wavelength": 5.3,
      "peak_over_median": 1.3,
      "thickness": 1.7912
+    },
+    {
+     "step": 6,
+     "gamma": 2.0,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 325.5,
+     "cpu_seconds_per_cycle": 13.0212,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0131,
+     "A_first": 0.0193,
+     "A_second": 0.0258,
+     "A_raw": 0.1801,
+     "peak_mode": 19,
+     "wavelength": 5.3,
+     "peak_over_median": 1.2,
+     "thickness": 1.8302
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.50/ramp.jsonl",
-     "bytes": 1092,
-     "sha256": "52d9f314e945ed03d6d9b559b6498a961ddce54156e99e0ca8c5fc4ce23a94c5"
+     "bytes": 1272,
+     "sha256": "0a1374ae154adfece96ba8dce85300e38ac8f1d6c4679ca4accc11ca53ceaaef"
     }
    ],
-   "bytes": 24723456
+   "bytes": 25477120
   },
   {
    "name": "mu0-3d-f0.44",
    "f_star": 0.44,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 34,
-   "gamma_reached": 3.35,
+   "steps_completed": 36,
+   "gamma_reached": 3.45,
    "direction_now": "up",
    "price_cpu_hours": 7.9,
-   "cpu_hours": 2.374,
+   "cpu_hours": 2.473,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -1559,27 +1692,65 @@
      "wavelength": 20.0,
      "peak_over_median": 29.5,
      "thickness": 2.8721
+    },
+    {
+     "step": 34,
+     "gamma": 3.4,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 180.4,
+     "cpu_seconds_per_cycle": 7.2165,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.5416,
+     "A_first": 0.5333,
+     "A_second": 0.5494,
+     "A_raw": 0.674,
+     "peak_mode": 5,
+     "wavelength": 20.0,
+     "peak_over_median": 26.8,
+     "thickness": 2.8947
+    },
+    {
+     "step": 35,
+     "gamma": 3.45,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 176.8,
+     "cpu_seconds_per_cycle": 7.0723,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.5307,
+     "A_first": 0.5269,
+     "A_second": 0.5344,
+     "A_raw": 0.6654,
+     "peak_mode": 5,
+     "wavelength": 20.0,
+     "peak_over_median": 26.9,
+     "thickness": 2.9044
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.44/ramp.jsonl",
-     "bytes": 6242,
-     "sha256": "cf89031a067d057fa24d20447f73086d5ca0076df919b89a2fa6098a1c2e9cb8"
+     "bytes": 6606,
+     "sha256": "fca9dbf521db2473006744979f027fb27bd71ca7dd2d22ee569656d8b8c9abb8"
     }
    ],
-   "bytes": 180424704
+   "bytes": 181932032
   },
   {
    "name": "mu0-3d-f0.38",
    "f_star": 0.38,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 4,
-   "gamma_reached": 1.85,
+   "steps_completed": 5,
+   "gamma_reached": 1.9,
    "direction_now": "up",
    "price_cpu_hours": 9.1,
-   "cpu_hours": 0.758,
+   "cpu_hours": 0.879,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -1667,27 +1838,46 @@
      "wavelength": 16.7,
      "peak_over_median": 1.5,
      "thickness": 1.7088
+    },
+    {
+     "step": 4,
+     "gamma": 1.9,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 436.8,
+     "cpu_seconds_per_cycle": 17.4723,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.03,
+     "A_first": 0.0093,
+     "A_second": 0.0392,
+     "A_raw": 0.1943,
+     "peak_mode": 6,
+     "wavelength": 16.7,
+     "peak_over_median": 1.8,
+     "thickness": 1.8421
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.38/ramp.jsonl",
-     "bytes": 733,
-     "sha256": "5fc5231cc6b16463881988a897ae427160104ca729c62208a2697d2df8b2904d"
+     "bytes": 912,
+     "sha256": "90348c72bb06b312cb787674c59c3458249df0262cdf0d487417a7da55b4dfd7"
     }
    ],
-   "bytes": 23224320
+   "bytes": 23982080
   },
   {
    "name": "mu0-3d-f0.33",
    "f_star": 0.33,
    "state": "running",
    "steps_planned": 213,
-   "steps_completed": 3,
-   "gamma_reached": 1.8,
+   "steps_completed": 4,
+   "gamma_reached": 1.85,
    "direction_now": "up",
    "price_cpu_hours": 10.5,
-   "cpu_hours": 0.702,
+   "cpu_hours": 0.864,
    "slow_episode_steps": 0,
    "audit_failing_cycles": 0,
    "steps_not_completed": [],
@@ -1756,16 +1946,35 @@
      "wavelength": 25.0,
      "peak_over_median": 1.5,
      "thickness": 1.6199
+    },
+    {
+     "step": 3,
+     "gamma": 1.85,
+     "direction": "up",
+     "outcome": "completed",
+     "cycles": 25,
+     "cpu_seconds": 581.9,
+     "cpu_seconds_per_cycle": 23.2755,
+     "slow_episodes": 0,
+     "audit_failing": 0,
+     "A": 0.0311,
+     "A_first": 0.0215,
+     "A_second": 0.0458,
+     "A_raw": 0.1651,
+     "peak_mode": 6,
+     "wavelength": 16.7,
+     "peak_over_median": 1.8,
+     "thickness": 1.7072
     }
    ],
    "files": [
     {
      "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0060/mu0-3d-f0.33/ramp.jsonl",
-     "bytes": 557,
-     "sha256": "3a4a7ffb4b1049e64cac2cd310e9cce273b98238943fac22545cf39392b0ed25"
+     "bytes": 736,
+     "sha256": "8857172b475cd1463a82cf9544fb3a30aae052a342f71bbd51654fea3f36dc3c"
     }
    ],
-   "bytes": 22466560
+   "bytes": 23224320
   },
   {
    "name": "mu0-3d-f0.30",
@@ -1860,43 +2069,43 @@
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.33.svg",
-   "bytes": 19851,
-   "sha256": "f549bfba80a85d447a43181fe4434bf5e949913637f37a470f0bf5d869a638d5"
+   "bytes": 19849,
+   "sha256": "decb8cbaf76482379942e06108dbfccb83b598d99625c149690bd9f14cf1da2b"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.38.svg",
-   "bytes": 19849,
-   "sha256": "be3b584b343fa320e86dad0e0edbf25be898a0bf76ed7a32e0ef978458c1a29e"
+   "bytes": 19847,
+   "sha256": "5f166b4fde061e4679c733b56e44d33da7d3a9bddb96697016bb788740e06e57"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.44.svg",
-   "bytes": 22873,
-   "sha256": "1cef5559603987eb44cca35557e233d475dac5edab23f095d3241eb3d4557d9f"
+   "bytes": 22867,
+   "sha256": "e695138fee2078cfadcf89986ac9fec94bc33b98df02f65c670a0f0de7702561"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.50.svg",
-   "bytes": 19845,
-   "sha256": "33ff449d441480f3e0e3d22bdd5f3e5663f4afa0bcdc598e5a171f9f683403d5"
+   "bytes": 19843,
+   "sha256": "709734038bf79dc5bbfd8e0504e0f82a0fb97d1f98bf6fe8d5dd309c7610c130"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.57.svg",
-   "bytes": 19843,
-   "sha256": "f44fcb18db23c3dd29beb7ea9fa99ed5cce2a98a3cededf8ce95fd435466d80b"
+   "bytes": 19841,
+   "sha256": "5e149d54d1a1e0bacf5e10b267bed5381ab06f3b7c7bea1129d373a5b3af5b45"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.65.svg",
-   "bytes": 19841,
-   "sha256": "35e8287ec5d98089f3cb16cc06ce69746e9934d3c64aae4ffe86516ab85a6e0c"
+   "bytes": 19839,
+   "sha256": "294cd0465eaab0d6fb7d7b14a96ade151ab2e78294ef3d228bc5fc5e782b6c72"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.74.svg",
-   "bytes": 19841,
-   "sha256": "c2ec21ae7ad17d5a9444776ec2dd64766d2577507ce53bc616597daa1a100b13"
+   "bytes": 19839,
+   "sha256": "d9efa1e7077ca6b079f507ad4f2dd2303af367a7805939a768eb8166095e7fbd"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel/evidence/fastpass-figures/mu0-f0.84.svg",
-   "bytes": 19839,
-   "sha256": "d5a5675604bc2c1916aac018ca6966e5ab2527732afe1dfbdfe895164951d0d1"
+   "bytes": 19837,
+   "sha256": "a685c23ea8256941ecca7e3ec3f7e552c4f9a3ca12e828871277c3d6114c9df3"
   }
  ]
 }
