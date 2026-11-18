@@ -1,0 +1,4004 @@
+1
+00:00:00,000 --> 00:00:00,083
+phase 0.7813; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+2
+00:00:00,083 --> 00:00:00,167
+phase 0.7828; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+3
+00:00:00,167 --> 00:00:00,250
+phase 0.7843; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+4
+00:00:00,250 --> 00:00:00,333
+phase 0.7858; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+5
+00:00:00,333 --> 00:00:00,417
+phase 0.7873; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+6
+00:00:00,417 --> 00:00:00,500
+phase 0.7888; pair collisions so far 0
+force on lower sphere: plate 68 mg, upper 0 mg
+
+7
+00:00:00,500 --> 00:00:00,583
+phase 0.7903; pair collisions so far 0
+force on lower sphere: plate 0 mg, upper 0 mg
+
+8
+00:00:00,583 --> 00:00:00,667
+phase 0.7918; pair collisions so far 1
+force on lower sphere: plate 0 mg, upper 26 mg
+
+9
+00:00:00,667 --> 00:00:00,750
+phase 0.7934; pair collisions so far 3
+force on lower sphere: plate 1.6e+02 mg, upper 96 mg
+
+10
+00:00:00,750 --> 00:00:00,833
+phase 0.7949; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+11
+00:00:00,833 --> 00:00:00,917
+phase 0.7964; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+12
+00:00:00,917 --> 00:00:01,000
+phase 0.7979; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+13
+00:00:01,000 --> 00:00:01,083
+phase 0.7994; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+14
+00:00:01,083 --> 00:00:01,167
+phase 0.8009; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+15
+00:00:01,167 --> 00:00:01,250
+phase 0.8024; pair collisions so far 3
+force on lower sphere: plate 0 mg, upper 0 mg
+
+16
+00:00:01,250 --> 00:00:01,333
+phase 0.8039; pair collisions so far 4
+force on lower sphere: plate 0 mg, upper 9.3 mg
+
+17
+00:00:01,333 --> 00:00:01,417
+phase 0.8054; pair collisions so far 5
+force on lower sphere: plate 60 mg, upper 48 mg
+
+18
+00:00:01,417 --> 00:00:01,500
+phase 0.8069; pair collisions so far 5
+force on lower sphere: plate 53 mg, upper 0 mg
+
+19
+00:00:01,500 --> 00:00:01,583
+phase 0.8084; pair collisions so far 6
+force on lower sphere: plate 0 mg, upper 9.3 mg
+
+20
+00:00:01,583 --> 00:00:01,667
+phase 0.8099; pair collisions so far 6
+force on lower sphere: plate 0 mg, upper 0 mg
+
+21
+00:00:01,667 --> 00:00:01,750
+phase 0.8114; pair collisions so far 6
+force on lower sphere: plate 0 mg, upper 0 mg
+
+22
+00:00:01,750 --> 00:00:01,833
+phase 0.8129; pair collisions so far 6
+force on lower sphere: plate 0 mg, upper 0 mg
+
+23
+00:00:01,833 --> 00:00:01,917
+phase 0.8144; pair collisions so far 6
+force on lower sphere: plate 0 mg, upper 0 mg
+
+24
+00:00:01,917 --> 00:00:02,000
+phase 0.8159; pair collisions so far 7
+force on lower sphere: plate 38 mg, upper 32 mg
+
+25
+00:00:02,000 --> 00:00:02,083
+phase 0.8174; pair collisions so far 7
+force on lower sphere: plate 27 mg, upper 0 mg
+
+26
+00:00:02,083 --> 00:00:02,167
+phase 0.8189; pair collisions so far 7
+force on lower sphere: plate 0 mg, upper 0 mg
+
+27
+00:00:02,167 --> 00:00:02,250
+phase 0.8204; pair collisions so far 7
+force on lower sphere: plate 0 mg, upper 0 mg
+
+28
+00:00:02,250 --> 00:00:02,333
+phase 0.8219; pair collisions so far 7
+force on lower sphere: plate 0 mg, upper 0 mg
+
+29
+00:00:02,333 --> 00:00:02,417
+phase 0.8234; pair collisions so far 7
+force on lower sphere: plate 65 mg, upper 0 mg
+
+30
+00:00:02,417 --> 00:00:02,500
+phase 0.8249; pair collisions so far 9
+force on lower sphere: plate 1.7e+02 mg, upper 1.9e+02 mg
+
+31
+00:00:02,500 --> 00:00:02,583
+phase 0.8264; pair collisions so far 9
+force on lower sphere: plate 0 mg, upper 0 mg
+
+32
+00:00:02,583 --> 00:00:02,667
+phase 0.8279; pair collisions so far 9
+force on lower sphere: plate 37 mg, upper 0 mg
+
+33
+00:00:02,667 --> 00:00:02,750
+phase 0.8295; pair collisions so far 9
+force on lower sphere: plate 0 mg, upper 0 mg
+
+34
+00:00:02,750 --> 00:00:02,833
+phase 0.8310; pair collisions so far 9
+force on lower sphere: plate 0 mg, upper 0 mg
+
+35
+00:00:02,833 --> 00:00:02,917
+phase 0.8325; pair collisions so far 9
+force on lower sphere: plate 0 mg, upper 0 mg
+
+36
+00:00:02,917 --> 00:00:03,000
+phase 0.8340; pair collisions so far 10
+force on lower sphere: plate 0 mg, upper 85 mg
+
+37
+00:00:03,000 --> 00:00:03,083
+phase 0.8355; pair collisions so far 11
+force on lower sphere: plate 1.4e+02 mg, upper 78 mg
+
+38
+00:00:03,083 --> 00:00:03,167
+phase 0.8370; pair collisions so far 11
+force on lower sphere: plate 42 mg, upper 0 mg
+
+39
+00:00:03,167 --> 00:00:03,250
+phase 0.8385; pair collisions so far 11
+force on lower sphere: plate 0 mg, upper 0 mg
+
+40
+00:00:03,250 --> 00:00:03,333
+phase 0.8400; pair collisions so far 11
+force on lower sphere: plate 0 mg, upper 0 mg
+
+41
+00:00:03,333 --> 00:00:03,417
+phase 0.8415; pair collisions so far 11
+force on lower sphere: plate 0 mg, upper 0 mg
+
+42
+00:00:03,417 --> 00:00:03,500
+phase 0.8430; pair collisions so far 12
+force on lower sphere: plate 0 mg, upper 35 mg
+
+43
+00:00:03,500 --> 00:00:03,583
+phase 0.8445; pair collisions so far 13
+force on lower sphere: plate 80 mg, upper 43 mg
+
+44
+00:00:03,583 --> 00:00:03,667
+phase 0.8460; pair collisions so far 13
+force on lower sphere: plate 0 mg, upper 0 mg
+
+45
+00:00:03,667 --> 00:00:03,750
+phase 0.8475; pair collisions so far 13
+force on lower sphere: plate 40 mg, upper 0 mg
+
+46
+00:00:03,750 --> 00:00:03,833
+phase 0.8490; pair collisions so far 14
+force on lower sphere: plate 0 mg, upper 40 mg
+
+47
+00:00:03,833 --> 00:00:03,917
+phase 0.8505; pair collisions so far 14
+force on lower sphere: plate 69 mg, upper 0 mg
+
+48
+00:00:03,917 --> 00:00:04,000
+phase 0.8520; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 32 mg
+
+49
+00:00:04,000 --> 00:00:04,083
+phase 0.8535; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+50
+00:00:04,083 --> 00:00:04,167
+phase 0.8550; pair collisions so far 15
+force on lower sphere: plate 34 mg, upper 0 mg
+
+51
+00:00:04,167 --> 00:00:04,250
+phase 0.8565; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+52
+00:00:04,250 --> 00:00:04,333
+phase 0.8580; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+53
+00:00:04,333 --> 00:00:04,417
+phase 0.8595; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+54
+00:00:04,417 --> 00:00:04,500
+phase 0.8610; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+55
+00:00:04,500 --> 00:00:04,583
+phase 0.8625; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+56
+00:00:04,583 --> 00:00:04,667
+phase 0.8641; pair collisions so far 15
+force on lower sphere: plate 0 mg, upper 0 mg
+
+57
+00:00:04,667 --> 00:00:04,750
+phase 0.8656; pair collisions so far 16
+force on lower sphere: plate 68 mg, upper 28 mg
+
+58
+00:00:04,750 --> 00:00:04,833
+phase 0.8671; pair collisions so far 17
+force on lower sphere: plate 0 mg, upper 11 mg
+
+59
+00:00:04,833 --> 00:00:04,917
+phase 0.8686; pair collisions so far 17
+force on lower sphere: plate 0 mg, upper 0 mg
+
+60
+00:00:04,917 --> 00:00:05,000
+phase 0.8701; pair collisions so far 17
+force on lower sphere: plate 19 mg, upper 0 mg
+
+61
+00:00:05,000 --> 00:00:05,083
+phase 0.8716; pair collisions so far 18
+force on lower sphere: plate 0 mg, upper 9.4 mg
+
+62
+00:00:05,083 --> 00:00:05,167
+phase 0.8731; pair collisions so far 18
+force on lower sphere: plate 18 mg, upper 0 mg
+
+63
+00:00:05,167 --> 00:00:05,250
+phase 0.8746; pair collisions so far 20
+force on lower sphere: plate 39 mg, upper 39 mg
+
+64
+00:00:05,250 --> 00:00:05,333
+phase 0.8761; pair collisions so far 20
+force on lower sphere: plate 0 mg, upper 0 mg
+
+65
+00:00:05,333 --> 00:00:05,417
+phase 0.8776; pair collisions so far 20
+force on lower sphere: plate 14 mg, upper 0 mg
+
+66
+00:00:05,417 --> 00:00:05,500
+phase 0.8791; pair collisions so far 20
+force on lower sphere: plate 0 mg, upper 0 mg
+
+67
+00:00:05,500 --> 00:00:05,583
+phase 0.8806; pair collisions so far 20
+force on lower sphere: plate 0 mg, upper 0 mg
+
+68
+00:00:05,583 --> 00:00:05,667
+phase 0.8821; pair collisions so far 20
+force on lower sphere: plate 13 mg, upper 0 mg
+
+69
+00:00:05,667 --> 00:00:05,750
+phase 0.8836; pair collisions so far 21
+force on lower sphere: plate 38 mg, upper 18 mg
+
+70
+00:00:05,750 --> 00:00:05,833
+phase 0.8851; pair collisions so far 24
+force on lower sphere: plate 38 mg, upper 54 mg
+
+71
+00:00:05,833 --> 00:00:05,917
+phase 0.8867; pair collisions so far 30
+force on lower sphere: plate 2.4e+02 mg, upper 2.3e+02 mg
+
+72
+00:00:05,917 --> 00:00:06,000
+phase 0.8882; pair collisions so far 31
+force on lower sphere: plate 0 mg, upper 24 mg
+
+73
+00:00:06,000 --> 00:00:06,083
+phase 0.8897; pair collisions so far 33
+force on lower sphere: plate 96 mg, upper 46 mg
+
+74
+00:00:06,083 --> 00:00:06,167
+phase 0.8912; pair collisions so far 34
+force on lower sphere: plate 0 mg, upper 25 mg
+
+75
+00:00:06,167 --> 00:00:06,250
+phase 0.8927; pair collisions so far 36
+force on lower sphere: plate 47 mg, upper 34 mg
+
+76
+00:00:06,250 --> 00:00:06,333
+phase 0.8942; pair collisions so far 38
+force on lower sphere: plate 27 mg, upper 23 mg
+
+77
+00:00:06,333 --> 00:00:06,417
+phase 0.8957; pair collisions so far 38
+force on lower sphere: plate 2.8 mg, upper 0 mg
+
+78
+00:00:06,417 --> 00:00:06,500
+phase 0.8972; pair collisions so far 38
+force on lower sphere: plate 5.5 mg, upper 0 mg
+
+79
+00:00:06,500 --> 00:00:06,583
+phase 0.8987; pair collisions so far 38
+force on lower sphere: plate 2.7 mg, upper 0 mg
+
+80
+00:00:06,583 --> 00:00:06,667
+phase 0.9002; pair collisions so far 40
+force on lower sphere: plate 10 mg, upper 4.6 mg
+
+81
+00:00:06,667 --> 00:00:06,750
+phase 0.9017; pair collisions so far 42
+force on lower sphere: plate 6.6 mg, upper 3.7 mg
+
+82
+00:00:06,750 --> 00:00:06,833
+phase 0.9032; pair collisions so far 44
+force on lower sphere: plate 8.9 mg, upper 3.5 mg
+
+83
+00:00:06,833 --> 00:00:06,917
+phase 0.9047; pair collisions so far 46
+force on lower sphere: plate 7 mg, upper 2.8 mg
+
+84
+00:00:06,917 --> 00:00:07,000
+phase 0.9062; pair collisions so far 50
+force on lower sphere: plate 8.2 mg, upper 4.4 mg
+
+85
+00:00:07,000 --> 00:00:07,083
+phase 0.9077; pair collisions so far 54
+force on lower sphere: plate 7.6 mg, upper 3 mg
+
+86
+00:00:07,083 --> 00:00:07,167
+phase 0.9092; pair collisions so far 63
+force on lower sphere: plate 7.6 mg, upper 3.7 mg
+
+87
+00:00:07,167 --> 00:00:07,250
+phase 0.9107; pair collisions so far 83
+force on lower sphere: plate 8.1 mg, upper 3.6 mg
+
+88
+00:00:07,250 --> 00:00:07,333
+phase 0.9122; pair collisions so far 106
+force on lower sphere: plate 7.3 mg, upper 3.5 mg
+
+89
+00:00:07,333 --> 00:00:07,417
+phase 0.9137; pair collisions so far 126
+force on lower sphere: plate 6.6 mg, upper 2.8 mg
+
+90
+00:00:07,417 --> 00:00:07,500
+phase 0.9152; pair collisions so far 207
+force on lower sphere: plate 6.1 mg, upper 2.7 mg
+
+91
+00:00:07,500 --> 00:00:07,583
+phase 0.9154; pair collisions so far 3357
+force on lower sphere: plate 6.3 mg, upper 2.7 mg
+
+92
+00:00:07,583 --> 00:00:07,667
+phase 0.9154; pair collisions so far 6652
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+93
+00:00:07,667 --> 00:00:07,750
+phase 0.9154; pair collisions so far 9702
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+94
+00:00:07,750 --> 00:00:07,833
+phase 0.9154; pair collisions so far 12511
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+95
+00:00:07,833 --> 00:00:07,917
+phase 0.9154; pair collisions so far 15250
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+96
+00:00:07,917 --> 00:00:08,000
+phase 0.915382974, stall +7.55e-07 periods; pair collisions so far 18264
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+97
+00:00:08,000 --> 00:00:08,083
+phase 0.915383028, stall +8.10e-07 periods; pair collisions so far 21590
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+98
+00:00:08,083 --> 00:00:08,167
+phase 0.915383098, stall +8.80e-07 periods; pair collisions so far 24917
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+99
+00:00:08,167 --> 00:00:08,250
+phase 0.915383205, stall +9.86e-07 periods; pair collisions so far 28233
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+100
+00:00:08,250 --> 00:00:08,333
+phase 0.915383229, stall +1.01e-06 periods; pair collisions so far 31558
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+101
+00:00:08,333 --> 00:00:08,417
+phase 0.915383253, stall +1.03e-06 periods; pair collisions so far 34882
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+102
+00:00:08,417 --> 00:00:08,500
+phase 0.915383277, stall +1.06e-06 periods; pair collisions so far 38203
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+103
+00:00:08,500 --> 00:00:08,583
+phase 0.915383301, stall +1.08e-06 periods; pair collisions so far 41527
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+104
+00:00:08,583 --> 00:00:08,667
+phase 0.915383325, stall +1.11e-06 periods; pair collisions so far 44850
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+105
+00:00:08,667 --> 00:00:08,750
+phase 0.915383349, stall +1.13e-06 periods; pair collisions so far 48173
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+106
+00:00:08,750 --> 00:00:08,833
+phase 0.915383373, stall +1.16e-06 periods; pair collisions so far 51497
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+107
+00:00:08,833 --> 00:00:08,917
+phase 0.915383431, stall +1.21e-06 periods; pair collisions so far 54812
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+108
+00:00:08,917 --> 00:00:09,000
+phase 0.915383512, stall +1.29e-06 periods; pair collisions so far 58122
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+109
+00:00:09,000 --> 00:00:09,083
+phase 0.915383535, stall +1.32e-06 periods; pair collisions so far 61449
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+110
+00:00:09,083 --> 00:00:09,167
+phase 0.915383560, stall +1.34e-06 periods; pair collisions so far 64772
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+111
+00:00:09,167 --> 00:00:09,250
+phase 0.915383584, stall +1.37e-06 periods; pair collisions so far 68095
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+112
+00:00:09,250 --> 00:00:09,333
+phase 0.915383608, stall +1.39e-06 periods; pair collisions so far 71418
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+113
+00:00:09,333 --> 00:00:09,417
+phase 0.915383632, stall +1.41e-06 periods; pair collisions so far 74744
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+114
+00:00:09,417 --> 00:00:09,500
+phase 0.915383656, stall +1.44e-06 periods; pair collisions so far 78068
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+115
+00:00:09,500 --> 00:00:09,583
+phase 0.915383680, stall +1.46e-06 periods; pair collisions so far 81393
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+116
+00:00:09,583 --> 00:00:09,667
+phase 0.915383704, stall +1.49e-06 periods; pair collisions so far 84720
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+117
+00:00:09,667 --> 00:00:09,750
+phase 0.915383728, stall +1.51e-06 periods; pair collisions so far 88046
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+118
+00:00:09,750 --> 00:00:09,833
+phase 0.915383752, stall +1.53e-06 periods; pair collisions so far 91371
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+119
+00:00:09,833 --> 00:00:09,917
+phase 0.915383776, stall +1.56e-06 periods; pair collisions so far 94698
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+120
+00:00:09,917 --> 00:00:10,000
+phase 0.915383800, stall +1.58e-06 periods; pair collisions so far 98024
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+121
+00:00:10,000 --> 00:00:10,083
+phase 0.915383824, stall +1.61e-06 periods; pair collisions so far 101347
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+122
+00:00:10,083 --> 00:00:10,167
+phase 0.915383848, stall +1.63e-06 periods; pair collisions so far 104671
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+123
+00:00:10,167 --> 00:00:10,250
+phase 0.915383872, stall +1.65e-06 periods; pair collisions so far 107999
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+124
+00:00:10,250 --> 00:00:10,333
+phase 0.915383896, stall +1.68e-06 periods; pair collisions so far 111325
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+125
+00:00:10,333 --> 00:00:10,417
+phase 0.915383920, stall +1.70e-06 periods; pair collisions so far 114653
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+126
+00:00:10,417 --> 00:00:10,500
+phase 0.915383944, stall +1.73e-06 periods; pair collisions so far 117978
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+127
+00:00:10,500 --> 00:00:10,583
+phase 0.915383968, stall +1.75e-06 periods; pair collisions so far 121301
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+128
+00:00:10,583 --> 00:00:10,667
+phase 0.915383992, stall +1.77e-06 periods; pair collisions so far 124629
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+129
+00:00:10,667 --> 00:00:10,750
+phase 0.915384016, stall +1.80e-06 periods; pair collisions so far 127956
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+130
+00:00:10,750 --> 00:00:10,833
+phase 0.915384040, stall +1.82e-06 periods; pair collisions so far 131280
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+131
+00:00:10,833 --> 00:00:10,917
+phase 0.915384064, stall +1.85e-06 periods; pair collisions so far 134605
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+132
+00:00:10,917 --> 00:00:11,000
+phase 0.915384088, stall +1.87e-06 periods; pair collisions so far 137933
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+133
+00:00:11,000 --> 00:00:11,083
+phase 0.915384112, stall +1.89e-06 periods; pair collisions so far 141262
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+134
+00:00:11,083 --> 00:00:11,167
+phase 0.915384136, stall +1.92e-06 periods; pair collisions so far 144587
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+135
+00:00:11,167 --> 00:00:11,250
+phase 0.915384160, stall +1.94e-06 periods; pair collisions so far 147914
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+136
+00:00:11,250 --> 00:00:11,333
+phase 0.915384192, stall +1.97e-06 periods; pair collisions so far 151241
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+137
+00:00:11,333 --> 00:00:11,417
+phase 0.915384216, stall +2.00e-06 periods; pair collisions so far 154566
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+138
+00:00:11,417 --> 00:00:11,500
+phase 0.915384240, stall +2.02e-06 periods; pair collisions so far 157891
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+139
+00:00:11,500 --> 00:00:11,583
+phase 0.915384264, stall +2.05e-06 periods; pair collisions so far 161217
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+140
+00:00:11,583 --> 00:00:11,667
+phase 0.915384288, stall +2.07e-06 periods; pair collisions so far 164542
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+141
+00:00:11,667 --> 00:00:11,750
+phase 0.915384312, stall +2.09e-06 periods; pair collisions so far 167867
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+142
+00:00:11,750 --> 00:00:11,833
+phase 0.915384336, stall +2.12e-06 periods; pair collisions so far 171194
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+143
+00:00:11,833 --> 00:00:11,917
+phase 0.915384360, stall +2.14e-06 periods; pair collisions so far 174519
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+144
+00:00:11,917 --> 00:00:12,000
+phase 0.915384384, stall +2.17e-06 periods; pair collisions so far 177843
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+145
+00:00:12,000 --> 00:00:12,083
+phase 0.915384408, stall +2.19e-06 periods; pair collisions so far 181168
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+146
+00:00:12,083 --> 00:00:12,167
+phase 0.915384432, stall +2.21e-06 periods; pair collisions so far 184494
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+147
+00:00:12,167 --> 00:00:12,250
+phase 0.915384457, stall +2.24e-06 periods; pair collisions so far 187820
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+148
+00:00:12,250 --> 00:00:12,333
+phase 0.915384481, stall +2.26e-06 periods; pair collisions so far 191145
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+149
+00:00:12,333 --> 00:00:12,417
+phase 0.915384505, stall +2.29e-06 periods; pair collisions so far 194465
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+150
+00:00:12,417 --> 00:00:12,500
+phase 0.915384529, stall +2.31e-06 periods; pair collisions so far 197788
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+151
+00:00:12,500 --> 00:00:12,583
+phase 0.915384553, stall +2.34e-06 periods; pair collisions so far 201110
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+152
+00:00:12,583 --> 00:00:12,667
+phase 0.915384577, stall +2.36e-06 periods; pair collisions so far 204438
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+153
+00:00:12,667 --> 00:00:12,750
+phase 0.915384601, stall +2.38e-06 periods; pair collisions so far 207761
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+154
+00:00:12,750 --> 00:00:12,833
+phase 0.915384626, stall +2.41e-06 periods; pair collisions so far 211089
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+155
+00:00:12,833 --> 00:00:12,917
+phase 0.915384650, stall +2.43e-06 periods; pair collisions so far 214412
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+156
+00:00:12,917 --> 00:00:13,000
+phase 0.915384674, stall +2.46e-06 periods; pair collisions so far 217731
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+157
+00:00:13,000 --> 00:00:13,083
+phase 0.915384698, stall +2.48e-06 periods; pair collisions so far 221059
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+158
+00:00:13,083 --> 00:00:13,167
+phase 0.915384722, stall +2.50e-06 periods; pair collisions so far 224386
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+159
+00:00:13,167 --> 00:00:13,250
+phase 0.915384746, stall +2.53e-06 periods; pair collisions so far 227712
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+160
+00:00:13,250 --> 00:00:13,333
+phase 0.915384770, stall +2.55e-06 periods; pair collisions so far 231041
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+161
+00:00:13,333 --> 00:00:13,417
+phase 0.915384795, stall +2.58e-06 periods; pair collisions so far 234361
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+162
+00:00:13,417 --> 00:00:13,500
+phase 0.915384819, stall +2.60e-06 periods; pair collisions so far 237683
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+163
+00:00:13,500 --> 00:00:13,583
+phase 0.915384843, stall +2.62e-06 periods; pair collisions so far 241004
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+164
+00:00:13,583 --> 00:00:13,667
+phase 0.915384867, stall +2.65e-06 periods; pair collisions so far 244329
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+165
+00:00:13,667 --> 00:00:13,750
+phase 0.915384891, stall +2.67e-06 periods; pair collisions so far 247653
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+166
+00:00:13,750 --> 00:00:13,833
+phase 0.915384915, stall +2.70e-06 periods; pair collisions so far 250976
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+167
+00:00:13,833 --> 00:00:13,917
+phase 0.915384940, stall +2.72e-06 periods; pair collisions so far 254301
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+168
+00:00:13,917 --> 00:00:14,000
+phase 0.915384964, stall +2.75e-06 periods; pair collisions so far 257628
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+169
+00:00:14,000 --> 00:00:14,083
+phase 0.915384988, stall +2.77e-06 periods; pair collisions so far 260956
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+170
+00:00:14,083 --> 00:00:14,167
+phase 0.915385012, stall +2.79e-06 periods; pair collisions so far 264280
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+171
+00:00:14,167 --> 00:00:14,250
+phase 0.915385036, stall +2.82e-06 periods; pair collisions so far 267601
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+172
+00:00:14,250 --> 00:00:14,333
+phase 0.915385061, stall +2.84e-06 periods; pair collisions so far 270924
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+173
+00:00:14,333 --> 00:00:14,417
+phase 0.915385085, stall +2.87e-06 periods; pair collisions so far 274254
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+174
+00:00:14,417 --> 00:00:14,500
+phase 0.915385109, stall +2.89e-06 periods; pair collisions so far 277573
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+175
+00:00:14,500 --> 00:00:14,583
+phase 0.915385133, stall +2.91e-06 periods; pair collisions so far 280894
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+176
+00:00:14,583 --> 00:00:14,667
+phase 0.915385157, stall +2.94e-06 periods; pair collisions so far 284213
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+177
+00:00:14,667 --> 00:00:14,750
+phase 0.915385182, stall +2.96e-06 periods; pair collisions so far 287536
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+178
+00:00:14,750 --> 00:00:14,833
+phase 0.915385206, stall +2.99e-06 periods; pair collisions so far 290858
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+179
+00:00:14,833 --> 00:00:14,917
+phase 0.915385230, stall +3.01e-06 periods; pair collisions so far 294181
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+180
+00:00:14,917 --> 00:00:15,000
+phase 0.915385254, stall +3.04e-06 periods; pair collisions so far 297501
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+181
+00:00:15,000 --> 00:00:15,083
+phase 0.915385279, stall +3.06e-06 periods; pair collisions so far 300823
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+182
+00:00:15,083 --> 00:00:15,167
+phase 0.915385303, stall +3.08e-06 periods; pair collisions so far 304142
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+183
+00:00:15,167 --> 00:00:15,250
+phase 0.915385327, stall +3.11e-06 periods; pair collisions so far 307467
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+184
+00:00:15,250 --> 00:00:15,333
+phase 0.915385351, stall +3.13e-06 periods; pair collisions so far 310791
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+185
+00:00:15,333 --> 00:00:15,417
+phase 0.915385376, stall +3.16e-06 periods; pair collisions so far 314111
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+186
+00:00:15,417 --> 00:00:15,500
+phase 0.915385400, stall +3.18e-06 periods; pair collisions so far 317431
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+187
+00:00:15,500 --> 00:00:15,583
+phase 0.915385424, stall +3.21e-06 periods; pair collisions so far 320754
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+188
+00:00:15,583 --> 00:00:15,667
+phase 0.915385448, stall +3.23e-06 periods; pair collisions so far 324074
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+189
+00:00:15,667 --> 00:00:15,750
+phase 0.915385472, stall +3.25e-06 periods; pair collisions so far 327400
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+190
+00:00:15,750 --> 00:00:15,833
+phase 0.915385497, stall +3.28e-06 periods; pair collisions so far 330721
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+191
+00:00:15,833 --> 00:00:15,917
+phase 0.915385521, stall +3.30e-06 periods; pair collisions so far 334046
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+192
+00:00:15,917 --> 00:00:16,000
+phase 0.915385545, stall +3.33e-06 periods; pair collisions so far 337374
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+193
+00:00:16,000 --> 00:00:16,083
+phase 0.915385569, stall +3.35e-06 periods; pair collisions so far 340695
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+194
+00:00:16,083 --> 00:00:16,167
+phase 0.915385594, stall +3.38e-06 periods; pair collisions so far 344017
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+195
+00:00:16,167 --> 00:00:16,250
+phase 0.915385618, stall +3.40e-06 periods; pair collisions so far 347342
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+196
+00:00:16,250 --> 00:00:16,333
+phase 0.915385642, stall +3.42e-06 periods; pair collisions so far 350664
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+197
+00:00:16,333 --> 00:00:16,417
+phase 0.915385666, stall +3.45e-06 periods; pair collisions so far 353989
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+198
+00:00:16,417 --> 00:00:16,500
+phase 0.915385690, stall +3.47e-06 periods; pair collisions so far 357319
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+199
+00:00:16,500 --> 00:00:16,583
+phase 0.915385715, stall +3.50e-06 periods; pair collisions so far 360643
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+200
+00:00:16,583 --> 00:00:16,667
+phase 0.915385739, stall +3.52e-06 periods; pair collisions so far 363964
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+201
+00:00:16,667 --> 00:00:16,750
+phase 0.915385763, stall +3.54e-06 periods; pair collisions so far 367290
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+202
+00:00:16,750 --> 00:00:16,833
+phase 0.915385787, stall +3.57e-06 periods; pair collisions so far 370616
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+203
+00:00:16,833 --> 00:00:16,917
+phase 0.915385812, stall +3.59e-06 periods; pair collisions so far 373937
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+204
+00:00:16,917 --> 00:00:17,000
+phase 0.915385836, stall +3.62e-06 periods; pair collisions so far 377257
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+205
+00:00:17,000 --> 00:00:17,083
+phase 0.915385860, stall +3.64e-06 periods; pair collisions so far 380580
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+206
+00:00:17,083 --> 00:00:17,167
+phase 0.915385884, stall +3.67e-06 periods; pair collisions so far 383905
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+207
+00:00:17,167 --> 00:00:17,250
+phase 0.915385908, stall +3.69e-06 periods; pair collisions so far 387231
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+208
+00:00:17,250 --> 00:00:17,333
+phase 0.915385933, stall +3.71e-06 periods; pair collisions so far 390556
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+209
+00:00:17,333 --> 00:00:17,417
+phase 0.915385957, stall +3.74e-06 periods; pair collisions so far 393877
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+210
+00:00:17,417 --> 00:00:17,500
+phase 0.915385981, stall +3.76e-06 periods; pair collisions so far 397199
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+211
+00:00:17,500 --> 00:00:17,583
+phase 0.915386005, stall +3.79e-06 periods; pair collisions so far 400525
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+212
+00:00:17,583 --> 00:00:17,667
+phase 0.915386029, stall +3.81e-06 periods; pair collisions so far 403849
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+213
+00:00:17,667 --> 00:00:17,750
+phase 0.915386054, stall +3.84e-06 periods; pair collisions so far 407171
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+214
+00:00:17,750 --> 00:00:17,833
+phase 0.915386078, stall +3.86e-06 periods; pair collisions so far 410493
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+215
+00:00:17,833 --> 00:00:17,917
+phase 0.915386102, stall +3.88e-06 periods; pair collisions so far 413816
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+216
+00:00:17,917 --> 00:00:18,000
+phase 0.915386126, stall +3.91e-06 periods; pair collisions so far 417137
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+217
+00:00:18,000 --> 00:00:18,083
+phase 0.915386150, stall +3.93e-06 periods; pair collisions so far 420463
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+218
+00:00:18,083 --> 00:00:18,167
+phase 0.915386175, stall +3.96e-06 periods; pair collisions so far 423785
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+219
+00:00:18,167 --> 00:00:18,250
+phase 0.915386199, stall +3.98e-06 periods; pair collisions so far 427113
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+220
+00:00:18,250 --> 00:00:18,333
+phase 0.915386223, stall +4.00e-06 periods; pair collisions so far 430437
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+221
+00:00:18,333 --> 00:00:18,417
+phase 0.915386247, stall +4.03e-06 periods; pair collisions so far 433759
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+222
+00:00:18,417 --> 00:00:18,500
+phase 0.915386271, stall +4.05e-06 periods; pair collisions so far 437081
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+223
+00:00:18,500 --> 00:00:18,583
+phase 0.915386296, stall +4.08e-06 periods; pair collisions so far 440403
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+224
+00:00:18,583 --> 00:00:18,667
+phase 0.915386320, stall +4.10e-06 periods; pair collisions so far 443725
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+225
+00:00:18,667 --> 00:00:18,750
+phase 0.915386344, stall +4.13e-06 periods; pair collisions so far 447048
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+226
+00:00:18,750 --> 00:00:18,833
+phase 0.915386368, stall +4.15e-06 periods; pair collisions so far 450369
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+227
+00:00:18,833 --> 00:00:18,917
+phase 0.915386392, stall +4.17e-06 periods; pair collisions so far 453693
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+228
+00:00:18,917 --> 00:00:19,000
+phase 0.915386416, stall +4.20e-06 periods; pair collisions so far 457017
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+229
+00:00:19,000 --> 00:00:19,083
+phase 0.915386440, stall +4.22e-06 periods; pair collisions so far 460338
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+230
+00:00:19,083 --> 00:00:19,167
+phase 0.915386465, stall +4.25e-06 periods; pair collisions so far 463663
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+231
+00:00:19,167 --> 00:00:19,250
+phase 0.915386489, stall +4.27e-06 periods; pair collisions so far 466985
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+232
+00:00:19,250 --> 00:00:19,333
+phase 0.915386513, stall +4.29e-06 periods; pair collisions so far 470306
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+233
+00:00:19,333 --> 00:00:19,417
+phase 0.915386537, stall +4.32e-06 periods; pair collisions so far 473628
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+234
+00:00:19,417 --> 00:00:19,500
+phase 0.915386561, stall +4.34e-06 periods; pair collisions so far 476950
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+235
+00:00:19,500 --> 00:00:19,583
+phase 0.915386585, stall +4.37e-06 periods; pair collisions so far 480271
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+236
+00:00:19,583 --> 00:00:19,667
+phase 0.915386609, stall +4.39e-06 periods; pair collisions so far 483595
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+237
+00:00:19,667 --> 00:00:19,750
+phase 0.915386633, stall +4.42e-06 periods; pair collisions so far 486917
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+238
+00:00:19,750 --> 00:00:19,833
+phase 0.915386658, stall +4.44e-06 periods; pair collisions so far 490239
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+239
+00:00:19,833 --> 00:00:19,917
+phase 0.915386682, stall +4.46e-06 periods; pair collisions so far 493562
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+240
+00:00:19,917 --> 00:00:20,000
+phase 0.915386706, stall +4.49e-06 periods; pair collisions so far 496885
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+241
+00:00:20,000 --> 00:00:20,083
+phase 0.915386730, stall +4.51e-06 periods; pair collisions so far 500208
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+242
+00:00:20,083 --> 00:00:20,167
+phase 0.915386754, stall +4.54e-06 periods; pair collisions so far 503531
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+243
+00:00:20,167 --> 00:00:20,250
+phase 0.915386778, stall +4.56e-06 periods; pair collisions so far 506853
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+244
+00:00:20,250 --> 00:00:20,333
+phase 0.915386802, stall +4.58e-06 periods; pair collisions so far 510177
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+245
+00:00:20,333 --> 00:00:20,417
+phase 0.915386826, stall +4.61e-06 periods; pair collisions so far 513499
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+246
+00:00:20,417 --> 00:00:20,500
+phase 0.915386850, stall +4.63e-06 periods; pair collisions so far 516823
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+247
+00:00:20,500 --> 00:00:20,583
+phase 0.915386875, stall +4.66e-06 periods; pair collisions so far 520145
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+248
+00:00:20,583 --> 00:00:20,667
+phase 0.915387233, stall +5.02e-06 periods; pair collisions so far 523203
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+249
+00:00:20,667 --> 00:00:20,750
+phase 0.915387257, stall +5.04e-06 periods; pair collisions so far 526518
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+250
+00:00:20,750 --> 00:00:20,833
+phase 0.915387839, stall +5.62e-06 periods; pair collisions so far 528416
+force on lower sphere: plate 6 mg, upper 2.5 mg
+
+251
+00:00:20,833 --> 00:00:20,917
+phase 0.915391210, stall +8.99e-06 periods; pair collisions so far 530024
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+252
+00:00:20,917 --> 00:00:21,000
+phase 0.915391234, stall +9.02e-06 periods; pair collisions so far 533351
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+253
+00:00:21,000 --> 00:00:21,083
+phase 0.915392443, stall +1.02e-05 periods; pair collisions so far 536568
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+254
+00:00:21,083 --> 00:00:21,167
+phase 0.915392467, stall +1.02e-05 periods; pair collisions so far 539893
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+255
+00:00:21,167 --> 00:00:21,250
+phase 0.915392491, stall +1.03e-05 periods; pair collisions so far 543218
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+256
+00:00:21,250 --> 00:00:21,333
+phase 0.915392715, stall +1.05e-05 periods; pair collisions so far 545147
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+257
+00:00:21,333 --> 00:00:21,417
+phase 0.915392750, stall +1.05e-05 periods; pair collisions so far 548425
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+258
+00:00:21,417 --> 00:00:21,500
+phase 0.915392774, stall +1.06e-05 periods; pair collisions so far 551750
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+259
+00:00:21,500 --> 00:00:21,583
+phase 0.915394696, stall +1.25e-05 periods; pair collisions so far 554109
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+260
+00:00:21,583 --> 00:00:21,667
+phase 0.915397476, stall +1.53e-05 periods; pair collisions so far 555732
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+261
+00:00:21,667 --> 00:00:21,750
+phase 0.915397553, stall +1.53e-05 periods; pair collisions so far 559059
+force on lower sphere: plate 6.1 mg, upper 2.5 mg
+
+262
+00:00:21,750 --> 00:00:21,833
+phase 0.915397577, stall +1.54e-05 periods; pair collisions so far 562386
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+263
+00:00:21,833 --> 00:00:21,917
+phase 0.915397601, stall +1.54e-05 periods; pair collisions so far 565713
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+264
+00:00:21,917 --> 00:00:22,000
+phase 0.915397625, stall +1.54e-05 periods; pair collisions so far 569040
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+265
+00:00:22,000 --> 00:00:22,083
+phase 0.915397649, stall +1.54e-05 periods; pair collisions so far 572366
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+266
+00:00:22,083 --> 00:00:22,167
+phase 0.915397674, stall +1.55e-05 periods; pair collisions so far 575692
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+267
+00:00:22,167 --> 00:00:22,250
+phase 0.915397698, stall +1.55e-05 periods; pair collisions so far 579019
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+268
+00:00:22,250 --> 00:00:22,333
+phase 0.915397722, stall +1.55e-05 periods; pair collisions so far 582345
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+269
+00:00:22,333 --> 00:00:22,417
+phase 0.915397831, stall +1.56e-05 periods; pair collisions so far 585675
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+270
+00:00:22,417 --> 00:00:22,500
+phase 0.915397870, stall +1.57e-05 periods; pair collisions so far 587516
+force on lower sphere: plate 5.5 mg, upper 2 mg
+
+271
+00:00:22,500 --> 00:00:22,583
+phase 0.915397915, stall +1.57e-05 periods; pair collisions so far 587516
+force on lower sphere: plate 3.5 mg, upper 0 mg
+
+272
+00:00:22,583 --> 00:00:22,667
+phase 0.915402913, stall +2.07e-05 periods; pair collisions so far 588613
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+273
+00:00:22,667 --> 00:00:22,750
+phase 0.915406073, stall +2.39e-05 periods; pair collisions so far 591405
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+274
+00:00:22,750 --> 00:00:22,833
+phase 0.915406097, stall +2.39e-05 periods; pair collisions so far 594730
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+275
+00:00:22,833 --> 00:00:22,917
+phase 0.915406130, stall +2.39e-05 periods; pair collisions so far 597882
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+276
+00:00:22,917 --> 00:00:23,000
+phase 0.915406170, stall +2.40e-05 periods; pair collisions so far 600870
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+277
+00:00:23,000 --> 00:00:23,083
+phase 0.915406194, stall +2.40e-05 periods; pair collisions so far 604194
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+278
+00:00:23,083 --> 00:00:23,167
+phase 0.915406218, stall +2.40e-05 periods; pair collisions so far 607519
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+279
+00:00:23,167 --> 00:00:23,250
+phase 0.915406242, stall +2.40e-05 periods; pair collisions so far 610843
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+280
+00:00:23,250 --> 00:00:23,333
+phase 0.915406266, stall +2.40e-05 periods; pair collisions so far 614168
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+281
+00:00:23,333 --> 00:00:23,417
+phase 0.915406290, stall +2.41e-05 periods; pair collisions so far 617491
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+282
+00:00:23,417 --> 00:00:23,500
+phase 0.915406314, stall +2.41e-05 periods; pair collisions so far 620817
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+283
+00:00:23,500 --> 00:00:23,583
+phase 0.915406338, stall +2.41e-05 periods; pair collisions so far 624140
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+284
+00:00:23,583 --> 00:00:23,667
+phase 0.915406362, stall +2.41e-05 periods; pair collisions so far 627465
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+285
+00:00:23,667 --> 00:00:23,750
+phase 0.915406422, stall +2.42e-05 periods; pair collisions so far 630788
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+286
+00:00:23,750 --> 00:00:23,833
+phase 0.915406447, stall +2.42e-05 periods; pair collisions so far 634112
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+287
+00:00:23,833 --> 00:00:23,917
+phase 0.915406471, stall +2.43e-05 periods; pair collisions so far 637436
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+288
+00:00:23,917 --> 00:00:24,000
+phase 0.915406518, stall +2.43e-05 periods; pair collisions so far 640765
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+289
+00:00:24,000 --> 00:00:24,083
+phase 0.915406736, stall +2.45e-05 periods; pair collisions so far 644051
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+290
+00:00:24,083 --> 00:00:24,167
+phase 0.915406760, stall +2.45e-05 periods; pair collisions so far 647375
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+291
+00:00:24,167 --> 00:00:24,250
+phase 0.915406784, stall +2.46e-05 periods; pair collisions so far 650698
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+292
+00:00:24,250 --> 00:00:24,333
+phase 0.915406808, stall +2.46e-05 periods; pair collisions so far 654021
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+293
+00:00:24,333 --> 00:00:24,417
+phase 0.915406833, stall +2.46e-05 periods; pair collisions so far 657344
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+294
+00:00:24,417 --> 00:00:24,500
+phase 0.915406857, stall +2.46e-05 periods; pair collisions so far 660668
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+295
+00:00:24,500 --> 00:00:24,583
+phase 0.915406881, stall +2.47e-05 periods; pair collisions so far 663992
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+296
+00:00:24,583 --> 00:00:24,667
+phase 0.915406905, stall +2.47e-05 periods; pair collisions so far 667316
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+297
+00:00:24,667 --> 00:00:24,750
+phase 0.915406929, stall +2.47e-05 periods; pair collisions so far 670641
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+298
+00:00:24,750 --> 00:00:24,833
+phase 0.915406953, stall +2.47e-05 periods; pair collisions so far 673964
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+299
+00:00:24,833 --> 00:00:24,917
+phase 0.915406977, stall +2.48e-05 periods; pair collisions so far 677287
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+300
+00:00:24,917 --> 00:00:25,000
+phase 0.915407001, stall +2.48e-05 periods; pair collisions so far 680611
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+301
+00:00:25,000 --> 00:00:25,083
+phase 0.915407026, stall +2.48e-05 periods; pair collisions so far 683935
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+302
+00:00:25,083 --> 00:00:25,167
+phase 0.915407050, stall +2.48e-05 periods; pair collisions so far 687258
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+303
+00:00:25,167 --> 00:00:25,250
+phase 0.915407074, stall +2.49e-05 periods; pair collisions so far 690582
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+304
+00:00:25,250 --> 00:00:25,333
+phase 0.915407098, stall +2.49e-05 periods; pair collisions so far 693905
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+305
+00:00:25,333 --> 00:00:25,417
+phase 0.915407122, stall +2.49e-05 periods; pair collisions so far 697229
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+306
+00:00:25,417 --> 00:00:25,500
+phase 0.915407146, stall +2.49e-05 periods; pair collisions so far 700553
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+307
+00:00:25,500 --> 00:00:25,583
+phase 0.915407170, stall +2.50e-05 periods; pair collisions so far 703877
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+308
+00:00:25,583 --> 00:00:25,667
+phase 0.915407194, stall +2.50e-05 periods; pair collisions so far 707200
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+309
+00:00:25,667 --> 00:00:25,750
+phase 0.915407218, stall +2.50e-05 periods; pair collisions so far 710523
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+310
+00:00:25,750 --> 00:00:25,833
+phase 0.915407243, stall +2.50e-05 periods; pair collisions so far 713846
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+311
+00:00:25,833 --> 00:00:25,917
+phase 0.915407267, stall +2.50e-05 periods; pair collisions so far 717170
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+312
+00:00:25,917 --> 00:00:26,000
+phase 0.915407291, stall +2.51e-05 periods; pair collisions so far 720493
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+313
+00:00:26,000 --> 00:00:26,083
+phase 0.915407315, stall +2.51e-05 periods; pair collisions so far 723816
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+314
+00:00:26,083 --> 00:00:26,167
+phase 0.915407339, stall +2.51e-05 periods; pair collisions so far 727139
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+315
+00:00:26,167 --> 00:00:26,250
+phase 0.915407363, stall +2.51e-05 periods; pair collisions so far 730463
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+316
+00:00:26,250 --> 00:00:26,333
+phase 0.915407387, stall +2.52e-05 periods; pair collisions so far 733786
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+317
+00:00:26,333 --> 00:00:26,417
+phase 0.915407411, stall +2.52e-05 periods; pair collisions so far 737109
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+318
+00:00:26,417 --> 00:00:26,500
+phase 0.915407436, stall +2.52e-05 periods; pair collisions so far 740434
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+319
+00:00:26,500 --> 00:00:26,583
+phase 0.915407460, stall +2.52e-05 periods; pair collisions so far 743757
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+320
+00:00:26,583 --> 00:00:26,667
+phase 0.915407484, stall +2.53e-05 periods; pair collisions so far 747080
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+321
+00:00:26,667 --> 00:00:26,750
+phase 0.915407508, stall +2.53e-05 periods; pair collisions so far 750403
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+322
+00:00:26,750 --> 00:00:26,833
+phase 0.915407532, stall +2.53e-05 periods; pair collisions so far 753727
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+323
+00:00:26,833 --> 00:00:26,917
+phase 0.915407556, stall +2.53e-05 periods; pair collisions so far 757050
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+324
+00:00:26,917 --> 00:00:27,000
+phase 0.915407596, stall +2.54e-05 periods; pair collisions so far 760375
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+325
+00:00:27,000 --> 00:00:27,083
+phase 0.915407620, stall +2.54e-05 periods; pair collisions so far 763699
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+326
+00:00:27,083 --> 00:00:27,167
+phase 0.915407644, stall +2.54e-05 periods; pair collisions so far 767022
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+327
+00:00:27,167 --> 00:00:27,250
+phase 0.915407705, stall +2.55e-05 periods; pair collisions so far 770314
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+328
+00:00:27,250 --> 00:00:27,333
+phase 0.915407729, stall +2.55e-05 periods; pair collisions so far 773638
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+329
+00:00:27,333 --> 00:00:27,417
+phase 0.915407754, stall +2.55e-05 periods; pair collisions so far 776962
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+330
+00:00:27,417 --> 00:00:27,500
+phase 0.915407778, stall +2.56e-05 periods; pair collisions so far 780286
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+331
+00:00:27,500 --> 00:00:27,583
+phase 0.915407802, stall +2.56e-05 periods; pair collisions so far 783611
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+332
+00:00:27,583 --> 00:00:27,667
+phase 0.915407826, stall +2.56e-05 periods; pair collisions so far 786934
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+333
+00:00:27,667 --> 00:00:27,750
+phase 0.915407850, stall +2.56e-05 periods; pair collisions so far 790258
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+334
+00:00:27,750 --> 00:00:27,833
+phase 0.915407874, stall +2.57e-05 periods; pair collisions so far 793582
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+335
+00:00:27,833 --> 00:00:27,917
+phase 0.915407898, stall +2.57e-05 periods; pair collisions so far 796907
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+336
+00:00:27,917 --> 00:00:28,000
+phase 0.915407922, stall +2.57e-05 periods; pair collisions so far 800231
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+337
+00:00:28,000 --> 00:00:28,083
+phase 0.915407946, stall +2.57e-05 periods; pair collisions so far 803556
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+338
+00:00:28,083 --> 00:00:28,167
+phase 0.915407971, stall +2.58e-05 periods; pair collisions so far 806879
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+339
+00:00:28,167 --> 00:00:28,250
+phase 0.915407995, stall +2.58e-05 periods; pair collisions so far 810204
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+340
+00:00:28,250 --> 00:00:28,333
+phase 0.915408019, stall +2.58e-05 periods; pair collisions so far 813528
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+341
+00:00:28,333 --> 00:00:28,417
+phase 0.915408043, stall +2.58e-05 periods; pair collisions so far 816851
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+342
+00:00:28,417 --> 00:00:28,500
+phase 0.915408067, stall +2.58e-05 periods; pair collisions so far 820174
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+343
+00:00:28,500 --> 00:00:28,583
+phase 0.915408091, stall +2.59e-05 periods; pair collisions so far 823497
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+344
+00:00:28,583 --> 00:00:28,667
+phase 0.915408115, stall +2.59e-05 periods; pair collisions so far 826822
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+345
+00:00:28,667 --> 00:00:28,750
+phase 0.915408178, stall +2.60e-05 periods; pair collisions so far 830139
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+346
+00:00:28,750 --> 00:00:28,833
+phase 0.915408222, stall +2.60e-05 periods; pair collisions so far 833468
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+347
+00:00:28,833 --> 00:00:28,917
+phase 0.915408246, stall +2.60e-05 periods; pair collisions so far 836791
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+348
+00:00:28,917 --> 00:00:29,000
+phase 0.915408271, stall +2.61e-05 periods; pair collisions so far 840116
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+349
+00:00:29,000 --> 00:00:29,083
+phase 0.915408295, stall +2.61e-05 periods; pair collisions so far 843439
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+350
+00:00:29,083 --> 00:00:29,167
+phase 0.915408319, stall +2.61e-05 periods; pair collisions so far 846763
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+351
+00:00:29,167 --> 00:00:29,250
+phase 0.915408343, stall +2.61e-05 periods; pair collisions so far 850087
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+352
+00:00:29,250 --> 00:00:29,333
+phase 0.915408367, stall +2.61e-05 periods; pair collisions so far 853411
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+353
+00:00:29,333 --> 00:00:29,417
+phase 0.915408391, stall +2.62e-05 periods; pair collisions so far 856734
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+354
+00:00:29,417 --> 00:00:29,500
+phase 0.915408415, stall +2.62e-05 periods; pair collisions so far 860057
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+355
+00:00:29,500 --> 00:00:29,583
+phase 0.915408439, stall +2.62e-05 periods; pair collisions so far 863382
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+356
+00:00:29,583 --> 00:00:29,667
+phase 0.915408464, stall +2.62e-05 periods; pair collisions so far 866707
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+357
+00:00:29,667 --> 00:00:29,750
+phase 0.915408488, stall +2.63e-05 periods; pair collisions so far 870031
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+358
+00:00:29,750 --> 00:00:29,833
+phase 0.915408668, stall +2.64e-05 periods; pair collisions so far 873352
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+359
+00:00:29,833 --> 00:00:29,917
+phase 0.915408767, stall +2.65e-05 periods; pair collisions so far 876678
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+360
+00:00:29,917 --> 00:00:30,000
+phase 0.915408791, stall +2.66e-05 periods; pair collisions so far 880002
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+361
+00:00:30,000 --> 00:00:30,083
+phase 0.915408846, stall +2.66e-05 periods; pair collisions so far 883322
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+362
+00:00:30,083 --> 00:00:30,167
+phase 0.915408870, stall +2.67e-05 periods; pair collisions so far 886646
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+363
+00:00:30,167 --> 00:00:30,250
+phase 0.915408894, stall +2.67e-05 periods; pair collisions so far 889970
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+364
+00:00:30,250 --> 00:00:30,333
+phase 0.915408918, stall +2.67e-05 periods; pair collisions so far 893294
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+365
+00:00:30,333 --> 00:00:30,417
+phase 0.915408988, stall +2.68e-05 periods; pair collisions so far 896622
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+366
+00:00:30,417 --> 00:00:30,500
+phase 0.915409012, stall +2.68e-05 periods; pair collisions so far 899946
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+367
+00:00:30,500 --> 00:00:30,583
+phase 0.915409037, stall +2.68e-05 periods; pair collisions so far 903270
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+368
+00:00:30,583 --> 00:00:30,667
+phase 0.915409061, stall +2.68e-05 periods; pair collisions so far 906596
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+369
+00:00:30,667 --> 00:00:30,750
+phase 0.915409115, stall +2.69e-05 periods; pair collisions so far 909918
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+370
+00:00:30,750 --> 00:00:30,833
+phase 0.915409139, stall +2.69e-05 periods; pair collisions so far 913244
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+371
+00:00:30,833 --> 00:00:30,917
+phase 0.915409265, stall +2.70e-05 periods; pair collisions so far 916526
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+372
+00:00:30,917 --> 00:00:31,000
+phase 0.915409319, stall +2.71e-05 periods; pair collisions so far 919793
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+373
+00:00:31,000 --> 00:00:31,083
+phase 0.915409407, stall +2.72e-05 periods; pair collisions so far 923091
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+374
+00:00:31,083 --> 00:00:31,167
+phase 0.915409473, stall +2.73e-05 periods; pair collisions so far 926404
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+375
+00:00:31,167 --> 00:00:31,250
+phase 0.915409583, stall +2.74e-05 periods; pair collisions so far 929712
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+376
+00:00:31,250 --> 00:00:31,333
+phase 0.915409646, stall +2.74e-05 periods; pair collisions so far 933037
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+377
+00:00:31,333 --> 00:00:31,417
+phase 0.915409711, stall +2.75e-05 periods; pair collisions so far 936329
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+378
+00:00:31,417 --> 00:00:31,500
+phase 0.915409735, stall +2.75e-05 periods; pair collisions so far 939656
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+379
+00:00:31,500 --> 00:00:31,583
+phase 0.915409759, stall +2.75e-05 periods; pair collisions so far 942982
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+380
+00:00:31,583 --> 00:00:31,667
+phase 0.915409783, stall +2.76e-05 periods; pair collisions so far 946306
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+381
+00:00:31,667 --> 00:00:31,750
+phase 0.915409807, stall +2.76e-05 periods; pair collisions so far 949633
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+382
+00:00:31,750 --> 00:00:31,833
+phase 0.915409831, stall +2.76e-05 periods; pair collisions so far 952957
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+383
+00:00:31,833 --> 00:00:31,917
+phase 0.915409855, stall +2.76e-05 periods; pair collisions so far 956282
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+384
+00:00:31,917 --> 00:00:32,000
+phase 0.915409879, stall +2.77e-05 periods; pair collisions so far 959607
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+385
+00:00:32,000 --> 00:00:32,083
+phase 0.915410052, stall +2.78e-05 periods; pair collisions so far 962902
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+386
+00:00:32,083 --> 00:00:32,167
+phase 0.915410077, stall +2.79e-05 periods; pair collisions so far 966226
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+387
+00:00:32,167 --> 00:00:32,250
+phase 0.915410139, stall +2.79e-05 periods; pair collisions so far 969503
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+388
+00:00:32,250 --> 00:00:32,333
+phase 0.915410163, stall +2.79e-05 periods; pair collisions so far 972826
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+389
+00:00:32,333 --> 00:00:32,417
+phase 0.915410187, stall +2.80e-05 periods; pair collisions so far 976152
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+390
+00:00:32,417 --> 00:00:32,500
+phase 0.915410211, stall +2.80e-05 periods; pair collisions so far 979476
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+391
+00:00:32,500 --> 00:00:32,583
+phase 0.915410235, stall +2.80e-05 periods; pair collisions so far 982802
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+392
+00:00:32,583 --> 00:00:32,667
+phase 0.915410259, stall +2.80e-05 periods; pair collisions so far 986126
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+393
+00:00:32,667 --> 00:00:32,750
+phase 0.915410283, stall +2.81e-05 periods; pair collisions so far 989451
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+394
+00:00:32,750 --> 00:00:32,833
+phase 0.915410307, stall +2.81e-05 periods; pair collisions so far 992776
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+395
+00:00:32,833 --> 00:00:32,917
+phase 0.915410331, stall +2.81e-05 periods; pair collisions so far 996101
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+396
+00:00:32,917 --> 00:00:33,000
+phase 0.915410355, stall +2.81e-05 periods; pair collisions so far 999426
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+397
+00:00:33,000 --> 00:00:33,083
+phase 0.915410379, stall +2.82e-05 periods; pair collisions so far 1002752
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+398
+00:00:33,083 --> 00:00:33,167
+phase 0.915410434, stall +2.82e-05 periods; pair collisions so far 1006060
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+399
+00:00:33,167 --> 00:00:33,250
+phase 0.915410480, stall +2.83e-05 periods; pair collisions so far 1009385
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+400
+00:00:33,250 --> 00:00:33,333
+phase 0.915410512, stall +2.83e-05 periods; pair collisions so far 1012709
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+401
+00:00:33,333 --> 00:00:33,417
+phase 0.915410543, stall +2.83e-05 periods; pair collisions so far 1016034
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+402
+00:00:33,417 --> 00:00:33,500
+phase 0.915410567, stall +2.83e-05 periods; pair collisions so far 1019359
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+403
+00:00:33,500 --> 00:00:33,583
+phase 0.915410591, stall +2.84e-05 periods; pair collisions so far 1022684
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+404
+00:00:33,583 --> 00:00:33,667
+phase 0.915410616, stall +2.84e-05 periods; pair collisions so far 1026009
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+405
+00:00:33,667 --> 00:00:33,750
+phase 0.915410640, stall +2.84e-05 periods; pair collisions so far 1029334
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+406
+00:00:33,750 --> 00:00:33,833
+phase 0.915410664, stall +2.84e-05 periods; pair collisions so far 1032660
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+407
+00:00:33,833 --> 00:00:33,917
+phase 0.915410688, stall +2.85e-05 periods; pair collisions so far 1035984
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+408
+00:00:33,917 --> 00:00:34,000
+phase 0.915410712, stall +2.85e-05 periods; pair collisions so far 1039308
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+409
+00:00:34,000 --> 00:00:34,083
+phase 0.915410736, stall +2.85e-05 periods; pair collisions so far 1042632
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+410
+00:00:34,083 --> 00:00:34,167
+phase 0.915410760, stall +2.85e-05 periods; pair collisions so far 1045958
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+411
+00:00:34,167 --> 00:00:34,250
+phase 0.915410784, stall +2.86e-05 periods; pair collisions so far 1049282
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+412
+00:00:34,250 --> 00:00:34,333
+phase 0.915410808, stall +2.86e-05 periods; pair collisions so far 1052607
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+413
+00:00:34,333 --> 00:00:34,417
+phase 0.915410832, stall +2.86e-05 periods; pair collisions so far 1055932
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+414
+00:00:34,417 --> 00:00:34,500
+phase 0.915410856, stall +2.86e-05 periods; pair collisions so far 1059257
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+415
+00:00:34,500 --> 00:00:34,583
+phase 0.915410880, stall +2.87e-05 periods; pair collisions so far 1062581
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+416
+00:00:34,583 --> 00:00:34,667
+phase 0.915410904, stall +2.87e-05 periods; pair collisions so far 1065906
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+417
+00:00:34,667 --> 00:00:34,750
+phase 0.915410928, stall +2.87e-05 periods; pair collisions so far 1069231
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+418
+00:00:34,750 --> 00:00:34,833
+phase 0.915410952, stall +2.87e-05 periods; pair collisions so far 1072555
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+419
+00:00:34,833 --> 00:00:34,917
+phase 0.915410976, stall +2.88e-05 periods; pair collisions so far 1075880
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+420
+00:00:34,917 --> 00:00:35,000
+phase 0.915411001, stall +2.88e-05 periods; pair collisions so far 1079205
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+421
+00:00:35,000 --> 00:00:35,083
+phase 0.915411025, stall +2.88e-05 periods; pair collisions so far 1082531
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+422
+00:00:35,083 --> 00:00:35,167
+phase 0.915411049, stall +2.88e-05 periods; pair collisions so far 1085856
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+423
+00:00:35,167 --> 00:00:35,250
+phase 0.915411073, stall +2.89e-05 periods; pair collisions so far 1089180
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+424
+00:00:35,250 --> 00:00:35,333
+phase 0.915411097, stall +2.89e-05 periods; pair collisions so far 1092505
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+425
+00:00:35,333 --> 00:00:35,417
+phase 0.915411121, stall +2.89e-05 periods; pair collisions so far 1095829
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+426
+00:00:35,417 --> 00:00:35,500
+phase 0.915411145, stall +2.89e-05 periods; pair collisions so far 1099153
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+427
+00:00:35,500 --> 00:00:35,583
+phase 0.915411169, stall +2.90e-05 periods; pair collisions so far 1102478
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+428
+00:00:35,583 --> 00:00:35,667
+phase 0.915411193, stall +2.90e-05 periods; pair collisions so far 1105802
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+429
+00:00:35,667 --> 00:00:35,750
+phase 0.915411217, stall +2.90e-05 periods; pair collisions so far 1109127
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+430
+00:00:35,750 --> 00:00:35,833
+phase 0.915411241, stall +2.90e-05 periods; pair collisions so far 1112451
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+431
+00:00:35,833 --> 00:00:35,917
+phase 0.915411265, stall +2.90e-05 periods; pair collisions so far 1115775
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+432
+00:00:35,917 --> 00:00:36,000
+phase 0.915411289, stall +2.91e-05 periods; pair collisions so far 1119100
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+433
+00:00:36,000 --> 00:00:36,083
+phase 0.915411313, stall +2.91e-05 periods; pair collisions so far 1122424
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+434
+00:00:36,083 --> 00:00:36,167
+phase 0.915411338, stall +2.91e-05 periods; pair collisions so far 1125749
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+435
+00:00:36,167 --> 00:00:36,250
+phase 0.915411362, stall +2.91e-05 periods; pair collisions so far 1129074
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+436
+00:00:36,250 --> 00:00:36,333
+phase 0.915411386, stall +2.92e-05 periods; pair collisions so far 1132399
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+437
+00:00:36,333 --> 00:00:36,417
+phase 0.915411410, stall +2.92e-05 periods; pair collisions so far 1135723
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+438
+00:00:36,417 --> 00:00:36,500
+phase 0.915411434, stall +2.92e-05 periods; pair collisions so far 1139049
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+439
+00:00:36,500 --> 00:00:36,583
+phase 0.915411458, stall +2.92e-05 periods; pair collisions so far 1142374
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+440
+00:00:36,583 --> 00:00:36,667
+phase 0.915411482, stall +2.93e-05 periods; pair collisions so far 1145698
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+441
+00:00:36,667 --> 00:00:36,750
+phase 0.915411506, stall +2.93e-05 periods; pair collisions so far 1149022
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+442
+00:00:36,750 --> 00:00:36,833
+phase 0.915411530, stall +2.93e-05 periods; pair collisions so far 1152347
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+443
+00:00:36,833 --> 00:00:36,917
+phase 0.915411554, stall +2.93e-05 periods; pair collisions so far 1155672
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+444
+00:00:36,917 --> 00:00:37,000
+phase 0.915411578, stall +2.94e-05 periods; pair collisions so far 1158997
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+445
+00:00:37,000 --> 00:00:37,083
+phase 0.915411602, stall +2.94e-05 periods; pair collisions so far 1162322
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+446
+00:00:37,083 --> 00:00:37,167
+phase 0.915411626, stall +2.94e-05 periods; pair collisions so far 1165647
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+447
+00:00:37,167 --> 00:00:37,250
+phase 0.915411650, stall +2.94e-05 periods; pair collisions so far 1168972
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+448
+00:00:37,250 --> 00:00:37,333
+phase 0.915411674, stall +2.95e-05 periods; pair collisions so far 1172296
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+449
+00:00:37,333 --> 00:00:37,417
+phase 0.915411698, stall +2.95e-05 periods; pair collisions so far 1175622
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+450
+00:00:37,417 --> 00:00:37,500
+phase 0.915411722, stall +2.95e-05 periods; pair collisions so far 1178946
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+451
+00:00:37,500 --> 00:00:37,583
+phase 0.915411746, stall +2.95e-05 periods; pair collisions so far 1182271
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+452
+00:00:37,583 --> 00:00:37,667
+phase 0.915411771, stall +2.96e-05 periods; pair collisions so far 1185596
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+453
+00:00:37,667 --> 00:00:37,750
+phase 0.915411795, stall +2.96e-05 periods; pair collisions so far 1188922
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+454
+00:00:37,750 --> 00:00:37,833
+phase 0.915411819, stall +2.96e-05 periods; pair collisions so far 1192246
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+455
+00:00:37,833 --> 00:00:37,917
+phase 0.915411843, stall +2.96e-05 periods; pair collisions so far 1195571
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+456
+00:00:37,917 --> 00:00:38,000
+phase 0.915411867, stall +2.96e-05 periods; pair collisions so far 1198896
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+457
+00:00:38,000 --> 00:00:38,083
+phase 0.915411891, stall +2.97e-05 periods; pair collisions so far 1202221
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+458
+00:00:38,083 --> 00:00:38,167
+phase 0.915411915, stall +2.97e-05 periods; pair collisions so far 1205547
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+459
+00:00:38,167 --> 00:00:38,250
+phase 0.915411939, stall +2.97e-05 periods; pair collisions so far 1208872
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+460
+00:00:38,250 --> 00:00:38,333
+phase 0.915411963, stall +2.97e-05 periods; pair collisions so far 1212197
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+461
+00:00:38,333 --> 00:00:38,417
+phase 0.915411987, stall +2.98e-05 periods; pair collisions so far 1215523
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+462
+00:00:38,417 --> 00:00:38,500
+phase 0.915412011, stall +2.98e-05 periods; pair collisions so far 1218848
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+463
+00:00:38,500 --> 00:00:38,583
+phase 0.915412035, stall +2.98e-05 periods; pair collisions so far 1222174
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+464
+00:00:38,583 --> 00:00:38,667
+phase 0.915412059, stall +2.98e-05 periods; pair collisions so far 1225500
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+465
+00:00:38,667 --> 00:00:38,750
+phase 0.915412083, stall +2.99e-05 periods; pair collisions so far 1228825
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+466
+00:00:38,750 --> 00:00:38,833
+phase 0.915412107, stall +2.99e-05 periods; pair collisions so far 1232151
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+467
+00:00:38,833 --> 00:00:38,917
+phase 0.915412131, stall +2.99e-05 periods; pair collisions so far 1235477
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+468
+00:00:38,917 --> 00:00:39,000
+phase 0.915412155, stall +2.99e-05 periods; pair collisions so far 1238803
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+469
+00:00:39,000 --> 00:00:39,083
+phase 0.915412179, stall +3.00e-05 periods; pair collisions so far 1242128
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+470
+00:00:39,083 --> 00:00:39,167
+phase 0.915412203, stall +3.00e-05 periods; pair collisions so far 1245453
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+471
+00:00:39,167 --> 00:00:39,250
+phase 0.915412227, stall +3.00e-05 periods; pair collisions so far 1248779
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+472
+00:00:39,250 --> 00:00:39,333
+phase 0.915412251, stall +3.00e-05 periods; pair collisions so far 1252105
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+473
+00:00:39,333 --> 00:00:39,417
+phase 0.915412275, stall +3.01e-05 periods; pair collisions so far 1255431
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+474
+00:00:39,417 --> 00:00:39,500
+phase 0.915412299, stall +3.01e-05 periods; pair collisions so far 1258756
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+475
+00:00:39,500 --> 00:00:39,583
+phase 0.915412323, stall +3.01e-05 periods; pair collisions so far 1262082
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+476
+00:00:39,583 --> 00:00:39,667
+phase 0.915412347, stall +3.01e-05 periods; pair collisions so far 1265408
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+477
+00:00:39,667 --> 00:00:39,750
+phase 0.915412371, stall +3.02e-05 periods; pair collisions so far 1268734
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+478
+00:00:39,750 --> 00:00:39,833
+phase 0.915412395, stall +3.02e-05 periods; pair collisions so far 1272060
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+479
+00:00:39,833 --> 00:00:39,917
+phase 0.915412419, stall +3.02e-05 periods; pair collisions so far 1275385
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+480
+00:00:39,917 --> 00:00:40,000
+phase 0.915412443, stall +3.02e-05 periods; pair collisions so far 1278711
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+481
+00:00:40,000 --> 00:00:40,083
+phase 0.915412467, stall +3.02e-05 periods; pair collisions so far 1282039
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+482
+00:00:40,083 --> 00:00:40,167
+phase 0.915412491, stall +3.03e-05 periods; pair collisions so far 1285365
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+483
+00:00:40,167 --> 00:00:40,250
+phase 0.915412515, stall +3.03e-05 periods; pair collisions so far 1288690
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+484
+00:00:40,250 --> 00:00:40,333
+phase 0.915412539, stall +3.03e-05 periods; pair collisions so far 1292016
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+485
+00:00:40,333 --> 00:00:40,417
+phase 0.915412563, stall +3.03e-05 periods; pair collisions so far 1295342
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+486
+00:00:40,417 --> 00:00:40,500
+phase 0.915412587, stall +3.04e-05 periods; pair collisions so far 1298668
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+487
+00:00:40,500 --> 00:00:40,583
+phase 0.915412611, stall +3.04e-05 periods; pair collisions so far 1301994
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+488
+00:00:40,583 --> 00:00:40,667
+phase 0.915412635, stall +3.04e-05 periods; pair collisions so far 1305321
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+489
+00:00:40,667 --> 00:00:40,750
+phase 0.915412659, stall +3.04e-05 periods; pair collisions so far 1308647
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+490
+00:00:40,750 --> 00:00:40,833
+phase 0.915412683, stall +3.05e-05 periods; pair collisions so far 1311973
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+491
+00:00:40,833 --> 00:00:40,917
+phase 0.915412707, stall +3.05e-05 periods; pair collisions so far 1315299
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+492
+00:00:40,917 --> 00:00:41,000
+phase 0.915412731, stall +3.05e-05 periods; pair collisions so far 1318625
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+493
+00:00:41,000 --> 00:00:41,083
+phase 0.915412755, stall +3.05e-05 periods; pair collisions so far 1321951
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+494
+00:00:41,083 --> 00:00:41,167
+phase 0.915412779, stall +3.06e-05 periods; pair collisions so far 1325278
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+495
+00:00:41,167 --> 00:00:41,250
+phase 0.915412803, stall +3.06e-05 periods; pair collisions so far 1328604
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+496
+00:00:41,250 --> 00:00:41,333
+phase 0.915412827, stall +3.06e-05 periods; pair collisions so far 1331930
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+497
+00:00:41,333 --> 00:00:41,417
+phase 0.915412851, stall +3.06e-05 periods; pair collisions so far 1335258
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+498
+00:00:41,417 --> 00:00:41,500
+phase 0.915412875, stall +3.07e-05 periods; pair collisions so far 1338584
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+499
+00:00:41,500 --> 00:00:41,583
+phase 0.915412899, stall +3.07e-05 periods; pair collisions so far 1341911
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+500
+00:00:41,583 --> 00:00:41,667
+phase 0.915412923, stall +3.07e-05 periods; pair collisions so far 1345237
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+501
+00:00:41,667 --> 00:00:41,750
+phase 0.915412947, stall +3.07e-05 periods; pair collisions so far 1348564
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+502
+00:00:41,750 --> 00:00:41,833
+phase 0.915412971, stall +3.08e-05 periods; pair collisions so far 1351891
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+503
+00:00:41,833 --> 00:00:41,917
+phase 0.915412995, stall +3.08e-05 periods; pair collisions so far 1355218
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+504
+00:00:41,917 --> 00:00:42,000
+phase 0.915413019, stall +3.08e-05 periods; pair collisions so far 1358545
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+505
+00:00:42,000 --> 00:00:42,083
+phase 0.915413043, stall +3.08e-05 periods; pair collisions so far 1361872
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+506
+00:00:42,083 --> 00:00:42,167
+phase 0.915413067, stall +3.08e-05 periods; pair collisions so far 1365199
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+507
+00:00:42,167 --> 00:00:42,250
+phase 0.915413091, stall +3.09e-05 periods; pair collisions so far 1368525
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+508
+00:00:42,250 --> 00:00:42,333
+phase 0.915413115, stall +3.09e-05 periods; pair collisions so far 1371852
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+509
+00:00:42,333 --> 00:00:42,417
+phase 0.915413139, stall +3.09e-05 periods; pair collisions so far 1375179
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+510
+00:00:42,417 --> 00:00:42,500
+phase 0.915413163, stall +3.09e-05 periods; pair collisions so far 1378506
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+511
+00:00:42,500 --> 00:00:42,583
+phase 0.915413187, stall +3.10e-05 periods; pair collisions so far 1381833
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+512
+00:00:42,583 --> 00:00:42,667
+phase 0.915413211, stall +3.10e-05 periods; pair collisions so far 1385160
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+513
+00:00:42,667 --> 00:00:42,750
+phase 0.915413235, stall +3.10e-05 periods; pair collisions so far 1388488
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+514
+00:00:42,750 --> 00:00:42,833
+phase 0.915413258, stall +3.10e-05 periods; pair collisions so far 1391816
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+515
+00:00:42,833 --> 00:00:42,917
+phase 0.915413282, stall +3.11e-05 periods; pair collisions so far 1395143
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+516
+00:00:42,917 --> 00:00:43,000
+phase 0.915413306, stall +3.11e-05 periods; pair collisions so far 1398470
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+517
+00:00:43,000 --> 00:00:43,083
+phase 0.915413330, stall +3.11e-05 periods; pair collisions so far 1401797
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+518
+00:00:43,083 --> 00:00:43,167
+phase 0.915413354, stall +3.11e-05 periods; pair collisions so far 1405124
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+519
+00:00:43,167 --> 00:00:43,250
+phase 0.915413378, stall +3.12e-05 periods; pair collisions so far 1408452
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+520
+00:00:43,250 --> 00:00:43,333
+phase 0.915413402, stall +3.12e-05 periods; pair collisions so far 1411779
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+521
+00:00:43,333 --> 00:00:43,417
+phase 0.915413426, stall +3.12e-05 periods; pair collisions so far 1415107
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+522
+00:00:43,417 --> 00:00:43,500
+phase 0.915413450, stall +3.12e-05 periods; pair collisions so far 1418434
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+523
+00:00:43,500 --> 00:00:43,583
+phase 0.915413474, stall +3.13e-05 periods; pair collisions so far 1421762
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+524
+00:00:43,583 --> 00:00:43,667
+phase 0.915413498, stall +3.13e-05 periods; pair collisions so far 1425090
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+525
+00:00:43,667 --> 00:00:43,750
+phase 0.915413521, stall +3.13e-05 periods; pair collisions so far 1428418
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+526
+00:00:43,750 --> 00:00:43,833
+phase 0.915413545, stall +3.13e-05 periods; pair collisions so far 1431745
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+527
+00:00:43,833 --> 00:00:43,917
+phase 0.915413569, stall +3.14e-05 periods; pair collisions so far 1435072
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+528
+00:00:43,917 --> 00:00:44,000
+phase 0.915413593, stall +3.14e-05 periods; pair collisions so far 1438400
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+529
+00:00:44,000 --> 00:00:44,083
+phase 0.915413617, stall +3.14e-05 periods; pair collisions so far 1441728
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+530
+00:00:44,083 --> 00:00:44,167
+phase 0.915413641, stall +3.14e-05 periods; pair collisions so far 1445056
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+531
+00:00:44,167 --> 00:00:44,250
+phase 0.915413665, stall +3.14e-05 periods; pair collisions so far 1448384
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+532
+00:00:44,250 --> 00:00:44,333
+phase 0.915413689, stall +3.15e-05 periods; pair collisions so far 1451711
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+533
+00:00:44,333 --> 00:00:44,417
+phase 0.915413713, stall +3.15e-05 periods; pair collisions so far 1455039
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+534
+00:00:44,417 --> 00:00:44,500
+phase 0.915413736, stall +3.15e-05 periods; pair collisions so far 1458368
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+535
+00:00:44,500 --> 00:00:44,583
+phase 0.915413760, stall +3.15e-05 periods; pair collisions so far 1461695
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+536
+00:00:44,583 --> 00:00:44,667
+phase 0.915413784, stall +3.16e-05 periods; pair collisions so far 1465023
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+537
+00:00:44,667 --> 00:00:44,750
+phase 0.915413808, stall +3.16e-05 periods; pair collisions so far 1468352
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+538
+00:00:44,750 --> 00:00:44,833
+phase 0.915413832, stall +3.16e-05 periods; pair collisions so far 1471679
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+539
+00:00:44,833 --> 00:00:44,917
+phase 0.915413856, stall +3.16e-05 periods; pair collisions so far 1475007
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+540
+00:00:44,917 --> 00:00:45,000
+phase 0.915413880, stall +3.17e-05 periods; pair collisions so far 1478336
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+541
+00:00:45,000 --> 00:00:45,083
+phase 0.915413903, stall +3.17e-05 periods; pair collisions so far 1481664
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+542
+00:00:45,083 --> 00:00:45,167
+phase 0.915413927, stall +3.17e-05 periods; pair collisions so far 1484992
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+543
+00:00:45,167 --> 00:00:45,250
+phase 0.915413951, stall +3.17e-05 periods; pair collisions so far 1488320
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+544
+00:00:45,250 --> 00:00:45,333
+phase 0.915413975, stall +3.18e-05 periods; pair collisions so far 1491649
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+545
+00:00:45,333 --> 00:00:45,417
+phase 0.915413999, stall +3.18e-05 periods; pair collisions so far 1494977
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+546
+00:00:45,417 --> 00:00:45,500
+phase 0.915414023, stall +3.18e-05 periods; pair collisions so far 1498306
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+547
+00:00:45,500 --> 00:00:45,583
+phase 0.915414046, stall +3.18e-05 periods; pair collisions so far 1501634
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+548
+00:00:45,583 --> 00:00:45,667
+phase 0.915414070, stall +3.19e-05 periods; pair collisions so far 1504963
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+549
+00:00:45,667 --> 00:00:45,750
+phase 0.915414094, stall +3.19e-05 periods; pair collisions so far 1508291
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+550
+00:00:45,750 --> 00:00:45,833
+phase 0.915414118, stall +3.19e-05 periods; pair collisions so far 1511620
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+551
+00:00:45,833 --> 00:00:45,917
+phase 0.915414142, stall +3.19e-05 periods; pair collisions so far 1514948
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+552
+00:00:45,917 --> 00:00:46,000
+phase 0.915414166, stall +3.19e-05 periods; pair collisions so far 1518277
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+553
+00:00:46,000 --> 00:00:46,083
+phase 0.915414189, stall +3.20e-05 periods; pair collisions so far 1521606
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+554
+00:00:46,083 --> 00:00:46,167
+phase 0.915414213, stall +3.20e-05 periods; pair collisions so far 1524934
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+555
+00:00:46,167 --> 00:00:46,250
+phase 0.915414237, stall +3.20e-05 periods; pair collisions so far 1528263
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+556
+00:00:46,250 --> 00:00:46,333
+phase 0.915414261, stall +3.20e-05 periods; pair collisions so far 1531592
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+557
+00:00:46,333 --> 00:00:46,417
+phase 0.915414285, stall +3.21e-05 periods; pair collisions so far 1534920
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+558
+00:00:46,417 --> 00:00:46,500
+phase 0.915414308, stall +3.21e-05 periods; pair collisions so far 1538249
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+559
+00:00:46,500 --> 00:00:46,583
+phase 0.915414332, stall +3.21e-05 periods; pair collisions so far 1541578
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+560
+00:00:46,583 --> 00:00:46,667
+phase 0.915414356, stall +3.21e-05 periods; pair collisions so far 1544906
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+561
+00:00:46,667 --> 00:00:46,750
+phase 0.915414380, stall +3.22e-05 periods; pair collisions so far 1548235
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+562
+00:00:46,750 --> 00:00:46,833
+phase 0.915414404, stall +3.22e-05 periods; pair collisions so far 1551564
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+563
+00:00:46,833 --> 00:00:46,917
+phase 0.915414427, stall +3.22e-05 periods; pair collisions so far 1554893
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+564
+00:00:46,917 --> 00:00:47,000
+phase 0.915414451, stall +3.22e-05 periods; pair collisions so far 1558222
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+565
+00:00:47,000 --> 00:00:47,083
+phase 0.915414475, stall +3.23e-05 periods; pair collisions so far 1561551
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+566
+00:00:47,083 --> 00:00:47,167
+phase 0.915414499, stall +3.23e-05 periods; pair collisions so far 1564880
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+567
+00:00:47,167 --> 00:00:47,250
+phase 0.915414522, stall +3.23e-05 periods; pair collisions so far 1568209
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+568
+00:00:47,250 --> 00:00:47,333
+phase 0.915414546, stall +3.23e-05 periods; pair collisions so far 1571539
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+569
+00:00:47,333 --> 00:00:47,417
+phase 0.915414570, stall +3.24e-05 periods; pair collisions so far 1574867
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+570
+00:00:47,417 --> 00:00:47,500
+phase 0.915414594, stall +3.24e-05 periods; pair collisions so far 1578197
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+571
+00:00:47,500 --> 00:00:47,583
+phase 0.915414618, stall +3.24e-05 periods; pair collisions so far 1581526
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+572
+00:00:47,583 --> 00:00:47,667
+phase 0.915414641, stall +3.24e-05 periods; pair collisions so far 1584855
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+573
+00:00:47,667 --> 00:00:47,750
+phase 0.915414665, stall +3.24e-05 periods; pair collisions so far 1588184
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+574
+00:00:47,750 --> 00:00:47,833
+phase 0.915414689, stall +3.25e-05 periods; pair collisions so far 1591514
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+575
+00:00:47,833 --> 00:00:47,917
+phase 0.915414713, stall +3.25e-05 periods; pair collisions so far 1594843
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+576
+00:00:47,917 --> 00:00:48,000
+phase 0.915414736, stall +3.25e-05 periods; pair collisions so far 1598173
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+577
+00:00:48,000 --> 00:00:48,083
+phase 0.915414760, stall +3.25e-05 periods; pair collisions so far 1601502
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+578
+00:00:48,083 --> 00:00:48,167
+phase 0.915414784, stall +3.26e-05 periods; pair collisions so far 1604831
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+579
+00:00:48,167 --> 00:00:48,250
+phase 0.915414808, stall +3.26e-05 periods; pair collisions so far 1608161
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+580
+00:00:48,250 --> 00:00:48,333
+phase 0.915414831, stall +3.26e-05 periods; pair collisions so far 1611490
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+581
+00:00:48,333 --> 00:00:48,417
+phase 0.915414855, stall +3.26e-05 periods; pair collisions so far 1614819
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+582
+00:00:48,417 --> 00:00:48,500
+phase 0.915414879, stall +3.27e-05 periods; pair collisions so far 1618149
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+583
+00:00:48,500 --> 00:00:48,583
+phase 0.915414903, stall +3.27e-05 periods; pair collisions so far 1621478
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+584
+00:00:48,583 --> 00:00:48,667
+phase 0.915414927, stall +3.27e-05 periods; pair collisions so far 1624807
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+585
+00:00:48,667 --> 00:00:48,750
+phase 0.915414950, stall +3.27e-05 periods; pair collisions so far 1628137
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+586
+00:00:48,750 --> 00:00:48,833
+phase 0.915414974, stall +3.28e-05 periods; pair collisions so far 1631467
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+587
+00:00:48,833 --> 00:00:48,917
+phase 0.915414998, stall +3.28e-05 periods; pair collisions so far 1634797
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+588
+00:00:48,917 --> 00:00:49,000
+phase 0.915415022, stall +3.28e-05 periods; pair collisions so far 1638126
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+589
+00:00:49,000 --> 00:00:49,083
+phase 0.915415045, stall +3.28e-05 periods; pair collisions so far 1641455
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+590
+00:00:49,083 --> 00:00:49,167
+phase 0.915415069, stall +3.29e-05 periods; pair collisions so far 1644785
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+591
+00:00:49,167 --> 00:00:49,250
+phase 0.915415093, stall +3.29e-05 periods; pair collisions so far 1648115
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+592
+00:00:49,250 --> 00:00:49,333
+phase 0.915415117, stall +3.29e-05 periods; pair collisions so far 1651445
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+593
+00:00:49,333 --> 00:00:49,417
+phase 0.915415141, stall +3.29e-05 periods; pair collisions so far 1654775
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+594
+00:00:49,417 --> 00:00:49,500
+phase 0.915415164, stall +3.29e-05 periods; pair collisions so far 1658104
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+595
+00:00:49,500 --> 00:00:49,583
+phase 0.915415188, stall +3.30e-05 periods; pair collisions so far 1661434
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+596
+00:00:49,583 --> 00:00:49,667
+phase 0.915415212, stall +3.30e-05 periods; pair collisions so far 1664764
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+597
+00:00:49,667 --> 00:00:49,750
+phase 0.915415236, stall +3.30e-05 periods; pair collisions so far 1668093
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+598
+00:00:49,750 --> 00:00:49,833
+phase 0.915415259, stall +3.30e-05 periods; pair collisions so far 1671424
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+599
+00:00:49,833 --> 00:00:49,917
+phase 0.915415283, stall +3.31e-05 periods; pair collisions so far 1674753
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+600
+00:00:49,917 --> 00:00:50,000
+phase 0.915415307, stall +3.31e-05 periods; pair collisions so far 1678084
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+601
+00:00:50,000 --> 00:00:50,083
+phase 0.915415331, stall +3.31e-05 periods; pair collisions so far 1681414
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+602
+00:00:50,083 --> 00:00:50,167
+phase 0.915415354, stall +3.31e-05 periods; pair collisions so far 1684744
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+603
+00:00:50,167 --> 00:00:50,250
+phase 0.915415378, stall +3.32e-05 periods; pair collisions so far 1688075
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+604
+00:00:50,250 --> 00:00:50,333
+phase 0.915415402, stall +3.32e-05 periods; pair collisions so far 1691405
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+605
+00:00:50,333 --> 00:00:50,417
+phase 0.915415425, stall +3.32e-05 periods; pair collisions so far 1694735
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+606
+00:00:50,417 --> 00:00:50,500
+phase 0.915415449, stall +3.32e-05 periods; pair collisions so far 1698065
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+607
+00:00:50,500 --> 00:00:50,583
+phase 0.915415473, stall +3.33e-05 periods; pair collisions so far 1701395
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+608
+00:00:50,583 --> 00:00:50,667
+phase 0.915415497, stall +3.33e-05 periods; pair collisions so far 1704725
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+609
+00:00:50,667 --> 00:00:50,750
+phase 0.915415521, stall +3.33e-05 periods; pair collisions so far 1708055
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+610
+00:00:50,750 --> 00:00:50,833
+phase 0.915415544, stall +3.33e-05 periods; pair collisions so far 1711385
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+611
+00:00:50,833 --> 00:00:50,917
+phase 0.915415568, stall +3.33e-05 periods; pair collisions so far 1714716
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+612
+00:00:50,917 --> 00:00:51,000
+phase 0.915415592, stall +3.34e-05 periods; pair collisions so far 1718045
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+613
+00:00:51,000 --> 00:00:51,083
+phase 0.915415615, stall +3.34e-05 periods; pair collisions so far 1721376
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+614
+00:00:51,083 --> 00:00:51,167
+phase 0.915415639, stall +3.34e-05 periods; pair collisions so far 1724706
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+615
+00:00:51,167 --> 00:00:51,250
+phase 0.915415663, stall +3.34e-05 periods; pair collisions so far 1728037
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+616
+00:00:51,250 --> 00:00:51,333
+phase 0.915415687, stall +3.35e-05 periods; pair collisions so far 1731368
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+617
+00:00:51,333 --> 00:00:51,417
+phase 0.915415710, stall +3.35e-05 periods; pair collisions so far 1734698
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+618
+00:00:51,417 --> 00:00:51,500
+phase 0.915415734, stall +3.35e-05 periods; pair collisions so far 1738028
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+619
+00:00:51,500 --> 00:00:51,583
+phase 0.915415758, stall +3.35e-05 periods; pair collisions so far 1741359
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+620
+00:00:51,583 --> 00:00:51,667
+phase 0.915415782, stall +3.36e-05 periods; pair collisions so far 1744690
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+621
+00:00:51,667 --> 00:00:51,750
+phase 0.915415805, stall +3.36e-05 periods; pair collisions so far 1748020
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+622
+00:00:51,750 --> 00:00:51,833
+phase 0.915415829, stall +3.36e-05 periods; pair collisions so far 1751350
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+623
+00:00:51,833 --> 00:00:51,917
+phase 0.915415853, stall +3.36e-05 periods; pair collisions so far 1754682
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+624
+00:00:51,917 --> 00:00:52,000
+phase 0.915415876, stall +3.37e-05 periods; pair collisions so far 1758012
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+625
+00:00:52,000 --> 00:00:52,083
+phase 0.915415900, stall +3.37e-05 periods; pair collisions so far 1761343
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+626
+00:00:52,083 --> 00:00:52,167
+phase 0.915415924, stall +3.37e-05 periods; pair collisions so far 1764674
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+627
+00:00:52,167 --> 00:00:52,250
+phase 0.915415948, stall +3.37e-05 periods; pair collisions so far 1768004
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+628
+00:00:52,250 --> 00:00:52,333
+phase 0.915415971, stall +3.38e-05 periods; pair collisions so far 1771335
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+629
+00:00:52,333 --> 00:00:52,417
+phase 0.915415995, stall +3.38e-05 periods; pair collisions so far 1774665
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+630
+00:00:52,417 --> 00:00:52,500
+phase 0.915416019, stall +3.38e-05 periods; pair collisions so far 1777997
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+631
+00:00:52,500 --> 00:00:52,583
+phase 0.915416042, stall +3.38e-05 periods; pair collisions so far 1781328
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+632
+00:00:52,583 --> 00:00:52,667
+phase 0.915416066, stall +3.38e-05 periods; pair collisions so far 1784659
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+633
+00:00:52,667 --> 00:00:52,750
+phase 0.915416090, stall +3.39e-05 periods; pair collisions so far 1787991
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+634
+00:00:52,750 --> 00:00:52,833
+phase 0.915416113, stall +3.39e-05 periods; pair collisions so far 1791322
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+635
+00:00:52,833 --> 00:00:52,917
+phase 0.915416137, stall +3.39e-05 periods; pair collisions so far 1794653
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+636
+00:00:52,917 --> 00:00:53,000
+phase 0.915416161, stall +3.39e-05 periods; pair collisions so far 1797984
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+637
+00:00:53,000 --> 00:00:53,083
+phase 0.915416218, stall +3.40e-05 periods; pair collisions so far 1801306
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+638
+00:00:53,083 --> 00:00:53,167
+phase 0.915416242, stall +3.40e-05 periods; pair collisions so far 1804635
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+639
+00:00:53,167 --> 00:00:53,250
+phase 0.915416266, stall +3.40e-05 periods; pair collisions so far 1807968
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+640
+00:00:53,250 --> 00:00:53,333
+phase 0.915416327, stall +3.41e-05 periods; pair collisions so far 1811197
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+641
+00:00:53,333 --> 00:00:53,417
+phase 0.915416409, stall +3.42e-05 periods; pair collisions so far 1814507
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+642
+00:00:53,417 --> 00:00:53,500
+phase 0.915416573, stall +3.44e-05 periods; pair collisions so far 1817795
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+643
+00:00:53,500 --> 00:00:53,583
+phase 0.915416620, stall +3.44e-05 periods; pair collisions so far 1821126
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+644
+00:00:53,583 --> 00:00:53,667
+phase 0.915416651, stall +3.44e-05 periods; pair collisions so far 1824437
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+645
+00:00:53,667 --> 00:00:53,750
+phase 0.915416675, stall +3.45e-05 periods; pair collisions so far 1827770
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+646
+00:00:53,750 --> 00:00:53,833
+phase 0.915416698, stall +3.45e-05 periods; pair collisions so far 1831103
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+647
+00:00:53,833 --> 00:00:53,917
+phase 0.915416740, stall +3.45e-05 periods; pair collisions so far 1834376
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+648
+00:00:53,917 --> 00:00:54,000
+phase 0.915416764, stall +3.45e-05 periods; pair collisions so far 1837709
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+649
+00:00:54,000 --> 00:00:54,083
+phase 0.915416787, stall +3.46e-05 periods; pair collisions so far 1841041
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+650
+00:00:54,083 --> 00:00:54,167
+phase 0.915416811, stall +3.46e-05 periods; pair collisions so far 1844373
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+651
+00:00:54,167 --> 00:00:54,250
+phase 0.915416835, stall +3.46e-05 periods; pair collisions so far 1847706
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+652
+00:00:54,250 --> 00:00:54,333
+phase 0.915416873, stall +3.47e-05 periods; pair collisions so far 1851035
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+653
+00:00:54,333 --> 00:00:54,417
+phase 0.915417015, stall +3.48e-05 periods; pair collisions so far 1854377
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+654
+00:00:54,417 --> 00:00:54,500
+phase 0.915417090, stall +3.49e-05 periods; pair collisions so far 1857712
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+655
+00:00:54,500 --> 00:00:54,583
+phase 0.915417113, stall +3.49e-05 periods; pair collisions so far 1861045
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+656
+00:00:54,583 --> 00:00:54,667
+phase 0.915417137, stall +3.49e-05 periods; pair collisions so far 1864378
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+657
+00:00:54,667 --> 00:00:54,750
+phase 0.915417160, stall +3.49e-05 periods; pair collisions so far 1867712
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+658
+00:00:54,750 --> 00:00:54,833
+phase 0.915417222, stall +3.50e-05 periods; pair collisions so far 1871043
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+659
+00:00:54,833 --> 00:00:54,917
+phase 0.915417880, stall +3.57e-05 periods; pair collisions so far 1873908
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+660
+00:00:54,917 --> 00:00:55,000
+phase 0.915422505, stall +4.03e-05 periods; pair collisions so far 1876192
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+661
+00:00:55,000 --> 00:00:55,083
+phase 0.915422666, stall +4.04e-05 periods; pair collisions so far 1879434
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+662
+00:00:55,083 --> 00:00:55,167
+phase 0.915422705, stall +4.05e-05 periods; pair collisions so far 1882754
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+663
+00:00:55,167 --> 00:00:55,250
+phase 0.915422805, stall +4.06e-05 periods; pair collisions so far 1886069
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+664
+00:00:55,250 --> 00:00:55,333
+phase 0.915422837, stall +4.06e-05 periods; pair collisions so far 1889395
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+665
+00:00:55,333 --> 00:00:55,417
+phase 0.915422861, stall +4.06e-05 periods; pair collisions so far 1892723
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+666
+00:00:55,417 --> 00:00:55,500
+phase 0.915422885, stall +4.07e-05 periods; pair collisions so far 1896051
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+667
+00:00:55,500 --> 00:00:55,583
+phase 0.915422909, stall +4.07e-05 periods; pair collisions so far 1899380
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+668
+00:00:55,583 --> 00:00:55,667
+phase 0.915422932, stall +4.07e-05 periods; pair collisions so far 1902710
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+669
+00:00:55,667 --> 00:00:55,750
+phase 0.915422957, stall +4.07e-05 periods; pair collisions so far 1906037
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+670
+00:00:55,750 --> 00:00:55,833
+phase 0.915422981, stall +4.08e-05 periods; pair collisions so far 1909232
+force on lower sphere: plate 6.1 mg, upper 2.6 mg
+
+671
+00:00:55,833 --> 00:00:55,917
+phase 0.915423020, stall +4.08e-05 periods; pair collisions so far 1909232
+force on lower sphere: plate 3.5 mg, upper 0 mg
+
+672
+00:00:55,917 --> 00:00:56,000
+phase 0.915424979, stall +4.28e-05 periods; pair collisions so far 1910102
+force on lower sphere: plate 6.2 mg, upper 2.8 mg
+
+673
+00:00:56,000 --> 00:00:56,083
+phase 0.915427059, stall +4.48e-05 periods; pair collisions so far 1913310
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+674
+00:00:56,083 --> 00:00:56,167
+phase 0.915429575, stall +4.74e-05 periods; pair collisions so far 1916051
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+675
+00:00:56,167 --> 00:00:56,250
+phase 0.915429769, stall +4.76e-05 periods; pair collisions so far 1919365
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+676
+00:00:56,250 --> 00:00:56,333
+phase 0.915429824, stall +4.76e-05 periods; pair collisions so far 1922379
+force on lower sphere: plate 5.9 mg, upper 2.4 mg
+
+677
+00:00:56,333 --> 00:00:56,417
+phase 0.915433371, stall +5.12e-05 periods; pair collisions so far 1923682
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+678
+00:00:56,417 --> 00:00:56,500
+phase 0.915435217, stall +5.30e-05 periods; pair collisions so far 1926892
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+679
+00:00:56,500 --> 00:00:56,583
+phase 0.915435241, stall +5.30e-05 periods; pair collisions so far 1930221
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+680
+00:00:56,583 --> 00:00:56,667
+phase 0.915435273, stall +5.31e-05 periods; pair collisions so far 1933549
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+681
+00:00:56,667 --> 00:00:56,750
+phase 0.915435300, stall +5.31e-05 periods; pair collisions so far 1936825
+force on lower sphere: plate 6.1 mg, upper 2.7 mg
+
+682
+00:00:56,750 --> 00:00:56,833
+phase 0.915438013, stall +5.58e-05 periods; pair collisions so far 1938540
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+683
+00:00:56,833 --> 00:00:56,917
+phase 0.915442816, stall +6.06e-05 periods; pair collisions so far 1941229
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+684
+00:00:56,917 --> 00:00:57,000
+phase 0.915442878, stall +6.07e-05 periods; pair collisions so far 1944558
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+685
+00:00:57,000 --> 00:00:57,083
+phase 0.915442903, stall +6.07e-05 periods; pair collisions so far 1947885
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+686
+00:00:57,083 --> 00:00:57,167
+phase 0.915442927, stall +6.07e-05 periods; pair collisions so far 1951212
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+687
+00:00:57,167 --> 00:00:57,250
+phase 0.915442951, stall +6.07e-05 periods; pair collisions so far 1954539
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+688
+00:00:57,250 --> 00:00:57,333
+phase 0.915442975, stall +6.08e-05 periods; pair collisions so far 1957867
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+689
+00:00:57,333 --> 00:00:57,417
+phase 0.915442999, stall +6.08e-05 periods; pair collisions so far 1961193
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+690
+00:00:57,417 --> 00:00:57,500
+phase 0.915443031, stall +6.08e-05 periods; pair collisions so far 1963490
+force on lower sphere: plate 5.7 mg, upper 2.2 mg
+
+691
+00:00:57,500 --> 00:00:57,583
+phase 0.915443071, stall +6.09e-05 periods; pair collisions so far 1963490
+force on lower sphere: plate 3.5 mg, upper 0 mg
+
+692
+00:00:57,583 --> 00:00:57,667
+phase 0.915447525, stall +6.53e-05 periods; pair collisions so far 1964542
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+693
+00:00:57,667 --> 00:00:57,750
+phase 0.915449481, stall +6.73e-05 periods; pair collisions so far 1967210
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+694
+00:00:57,750 --> 00:00:57,833
+phase 0.915449506, stall +6.73e-05 periods; pair collisions so far 1970530
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+695
+00:00:57,833 --> 00:00:57,917
+phase 0.915449531, stall +6.73e-05 periods; pair collisions so far 1973849
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+696
+00:00:57,917 --> 00:00:58,000
+phase 0.915449555, stall +6.73e-05 periods; pair collisions so far 1977168
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+697
+00:00:58,000 --> 00:00:58,083
+phase 0.915449580, stall +6.74e-05 periods; pair collisions so far 1980488
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+698
+00:00:58,083 --> 00:00:58,167
+phase 0.915449604, stall +6.74e-05 periods; pair collisions so far 1983808
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+699
+00:00:58,167 --> 00:00:58,250
+phase 0.915449629, stall +6.74e-05 periods; pair collisions so far 1987128
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+700
+00:00:58,250 --> 00:00:58,333
+phase 0.915449790, stall +6.76e-05 periods; pair collisions so far 1990366
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+701
+00:00:58,333 --> 00:00:58,417
+phase 0.915449815, stall +6.76e-05 periods; pair collisions so far 1993684
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+702
+00:00:58,417 --> 00:00:58,500
+phase 0.915449839, stall +6.76e-05 periods; pair collisions so far 1997003
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+703
+00:00:58,500 --> 00:00:58,583
+phase 0.915449864, stall +6.76e-05 periods; pair collisions so far 2000322
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+704
+00:00:58,583 --> 00:00:58,667
+phase 0.915451546, stall +6.93e-05 periods; pair collisions so far 2002530
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+705
+00:00:58,667 --> 00:00:58,750
+phase 0.915455474, stall +7.33e-05 periods; pair collisions so far 2004935
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+706
+00:00:58,750 --> 00:00:58,833
+phase 0.915455514, stall +7.33e-05 periods; pair collisions so far 2008258
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+707
+00:00:58,833 --> 00:00:58,917
+phase 0.915455568, stall +7.33e-05 periods; pair collisions so far 2011585
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+708
+00:00:58,917 --> 00:00:59,000
+phase 0.915455697, stall +7.35e-05 periods; pair collisions so far 2014898
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+709
+00:00:59,000 --> 00:00:59,083
+phase 0.915455722, stall +7.35e-05 periods; pair collisions so far 2018220
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+710
+00:00:59,083 --> 00:00:59,167
+phase 0.915455747, stall +7.35e-05 periods; pair collisions so far 2021541
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+711
+00:00:59,167 --> 00:00:59,250
+phase 0.915455772, stall +7.36e-05 periods; pair collisions so far 2024863
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+712
+00:00:59,250 --> 00:00:59,333
+phase 0.915455797, stall +7.36e-05 periods; pair collisions so far 2028184
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+713
+00:00:59,333 --> 00:00:59,417
+phase 0.915455822, stall +7.36e-05 periods; pair collisions so far 2031504
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+714
+00:00:59,417 --> 00:00:59,500
+phase 0.915455847, stall +7.36e-05 periods; pair collisions so far 2034826
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+715
+00:00:59,500 --> 00:00:59,583
+phase 0.915455872, stall +7.37e-05 periods; pair collisions so far 2038147
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+716
+00:00:59,583 --> 00:00:59,667
+phase 0.915455897, stall +7.37e-05 periods; pair collisions so far 2041468
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+717
+00:00:59,667 --> 00:00:59,750
+phase 0.915455922, stall +7.37e-05 periods; pair collisions so far 2044789
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+718
+00:00:59,750 --> 00:00:59,833
+phase 0.915455946, stall +7.37e-05 periods; pair collisions so far 2048111
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+719
+00:00:59,833 --> 00:00:59,917
+phase 0.915455971, stall +7.38e-05 periods; pair collisions so far 2051431
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+720
+00:00:59,917 --> 00:01:00,000
+phase 0.915455996, stall +7.38e-05 periods; pair collisions so far 2054752
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+721
+00:01:00,000 --> 00:01:00,083
+phase 0.915456021, stall +7.38e-05 periods; pair collisions so far 2058073
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+722
+00:01:00,083 --> 00:01:00,167
+phase 0.915456062, stall +7.38e-05 periods; pair collisions so far 2061395
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+723
+00:01:00,167 --> 00:01:00,250
+phase 0.915456128, stall +7.39e-05 periods; pair collisions so far 2064710
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+724
+00:01:00,250 --> 00:01:00,333
+phase 0.915456168, stall +7.39e-05 periods; pair collisions so far 2068028
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+725
+00:01:00,333 --> 00:01:00,417
+phase 0.915456201, stall +7.40e-05 periods; pair collisions so far 2071346
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+726
+00:01:00,417 --> 00:01:00,500
+phase 0.915456275, stall +7.41e-05 periods; pair collisions so far 2074654
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+727
+00:01:00,500 --> 00:01:00,583
+phase 0.915456315, stall +7.41e-05 periods; pair collisions so far 2077972
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+728
+00:01:00,583 --> 00:01:00,667
+phase 0.915456340, stall +7.41e-05 periods; pair collisions so far 2081292
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+729
+00:01:00,667 --> 00:01:00,750
+phase 0.915456365, stall +7.41e-05 periods; pair collisions so far 2084611
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+730
+00:01:00,750 --> 00:01:00,833
+phase 0.915456390, stall +7.42e-05 periods; pair collisions so far 2087931
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+731
+00:01:00,833 --> 00:01:00,917
+phase 0.915456415, stall +7.42e-05 periods; pair collisions so far 2091250
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+732
+00:01:00,917 --> 00:01:01,000
+phase 0.915456440, stall +7.42e-05 periods; pair collisions so far 2094569
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+733
+00:01:01,000 --> 00:01:01,083
+phase 0.915456465, stall +7.42e-05 periods; pair collisions so far 2097888
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+734
+00:01:01,083 --> 00:01:01,167
+phase 0.915456490, stall +7.43e-05 periods; pair collisions so far 2101207
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+735
+00:01:01,167 --> 00:01:01,250
+phase 0.915456515, stall +7.43e-05 periods; pair collisions so far 2104526
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+736
+00:01:01,250 --> 00:01:01,333
+phase 0.915456540, stall +7.43e-05 periods; pair collisions so far 2107844
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+737
+00:01:01,333 --> 00:01:01,417
+phase 0.915456566, stall +7.43e-05 periods; pair collisions so far 2111163
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+738
+00:01:01,417 --> 00:01:01,500
+phase 0.915456591, stall +7.44e-05 periods; pair collisions so far 2114481
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+739
+00:01:01,500 --> 00:01:01,583
+phase 0.915456616, stall +7.44e-05 periods; pair collisions so far 2117800
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+740
+00:01:01,583 --> 00:01:01,667
+phase 0.915456641, stall +7.44e-05 periods; pair collisions so far 2121119
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+741
+00:01:01,667 --> 00:01:01,750
+phase 0.915456666, stall +7.44e-05 periods; pair collisions so far 2124437
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+742
+00:01:01,750 --> 00:01:01,833
+phase 0.915456691, stall +7.45e-05 periods; pair collisions so far 2127756
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+743
+00:01:01,833 --> 00:01:01,917
+phase 0.915456716, stall +7.45e-05 periods; pair collisions so far 2131074
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+744
+00:01:01,917 --> 00:01:02,000
+phase 0.915456742, stall +7.45e-05 periods; pair collisions so far 2134392
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+745
+00:01:02,000 --> 00:01:02,083
+phase 0.915456767, stall +7.45e-05 periods; pair collisions so far 2137710
+force on lower sphere: plate 6.2 mg, upper 2.7 mg
+
+746
+00:01:02,083 --> 00:01:02,167
+phase 0.9170; pair collisions so far 2139458
+force on lower sphere: plate 1.3e+02 mg, upper 1.5e+02 mg
+
+747
+00:01:02,167 --> 00:01:02,250
+phase 0.9185; pair collisions so far 2139459
+force on lower sphere: plate 45 mg, upper 19 mg
+
+748
+00:01:02,250 --> 00:01:02,333
+phase 0.9200; pair collisions so far 2139463
+force on lower sphere: plate 2e+02 mg, upper 1.9e+02 mg
+
+749
+00:01:02,333 --> 00:01:02,417
+phase 0.9215; pair collisions so far 2139464
+force on lower sphere: plate 0 mg, upper 8.4 mg
+
+750
+00:01:02,417 --> 00:01:02,500
+phase 0.9230; pair collisions so far 2139464
+force on lower sphere: plate 0 mg, upper 0 mg
+
+751
+00:01:02,500 --> 00:01:02,583
+phase 0.9245; pair collisions so far 2139465
+force on lower sphere: plate 0 mg, upper 4.7 mg
+
+752
+00:01:02,583 --> 00:01:02,667
+phase 0.9260; pair collisions so far 2139465
+force on lower sphere: plate 0 mg, upper 0 mg
+
+753
+00:01:02,667 --> 00:01:02,750
+phase 0.9275; pair collisions so far 2139465
+force on lower sphere: plate 0 mg, upper 0 mg
+
+754
+00:01:02,750 --> 00:01:02,833
+phase 0.9290; pair collisions so far 2139465
+force on lower sphere: plate 24 mg, upper 0 mg
+
+755
+00:01:02,833 --> 00:01:02,917
+phase 0.9305; pair collisions so far 2139465
+force on lower sphere: plate 0 mg, upper 0 mg
+
+756
+00:01:02,917 --> 00:01:03,000
+phase 0.9320; pair collisions so far 2139466
+force on lower sphere: plate 2.5e+02 mg, upper 67 mg
+
+757
+00:01:03,000 --> 00:01:03,083
+phase 0.9335; pair collisions so far 2139468
+force on lower sphere: plate 55 mg, upper 46 mg
+
+758
+00:01:03,083 --> 00:01:03,167
+phase 0.9350; pair collisions so far 2139468
+force on lower sphere: plate 31 mg, upper 0 mg
+
+759
+00:01:03,167 --> 00:01:03,250
+phase 0.9365; pair collisions so far 2139469
+force on lower sphere: plate 1.4e+02 mg, upper 40 mg
+
+760
+00:01:03,250 --> 00:01:03,333
+phase 0.9380; pair collisions so far 2139469
+force on lower sphere: plate 32 mg, upper 0 mg
+
+761
+00:01:03,333 --> 00:01:03,417
+phase 0.9395; pair collisions so far 2139470
+force on lower sphere: plate 0 mg, upper 32 mg
+
+762
+00:01:03,417 --> 00:01:03,500
+phase 0.9410; pair collisions so far 2139470
+force on lower sphere: plate 0 mg, upper 0 mg
+
+763
+00:01:03,500 --> 00:01:03,583
+phase 0.9425; pair collisions so far 2139470
+force on lower sphere: plate 29 mg, upper 0 mg
+
+764
+00:01:03,583 --> 00:01:03,667
+phase 0.9440; pair collisions so far 2139470
+force on lower sphere: plate 0 mg, upper 0 mg
+
+765
+00:01:03,667 --> 00:01:03,750
+phase 0.9455; pair collisions so far 2139470
+force on lower sphere: plate 0 mg, upper 0 mg
+
+766
+00:01:03,750 --> 00:01:03,833
+phase 0.9471; pair collisions so far 2139471
+force on lower sphere: plate 2e+02 mg, upper 65 mg
+
+767
+00:01:03,833 --> 00:01:03,917
+phase 0.9486; pair collisions so far 2139472
+force on lower sphere: plate 22 mg, upper 33 mg
+
+768
+00:01:03,917 --> 00:01:04,000
+phase 0.9501; pair collisions so far 2139472
+force on lower sphere: plate 0 mg, upper 0 mg
+
+769
+00:01:04,000 --> 00:01:04,083
+phase 0.9516; pair collisions so far 2139472
+force on lower sphere: plate 0 mg, upper 0 mg
+
+770
+00:01:04,083 --> 00:01:04,167
+phase 0.9531; pair collisions so far 2139473
+force on lower sphere: plate 32 mg, upper 16 mg
+
+771
+00:01:04,167 --> 00:01:04,250
+phase 0.9546; pair collisions so far 2139473
+force on lower sphere: plate 0 mg, upper 0 mg
+
+772
+00:01:04,250 --> 00:01:04,333
+phase 0.9561; pair collisions so far 2139473
+force on lower sphere: plate 0 mg, upper 0 mg
+
+773
+00:01:04,333 --> 00:01:04,417
+phase 0.9576; pair collisions so far 2139473
+force on lower sphere: plate 0 mg, upper 0 mg
+
+774
+00:01:04,417 --> 00:01:04,500
+phase 0.9591; pair collisions so far 2139474
+force on lower sphere: plate 77 mg, upper 13 mg
+
+775
+00:01:04,500 --> 00:01:04,583
+phase 0.9606; pair collisions so far 2139474
+force on lower sphere: plate 0 mg, upper 0 mg
+
+776
+00:01:04,583 --> 00:01:04,667
+phase 0.9621; pair collisions so far 2139474
+force on lower sphere: plate 14 mg, upper 0 mg
+
+777
+00:01:04,667 --> 00:01:04,750
+phase 0.9636; pair collisions so far 2139475
+force on lower sphere: plate 52 mg, upper 26 mg
+
+778
+00:01:04,750 --> 00:01:04,833
+phase 0.9651; pair collisions so far 2139475
+force on lower sphere: plate 0 mg, upper 0 mg
+
+779
+00:01:04,833 --> 00:01:04,917
+phase 0.9666; pair collisions so far 2139475
+force on lower sphere: plate 0 mg, upper 0 mg
+
+780
+00:01:04,917 --> 00:01:05,000
+phase 0.9681; pair collisions so far 2139475
+force on lower sphere: plate 6.8 mg, upper 0 mg
+
+781
+00:01:05,000 --> 00:01:05,083
+phase 0.9696; pair collisions so far 2139475
+force on lower sphere: plate 0 mg, upper 0 mg
+
+782
+00:01:05,083 --> 00:01:05,167
+phase 0.9711; pair collisions so far 2139475
+force on lower sphere: plate 0 mg, upper 0 mg
+
+783
+00:01:05,167 --> 00:01:05,250
+phase 0.9726; pair collisions so far 2139476
+force on lower sphere: plate 53 mg, upper 22 mg
+
+784
+00:01:05,250 --> 00:01:05,333
+phase 0.9741; pair collisions so far 2139476
+force on lower sphere: plate 26 mg, upper 0 mg
+
+785
+00:01:05,333 --> 00:01:05,417
+phase 0.9757; pair collisions so far 2139476
+force on lower sphere: plate 67 mg, upper 0 mg
+
+786
+00:01:05,417 --> 00:01:05,500
+phase 0.9772; pair collisions so far 2139477
+force on lower sphere: plate 15 mg, upper 40 mg
+
+787
+00:01:05,500 --> 00:01:05,583
+phase 0.9787; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+788
+00:01:05,583 --> 00:01:05,667
+phase 0.9802; pair collisions so far 2139477
+force on lower sphere: plate 22 mg, upper 0 mg
+
+789
+00:01:05,667 --> 00:01:05,750
+phase 0.9817; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+790
+00:01:05,750 --> 00:01:05,833
+phase 0.9832; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+791
+00:01:05,833 --> 00:01:05,917
+phase 0.9847; pair collisions so far 2139477
+force on lower sphere: plate 1.7e+02 mg, upper 0 mg
+
+792
+00:01:05,917 --> 00:01:06,000
+phase 0.9862; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+793
+00:01:06,000 --> 00:01:06,083
+phase 0.9877; pair collisions so far 2139477
+force on lower sphere: plate 42 mg, upper 0 mg
+
+794
+00:01:06,083 --> 00:01:06,167
+phase 0.9893; pair collisions so far 2139477
+force on lower sphere: plate 21 mg, upper 0 mg
+
+795
+00:01:06,167 --> 00:01:06,250
+phase 0.9908; pair collisions so far 2139477
+force on lower sphere: plate 53 mg, upper 0 mg
+
+796
+00:01:06,250 --> 00:01:06,333
+phase 0.9923; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+797
+00:01:06,333 --> 00:01:06,417
+phase 0.9938; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+798
+00:01:06,417 --> 00:01:06,500
+phase 0.9953; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+799
+00:01:06,500 --> 00:01:06,583
+phase 0.9968; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg
+
+800
+00:01:06,583 --> 00:01:06,667
+phase 0.9983; pair collisions so far 2139477
+force on lower sphere: plate 13 mg, upper 0 mg
+
+801
+00:01:06,667 --> 00:01:06,750
+phase 0.9998; pair collisions so far 2139477
+force on lower sphere: plate 0 mg, upper 0 mg

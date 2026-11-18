@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460" font-family="Helvetica, Arial, sans-serif" font-size="13">
+<rect width="900" height="460" fill="white"/>
+<text x="90" y="24" font-size="15">Inside the stall: forces on the lower sphere over successive sixtieths of its collisions</text>
+<line x1="90.0" x2="90.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="90.0" y="397" text-anchor="middle">1e-6</text>
+<line x1="248.0" x2="248.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="248.0" y="397" text-anchor="middle">1e-6</text>
+<line x1="406.0" x2="406.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="406.0" y="397" text-anchor="middle">1e-5</text>
+<line x1="564.0" x2="564.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="564.0" y="397" text-anchor="middle">1e-5</text>
+<line x1="722.0" x2="722.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="722.0" y="397" text-anchor="middle">1e-4</text>
+<line x1="880.0" x2="880.0" y1="46" y2="380" stroke="#e6e6e6"/>
+<text x="880.0" y="397" text-anchor="middle">1e-4</text>
+<line x1="90" x2="880" y1="380.0" y2="380.0" stroke="#e6e6e6"/>
+<text x="84" y="384.0" text-anchor="end">2.68</text>
+<line x1="90" x2="880" y1="313.2" y2="313.2" stroke="#e6e6e6"/>
+<text x="84" y="317.2" text-anchor="end">3.38</text>
+<line x1="90" x2="880" y1="246.4" y2="246.4" stroke="#e6e6e6"/>
+<text x="84" y="250.4" text-anchor="end">4.09</text>
+<line x1="90" x2="880" y1="179.6" y2="179.6" stroke="#e6e6e6"/>
+<text x="84" y="183.6" text-anchor="end">4.8</text>
+<line x1="90" x2="880" y1="112.8" y2="112.8" stroke="#e6e6e6"/>
+<text x="84" y="116.8" text-anchor="end">5.51</text>
+<line x1="90" x2="880" y1="46.0" y2="46.0" stroke="#e6e6e6"/>
+<text x="84" y="50.0" text-anchor="end">6.21</text>
+<rect x="90" y="46" width="790" height="334" fill="none" stroke="#444"/>
+<text x="485.0" y="416" text-anchor="middle">time since the stall began (periods)</text>
+<text transform="translate(18 213.0) rotate(-90)" text-anchor="middle">force (m g)</text>
+<polyline fill="none" stroke="#1f5fbf" stroke-width="1.6" points="90.0,46.9 140.1,48.4 170.2,48.4 196.9,48.4 219.8,48.4 240.2,48.4 258.6,48.4 275.5,48.4 290.9,48.4 305.2,48.4 318.5,48.4 330.9,48.4 342.5,48.4 353.4,48.4 508.1,48.4 581.9,48.5 663.7,48.5 667.7,48.5 669.7,48.5 671.7,48.5 673.7,48.5 676.0,48.5 677.9,48.5 680.3,48.5 684.3,48.5 689.1,48.5 692.2,48.5 694.3,48.5 696.2,48.5 697.9,48.5 699.6,48.5 701.3,48.5 702.9,48.5 704.6,48.5 706.2,48.5 707.9,48.6 709.5,48.6 711.1,48.6 712.7,48.6 714.2,48.6 715.8,48.6 717.3,48.6 718.8,48.6 720.3,48.6 721.8,48.6 723.3,48.6 724.8,48.6 726.3,48.6 727.7,48.6 729.3,48.6 732.3,48.6 735.3,49.1 763.6,48.6 813.5,48.7 839.4,51.1 859.3,46.0 875.3,48.8 876.2,48.8 877.1,48.8 880.0,47.4"/>
+<rect x="102" y="58" width="12" height="4" fill="#1f5fbf"/><text x="120" y="63">from the plate</text>
+<polyline fill="none" stroke="#d1495b" stroke-width="1.6" points="90.0,378.3 140.1,377.4 170.2,377.4 196.9,377.4 219.8,377.4 240.2,377.4 258.6,377.4 275.5,377.4 290.9,377.4 305.2,377.4 318.5,377.4 330.9,377.4 342.5,377.4 353.4,377.4 508.1,377.4 581.9,377.4 663.7,377.5 667.7,377.5 669.7,377.5 671.7,377.5 673.7,377.5 676.0,377.5 677.9,377.5 680.3,377.5 684.3,377.5 689.1,377.5 692.2,377.5 694.3,377.5 696.2,377.5 697.9,377.5 699.6,377.5 701.3,377.5 702.9,377.5 704.6,377.5 706.2,377.5 707.9,377.5 709.5,377.5 711.1,377.5 712.7,377.5 714.2,377.5 715.8,377.5 717.3,377.5 718.8,377.5 720.3,377.5 721.8,377.5 723.3,377.5 724.8,377.5 726.3,377.5 727.7,377.5 729.3,377.5 732.3,377.5 735.3,378.0 763.6,377.5 813.5,377.5 839.4,380.0 859.3,374.8 875.3,377.6 876.2,377.6 877.1,377.6 880.0,376.9"/>
+<rect x="102" y="75" width="12" height="4" fill="#d1495b"/><text x="120" y="80">from the upper sphere</text>
+<text x="12" y="434" font-size="11" fill="#444">Each point averages about 130075 collisions.</text>
+</svg>

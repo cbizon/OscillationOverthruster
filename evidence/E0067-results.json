@@ -1,0 +1,240 @@
+{
+ "experiment": "E0067",
+ "what": "One pressed-pair stall recorded event by event (stall_movie.py) and drawn (stall_movie_render.py).",
+ "condition": {
+  "gamma": 5.0,
+  "f_star": 0.5,
+  "N": 500,
+  "L": 100.0,
+  "seed": 2,
+  "cycle": 62,
+  "referee_stall_phase": 0.9154,
+  "period_time_units": 4.47213595499958
+ },
+ "lower": 202,
+ "upper": 203,
+ "recording": {
+  "engine": "/Users/bizon/Projects/experiments/sequel",
+  "gamma": 5.0,
+  "f_star": 0.5,
+  "N": 500,
+  "L": 100.0,
+  "seed": 2,
+  "stall_cycle": 62,
+  "stall_phase": 0.9154,
+  "period": 4.47213595499958,
+  "g": 1.0,
+  "amplitude": 2.5330295910584444,
+  "omega": 1.4049629462081452,
+  "record_from_phase": 0.7812691654835415,
+  "record_to_phase": 1.0000058879672593,
+  "events_stepped": 7910746,
+  "events_by_type": {
+   "3": 5736010,
+   "1": 2170235,
+   "4": 1437,
+   "5": 2941,
+   "2": 123
+  },
+  "collisions_recorded": 7906368,
+  "snapshots": 801,
+  "cpu_seconds": 93.578194
+ },
+ "stall": {
+  "first_collision_phase": 0.915382218274818,
+  "last_collision_phase": 0.9154576690915399,
+  "duration_periods": 7.545081672197529e-05,
+  "collisions": 7804449,
+  "pair_collisions": 2123494,
+  "lower_plate_collisions": 5680943,
+  "same_as_referee": true
+ },
+ "pair_contact": {
+  "duration_periods": 0.016006633627467848,
+  "duration_time": 0.07158384176390431,
+  "collisions": 2139417,
+  "from_phase": 0.8994521102820284,
+  "to_phase": 0.9154587439094962
+ },
+ "lower_plate_contact": {
+  "duration_periods": 0.024606530324124087,
+  "duration_time": 0.11004374899030278,
+  "collisions": 5728829,
+  "from_phase": 0.8915371116033116,
+  "to_phase": 0.9161436419274357
+ },
+ "other_contacts": {
+  "episodes": 22395,
+  "single_collision_fraction": 0.7531145344943068,
+  "duration_periods_median": 0.0,
+  "duration_periods_p99": 0.008715005265211701,
+  "duration_periods_max": 0.0747676839588322,
+  "multi_collision_episodes": 5529,
+  "multi_duration_periods_median": 0.0008071045755787321,
+  "multi_collisions_median": 2.0,
+  "collisions_max": 102
+ },
+ "mean_free_time_periods_outside_stall": 0.00032081116175553535,
+ "ratio_pair_contact_to_median_other": null,
+ "ratio_pair_contact_to_median_multi_other": 19.83216811277564,
+ "ratio_pair_contact_to_mean_free_time": 49.894254114715714,
+ "stall_mean_forces_mg": {
+  "plate_on_lower": 6.186404021080798,
+  "upper_on_lower": 2.703687094973965,
+  "side_on_lower": 0.0,
+  "lower_on_upper": 2.7746008270803277
+ },
+ "end": {
+  "third_partner_collisions_within_1e_3_T_of_end": 3,
+  "first_third_partner": {
+   "phase": 0.9154587439094518,
+   "sphere": 203,
+   "partner": 204,
+   "closing_speed": 0.19981316107148767
+  },
+  "pair_collisions_after_end": 337,
+  "last_pair_collision_phase": 0.9756760933196803,
+  "third_partner_collisions_during_stall": 0
+ },
+ "pair_closing_speed": {
+  "first": 0.1897574875243141,
+  "min": 5.629241517368655e-11,
+  "collisions_to_fall_below_1e_10": 494
+ },
+ "figures": [
+  "timeline-closing-speed.svg",
+  "timeline-forces.svg",
+  "timeline-stall-forces.svg"
+ ],
+ "stills": [
+  {
+   "file": "still-1.svg",
+   "label": "before: 0.05 periods before the stall",
+   "snapshot": 56,
+   "phase": 0.8655739603747814
+  },
+  {
+   "file": "still-2.svg",
+   "label": "the stall has just begun",
+   "snapshot": 96,
+   "phase": 0.9153830282836672
+  },
+  {
+   "file": "still-3.svg",
+   "label": "middle of the stall",
+   "snapshot": 420,
+   "phase": 0.9154110245210102
+  },
+  {
+   "file": "still-4.svg",
+   "label": "just after the stall ends",
+   "snapshot": 747,
+   "phase": 0.9199704708857622
+  }
+ ],
+ "movie": {
+  "file": "movie.mp4",
+  "captions": "movie.srt",
+  "frames": 801,
+  "fps": 12
+ },
+ "definitions": {
+  "episode_max_gap_D": 0.001,
+  "stall_block_collisions": 50000
+ },
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0067/g5-f0.5-d5-s2-c62/record.npz",
+   "bytes": 135829840,
+   "sha256": "8a920392b2fb90d004a76e9a89506a2a4dfb50e03c035aadf4616845e5ffc959"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0067/g5-f0.5-d5-s2-c62/record.json",
+   "bytes": 555,
+   "sha256": "062000f9efc30f47be8dd76dec70d578da927d8595db12d66e326afe80c204e8"
+  }
+ ],
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/stall_movie.py",
+   "bytes": 6101,
+   "sha256": "5d2dea7eec1c5760d251d351f63fe5d2e927b81ecff0dfbbe9b6e1180f638b37"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/stall_movie_render.py",
+   "bytes": 25028,
+   "sha256": "5ed9da3916c6e57867e6918ec9d2427f3104471d84ce1f314f273d0277f66220"
+  }
+ ],
+ "figure_files": [
+  {
+   "path": "evidence/E0067-figures/movie.mp4",
+   "bytes": 1818960,
+   "sha256": "130e7c300edeaa8da528ab116126585fe163dd772806c0c30252d6a44e2c9adf"
+  },
+  {
+   "path": "evidence/E0067-figures/movie.srt",
+   "bytes": 122318,
+   "sha256": "d96dfc4726eabdb864cf6fddca173b4dd9891f2d850f9ca6eb8b454a7a48d855"
+  },
+  {
+   "path": "evidence/E0067-figures/still-1.svg",
+   "bytes": 11639,
+   "sha256": "203d568d15217dd06377f9365575d37dfdc93b0740b2f906789a49a332e81c89"
+  },
+  {
+   "path": "evidence/E0067-figures/still-2.svg",
+   "bytes": 8883,
+   "sha256": "5a5d9dc8fd309f57faf35702140f8b1ca9e4e1cadad6c23c2d3a81740805bf29"
+  },
+  {
+   "path": "evidence/E0067-figures/still-3.svg",
+   "bytes": 8878,
+   "sha256": "81d85c83bda8a195e6c2c0f7af9dd2bd44455941688658e0418d762f72e6f349"
+  },
+  {
+   "path": "evidence/E0067-figures/still-4.svg",
+   "bytes": 11955,
+   "sha256": "307922eb2c6eb7eb7cb2ebaedbfdcd4363501503e39cb0670239b7f5af0b4969"
+  },
+  {
+   "path": "evidence/E0067-figures/timeline-closing-speed.svg",
+   "bytes": 332596,
+   "sha256": "0129addd3983f689f72f151f9169875df9482f2433107bca1bb0824da154c559"
+  },
+  {
+   "path": "evidence/E0067-figures/timeline-forces.svg",
+   "bytes": 6655,
+   "sha256": "c5feb4229a922469f21eda7b8e8fe4d22306dc9edbf2521ed97cdc1564fd2b4a"
+  },
+  {
+   "path": "evidence/E0067-figures/timeline-stall-forces.svg",
+   "bytes": 3830,
+   "sha256": "46a57bdbf4c6b8b3ef59e7b8c8de8856694aa44576d355f75ab78f541d8cb9f8"
+  }
+ ],
+ "longest_other_contacts": {
+  "note": "from the same record and the same episode rule, not involving the pair",
+  "sphere_on_plate": {
+   "duration_periods": 0.0748,
+   "collisions": 75,
+   "sphere": 383
+  },
+  "pair_of_spheres": {
+   "duration_periods": 0.0452,
+   "collisions": 59,
+   "spheres": [
+    383,
+    384
+   ]
+  },
+  "most_collisions_in_any_other_contact": 102,
+  "plate_contacts_multi_collision_median_duration_periods": 0.00109,
+  "pair_contacts_multi_collision_median_duration_periods": 0.00075
+ },
+ "pair_contact_history": {
+  "note": "pair collisions over the recording (phase 0.781 to 1.0): the pair first collides at phase 0.7913 and bounces apart and back 37 times by 0.8935, with gaps of 0.005 to 0.014 periods; from about 0.8995 it stays in contact (gap under 1e-3 D) until a third sphere (204) hits the upper sphere at 0.91546, the end of the stall; it then separates and meets again a few times up to 0.9757.",
+  "first_collision_phase": 0.7913,
+  "last_collision_phase": 0.9757
+ }
+}

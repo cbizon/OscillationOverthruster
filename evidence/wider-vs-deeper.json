@@ -1,0 +1,919 @@
+{
+ "what": "Wider versus deeper, item 3 of the Nov 17 instruction. Costs at the paper's box are the measured E0060 no-friction loops (one seed, 213 steps of 25 cycles, ten jobs sharing the machine, so somewhat high); loops not finished when this was written are projected from their steps so far (marked). Every other geometry is scaled; the wavelength is the experimental relation lambda/H = 1.0 + 1.1 f*^-1.32 (with friction), not measured here except at the paper's box (measured_wavelength, quantised to 100/k by the box).",
+ "measured_cost_paper_box": {
+  "0.84": {
+   "cpu_hours": 8.4,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.74": {
+   "cpu_hours": 9.5,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.65": {
+   "cpu_hours": 11.0,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.57": {
+   "cpu_hours": 11.7,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.5": {
+   "cpu_hours": 12.6,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.44": {
+   "cpu_hours": 13.9,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.38": {
+   "cpu_hours": 16.3,
+   "measured": true,
+   "steps_done": 213
+  },
+  "0.33": {
+   "cpu_hours": 18.1,
+   "measured": false,
+   "steps_done": 209
+  },
+  "0.3": {
+   "cpu_hours": 20.0,
+   "measured": false,
+   "steps_done": 109
+  },
+  "0.27": {
+   "cpu_hours": 23.5,
+   "measured": false,
+   "steps_done": 93
+  }
+ },
+ "measured_wavelength_at_first_strong_pattern": {
+  "0.84": {
+   "gamma": 5.4,
+   "wavelength": 20.0,
+   "ring": 5
+  },
+  "0.74": {
+   "gamma": 4.85,
+   "wavelength": 25.0,
+   "ring": 4
+  },
+  "0.65": {
+   "gamma": 4.55,
+   "wavelength": 25.0,
+   "ring": 4
+  },
+  "0.57": {
+   "gamma": 4.3,
+   "wavelength": 33.3,
+   "ring": 3
+  },
+  "0.5": {
+   "gamma": 4.2,
+   "wavelength": 33.3,
+   "ring": 3
+  },
+  "0.44": {
+   "gamma": 2.35,
+   "wavelength": 20.0,
+   "ring": 5
+  },
+  "0.38": {
+   "gamma": 2.1,
+   "wavelength": 25.0,
+   "ring": 4
+  },
+  "0.33": {
+   "gamma": 2.0,
+   "wavelength": 25.0,
+   "ring": 4
+  },
+  "0.3": {
+   "gamma": 1.95,
+   "wavelength": 33.3,
+   "ring": 3
+  },
+  "0.27": {
+   "gamma": 1.9,
+   "wavelength": 33.3,
+   "ring": 3
+  }
+ },
+ "box_under_three_wavelengths_measured": {
+  "rule": "steps where the strongest Fourier ring over all wavelengths is ring 1 (whole box, 100 D) or 2 (half box, 50 D) and the amplitude over all rings is at least 0.1 D; listed as contiguous Gamma intervals per branch",
+  "by_f_star": {
+   "0.84": {
+    "up": [
+     [
+      4.25,
+      4.65
+     ]
+    ],
+    "down": [],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.74": {
+    "up": [
+     [
+      4.1,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      3.9,
+      6.95
+     ]
+    ],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.65": {
+    "up": [
+     [
+      4.05,
+      4.2
+     ]
+    ],
+    "down": [],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.57": {
+    "up": [
+     [
+      4.0,
+      4.35
+     ],
+     [
+      7.0,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      6.95,
+      6.95
+     ],
+     [
+      6.8,
+      6.8
+     ],
+     [
+      6.7,
+      6.7
+     ],
+     [
+      6.6,
+      6.6
+     ],
+     [
+      5.75,
+      5.75
+     ]
+    ],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.5": {
+    "up": [
+     [
+      4.0,
+      4.4
+     ],
+     [
+      5.1,
+      5.15
+     ],
+     [
+      5.3,
+      5.45
+     ],
+     [
+      5.55,
+      5.6
+     ],
+     [
+      5.7,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      4.6,
+      6.95
+     ]
+    ],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.44": {
+    "up": [
+     [
+      4.25,
+      4.45
+     ],
+     [
+      5.15,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      4.25,
+      6.95
+     ]
+    ],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.38": {
+    "up": [
+     [
+      4.7,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      4.45,
+      6.95
+     ]
+    ],
+    "steps_done": 213,
+    "complete": true
+   },
+   "0.33": {
+    "up": [
+     [
+      1.9,
+      1.9
+     ],
+     [
+      5.05,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      4.7,
+      6.95
+     ]
+    ],
+    "steps_done": 209,
+    "complete": false
+   },
+   "0.3": {
+    "up": [
+     [
+      1.85,
+      1.9
+     ],
+     [
+      5.05,
+      7.0
+     ]
+    ],
+    "down": [
+     [
+      6.9,
+      6.95
+     ]
+    ],
+    "steps_done": 109,
+    "complete": false
+   },
+   "0.27": {
+    "up": [
+     [
+      1.85,
+      1.85
+     ],
+     [
+      2.3,
+      2.3
+     ],
+     [
+      2.5,
+      2.5
+     ],
+     [
+      2.65,
+      3.6
+     ],
+     [
+      3.7,
+      3.9
+     ],
+     [
+      4.05,
+      4.05
+     ],
+     [
+      4.15,
+      4.4
+     ],
+     [
+      4.5,
+      4.65
+     ],
+     [
+      4.75,
+      4.9
+     ],
+     [
+      5.0,
+      6.3
+     ]
+    ],
+    "down": [],
+    "steps_done": 93,
+    "complete": false
+   }
+  }
+ },
+ "geometries": [
+  {
+   "geometry": "paper's box",
+   "L": 100.0,
+   "depth": 5.42,
+   "N": 60000,
+   "cost_factor": 1.0,
+   "cost_factor_basis": "measured",
+   "memory_gb_per_loop": 0.2,
+   "ten_loops_cpu_hours": 145.0,
+   "lowest_f_star_with_3_wavelengths": 0.311,
+   "f_star_values_with_3_wavelengths": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33
+   ],
+   "loops_over_per_run_limit": [],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 12.9,
+     "wavelengths_across": 7.74,
+     "loop_cpu_hours": 8.4,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 14.3,
+     "wavelengths_across": 7.0,
+     "loop_cpu_hours": 9.5,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 15.9,
+     "wavelengths_across": 6.27,
+     "loop_cpu_hours": 11.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 17.9,
+     "wavelengths_across": 5.57,
+     "loop_cpu_hours": 11.7,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 20.3,
+     "wavelengths_across": 4.92,
+     "loop_cpu_hours": 12.6,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 23.0,
+     "wavelengths_across": 4.34,
+     "loop_cpu_hours": 13.9,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 26.8,
+     "wavelengths_across": 3.73,
+     "loop_cpu_hours": 16.3,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 31.2,
+     "wavelengths_across": 3.21,
+     "loop_cpu_hours": 18.1,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 34.6,
+     "wavelengths_across": 2.89,
+     "loop_cpu_hours": 20.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 39.0,
+     "wavelengths_across": 2.56,
+     "loop_cpu_hours": 23.5,
+     "over_per_run_limit": false
+    }
+   ]
+  },
+  {
+   "geometry": "wider, L 150",
+   "L": 150.0,
+   "depth": 5.42,
+   "N": 135000,
+   "cost_factor": 2.25,
+   "cost_factor_basis": "N x (L/100)^2 at the same cost per sphere (measured equal at L 50 and L 100, E0050)",
+   "memory_gb_per_loop": 0.45,
+   "ten_loops_cpu_hours": 326.0,
+   "lowest_f_star_with_3_wavelengths": 0.218,
+   "f_star_values_with_3_wavelengths": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33,
+    0.3,
+    0.27
+   ],
+   "loops_over_per_run_limit": [],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 12.9,
+     "wavelengths_across": 11.61,
+     "loop_cpu_hours": 18.9,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 14.3,
+     "wavelengths_across": 10.5,
+     "loop_cpu_hours": 21.4,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 15.9,
+     "wavelengths_across": 9.41,
+     "loop_cpu_hours": 24.8,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 17.9,
+     "wavelengths_across": 8.36,
+     "loop_cpu_hours": 26.3,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 20.3,
+     "wavelengths_across": 7.39,
+     "loop_cpu_hours": 28.3,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 23.0,
+     "wavelengths_across": 6.51,
+     "loop_cpu_hours": 31.3,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 26.8,
+     "wavelengths_across": 5.6,
+     "loop_cpu_hours": 36.7,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 31.2,
+     "wavelengths_across": 4.81,
+     "loop_cpu_hours": 40.7,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 34.6,
+     "wavelengths_across": 4.33,
+     "loop_cpu_hours": 45.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 39.0,
+     "wavelengths_across": 3.85,
+     "loop_cpu_hours": 52.9,
+     "over_per_run_limit": false
+    }
+   ]
+  },
+  {
+   "geometry": "wider, L 200",
+   "L": 200.0,
+   "depth": 5.42,
+   "N": 240000,
+   "cost_factor": 4.0,
+   "cost_factor_basis": "N x (L/100)^2 at the same cost per sphere (measured equal at L 50 and L 100, E0050)",
+   "memory_gb_per_loop": 0.8,
+   "ten_loops_cpu_hours": 580.0,
+   "lowest_f_star_with_3_wavelengths": 0.171,
+   "f_star_values_with_3_wavelengths": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33,
+    0.3,
+    0.27
+   ],
+   "loops_over_per_run_limit": [],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 12.9,
+     "wavelengths_across": 15.47,
+     "loop_cpu_hours": 33.6,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 14.3,
+     "wavelengths_across": 13.99,
+     "loop_cpu_hours": 38.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 15.9,
+     "wavelengths_across": 12.54,
+     "loop_cpu_hours": 44.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 17.9,
+     "wavelengths_across": 11.15,
+     "loop_cpu_hours": 46.8,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 20.3,
+     "wavelengths_across": 9.85,
+     "loop_cpu_hours": 50.4,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 23.0,
+     "wavelengths_across": 8.68,
+     "loop_cpu_hours": 55.6,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 26.8,
+     "wavelengths_across": 7.46,
+     "loop_cpu_hours": 65.2,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 31.2,
+     "wavelengths_across": 6.41,
+     "loop_cpu_hours": 72.4,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 34.6,
+     "wavelengths_across": 5.77,
+     "loop_cpu_hours": 80.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 39.0,
+     "wavelengths_across": 5.13,
+     "loop_cpu_hours": 94.0,
+     "over_per_run_limit": false
+    }
+   ]
+  },
+  {
+   "geometry": "deeper x2, L 100",
+   "L": 100.0,
+   "depth": 10.84,
+   "N": 120000,
+   "cost_factor": 3.8,
+   "cost_factor_basis": "N x (L/100)^2 at the same cost per sphere (measured equal at L 50 and L 100, E0050); depth factor 3.8 scaled from 2D, not measured",
+   "memory_gb_per_loop": 0.4,
+   "ten_loops_cpu_hours": 551.0,
+   "lowest_f_star_with_3_wavelengths": 0.618,
+   "f_star_values_with_3_wavelengths": [
+    0.84,
+    0.74,
+    0.65
+   ],
+   "loops_over_per_run_limit": [],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 25.8,
+     "wavelengths_across": 3.87,
+     "loop_cpu_hours": 31.9,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 28.6,
+     "wavelengths_across": 3.5,
+     "loop_cpu_hours": 36.1,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 31.9,
+     "wavelengths_across": 3.14,
+     "loop_cpu_hours": 41.8,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 35.9,
+     "wavelengths_across": 2.79,
+     "loop_cpu_hours": 44.5,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 40.6,
+     "wavelengths_across": 2.46,
+     "loop_cpu_hours": 47.9,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 46.1,
+     "wavelengths_across": 2.17,
+     "loop_cpu_hours": 52.8,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 53.6,
+     "wavelengths_across": 1.87,
+     "loop_cpu_hours": 61.9,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 62.4,
+     "wavelengths_across": 1.6,
+     "loop_cpu_hours": 68.8,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 69.3,
+     "wavelengths_across": 1.44,
+     "loop_cpu_hours": 76.0,
+     "over_per_run_limit": false
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 78.0,
+     "wavelengths_across": 1.28,
+     "loop_cpu_hours": 89.3,
+     "over_per_run_limit": false
+    }
+   ]
+  },
+  {
+   "geometry": "deeper x2 and wider, L 200",
+   "L": 200.0,
+   "depth": 10.84,
+   "N": 480000,
+   "cost_factor": 15.2,
+   "cost_factor_basis": "N x (L/100)^2 at the same cost per sphere (measured equal at L 50 and L 100, E0050); depth factor 3.8 scaled from 2D, not measured",
+   "memory_gb_per_loop": 1.6,
+   "ten_loops_cpu_hours": 2204.0,
+   "lowest_f_star_with_3_wavelengths": 0.311,
+   "f_star_values_with_3_wavelengths": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33
+   ],
+   "loops_over_per_run_limit": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33,
+    0.3,
+    0.27
+   ],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 25.8,
+     "wavelengths_across": 7.74,
+     "loop_cpu_hours": 127.7,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 28.6,
+     "wavelengths_across": 7.0,
+     "loop_cpu_hours": 144.4,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 31.9,
+     "wavelengths_across": 6.27,
+     "loop_cpu_hours": 167.2,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 35.9,
+     "wavelengths_across": 5.57,
+     "loop_cpu_hours": 177.8,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 40.6,
+     "wavelengths_across": 4.92,
+     "loop_cpu_hours": 191.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 46.1,
+     "wavelengths_across": 4.34,
+     "loop_cpu_hours": 211.3,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 53.6,
+     "wavelengths_across": 3.73,
+     "loop_cpu_hours": 247.8,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 62.4,
+     "wavelengths_across": 3.21,
+     "loop_cpu_hours": 275.1,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 69.3,
+     "wavelengths_across": 2.89,
+     "loop_cpu_hours": 304.0,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 78.0,
+     "wavelengths_across": 2.56,
+     "loop_cpu_hours": 357.2,
+     "over_per_run_limit": true
+    }
+   ]
+  },
+  {
+   "geometry": "deeper x3, L 100",
+   "L": 100.0,
+   "depth": 16.26,
+   "N": 180000,
+   "cost_factor": 15.0,
+   "cost_factor_basis": "N x (L/100)^2 at the same cost per sphere (measured equal at L 50 and L 100, E0050); depth factor 15.0 scaled from 2D, not measured",
+   "memory_gb_per_loop": 0.6,
+   "ten_loops_cpu_hours": 2175.0,
+   "lowest_f_star_with_3_wavelengths": 1.036,
+   "f_star_values_with_3_wavelengths": [],
+   "loops_over_per_run_limit": [
+    0.84,
+    0.74,
+    0.65,
+    0.57,
+    0.5,
+    0.44,
+    0.38,
+    0.33,
+    0.3,
+    0.27
+   ],
+   "rows": [
+    {
+     "f_star": 0.84,
+     "wavelength_D": 38.8,
+     "wavelengths_across": 2.58,
+     "loop_cpu_hours": 126.0,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.74,
+     "wavelength_D": 42.9,
+     "wavelengths_across": 2.33,
+     "loop_cpu_hours": 142.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.65,
+     "wavelength_D": 47.8,
+     "wavelengths_across": 2.09,
+     "loop_cpu_hours": 165.0,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.57,
+     "wavelength_D": 53.8,
+     "wavelengths_across": 1.86,
+     "loop_cpu_hours": 175.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.5,
+     "wavelength_D": 60.9,
+     "wavelengths_across": 1.64,
+     "loop_cpu_hours": 189.0,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.44,
+     "wavelength_D": 69.1,
+     "wavelengths_across": 1.45,
+     "loop_cpu_hours": 208.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.38,
+     "wavelength_D": 80.4,
+     "wavelengths_across": 1.24,
+     "loop_cpu_hours": 244.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.33,
+     "wavelength_D": 93.5,
+     "wavelengths_across": 1.07,
+     "loop_cpu_hours": 271.5,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.3,
+     "wavelength_D": 103.9,
+     "wavelengths_across": 0.96,
+     "loop_cpu_hours": 300.0,
+     "over_per_run_limit": true
+    },
+    {
+     "f_star": 0.27,
+     "wavelength_D": 117.0,
+     "wavelengths_across": 0.85,
+     "loop_cpu_hours": 352.5,
+     "over_per_run_limit": true
+    }
+   ]
+  }
+ ]
+}

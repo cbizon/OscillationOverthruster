@@ -1,0 +1,45 @@
+{
+ "experiment": "E0064",
+ "interim": true,
+ "what": "Slow loop without friction at f* 0.44 (N 60000, L 100, depth 5.42, seed 1), Gamma 1.9 to 2.6 and back in steps of 0.05, 100 cycles per step, against the fast loop's steps at the same Gamma (E0058, 25 cycles per step). Amplitudes in D: A_all over every recorded ring (whole box and half box included), A over the band (wavelength a third of the box and shorter), both with the white part removed. Drift: last quarter of the step minus the first (25 cycles each).",
+ "steps_done": 0,
+ "steps_planned": 29,
+ "cpu_hours": 0.0,
+ "slow_episode_steps": 0,
+ "audit_failing_cycles": 0,
+ "steps": [],
+ "compare": [],
+ "largest_gap_slow_A": null,
+ "largest_gap_fast_A": null,
+ "steps_drifting_over_0p05_in_2p1_to_2p4": [],
+ "steps_drifting_over_0p05_outside": [],
+ "figure": "evidence/fastpass-figures/mu0-f0.44-slow.svg",
+ "files": [],
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0064_evidence.py",
+   "bytes": 6619,
+   "sha256": "1b2e9c09cbf37e99d8bebbb54b2bd77b0959eb1efaf55dbc743c87a6ac1f9c6e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 10846,
+   "sha256": "e4f5554d7e0f70d82d26e36b74abe9f822e324e60dc9056fe6243883c4cc67a0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_figure.py",
+   "bytes": 5881,
+   "sha256": "647688a6a4508659bdcedd6134e22020e88a2d744fd6f680814fa1b6272dad1b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp.py",
+   "bytes": 8694,
+   "sha256": "0a390f1e8c64ce0e641ea3c38dcbdfbe1aefe61f336cffb6bee524c68c252967"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
+   "bytes": 7864,
+   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+  }
+ ]
+}
