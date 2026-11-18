@@ -49,7 +49,21 @@ about a line goes in its own section, in one place.
 7. A draft of tonight's instruction, in the format below.
 
 Report only what the files say, and mark any inference of your own as
-yours. Then discuss.
+yours.
+
+Then run `uv run --project ~/Projects/experiments/research-programs program map`. It writes the program
+map, a page of the lines of investigation against nights, to the path it
+prints. Show Chris the page: publish it as an artifact if you can,
+updating the one from earlier days instead of making a new one. The lines
+in your debrief are the lines on the map, under the same names.
+
+Then discuss. When Chris decides something about a line (opens one,
+pauses, drops or closes one, or settles a question in it), append the
+record to ledger/lines.jsonl with `by: "human"`: a `note` with `night` set
+to today's date (the night the instruction is for) giving the decision in
+Chris's words, with `planned: true` if it sets work for tonight, and
+an `update` if the status changed. Run `program check` and commit it with
+the instruction.
 
 ## The instruction
 

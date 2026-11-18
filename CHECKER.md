@@ -45,6 +45,18 @@ Also say how much of the session went to work no item asked for. Record
 this in the review's `answers`, and lead the review's summary with any item
 that was not answered as asked.
 
+## Lines of investigation
+
+Read the records this session added to `ledger/lines.jsonl`. Chris
+reads these on the program map before anything else, so:
+
+- Does each note say what the evidence says, and does each `state` still
+  hold after your findings? Where one doesn't, say so in the review's
+  summary, with the line's name and the sentence that is wrong.
+- For a line the agent opened: is there a reason, and did an item under
+  "Asked" go unanswered while it was worked on?
+- Is every experiment in the line it belongs to?
+
 ## Claims
 
 For each claim the session proposed or changed, and each still under an

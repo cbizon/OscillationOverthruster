@@ -67,6 +67,34 @@ wins and you say so in the summary.
 - A choice the instruction didn't make that changes what is being tested is
   a decision: record it, and list it under that item's `departures`.
 
+## Lines of investigation
+
+The program's work is organised into lines: one thread each (a method, a
+comparison, a baseline, a question). `ledger/lines.jsonl` records them, and
+`program map` builds the page Chris reads from it, so what you write
+there is what Chris sees. Schema: `~/Projects/experiments/research-programs/schemas/line.schema.json`.
+
+- Every experiment belongs to one line. Its registration carries `line_id`
+  and a `title` of a few plain words. If an experiment would serve two
+  lines, split it into two.
+- Open a line (`record: "open"`, id from `program next-id L`) before the
+  first experiment in it: its `name`, the `question` in Chris's
+  words where Chris asked it (`question_source` says where), and
+  the `parent` it branched from. A line you open yourself also needs a
+  `reason`. Don't open one to hold work nobody asked for while an item
+  under "Asked" is unanswered.
+- At the end of the session, append for each line you touched a `note`:
+  the `night` (the session's date) and two or three plain sentences on what
+  happened, with `waiting: true` if the line can't move without
+  Chris. Append an `update` when its `state`, `feeds` or
+  `artifacts` changed. `state` is where the line stands now, for someone
+  who reads nothing else; it holds to the same standard as a claim.
+- You may close a line you opened. Pausing, dropping or closing a line
+  Chris opened is Chris's call: propose it in `questions`.
+- When a note or summary needs a name for a method, a condition or a
+  check, add it to `ledger/terms.jsonl` once (id from `program next-id T`),
+  with the `aliases` it goes by, and use that name from then on.
+
 ## Where work goes, and keeping the machine clean
 
 - Records (`PROGRAM.md`, `ledger/`, `sessions/`, `evidence/`) are committed
@@ -177,6 +205,9 @@ for a scientist who didn't watch the session:
 - `proposed_directions`: two or three, ranked, each with a rationale.
 - `budget`, `open_blockers`, and `run_conditions`.
 
-Then update `PROGRAM.md` ("Current state" and "Next"), empty
-`~/Projects/experiments/sequel-data/tmp/`, run `program check` again, and commit the records on
+Then append this session's notes and updates to `ledger/lines.jsonl`,
+update `PROGRAM.md` ("Current state" and "Next"), empty
+`~/Projects/experiments/sequel-data/tmp/`, run `program check` again and
+`uv run --project ~/Projects/experiments/research-programs program map` to see that the page builds,
+and commit the records on
 `main` (and any code on its branch) with messages describing the session.
