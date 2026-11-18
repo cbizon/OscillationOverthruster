@@ -1,0 +1,110 @@
+{
+ "date": "2026-11-17",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "Every item was answered as worded or honestly marked as partly answered; nothing was answered with a different question, and none of the night went to work nobody asked for. Items 1 and 4 are partly answered, as the session says, because the loops take days. Items 2, 3, 5 and 6 are answered. The machine behaved: lid open, on mains power, no sleep or wake in the window, the queue still running at 05:40 with nine simulations live against a limit of ten.\n\nThe most important news since the summary was written: all six friction-model (nudge) loops have now found their floor, the lowest driving at which a 25-cycle step still finishes in half a CPU-hour. The last step that finished is Gamma 2.0 at f* 0.84 and 0.74 (at f* 0.84 a 25-cycle step cost about 5 CPU-minutes at Gamma 2.9 and 27 at 2.0), 2.15 at f* 0.65, 2.2 at f* 0.57 and 0.50, and 2.25 at f* 0.44. All six have turned and are on the way up, with no slow stretch and no energy-audit failure. This matters for comparing the three models: at f* 0.44 the no-friction loop's gap at the first onset sits between Gamma 2.15 and 2.3, and the nudge loop cannot go below 2.25 under Chris's half-hour rule. So the friction model cannot show most of that gap at this frequency, and the lower frequencies, where the gap is bigger and starts lower, will be cut off even more. The session could not have seen this (the floors came after it ended), but it is the first thing to decide on today: either accept that the friction models only cover the onset where it lies above their floor, or allow a higher cost per step near the bottom.\n\nThe slow loop has also moved on: at 05:40 it had come back down to Gamma 2.4 (step 19 of 29 running). On the way down it sits on its own way up so far (2.45: 0.48 of a diameter down against 0.50 up; 2.4: 0.47 against 0.47). The range that matters, 2.15 to 2.3, where the fast loop's gap was, comes next, around midday as the session said.\n\nWhat I confirmed. Every number I checked in the summary is in an evidence file: the slow loop's amplitudes, differences from the fast loop and drifts (I recomputed all ten steps from the stored spectra and they match to four places), the nudge costs (651 to 1626 CPU-seconds at f* 0.84) and amplitudes (0.12 at Gamma 3.0, 0.02 to 0.03 by 2.0), the wavelength table (I rederived 0.17 for L 200, 0.22 for L 150, 0.61 for twice the depth), the 'under three wavelengths' marks at f* 0.84 and 0.27, and the stall numbers (7.8 million collisions in 7.5e-5 of a period; forces 6.2, 2.7 and 3.5 times the weight). The stall recording's checksums match. The last review's challenge (the plotted amplitude left out wavelengths of half and the whole box) is answered: the figures now include them, and the session looked at the fields, finding part of the layer bouncing out of step with the rest across a front.\n\nSmaller points.\n- Stall movie: the summary undersells its own result. Of the pair's 2.14 million collisions, about 16 thousand came before the stall began, in the 0.016 of a period the two had been touching. The most collisions any other contact in the recording had was 102. So the pair was already colliding about 150 times more often than any other contact before it stalled. That supports the session's first question (count how often the same pair has collided recently) more strongly than the summary says.\n- The contact-length rule was changed after looking (decision D0044). It is disclosed, both rules are reported, and the conclusion (not unusually long in time, extreme in collision rate) holds under either.\n- Settled-layer stalls: the evidence file marks expectation (i) as not holding (5 of 7 by free-flight times) while the ledger says it held (7 of 7 counting touching partners). The registration says to count touching partners, so the ledger is right; the evidence field is labelled with the narrower count.\n- The summary says the box holds under three wavelengths at f* 0.27 'right at onset'; the evidence agrees (Gamma 1.85), but the table in the wider-versus-deeper note leaves that step out.\n- The nudge evidence records checksums of the loops' step logs, which are still growing, so they no longer match; that is expected for interim evidence and needs refreshing when the loops are collected.\n- The 'no more than nine live' queue rule leaves one of the ten allowed cores idle now that the replays are done. A small departure from 'run until we're done', and disclosed.\n\nHousekeeping: program check passes. One approval in the last day, Chris's at 09:15 on November 17 (raised CPU budgets, committed with the instruction). tmp is empty. Program data 7.4 of 15 gigabytes; 51 gigabytes free against a floor of 40; memory 66 percent free. The no-friction loop at f* 0.33 has finished (213 of 213 steps) but is still listed in active.jsonl, to be collected. Nothing written outside the two program folders apart from the app's own task files.",
+ "answers": [
+  {
+   "asked": "\"There is no point to this budget. It's not guarding against overfitting in the same way that another budget is. Run until we're done man, let's get this figured out.\"",
+   "verdict": "partly",
+   "finding": "Word for word. Nothing was cut for CPU-hours: the nudge loops each have a 95-hour cap, under Chris's 100-hour per-run limit, and the baseline is priced and queued. Not finished because the loops take days at ten cores, as the session says. At 05:40 the queue process was alive with nine simulations running; the f* 0.33 no-friction loop has finished, f* 0.30 and 0.27 are at 177 and 155 of 213 steps. The queue keeps one core free, a small, disclosed departure."
+  },
+  {
+   "asked": "Friction-model loop (start at Gamma 3.0, down until too costly, up to 7.0, back down): \"yes, but also we are going to need to move to a bigger box as a next step.\"",
+   "verdict": "answered",
+   "finding": "Word for word. The nudge loops use exactly that shape and the half-hour rule; the step logs show each turned at the first step that hit 1800 CPU-seconds. Floors since the session ended: last finished step Gamma 2.0 (f* 0.84, 0.74), 2.15 (0.65), 2.2 (0.57, 0.50), 2.25 (0.44). The bigger box is acknowledged and costed under item 3, with no run, which matches item 3's 'no new runs'."
+  },
+  {
+   "asked": "\"It also sounds like we might need a wider box to get to the lower frequency. That makes sense, we're really squeezing the squares into this little box and it could affect onset / offset of patterns.\" Deeper layers: \"Not yet, first I want to understand the tradeoffs of deeper vs wider as next steps.\"",
+   "verdict": "answered",
+   "finding": "Word for word. The note gives cost per loop for each option, wavelengths across the box at each f*, which frequencies each opens, and expected effects on hysteresis, and it labels which numbers are measured and which are scaled (the factor for depth comes from 2D runs). I rederived the wavelength counts from the stated relation and they match. Figures redrawn as asked, and the steps where the box holds under three wavelengths are listed; I checked two frequencies against the data."
+  },
+  {
+   "asked": "Slow loop at f* 0.44, Gamma 1.9 to 2.6 and back, 100 cycles per step: \"I'm fine with this.\"",
+   "verdict": "partly",
+   "finding": "Word for word. Running as asked, no friction, one seed. Interim numbers match my recomputation. By 05:40 it had reached Gamma 2.4 on the way down and lies on its own way up so far; the gap region (2.15 to 2.3) is still to come."
+  },
+  {
+   "asked": "\"Go ahead and run the stalls in a settled layer for completeness.\"",
+   "verdict": "answered",
+   "finding": "Word for word. Seven stalls after cycle 20 replayed, all reaching their run's own stall; the search and the left-out cases are stated (13 runs found, accounted for one by one). Result: all pressed pairs, as before."
+  },
+  {
+   "asked": "\"Choose one of the stalls and let's make some pictures/movies of it that show why it doesn't freeze and what the surroundings look like.\" Context: \"while a column of balls is unstable, the balls still stay in contact for potentially a long time and that's what we're needing to deal with in terms of handling the stall - contacts that are temporary but still much longer than the normal collision.\"",
+   "verdict": "answered",
+   "finding": "Word for word. One stall chosen with reasons, stills, timelines and a movie made; contacts, forces and contact lengths shown. The session pushes back on Chris's framing with data (the contact is not long in time, the collision rate is extreme), which is fair; the evidence supports it even more strongly than the summary says (about 16 thousand pair collisions before the stall, against at most 102 in any other contact)."
+  }
+ ],
+ "reviews": [
+  {
+   "claim_id": "E0065",
+   "plain_claim": "Interim, nothing claimed as physics: the nudge (friction) loops complete every step with no slow stretch and no energy-audit failure; the pattern fades going down from Gamma 3 and the cost per step climbs toward the half-hour floor.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read every step record of the six running loops at 05:40.",
+     "finding": "157 step records, every one with zero slow stretches and zero failing cycles; worst energy residual about 3e-13. The steps that hit the cost cap are marked as such, not as completed."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Compared each loop's floor with where the no-friction loops show their first-onset gap.",
+     "finding": "The floors (last finished step Gamma 2.0 to 2.25) lie inside or above the no-friction gap at f* 0.44 (2.15 to 2.3). The nudge loops therefore never visit the low-Gamma, long-contact end where the no-friction gap is. No claim depends on it yet, but a later three-model comparison of the first onset would be comparing different ranges."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0064",
+   "plain_claim": "Interim: the slow loop's way up rises a little earlier than the fast loop's (0.03 of a diameter higher at Gamma 2.2, 0.12 at 2.3) and two rising steps drift.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Recomputed every step's amplitude from the stored spectra, and the steps since the summary.",
+     "finding": "All ten match the evidence. Since then the way down at 2.45 and 2.4 lies on the way up (within 0.03). The drift at 2.25 and 2.3 shows these steps were still growing at 100 cycles, so even the slow way up is not fully settled near onset; the session says so."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the comparison uses the same amplitude for slow and fast.",
+     "finding": "Both use the same band and corrected amplitude from the same tool; the all-ring version differs by at most 0.02 here."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0067",
+   "plain_claim": "The pictured stall is not a long contact in time (the pair touches for 0.016 of a period, shorter than some ordinary contacts) but one with an enormous collision rate; it ends when a third sphere hits.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the contact-length rule change (decision D0044) and recomputed from the evidence what the pair did before the stall.",
+     "finding": "The rule was changed after looking and is disclosed; both rules give the same conclusion. Pair collisions in the contact minus those in the stall leave about 16 thousand before the stall began, against at most 102 in any other contact: the collision rate is extreme even before the stall, supporting the conclusion."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Checked the force balance and the checksums.",
+     "finding": "Plate 6.2, upper sphere 2.7 and effective gravity 3.5 times the weight; at 26.5 degrees the vertical part of the upper sphere's push plus the effective weight comes to 5.9, near the plate's 6.2, and the upper sphere is not held up (2.5 vertical against 3.5). Recording checksums match."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0066",
+   "plain_claim": "Stalls in a settled layer are the same pressed pairs as the first-landing ones; the balancing side neighbour is not nearer.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Compared the evidence file's expectation flags with the ledger outcome.",
+     "finding": "The evidence marks expectation (i) as failing (5 of 7 by free-flight times); the ledger says it held (7 of 7 counting touching partners). The registration counts touching partners, so the ledger is right; the evidence label is misleading but no number is wrong."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "Started at 23:07, seven minutes late, and ended at 03:13, about two hours before the window closed; no sleep or wake from 21:52 onward, on mains power. The ten-core limit and wall clock, not CPU-hours, set the pace: the friction loops will take days. The 36.3 CPU-hours for the session and 322.8 for the week (16 percent of 2000) are consistent with the step logs; program check counts only closed experiments (159 at 05:40).",
+  "discrepancies": [
+   "active.jsonl still lists the finished no-friction loop at f* 0.33 (process gone, 213 of 213 steps).",
+   "The session ended at 03:13 with the window open until 05:00; the summary does not say why it stopped early, though the queued work was running on its own."
+  ]
+ }
+}
