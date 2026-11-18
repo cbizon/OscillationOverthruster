@@ -2,24 +2,523 @@
  "experiment": "E0064",
  "interim": true,
  "what": "Slow loop without friction at f* 0.44 (N 60000, L 100, depth 5.42, seed 1), Gamma 1.9 to 2.6 and back in steps of 0.05, 100 cycles per step, against the fast loop's steps at the same Gamma (E0058, 25 cycles per step). Amplitudes in D: A_all over every recorded ring (whole box and half box included), A over the band (wavelength a third of the box and shorter), both with the white part removed. Drift: last quarter of the step minus the first (25 cycles each).",
- "steps_done": 0,
+ "steps_done": 10,
  "steps_planned": 29,
- "cpu_hours": 0.0,
+ "cpu_hours": 3.766,
  "slow_episode_steps": 0,
  "audit_failing_cycles": 0,
- "steps": [],
- "compare": [],
+ "steps": [
+  {
+   "step": 0,
+   "gamma": 1.9,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1746.5,
+   "cpu_seconds_per_cycle": 17.4653,
+   "A_all": 0.0343,
+   "A": 0.0341,
+   "A_long": 0.004,
+   "peak_mode_all": 2,
+   "wavelength": 33.3,
+   "quarters": [
+    {
+     "A_all": 0.0527,
+     "A": 0.061
+    },
+    {
+     "A_all": 0.0144,
+     "A": 0.0216
+    },
+    {
+     "A_all": 0.0374,
+     "A": 0.0207
+    },
+    {
+     "A_all": 0.0303,
+     "A": 0.0165
+    }
+   ],
+   "drift_A_all": -0.0224,
+   "drift_A": -0.0445
+  },
+  {
+   "step": 1,
+   "gamma": 1.95,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1559.5,
+   "cpu_seconds_per_cycle": 15.5951,
+   "A_all": 0.0,
+   "A": 0.0058,
+   "A_long": 0.0,
+   "peak_mode_all": 2,
+   "wavelength": 6.2,
+   "quarters": [
+    {
+     "A_all": 0.0384,
+     "A": 0.0329
+    },
+    {
+     "A_all": 0.011,
+     "A": 0.0077
+    },
+    {
+     "A_all": 0.0146,
+     "A": 0.0241
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    }
+   ],
+   "drift_A_all": -0.0384,
+   "drift_A": -0.0329
+  },
+  {
+   "step": 2,
+   "gamma": 2.0,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1450.9,
+   "cpu_seconds_per_cycle": 14.5088,
+   "A_all": 0.0,
+   "A": 0.0136,
+   "A_long": 0.0,
+   "peak_mode_all": 2,
+   "wavelength": 11.1,
+   "quarters": [
+    {
+     "A_all": 0.0,
+     "A": 0.0119
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    }
+   ],
+   "drift_A_all": 0.0,
+   "drift_A": -0.0119
+  },
+  {
+   "step": 3,
+   "gamma": 2.05,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1391.1,
+   "cpu_seconds_per_cycle": 13.9108,
+   "A_all": 0.0,
+   "A": 0.0,
+   "A_long": 0.0,
+   "peak_mode_all": 3,
+   "wavelength": 33.3,
+   "quarters": [
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0292
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0254
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    }
+   ],
+   "drift_A_all": 0.0,
+   "drift_A": 0.0
+  },
+  {
+   "step": 4,
+   "gamma": 2.1,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1318.8,
+   "cpu_seconds_per_cycle": 13.1885,
+   "A_all": 0.0,
+   "A": 0.0302,
+   "A_long": 0.0,
+   "peak_mode_all": 3,
+   "wavelength": 33.3,
+   "quarters": [
+    {
+     "A_all": 0.0,
+     "A": 0.023
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0
+    },
+    {
+     "A_all": 0.0,
+     "A": 0.0396
+    },
+    {
+     "A_all": 0.0398,
+     "A": 0.0559
+    }
+   ],
+   "drift_A_all": 0.0398,
+   "drift_A": 0.0329
+  },
+  {
+   "step": 5,
+   "gamma": 2.15,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1275.4,
+   "cpu_seconds_per_cycle": 12.754,
+   "A_all": 0.0777,
+   "A": 0.0921,
+   "A_long": 0.0,
+   "peak_mode_all": 3,
+   "wavelength": 33.3,
+   "quarters": [
+    {
+     "A_all": 0.0799,
+     "A": 0.0926
+    },
+    {
+     "A_all": 0.0591,
+     "A": 0.0822
+    },
+    {
+     "A_all": 0.0889,
+     "A": 0.0966
+    },
+    {
+     "A_all": 0.0802,
+     "A": 0.0981
+    }
+   ],
+   "drift_A_all": 0.0003,
+   "drift_A": 0.0055
+  },
+  {
+   "step": 6,
+   "gamma": 2.2,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1219.6,
+   "cpu_seconds_per_cycle": 12.1956,
+   "A_all": 0.1116,
+   "A": 0.1304,
+   "A_long": 0.0,
+   "peak_mode_all": 3,
+   "wavelength": 33.3,
+   "quarters": [
+    {
+     "A_all": 0.0972,
+     "A": 0.1185
+    },
+    {
+     "A_all": 0.1251,
+     "A": 0.1396
+    },
+    {
+     "A_all": 0.1138,
+     "A": 0.1314
+    },
+    {
+     "A_all": 0.1152,
+     "A": 0.1319
+    }
+   ],
+   "drift_A_all": 0.018,
+   "drift_A": 0.0134
+  },
+  {
+   "step": 7,
+   "gamma": 2.25,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1197.2,
+   "cpu_seconds_per_cycle": 11.9721,
+   "A_all": 0.1857,
+   "A": 0.1994,
+   "A_long": 0.0,
+   "peak_mode_all": 4,
+   "wavelength": 25.0,
+   "quarters": [
+    {
+     "A_all": 0.1438,
+     "A": 0.1616
+    },
+    {
+     "A_all": 0.1737,
+     "A": 0.1877
+    },
+    {
+     "A_all": 0.1952,
+     "A": 0.2094
+    },
+    {
+     "A_all": 0.219,
+     "A": 0.2314
+    }
+   ],
+   "drift_A_all": 0.0752,
+   "drift_A": 0.0698
+  },
+  {
+   "step": 8,
+   "gamma": 2.3,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1225.8,
+   "cpu_seconds_per_cycle": 12.2581,
+   "A_all": 0.3456,
+   "A": 0.3528,
+   "A_long": 0.0,
+   "peak_mode_all": 5,
+   "wavelength": 20.0,
+   "quarters": [
+    {
+     "A_all": 0.2787,
+     "A": 0.2882
+    },
+    {
+     "A_all": 0.3354,
+     "A": 0.342
+    },
+    {
+     "A_all": 0.3698,
+     "A": 0.3769
+    },
+    {
+     "A_all": 0.3887,
+     "A": 0.3962
+    }
+   ],
+   "drift_A_all": 0.11,
+   "drift_A": 0.108
+  },
+  {
+   "step": 9,
+   "gamma": 2.35,
+   "direction": "up",
+   "cycles": 100,
+   "cpu_seconds": 1173.6,
+   "cpu_seconds_per_cycle": 11.7363,
+   "A_all": 0.4468,
+   "A": 0.4531,
+   "A_long": 0.0,
+   "peak_mode_all": 5,
+   "wavelength": 20.0,
+   "quarters": [
+    {
+     "A_all": 0.4399,
+     "A": 0.4461
+    },
+    {
+     "A_all": 0.4432,
+     "A": 0.4499
+    },
+    {
+     "A_all": 0.456,
+     "A": 0.4621
+    },
+    {
+     "A_all": 0.4478,
+     "A": 0.4538
+    }
+   ],
+   "drift_A_all": 0.0079,
+   "drift_A": 0.0077
+  }
+ ],
+ "compare": [
+  {
+   "gamma": 1.9,
+   "slow_up_A_all": 0.0343,
+   "slow_up_A": 0.0341,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0465,
+   "fast_up_A": 0.0312,
+   "fast_down_A_all": 0.0338,
+   "fast_down_A": 0.0244,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": -0.0127,
+   "fast_gap_A": -0.0068
+  },
+  {
+   "gamma": 1.95,
+   "slow_up_A_all": 0.0,
+   "slow_up_A": 0.0058,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0382,
+   "fast_up_A": 0.0328,
+   "fast_down_A_all": 0.0305,
+   "fast_down_A": 0.0276,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": -0.0077,
+   "fast_gap_A": -0.0052
+  },
+  {
+   "gamma": 2.0,
+   "slow_up_A_all": 0.0,
+   "slow_up_A": 0.0136,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0,
+   "fast_up_A": 0.0,
+   "fast_down_A_all": 0.0428,
+   "fast_down_A": 0.0514,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.0428,
+   "fast_gap_A": 0.0514
+  },
+  {
+   "gamma": 2.05,
+   "slow_up_A_all": 0.0,
+   "slow_up_A": 0.0,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0,
+   "fast_up_A": 0.0,
+   "fast_down_A_all": 0.0648,
+   "fast_down_A": 0.0694,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.0648,
+   "fast_gap_A": 0.0694
+  },
+  {
+   "gamma": 2.1,
+   "slow_up_A_all": 0.0,
+   "slow_up_A": 0.0302,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0,
+   "fast_up_A": 0.0,
+   "fast_down_A_all": 0.1258,
+   "fast_down_A": 0.1369,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.1258,
+   "fast_gap_A": 0.1369
+  },
+  {
+   "gamma": 2.15,
+   "slow_up_A_all": 0.0777,
+   "slow_up_A": 0.0921,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.052,
+   "fast_up_A": 0.0738,
+   "fast_down_A_all": 0.263,
+   "fast_down_A": 0.2705,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.211,
+   "fast_gap_A": 0.1967
+  },
+  {
+   "gamma": 2.2,
+   "slow_up_A_all": 0.1116,
+   "slow_up_A": 0.1304,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.0825,
+   "fast_up_A": 0.0988,
+   "fast_down_A_all": 0.3324,
+   "fast_down_A": 0.3405,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.2499,
+   "fast_gap_A": 0.2417
+  },
+  {
+   "gamma": 2.25,
+   "slow_up_A_all": 0.1857,
+   "slow_up_A": 0.1994,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.1421,
+   "fast_up_A": 0.1576,
+   "fast_down_A_all": 0.3762,
+   "fast_down_A": 0.382,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.2341,
+   "fast_gap_A": 0.2244
+  },
+  {
+   "gamma": 2.3,
+   "slow_up_A_all": 0.3456,
+   "slow_up_A": 0.3528,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.2185,
+   "fast_up_A": 0.2312,
+   "fast_down_A_all": 0.3892,
+   "fast_down_A": 0.3956,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.1707,
+   "fast_gap_A": 0.1644
+  },
+  {
+   "gamma": 2.35,
+   "slow_up_A_all": 0.4468,
+   "slow_up_A": 0.4531,
+   "slow_down_A_all": null,
+   "slow_down_A": null,
+   "fast_up_A_all": 0.3342,
+   "fast_up_A": 0.3391,
+   "fast_down_A_all": 0.4375,
+   "fast_down_A": 0.4432,
+   "slow_gap_A_all": null,
+   "slow_gap_A": null,
+   "fast_gap_A_all": 0.1033,
+   "fast_gap_A": 0.1041
+  }
+ ],
  "largest_gap_slow_A": null,
- "largest_gap_fast_A": null,
- "steps_drifting_over_0p05_in_2p1_to_2p4": [],
+ "largest_gap_fast_A": 0.2417,
+ "steps_drifting_over_0p05_in_2p1_to_2p4": [
+  [
+   2.25,
+   "up",
+   0.0698
+  ],
+  [
+   2.3,
+   "up",
+   0.108
+  ]
+ ],
  "steps_drifting_over_0p05_outside": [],
  "figure": "evidence/fastpass-figures/mu0-f0.44-slow.svg",
- "files": [],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0064/mu0-3d-f0.44-slow/ramp.jsonl",
+   "bytes": 1847,
+   "sha256": "93e748eabbb72228ddf3f723ba355b98230065ff41fcb42d25a97073822bd63b"
+  }
+ ],
  "tools": [
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/e0064_evidence.py",
-   "bytes": 6619,
-   "sha256": "1b2e9c09cbf37e99d8bebbb54b2bd77b0959eb1efaf55dbc743c87a6ac1f9c6e"
+   "bytes": 6758,
+   "sha256": "756b8cdbcd2c25d82af65207f1cb9492f60defe175ec3562546f30f5fcf4cd12"
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",

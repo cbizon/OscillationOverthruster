@@ -1,0 +1,53 @@
+{
+ "date": "2026-11-17",
+ "run_conditions": {
+  "scheduled_start": "2026-11-17T23:00:00-05:00",
+  "actual_start": "2026-11-17T23:07:42-05:00",
+  "last_sleep_or_wake_before_session": "2026-11-17 21:52:16 Wake",
+  "sleep_events_in_session": 0,
+  "load_average_at_start": 3.91,
+  "cores_available_at_start": 10,
+  "disk_free_gb_start": 53,
+  "disk_free_gb_at_0311": 52,
+  "program_data_gb_start": 6.7,
+  "program_data_gb_at_0311": 7.2,
+  "memory_free_percent_start": 68,
+  "memory_free_percent_at_0311": 66,
+  "cpu_hours_session": {
+   "E0060": 8.74,
+   "E0064": 3.77,
+   "E0065": 21.85,
+   "running_steps_unfinished": 1.82,
+   "E0066": 0.035,
+   "E0067": 0.04,
+   "total": 36.3
+  },
+  "live_jobs_at_0311": 10,
+  "disk_free_gb_end": 52,
+  "ended": "2026-11-18T03:12:57-05:00"
+ },
+ "budget": {
+  "cpu_hours_week": {
+   "ledger_program_check": 166.8,
+   "E0060_not_in_ledger": 130.2,
+   "E0064": 3.8,
+   "E0065": 21.9,
+   "E0066_E0067": 0.1,
+   "total": 322.8,
+   "limit": 2000,
+   "percent": 16
+  }
+ },
+ "e0064_vs_fast_up": {
+  "note": "A (band), slow up minus fast up",
+  "g2_15": 0.018,
+  "g2_2": 0.032,
+  "g2_25": 0.042,
+  "g2_3": 0.122,
+  "g2_35": 0.114
+ },
+ "e0065_floor_watch": {
+  "f084_step_at_2_0_cpu_seconds": 1625.7,
+  "cap_seconds": 1800
+ }
+}

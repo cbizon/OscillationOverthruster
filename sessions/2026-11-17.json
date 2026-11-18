@@ -1,0 +1,170 @@
+{
+ "date": "2026-11-17",
+ "instruction": "instructions/2026-11-17.md",
+ "answers": [
+  {
+   "asked": "\"There is no point to this budget. It's not guarding against overfitting in the same way that another budget is. Run until we're done man, let's get this figured out.\"",
+   "status": "partly",
+   "answer": "Done that way: nothing was trimmed or held back for CPU-hours tonight. The ten nudge loops are queued from f* 0.84 down and six are running (0.84, 0.74, 0.65, 0.57, 0.50, 0.44), including the low-frequency ones in their turn; each may use up to 95 CPU-hours, under the 100 per-run limit. The baseline (unmodified engine with friction) is priced at no more than the nudge (15.7 CPU-hours at f* 0.84 to 48.9 at 0.27, 301 for the ten) and queued to start as soon as the last nudge loop has started. The no-friction pass: 8 of 10 loops complete, f* 0.30 and 0.27 on their way down (1980 of 2130 steps). Not finished, because the limits that still hold are ten cores at once and the loops run one step after another: the nudge pass will take a few days of wall clock and the baseline after it. What the nudge loops show so far: every one of 108 steps completed with no slow stretch and no energy-audit failure; going down from Gamma 3.0 the pattern fades (at f* 0.84 from 0.12 D at 3.0 to 0.03 at 2.0) and the cost per 25 cycles climbs (651 to 1626 CPU-seconds at f* 0.84), so the floors are close: none reached yet.",
+   "departures": "The queue starts a job only while fewer than nine are live in all, so a core stays free for replays; with tonight's replays running, ten were live for most of the night. The baseline starts from the half-push state used for case b (every sphere given an upward speed of half the plate's peak speed) because it cannot start from rest at Gamma 3 (decision recorded with E0068); ramp.py was changed only so a loop can start from such a state."
+  },
+  {
+   "asked": "Friction-model loop (start at Gamma 3.0, down until too costly, up to 7.0, back down): \"yes, but also we are going to need to move to a bigger box as a next step.\"",
+   "status": "answered",
+   "answer": "Yes, that is the loop the nudge and baseline loops use: start at Gamma 3.0 (held 50 cycles), down in steps of 0.05 until a 25-cycle step cannot finish in half a CPU-hour, then up to 7.0, then back down until a step costs too much again. Bigger box: noted as the next step; the costs and what it buys are in the answer to item 3. No run in a bigger box tonight, as item 3 asked.",
+   "departures": "The first step at Gamma 3.0 is held 50 cycles rather than 25, from each engine's start, so every frequency starts the same way (decision D0042)."
+  },
+  {
+   "asked": "\"It also sounds like we might need a wider box to get to the lower frequency. That makes sense, we're really squeezing the squares into this little box and it could affect onset / offset of patterns.\" Deeper layers: \"Not yet, first I want to understand the tradeoffs of deeper vs wider as next steps.\"",
+   "status": "answered",
+   "answer": "Written in evidence/wider-vs-deeper.md. In short, wider is the cheaper step and the one that opens the low frequencies; deeper in the same box closes them. Cost per no-friction loop, measured in the paper's box: 8.4 CPU-hours at f* 0.84 to about 23.5 at 0.27 (145 for ten). Scaled: twice as wide (L 200) is 4 times that (34 to 94 per loop, 580 for ten); twice as deep in the same box about 3.8 times (32 to 89, 551 for ten; the factor comes from 2D runs and is not measured in 3D); twice as deep and twice as wide about 15 times (every loop over the 100 CPU-hour per-run limit). Wavelengths across the box, from the experimental relation (wavelength proportional to depth): the paper's box holds three or more down to f* 0.31 (2.9 at 0.30, 2.6 at 0.27); L 150 down to 0.22; L 200 down to 0.17, which covers the squares side where flat-to-squares hysteresis is expected; twice the depth at L 100 only down to 0.62 (3.9 wavelengths at 0.84, 2.2 at 0.44, 1.3 at 0.27). Effect on hysteresis (expectations, not results): experiments report the gap growing with depth and shrinking with f*, so deeper should make it bigger, but in the same box it removes the frequencies where it is biggest; wider should not change the bifurcation but removes what a three-wavelength box adds (only wavelengths 100/k fit, and a small box tends to switch all at once instead of through coexisting domains). Every fast-pass figure is redrawn with the half-box and whole-box wavelengths included (solid line), with the earlier amplitude dashed and those two wavelengths alone dotted. The box holds under three wavelengths (strongest structure at half or whole box) at: f* 0.84, Gamma 4.25 to 4.65 on the way up only; 0.74, from about 4 up on both ways; 0.65, 4.05 to 4.2 up; 0.57, 4.0 to 4.35 up and single steps above 5.75; 0.50, 4.0 to 4.4 and most of 5.1 to 7.0 up, 4.6 to 6.95 down; 0.44, 4.25 to 4.45 and 5.15 to 7.0 up, 4.25 to 6.95 down; 0.38, 4.7 to 7.0 up, 4.45 to 6.95 down; 0.33, 5.05 to 7.0 up, 4.7 to 6.95 down; 0.30 and 0.27 also right at onset (1.85 to 1.9) and over most of the way up so far. Four short runs that would replace the scaled numbers are listed in the note (about 16 CPU-hours in all).",
+   "departures": "The ten no-friction loops at f* 0.30 and 0.27 were still running, so their costs are projected from the steps done. The box-sized structure at f* 0.84, Gamma 4.5 and f* 0.50, Gamma 4.0 was looked at in the stored height fields (pictures in fastpass-figures/field-*.png): part of the layer bounces on alternate cycles to the rest, with a front between them."
+  },
+  {
+   "asked": "Slow loop at f* 0.44, Gamma 1.9 to 2.6 and back, 100 cycles per step: \"I'm fine with this.\"",
+   "status": "partly",
+   "answer": "Running, not finished: 10 of 29 steps (the way up from Gamma 1.9 to 2.35); it should finish around midday. So far the slow way up rises a little earlier than the fast one: above it by 0.03 D at Gamma 2.2 and 0.12 D at 2.3, and at 2.35 it (0.45 D) has already reached the fast loop's way down (0.44 D). The fast loop's way down is at 0.34 D at Gamma 2.2, so if the slow way down comes back along a similar path the gap shrinks but does not close; that is not known until the way down is run. Drift within steps: two steps drift by more than 0.05 D from their first 25 cycles to their last, both on the rising part (Gamma 2.25 by +0.07, 2.3 by +0.11); 2.35 is steady (+0.01); in the flat layer below 2.15 no step drifts by more than 0.05.",
+   "departures": "None. The amplitude is reported both with the half-box and whole-box rings and without; at this frequency and Gamma they differ by at most 0.02 D."
+  },
+  {
+   "asked": "\"Go ahead and run the stalls in a settled layer for completeness.\"",
+   "status": "answered",
+   "answer": "Done for seven stalls in settled layers (cycles 26 to 285); the result is the same as for the first-landing stalls, except that the balancing side neighbour is not nearer. How found: I searched every run of the unmodified engine with friction for slow stretches starting at cycle 20 or later (13 runs), and replayed the seven 2D runs whose first slow stretch comes after cycle 20; all seven replays reach the run's own stall. All seven are a pressed pair: a sphere on the plate touching only the plate and one sphere above it, pressed at 26.5 to 73.9 degrees from vertical; the upper sphere touches nothing else. The touching contacts never balance the push on the lower sphere; adding neighbours within 0.001 of a diameter balances it at 1 of 7, within 0.01 at 2 of 7 (4 of 6 at the first-landing stalls), within 0.1 at 6 of 7. The nearest side neighbour that is approaching is due in 0.00018 to 0.106 time units at 4 stalls; at 3 none is approaching. The spheres are not slow (the lower one moves at 0.14 to 2.4 along the plate); only the closing speeds at the two contacts are.",
+   "departures": "Left out, and why: one stall at exactly cycle 20 (already examined on Nov 16), three later stalls that come after an earlier stall in the same run (reaching them means replaying through the first), and one 3D stall (the balance test is in the plane)."
+  },
+  {
+   "asked": "\"Choose one of the stalls and let's make some pictures/movies of it that show why it doesn't freeze and what the surroundings look like.\" Context: \"while a column of balls is unstable, the balls still stay in contact for potentially a long time and that's what we're needing to deal with in terms of handling the stall - contacts that are temporary but still much longer than the normal collision.\"",
+   "status": "answered",
+   "answer": "Done for the stall at Gamma 5, f* 0.5, depth 5, seed 2, cycle 62, chosen because it is in a settled layer, has the usual geometry (upper sphere pressed at 26.5 degrees), the surroundings fit in one picture, and it ends on its own within the cycle, so one recording shows it form, last and end. Pictures in evidence/E0067-figures/: four stills, three timelines and a 67-second movie (captions are a subtitle track). What they show: the stall lasts only 7.5e-5 of a period of simulated time, but holds 7.8 million collisions, 2.12 million between the pair and 5.68 million between the lower sphere and the plate, and none with any other sphere. During it the plate pushes the lower sphere with 6.2 times its weight and the upper sphere pushes on it with 2.7 times, while effective gravity is 3.5 g; nothing pushes from the side, the nearest side neighbours are 0.023 and 0.032 of a diameter away, and the lower sphere keeps rolling along the plate. It ends when a third sphere hits the upper one. On contact length, measured the same way for every contact (it lasts while the two never open a gap bigger than 0.001 of a diameter): the pair touches for 0.016 of a period with 2.14 million collisions. That is not long by the layer's standards: elsewhere in the same stretch a sphere sat on the plate for 0.075 of a period with 75 collisions and two spheres stayed touching for 0.045 with 59, and none of them stalled; most contacts are single collisions. So the stalled contact is temporary and not unusually long in time; what is extreme is the collision rate, about 1e11 per period during the stall against about 1e3 per period in the long contacts elsewhere. Why it does not freeze: neither sphere is slow, the two contacts do not hold the upper sphere's sideways push, and no third contact arrives until the end.",
+   "departures": "I changed how a contact's length is measured after first looking (decision D0044): the rule I registered (a pause of more than 1e-4 of a period between collisions ends a contact) cut the pair's contact into pieces while the two stayed within a tiny gap. Under either rule the pair's contact is 20 to 54 times the typical multi-collision contact, not the thousand times I predicted."
+  }
+ ],
+ "headline": "Tonight started the other two models without trimming for CPU (six nudge loops running, the baseline queued behind them), started the slow loop at f* 0.44, redrew every fast-pass figure with the half-box and whole-box wavelengths, wrote the wider-versus-deeper tradeoff, and pictured the stall. The pictured stall is not a long contact in time (a sixtieth of a period) but one with an enormous collision rate, and settled-layer stalls look like the first-landing ones. Wider is the cheaper next step and opens the low frequencies; deeper in the same box closes them.",
+ "experiments": [
+  {
+   "experiment_id": "E0060",
+   "question": "No-friction fast pass (left running): what does the amplitude do from Gamma 1.7 to 7.0 and back at ten frequencies?",
+   "what_was_done": "Collected the finished loops and redrew every figure with the half-box and whole-box wavelengths included.",
+   "result": "8 of 10 loops complete, 1980 of 2130 steps, 130.17 CPU-hours so far, no slow stretch or audit failure anywhere. At the first onset the way down stays above the way up over a range that widens as the frequency falls: not at all from f* 0.50 up; Gamma 2.15 to 2.3 at 0.44; 1.9 to 2.1 at 0.38 (up to 0.48 of a diameter); at 0.33 still patterned at 1.9 on the way down. With the long wavelengths included, structure the size of the box dominates at many Gamma above 4.",
+   "takeaway": "One seed at the fast rate, so this is a pointer: the trend with frequency is the one experiments report, and it is also what a pattern that needs time to grow would give. The checker's point that the old amplitude missed most of the structure at high Gamma is answered by the redraw.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0064",
+   "question": "Does the gap at the first onset at f* 0.44 shrink when the ramp is four times slower?",
+   "what_was_done": "Slow loop, no friction, Gamma 1.9 up to 2.6 and back, 100 cycles a step, one seed; amplitude per step and per quarter step.",
+   "result": "10 of 29 steps done (the way up to 2.35). The slow way up is above the fast one by 0.03 to 0.12 of a diameter from Gamma 2.15, and at 2.35 equals the fast way down. Two rising steps drift (2.25 and 2.3), none in the flat layer.",
+   "takeaway": "So far consistent with part of the fast loop's gap being ramp lag; the way down will say how much. Interim.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0065",
+   "question": "Nudge fast pass with the loop for a model with friction.",
+   "what_was_done": "Ten loops queued from f* 0.84 down; six running from 23:11 and 23:59.",
+   "result": "108 steps, 21.85 CPU-hours, every step completed, no slow stretch, no audit failure. All six are still on the first descent, between Gamma 2.0 and 2.3; costs per step are climbing toward the half-hour cap.",
+   "takeaway": "Running as planned; floors expected within hours.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0068",
+   "question": "Baseline fast pass (unmodified engine with friction).",
+   "what_was_done": "Priced at no more than the nudge, registered, and queued behind the nudge loops with the half-push start.",
+   "result": "Not started.",
+   "takeaway": "Will start as cores free.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0066",
+   "question": "Do stalls in a settled layer look like the first-landing ones?",
+   "what_was_done": "Seven stalls after cycle 20 replayed and read, as on Nov 16.",
+   "result": "Yes, all pressed pairs with unbalanced contacts; the balancing neighbour is within 0.01 of a diameter at 2 of 7 rather than 4 of 6.",
+   "takeaway": "Falsified on the one new prediction (that settling brings the side neighbour closer).",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0067",
+   "question": "What does one stall look like through its course?",
+   "what_was_done": "One stall recorded collision by collision, drawn as stills, timelines and a movie.",
+   "result": "7.8 million collisions in 7.5e-5 of a period; the pair's contact lasts 0.016 of a period, shorter than some ordinary contacts elsewhere; plate force on the lower sphere 6.2 times its weight; ended by a third sphere.",
+   "takeaway": "The problem is the collision rate of an unbalanced pressed pair, not the length of the contact.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The stalled contact is not long in time; it is a contact with an enormous collision rate (millions of collisions between the same two spheres within a small fraction of a period). Should the next stall work look at that, how many times the same pair has collided recently, rather than at how slow the spheres are or how long they have touched?",
+   "why_it_matters": "The movie shows that speed-based and duration-based tests both miss this stall: the spheres are moving and other contacts last longer without stalling.",
+   "default_if_unanswered": "No design or build; the stall work stays where it is."
+  },
+  {
+   "question": "When cores free up, should the bigger-box measurements (two 20-cycle cost holds, about 1 CPU-hour, and the f* 0.44 onset loop at L 200, about 12) go before the baseline loops or after them?",
+   "why_it_matters": "The nudge and baseline passes fill the ten cores for several days; the bigger box is the step you said comes next.",
+   "default_if_unanswered": "After the nudge loops and before the baseline loops start."
+  },
+  {
+   "question": "If the slow loop at f* 0.44 still shows a gap on the way down, do you want the same loop at 400 cycles per step (about 32 CPU-hours) or the same slow loop at f* 0.38, where the fast gap is twice as large?",
+   "why_it_matters": "It finishes around midday, and one of these is the natural follow-up.",
+   "default_if_unanswered": "Report it and start neither."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Measure the bigger box: the two cost holds, then the f* 0.44 onset loop at L 200 against the one at L 100.",
+   "rationale": "Wider is cheaper than deeper, opens the squares frequencies, and the redrawn figures show box-sized structure that a wider box would test."
+  },
+  {
+   "direction": "Let the nudge and baseline passes finish and compare the three models' figures at each frequency.",
+   "rationale": "It is the pass you asked for; a pattern or gap seen with all three is the first candidate for a physical result."
+  },
+  {
+   "direction": "Three seeds of the fast loop over the first onset at f* 0.38, where the gap is largest.",
+   "rationale": "One seed cannot separate a gap from noise; this is the cheapest check of the trend with frequency."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 322.8,
+   "limit": 2000
+  },
+  "disk_gb": {
+   "spent": 7.2,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [
+  "D0025"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-17T23:00:00-05:00",
+  "actual_start": "2026-11-17T23:07:42-05:00",
+  "ended": "2026-11-18T03:12:57-05:00",
+  "interruptions": [],
+  "cpu_hours": 36.3,
+  "cores_available": 10,
+  "disk_free_gb": {
+   "start": 53,
+   "end": 52
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0060",
+    "reason": "f* 0.30 and 0.27 still on the way down; each step is saved and the loops resume from the last one"
+   },
+   {
+    "experiment_id": "E0064",
+    "reason": "slow loop, 10 of 29 steps; about 0.4 CPU-hours a step on one core"
+   },
+   {
+    "experiment_id": "E0065",
+    "reason": "ten nudge loops, six running, four queued; days of wall clock at ten cores"
+   },
+   {
+    "experiment_id": "E0068",
+    "reason": "baseline loops queued behind the nudge loops"
+   }
+  ],
+  "limits_hit": "On AC with the lid open; no sleep or wake event after 21:52, before the session started. Load average 3.91 at the start (the three no-friction loops), so ten cores were available within the limit. What limited the science was the ten-core limit and wall clock, not CPU-hours: loops run step after step, so the nudge and baseline passes take days and tonight shows only the nudge's first descent and the slow loop's way up. Ten jobs were live from 23:16 to the end. CPU-hours tonight: 36.3 from the runs' own records (no-friction steps 8.74, slow loop 3.77, nudge 21.85, steps still running 1.82, stall replays and recording 0.08). The week stands at about 322.8 of 2000 CPU-hours (program check counts only closed experiments: 166.8), 16 percent. Disk 53 GB free at the start, program data 7.2 GB of 15. Memory 66 to 68 percent free."
+ }
+}

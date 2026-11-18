@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" font-family="Helvetica, Arial, sans-serif" font-size="13">
 <rect width="1000" height="540" fill="white"/>
-<text x="110" y="24" font-size="16">no friction, f* 0.30: 3D, N 60000, depth 5.42, seed 1, 25 cycles per step; 109 of 213 steps, running</text>
+<text x="110" y="24" font-size="16">no friction, f* 0.30: 3D, N 60000, depth 5.42, seed 1, 25 cycles per step; 145 of 213 steps, running</text>
 <line x1="110" x2="980" y1="430.0" y2="430.0" stroke="#e4e4e4"/>
 <text x="102" y="434.0" text-anchor="end">0.0</text>
 <line x1="110" x2="980" y1="421.6" y2="421.6" stroke="#e4e4e4"/>
@@ -275,53 +275,89 @@
 <path d="M964.2 424.0 l-3 5 h6 z" fill="#1f5fbf"/>
 <circle cx="122" cy="66" r="4" fill="#1f5fbf" stroke="#1f5fbf" stroke-width="1.4"/>
 <text x="132" y="70">way up (107 holds)</text>
-<polyline fill="none" stroke="#d1495b" stroke-width="1.6" points="964.2,104.5 956.3,76.3 948.4,119.5"/>
-<polyline fill="none" stroke="#d1495b" stroke-width="0.9" stroke-dasharray="4 3" points="964.2,311.3 956.3,278.4 948.4,301.5"/>
-<polyline fill="none" stroke="#d1495b" stroke-width="1.1" stroke-dasharray="1 2" points="964.2,125.9 956.3,97.7 948.4,138.3"/>
+<polyline fill="none" stroke="#d1495b" stroke-width="1.6" points="964.2,104.5 956.3,76.3 948.4,119.5 940.5,110.1 932.5,137.1 924.6,134.6 916.7,147.4 908.8,115.9 900.9,109.7 893.0,91.5 885.1,99.2 877.2,128.5 869.3,127.6 861.4,143.3 853.5,125.8 845.5,99.7 837.6,102.1 829.7,129.1 821.8,141.1 813.9,134.3 806.0,172.0 798.1,182.5 790.2,156.5 782.3,130.2 774.4,162.3 766.5,133.8 758.5,119.4 750.6,161.9 742.7,195.3 734.8,205.3 726.9,165.4 719.0,176.7 711.1,195.5 703.2,206.1 695.3,177.6 687.4,211.5 679.5,223.5 671.5,237.5 663.6,211.4"/>
+<polyline fill="none" stroke="#d1495b" stroke-width="0.9" stroke-dasharray="4 3" points="964.2,311.3 956.3,278.4 948.4,301.5 940.5,305.7 932.5,314.4 924.6,306.1 916.7,315.8 908.8,311.5 900.9,318.4 893.0,307.4 885.1,321.3 877.2,323.8 869.3,319.0 861.4,330.0 853.5,319.8 845.5,328.9 837.6,322.7 829.7,317.4 821.8,335.1 813.9,324.7 806.0,324.6 798.1,337.9 790.2,329.7 782.3,325.4 774.4,331.4 766.5,335.9 758.5,330.1 750.6,346.0 742.7,330.1 734.8,342.6 726.9,342.8 719.0,356.1 711.1,341.8 703.2,332.3 695.3,347.6 687.4,351.2 679.5,341.5 671.5,357.3 663.6,345.7"/>
+<polyline fill="none" stroke="#d1495b" stroke-width="1.1" stroke-dasharray="1 2" points="964.2,125.9 956.3,97.7 948.4,138.3 940.5,127.9 932.5,156.3 924.6,153.0 916.7,162.2 908.8,128.0 900.9,122.2 893.0,111.4 885.1,115.6 877.2,141.7 869.3,140.1 861.4,159.7 853.5,141.4 845.5,112.7 837.6,117.3 829.7,146.8 821.8,155.7 813.9,150.9 806.0,191.1 798.1,196.7 790.2,171.3 782.3,145.9 774.4,176.5 766.5,148.2 758.5,133.7 750.6,174.9 742.7,211.1 734.8,221.5 726.9,179.6 719.0,185.1 711.1,209.0 703.2,223.4 695.3,190.7 687.4,225.4 679.5,237.9 671.5,250.2 663.6,223.2"/>
 <circle cx="964.2" cy="104.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
 <path d="M964.2 416.0 l-3 5 h6 z" fill="#d1495b"/>
 <circle cx="956.3" cy="76.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
 <path d="M956.3 416.0 l-3 5 h6 z" fill="#d1495b"/>
 <circle cx="948.4" cy="119.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
 <path d="M948.4 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="940.5" cy="110.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M940.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="932.5" cy="137.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M932.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="924.6" cy="134.6" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M924.6 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="916.7" cy="147.4" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M916.7 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="908.8" cy="115.9" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M908.8 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="900.9" cy="109.7" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M900.9 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="893.0" cy="91.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M893.0 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="885.1" cy="99.2" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M885.1 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="877.2" cy="128.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M877.2 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="869.3" cy="127.6" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M869.3 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="861.4" cy="143.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M861.4 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="853.5" cy="125.8" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M853.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="845.5" cy="99.7" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M845.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="837.6" cy="102.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M837.6 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="829.7" cy="129.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M829.7 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="821.8" cy="141.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M821.8 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="813.9" cy="134.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M813.9 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="806.0" cy="172.0" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M806.0 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="798.1" cy="182.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M798.1 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="790.2" cy="156.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M790.2 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="782.3" cy="130.2" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M782.3 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="774.4" cy="162.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M774.4 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="766.5" cy="133.8" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M766.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="758.5" cy="119.4" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M758.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="750.6" cy="161.9" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M750.6 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="742.7" cy="195.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M742.7 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="734.8" cy="205.3" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M734.8 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="726.9" cy="165.4" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M726.9 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="719.0" cy="176.7" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M719.0 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="711.1" cy="195.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M711.1 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="703.2" cy="206.1" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M703.2 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="695.3" cy="177.6" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M695.3 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="687.4" cy="211.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M687.4 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="679.5" cy="223.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M679.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="671.5" cy="237.5" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M671.5 416.0 l-3 5 h6 z" fill="#d1495b"/>
+<circle cx="663.6" cy="211.4" r="3" fill="white" stroke="#d1495b" stroke-width="1.4"/>
+<path d="M663.6 416.0 l-3 5 h6 z" fill="#d1495b"/>
 <circle cx="122" cy="84" r="4" fill="white" stroke="#d1495b" stroke-width="1.4"/>
-<text x="132" y="88">way down (3 holds)</text>
-<line x1="940.5" x2="940.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="932.5" x2="932.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="924.6" x2="924.6" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="916.7" x2="916.7" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="908.8" x2="908.8" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="900.9" x2="900.9" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="893.0" x2="893.0" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="885.1" x2="885.1" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="877.2" x2="877.2" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="869.3" x2="869.3" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="861.4" x2="861.4" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="853.5" x2="853.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="845.5" x2="845.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="837.6" x2="837.6" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="829.7" x2="829.7" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="821.8" x2="821.8" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="813.9" x2="813.9" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="806.0" x2="806.0" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="798.1" x2="798.1" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="790.2" x2="790.2" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="782.3" x2="782.3" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="774.4" x2="774.4" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="766.5" x2="766.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="758.5" x2="758.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="750.6" x2="750.6" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="742.7" x2="742.7" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="734.8" x2="734.8" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="726.9" x2="726.9" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="719.0" x2="719.0" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="711.1" x2="711.1" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="703.2" x2="703.2" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="695.3" x2="695.3" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="687.4" x2="687.4" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="679.5" x2="679.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="671.5" x2="671.5" y1="489" y2="499" stroke="#999" stroke-width="2"/>
-<line x1="663.6" x2="663.6" y1="489" y2="499" stroke="#999" stroke-width="2"/>
+<text x="132" y="88">way down (39 holds)</text>
 <line x1="655.7" x2="655.7" y1="489" y2="499" stroke="#999" stroke-width="2"/>
 <line x1="647.8" x2="647.8" y1="489" y2="499" stroke="#999" stroke-width="2"/>
 <line x1="639.9" x2="639.9" y1="489" y2="499" stroke="#999" stroke-width="2"/>

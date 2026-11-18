@@ -68,6 +68,9 @@ after `DIRECTION.md` at the start of every session.
     has two touching contacts that do not balance the push on it; the
     balancing side neighbour is close but not touching (E0063). Chris's
     view (Nov 16): freeze only when several contacts balance the force.
+  - Nov 17: settled-layer stalls are the same pressed pairs (E0066); one
+    stall recorded and pictured (E0067): not a long contact but an
+    enormous collision rate.
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -99,6 +102,8 @@ after `DIRECTION.md` at the start of every session.
     no transition point, slow loops placed by Chris from the figures. The
     no-friction pass is running (E0060). Both pilots collected (E0058,
     E0059, supported).
+  - Nov 17: nudge pass running (E0065), baseline queued (E0068), slow loop
+    at f\* 0.44 running (E0064); wider-versus-deeper written.
 
 ### RQ3: Does the model produce oscillons?
 
@@ -122,6 +127,8 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 17 session: awake on AC, lid open, no sleep events. Ten cores
+    full all night; wall clock, not CPU-hours, limits the passes.
   - Nov 16 session: awake on AC, lid open, no sleep events (B0005
     resolved). Nothing else running at the start. Ten cores were not
     enough to finish the night's main job: the ten loops need about two
@@ -262,6 +269,39 @@ The five options in `notes/contact-options.md`.
   (D0031).
 
 ## Current state
+
+### Nov 17 findings
+
+Instruction of Nov 17 (six items). One seed everywhere; nothing below is a
+physical result. Session summary: `sessions/2026-11-17.json`.
+
+- **CPU-hours are no longer a reason to trim** (Chris, Nov 17: 2000 a week,
+  100 per run). Limits that hold: ten cores, disk, memory.
+- **No-friction fast pass (E0060):** 8 of 10 loops complete; f\* 0.30 and
+  0.27 on the way down. No slow stretch or audit failure in 1980 steps. At
+  the first onset the way down stays above the way up over a range that
+  widens as f\* falls (none from 0.50 up; 2.15 to 2.3 at 0.44; 1.9 to 2.1
+  at 0.38). Every figure redrawn with the half-box and whole-box rings
+  (D0043); structure the size of the box dominates at many Gamma above 4.
+  At f\* 0.84, Gamma 4.5 (way up only) and f\* 0.50, Gamma 4.0 it is part of
+  the layer bouncing on alternate cycles, with a front.
+- **Slow loop (E0064, running):** f\* 0.44, 1.9 to 2.6 and back, 100 cycles
+  a step. 10 of 29 steps at the summary; way up above the fast one from
+  2.15. Rebuild with `tools/e0064_evidence.py`.
+- **Nudge pass (E0065, running):** Chris's friction loop (3.0 down to the
+  half-hour floor, up to 7.0, back). Queue `runs/q-1117.spec` via
+  `tools/qx6.sh`, 95 CPU-hours per loop. Six running at the summary.
+- **Baseline pass (E0068, queued):** behind the nudge loops
+  (`runs/q-1117b.spec`, started by a waiter on `q-1117.log`), half-push
+  start (`tools/baseline_loop.sh`). Priced at most 301 CPU-hours.
+- **Wider versus deeper:** `evidence/wider-vs-deeper.md`. Wider is the
+  cheaper step and opens low f\*; deeper in the same box closes them.
+- **Settled-layer stalls (E0066):** same picture as first-landing stalls;
+  balancing neighbour within 0.01 D at 2 of 7.
+- **One stall pictured (E0067):** `evidence/E0067-figures/`. 7.8 million
+  collisions in 7.5e-5 of a period; the contact lasts 0.016 of a period,
+  shorter than some ordinary contacts; the extreme is the collision rate.
+- **Tools:** branch `tools/phase-diagram` (bf6176d and after).
 
 ### Nov 16 findings
 
@@ -723,19 +763,19 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect E0060** (ten no-friction loops, left running Nov 16).
-  - Check `runs/active.jsonl` and the queue (`fastpass-1116b.spec`); a
-    loop that stopped resumes by rerunning its line from
-    `runs/fastpass-1116.spec` (finished steps are skipped).
-  - Rebuild evidence and figures (`tools/fastpass_evidence.py`), judge
-    against the registration when all ten have ended, record the outcome.
-  - Check the weekly CPU count first: the pass is expected to reach about
-    80%. At 100% stop the queue and ask.
-- **Slow loops are Chris's to place.** Start none unasked. Candidates are
-  in the Nov 16 summary; redo the list from the finished figures.
-- **Nudge loops** (the second model): only as the budget allows, highest
-  f\* first, nothing priced over 40 CPU-hours; register anew (E0061 was
-  abandoned). Baseline loops after that, with the upward-push start.
+- **Collect the running loops.** Check `runs/active.jsonl`. E0060 (f\* 0.30,
+  0.27), E0064 (slow loop), E0065 (nudge, queue `q-1117.spec` via
+  `tools/qx6.sh`), then E0068 (baseline, `q-1117b.spec`, started by a
+  waiter once `q-1117.log` says the first queue is done). A stopped loop
+  resumes by rerunning its spec line (finished steps are skipped).
+  Rebuild with `tools/fastpass_evidence.py` and `tools/e0064_evidence.py`;
+  record outcomes against the registrations when loops end.
+- **CPU-hours do not limit runs** (2000 a week, 100 per run); cores, disk
+  and memory do.
+- **Bigger box** (Chris: the next step): measurements listed in
+  `evidence/wider-vs-deeper.md`; order is a question to Chris (default:
+  after the nudge loops, before the baseline loops).
+- **Slow loops** beyond E0064 are Chris's to place.
 - **Deeper layers** (plan section 0b): a 20-cycle hold at depth 10.84
   first, then onset-only loops at four f\*. Wait for Chris.
 - Option 4 stays paused. No design work on the multi-contact criterion
