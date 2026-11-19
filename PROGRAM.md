@@ -262,7 +262,26 @@ The five options in `notes/contact-options.md`.
     `method/mu0-unmodified` (765c1f0) for the frictionless baseline.
   - Proposal for rest on a sphere (D0024, for Chris):
     `evidence/D0024-rest-on-sphere-proposal.md`.
-- **Paused (Nov 13 instruction).** No builds, no pilots; do not build on
+- **Nov 18: pause lifted; held contacts built** (`method/held-contact`,
+  worktree `sequel-data/worktrees/held-contact`; pinned fixed-angle pilot
+  `method/held-contact-fixed`). Decisions D0049 to D0052.
+  - A chattering contact (slow hit on the plate, a side wall, or a held
+    sphere; a free pair closing below 1e-10) is held: its normal relative
+    velocity is kept at zero by impulses every 5e-4 time units, solved per
+    held cluster (projected Gauss-Seidel, pushes only); sliding is free.
+    It lets go when the impulse would be a pull, or when hit faster than
+    0.01 (then an ordinary collision).
+  - v1 09959f7, v2 9860a26 (fast hits free the sphere; warm-started,
+    over-relaxed solve), v3 df3f4dc (round-off pair). Tests: 74 frozen and
+    110 branch pass with the method on; with it off the engine is main's
+    bit for bit.
+  - Motion on the sphere lets go at the closed-form angle within 0.04
+    degrees; the fixed-angle variant lets go 0.8 degrees after capture (its
+    gap constant decides) and churns (`evidence/held-release-angle.json`).
+  - Multi-sphere contacts are the rule (`evidence/held-cluster-sizes.json`).
+  - Survival on the 2D grid and the stall runs: E0081 (sphere), E0082
+    (fixed), `evidence/E0081-E0082-results.json`; see Current state.
+- **Paused (Nov 13 instruction; lifted Nov 18).** No builds, no pilots; do not build on
   the plate-only rest rule. The step that was next, normal-only rest with
   friction, was not started. E0045 (held-hit pilot and sweep) and the
   rest of E0042's sweep were dropped with the friction diagnostics
@@ -800,55 +819,20 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect the running loops.** Check `runs/active.jsonl`. E0060 (f\* 0.30,
-  0.27), E0064 (slow loop), E0065 (nudge, queue `q-1117.spec` via
-  `tools/qx6.sh`), then E0068 (baseline, `q-1117b.spec`, started by a
-  waiter once `q-1117.log` says the first queue is done). A stopped loop
-  resumes by rerunning its spec line (finished steps are skipped).
-  Rebuild with `tools/fastpass_evidence.py` and `tools/e0064_evidence.py`;
-  record outcomes against the registrations when loops end.
-- **CPU-hours do not limit runs** (2000 a week, 100 per run); cores, disk
-  and memory do.
-- **Bigger box** (Chris: the next step): measurements listed in
-  `evidence/wider-vs-deeper.md`; order is a question to Chris (default:
-  after the nudge loops, before the baseline loops).
-- **Slow loops** beyond E0064 are Chris's to place.
-- **Deeper layers** (plan section 0b): a 20-cycle hold at depth 10.84
-  first, then onset-only loops at four f\*. Wait for Chris.
-- Option 4 stays paused. No design work on the multi-contact criterion
-  unless asked.
-- The frictionless stall (E0046, Gamma 5, f* 0.3, depth 15, seed 3) has
-  not been examined. `tools/mu_switch.py` and `tools/collapse_trace.py`
-  would do it. Proposed, not started: the Nov 13 instruction dropped the
-  friction diagnostics.
-- Option 4 is paused. E0045, E0047, E0048 and the unrun parts of E0042
-  and E0043 are dropped (D0031); `runs/all-1112c.spec` is not to be
-  restarted.
-- Chris to decide: push `main` (merge 997eb49 and test commit 0b15165
-  are local only, D0025).
-- The intrinsic sweep (when a candidate survives) includes v_wakeup =
-  v_sleep.
-- Tools added Nov 14: `field_recorder.py`, `loop_analysis.py`,
-  `loops_table.py`, `period_rule.py`, `continue_run.py`,
-  `plan_costs_v2.py`, `e0053_identity.py`, `e0053_54_evidence.py`,
-  `e0055_56_evidence.py`. Queue specs: `E0053.spec`, `all-1114.spec`,
-  `all-1114b.spec`, `E0055b.spec`, `E0055d.spec`.
-- Tools added Nov 13: `ramp.py`, `ramp_table.py`, `pattern_id.py`,
-  `run_table.py`, `file_records.py`, `e0046_50_evidence.py`,
-  `plan_costs.py`. Queue specs: `mu0-1113.spec`, `E0050.spec`,
-  `E0052.spec`.
-- Tools added Nov 12: `lc_counters.py`, `mu_switch.py`,
-  `collapse_trace.py`, `tangential_variants.py`, `friction_evidence.py`,
-  `e0042_table.py`, `e0037_judge.py`, `e0044_compare.py`, `budget.py`.
-  `pc_stall_diag.py` is superseded by `mu_switch.py` (wrong time).
+- **Collect what is running** (`runs/active.jsonl`): E0069 (400-cycle slow
+  loop, about 1.8 days; rebuild `tools/rates_table.py`), E0071 (L 200 onset
+  loop), E0073 (baseline loops). Queue `runs/q-1118.spec` via `tools/qx7.sh`
+  goes on to the nudge continuations (E0072) and the width-200 passes
+  (E0074 to E0076); its live-job limit is in `runs/q-1118.maxlive`.
+- **Held contacts (option four, item 5 of Nov 18):** E0081/E0082 results in
+  `evidence/E0081-E0082-results.json` (`tools/held_evidence.py`). Then, if
+  Chris agrees: the referee's bulk check and the 3D survival case.
+- **Disk:** free disk fell from 30 to 28 GB tonight from outside the program;
+  the queue holds below 25.5 GB. The width-200 passes need more than the
+  15 GB program budget.
+- Option-four earlier branches (`method/persistent-contact*`) are superseded
+  by `method/held-contact` for tonight's design; kept, not deleted.
+- Chris to decide: push `main` (merge 997eb49 and test commit 0b15165 are
+  local only, D0025).
 
-Earlier items (from Nov 8):
-
-- Collect E0028 (nudge, 3D Gamma 5, 1000 cycles, seeds 2 to 5) and E0029
-  (unmodified case g, seeds 3 to 5, 1020 cycles). If a case-g baseline
-  completes, judge the nudge's case-g runs against it.
-- Wait for Chris on:
-  - how to treat the nudge's rare overlaps;
-  - the Figure 1 comparison spec;
-  - the case-b comparison;
-  - the wide-box seed offsets (E0027).
+Earlier items (before Nov 18) are in the git history of this file.

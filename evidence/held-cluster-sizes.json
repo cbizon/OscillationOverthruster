@@ -1,0 +1,56 @@
+{
+ "what": "Sizes of held clusters (spheres held together through sphere-sphere holds) at 2D Gamma 5, f* 0.3, depth 5, seed 1, 25 cycles from the default start, held contacts v3 (df3f4dc) in each mode, counted at every hold step by an instrumented copy of the engine (counters only; same dynamics). Item 5: 'my guess is that either way we will still end up with multiball contacts'.",
+ "bins": [
+  "1",
+  "2",
+  "3",
+  "4-7",
+  "8-15",
+  "16-31",
+  "32+"
+ ],
+ "sphere": {
+  "steps_by_size": {
+   "1": 168852,
+   "2": 44759,
+   "3": 25525,
+   "4-7": 63426,
+   "8-15": 106166,
+   "16-31": 88475,
+   "32+": 20629
+  },
+  "total_steps": 517832,
+  "fraction_4_or_more": 0.538,
+  "largest": 63,
+  "mean_size": 8.81
+ },
+ "fixed": {
+  "steps_by_size": {
+   "1": 230419,
+   "2": 75760,
+   "3": 199745,
+   "4-7": 618356,
+   "8-15": 1715137,
+   "16-31": 1796634,
+   "32+": 610328
+  },
+  "total_steps": 5246379,
+  "fraction_4_or_more": 0.904,
+  "largest": 123,
+  "mean_size": 16.95
+ },
+ "reading": [
+  "Contacts involving several spheres are the rule in both variants: 54% (sphere) and 90% (fixed) of hold steps are of clusters of four or more; the largest held 63 and 123 spheres.",
+  "The fixed-angle variant makes ten times as many hold steps and larger clusters: its contacts open and are captured again continually."
+ ],
+ "tools": [
+  {
+   "path": "runs/tools/held_cluster_sizes/clus.py",
+   "sha256": "efab55d4df64abdf3a97b9193e1898f433ca0aebbf8f5de529f39c0ab9f6b1c6"
+  },
+  {
+   "path": "runs/tools/held_cluster_sizes/edmd_instrumented.py",
+   "sha256": "363d83b73f7f9066bfff4c7924d5645bb6d49185e2b5a4aa7d27bcbe5a53982c"
+  }
+ ]
+}
