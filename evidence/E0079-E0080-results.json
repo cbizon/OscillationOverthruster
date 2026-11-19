@@ -7,8 +7,8 @@
  "what": "Evidence for E0079 and E0080 (held contacts v2, Nov 18 item 5): survival, energy audit and hold counters on the 2D grid and the stall runs, against the unmodified engine's run of the same condition and seed where one exists. Safe to run while the runs are going (interim).  Writes evidence/E0079-E0080-results.json.",
  "runs": 17,
  "finished": {
-  "sphere": 2,
-  "fixed": 2
+  "sphere": 7,
+  "fixed": 7
  },
  "rows": [
   {
@@ -113,8 +113,44 @@
     "first_slow_cycle": 0,
     "slow_episodes": 1
    },
-   "sphere": null,
-   "fixed": null
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 4.500891608002292e-14,
+    "cpu_seconds": 397.8,
+    "plate_work": 13517950.254152,
+    "captures_plate": 483522,
+    "captures_pair": 2952364,
+    "hold_steps": 4253523,
+    "releases": 3436140,
+    "hold_steps_with_net_gain": 38927,
+    "unconverged_solves": 5211,
+    "hold_energy_net": -9.159843497936683,
+    "hold_energy_net_over_plate_work": -6.776059480706598e-07,
+    "events": 141784749
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 6.286609812802074e-14,
+    "cpu_seconds": 604.1,
+    "plate_work": 14012341.349546,
+    "captures_plate": 412890,
+    "captures_pair": 6131065,
+    "hold_steps": 7935304,
+    "releases": 6544273,
+    "hold_steps_with_net_gain": 44856,
+    "unconverged_solves": 37463,
+    "hold_energy_net": -11.746331580290557,
+    "hold_energy_net_over_plate_work": -8.382847153999098e-07,
+    "events": 167211983
+   }
   },
   {
    "run": "g3.5-f0.5-d5-s1",
@@ -126,15 +162,87 @@
     "first_slow_cycle": null,
     "slow_episodes": 0
    },
-   "sphere": null,
-   "fixed": null
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 4.970578550411012e-14,
+    "cpu_seconds": 2.0,
+    "plate_work": 629187.885367,
+    "captures_plate": 163,
+    "captures_pair": 0,
+    "hold_steps": 2375,
+    "releases": 163,
+    "hold_steps_with_net_gain": 0,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.004191508758866112,
+    "hold_energy_net_over_plate_work": -6.661776007370581e-09,
+    "events": 1849098
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 4.970578550411012e-14,
+    "cpu_seconds": 2.0,
+    "plate_work": 629187.885367,
+    "captures_plate": 163,
+    "captures_pair": 0,
+    "hold_steps": 2375,
+    "releases": 163,
+    "hold_steps_with_net_gain": 0,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.004191508758866112,
+    "hold_energy_net_over_plate_work": -6.661776007370581e-09,
+    "events": 1849098
+   }
   },
   {
    "run": "g3.5-f0.5-d10-s1",
    "cycles_planned": 120,
    "unmodified": null,
-   "sphere": null,
-   "fixed": null
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 3.1851343441716684e-14,
+    "cpu_seconds": 21.9,
+    "plate_work": 2641879.120114,
+    "captures_plate": 22924,
+    "captures_pair": 3829,
+    "hold_steps": 103189,
+    "releases": 26754,
+    "hold_steps_with_net_gain": 391,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.5002298263486047,
+    "hold_energy_net_over_plate_work": -1.8934622047621136e-07,
+    "events": 21757226
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 3.978361516945799e-14,
+    "cpu_seconds": 25.1,
+    "plate_work": 2641381.557298,
+    "captures_plate": 22150,
+    "captures_pair": 2465,
+    "hold_steps": 102538,
+    "releases": 24615,
+    "hold_steps_with_net_gain": 322,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.4766108716207612,
+    "hold_energy_net_over_plate_work": -1.80439993723705e-07,
+    "events": 21663321
+   }
   },
   {
    "run": "g3.5-f0.5-d15-s1",
@@ -146,8 +254,44 @@
     "first_slow_cycle": 0,
     "slow_episodes": 135
    },
-   "sphere": null,
-   "fixed": null
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 4.544644468313525e-14,
+    "cpu_seconds": 140.1,
+    "plate_work": 6025923.054773,
+    "captures_plate": 202344,
+    "captures_pair": 478094,
+    "hold_steps": 981499,
+    "releases": 680469,
+    "hold_steps_with_net_gain": 6936,
+    "unconverged_solves": 2009,
+    "hold_energy_net": -4.757035885865034,
+    "hold_energy_net_over_plate_work": -7.894285809204104e-07,
+    "events": 94132866
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 7.302448555919139e-14,
+    "cpu_seconds": 99.9,
+    "plate_work": 5998270.512494,
+    "captures_plate": 195592,
+    "captures_pair": 142812,
+    "hold_steps": 647980,
+    "releases": 338439,
+    "hold_steps_with_net_gain": 3891,
+    "unconverged_solves": 23,
+    "hold_energy_net": -4.502918980031528,
+    "hold_energy_net_over_plate_work": -7.507028852153711e-07,
+    "events": 93009873
+   }
   },
   {
    "run": "g5-f0.3-d5-s1",
@@ -159,8 +303,44 @@
     "first_slow_cycle": 20,
     "slow_episodes": 155
    },
-   "sphere": null,
-   "fixed": null
+   "sphere": {
+    "outcome": "frozen_time",
+    "cycles": 83,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 3.8361814537797164e-13,
+    "cpu_seconds": 215.5,
+    "plate_work": 781632.262192,
+    "captures_plate": 192901,
+    "captures_pair": 4606360,
+    "hold_steps": 5783491,
+    "releases": 4799161,
+    "hold_steps_with_net_gain": 420934,
+    "unconverged_solves": 4875,
+    "hold_energy_net": -7.0516381773677095,
+    "hold_energy_net_over_plate_work": -9.021682597379208e-06,
+    "events": 15049059
+   },
+   "fixed": {
+    "outcome": "frozen_time",
+    "cycles": 17,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 3.464945057706406e-14,
+    "cpu_seconds": 10.4,
+    "plate_work": 214619.707908,
+    "captures_plate": 11813,
+    "captures_pair": 214961,
+    "hold_steps": 298746,
+    "releases": 226754,
+    "hold_steps_with_net_gain": 9117,
+    "unconverged_solves": 504,
+    "hold_energy_net": -0.357735602095473,
+    "hold_energy_net_over_plate_work": -1.6668348195163037e-06,
+    "events": 1520431
+   }
   },
   {
    "run": "g5-f0.3-d10-s1",
@@ -172,7 +352,16 @@
     "first_slow_cycle": 2,
     "slow_episodes": 20
    },
-   "sphere": null,
+   "sphere": {
+    "outcome": "running",
+    "cycles": 20,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 1.1603108489574034e-13,
+    "cpu_seconds": 190.1,
+    "plate_work": 745930.971089
+   },
    "fixed": null
   },
   {
@@ -305,6 +494,36 @@
    "sha256": "459a58ba5731dbbe1f76fb70d323c6eb0a2c35419d1b8b8edbd4f18d966f1bcb"
   },
   {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.3-d15-s1/summary.json",
+   "bytes": 783,
+   "sha256": "8503b2963bf97ab9e3364fce5edfa59bb481cc290574fc88bccef5e50d6ca30a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.5-d5-s1/summary.json",
+   "bytes": 787,
+   "sha256": "33ffb1350f78645b8b4049d2e967469f5f1dcc937f7c75470b2730d175332904"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.5-d10-s1/summary.json",
+   "bytes": 792,
+   "sha256": "e13ab5a0a294fa52ff80c07f8d89a5a6ca3a9c1e69e7f4870c0b199d579da28e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.5-d15-s1/summary.json",
+   "bytes": 790,
+   "sha256": "9fdef1ce051fabe79041da1a331a1d3743e3995b07f2325a44ad9d92d5db7d39"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g5-f0.3-d5-s1/summary.json",
+   "bytes": 852,
+   "sha256": "cfbb1f2d13f0e48679f2dac4e661e0aa4ecda43de0406efa631a3fbbcc9f5883"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g5-f0.3-d10-s1/summary.json",
+   "bytes": 781,
+   "sha256": "3ecf278d2dc57466285eefa92d14136a569e95a23469819e7eb70d6d7dea3978"
+  },
+  {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.3-d5-s1/summary.json",
    "bytes": 790,
    "sha256": "b067a72736d4f0b0781ca59f753f5b716f63cfb297543a17cdc8d644c2aa46a9"
@@ -313,6 +532,31 @@
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.3-d10-s1/summary.json",
    "bytes": 812,
    "sha256": "fc3b86786a88d54c695831637c24cb4cb79e323529091bb63d314d5486110744"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.3-d15-s1/summary.json",
+   "bytes": 806,
+   "sha256": "740c76b5a868d72b7dad95498d4d31a41f9e3808f99ba34aacfbcbd8d35fb8ce"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.5-d5-s1/summary.json",
+   "bytes": 790,
+   "sha256": "72fcf7d57d72da2ca2b46cf465a880a893eda02e3cd49cb21cfdcd3b58f2ec35"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.5-d10-s1/summary.json",
+   "bytes": 805,
+   "sha256": "6b7710708b4861f2b9a9fd6c4ad1bae4c3c14538972abbc7bce1a62e0c45a34f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.5-d15-s1/summary.json",
+   "bytes": 803,
+   "sha256": "0d18c33b54115482eac86350bc4a4e848df57d9162bda41a4eb87b747dc37a3b"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g5-f0.3-d5-s1/summary.json",
+   "bytes": 861,
+   "sha256": "64cee3ff786b08562306beaa49b406d0b1deec799ff0861de6f0d2b96e309361"
   }
  ],
  "tools": [
