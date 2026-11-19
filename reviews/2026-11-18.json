@@ -1,0 +1,112 @@
+{
+ "date": "2026-11-18",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "No item was answered with a different question, and none of the night went to work nobody asked for. Items 1 and 3 are answered; items 2, 4 and 5 are partly answered, as the session says (the loops take days; the held-contact bulk check, 3D and Figure 1 are not done). The machine behaved: on mains power, no sleep or wake in the window, ten simulations running at 06:00 and none left paused.\n\nThe two things Chris should read first are both about item 5, the held contacts.\n\n1. 'The energy audit is clean in every cycle' does not test the holds. In the branch (granular/edmd.py, the hold step), the energy change of each hold step beyond the plate's work is added to the plate dissipation term. The audit balances energy against that same term, so a hold step can never show up as a residual, whatever it does. This is the case referee/checker.md warns about ('only if the method doesn't hide it in plate work'). The only real evidence on injection is the separate hold counters: the net hold energy is negative in all 17 runs (a loss of between seven parts in a billion and one part in ten thousand of the plate's work), but between 0.4% and 9.5% of all hold steps gain energy: 4.0 million gaining steps in the Gamma 5, f* 0.3, depth 5 run, 5.1 million at f* 0.5, depth 10. These gains are netted against losses in the same run; there is no per-cycle hold-energy record, so 'never add' is shown only for whole runs, not per cycle as the referee's audit requires. I tried to compute it per cycle and my script failed (my error; see the E0081 review), so this is open.\n\n2. 'Tangential motion free' removes friction from every held contact. The branch applies no friction impulse in a held contact. In the paper's collision model a ball chattering on the plate gets a friction impulse of mu times each normal impulse, and over a lasting contact those normal impulses add up to the force holding the ball up, so the friction adds up too: a ball sliding on the plate is slowed and set rolling. Under the hold it slides with no friction at all for as long as it is held. Decision D0049's reason ('the paper's sliding friction impulse goes to zero with the normal speed') is true per collision but not over the contact. Chris's words were 'tangential motion stays free', so this follows the instruction as written, but it is a change to the paper's friction for exactly the contacts that last, and DIRECTION.md lists changing friction as needing Chris. He should say whether 'free' meant frictionless or just not frozen. It also bears on the bulk check proposed next: a difference there could come from this.\n\nSmaller points on item 5.\n- 'Nothing stalled with motion on the sphere' and the line's state 'deep Gamma 5 layers do not stall' are stronger than the evidence. Four deep Gamma 5 runs stopped at their one CPU-hour cap after 12 to 88 cycles; none had a slow stretch by the referee's detector, but at f* 0.5 the work per cycle rose: at depth 10 events per sphere per cycle averaged about 1,240 in the first half of the run and 3,490 in the second; at depth 15 (12 cycles) 2,920 then 7,160. Whether that levels off is unknown; 'not seen to stall in the cycles run' is what the evidence supports.\n- The registration listed unconverged solves among what would be judged. The summary does not mention them. Motion on the sphere had up to 2.4 million unconverged cluster solves in one run (Gamma 5, f* 0.3, depth 15, about 5% of its hold steps); the fixed-angle variant up to 8.6 million. An unconverged solve leaves some held contacts not exactly held. No run overlapped, but it is not reported.\n- Several constants the result may depend on are set by hand: capture speed 1e-2, hold step 5e-4 (changed from 1e-4 after the first runs, D0050, for speed), release gap 1e-4 for the fixed angle, the 1e-10 speed below which two free balls are held (D0051), and the 200-sweep, 1e-8 solver limits. All are disclosed. None has been varied, so we don't yet know which ones the results depend on. That matters for the 'minimally invasive' judgement.\n- Captures about equal hold steps (244 million against 257 million over all runs): most holds last one step. In Chris's terms the chattering is now a capture-and-let-go every step instead of a collision every few femto-periods; it is bounded, but it is still chattering at the step rate. The session says this plainly.\n\nWhat I confirmed. Every number I checked in the summary is in an evidence file: the 13 of 17 and 14 of 17 completions, cycles at the cap (72, 88, 48, 12 and 20, 36, 10), the four slow stretches in the one fixed-angle run, the net hold energy range, the cluster share (54%, largest 63), and the unmodified engine's outcomes. All 34 recorded run files match their checksums. The slow-loop table matches the summary: at 25 cycles a step the gap is above 0.05 of a diameter from Gamma 2.0 to 2.4, largest 0.24 at 2.2; at 100 cycles only 2.2 to 2.3, largest 0.20 at 2.25; edge steps drift by 0.07 to 0.11. The 400-cycle loop's step file no longer matches its checksum because it is still running (three steps written by 06:00), which is expected for interim evidence. The cost holds' ratios (4.7 to 5.6 wide, 12.1 to 18 deep) are in the evidence; note they compare a 20-cycle run from a fresh start with a settled mid-ramp step, and the deep run's first five cycles cost about 30% more events per sphere than its last ten, so 'deeper costs 12 to 18 times' is somewhat inflated by the start.\n\nHousekeeping: program check passes; the latest approval is Chris's from November 17, nothing in the last day. tmp is empty. Program data 8.8 of 15 gigabytes; free disk 27 gigabytes, under the 40 gigabyte floor in budgets.yaml but above the 25 gigabyte hard floor the instruction allowed. Memory 57% free. The three baseline loops paused for the held-contact runs are running again (no stopped processes). Nothing written outside the two program folders by the session. I ran three short checks of my own for about eight minutes at 06:05 to 06:13, which put thirteen simulations on the machine against the ten-core limit for that time; my mistake, reported here.",
+ "answers": [
+  {
+   "asked": "\"I want you to now consider run limits advisory not stopping. If it takes a long time I want to be aware before we go off on a wild cpu chase but it's not a never situation, it's hm, is that worth it. But it might be!\"",
+   "verdict": "answered",
+   "finding": "Word for word. The total per-loop cap is dropped, the big costs are stated in the summary before they run, and the one open-ended cost (nudge loops past the Gamma 4.4 cost wall, 350 to 1000 CPU-hours) is put to Chris as a question and queued behind the baselines, which is exactly 'be aware before a wild chase'. A 2 CPU-hour per-step guard going up and the half-hour floor rule going down are kept (D0046), disclosed as a departure; reasonable, since the floor rule is Chris's own."
+  },
+  {
+   "asked": "Slow loop at f* 0.44: \"we should do an even slower investigation so we can see where it stops changing.\" Next: \"400 cycles at f* 0.44\".",
+   "verdict": "partly",
+   "finding": "Word for word. The 400-cycle loop is running (three of 29 steps written at 06:00). Gap and drift are reported at 25 and 100 cycles a step and match the evidence table; the 400-cycle answer needs about two more days. The next slower rate is priced (about 220 CPU-hours). Partly, as the session says, only because the loop takes days."
+  },
+  {
+   "asked": "\"I think we should queue up the wider runs for these phase diagrams as well. They can come after the currently scheduled runs.\"",
+   "verdict": "answered",
+   "finding": "Word for word. The queue file holds thirty width-200 loops (three models, ten frequencies) after the baselines and the nudge continuation, and each model is priced. Two caveats the session states: the nudge and baseline prices above Gamma 4.45 are unknown, and the disk budget lets only a few of the thirty run, so most are queued but effectively blocked until Chris answers the disk question."
+  },
+  {
+   "asked": "Bigger-box measurements before or after the baseline loops: \"default\" (after the nudge loops, before the baseline loops).",
+   "verdict": "partly",
+   "finding": "Word for word. Run in that order: cost holds done, onset loop at width 200 running, baselines started after. Reading 'after the nudge loops' as after they launched rather than finished is disclosed and sensible (they had hit their wall). Partly only because the onset loop takes days. The cost-hold ratio for the deeper box is somewhat inflated by its fresh start (see summary)."
+  },
+  {
+   "asked": "\"what we are trying to avoid is it chattering against the plate.\" \"it's only components that stay frozen.\" \"how should the motion of that third ball be modeled? ... what's the right horizontal velocity? And if the top ball moves away from the bottom ball, then at what point can/should we allow its vertical velocity to change?\" \"start building and experimenting on that question. And my guess is that either way we will still end up with multiball contacts as the final fixed state so that isn't going away. Lift the pause on option 4\"",
+   "verdict": "partly",
+   "finding": "Word for word. Built and tested what the item asked: both ways of moving the third ball, compared on the 17 runs, the release angle against a closed form (within 0.04 degrees for motion on the sphere), frozen tests passing, and the answer to Chris's question about when the top ball's vertical velocity may change (on the sphere: where the contact force reaches zero; fixed angle: only at a hand-set gap). The method acted: the unmodified engine stalled, overlapped, froze or ran out of CPU in 12 of these runs, the held version completed 13 of 17. Partly because the bulk check, 3D and Figure 1 are not done (stated), and two qualifications the summary does not make: the energy audit cannot see hold steps, which are booked into plate dissipation, while millions of individual hold steps gain energy; and held contacts have no friction at all, which changes the paper's friction for lasting contacts. 'Nothing stalled' should read 'nothing was seen to stall in the cycles run': four deep runs hit their CPU cap, two with work per cycle still rising."
+  }
+ ],
+ "reviews": [
+  {
+   "claim_id": "E0081",
+   "plain_claim": "Held contacts with motion on the sphere remove the stall wherever tried, add no energy (clean audit, holds lose a little energy in every run), and what is left in deep Gamma 5 layers is cost, not stalling. No claim proposed; this is the experiment's outcome (inconclusive) and the line's state.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Read the hold step in the branch's granular/edmd.py and the counters of all 17 runs; tried to compute the hold energy cycle by cycle with a short script of my own.",
+     "finding": "Each hold step's energy change beyond the plate's work is added to the plate dissipation term (and separately to a hold total), so the per-cycle audit balances by construction for hold steps and cannot detect a gain there. Steps that gain energy are counted only in their own counter: 0.4% to 9.5% of hold steps, up to 5.1 million steps in one run. Whole-run net is a loss in every run. Per cycle is not recorded; my per-cycle script never advanced past cycle 0 (my bug: it ran the engine to the end of the cycle without crossing into the next) and produced nothing, so per-cycle hold energy is still unknown."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Read how a held contact treats tangential motion and compared with the paper's collision model.",
+     "finding": "No friction impulse and no spin change in a held contact. Over a lasting contact the paper's model gives a total friction impulse of mu times the total normal impulse (which carries the weight), so a held ball on the plate slides frictionlessly where the paper's ball would be slowed toward rolling. Per Chris's 'tangential motion stays free', but it is a change to friction for lasting contacts; the rationale in D0049 holds per collision, not per contact."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Read the per-cycle event counts of the four deep Gamma 5 runs that hit the CPU cap.",
+     "finding": "No slow stretch in any. At f* 0.3 the work per cycle is flat or mixed (1,770 to 2,670 and 3,030 to 2,720 events per sphere per cycle, first half to second); at f* 0.5 it rises (1,240 to 3,490 at depth 10; 2,920 to 7,160 at depth 15 over only 12 cycles). Alternating cycles differ tenfold (the layer lands every other cycle). 'Do not stall' is not shown for these four; 'not seen to stall' is."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Listed the method's constants and checked which were varied.",
+     "finding": "Capture speed, hold step, solver limits, the 1e-10 pair rule, and (fixed angle) the release gap are all set by hand; the hold step was changed after first results, for speed. None was varied. Only seed 1 at the grid points (seeds 2 and 3 only at the settled-layer conditions). My neighbouring-condition run (Gamma 4.5, f* 0.4, depth 10) failed with the same script bug, so neighbouring driving is unchecked by me."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Compared the counters with the summary.",
+     "finding": "Unconverged cluster solves, listed in the registration's judged_by, are not reported: up to 2.36 million in one run with motion on the sphere (about 5% of its hold steps), up to 8.6 million with the fixed angle. All recorded numbers match the evidence and all 34 run files match their checksums."
+    }
+   ],
+   "what_would_resolve": "One session: (1) record the hold energy per cycle (the hold total and the sum of the gaining steps' gains, not just their count) for the 17 runs, at least the Gamma 5 ones, and report whether any cycle's holds gain energy and how large the summed gains are against the plate's work; or book hold gains outside plate dissipation so the referee's audit sees them. (2) Ask Chris whether 'tangential motion free' means frictionless; if not, apply mu times each step's normal impulse up to the rolling limit, as the paper's law does. (3) Run the four deep Gamma 5 runs to 120 cycles (about 3 to 10 CPU-hours each) and report whether work per cycle levels off. (4) Report unconverged solves and what they leave unheld."
+  },
+  {
+   "claim_id": "E0082",
+   "plain_claim": "The fixed-angle variant survives about as well (14 of 17) but lets go at a set gap, not where the force vanishes, and is recaptured continually; registered expectation (v) failed, so the outcome is falsified.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Checked the counts, the fixed-angle release check and the falsification against the registration.",
+     "finding": "Matches the evidence: 14 completed, three at the CPU cap (20, 36, 10 cycles), the last with four slow stretches; releases per capture 1.0 in both variants, so expectation (v) fails as recorded. The same energy-booking and no-friction points as E0081 apply; up to 8.6 million unconverged solves, more than motion on the sphere."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0069",
+   "plain_claim": "Interim: at f* 0.44 the gap between the way up and the way down shrinks from 25 to 100 cycles a step (largest 0.24 to 0.20 of a diameter, range 2.0 to 2.4 down to 2.2 to 2.3) but has not stopped changing; edge steps still drift by up to 0.11.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Read the gap and drift table step by step and checked the source files' checksums.",
+     "finding": "Every number in the summary is in the table. The 25- and 100-cycle source files match; the 400-cycle file has grown since (running). The session's reading is right: the 100-cycle steps at 2.15 to 2.3 still drift by 0.07 to 0.11, so they have not settled, and the gap at 100 cycles is itself not final. One seed, so not a physical result, as the line says."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0070",
+   "plain_claim": "Twice as wide costs 4.7 to 5.6 times the paper's box per cycle; twice as deep costs 12 to 18 times.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "Read the evidence rows and compared the conditions of the two sides of each ratio.",
+     "finding": "Numbers match. The bigger boxes ran 20 cycles from a fresh start; the paper-box side is a settled mid-ramp step. The deep run's first five cycles had about 30% more events per sphere than its last ten (565 against 434 at Gamma 2), so the deep ratio is somewhat high; the conclusion that wider is much cheaper than deeper stands either way."
+    }
+   ]
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "On mains power with no sleep or wake in the window, started at 23:07, all ten cores busy all night, and everything asked either finished or running; the session ended at 03:26, about an hour and a half early, with the reason stated, though that time could have taken the four deep held-contact runs further than their one CPU-hour cap.",
+  "discrepancies": [
+   "None found in the recorded conditions. pmset shows no sleep or wake from 23:00 to 05:00; ten field recorders were running at 06:00 and none stopped, so the paused baseline loops were resumed as recorded.",
+   "Free disk was 27 gigabytes at 06:00 against 29 recorded at the end; the difference is the running jobs and use outside the program (program data 8.8 gigabytes).",
+   "program check counts 4.4 gigabytes of program disk from the ledger; the folder is 8.8 gigabytes. The summary reports 8.6, which matches the folder."
+  ]
+ }
+}
