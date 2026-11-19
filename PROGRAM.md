@@ -270,6 +270,43 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 18 findings
+
+Instruction of Nov 18 (five items). One seed everywhere; nothing below is a
+physical result. Session summary: `sessions/2026-11-18.json`.
+
+- **CPU limits advisory** (item 1, D0046): the half-hour step cap is the
+  floor rule going down only; going up a step gets a 2 CPU-hour guard
+  (8 at L 200). Big costs are listed in the summary, not cut.
+- **Nudge pass (E0065, falsified on (ii)):** every loop that started hit a
+  wall going up at Gamma 4.35 to 4.45 (cost per cycle up 3 to 10 times
+  between 4.3 and 4.45, at every f\*), clean audit, no slow stretch; f\* 0.27
+  never finished its first step. Floors 2.0 (f\* 0.84) to 2.35 (0.33, 0.30).
+  Continuation above the wall (E0072) is queued after the baselines (D0047):
+  its cost is unknown, at least 0.5 to 1 CPU-hour a step.
+- **No-friction pass (E0060) complete:** 2130 steps clean, 150 CPU-hours. At
+  f\* 0.33 to 0.27 the way down is still patterned at the bottom of the loop
+  (1.10 D at Gamma 1.8, f\* 0.27): the gap extends below 1.7 there.
+- **Slow loops (E0064 done, E0069 running):** at 100 cycles a step the gap is
+  0.20 D at most (2.25) and spans 2.2 to 2.3, against 0.24 D over 2.0 to 2.4
+  at 25; edge steps still drift (up to 0.11 D). 400 cycles a step running,
+  about 43 CPU-hours, 1.8 days; the next rate (1600) about 172, 7 days.
+  Table: `evidence/E0069-results.json` (tools/rates_table.py).
+- **Bigger box (E0070, E0071):** L 200 costs 4.7 to 5.6 times the paper's box
+  per cycle (same events per sphere, 1.2 to 1.4 times the CPU per sphere);
+  twice as deep costs 12 to 18 times (4 to 6 times the events per sphere),
+  not the 3.8 scaled from 2D. Onset loop at L 200 running.
+- **Baselines (E0073, supersedes E0068):** started by hand, running.
+- **Width-200 passes (E0074 to E0076):** queued after the nudge
+  continuations. No friction about 43 to 129 CPU-hours a loop (1.8 to 5.4
+  days on one core), 765 for ten; nudge and baseline unknown above Gamma
+  4.45. About 1 GB each: the 15 GB disk budget holds only a few; the queue
+  holds at 14 GB.
+- **Held contacts (item 5, option four):** see Option 4 and below.
+- **Queue:** `runs/q-1118.spec` via `tools/qx7.sh` (hard disk floor 25 GB,
+  data cap 14 GB, live limit in `runs/q-1118.maxlive`). Tools on
+  `tools/phase-diagram` (80782cd).
+
 ### Nov 17 findings
 
 Instruction of Nov 17 (six items). One seed everywhere; nothing below is a

@@ -1,0 +1,433 @@
+{
+ "experiment": "E0069",
+ "interim": true,
+ "what": "Gap and within-step drift at each ramp rate (Nov 18 instruction, item 2): the no-friction loop at f* 0.44, Gamma 1.9 to 2.6 and back, at 25 cycles per step (E0058, whose steps the fast pass reuses), 100 (E0064) and 400 (E0069). Same amplitude as E0064 (loop_analysis: band amplitude with the white part removed, A; every ring, A_all).  Drift: last quarter of a step minus its first quarter.  Gap: way down minus way up at the same Gamma.  Safe to run while E0069 is running (interim).  Writes evidence/E0069-results.json.",
+ "summary_by_cycles_per_step": {
+  "25": {
+   "steps_done": 30,
+   "steps_in_loop": 29,
+   "largest_gap": 0.2417,
+   "gamma_where_gap_over_0p05": [
+    2.0,
+    2.4
+   ],
+   "largest_abs_drift": 0.1109,
+   "steps_drifting_over_0p05": 6
+  },
+  "100": {
+   "steps_done": 29,
+   "steps_in_loop": 29,
+   "largest_gap": 0.2005,
+   "gamma_where_gap_over_0p05": [
+    2.2,
+    2.3
+   ],
+   "largest_abs_drift": 0.108,
+   "steps_drifting_over_0p05": 4
+  },
+  "400": {
+   "steps_done": 0,
+   "steps_in_loop": 29,
+   "largest_gap": null,
+   "gamma_where_gap_over_0p05": null,
+   "largest_abs_drift": null,
+   "steps_drifting_over_0p05": 0
+  }
+ },
+ "table": [
+  {
+   "gamma": 1.9,
+   "25": {
+    "up_A": 0.0312,
+    "down_A": 0.0244,
+    "gap": -0.0068,
+    "up_drift": 0.007,
+    "down_drift": -0.0124
+   },
+   "100": {
+    "up_A": 0.0341,
+    "down_A": 0.0353,
+    "gap": 0.0012,
+    "up_drift": -0.0445,
+    "down_drift": -0.0076
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 1.95,
+   "25": {
+    "up_A": 0.0328,
+    "down_A": 0.0276,
+    "gap": -0.0052,
+    "up_drift": 0.0,
+    "down_drift": 0.0424
+   },
+   "100": {
+    "up_A": 0.0058,
+    "down_A": 0.0315,
+    "gap": 0.0257,
+    "up_drift": -0.0329,
+    "down_drift": 0.0017
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.0,
+   "25": {
+    "up_A": 0.0,
+    "down_A": 0.0514,
+    "gap": 0.0514,
+    "up_drift": 0.0105,
+    "down_drift": -0.0353
+   },
+   "100": {
+    "up_A": 0.0136,
+    "down_A": 0.0343,
+    "gap": 0.0207,
+    "up_drift": -0.0119,
+    "down_drift": -0.0169
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.05,
+   "25": {
+    "up_A": 0.0,
+    "down_A": 0.0694,
+    "gap": 0.0694,
+    "up_drift": 0.0169,
+    "down_drift": -0.0071
+   },
+   "100": {
+    "up_A": 0.0,
+    "down_A": 0.0369,
+    "gap": 0.0369,
+    "up_drift": 0.0,
+    "down_drift": -0.0029
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.1,
+   "25": {
+    "up_A": 0.0,
+    "down_A": 0.1369,
+    "gap": 0.1369,
+    "up_drift": 0.0059,
+    "down_drift": -0.0939
+   },
+   "100": {
+    "up_A": 0.0302,
+    "down_A": 0.048,
+    "gap": 0.0178,
+    "up_drift": 0.0329,
+    "down_drift": -0.0443
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.15,
+   "25": {
+    "up_A": 0.0738,
+    "down_A": 0.2705,
+    "gap": 0.1967,
+    "up_drift": 0.069,
+    "down_drift": -0.076
+   },
+   "100": {
+    "up_A": 0.0921,
+    "down_A": 0.1302,
+    "gap": 0.0381,
+    "up_drift": 0.0055,
+    "down_drift": -0.0924
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.2,
+   "25": {
+    "up_A": 0.0988,
+    "down_A": 0.3405,
+    "gap": 0.2417,
+    "up_drift": 0.0189,
+    "down_drift": -0.0071
+   },
+   "100": {
+    "up_A": 0.1304,
+    "down_A": 0.3061,
+    "gap": 0.1757,
+    "up_drift": 0.0134,
+    "down_drift": -0.0948
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.25,
+   "25": {
+    "up_A": 0.1576,
+    "down_A": 0.382,
+    "gap": 0.2244,
+    "up_drift": 0.0585,
+    "down_drift": -0.0159
+   },
+   "100": {
+    "up_A": 0.1994,
+    "down_A": 0.3999,
+    "gap": 0.2005,
+    "up_drift": 0.0698,
+    "down_drift": 0.0017
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.3,
+   "25": {
+    "up_A": 0.2312,
+    "down_A": 0.3956,
+    "gap": 0.1644,
+    "up_drift": 0.0717,
+    "down_drift": 0.0174
+   },
+   "100": {
+    "up_A": 0.3528,
+    "down_A": 0.4298,
+    "gap": 0.077,
+    "up_drift": 0.108,
+    "down_drift": -0.0202
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.35,
+   "25": {
+    "up_A": 0.3391,
+    "down_A": 0.4432,
+    "gap": 0.1041,
+    "up_drift": 0.1109,
+    "down_drift": -0.0286
+   },
+   "100": {
+    "up_A": 0.4531,
+    "down_A": 0.4577,
+    "gap": 0.0046,
+    "up_drift": 0.0077,
+    "down_drift": 0.0369
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.4,
+   "25": {
+    "up_A": 0.428,
+    "down_A": 0.4804,
+    "gap": 0.0524,
+    "up_drift": 0.0287,
+    "down_drift": 0.0428
+   },
+   "100": {
+    "up_A": 0.4701,
+    "down_A": 0.4656,
+    "gap": -0.0045,
+    "up_drift": 0.0204,
+    "down_drift": -0.0305
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.45,
+   "25": {
+    "up_A": 0.4765,
+    "down_A": 0.5019,
+    "gap": 0.0254,
+    "up_drift": 0.036,
+    "down_drift": 0.0131
+   },
+   "100": {
+    "up_A": 0.5049,
+    "down_A": 0.4792,
+    "gap": -0.0257,
+    "up_drift": 0.0255,
+    "down_drift": 0.0224
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.5,
+   "25": {
+    "up_A": 0.508,
+    "down_A": 0.5211,
+    "gap": 0.0131,
+    "up_drift": 0.0072,
+    "down_drift": 0.0037
+   },
+   "100": {
+    "up_A": 0.5373,
+    "down_A": 0.533,
+    "gap": -0.0043,
+    "up_drift": -0.0072,
+    "down_drift": -0.0003
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.55,
+   "25": {
+    "up_A": 0.5091,
+    "down_A": 0.5297,
+    "gap": 0.0206,
+    "up_drift": 0.0203,
+    "down_drift": 0.036
+   },
+   "100": {
+    "up_A": 0.5274,
+    "down_A": 0.5402,
+    "gap": 0.0128,
+    "up_drift": -0.0089,
+    "down_drift": -0.0118
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  },
+  {
+   "gamma": 2.6,
+   "25": {
+    "up_A": 0.5263,
+    "down_A": 0.5403,
+    "gap": 0.014,
+    "up_drift": 0.0139,
+    "down_drift": 0.0207
+   },
+   "100": {
+    "up_A": 0.5754,
+    "down_A": null,
+    "gap": null,
+    "up_drift": 0.0249,
+    "down_drift": null
+   },
+   "400": {
+    "up_A": null,
+    "down_A": null,
+    "gap": null,
+    "up_drift": null,
+    "down_drift": null
+   }
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0058/mu0-3d-f0.44/ramp.jsonl",
+   "bytes": 7561,
+   "sha256": "dc6239da19afe672b8ab09052888c869e722029c5502f63fe496603bf8d4fe4c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0064/mu0-3d-f0.44-slow/ramp.jsonl",
+   "bytes": 5374,
+   "sha256": "b2f317d16791bebf5159a22aebeaed6d9815b4286e7911b141ecd604358c9cf1"
+  }
+ ],
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/rates_table.py",
+   "bytes": 3898,
+   "sha256": "f7827c8641b34e035165fd53e180b18a94e03f0238f31b8d53b1dbed8fd64072"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/loop_analysis.py",
+   "bytes": 10846,
+   "sha256": "e4f5554d7e0f70d82d26e36b74abe9f822e324e60dc9056fe6243883c4cc67a0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/ramp.py",
+   "bytes": 9520,
+   "sha256": "462e0f64b2e9b91317a151a5d78cda42df8a8093fb4d2d5448dd4f9045f48c49"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
+   "bytes": 7864,
+   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+  }
+ ]
+}

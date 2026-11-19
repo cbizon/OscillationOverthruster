@@ -7,10 +7,12 @@
  "pair_stalls": 7,
  "predictions": {
   "i": {
-   "what": "lower sphere has two partners due within 1e-6 at every stall (free-flight due times; touching counted separately)",
+   "what": "lower sphere has two partners due within 1e-6 at every stall, counting touching partners as due now (the registration's count)",
    "stalls_with_delta_two_under_1e_6": 5,
    "stalls_with_two_touching_partners": 7,
-   "holds": false
+   "holds": true,
+   "holds_by_free_flight_due_times_only": false,
+   "label_note": "Nov 18: corrected. The registration counts touching partners, which gives 7 of 7, so (i) holds, as the ledger outcome says. The earlier 'holds: false' was the narrower count by free-flight due times alone (5 of 7), kept above under its own name. No number changed."
   },
   "ii": {
    "what": "at fewer than four stalls, contacts within 1e-3 D balance the push on the lower sphere",

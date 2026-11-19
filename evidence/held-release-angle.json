@@ -1,0 +1,62 @@
+{
+ "what": "Release of a sphere sliding on a held sphere (Nov 18 item 5: how should the third ball move, and when may its velocity change?). Two spheres in 2D: the lower one on a nearly still plate (Gamma 1e-9), free to slide (frictionless hold), the upper one set down at rest at 10, 20 or 40 degrees from vertical. Closed form (frictionless, from horizontal momentum and energy): the pair's contact force vanishes at the angle given. Engine: method/held-contact 9860a26, mode sphere and mode fixed (b8d3e2a), v_hold 1e-2, dt_hold 5e-4, gap_release 1e-4; release sampled every 2e-4 time units.",
+ "rows": [
+  {
+   "mode": "sphere",
+   "start_deg": 10,
+   "released_deg": 44.099,
+   "closed_form_deg": 44.065,
+   "time": 1.638,
+   "gap_at_release": 1.1e-09
+  },
+  {
+   "mode": "sphere",
+   "start_deg": 20,
+   "released_deg": 47.251,
+   "closed_form_deg": 47.256,
+   "time": 1.2,
+   "gap_at_release": 7.8e-09
+  },
+  {
+   "mode": "sphere",
+   "start_deg": 40,
+   "released_deg": 57.533,
+   "closed_form_deg": 57.554,
+   "time": 0.824,
+   "gap_at_release": 7.4e-10
+  },
+  {
+   "mode": "fixed",
+   "start_deg": 10,
+   "released_deg": 10.812,
+   "closed_form_deg": 44.065,
+   "time": 0.289,
+   "gap_at_release": 0.0001
+  },
+  {
+   "mode": "fixed",
+   "start_deg": 20,
+   "released_deg": 20.814,
+   "closed_form_deg": 47.256,
+   "time": 0.214,
+   "gap_at_release": 0.0001
+  },
+  {
+   "mode": "fixed",
+   "start_deg": 40,
+   "released_deg": 40.813,
+   "closed_form_deg": 57.554,
+   "time": 0.176,
+   "gap_at_release": 0.0001
+  }
+ ],
+ "reading": [
+  "Motion on the sphere lets go within 0.04 degrees of the closed form at all three starting angles: holding the normal velocity at zero with tangential motion free gives the right horizontal and vertical velocities, and the right moment to let go (the force reaching zero).",
+  "The fixed-angle variant lets go 0.81 degrees after capture at every angle: the upper sphere moves on the tangent plane, the gap opens, and the gap rule (1e-4 D, a set constant) decides; it then falls back onto the lower sphere and is captured again at a new angle. Its release point is set by that constant, not by the force."
+ ],
+ "tool": {
+  "path": "runs/tools/held_release_angle.py",
+  "sha256": "287dc196b6434987903ff965a9581276ec4f171abb017ebba2bb114604757180"
+ },
+ "test": "tests/test_held_contact.py::test_motion_on_the_sphere_lets_go_where_the_force_vanishes on method/held-contact (fd15347)"
+}

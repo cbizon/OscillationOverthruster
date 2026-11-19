@@ -1,0 +1,178 @@
+{
+ "experiment": "E0070",
+ "what": "Bigger-box cost holds (Nov 18 item 4): no friction, f* 0.57, Gamma 2, 3, 5, 20 cycles from the default start, at L 200 (depth 5.42, N 240000) and at depth 10.84 (L 100, N 120000), against the fast pass's step at the same Gamma in the paper's box (E0060, 25 cycles, mid-ramp).",
+ "rows": [
+  {
+   "gamma": 2.0,
+   "paper_box": {
+    "N": 60000,
+    "L": 100,
+    "depth": 5.42,
+    "cycles": 25,
+    "cpu_s_per_cycle": 12.62,
+    "events_per_sphere_per_cycle": 93.7,
+    "source": "runs/E0060/mu0-3d-f0.57/step-006-g2.0"
+   },
+   "wide": {
+    "N": 240000,
+    "L": 200,
+    "depth": 5.42,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 1279.6,
+    "cpu_s_per_cycle": 63.98,
+    "ratio_to_paper_box": 5.07,
+    "per_sphere_ratio": 1.27,
+    "events_per_sphere_first5": 95.4,
+    "events_per_sphere_last10": 89.9,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   },
+   "deep": {
+    "N": 120000,
+    "L": 100,
+    "depth": 10.84,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 3243.3,
+    "cpu_s_per_cycle": 162.17,
+    "ratio_to_paper_box": 12.85,
+    "per_sphere_ratio": 6.42,
+    "events_per_sphere_first5": 564.8,
+    "events_per_sphere_last10": 433.9,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   }
+  },
+  {
+   "gamma": 3.0,
+   "paper_box": {
+    "N": 60000,
+    "L": 100,
+    "depth": 5.42,
+    "cycles": 25,
+    "cpu_s_per_cycle": 6.85,
+    "events_per_sphere_per_cycle": 56.0,
+    "source": "runs/E0060/mu0-3d-f0.57/step-026-g3.0"
+   },
+   "wide": {
+    "N": 240000,
+    "L": 200,
+    "depth": 5.42,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 759.6,
+    "cpu_s_per_cycle": 37.98,
+    "ratio_to_paper_box": 5.54,
+    "per_sphere_ratio": 1.39,
+    "events_per_sphere_first5": 59.2,
+    "events_per_sphere_last10": 55.7,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   },
+   "deep": {
+    "N": 120000,
+    "L": 100,
+    "depth": 10.84,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 1656.0,
+    "cpu_s_per_cycle": 82.8,
+    "ratio_to_paper_box": 12.09,
+    "per_sphere_ratio": 6.04,
+    "events_per_sphere_first5": 280.2,
+    "events_per_sphere_last10": 238.8,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   }
+  },
+  {
+   "gamma": 5.0,
+   "paper_box": {
+    "N": 60000,
+    "L": 100,
+    "depth": 5.42,
+    "cycles": 25,
+    "cpu_s_per_cycle": 7.53,
+    "events_per_sphere_per_cycle": 63.5,
+    "source": "runs/E0060/mu0-3d-f0.57/step-066-g5.0"
+   },
+   "wide": {
+    "N": 240000,
+    "L": 200,
+    "depth": 5.42,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 701.2,
+    "cpu_s_per_cycle": 35.06,
+    "ratio_to_paper_box": 4.66,
+    "per_sphere_ratio": 1.16,
+    "events_per_sphere_first5": 52.8,
+    "events_per_sphere_last10": 56.1,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   },
+   "deep": {
+    "N": 120000,
+    "L": 100,
+    "depth": 10.84,
+    "cycles": 20,
+    "outcome": "completed",
+    "cpu_seconds": 2713.7,
+    "cpu_s_per_cycle": 135.69,
+    "ratio_to_paper_box": 18.02,
+    "per_sphere_ratio": 9.01,
+    "events_per_sphere_first5": 427.1,
+    "events_per_sphere_last10": 361.7,
+    "slow_episodes": 0,
+    "audit_failures": 0
+   }
+  }
+ ],
+ "memory_mb": {
+  "L200 field recorder, resident (ps, during E0071 at L 200)": 189,
+  "paper box, resident (ps, E0073)": 170
+ },
+ "reading": [
+  "Wider: events per sphere per cycle equal the paper's box within 10% (cycles 11-20), but CPU per sphere is 1.17 to 1.39 times higher (a larger state, less cache), so L 200 costs about 4.7 to 5.6 times the paper's box per cycle, not 4.",
+  "Deeper: twice the spheres and 4 to 6 times the events per sphere (cycles 11-20), so a cycle costs 12 to 18 times the paper's box, not the 3.8 times scaled from 2D in the wider-vs-deeper note.",
+  "The holds start from the default start, so their first cycles include the first landing; cycles 11-20 are used for the event counts. At depth 10.84 the last ten cycles are still 15 to 23% below the first five, so 20 cycles may overstate the settled cost a little."
+ ],
+ "run_dir_bytes": 129008214,
+ "files": [
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/wide-L200-g2.0/ramp.jsonl",
+   "bytes": 189,
+   "sha256": "50d72c679f13df9f4fb167248292ff3991a5deba0a0542b6a94e63209a96f8bb"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/deep-L100-g2.0/ramp.jsonl",
+   "bytes": 181,
+   "sha256": "ce1fb4dcad78899d9df5b88a8b7e702465bd2c028f0a2a86bc1f61dd1e464563"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/wide-L200-g3.0/ramp.jsonl",
+   "bytes": 181,
+   "sha256": "cb8118693a1a1c2411910a003fcf60003248351d25cd30cbd9a989f88cc03cae"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/deep-L100-g3.0/ramp.jsonl",
+   "bytes": 189,
+   "sha256": "bde353cf20272274aec02d517afab08c842ed3a88d42435a60e92e028c77996e"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/wide-L200-g5.0/ramp.jsonl",
+   "bytes": 180,
+   "sha256": "c11998b4972393349367d8e5f1ecd2327e397ff3f144099b8cd4b72734f2b6ac"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0070/deep-L100-g5.0/ramp.jsonl",
+   "bytes": 182,
+   "sha256": "f19151714d11104fb6f9db036156245578e8c8af2f2302c69fae5e8a4ef23512"
+  }
+ ],
+ "tools": [
+  "runs/tools/ramp.py",
+  "runs/tools/field_recorder.py"
+ ]
+}

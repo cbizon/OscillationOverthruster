@@ -1,0 +1,330 @@
+{
+ "experiment": [
+  "E0079",
+  "E0080"
+ ],
+ "interim": true,
+ "what": "Evidence for E0079 and E0080 (held contacts v2, Nov 18 item 5): survival, energy audit and hold counters on the 2D grid and the stall runs, against the unmodified engine's run of the same condition and seed where one exists. Safe to run while the runs are going (interim).  Writes evidence/E0079-E0080-results.json.",
+ "runs": 17,
+ "finished": {
+  "sphere": 2,
+  "fixed": 2
+ },
+ "rows": [
+  {
+   "run": "g3.5-f0.3-d5-s1",
+   "cycles_planned": 120,
+   "unmodified": null,
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 2.567187966973091e-14,
+    "cpu_seconds": 3.1,
+    "plate_work": 1770084.78697,
+    "captures_plate": 519,
+    "captures_pair": 1,
+    "hold_steps": 6805,
+    "releases": 520,
+    "hold_steps_with_net_gain": 0,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.012692547611880762,
+    "hold_energy_net_over_plate_work": -7.170587366951863e-09,
+    "events": 3492762
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 120,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 3.897364028843296e-14,
+    "cpu_seconds": 3.0,
+    "plate_work": 1766412.827571,
+    "captures_plate": 487,
+    "captures_pair": 1,
+    "hold_steps": 7925,
+    "releases": 488,
+    "hold_steps_with_net_gain": 0,
+    "unconverged_solves": 0,
+    "hold_energy_net": -0.012012252789145552,
+    "hold_energy_net_over_plate_work": -6.80036546477283e-09,
+    "events": 3464130
+   }
+  },
+  {
+   "run": "g3.5-f0.3-d10-s1",
+   "cycles_planned": 305,
+   "unmodified": {
+    "source": "runs/E0031/main-g3.5-f0.3-d10-s1",
+    "outcome": "completed",
+    "cycles": 1000,
+    "first_slow_cycle": 285,
+    "slow_episodes": 96
+   },
+   "sphere": {
+    "outcome": "completed",
+    "cycles": 305,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 8.21863377527831e-14,
+    "cpu_seconds": 127.8,
+    "plate_work": 17030017.547702,
+    "captures_plate": 141429,
+    "captures_pair": 321266,
+    "hold_steps": 1165312,
+    "releases": 462750,
+    "hold_steps_with_net_gain": 5626,
+    "unconverged_solves": 236,
+    "hold_energy_net": -3.179800852535702,
+    "hold_energy_net_over_plate_work": -1.8671741491921004e-07,
+    "events": 111277825
+   },
+   "fixed": {
+    "outcome": "completed",
+    "cycles": 305,
+    "slow_episodes": 0,
+    "audit_failing_cycles": 0,
+    "collision_energy_gains": 0,
+    "worst_energy_residual": 9.40144332502844e-14,
+    "cpu_seconds": 118.1,
+    "plate_work": 17023188.425816,
+    "captures_plate": 134717,
+    "captures_pair": 234438,
+    "hold_steps": 1063521,
+    "releases": 369202,
+    "hold_steps_with_net_gain": 5082,
+    "unconverged_solves": 122,
+    "hold_energy_net": -3.1304825893840547,
+    "hold_energy_net_over_plate_work": -1.838951970147153e-07,
+    "events": 110804848
+   }
+  },
+  {
+   "run": "g3.5-f0.3-d15-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g3.5-f0.3-d15-s1",
+    "outcome": "frozen_time",
+    "cycles": 0,
+    "first_slow_cycle": 0,
+    "slow_episodes": 1
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g3.5-f0.5-d5-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g3.5-f0.5-d5-s1",
+    "outcome": "completed",
+    "cycles": 1000,
+    "first_slow_cycle": null,
+    "slow_episodes": 0
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g3.5-f0.5-d10-s1",
+   "cycles_planned": 120,
+   "unmodified": null,
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g3.5-f0.5-d15-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g3.5-f0.5-d15-s1",
+    "outcome": "completed",
+    "cycles": 1000,
+    "first_slow_cycle": 0,
+    "slow_episodes": 135
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.3-d5-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.3-d5-s1",
+    "outcome": "cpu_budget",
+    "cycles": 38,
+    "first_slow_cycle": 20,
+    "slow_episodes": 155
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.3-d10-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.3-d10-s1",
+    "outcome": "physical_failure",
+    "cycles": 2,
+    "first_slow_cycle": 2,
+    "slow_episodes": 20
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.3-d15-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.3-d15-s1",
+    "outcome": "cpu_budget",
+    "cycles": 4,
+    "first_slow_cycle": 2,
+    "slow_episodes": 17
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d10-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.5-d10-s1",
+    "outcome": "physical_failure",
+    "cycles": 4,
+    "first_slow_cycle": 4,
+    "slow_episodes": 2
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d15-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.5-d15-s1",
+    "outcome": "cpu_budget",
+    "cycles": 2,
+    "first_slow_cycle": 2,
+    "slow_episodes": 97
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.3-d5-s3",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.3-d5-s3",
+    "outcome": "physical_failure",
+    "cycles": 26,
+    "first_slow_cycle": 26,
+    "slow_episodes": 1
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d5-L400-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0024/main-g5-f0.5-d5-L400-s1",
+    "outcome": "physical_failure",
+    "cycles": 50,
+    "first_slow_cycle": 50,
+    "slow_episodes": 4
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d5-s1",
+   "cycles_planned": 292,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.5-d5-s1",
+    "outcome": "physical_failure",
+    "cycles": 274,
+    "first_slow_cycle": 272,
+    "slow_episodes": 9
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d5-s2",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.5-d5-s2",
+    "outcome": "physical_failure",
+    "cycles": 234,
+    "first_slow_cycle": 62,
+    "slow_episodes": 9
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g5-f0.5-d5-s3",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0031/main-g5-f0.5-d5-s3",
+    "outcome": "cpu_budget",
+    "cycles": 86,
+    "first_slow_cycle": 86,
+    "slow_episodes": 6
+   },
+   "sphere": null,
+   "fixed": null
+  },
+  {
+   "run": "g6-f0.5-d10-s1",
+   "cycles_planned": 120,
+   "unmodified": {
+    "source": "runs/E0050/main-2d-g6.0-f0.5-d10",
+    "outcome": "cpu_budget",
+    "cycles": 44,
+    "first_slow_cycle": 44,
+    "slow_episodes": 16
+   },
+   "sphere": null,
+   "fixed": null
+  }
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.3-d5-s1/summary.json",
+   "bytes": 787,
+   "sha256": "a56c263b61f37c6514ed8c7809f6e213ca87b431f4533a6f86f17ec6fb9c4353"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0079/g3.5-f0.3-d10-s1/summary.json",
+   "bytes": 799,
+   "sha256": "459a58ba5731dbbe1f76fb70d323c6eb0a2c35419d1b8b8edbd4f18d966f1bcb"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.3-d5-s1/summary.json",
+   "bytes": 790,
+   "sha256": "b067a72736d4f0b0781ca59f753f5b716f63cfb297543a17cdc8d644c2aa46a9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0080/g3.5-f0.3-d10-s1/summary.json",
+   "bytes": 812,
+   "sha256": "fc3b86786a88d54c695831637c24cb4cb79e323529091bb63d314d5486110744"
+  }
+ ],
+ "tools": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/held_evidence.py",
+   "bytes": 4876,
+   "sha256": "b03816abae80f31382e62e5f525a51b09e3bde0bb16dab134332143816cbe051"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/lc_counters.py",
+   "bytes": 2932,
+   "sha256": "35f19cd00513916cf25c31a9a070bf4a8a5634d327879d7b284c26f885b7d46a"
+  }
+ ]
+}
