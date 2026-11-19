@@ -1,0 +1,188 @@
+{
+ "date": "2026-11-18",
+ "instruction": "instructions/2026-11-18.md",
+ "answers": [
+  {
+   "asked": "\"I want you to now consider run limits advisory not stopping. If it takes a long time I want to be aware before we go off on a wild cpu chase but it's not a never situation, it's hm, is that worth it. But it might be!\"",
+   "status": "answered",
+   "answer": "Done: run limits are treated as advisory from tonight, and the big costs are listed here before they run. All ten cores were used all night. What is queued and what it costs: (1) the 400-cycle slow loop, about 55 CPU-hours, 2.3 days on one core (running); (2) the baseline loops, at most about 400 CPU-hours (running, days); (3) the nudge loops above Gamma 4.45, which is the possible wild chase: every nudge loop stopped going up at Gamma 4.35 to 4.45 because a step's cost rose 3 to 10 times there, and I don't know how it behaves above. At least half to one CPU-hour a step, so roughly 50 to 150 CPU-hours a loop and 350 to 1000 for all of them, a week or more of wall clock. Queued after the baselines, so it does not start for days unless you move it; (4) the width-200 passes: no friction about 43 to 129 CPU-hours a loop (1.8 to 5.4 days each on one core); nudge and baseline unknown above Gamma 4.45; about 1 GB of disk each, more than the program's disk budget allows for all thirty.",
+   "departures": "I kept the half-hour cap per 25-cycle step as the floor rule on the way down (your rule for where a friction loop turns). Going up, a step now gets a 2 CPU-hour guard instead, so that a real stall still ends the loop (D0046). The per-loop 95 CPU-hour total is dropped."
+  },
+  {
+   "asked": "Slow loop at f* 0.44: \"we should do an even slower investigation so we can see where it stops changing.\" Next: \"400 cycles at f* 0.44\".",
+   "status": "partly",
+   "answer": "Started: the 400-cycle loop (no friction, one seed, Gamma 1.9 to 2.6 and back) is running, 2 of 29 steps done. It takes 1.9 CPU-hours a step, so it finishes in about 2.3 days. Gap and drift at the two rates done so far: at 25 cycles a step the branches are more than 0.05 D apart from Gamma 2.0 to 2.4, at most 0.24 D (at 2.2); at 100 cycles only from 2.2 to 2.3, at most 0.20 D (at 2.25). Within-step drift (last quarter minus first) reaches 0.11 D at both rates, and at 100 cycles the four steps at the edges of the gap still drift by 0.07 to 0.11 D (way up rising, way down falling). So it has not stopped changing between 25 and 100. The next slower rate (1600 cycles a step) would cost about 220 CPU-hours, about 9 days on one core.",
+   "departures": "The 400-cycle loop has no total CPU cap (item 1). Its per-step guard is 6 CPU-hours."
+  },
+  {
+   "asked": "\"I think we should queue up the wider runs for these phase diagrams as well. They can come after the currently scheduled runs.\"",
+   "status": "answered",
+   "answer": "Queued after the current queues (after the baselines and the nudge continuation): fast passes at width 200 (240,000 spheres) for all three models at the same ten frequencies. Prices: no friction about 43 CPU-hours a loop at f* 0.84 to 129 at 0.27 (1.8 to 5.4 days each on one core), about 765 for the ten, from tonight's measured cost of the wider box (5 times the paper's box per cycle). Nudge: about 50 to 67 CPU-hours a loop up to Gamma 4.45, unknown above. Baseline: no more than the nudge. Each loop writes about 1 GB, so the program's 15 GB disk budget holds only a few: the queue holds whenever the program's data passes 14 GB.",
+   "departures": "With the box four times larger, the floor rule for the friction models scales with the number of spheres: 2 CPU-hours per step going down, 8 going up."
+  },
+  {
+   "asked": "Bigger-box measurements before or after the baseline loops: \"default\" (after the nudge loops, before the baseline loops).",
+   "status": "partly",
+   "answer": "Done in that order: the two cost holds first (finished), then the f* 0.44 onset loop at width 200 (running, 2 of 53 steps), then the baseline loops (eight of ten running). From the holds: twice as wide costs 4.7 to 5.6 times the paper's box per cycle, not 4. Twice as deep costs 12 to 18 times, not the 3.8 scaled from 2D. So deeper is about three times dearer than wider.",
+   "departures": "The onset loop takes about 0.9 CPU-hours a step at width 200, about 45 for the loop, against the 16 I registered. The nudge pass had only launched all its loops, not finished them; I read 'after the nudge loops' as after they had all launched."
+  },
+  {
+   "asked": "\"what we are trying to avoid is it chattering against the plate.\" \"it's only components that stay frozen.\" \"how should the motion of that third ball be modeled? ... what's the right horizontal velocity? And if the top ball moves away from the bottom ball, then at what point can/should we allow its vertical velocity to change?\" \"start building and experimenting on that question. And my guess is that either way we will still end up with multiball contacts as the final fixed state so that isn't going away. Lift the pause on option 4\"",
+   "status": "partly",
+   "answer": "Built on a new branch (method/held-contact), and the pause on option four is lifted. What a held contact does, in your terms: once a contact chatters (a slow hit on the plate, then a slow hit on a held ball; a side wall the same), its normal velocity is set to zero and kept there; motion along the contact stays free. It lets go when keeping it would need a pull. The third ball: if it moves over the lower ball's surface, its horizontal and vertical velocities follow from that alone, and it lets go exactly where the contact force reaches zero. Against a closed-form two-ball case it let go within 0.04 degrees of the right angle at 10, 20 and 40 degrees. If the contact angle is kept fixed instead, the top ball slides along a tangent plane and moves away from the bottom ball at once, so you need a gap at which to let its velocity change. That gap is a constant I set (1e-4 D); it lets go 0.8 degrees after capture and then gets captured again, over and over. On the 2D grid with friction and the 14 stalls (replayed as their runs from the start): nothing stalled with motion on the sphere. 13 of 17 runs completed, including every run where the unmodified engine stalled, overlapped or froze at Gamma 3.5, Gamma 6 and the settled-layer stalls. The other four are deep Gamma 5 layers that ran out of their 1 CPU-hour at 12 to 88 cycles, still moving (the unmodified engine: 2 to 4 cycles there). Fixed angle: 14 of 17, one deep run with slow stretches. Frozen tests pass (74) with the method on. The energy audit is clean in every cycle, and the holds remove a little energy in every run, never add. You were right about multi-ball contacts: at Gamma 5, 54% of hold steps are of four or more balls, the largest 63.",
+   "departures": "Three things the instruction did not say: side walls are held like the plate (a ball pressed on a wall by a held cluster chattered there); a fast hit on a held ball lets go of all its holds instead of re-solving its cluster (for speed); and two free balls closing slower than 1e-10 are held too (otherwise they collide for ever at the same instant, the old engine's frozen time). Captures are counted as collisions in the event counters. Hold steps that gain a little energy are counted separately and not in the referee's collision-gain count; their net is reported and negative. Not done: bulk physics against a baseline, 3D, Figure 1."
+  }
+ ],
+ "headline": "Tonight built option four as you described it: chattering contacts held normal-only with sliding free, released at a pull. On the 2D grid and the stall runs nothing stalled with the upper ball moving over the lower one's surface, the audit was clean, and the release point matches the closed form. Deep Gamma 5 layers ran out of CPU, still moving, before finishing. Alongside: the 100-cycle slow loop narrowed the f* 0.44 gap without closing it, the 400-cycle loop and baselines are running, wider costs about 5 times the paper's box against 12 to 18 for deeper, and every nudge loop hit a cost wall going up at Gamma 4.4.",
+ "experiments": [
+  {
+   "experiment_id": "E0081",
+   "question": "Does holding chattering contacts (normal velocity held at zero, sliding free, let go at a pull), with the upper ball moving over the lower one's surface, get through the conditions where the engine stalls, without adding energy?",
+   "what_was_done": "Ran the 12 two-dimensional grid conditions and the seven settled-layer stall runs (17 runs, which include all 14 stalls examined before) from the start, with friction, 120 cycles or 20 past the old stall, one CPU-hour each.",
+   "result": "Thirteen completed with no slow stretch, including every run where the old engine stalled, overlapped or froze at Gamma 3.5 and 6 and all the settled-layer stall runs. Four deep Gamma 5 layers reached the CPU hour at 12 to 88 cycles, still moving; the old engine got 2 to 4 cycles there. Clean energy audit in every cycle; the holds removed a little energy in every run. Most holds last one step and are captured again, which is why deep layers are slow.",
+   "takeaway": "The rule removes the stall wherever tried; what's left is cost in deep layers at Gamma 5, not stalling. Physics not yet compared with a baseline."
+  },
+  {
+   "experiment_id": "E0082",
+   "question": "Same, with the contact angle held fixed at capture (the upper ball slides on a tangent plane).",
+   "what_was_done": "The same 17 runs on a pinned branch with the fixed-angle choice.",
+   "result": "Fourteen completed; three deep Gamma 5 runs reached the CPU hour, one with slow stretches. Audit clean, energy a small net loss. It lets go at a set gap, 0.8 degrees after capture, not where the force vanishes, and is captured again continually (larger clusters, more steps).",
+   "takeaway": "Survives about as well but its release is set by a constant; motion on the sphere is the physical choice."
+  },
+  {
+   "experiment_id": "E0069",
+   "question": "Where does the f* 0.44 gap stop changing as the loop slows (400 cycles a step)?",
+   "what_was_done": "Started the same no-friction loop at 400 cycles a step; built the gap and drift table across rates.",
+   "result": "Two of 29 steps done. At 25 versus 100 cycles a step the gap shrinks (0.24 to 0.20 diameters, range 2.0 to 2.4 down to 2.2 to 2.3) and edge steps still drift up to 0.11.",
+   "takeaway": "Not settled at 100 cycles a step; the 400-cycle answer comes in about two days."
+  },
+  {
+   "experiment_id": "E0064",
+   "question": "Is the gap at f* 0.44 smaller at 100 cycles a step?",
+   "what_was_done": "Collected the finished slow loop.",
+   "result": "Narrower but not gone: 0.20 diameters at most, between Gamma 2.2 and 2.3, against 0.24 between 2.0 and 2.4 at 25 cycles.",
+   "takeaway": "The fast gap was partly ramp lag; part remains."
+  },
+  {
+   "experiment_id": "E0060",
+   "question": "The no-friction fast pass at ten frequencies.",
+   "what_was_done": "Collected all ten loops.",
+   "result": "All 2130 steps clean, 150 CPU-hours. At f* 0.33 to 0.27 the way down is still patterned at the bottom of the loop (1.1 diameters at Gamma 1.8 at 0.27).",
+   "takeaway": "At low frequency the gap extends below where the loop stops."
+  },
+  {
+   "experiment_id": "E0065",
+   "question": "The nudge fast pass: floor, up to 7.0 and back.",
+   "what_was_done": "Collected the loops.",
+   "result": "Floors at Gamma 2.0 to 2.35; then every loop stopped going up at Gamma 4.35 to 4.45, where the cost per cycle rose 3 to 10 times within a tenth in Gamma, at every frequency. Clean audit. The lowest frequency never finished its first step.",
+   "takeaway": "A cost wall near Gamma 4.4 for the friction model; continuation queued with a larger guard."
+  },
+  {
+   "experiment_id": "E0070",
+   "question": "What do a wider and a deeper box cost per cycle?",
+   "what_was_done": "Twenty-cycle holds without friction at f* 0.57, Gamma 2, 3, 5, twice as wide and twice as deep.",
+   "result": "Twice as wide: 4.7 to 5.6 times the paper's box per cycle (same events per sphere, a bit more CPU per event). Twice as deep: 12 to 18 times (4 to 6 times the events per sphere).",
+   "takeaway": "Wider is the much cheaper step, more so than the earlier note said."
+  },
+  {
+   "experiment_id": "E0071",
+   "question": "Does onset at f* 0.44 move in a box twice as wide?",
+   "what_was_done": "Started the onset-only loop at width 200.",
+   "result": "Running, 2 of 53 steps; about 0.9 CPU-hours a step.",
+   "takeaway": "Answer in about two days."
+  },
+  {
+   "experiment_id": "E0073",
+   "question": "The baseline loops (unmodified engine with friction).",
+   "what_was_done": "Started by hand in the order you set, with the same caps as the nudge continuation.",
+   "result": "Eight of ten running, on their first descent.",
+   "takeaway": "Days of wall clock."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The nudge loops all stopped going up at Gamma 4.4, where a step suddenly costs 3 to 10 times more. Continuing them to 7.0 may cost 350 to 1000 CPU-hours, a week or more. Is that worth it, or should the friction-model passes stop at the wall (and the width-200 nudge passes with them)?",
+   "why_it_matters": "This is the 'wild cpu chase' case from item 1; it decides most of the queue's cost.",
+   "default_if_unanswered": "The continuation stays queued after the baselines; it will not start for several days, so there is time to decide."
+  },
+  {
+   "question": "Held contacts get through every stall tried, but deep Gamma 5 layers run at 30 to 300 CPU-seconds a cycle because most holds last one step and get captured again. Next step: make them cheaper, or first check that they leave the physics alone (the bulk check against the C code and this engine where they run)?",
+   "why_it_matters": "A method that is right but slow is still usable for the experiments; a fast one that changes the physics is not.",
+   "default_if_unanswered": "Run the bulk check first (2D shallow conditions where baselines exist), then the 3D survival case."
+  },
+  {
+   "question": "The width-200 passes need about 30 GB; the program's disk budget is 15 GB and the Mac has 29 GB free. Raise the budget, or keep fewer of the stored fields per step?",
+   "why_it_matters": "Without one of these only a few of the thirty loops can run.",
+   "default_if_unanswered": "The queue holds at 14 GB of program data; nothing is deleted."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Bulk check for held contacts: 2D shallow conditions against this engine and the C code, then the 3D survival case at Gamma 5, f* 0.44.",
+   "rationale": "It is the next item of the acceptance bar; survival alone says nothing about whether the physics is right."
+  },
+  {
+   "direction": "Make held contacts cheaper in deep layers: hold a contact for several steps before letting it go when its push is only briefly zero, and measure what that changes.",
+   "rationale": "Most of the deep-layer cost is captures and releases every step."
+  },
+  {
+   "direction": "Look at the nudge loops' fields at Gamma 4.3 to 4.45 to see what happens at the cost wall (likely the layer starting to land on alternate cycles).",
+   "rationale": "The wall is at the same Gamma at every frequency; knowing what it is says whether going past it is worth it."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 395.0,
+   "limit": 2000
+  },
+  "disk_gb": {
+   "spent": 8.6,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-18T23:00:00-05:00",
+  "actual_start": "2026-11-18T23:07:47-05:00",
+  "ended": "2026-11-19T03:26:14-05:00",
+  "interruptions": [],
+  "cpu_hours": 39.1,
+  "cores_available": 10,
+  "disk_free_gb": {
+   "start": 30,
+   "end": 29
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0069",
+    "reason": "400-cycle slow loop, 2 of 29 steps; about 2.3 days"
+   },
+   {
+    "experiment_id": "E0071",
+    "reason": "L 200 onset loop, 2 of 53 steps; about 2 days"
+   },
+   {
+    "experiment_id": "E0073",
+    "reason": "baseline loops, eight of ten running; days"
+   },
+   {
+    "experiment_id": "E0072",
+    "reason": "queued behind the baselines"
+   },
+   {
+    "experiment_id": "E0074",
+    "reason": "queued; also limited by disk"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "queued; also limited by disk"
+   },
+   {
+    "experiment_id": "E0076",
+    "reason": "queued; also limited by disk"
+   }
+  ],
+  "limits_hit": "On AC with the lid open; no sleep or wake event in the session. Free disk was 30 GB at the start and 28 to 29 during the night, under the 40 GB floor all session, from use outside the program (program data 8.1 to 8.6 GB); launches were allowed down to the 25 GB hard floor per the instruction. Ten cores were full all night: the held-contact tests had two cores until 01:19 and five after, by pausing three baseline loops (SIGSTOP) for 1.2 to 1.4 hours (D0052). Their CPU caps are in CPU time, so they lost only wall clock. The deep Gamma 5 held-contact runs reached their one CPU-hour cap; that is a limit of the run settings, not the machine. CPU-hours tonight 39.1 from the runs' own records (baselines 15.8, held-contact runs 9.0, onset loop 3.7, slow loop 3.6, cost holds 2.9, nudge 2.2, running steps 1.8); interactive tests and profiling not counted. The week: about 395 of 2000 CPU-hours (20%) by run summaries of the last seven days. Memory 57 to 60% free. The session ends at 03:26, about an hour and a half before the window closes, because everything asked had either finished or is running in the background, and the rest is days of queued runs."
+ }
+}

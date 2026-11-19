@@ -71,6 +71,9 @@ after `DIRECTION.md` at the start of every session.
   - Nov 17: settled-layer stalls are the same pressed pairs (E0066); one
     stall recorded and pictured (E0067): not a long contact but an
     enormous collision rate.
+  - Nov 18: pause lifted; held contacts built (normal velocity held at
+    zero, sliding free, let go at a pull). No stall on the 2D grid or the
+    stall runs; deep Gamma 5 layers are slow (see Option 4).
   - See Current state.
 
 ### RQ2: Do the pattern transitions show hysteresis, and where?
@@ -127,6 +130,11 @@ after `DIRECTION.md` at the start of every session.
 - Decision point: after two weeks of sessions, Chris decides whether to stay
   local or move to Sterling or Hatteras, from this record.
 - Status: open.
+  - Nov 18 session: awake on AC, lid open, no sleep events. Free disk 30
+    GB at the start and 29 at the end (other use of the Mac; program data
+    8.6 GB), under the 40 GB floor all night, launches allowed down to 25.
+    Ten cores full all night; three baseline loops paused 1.2 to 1.4 hours to
+    give the held-contact runs cores.
   - Nov 17 session: awake on AC, lid open, no sleep events. Ten cores
     full all night; wall clock, not CPU-hours, limits the passes.
   - Nov 16 session: awake on AC, lid open, no sleep events (B0005
@@ -321,7 +329,18 @@ physical result. Session summary: `sessions/2026-11-18.json`.
   days on one core), 765 for ten; nudge and baseline unknown above Gamma
   4.45. About 1 GB each: the 15 GB disk budget holds only a few; the queue
   holds at 14 GB.
-- **Held contacts (item 5, option four):** see Option 4 and below.
+- **Held contacts (item 5, option four; E0081 inconclusive, E0082
+  falsified):** 2D grid and the settled-layer stall runs, 17 runs each
+  variant, seed as the stall runs. Nothing stalled with motion on the
+  sphere; 13 of 17 completed, including all Gamma 3.5 and 6 runs and all
+  seven stall replays (to 20 cycles past the unmodified engine's stall);
+  four deep Gamma 5 runs reached their 1 CPU-hour cap at 12 to 88 cycles
+  with no slow stretch (the unmodified engine: 2 to 4 cycles there). Fixed
+  angle: 14 of 17, one run with slow stretches. Audit clean in every cycle;
+  hold energy a net loss in every run (up to 1e-4 of the plate's work). Most
+  holds last one step and are captured again, which makes deep Gamma 5
+  layers cost 30 to 300 CPU-seconds a cycle. Not checked yet: bulk physics,
+  3D, Figure 1.
 - **Queue:** `runs/q-1118.spec` via `tools/qx7.sh` (hard disk floor 25 GB,
   data cap 14 GB, live limit in `runs/q-1118.maxlive`). Tools on
   `tools/phase-diagram` (80782cd).

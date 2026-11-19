@@ -26,11 +26,11 @@
    "steps_drifting_over_0p05": 4
   },
   "400": {
-   "steps_done": 0,
+   "steps_done": 2,
    "steps_in_loop": 29,
    "largest_gap": null,
    "gamma_where_gap_over_0p05": null,
-   "largest_abs_drift": null,
+   "largest_abs_drift": 0.0196,
    "steps_drifting_over_0p05": 0
   }
  },
@@ -52,10 +52,10 @@
     "down_drift": -0.0076
    },
    "400": {
-    "up_A": null,
+    "up_A": 0.03,
     "down_A": null,
     "gap": null,
-    "up_drift": null,
+    "up_drift": -0.0044,
     "down_drift": null
    }
   },
@@ -76,10 +76,10 @@
     "down_drift": 0.0017
    },
    "400": {
-    "up_A": null,
+    "up_A": 0.0134,
     "down_A": null,
     "gap": null,
-    "up_drift": null,
+    "up_drift": 0.0196,
     "down_drift": null
    }
   },
@@ -406,6 +406,11 @@
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0064/mu0-3d-f0.44-slow/ramp.jsonl",
    "bytes": 5374,
    "sha256": "b2f317d16791bebf5159a22aebeaed6d9815b4286e7911b141ecd604358c9cf1"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0069/mu0-3d-f0.44-slow400/ramp.jsonl",
+   "bytes": 367,
+   "sha256": "ba60e1deec8d1e4f78cc4b7b6b9d6e26cfa997d7b17549e112302d071a4f9dcb"
   }
  ],
  "tools": [
