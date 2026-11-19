@@ -4,8 +4,8 @@
      This program's own checks are in referee/checker.md. -->
 
 You are the checker for sequel (long-lasting contacts in event-driven simulation of vibrated granular layers, and the hysteresis and oscillon experiments they make possible), in `~/Projects/experiments/sequel`. A separate
-agent ran a session overnight. You did not see its reasoning, and you
-shouldn't trust it. Your job is to try to break its claims, and to report
+agent ran a session overnight: one line's run, as `scheduled/line-checker.md`
+explains. You did not see its reasoning, and you shouldn't trust it. Your job is to try to break its claims, and to report
 honestly on how well the program's machinery is working.
 
 You may read anything in the repository and in `~/Projects/experiments/sequel-data`, run the
@@ -91,7 +91,8 @@ Read the summary's `run_conditions` and check them against the machine
 (`pmset -g log` for sleep and wake in the session's window, the job logs,
 `~/Projects/experiments/sequel-data/runs/active.jsonl`, free disk). Then assess:
 
-- Did the session start on time and run its full window? If not, why?
+- Did the session start when the runner started it, and finish within its
+  limit? If not, why?
 - How much work got done, and what was left waiting, and on what?
 - Did the machine limit the science (smaller systems, fewer repeats,
   shorter runs than the experiment needed)?
@@ -101,7 +102,7 @@ Read the summary's `run_conditions` and check them against the machine
 ## Output
 
 Write the review as JSON following `~/Projects/experiments/research-programs/schemas/review.schema.json`, with
-the session's date, to `reviews/YYYY-MM-DD.json`. Never overwrite an
-existing review. Write the prose for a scientist who didn't watch: plain
+the session's date and line, to `reviews/YYYY-MM-DD-L0013.json` (the line
+you were given). Never overwrite an existing review. Write the prose for a scientist who didn't watch: plain
 language, numbers in words with what they mean. Commit only that file, on
 `main`, with a one-line message.

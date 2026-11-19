@@ -4,10 +4,12 @@
      This program's own instructions are in BRIEF.md. -->
 
 You are running one session of sequel, a long research program:
-long-lasting contacts in event-driven simulation of vibrated granular layers, and the hysteresis and oscillon experiments they make possible. Nobody is watching the session; Chris reads your summary
-in the morning and replies with the next instruction. Your memory between
-sessions is this repository. Write everything you'd want to know tomorrow
-into it.
+long-lasting contacts in event-driven simulation of vibrated granular layers, and the hysteresis and oscillon experiments they make possible. Each night runs one line of investigation at a time, and a
+session is one line's run: `scheduled/line.md` says what that changes, and
+"the session" below means your run. Nobody is watching;
+Chris reads your summary in the morning and replies with the next
+instruction. Your memory between sessions is this repository. Write
+everything you'd want to know tomorrow into it.
 
 Who owns what:
 
@@ -16,8 +18,8 @@ Who owns what:
   `approvals.json`.
 - **RoboRobo's files**, which you never change: this file, `CHECKER.md`,
   `scheduled/`, `.claude/`, and the folder READMEs.
-- **Yours**: `PROGRAM.md`, `ledger/`, `sessions/`, `evidence/`, and your
-  code on branches.
+- **Yours**: `PROGRAM.md`, `ledger/`, `sessions/`, `evidence/`, `lines/`
+  (except its README), and your code on branches.
 
 `program check` fails if any of the first two changed.
 
@@ -29,15 +31,17 @@ Who owns what:
    the notes in `notes/` that `BRIEF.md` points to before planning: they
    hold Chris's thinking from before the program, and you follow
    them unless an instruction says otherwise.
-3. Read `PROGRAM.md`, then the instruction for today in `instructions/`
-   (`YYYY-MM-DD.md`, dated by the evening the session starts). If there is
-   none, follow `instructions/fallback.md`. The instruction's "Asked"
-   section is what Chris wants to know, in Chris's words;
+3. Read `PROGRAM.md`, your line's `lines/L0013/progress.md`, then your
+   line's section of the instruction for tonight in `instructions/`
+   (`YYYY-MM-DD.md`, dated by the evening the night starts). Its "Asked"
+   items are what Chris wants to know, in Chris's words;
    see "What was asked".
-4. Read the last session summary in `sessions/`, the checker's latest review
-   in `reviews/`, and any open records in `ledger/blockers.jsonl` and
-   `ledger/claims.jsonl`. Answer every open challenge this session: produce
-   the evidence that resolves it, narrow the claim, or withdraw it.
+4. Read your line's last summary in `sessions/` (`*-L0013.json`; before
+   lines ran separately, the last `YYYY-MM-DD.json`), the checker's latest
+   review of your line in `reviews/`, and any open records in
+   `ledger/blockers.jsonl` and `ledger/claims.jsonl`. Answer every open
+   challenge on your line this session: produce the evidence that resolves
+   it, narrow the claim, or withdraw it.
 5. Check on jobs left running by earlier sessions (see "Long jobs"). Collect
    finished ones before starting new work.
 6. Run `uv run --project ~/Projects/experiments/research-programs program check`. If it fails, fixing
@@ -47,8 +51,8 @@ Who owns what:
 
 ## What was asked
 
-The session exists to answer the items under "Asked" in the instruction, as
-they are worded. "Details" says how; where the two seem to disagree, "Asked"
+The session exists to answer the items under "Asked" in your line's section
+of the instruction, as they are worded. "Details" says how; where the two seem to disagree, "Asked"
 wins and you say so in the summary.
 
 - Before planning, write down for each item what result would answer it.
@@ -81,9 +85,10 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   first experiment in it: its `name`, the `question` in Chris's
   words where Chris asked it (`question_source` says where), and
   the `parent` it branched from. A line you open yourself also needs a
-  `reason`. Don't open one to hold work nobody asked for while an item
-  under "Asked" is unanswered.
-- At the end of the session, append for each line you touched a `note`:
+  `reason`, and starts with `status: "proposed"`: it runs only once
+  Chris makes it active. Don't open one to hold work nobody asked
+  for while an item under "Asked" is unanswered.
+- At the end of the session, append for your line a `note`:
   the `night` (the session's date) and two or three plain sentences on what
   happened, with `waiting: true` if the line can't move without
   Chris. Append an `update` when its `state`, `feeds` or
@@ -149,8 +154,9 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
 
 ## Long jobs
 
-Sessions are a few hours; some jobs take longer. Run them as background
-processes that outlive the session:
+A line's run is about an hour; many jobs take longer. Run them as
+background processes that outlive the run, and record them in your line's
+`progress.md` too:
 
 - Start each with `caffeinate -i nice -n 10 ...` so the Mac doesn't sleep
   under it and Chris's daytime work keeps priority, with output and
@@ -181,16 +187,17 @@ Measure, don't guess. Record in the session summary's `run_conditions`:
 
 ## At the end
 
-Leave at least 20 minutes. Write `sessions/YYYY-MM-DD.json`, dated like the
-instruction it followed (schema: `~/Projects/experiments/research-programs/schemas/session-summary.schema.json`),
-for a scientist who didn't watch the session:
+Leave at least ten minutes. Write `sessions/YYYY-MM-DD-L0013.json`, dated
+like the instruction it followed, with `line_id` set (schema:
+`~/Projects/experiments/research-programs/schemas/session-summary.schema.json`), for a scientist who didn't watch
+the session:
 
 - `answers`: write this first. One entry per item under "Asked", in order:
   `asked` is the item copied word for word; `status` is `answered`,
   `partly` or `not_answered`; `answer` replies in the item's own terms (yes,
   no, a number, or why there is no answer yet) before any explanation;
   `departures` says where what you did differs from what was asked. Empty
-  on a fallback night.
+  when you were started only to answer challenges.
 - `headline`: two or three sentences on what the session was for and what
   was learned. It may not claim more than `answers` does.
 - `experiments`: for each one, the question, what you did, what happened,
@@ -206,8 +213,9 @@ for a scientist who didn't watch the session:
 - `budget`, `open_blockers`, and `run_conditions`.
 
 Then append this session's notes and updates to `ledger/lines.jsonl`,
-update `PROGRAM.md` ("Current state" and "Next"), empty
+rewrite `lines/L0013/progress.md`, update what concerns your line in
+`PROGRAM.md` ("Current state" and "Next"), empty
 `~/Projects/experiments/sequel-data/tmp/`, run `program check` again and
 `uv run --project ~/Projects/experiments/research-programs program map` to see that the page builds,
-and commit the records on
-`main` (and any code on its branch) with messages describing the session.
+and commit the records on `main` (and any code on its branch) with
+messages describing the session. Leave nothing uncommitted.

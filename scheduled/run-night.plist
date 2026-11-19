@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rendered from RoboRobo's template by `program sync`; don't edit here.
+     Starts `program run-night` for sequel at 23:00 each day.
+     Install: see scheduled/README.md. -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>org.renci.roborobo.sequel</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>-lc</string>
+    <string>mkdir -p ~/Projects/experiments/sequel-data/logs &amp;&amp; caffeinate -i uv run --project ~/Projects/experiments/research-programs program run-night --repo ~/Projects/experiments/sequel &gt;&gt; ~/Projects/experiments/sequel-data/logs/run-night.log 2&gt;&amp;1</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>23</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+</dict>
+</plist>
