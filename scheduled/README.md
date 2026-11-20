@@ -31,7 +31,8 @@ System Settings, or `pmset repeat`); once started, the runner keeps it
 awake.
 
 To see what tonight would run: `program run-night --dry-run`. To run one
-line now: `program run-night --line L0013`.
+line now, at any hour: `program run-night --line L0013` (add `--night` for
+a night that has already passed).
 
 ## Where to look
 
