@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-20",
+  "line_id": "L0018",
+  "instruction": "instructions/2026-11-20.md",
+  "answers": [
+    {
+      "asked": "Width-200 disk: \"Store fewer fields\": \"Keep fewer stored height fields per step so each loop takes much less than 1 GB.\"",
+      "status": "answered",
+      "answer": "Applied. The width-200 passes now store no height-field arrays in fields.npz (only the Fourier spectrum and variance per frame, which the amplitude figures need). Each loop takes about 390 MB, down from about 880 MB. No analysis tool reads the stored height grids: loop_analysis.py uses only the spectrum; pattern_id.py computes its own field from checkpoint.npz particle positions. The change is SEQUEL_FIELD_FRAMES=none in the queue spec (30 lines for E0074, E0075, E0076) and a two-line change in field_recorder.py to handle that value.",
+      "departures": "No departures."
+    }
+  ],
+  "headline": "The width-200 passes were reduced from about 880 MB to about 390 MB per loop by dropping the stored height-field arrays from fields.npz, which no tool reads. The onset loop at width 200 (E0071) was collected: 53 steps complete, 22.9 CPU-hours, no slow stretch or audit failure.",
+  "experiments": [],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "The queue (qx7.sh) is held because free disk is 17 GB, below the 25.5 GB launch floor. The width-200 passes cannot start until disk frees up. Is this acceptable, or should the floor be lowered for the reduced-size loops?",
+      "why_it_matters": "At 390 MB per loop, each loop uses less than 3 percent of the 15 GB program disk budget. But the disk floor is an instant limit set by other use of the Mac, not by the program's data.",
+      "default_if_unanswered": "Leave the floor at 25.5 GB; the queue waits."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Also strip stored height fields from the L 100 passes (E0060, E0065, E0073) to free disk for the width-200 passes.",
+      "rationale": "The completed L 100 loops each have about 110 MB of field arrays that no tool reads. Stripping them from the finished runs would free about 1.5 GB (15 loops), enough to bring free disk closer to the launch floor."
+    },
+    {
+      "direction": "Compare the E0071 onset at L 200 with the E0060 onset at L 100 for f* 0.44, to test whether the onset moves with the box size.",
+      "rationale": "The E0074 registration predicts the onset lies within 0.1 in Gamma of the paper's box. E0071 is complete and can be checked against E0060 without any new run."
+    }
+  ],
+  "budget": {
+    "cpu_hours": {"spent": 292.2, "limit": 2000},
+    "disk_gb": {"spent": 9.7, "limit": 15}
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-20T23:00:00-05:00",
+    "actual_start": "2026-11-21T00:08:24-05:00",
+    "ended": "2026-11-21T00:20:00-05:00",
+    "interruptions": [],
+    "cpu_hours": 0,
+    "cores_available": 5.3,
+    "disk_free_gb": {"start": 17, "end": 17},
+    "unfinished_runs": [],
+    "limits_hit": "No limits hit."
+  }
+}

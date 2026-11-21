@@ -297,6 +297,23 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 20 findings (L0018)
+
+Instruction of Nov 20 (one item on L0018). Session summary:
+`sessions/2026-11-20-L0018.json`.
+
+- **Width-200 field storage cut (D0054):** no height-field arrays stored in
+  fields.npz for the width-200 passes (E0074, E0075, E0076). The Fourier
+  spectrum and variance are kept at every frame (121 KB per step compressed);
+  the 80 by 80 height grid (2465 KB per step) is dropped. No analysis tool
+  reads the stored grids: loop_analysis.py uses only the spectrum;
+  pattern_id.py computes its own field from checkpoint.npz particle
+  positions. Per loop at L 200 with 213 steps: about 390 MB, down from about
+  880 MB. The 15 GB disk budget holds about 38 loops instead of 17.
+- **E0071 collected:** the onset loop at L 200 (f\* 0.44, no friction)
+  completed all 53 steps (Gamma 1.7 to 3.0 and back), 22.9 CPU-hours, no
+  slow stretch, no audit failure, 311 MB.
+
 ### Nov 20 findings (L0015)
 
 Instruction of Nov 20 (one item on L0015). Session summary:
@@ -878,8 +895,10 @@ These are findings, not edits; the referee is his.
 - **Collect E0083** (`runs/active.jsonl`): four clusterlifter deep Gamma 5
   runs and four baselines, launched Nov 20. Build the per-cycle energy
   comparison (item 4).
-- **Collect other lines' jobs**: E0069, E0071, E0073, E0072 (all dead; check
+- **Collect other lines' jobs**: E0069, E0073, E0072 (all dead; check
   whether they finished or were killed).
+- **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
+  storage cut (D0054). The queue holds while free disk is below 25.5 GB.
 - **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that
   is period-2 chattering. Push through it (costly) or accept the range and
   test the clusterlifter there?

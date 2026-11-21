@@ -1,0 +1,65 @@
+{
+  "decision": "D0054",
+  "line_id": "L0018",
+  "night": "2026-11-20",
+  "description": "Width-200 field storage reduction: drop height-field arrays from fields.npz for E0074-E0076",
+  "measured_from": "E0071/mu0-3d-f0.44-L200-onset/step-005-g1.95/fields.npz",
+  "current_fields_npz": {
+    "total_bytes": 2524004,
+    "field_array_shape": [
+      101,
+      80,
+      80
+    ],
+    "field_array_raw_bytes": 2585600,
+    "spec_array_shape": [
+      801,
+      40
+    ],
+    "spec_array_raw_bytes": 128160,
+    "var_array_shape": [
+      801
+    ],
+    "var_array_raw_bytes": 3204,
+    "note": "field array (101 height grids, 80x80 float32) is 2526 KB of the 2465 KB file (the rest compresses away)"
+  },
+  "no_field_fields_npz": {
+    "total_bytes": 123992,
+    "note": "measured by writing spec+var+time+frame with empty field arrays: 121 KB compressed"
+  },
+  "tools_that_use_field_array": "none; checked loop_analysis.py (uses spec and L only), fastpass_evidence.py, loop_figure.py (neither opens fields.npz), pattern_id.py (computes field from checkpoint.npz positions)",
+  "per_loop_estimate_steps_213": {
+    "current_MB": 877,
+    "no_field_MB": 389,
+    "breakdown_no_field": {
+      "fields_npz_MB": 25,
+      "checkpoints_MB": 350,
+      "other_per_step_MB": 15,
+      "note": "13 checkpoints at 26.9 MB each (every 1.0 in Gamma); other = quantities.npz + audit.json + summary.json + counters.json"
+    },
+    "saving_MB": 488,
+    "loops_in_15GB_current": 17,
+    "loops_in_15GB_no_field": 38
+  },
+  "implementation": {
+    "field_recorder_change": "SEQUEL_FIELD_FRAMES=none or empty string makes keep=[], so no field arrays are stored; spec, var, time, frame are always stored",
+    "queue_spec_change": "30 lines in q-1118.spec prefixed with env SEQUEL_FIELD_FRAMES=none (all E0074, E0075, E0076 entries)",
+    "files_changed": [
+      "sequel-data/runs/tools/field_recorder.py",
+      "sequel-data/worktrees/tools-phase-diagram/tools/field_recorder.py",
+      "sequel-data/runs/q-1118.spec"
+    ]
+  },
+  "E0071_collection": {
+    "status": "complete",
+    "steps": 53,
+    "gammas": "1.7 to 3.0 and back to 1.7",
+    "all_completed": true,
+    "cpu_hours": 22.9,
+    "slow_episodes": 0,
+    "audit_failures": 0,
+    "total_size_MB": 311,
+    "checkpoints_kept": 7,
+    "note": "onset loop at L 200, f* 0.44, no friction, 25 cycles per step"
+  }
+}
