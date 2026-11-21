@@ -1,0 +1,40 @@
+{
+ "experiment": "E0084",
+ "what": "Bulk check: clusterlifter (E0081, mode sphere, friction off) against the unmodified engine at the 2D shallow conditions where baselines exist.",
+ "conditions": [
+  {
+   "condition": "g3.5-f0.3-d5",
+   "baseline": "E0020/main-g3.5-f0.3-d5-L100-s1 (1020 cycles, 10 blocks of 100)",
+   "method": "E0081/g3.5-f0.3-d5-s1 (120 cycles, measure 20-120)",
+   "verdict": "pass",
+   "worst_sigmas": 1.1,
+   "worst_quantity": "thickness"
+  },
+  {
+   "condition": "g3.5-f0.5-d5",
+   "baseline": "E0031/main-g3.5-f0.5-d5-s1 (1000 cycles, 9 blocks of 100)",
+   "method": "E0081/g3.5-f0.5-d5-s1 (120 cycles, measure 20-120)",
+   "verdict": "pass",
+   "worst_sigmas": 1.29,
+   "worst_quantity": "temp_horizontal"
+  },
+  {
+   "condition": "g3.5-f0.5-d10",
+   "baseline": "E0020/main-g3.5-f0.5-d10-L100-s1 (1020 cycles, 10 blocks of 100)",
+   "method": "E0081/g3.5-f0.5-d10-s1 (120 cycles, measure 20-120)",
+   "verdict": "pass",
+   "worst_sigmas": 0.8,
+   "worst_quantity": "ke_vertical"
+  },
+  {
+   "condition": "g3.5-f0.3-d10",
+   "baseline": "E0031/main-g3.5-f0.3-d10-s1 (1000 cycles, 9 blocks of 100)",
+   "method": "E0081/g3.5-f0.3-d10-s1 (305 cycles, measure 20-120)",
+   "verdict": "fail",
+   "worst_sigmas": 55.29,
+   "worst_quantity": "ke_horizontal",
+   "note": "Every quantity fails. The clusterlifter engine gives 36% higher horizontal energy and 8% lower thickness. This is a condition where the unmodified engine has slow episodes starting at cycle 285; the clusterlifter has none, suggesting the contact handling changes the dynamics."
+  }
+ ],
+ "summary": "At the two depth-5 conditions and at depth-10 with f*=0.5 the clusterlifter agrees with the unmodified engine. At depth-10 with f*=0.3 it does not: every quantity fails, with horizontal energy 36% higher. This is a condition with significant lasting contacts even in the unmodified engine."
+}

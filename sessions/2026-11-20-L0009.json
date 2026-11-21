@@ -1,0 +1,100 @@
+{
+ "date": "2026-11-20",
+ "line_id": "L0009",
+ "instruction": "instructions/2026-11-20.md",
+ "answers": [
+  {
+   "asked": "Held contacts: does \"tangential motion stays free\" mean frictionless sliding? \"No, apply friction.\"",
+   "status": "partly",
+   "answer": "No, it does not mean frictionless. Friction code is written (mu times each hold step's normal impulse, up to the rolling limit, spin updated) for plate, wall and sphere-sphere contacts, following the paper's collision model exactly. It is blocked from running: any velocity change from friction in a hold step exposes pre-existing position-space overlaps in dense layers that the engine's fail-fast overlap check then catches (the overlap formed before the hold step and was masked because the pair was separating; friction reverses the approach direction). This affects plate friction too (horizontal velocity change). Default is off until the overlap handling is improved. The code is on method/held-contact commit 3983f59, with a friction=True setting that can be turned on once the overlap issue is resolved.",
+   "departures": "Friction defaults to off instead of on (D0053). Sphere-sphere friction is deferred for the same reason. The friction code itself follows the instruction exactly: mu times each step's normal impulse, rolling limit, spin updated, with frictionless kept as a setting."
+  },
+  {
+   "asked": "Held contacts next: \"Audit first\": \"Make the audit see hold energy, report unconverged solves, rerun the four deep Gamma 5 runs to 120 cycles uncapped, then the bulk check at 2D shallow conditions.\"",
+   "status": "partly",
+   "answer": "The audit now sees hold energy: hold energy net is no longer added to plate dissipation, so the referee's energy residual equals the hold energy per cycle. A new counter (EN_HOLD_GAINS) tracks the sum of positive hold-step net values per cycle. Unconverged solves are already tracked in C_HNOCONV; the previous session's E0081 runs had up to 2.4 million in one run, about 5% of its hold steps. The four deep Gamma 5 runs and their baselines are launched (E0083) but still compiling at the time of writing; they will run as background jobs. The bulk check at 2D shallow conditions (E0084): the clusterlifter passes at Gamma 3.5 at both depth-5 conditions (worst 1.29 standard deviations) and at depth-10 at f* = 0.5 (worst 0.80). It fails at depth-10 at f* = 0.3: every quantity is off by many standard deviations, with horizontal energy 36% higher and thickness 8% lower. This is a condition where the unmodified engine has slow episodes starting at cycle 285.",
+   "departures": "The four deep Gamma 5 runs and their baselines are launched but not finished. The E0083 per-cycle energy data is not yet available because the runs are still compiling. The bulk check used existing E0081 data (identical trajectories to v4; the energy booking change does not affect dynamics)."
+  },
+  {
+   "asked": "\"Let's call this the clusterlifter solution.\"",
+   "status": "answered",
+   "answer": "Done. Used throughout this summary and the line notes. Term T0026 is already recorded."
+  },
+  {
+   "asked": "\"To me part of what we need to understand with these energy audits is how the energy compares to the baseline energies\"",
+   "status": "partly",
+   "answer": "The E0083 runs will produce per-cycle audit data where the energy residual equals the clusterlifter's hold energy net; combined with the existing E0031 audit data for the unmodified engine at the same conditions, this gives the side-by-side comparison. The runs are launched but not yet producing data (Numba compilation). From the existing whole-run totals (E0081): at the four deep Gamma 5 conditions, the clusterlifter's hold energy net was between -7 parts in a billion and -1 part in ten thousand of the plate's work, always a loss. At the two depth-5 conditions (where the unmodified engine runs), hold energy was -7 parts in a billion of plate work.",
+   "departures": "Per-cycle side-by-side data is not ready because E0083 is still compiling. The whole-run totals from E0081 are reported as interim evidence."
+  }
+ ],
+ "headline": "Tonight made the clusterlifter's hold energy visible in the referee's energy audit (hold net is no longer hidden in plate dissipation) and ran the bulk check at 2D shallow conditions: it passes at all three conditions tested except Gamma 3.5, f* 0.3, depth 10, where every quantity fails by many standard deviations. Friction code is written but blocked from running by the engine's overlap check.",
+ "experiments": [
+  {
+   "experiment_id": "E0083",
+   "question": "Do the four deep Gamma 5 clusterlifter runs complete 120 cycles without stalling, with the hold energy visible in the audit?",
+   "what_was_done": "Launched all four runs (Gamma 5, f* 0.3 and 0.5, depths 10 and 15, seed 1, 120 cycles, no CPU cap) with the new code (hold energy in EN_HOLD, not plate dissipation) and their unmodified-engine counterparts, as background jobs.",
+   "result": "All eight runs are still in Numba compilation at the time of writing. They will produce per-cycle audit data where the residual equals the hold energy.",
+   "takeaway": "Data not yet available; the runs continue as background jobs."
+  },
+  {
+   "experiment_id": "E0084",
+   "question": "Does the clusterlifter engine agree with the unmodified engine at the 2D shallow conditions?",
+   "what_was_done": "Built ten-block baselines from long unmodified-engine runs (E0020, E0031) at three shallow conditions where baselines exist. Measured 100 cycles (after 20 settling) from E0081 clusterlifter runs. Used the referee's bulk.py judge.",
+   "result": "Three of four conditions pass, all quantities within 1.29 standard deviations. At Gamma 3.5, f* 0.3, depth 10, every quantity fails: horizontal kinetic energy 36% higher, thickness 8% lower, centre-of-mass height 1.5% higher, plate contact 6% lower (worst: 55 standard deviations in horizontal energy). This is a condition where the unmodified engine has slow episodes starting at cycle 285.",
+   "takeaway": "The clusterlifter changes the physics at this one condition. At the three passing conditions (depth 5 at both frequencies and depth 10 at f* 0.5) it agrees with the unmodified engine."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The clusterlifter fails the bulk check at Gamma 3.5, f* 0.3, depth 10, where horizontal energy is 36% higher than the unmodified engine. This is the same condition where the unmodified engine has slow episodes. Is this acceptable (the contact handling changes the equilibrium there) or does it need investigation?",
+   "why_it_matters": "It's one of four conditions with baselines, and it fails badly. If the method must pass everywhere the baseline runs, the method is not ready.",
+   "default_if_unanswered": "Report it as a failure. Continue with the other items but do not claim the method passes the bulk check."
+  },
+  {
+   "question": "Held-contact friction triggers the engine's overlap check (the velocity change exposes pre-existing overlaps). Should we (a) widen the overlap tolerance after hold steps, (b) resolve the overlaps by scheduling collisions at t=0, (c) apply friction only at capture, or (d) defer friction entirely?",
+   "why_it_matters": "Chris asked for friction. It is coded but cannot run.",
+   "default_if_unanswered": "Keep friction off until a fix for the overlap handling is built."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Investigate the depth-10 bulk failure: is it the hold method itself or the absence of friction in held contacts? A frictionless held contact lets a sphere slide on the plate indefinitely; in a dense layer at f* 0.3 this may keep more horizontal energy than the paper's model.",
+   "rationale": "The failure is concentrated in horizontal quantities. The clusterlifter with friction would slow that sliding."
+  },
+  {
+   "direction": "Fix the overlap handling for held-contact friction: widen the tolerance in predict() for the re-prediction after a hold step, and handle the resulting t=0 collisions cleanly.",
+   "rationale": "The friction code itself is correct; the obstacle is the fail-fast overlap check on pre-existing near-overlaps."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 297,
+   "limit": 2000
+  },
+  "disk_gb": {
+   "spent": 9.7,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-20T23:00:00-05:00",
+  "actual_start": "2026-11-20T23:00:25-05:00",
+  "ended": "2026-11-21T00:00:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0.3,
+  "cores_available": 14,
+  "disk_free_gb": {
+   "start": 16,
+   "end": 16
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0083",
+    "reason": "Four clusterlifter runs and four baseline runs at Gamma 5 deep layers, launched as background jobs, still compiling"
+   }
+  ],
+  "limits_hit": "Free disk is 16 GB, well under the 40 GB floor but above the 25 GB hard floor. This is from use outside the program (program data 9.7 GB of 15 GB). Eight new jobs launched (four clusterlifter, four baseline)."
+ }
+}

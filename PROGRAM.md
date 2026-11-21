@@ -297,6 +297,27 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 20 findings (L0009 only)
+
+Instruction of Nov 20 (four items on L0009). Session summary:
+`sessions/2026-11-20-L0009.json`.
+
+- **Clusterlifter v4** (`method/held-contact` 3983f59): hold energy booked
+  in EN_HOLD only, not in plate dissipation. The referee's energy audit now
+  shows hold energy as a residual per cycle. EN_HOLD_GAINS tracks per-cycle
+  sum of positive hold-step net values.
+- **Friction code** (D0053): written for plate, wall and sphere-sphere
+  contacts (mu times each step's normal impulse, up to rolling limit, spin
+  updated). Defaults to off: the velocity change from friction exposes
+  pre-existing position-space overlaps in dense layers, triggering the
+  engine's fail-fast overlap check.
+- **Bulk check (E0084):** clusterlifter passes at Gamma 3.5 at both
+  depth-5 conditions (worst 1.29 standard deviations) and at depth-10
+  with f\* 0.5 (worst 0.80). Fails at depth-10 with f\* 0.3: horizontal
+  energy 36% higher, every quantity off by many standard deviations.
+- **Deep Gamma 5 uncapped runs (E0083):** four clusterlifter runs and
+  four baselines launched as background jobs; data not yet available.
+
 ### Nov 18 findings
 
 Instruction of Nov 18 (five items). One seed everywhere; nothing below is a
@@ -838,20 +859,16 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect what is running** (`runs/active.jsonl`): E0069 (400-cycle slow
-  loop, about 1.8 days; rebuild `tools/rates_table.py`), E0071 (L 200 onset
-  loop), E0073 (baseline loops). Queue `runs/q-1118.spec` via `tools/qx7.sh`
-  goes on to the nudge continuations (E0072) and the width-200 passes
-  (E0074 to E0076); its live-job limit is in `runs/q-1118.maxlive`.
-- **Held contacts (option four, item 5 of Nov 18):** E0081/E0082 results in
-  `evidence/E0081-E0082-results.json` (`tools/held_evidence.py`). Then, if
-  Chris agrees: the referee's bulk check and the 3D survival case.
-- **Disk:** free disk fell from 30 to 28 GB tonight from outside the program;
-  the queue holds below 25.5 GB. The width-200 passes need more than the
-  15 GB program budget.
+- **Collect E0083** (`runs/active.jsonl`): four clusterlifter deep Gamma 5
+  runs and four baselines, launched Nov 20. Build the per-cycle energy
+  comparison (item 4).
+- **Collect other lines' jobs**: E0069, E0071, E0073, E0072 (all dead; check
+  whether they finished or were killed).
+- **Clusterlifter bulk failure** at Gamma 3.5, f\* 0.3, depth 10: investigate
+  whether the hold method or the absence of friction causes it.
+- **Friction overlap**: fix the overlap handling so friction can run.
+- **Disk:** free disk 16 GB, program data 9.7 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
-  by `method/held-contact` for tonight's design; kept, not deleted.
-- Chris to decide: push `main` (merge 997eb49 and test commit 0b15165 are
-  local only, D0025).
+  by `method/held-contact`; kept, not deleted.
 
 Earlier items (before Nov 18) are in the git history of this file.
