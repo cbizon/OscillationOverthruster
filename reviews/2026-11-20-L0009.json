@@ -1,0 +1,65 @@
+{
+ "date": "2026-11-20",
+ "line_id": "L0009",
+ "reviewer_model": "claude-opus-4-6",
+ "summary": "The session's main result is the bulk check (E0084): the clusterlifter passes at three of four 2D shallow conditions and fails at Gamma 3.5, f* 0.3, depth 10 with every quantity off. The failure is honestly reported and the evidence matches. No claims were made and no claims changed. Two factual errors in the summary: (1) answer 4 says the hold energy at the four deep Gamma 5 conditions is 'between minus seven parts in a billion and minus one part in ten thousand of the plate's work,' but the minus seven parts in a billion figure comes from the depth-5 Gamma 3.5 conditions, not the deep Gamma 5 ones; the deep Gamma 5 values range from about minus two parts in a hundred thousand to minus one part in ten thousand. (2) The limits_hit field says free disk is 'above the 25 GB hard floor' but records 16 GB free, which is below 25 GB. The E0083 runs (four deep Gamma 5, four baselines) are launched and running but have no output yet; the per-cycle energy comparison (item 4) depends on them. Friction code is written but cannot run, so item 1 is partly answered (code exists, no comparison shown). Twenty dead entries remain in active.jsonl from earlier sessions; the session did not collect finished jobs from other lines.",
+ "reviews": [
+  {
+   "claim_id": "E0084",
+   "plain_claim": "The clusterlifter agrees with the unmodified engine at the depth-5 conditions and at depth 10 with f* 0.5 (all within 1.29 block standard deviations), and disagrees at depth 10 with f* 0.3 (horizontal energy 36 percent higher, worst deviation 55 standard deviations).",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked the E0081 evidence for the four conditions tested in E0084. All have zero audit-failing cycles and hold energy net is always a loss (negative).",
+     "finding": "No energy injection. At the three passing conditions the hold energy is minus seven parts in a billion of the plate's work; at the failing condition it is minus two parts in ten million. The audit is clean."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Compared the E0084 registration (10-block baselines, 3.61 standard deviation threshold) with what was done: two baselines are from E0020 with 10 blocks, two from E0031 with 9 blocks of 100 cycles.",
+     "finding": "The registration says 10-block baselines but two conditions used 9-block baselines from E0031 (1000 cycles, not 1020). The referee's bulk.py adjusts the threshold for the number of blocks, so a pass is still a pass and a fail is still a fail, but the registration does not match what was run. The discrepancy loosens the threshold at two conditions; since both pass, the result is unaffected."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked whether the bulk check covers more than the stall conditions. E0084 runs at Gamma 3.5, not at Gamma 5 where the method was designed to act.",
+     "finding": "The check covers all four Gamma 3.5 conditions where a baseline exists. The failure at depth 10 with f* 0.3 is at a condition with slow episodes in the unmodified engine starting at cycle 285, so the clusterlifter may be changing the dynamics where long contacts are common even at Gamma 3.5."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Checked whether the bulk failure could be an artifact of the held-contact rule rather than a physical difference.",
+     "finding": "Cannot rule it out from the evidence so far. The failing condition (Gamma 3.5, f* 0.3, depth 10) is one where the unmodified engine has slow episodes, so the clusterlifter is acting, and the physics changes. The clusterlifter's horizontal energy is 36 percent higher than the baseline's, which could be the removal of friction in held contacts (the instruction asked for friction, which is not yet running) or a real difference from the contact handling. The E0083 runs, once finished, may shed light at the Gamma 5 conditions."
+    }
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "asked": "Held contacts: does 'tangential motion stays free' mean frictionless sliding? 'No, apply friction.'",
+   "verdict": "partly",
+   "finding": "Friction code was written for plate, wall and sphere-sphere contacts, following the paper's collision model. It defaults to off (D0053) because any velocity change from friction in a hold step triggers the engine's overlap check on pre-existing near-overlaps. The instruction's details asked to 'show where the two first differ'; no comparison between friction on and friction off was produced. The session correctly reports the status and the reason. Verdict 'partly' is fair: the code exists but was not tested and no comparison was shown."
+  },
+  {
+   "asked": "Held contacts next: 'Audit first': 'Make the audit see hold energy, report unconverged solves, rerun the four deep Gamma 5 runs to 120 cycles uncapped, then the bulk check at 2D shallow conditions.'",
+   "verdict": "partly",
+   "finding": "Audit visibility: done, hold energy booked in EN_HOLD and no longer hidden in plate dissipation. Unconverged solves: reported from E0081 (up to about 2.4 million in one run, about 5 percent of its hold steps); the numbers match the evidence. Rerun: eight runs launched (E0083, four clusterlifter and four baselines) but all still compiling at the end of the session and producing no data. Bulk check: done (E0084), three of four pass, one fails. Verdict 'partly' is fair because the deep Gamma 5 reruns are not finished."
+  },
+  {
+   "asked": "Let's call this the clusterlifter solution.",
+   "verdict": "answered",
+   "finding": "The name 'clusterlifter' is used throughout the summary, the line note and the update. Term T0026 was already recorded."
+  },
+  {
+   "asked": "To me part of what we need to understand with these energy audits is how the energy compares to the baseline energies.",
+   "verdict": "partly",
+   "finding": "The instruction details ask for a per-cycle side-by-side comparison of hold energy beside the unmodified engine's plate work, collision dissipation and kinetic energy. This depends on E0083, which is not done. The summary reports whole-run totals from E0081 as interim evidence, with a factual error: the hold energy range 'between minus seven parts in a billion and minus one part in ten thousand' for the four deep Gamma 5 conditions uses a lower bound from the depth-5 Gamma 3.5 conditions (evidence/E0081-E0082-results.json: depth 5 at Gamma 3.5 gives about minus seven parts in a billion; the deep Gamma 5 runs give about minus two parts in a hundred thousand to minus one part in ten thousand)."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session ran from 23:00:25 to midnight, one hour, with no sleep or wake events in the power log during its window. It used 0.3 CPU-hours of its own and launched 8 background jobs (E0083) that are still running. Free disk was 16 GB throughout, below both the 40 GB floor and the 25 GB hard floor, but the program's data (9.7 GB of 15 GB) is not the cause. The 8 launched jobs write very little. No science was limited by the machine.",
+  "discrepancies": [
+   "The summary's limits_hit field says free disk is 'above the 25 GB hard floor' but records 16 GB free; 16 is below 25, not above it.",
+   "active.jsonl has 28 entries, 20 of which are dead processes from earlier sessions (other lines). The session did not collect finished jobs from other lines before starting new work, as CLAUDE.md step 5 requires."
+  ]
+ }
+}
