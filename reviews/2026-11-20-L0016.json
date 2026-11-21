@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-20",
+  "line_id": "L0016",
+  "reviewer_model": "claude-opus-4-6",
+  "summary": "Housekeeping session with no items under Asked and no claims proposed or changed. The instruction asked for three things: collect the E0073 baseline loops, remove the stale push-main item from PROGRAM.md Next, and explain the disk discrepancy. The session did all three (the push-main item had already been removed by L0009's session that night). The E0073 evidence file is internally consistent and the step counts (462), CPU hours (98.1), and failure modes (4 physical failure, 3 CPU budget, 2 frozen time, 1 at step zero) match between the evidence and the summary. Two numerical discrepancies in the summary prose do not match the evidence: (a) the floor comparison is stated as 'baseline floor above the nudge at 8 of 10 frequencies, equal at 2' but the evidence shows 7 above, 2 equal, and 1 where both failed (f* 0.27), so 8 of 10 is off by one; (b) the ceiling gap is stated as '0.1 to 0.4 lower in Gamma' but the evidence gives 0.05 (f* 0.30) to 0.50 (f* 0.57), misstating both ends of the range. Neither discrepancy affects the experiment's verdict (falsified on prediction (i), supported on (ii) through (iv)): the evidence and judgement file are correct, only the summary prose rounds loosely. A third imprecision: 'all 10 loops stopped on the way up between Gamma 4.0 and 4.4' should read 'nine of ten' because f* 0.27 failed at step zero before reaching the up-branch. The line note and update are accurate. No prior reviews or open challenges existed for this line. The session was nine minutes of analysis with no simulation CPU, leaving the machine clean.",
+  "reviews": [],
+  "answers": [],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "Nine-minute analysis-only session. No simulations launched, no CPU spent. Free disk 17 GB at both start and end, below the 40 GB floor but the session correctly noted this and launched nothing. No sleep or wake events during the session window. The E0083 jobs in active.jsonl belong to L0009 and were correctly left alone. Program check passes.",
+    "discrepancies": []
+  }
+}
