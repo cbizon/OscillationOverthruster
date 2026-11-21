@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-20",
+  "line_id": "L0018",
+  "reviewer_model": "claude-opus-4-6",
+  "summary": "The session answered its one item as asked: the width-200 passes now store no height-field arrays, bringing each loop from about 880 MB to about 390 MB. The claim that no analysis tool reads the stored grids is correct (loop_analysis.py uses only the spectrum; pattern_id.py computes its own field from particle positions). The queue spec carries the change on all 30 width-200 entries. E0071 was collected as housekeeping: all 53 steps completed, 22.9 CPU-hours, no slow episode, no audit failure, 311 MB on disk, all verified from the run's ramp.jsonl and step summaries. No new experiments were run and no claims were changed, so the experiments array is correctly empty. The line note and state update on L0018 accurately say what the evidence says. The session took 12 minutes with no simulation CPU. One thing to note: the session's budget reports disk_gb spent as 9.7 (the physical size of sequel-data), while program check counts 4.4 from the ledger. This is the same discrepancy the instruction asked L0016 to explain; it is not an error in L0018's work but should be resolved so that summaries and program check agree.",
+  "reviews": [],
+  "answers": [
+    {
+      "asked": "Width-200 disk: \"Store fewer fields\": \"Keep fewer stored height fields per step so each loop takes much less than 1 GB.\"",
+      "verdict": "answered",
+      "finding": "The instruction asked to keep fewer stored height fields per step so each loop takes much less than 1 GB. The session dropped all height-field arrays from fields.npz for the width-200 passes (D0054), keeping only the Fourier spectrum and variance (121 KB per step compressed versus 2465 KB for the height grid). Per loop: about 390 MB, down from about 880 MB. The queue spec carries SEQUEL_FIELD_FRAMES=none on all 30 width-200 entries (E0074, E0075, E0076). The two-line change in field_recorder.py handles the none value. The claim that no analysis tool reads the stored height grids is verified: loop_analysis.py reads only 'spec' and 'L' from fields.npz; pattern_id.py computes its own field from checkpoint.npz particle positions. No departures."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The session ran from 00:08 to 00:20 on Nov 21 (12 minutes), well within its limit. No simulations were run (the work was a configuration change and collecting a finished job), so zero CPU-hours is correct. No sleep or wake events appear in the pmset log for the session window. Free disk was 17 GB at the start and end, matching the summary. The queue correctly holds the width-200 passes while disk is below the 25.5 GB launch floor.",
+    "discrepancies": [
+      "The session reports disk_gb spent as 9.7 (from du -sh on sequel-data), while program check counts 4.4 from the ledger. The two track different things: the physical folder includes worktrees, tools, and intermediate files the ledger does not account for. The instruction of Nov 20 asked L0016 to explain this gap; it is not an L0018 error, but the summary's budget should say which number it reports."
+    ]
+  }
+}
