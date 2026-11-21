@@ -1,0 +1,36 @@
+{
+ "date": "2026-11-20",
+ "line_id": "L0017",
+ "reviewer_model": "claude-opus-4-6",
+ "summary": "A six-minute housekeeping session that collected one finished background job. Nothing was asked; the instruction said to collect E0069 if finished, otherwise check and stop. E0069 was finished and the session collected it, wrote the outcome, and updated the line records. No claims were made or changed. Every number in the summary and outcome matches the evidence file, and the data file's checksum verifies. The falsification on prediction (iii) is correct: at 400 cycles per step the within-step drift exceeds the 100-cycle drift at two of the four steps where the 100-cycle loop drifted most (Gamma 2.25 going up and 2.2 going down), which is the threshold the registration set. Predictions (i) and (ii) hold as stated. The interpretation is careful: the session says the loop has not converged, not that the gap is or is not real hysteresis. The line note and state update both say what the evidence says.",
+ "reviews": [
+  {
+   "claim_id": "E0069",
+   "plain_claim": "The gap between the way up and the way down at f* 0.44 keeps shrinking with more cycles per step (0.242, 0.200, 0.103 at 25, 100, 400) but has not stopped changing, because the within-step drift at the gap edges is larger at 400 than at 100 cycles per step.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Unequilibrated results",
+     "what_was_done": "Checked whether the larger drift at 400 cycles than at 100 at Gamma 2.25 going up and 2.2 going down could mean the 100-cycle values were accidentally closer to equilibrium. At Gamma 2.25 going up the 400-cycle amplitude is 0.306 against 0.199 at 100 cycles, and the drift is 0.113 against 0.070: the step is still climbing steeply, with the 400-cycle value much higher than the 100-cycle value. At Gamma 2.2 going down the 400-cycle amplitude is 0.247 against 0.306, and the drift is minus 0.150 against minus 0.095: the step is falling further in 400 cycles than in 100. The pattern is that more time lets the step travel farther from its starting state, not that it converges.",
+     "finding": "The larger drift at 400 cycles is consistent with the step not having equilibrated in either case. The gap at these two steps (0.103 at 2.2 and 0.103 at 2.25) is itself the result of incomplete equilibration at both rates. The session's reading, that the loop has not converged, follows from this."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Checked that the amplitude measure and the drift calculation are the same at all three rates. The evidence file names the same tool (rates_table.py) and the same amplitude definition (loop_analysis band amplitude with the white part removed) for all three. The 25-cycle data comes from E0058 (the fast pass steps at f* 0.44), the 100-cycle from E0064, and the 400-cycle from E0069: all are the same no-friction engine, same seed, same box, same Gamma range.",
+     "finding": "No change in method or tolerance between the three rates. The comparison is clean."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Verified every number in the summary and outcome against the evidence file. The gap values (0.242, 0.200, 0.103), the ranges where the gap exceeds 0.05 (2.0 to 2.4, 2.2 to 2.3, 2.2 to 2.25), the drift values at the named steps (0.113 against 0.070, 0.150 against 0.095), and the way-up amplitudes at Gamma 2.25 (0.306 against 0.199) all appear in the evidence table. The data file's SHA-256 (201d7582) matches the recorded checksum. The run folder is 361 megabytes, matching the stated size.",
+     "finding": "Every number checks out. No discrepancy between the summary and the evidence."
+    }
+   ]
+  }
+ ],
+ "answers": [],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "A six-minute housekeeping session that collected a finished background job and wrote records. No simulations were run. The machine was awake on AC throughout, with no sleep events between the last full wake at 19:13 on November 20 and the session's end at 02:09 on November 21. Four caffeinate processes from the L0009 background jobs were keeping the machine awake. Free disk was 17 gigabytes at the time of the session, and the program data was 9.7 gigabytes of 15.",
+  "discrepancies": []
+ }
+}
