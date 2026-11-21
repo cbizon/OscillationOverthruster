@@ -127,21 +127,27 @@ Chris has rated the figures.
 
 - May, without asking:
   - run simulations and comparisons, including the referee's tools;
+  - run jobs on the hosts in `program.toml` (Hatteras) with
+    `program submit`, and follow and collect them with `program jobs`;
   - try ideas on new branches of sequel (`method/<name>`), in worktrees
     under `~/Projects/experiments/sequel-data/worktrees/`;
   - add tests in `tests/`; read the literature; improve performance
     without changing results;
   - delete its own scratch and intermediate files.
 - Must stay inside `~/Projects/experiments/sequel` and
-  `~/Projects/experiments/sequel-data`. Nothing is written anywhere else.
-- Must keep the machine clean: check free disk and memory before starting
+  `~/Projects/experiments/sequel-data`. Nothing is written anywhere else,
+  except that jobs on Hatteras write inside their own run folders, set up
+  by `program submit`. The agent never runs `ssh`, `rsync`, `sbatch` or
+  `scancel` itself, and deletes nothing on Hatteras.
+- Must keep the Mac clean: check free disk and memory before starting
   runs and at the end of each session (limits in `budgets.yaml`), delete
   intermediate output nobody will use, and never leave the disk fuller than
   the budget allows. Chris should never wake up to a full disk or a machine
   out of memory.
 - Must ask first: changing the paper's collision model or constants;
   merging a method into `main`; any single run expected to
-  exceed the per-run budget; anything irreversible.
+  exceed the per-run budget; using a host not in `program.toml`; anything
+  irreversible.
 - May never: edit Chris's files or RoboRobo's (listed in `CLAUDE.md`);
   push, tag, or approve; change the reference data; delete evidence that a
   ledger record or claim points to.
@@ -153,12 +159,16 @@ summary at 50% and 80%, and stops spending at 100% until Chris raises the limit.
 
 ## Cadence
 
-- Sessions: locally on Chris's Mac, as a Claude Code (Code tab) scheduled task
-  that runs only on this computer, 11 pm to 5 am; the checker at 5:30 am,
-  the debrief at 7 am. The Mac must be awake with the app open.
-- Long simulations run as background processes with checkpoints, so they can
-  continue between sessions; sessions pick up finished runs.
-- Running locally is an experiment in itself: every session records its run
-  conditions (see `CLAUDE.md`), and the checker reports on them, so we can
-  decide from evidence whether to move to Sterling or Hatteras.
+- Sessions: on Chris's Mac, started at 11 pm by launchd (`program
+  run-night`), one line at a time, each followed by its checker; no new line
+  starts after 5 am. The Mac must be awake.
+- Long simulations run on Hatteras as Slurm jobs, submitted with
+  `program submit`, with checkpoints so they can be continued. Sessions
+  don't wait for them: each run checks `program jobs`, which brings back
+  progress and finished outputs to `sequel-data/runs/`. Short runs and quick
+  checks may still run on the Mac, within the limits in `budgets.yaml` that
+  apply to it.
+- Chris moved long simulations to Hatteras on Nov 21, after the local
+  nights. Sessions still record their run conditions (see `CLAUDE.md`), and
+  the checker reports on them.
 - Morning: a prepared debrief, as for miner2049er.

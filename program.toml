@@ -15,3 +15,15 @@ debrief = "07:00"
 
 [files]
 human_only = ["DIRECTION.md", "BRIEF.md", "budgets.yaml", "program.toml", "referee/**", "notes/**"]
+
+[hosts.hatteras]
+kind = "slurm"
+ssh = "hatteras"
+workdir = "/projects/sequence_analysis/vol3/bizon/roborobo"
+slots = 48
+partition = "batch"
+time = "2-00:00:00"
+mem = "4G"
+fetch_max_mb = 1000
+fetch_exclude = ["checkpoint*.npz"]
+env = {UV_LINK_MODE = "copy"}

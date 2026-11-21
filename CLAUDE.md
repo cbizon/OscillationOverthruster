@@ -113,7 +113,10 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   session ends.
 - Before starting jobs and at the end of the session, check free disk
   (`df -h ~`), the size of `~/Projects/experiments/sequel-data` (`du -sh`), and memory
-  (`memory_pressure`), and stay within the limits in `budgets.yaml`. Delete
+  (`memory_pressure`), and stay within the limits in `budgets.yaml`. Each
+  limit says where it applies (`where`: `local` is this computer, other names
+  are hosts in `program.toml`) and whether it is a ceiling (`max`) or a
+  floor (`min`); a limit doesn't apply anywhere it doesn't name. Delete
   intermediate output nobody will use. Never delete evidence a ledger
   record points to.
 
@@ -166,8 +169,39 @@ background processes that outlive the run, and record them in your line's
 - Record each job in `~/Projects/experiments/sequel-data/runs/active.jsonl` (experiment id,
   process id, command, start time, expected finish). Remove the entry when
   you collect the job.
-- Stay within the core and memory limits in `budgets.yaml`, counting jobs
-  started by earlier sessions.
+- Stay within the `budgets.yaml` limits `where: [local]` (cores,
+  memory, disk), counting jobs started by earlier sessions.
+
+### On a cluster
+
+If `program.toml` lists `[hosts]`, jobs can run there instead. Use only
+those hosts; asking for another is a decision for Chris.
+
+- Say in the experiment's registration which host and why ("hatteras,
+  because 40 seeds × 6 h").
+- Commit the code, then submit with `program submit --host hatteras
+  --experiment E0131 [--time 6:00:00 --mem 16G --cpus 4] -- uv run python
+  sim.py`. The job runs that commit from the repository's top folder and
+  writes outputs to `$ROBOROBO_OUT`. Arguments are passed as given, so to
+  use `$ROBOROBO_OUT` or `$ROBOROBO_IN` in them, or chain commands, wrap
+  the command in `bash -c '...'`. Never call `ssh`, `rsync`, `sbatch` or
+  `scancel` yourself.
+- Code from another branch: `--tree engine=method/nudge` checks it out at
+  `../engine`, a real git checkout. Sibling repositories named as uv path
+  sources in `pyproject.toml` go along by themselves, at their committed
+  state.
+- Files a job starts from (a checkpoint to continue): `--input <path under
+  ~/Projects/experiments/sequel-data>`, repeatable; the job finds them in `$ROBOROBO_IN`.
+- Don't wait for the job; record its id in your line's `progress.md` and
+  end the run.
+- Run `program jobs` at the start of each run. It syncs every job's
+  outputs (less the host's `fetch_exclude`, such as checkpoints, which stay
+  on the cluster) and Slurm log into
+  `~/Projects/experiments/sequel-data/runs/<experiment>/<host>-<job>/`, running jobs included, so
+  you can follow progress. A job that ended also gets a record,
+  `evidence/<experiment>/<host>-<job>.json` (commits, command, resources,
+  state, `cpu_hours` for the outcome's `cost_actual`); commit it. A failed,
+  vanished or too-big job is a problem to record, not to retry silently.
 
 ## Run conditions
 
