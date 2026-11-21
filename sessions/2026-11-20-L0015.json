@@ -1,0 +1,80 @@
+{
+ "date": "2026-11-20",
+ "line_id": "L0015",
+ "instruction": "instructions/2026-11-20.md",
+ "answers": [
+  {
+   "asked": "Nudge wall at Gamma 4.4: \"Look at fields first\": \"Keep the continuation queued behind the baselines, and tonight look at the nudge fields at Gamma 4.3\u20134.45 to see what changes at the wall.\"",
+   "status": "answered",
+   "answer": "The layer is in period-2 motion: even and odd cycles alternate between a high bounce (layer airborne, few collisions) and a low bounce (layer near the plate, many collisions). This alternation is present from at least Gamma 4.0, well below the wall. What changes at the wall is the collision count in the heavy cycle, which grows rapidly with Gamma and drives the cost: at f* 0.44 the heavy cycle goes from 268 events per particle per cycle at Gamma 4.0 to 9425 at Gamma 4.5, while the light cycle grows from 58 to 850. The CPU cost per cycle doubles between Gamma 4.4 and 4.45 (92 to 226 seconds) and again between 4.45 and 4.5 (226 to 655 seconds). The spatial pattern (wavenumber 3 to 4 across the box at f* 0.44) weakens through the wall and is gone by Gamma 4.4; above it the height-field variance is dominated by the period-2 oscillation, not by a spatial pattern. At f* 0.84 the same period-2 behavior is present but the wall is about 0.1 higher in Gamma (the cost doubles between Gamma 4.45 and 4.5, not between 4.4 and 4.45), and the event-count ratio between heavy and light cycles is similar (14.5 at Gamma 4.5). The wall position across all eight frequencies is Gamma 4.40 to 4.50 with no clear trend in frequency.",
+   "departures": "I looked at f* 0.44 and f* 0.84 in depth (two frequencies as the instruction asked), and checked the wall position at all eight. The E0072 continuations each got one more step (Gamma 4.50 or 4.55) beyond E0065 before hitting their 2 CPU-hour per step guard, all dead; I did not restart them."
+  }
+ ],
+ "headline": "The nudge cost wall at Gamma 4.4 is caused by the layer bouncing on alternate cycles: in one cycle the layer barely lifts off and chatters on the plate (268 to 9425 collisions per particle per cycle between Gamma 4.0 and 4.5 at f* 0.44), and in the next it bounces high with few collisions. The alternation is present from at least Gamma 4.0; what changes at the wall is the collision count in the heavy cycle. The spatial pattern disappears by Gamma 4.4 at f* 0.44.",
+ "experiments": [
+  {
+   "experiment_id": "E0085",
+   "question": "What changes in the layer at the nudge cost wall near Gamma 4.4?",
+   "what_was_done": "Analysed the existing E0065 fast-pass data at Gamma 4.0 to 4.5 at f* 0.44 and f* 0.84: per-cycle center-of-mass height, per-cycle event count from the audit files, per-cycle height-field variance, and the height-field spectrum from the field recorder. Also checked the wall position at all eight frequencies from the summary files.",
+   "result": "Period-2 motion is present at every Gamma examined. At f* 0.44 the per-cycle center-of-mass peak alternates between about 8.4 and 12.6 diameters at Gamma 4.3, and between about 9.1 and 13.2 at Gamma 4.5. The heavy cycle's events per particle per cycle rise from 268 at Gamma 4.0 to 568 at 4.3, 1196 at 4.4, 2810 at 4.45 and 9425 at 4.5; the light cycle rises from 58 to 850 over the same range. The ratio of heavy to light rises from 4.6 to 11.1. The CPU cost per cycle rises smoothly to Gamma 4.35, then doubles between 4.4 and 4.45 and again between 4.45 and 4.5. The spatial pattern (dominant wavenumber bins 3 to 4, wavelength about 25 to 33 diameters) fades through the wall: its spectral power drops from 0.081 at Gamma 4.0 to 0.005 at 4.4. At f* 0.84 the period-2 is weaker below 4.3 (event ratio 2.9 at 4.3 against 6.2 at f* 0.44) but the wall is similar (CPU doubles between 4.45 and 4.5). Across all eight frequencies the wall sits between Gamma 4.40 and 4.50.",
+   "takeaway": "The wall is the period-2 heavy cycle becoming expensive: the layer sits on the plate longer and collides more, with no physics change, just an increasing cost of simulating a single cycle with the nudge method."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Now that we know the wall is the period-2 heavy cycle chattering on the plate, should the nudge continuation above Gamma 4.5 still run? The E0072 continuations each got one step (Gamma 4.50 or 4.55) before hitting the 2 CPU-hour per step cap and are now dead. Going further means either raising the cap (each step would take several CPU-hours) or accepting that the nudge pass covers only up to Gamma 4.4 to 4.5.",
+   "why_it_matters": "The clusterlifter is designed to handle exactly these chattering contacts cheaply, so the nudge may not be the right model to push above Gamma 4.5; the clusterlifter fast pass might be.",
+   "default_if_unanswered": "Leave the continuations dead; the nudge pass covers Gamma 2.0 to 4.4, with the period-2 behavior documented at the top."
+  },
+  {
+   "question": "Every background job from earlier sessions is dead: E0069 (slow loop), E0071 (width-200 onset), all ten E0073 baseline loops, and all eight E0072 nudge continuations. Only the E0083 clusterlifter runs (started by L0009 tonight) are alive. Should the other lines' dead jobs be restarted?",
+   "why_it_matters": "Those jobs carry several hundred CPU-hours of queued work for L0016, L0017, and L0018. This session did not restart them because the instruction said only to look at fields.",
+   "default_if_unanswered": "Report in the summary and let the lines' own runs collect or restart them."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Run the clusterlifter fast pass at the same ten frequencies: its held contacts should handle the period-2 chattering cheaply, and it would show whether the wall moves or disappears with a different contact method.",
+   "rationale": "The wall is a property of the nudge method (each chatter is a full collision); the clusterlifter holds the contact instead of simulating every bounce, so it may not have this wall."
+  },
+  {
+   "direction": "Look at the period-2 boundary (where it appears on the way up) for each frequency in the existing no-friction pass data, to see whether it lines up with Gamma equal to pi or with the layer's first flight exceeding one drive period.",
+   "rationale": "The period-2 onset at Gamma about 4 for this depth is consistent with the layer's free flight exceeding one period, which is a known transition in vibrated granular layers."
+  },
+  {
+   "direction": "Check whether the baseline loops (E0073) finished or died, and collect what they have.",
+   "rationale": "The baseline pass is the next line to report on, and all ten jobs are dead."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 297,
+   "limit": 2000
+  },
+  "disk_gb": {
+   "spent": 9.7,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-20T23:00:00-05:00",
+  "actual_start": "2026-11-20T23:49:51-05:00",
+  "ended": "2026-11-21T00:05:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 3,
+  "disk_free_gb": {
+   "start": 16,
+   "end": 17
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0072",
+    "reason": "All eight nudge continuation jobs are dead; each got one step past E0065 (Gamma 4.50 or 4.55) and hit the 2 CPU-hour per step guard"
+   }
+  ],
+  "limits_hit": "Free disk is 16 to 17 GB, below both the 40 GB floor and the 25 GB hard floor in budgets.yaml; program data is 9.7 GB of 15 GB, so the cause is outside the program. No new jobs were started. Load average was 11 at the start (from E0083 jobs running for L0009). No sleep events."
+ }
+}

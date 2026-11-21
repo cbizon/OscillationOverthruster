@@ -297,6 +297,22 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 20 findings (L0015)
+
+Instruction of Nov 20 (one item on L0015). Session summary:
+`sessions/2026-11-20-L0015.json`.
+
+- **Nudge wall is period-2 (E0085):** the cost wall at Gamma 4.4 in the
+  nudge fast pass is caused by the layer bouncing on alternating cycles.
+  One cycle the layer is airborne (58 to 850 events per particle per cycle
+  between Gamma 4.0 and 4.5 at f\* 0.44); the next it chatters on the
+  plate (268 to 9425). The CPU cost per cycle doubles between 4.4 and 4.45
+  and again between 4.45 and 4.5. The spatial pattern disappears by
+  Gamma 4.4 at f\* 0.44. At f\* 0.84 the wall is about 0.1 higher in
+  Gamma. The E0072 continuations each got one step past E0065 and are dead.
+- **All earlier background jobs dead:** E0069, E0071, E0073 and E0072 are
+  all dead. Only E0083 (from L0009 tonight) is alive.
+
 ### Nov 20 findings (L0009 only)
 
 Instruction of Nov 20 (four items on L0009). Session summary:
@@ -864,10 +880,13 @@ These are findings, not edits; the referee is his.
   comparison (item 4).
 - **Collect other lines' jobs**: E0069, E0071, E0073, E0072 (all dead; check
   whether they finished or were killed).
+- **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that
+  is period-2 chattering. Push through it (costly) or accept the range and
+  test the clusterlifter there?
 - **Clusterlifter bulk failure** at Gamma 3.5, f\* 0.3, depth 10: investigate
   whether the hold method or the absence of friction causes it.
 - **Friction overlap**: fix the overlap handling so friction can run.
-- **Disk:** free disk 16 GB, program data 9.7 GB of 15 GB.
+- **Disk:** free disk 17 GB, program data 9.7 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
 
