@@ -297,6 +297,26 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 20 findings (L0016)
+
+Instruction of Nov 20 (housekeeping only on L0016). Session summary:
+`sessions/2026-11-20-L0016.json`.
+
+- **E0073 collected:** all ten baseline loops (unmodified engine with
+  friction, half-push start) are dead. Nine have usable data; f\* 0.27
+  failed at step zero. The baseline covers Gamma 3.0 down to 2.15 to 2.5
+  and up to 4.0 to 4.35, then fails (physical failure, frozen time, or CPU
+  budget). The nudge reaches 0.1 to 0.4 higher in Gamma at every frequency.
+  Total: 462 completed steps, 98.1 CPU-hours, 680 MB, no audit failures.
+  Falsified on prediction (i).
+- **Disk discrepancy explained:** `program check` sums only the `disk_gb`
+  field from experiment outcomes. Most experiments (67 of 73) recorded zero
+  (pre-dating the field), and 1.8 GB of reference data (`hvar`,
+  `c-baseline`, `bulk-pilot`) predates the program. See
+  `evidence/E0073-disk-discrepancy.json`.
+- **"Push main" item:** already removed from Next by the Nov 20 L0009
+  session.
+
 ### Nov 20 findings (L0018)
 
 Instruction of Nov 20 (one item on L0018). Session summary:
@@ -895,8 +915,8 @@ These are findings, not edits; the referee is his.
 - **Collect E0083** (`runs/active.jsonl`): four clusterlifter deep Gamma 5
   runs and four baselines, launched Nov 20. Build the per-cycle energy
   comparison (item 4).
-- **Collect other lines' jobs**: E0069, E0073, E0072 (all dead; check
-  whether they finished or were killed).
+- **Collect other lines' jobs**: E0069, E0072 (all dead; check
+  whether they finished or were killed). E0073 collected by L0016.
 - **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
   storage cut (D0054). The queue holds while free disk is below 25.5 GB.
 - **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that

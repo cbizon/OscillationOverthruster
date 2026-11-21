@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-20",
+  "line_id": "L0016",
+  "instruction": "instructions/2026-11-20.md",
+  "answers": [],
+  "headline": "Housekeeping session for the baseline fast pass. Collected all ten E0073 loops (all dead): the unmodified engine with friction covers Gamma 3.0 down to 2.15 to 2.5 and up to 4.0 to 4.35 before failing, with nine of ten providing usable data. Explained the disk discrepancy between program check and du.",
+  "experiments": [
+    {
+      "experiment_id": "E0073",
+      "question": "How far does the unmodified engine with friction get on the fast-pass loop at each of ten frequencies?",
+      "what_was_done": "Collected all ten baseline loops (started Nov 18, all dead by this session). Each loop runs the unmodified engine with friction, half-push start at Gamma 3.0, down to the floor, up to 7.0, back, 25 cycles per step in steps of 0.05, with a 2 CPU-hour guard per step going up. Compared floors and ceilings with the nudge pass at the same frequencies.",
+      "result": "Falsified on prediction (i): f* 0.27 failed on its first step (physical failure at Gamma 3.0, zero cycles completed). Supported on (ii): baseline floor above the nudge at 8 of 10 frequencies, equal at 2 (f* 0.33 at Gamma 2.35, f* 0.57 at Gamma 2.2). Supported on (iii): all 10 loops stopped on the way up between Gamma 4.0 and 4.4; none reached 7.0. Supported on (iv): no audit failures in any completed step. Total: 462 completed steps across nine usable loops, 98.1 CPU-hours, 680 MB on disk. Failure modes on the way up: 4 physical failure (overlap), 3 CPU budget, 2 frozen time, 1 at step zero. The baseline ceiling is 0.1 to 0.4 lower in Gamma than the nudge at every frequency.",
+      "takeaway": "The baseline covers the down-ramp and most of the up-ramp but dies 0.1 to 0.4 in Gamma below the nudge's period-2 wall at every frequency. The f* 0.27 loop provides no data. Nine loops give usable comparison with the nudge and no-friction passes over Gamma 1.7 to 4.0 to 4.35.",
+      "graded_by_referee": false
+    }
+  ],
+  "claims_changed": [],
+  "questions": [],
+  "proposed_directions": [
+    {
+      "direction": "Build amplitude-versus-Gamma comparison figures for all three engines (no friction, nudge, baseline) at the nine frequencies where all three have data, to see whether hysteresis differs between engines",
+      "rationale": "The three passes now cover overlapping Gamma ranges at nine frequencies; comparing them is the next step for the phase diagram"
+    },
+    {
+      "direction": "Investigate whether the baseline's earlier failure on the way up (Gamma 4.0 to 4.35 versus 4.4 to 4.5 for the nudge) reflects a physics difference or only the nudge's postponement of the stall",
+      "rationale": "The nudge regularises lasting contacts, so it may mask a transition the baseline cannot cross; or the baseline may simply stall sooner"
+    }
+  ],
+  "budget": {
+    "cpu_hours": {
+      "spent": 390,
+      "limit": 2000
+    },
+    "disk_gb": {
+      "spent": 9.7,
+      "limit": 15
+    }
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-21T01:00:00-05:00",
+    "actual_start": "2026-11-21T01:07:13-05:00",
+    "ended": "2026-11-21T01:16:00-05:00",
+    "interruptions": [],
+    "cpu_hours": 0,
+    "cores_available": 4.4,
+    "disk_free_gb": {
+      "start": 17,
+      "end": 17
+    },
+    "unfinished_runs": [],
+    "limits_hit": "Free disk is 17 GB, below the 40 GB floor, from use outside the program (program data 9.7 GB of 15 GB). No new runs launched. This session was analysis only."
+  }
+}

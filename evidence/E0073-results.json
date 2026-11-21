@@ -1,0 +1,240 @@
+{
+  "experiment_id": "E0073",
+  "description": "Baseline fast pass: unmodified engine with friction, half-push start, ten frequencies, Gamma 3.0 down to the floor, up to 7.0 (or failure), back",
+  "loops": {
+    "0.27": {
+      "fstar": "0.27",
+      "steps_completed": 0,
+      "steps_total": 1,
+      "down_floor": null,
+      "up_ceiling": null,
+      "fail_gamma": 3.0,
+      "fail_mode": "physical_failure",
+      "fail_cycles": 0,
+      "cpu_hours": 0.08,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.30": {
+      "fstar": "0.30",
+      "steps_completed": 46,
+      "steps_total": 48,
+      "down_floor": 2.5,
+      "up_ceiling": 4.25,
+      "fail_gamma": 4.3,
+      "fail_mode": "physical_failure",
+      "fail_cycles": 6,
+      "cpu_hours": 11.71,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.33": {
+      "fstar": "0.33",
+      "steps_completed": 54,
+      "steps_total": 56,
+      "down_floor": 2.35,
+      "up_ceiling": 4.35,
+      "fail_gamma": 4.4,
+      "fail_mode": "cpu_budget",
+      "fail_cycles": 16,
+      "cpu_hours": 13.12,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.38": {
+      "fstar": "0.38",
+      "steps_completed": 47,
+      "steps_total": 49,
+      "down_floor": 2.35,
+      "up_ceiling": 4.0,
+      "fail_gamma": 4.05,
+      "fail_mode": "frozen_time",
+      "fail_cycles": 9,
+      "cpu_hours": 10.04,
+      "audit_failures": 0,
+      "slow_episodes": 3
+    },
+    "0.44": {
+      "fstar": "0.44",
+      "steps_completed": 49,
+      "steps_total": 51,
+      "down_floor": 2.3,
+      "up_ceiling": 4.0,
+      "fail_gamma": 4.05,
+      "fail_mode": "frozen_time",
+      "fail_cycles": 13,
+      "cpu_hours": 10.47,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.50": {
+      "fstar": "0.50",
+      "steps_completed": 46,
+      "steps_total": 48,
+      "down_floor": 2.4,
+      "up_ceiling": 4.05,
+      "fail_gamma": 4.1,
+      "fail_mode": "cpu_budget",
+      "fail_cycles": 1,
+      "cpu_hours": 11.49,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.57": {
+      "fstar": "0.57",
+      "steps_completed": 53,
+      "steps_total": 55,
+      "down_floor": 2.2,
+      "up_ceiling": 4.0,
+      "fail_gamma": 4.05,
+      "fail_mode": "physical_failure",
+      "fail_cycles": 2,
+      "cpu_hours": 9.68,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.65": {
+      "fstar": "0.65",
+      "steps_completed": 53,
+      "steps_total": 55,
+      "down_floor": 2.25,
+      "up_ceiling": 4.1,
+      "fail_gamma": 4.15,
+      "fail_mode": "physical_failure",
+      "fail_cycles": 10,
+      "cpu_hours": 9.05,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.74": {
+      "fstar": "0.74",
+      "steps_completed": 57,
+      "steps_total": 59,
+      "down_floor": 2.15,
+      "up_ceiling": 4.1,
+      "fail_gamma": 4.15,
+      "fail_mode": "cpu_budget",
+      "fail_cycles": 20,
+      "cpu_hours": 12.56,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    },
+    "0.84": {
+      "fstar": "0.84",
+      "steps_completed": 57,
+      "steps_total": 59,
+      "down_floor": 2.2,
+      "up_ceiling": 4.2,
+      "fail_gamma": 4.25,
+      "fail_mode": "physical_failure",
+      "fail_cycles": 13,
+      "cpu_hours": 9.89,
+      "audit_failures": 0,
+      "slow_episodes": 0
+    }
+  },
+  "total_cpu_hours": 98.1,
+  "total_completed_steps": 462,
+  "disk_mb": 680,
+  "comparison_with_nudge": {
+    "0.27": {
+      "nudge_floor": null,
+      "baseline_floor": null,
+      "floor_comparison": "both_failed",
+      "nudge_ceiling": null,
+      "baseline_ceiling": null,
+      "ceiling_comparison": "both_failed"
+    },
+    "0.30": {
+      "nudge_floor": 2.35,
+      "baseline_floor": 2.5,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.3,
+      "baseline_ceiling": 4.25,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.33": {
+      "nudge_floor": 2.35,
+      "baseline_floor": 2.35,
+      "floor_comparison": "baseline_at_or_below",
+      "nudge_ceiling": 4.5,
+      "baseline_ceiling": 4.35,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.38": {
+      "nudge_floor": 2.25,
+      "baseline_floor": 2.35,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.45,
+      "baseline_ceiling": 4.0,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.44": {
+      "nudge_floor": 2.25,
+      "baseline_floor": 2.3,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.45,
+      "baseline_ceiling": 4.0,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.50": {
+      "nudge_floor": 2.2,
+      "baseline_floor": 2.4,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.45,
+      "baseline_ceiling": 4.05,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.57": {
+      "nudge_floor": 2.2,
+      "baseline_floor": 2.2,
+      "floor_comparison": "baseline_at_or_below",
+      "nudge_ceiling": 4.5,
+      "baseline_ceiling": 4.0,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.65": {
+      "nudge_floor": 2.15,
+      "baseline_floor": 2.25,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.45,
+      "baseline_ceiling": 4.1,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.74": {
+      "nudge_floor": 2.05,
+      "baseline_floor": 2.15,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.45,
+      "baseline_ceiling": 4.1,
+      "ceiling_comparison": "baseline_below"
+    },
+    "0.84": {
+      "nudge_floor": 2.0,
+      "baseline_floor": 2.2,
+      "floor_comparison": "baseline_above",
+      "nudge_ceiling": 4.5,
+      "baseline_ceiling": 4.2,
+      "ceiling_comparison": "baseline_below"
+    }
+  },
+  "judgement": {
+    "i_first_step_completes": {
+      "result": "falsified",
+      "detail": "f* 0.27 failed on its first step (physical failure at Gamma 3.0, 0 cycles completed)"
+    },
+    "ii_baseline_floor_above_nudge": {
+      "result": "supported",
+      "detail": "Baseline floor at or below nudge at 2 of 10 frequencies (f* 0.33 and 0.57, both equal); threshold for falsification was 4 or more"
+    },
+    "iii_more_than_half_stop_before_7": {
+      "result": "supported",
+      "detail": "All 10 loops stopped on the way up between Gamma 4.0 and 4.4; none reached 7.0"
+    },
+    "iv_no_energy_gains": {
+      "result": "supported",
+      "detail": "No audit failures in any completed step across all 10 loops"
+    },
+    "overall": "falsified on (i)"
+  }
+}

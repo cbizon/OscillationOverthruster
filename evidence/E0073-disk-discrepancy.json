@@ -1,0 +1,59 @@
+{
+  "question": "Why does program check report 4.4 GB but du -sh reports 9.7 GB?",
+  "answer": "program check sums cost_actual.disk_gb from experiment outcomes in ledger/experiments.jsonl. Most experiments (67 of 73 with outcomes) recorded disk_gb as 0 because the field was not tracked before about Nov 16. The gap has three parts.",
+  "du_total_gb": 9.7,
+  "program_check_gb": 5.1,
+  "breakdown": {
+    "experiments_with_outcome": {
+      "count": 74,
+      "ledger_gb": 5.05,
+      "actual_gb": 7.23,
+      "note": "7 of 74 recorded non-zero disk_gb"
+    },
+    "experiments_without_outcome": {
+      "count": 11,
+      "ids": [
+        "E0045",
+        "E0047",
+        "E0048",
+        "E0069",
+        "E0071",
+        "E0072",
+        "E0074",
+        "E0075",
+        "E0076",
+        "E0083",
+        "E0084"
+      ],
+      "actual_gb": 0.66,
+      "note": "Running or dead but not yet collected"
+    },
+    "pre_runs_data": {
+      "dirs": {
+        "bulk-pilot": 0.131,
+        "c-baseline": 0.307,
+        "checker": 0.011,
+        "figures": 0.001,
+        "hvar": 1.247,
+        "logs": 0.0,
+        "map": 0.0,
+        "survival-pilot": 0.003,
+        "worktrees": 0.085
+      },
+      "total_gb": 1.79,
+      "note": "Reference data, worktrees, checker, figures, map \u2014 not tracked by experiments"
+    },
+    "non_experiment_in_runs": {
+      "gb": 0.001,
+      "note": "tools/, active.jsonl, etc. inside runs/"
+    }
+  },
+  "reconciliation": {
+    "ledger_total": 5.05,
+    "untracked_with_outcome": 2.18,
+    "without_outcome": 0.66,
+    "pre_runs": 1.79,
+    "non_experiment": 0.001,
+    "sum": 9.7
+  }
+}
