@@ -350,6 +350,19 @@ Instruction of Nov 20 (one item on L0015). Session summary:
 - **All earlier background jobs dead:** E0069, E0071, E0073 and E0072 are
   all dead. Only E0083 (from L0009 tonight) is alive.
 
+### Nov 20 findings (L0017)
+
+Instruction of Nov 20 (housekeeping only on L0017). Session summary:
+`sessions/2026-11-20-L0017.json`.
+
+- **E0069 collected:** the 400-cycle-per-step slow loop at f\* 0.44
+  finished: all 29 steps, 34.44 CPU-hours, 361 MB, no slow stretch, no
+  audit failure. The gap between the branches is 0.103 D at Gamma 2.2
+  (range 2.2 to 2.25), against 0.200 D over 2.2 to 2.3 at 100 cycles and
+  0.242 D over 2.0 to 2.4 at 25. Within-step drift is larger at 400 than
+  at 100 cycles at the gap edges (Gamma 2.25 up 0.113 vs 0.070, Gamma 2.2
+  down 0.150 vs 0.095). Falsified on prediction (iii).
+
 ### Nov 20 findings (L0009 only)
 
 Instruction of Nov 20 (four items on L0009). Session summary:
@@ -915,8 +928,8 @@ These are findings, not edits; the referee is his.
 - **Collect E0083** (`runs/active.jsonl`): four clusterlifter deep Gamma 5
   runs and four baselines, launched Nov 20. Build the per-cycle energy
   comparison (item 4).
-- **Collect other lines' jobs**: E0069, E0072 (all dead; check
-  whether they finished or were killed). E0073 collected by L0016.
+- **Collect other lines' jobs**: E0072 (dead; check whether it finished or
+  was killed). E0069 collected by L0017, E0073 by L0016.
 - **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
   storage cut (D0054). The queue holds while free disk is below 25.5 GB.
 - **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that

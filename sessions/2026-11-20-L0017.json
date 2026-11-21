@@ -1,0 +1,54 @@
+{
+ "date": "2026-11-20",
+ "line_id": "L0017",
+ "instruction": "instructions/2026-11-20.md",
+ "answers": [],
+ "headline": "Housekeeping session for the slow loops line. The 400-cycle-per-step loop at f* 0.44 finished: all 29 steps, no slow stretch, no audit failure, 34.44 CPU-hours. The gap between the way up and the way down keeps shrinking (0.103 D at 400 cycles, against 0.200 at 100 and 0.242 at 25) but the within-step drift at the gap edges is larger at 400 than at 100 cycles, so the result has not converged.",
+ "experiments": [
+  {
+   "experiment_id": "E0069",
+   "question": "Does the gap between the way up and the way down at f* 0.44 stop changing at 400 cycles per step?",
+   "what_was_done": "The 400-cycle-per-step slow loop (no friction, one seed, 60000 particles in a box of 100 diameters, f* 0.44, Gamma 1.9 to 2.6 and back in steps of 0.05) was collected. It ran as a background job from Nov 18 and finished on Nov 20. The evidence tool compared the amplitudes and within-step drift at 25, 100 and 400 cycles per step.",
+   "result": "All 29 steps complete, 34.44 CPU-hours, 361 megabytes, no slow stretch, no audit failure. The largest gap between the branches is 0.103 D at Gamma 2.2 (the range where the gap exceeds 0.05 D is 2.2 to 2.25), against 0.200 D over 2.2 to 2.3 at 100 cycles per step and 0.242 D over 2.0 to 2.4 at 25. The 400-cycle way up is higher than the 100-cycle way up at all four steps from 2.15 to 2.3 (most at 2.25: 0.306 against 0.199 D). But the within-step drift is larger at 400 than at 100 cycles at 2 of the 4 most-drifting steps: Gamma 2.25 going up (0.113 against 0.070 D) and Gamma 2.2 going down (0.150 against 0.095 D). Falsified on prediction (iii).",
+   "takeaway": "The gap shrinks steadily with more cycles per step but has not stopped shrinking. The drift has moved inward: at 100 cycles the edges that drifted most were 2.3 up and 2.15 down; at 400 they are 2.25 up and 2.2 down. The next slower rate (1600 cycles per step, about 138 CPU-hours) would test whether the gap stabilises or closes."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Should the 1600-cycle-per-step loop run next? It costs about 138 CPU-hours (5.8 days on one core).",
+   "why_it_matters": "The gap has shrunk by half from 25 to 100 and roughly half again from 100 to 400 cycles per step, but the edge steps are still drifting. Without a slower loop we cannot say whether the gap converges to a nonzero value (real hysteresis) or continues to close (a ramp-rate artifact). The cost is well within the weekly budget but ties up a core for nearly six days.",
+   "default_if_unanswered": "Register and start the 1600-cycle loop on the next L0017 night."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Run the 1600-cycle loop at f* 0.44, then a second frequency (f* 0.38 or 0.33, where the fast pass showed a wider gap) at the rate that stabilised f* 0.44.",
+   "rationale": "Convergence at one frequency tells us the ramp rate needed; a second frequency tests whether the gap is a general feature near the first onset."
+  },
+  {
+   "direction": "Hold experiments: pick the two Gamma values that bracket the gap (about 2.2 and 2.25 at 400 cycles per step) and run a long hold at each from both directions, to see whether the amplitudes converge to the same value.",
+   "rationale": "A hold removes ramp-rate effects entirely. If the two holds give different amplitudes, the hysteresis is real at that point. This is slower per point but more direct than halving the ramp rate repeatedly."
+  },
+  {
+   "direction": "Compare the gap across contact methods (the clusterlifter, once it passes the bulk check at more conditions) to test whether it is robust or method-dependent.",
+   "rationale": "Even if the gap is real, it matters only if it does not depend on the contact method. This can wait until the gap's size is known, but planning the comparison now keeps it in view."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {"spent": 424.772, "limit": 2000},
+  "disk_gb": {"spent": 5.413, "limit": 15}
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-21T02:00:00-05:00",
+  "actual_start": "2026-11-21T02:03:25-05:00",
+  "ended": "2026-11-21T02:09:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 9.1,
+  "disk_free_gb": {"start": 17, "end": 17},
+  "unfinished_runs": [],
+  "limits_hit": "None: this was a housekeeping session that collected a finished background job."
+ }
+}

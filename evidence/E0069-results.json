@@ -1,6 +1,6 @@
 {
  "experiment": "E0069",
- "interim": true,
+ "interim": false,
  "what": "Gap and within-step drift at each ramp rate (Nov 18 instruction, item 2): the no-friction loop at f* 0.44, Gamma 1.9 to 2.6 and back, at 25 cycles per step (E0058, whose steps the fast pass reuses), 100 (E0064) and 400 (E0069). Same amplitude as E0064 (loop_analysis: band amplitude with the white part removed, A; every ring, A_all).  Drift: last quarter of a step minus its first quarter.  Gap: way down minus way up at the same Gamma.  Safe to run while E0069 is running (interim).  Writes evidence/E0069-results.json.",
  "summary_by_cycles_per_step": {
   "25": {
@@ -26,12 +26,15 @@
    "steps_drifting_over_0p05": 4
   },
   "400": {
-   "steps_done": 2,
+   "steps_done": 29,
    "steps_in_loop": 29,
-   "largest_gap": null,
-   "gamma_where_gap_over_0p05": null,
-   "largest_abs_drift": 0.0196,
-   "steps_drifting_over_0p05": 0
+   "largest_gap": 0.103,
+   "gamma_where_gap_over_0p05": [
+    2.2,
+    2.25
+   ],
+   "largest_abs_drift": 0.1503,
+   "steps_drifting_over_0p05": 2
   }
  },
  "table": [
@@ -53,10 +56,10 @@
    },
    "400": {
     "up_A": 0.03,
-    "down_A": null,
-    "gap": null,
+    "down_A": 0.0313,
+    "gap": 0.0013,
     "up_drift": -0.0044,
-    "down_drift": null
+    "down_drift": -0.001
    }
   },
   {
@@ -77,10 +80,10 @@
    },
    "400": {
     "up_A": 0.0134,
-    "down_A": null,
-    "gap": null,
+    "down_A": 0.0182,
+    "gap": 0.0048,
     "up_drift": 0.0196,
-    "down_drift": null
+    "down_drift": 0.0233
    }
   },
   {
@@ -100,11 +103,11 @@
     "down_drift": -0.0169
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.0,
+    "down_A": 0.0,
+    "gap": 0.0,
+    "up_drift": 0.0,
+    "down_drift": 0.0
    }
   },
   {
@@ -124,11 +127,11 @@
     "down_drift": -0.0029
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.0,
+    "down_A": 0.0254,
+    "gap": 0.0254,
+    "up_drift": 0.0,
+    "down_drift": -0.0467
    }
   },
   {
@@ -148,11 +151,11 @@
     "down_drift": -0.0443
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.0466,
+    "down_A": 0.0567,
+    "gap": 0.0101,
+    "up_drift": 0.0244,
+    "down_drift": -0.0049
    }
   },
   {
@@ -172,11 +175,11 @@
     "down_drift": -0.0924
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.0939,
+    "down_A": 0.0898,
+    "gap": -0.0041,
+    "up_drift": 0.0232,
+    "down_drift": 0.0035
    }
   },
   {
@@ -196,11 +199,11 @@
     "down_drift": -0.0948
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.1454,
+    "down_A": 0.2467,
+    "gap": 0.1013,
+    "up_drift": 0.0139,
+    "down_drift": -0.1503
    }
   },
   {
@@ -220,11 +223,11 @@
     "down_drift": 0.0017
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.3061,
+    "down_A": 0.4091,
+    "gap": 0.103,
+    "up_drift": 0.1125,
+    "down_drift": -0.0144
    }
   },
   {
@@ -244,11 +247,11 @@
     "down_drift": -0.0202
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.4135,
+    "down_A": 0.463,
+    "gap": 0.0495,
+    "up_drift": 0.0445,
+    "down_drift": -0.0022
    }
   },
   {
@@ -268,11 +271,11 @@
     "down_drift": 0.0369
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.4555,
+    "down_A": 0.4856,
+    "gap": 0.0301,
+    "up_drift": -0.0215,
+    "down_drift": 0.0302
    }
   },
   {
@@ -292,11 +295,11 @@
     "down_drift": -0.0305
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.485,
+    "down_A": 0.4877,
+    "gap": 0.0027,
+    "up_drift": 0.0236,
+    "down_drift": -0.0034
    }
   },
   {
@@ -316,11 +319,11 @@
     "down_drift": 0.0224
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.5072,
+    "down_A": 0.5196,
+    "gap": 0.0124,
+    "up_drift": -0.0017,
+    "down_drift": -0.0108
    }
   },
   {
@@ -340,11 +343,11 @@
     "down_drift": -0.0003
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.5156,
+    "down_A": 0.5237,
+    "gap": 0.0081,
+    "up_drift": 0.0124,
+    "down_drift": 0.0086
    }
   },
   {
@@ -364,11 +367,11 @@
     "down_drift": -0.0118
    },
    "400": {
-    "up_A": null,
-    "down_A": null,
-    "gap": null,
-    "up_drift": null,
-    "down_drift": null
+    "up_A": 0.5425,
+    "down_A": 0.5274,
+    "gap": -0.0151,
+    "up_drift": 0.0157,
+    "down_drift": -0.0076
    }
   },
   {
@@ -388,10 +391,10 @@
     "down_drift": null
    },
    "400": {
-    "up_A": null,
+    "up_A": 0.5425,
     "down_A": null,
     "gap": null,
-    "up_drift": null,
+    "up_drift": 0.0137,
     "down_drift": null
    }
   }
@@ -409,8 +412,8 @@
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0069/mu0-3d-f0.44-slow400/ramp.jsonl",
-   "bytes": 367,
-   "sha256": "ba60e1deec8d1e4f78cc4b7b6b9d6e26cfa997d7b17549e112302d071a4f9dcb"
+   "bytes": 5381,
+   "sha256": "201d758230954a18a438b00fecdd512fe52c62bea14ab2288d87f928aa40d568"
   }
  ],
  "tools": [
@@ -431,8 +434,8 @@
   },
   {
    "path": "/Users/bizon/Projects/experiments/sequel-data/runs/tools/field_recorder.py",
-   "bytes": 7864,
-   "sha256": "385d0783fef4dcfa6a9f6355a7df6ac546f4cfe6c1fc78aadd5030d314773488"
+   "bytes": 7914,
+   "sha256": "ecfeffdd4d8ca74397b5796fc052574895802e6d20a94ddf79e8256c6d318d24"
   }
  ]
 }
