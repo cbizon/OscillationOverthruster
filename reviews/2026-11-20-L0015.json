@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-20",
+  "line_id": "L0015",
+  "reviewer_model": "claude-opus-4-6",
+  "summary": "The session answered its one item correctly: it identified the nudge cost wall at Gamma 4.4 as period-2 bouncing, with the heavy cycle's collision count driving the cost. Every number in the summary traces to the evidence file. No claims were proposed. The session ran only 15 minutes of pure analysis, used zero CPU-hours, and left the machine clean. The disk budget number in the session summary (9.7 GB) is from du and disagrees with program check (4.4 GB); this discrepancy predates the session and is assigned to L0016 to investigate. Free disk is 17 GB, well below the 40 GB floor, from causes outside the program.",
+  "reviews": [],
+  "answers": [
+    {
+      "asked": "Nudge wall at Gamma 4.4: \"Look at fields first\": \"Keep the continuation queued behind the baselines, and tonight look at the nudge fields at Gamma 4.3\u20134.45 to see what changes at the wall.\"",
+      "verdict": "answered",
+      "finding": "The session analysed existing E0065 data at f* 0.44 and f* 0.84 (two frequencies, as the Details section required) and checked the wall position at all eight frequencies. It identified what changes at the wall: the layer is in period-2 motion, bouncing on alternating cycles, and the heavy cycle's collision count grows rapidly with Gamma, doubling the CPU cost between Gamma 4.4 and 4.45. Numbers in the summary match the evidence file: 268 to 9425 events per particle per cycle in the heavy cycle at f* 0.44 (from the event_alternation section), CPU per cycle 91.6 to 225.6 to 655.1 at Gamma 4.4, 4.45, 4.5 (from cpu_and_events_at_wall), and spectral power at k_bin 4 dropping from 0.0813 at Gamma 4.0 to 0.0033 at Gamma 4.4 (from spectrum_at_wall). The wall sits between Gamma 4.40 and 4.50 at all eight frequencies (wall_positions section). The E0072 continuations were left dead, consistent with the instruction to keep them queued behind the baselines. The analysis went wider than asked (Gamma 4.0 to 4.5 rather than 4.3 to 4.45), which provides context without replacing the question."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The session started 49 minutes late (23:49 against a 23:00 schedule) because L0009 ran first on the same night, and lasted about 15 minutes. This is adequate for an analysis-only session with zero CPU hours. No sleep events during the session window. Free disk is 17 GB, far below the 40 GB floor, from causes outside the program (program data is 9.7 GB of 15 GB). No new jobs were launched, which is correct given the disk situation. Load average was 11 from E0083 jobs started by L0009.",
+    "discrepancies": [
+      "The session reports budget cpu_hours spent as 297, while program check reports 292 from the ledger. The gap is small (about 5 CPU-hours) and may come from E0083 jobs launched by L0009 this same night whose CPU time the session counted from logs but which have no ledger outcome yet.",
+      "The session reports disk_gb spent as 9.7 (from du), while program check reports 4.4 from the ledger. This discrepancy predates the session and is assigned to L0016 to explain."
+    ]
+  }
+}
