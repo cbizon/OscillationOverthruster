@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-21",
+  "line_id": "L0015",
+  "reviewer_model": "claude-opus-4-6",
+  "summary": "Both items were answered. The inelastic ball model is correctly computed, frequency-independent, and every number in the summary traces to the evidence. The eight loop continuations are submitted to Hatteras with a 48-hour per-step guard, as the instruction asked. No claims were proposed. One minor inaccuracy: the summary says the nudge cost at Gamma 3.5 ranges from 15 to 22 seconds per cycle across frequencies, but the evidence shows the actual range starts at about 13 (12.73 at one frequency); the stated range understates the variation. The lines update says the model 'explains' the wall, but the experiment outcome is marked inconclusive because the prediction (cost peaks near Gamma 4.6 and drops by 5.0) has not been tested; the model correlates with the wall but whether it explains it awaits the E0089 results. Free disk is 15 GB, well below the 40 GB floor; the session correctly sends all work to Hatteras.",
+  "reviews": [],
+  "answers": [
+    {
+      "asked": "Nudge wall: \"My inclination is to push through it.\"",
+      "verdict": "answered",
+      "finding": "The eight loops (f* 0.33 to 0.84) are continued on Hatteras with the per-step guard raised from 2 to 48 CPU-hours. This directly does what the item asks. The first submission (jobs 164647 to 164654) failed because of a doubled path in the wrapper argument; the session caught the error, resubmitted as jobs 164655 to 164662, and recorded the correction. No results yet, which is expected: Hatteras jobs are collected at the start of the next session."
+    },
+    {
+      "asked": "\"Imagine the layer as a single fully inelastic ball. When it hits the plate it sticks. When the plate's acceleration is down and bigger than g, the layer separates and flies ballistically until the next collision. This simple model shows things like the period doubling and allows you to estimate how hard the collisions will be to the plate. If based on that we feel like we're entering a long phase, we can still push through it I bet.\"",
+      "verdict": "answered",
+      "finding": "The model is computed at all ten frequencies, Gamma 3.0 to 7.0 in steps of 0.05, and compared with the nudge cost data from E0065. Every number in the summary appears in the evidence. Period-2 onset at Gamma 3.7: in the ball model evidence at f* 0.44, period2 is false at 3.65 and true at 3.7. Impact at Gamma 4.6 at f* 0.44: the evidence gives 0.2479 and 0.7261 (the summary says 0.25 and 0.73). Period-1 returns at 4.65: the evidence shows period2 false, impact 1.5938 (summary says 1.59). Impact at Gamma 5.0: 6.4977 (summary says 6.5). Stuck fraction at 4.6: 0.4659 (summary says 0.47); at 5.0: 0.266 (summary says 0.27). All these are correct roundings. The nudge cost at f* 0.44 at Gamma 4.3 is 47.82 (summary says 48) and at 4.4 is 81.97 (summary says 82): both correct. At Gamma 3.5 the cost across frequencies ranges from 12.73 to 21.87, but the summary says 15 to 22; the lower bound is off by about two seconds, a minor inaccuracy that does not change the argument. The prediction (cost peaks within 0.3 of Gamma 4.6 and drops to the 4.3 level by 5.0) is registered before the model was run, and the outcome is correctly recorded as inconclusive pending the E0089 continuation loops. The instruction said to do item 2 first, and the session did."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The session started 58 minutes late (23:58 against a 23:00 schedule), because L0009 ran on the same night first. It lasted 27 minutes, all spent on analysis and job submission, with no local CPU use (0.001 CPU-hours). No sleep events during the session window (pmset shows only Chrome display-assertion toggles, no Sleep or Wake). Free disk is 15 GB, well below the 40 GB floor; the session correctly ran nothing locally and submitted all work to Hatteras. The sequel-data directory is 10 GB, within the 15 GB budget. The tmp directory is empty. This is adequate for a session whose work was computing the ball model and submitting jobs.",
+    "discrepancies": [
+      "The session reports budget cpu_hours spent as 470; program check reports 464.415. The gap of about 6 CPU-hours is small and may come from rounding across sessions or from E0083 jobs collected this night whose hours were estimated slightly differently.",
+      "The lines update at 05:25 says the model 'explains the nudge cost wall', but the E0088 outcome is 'inconclusive' because the prediction has not been tested. The state was updated again at 05:30 with the same wording. 'Explains' is stronger than the evidence supports at this point; the model is consistent with the wall but the test of its prediction (whether cost peaks near 4.6 and drops by 5.0) awaits E0089."
+    ]
+  }
+}
