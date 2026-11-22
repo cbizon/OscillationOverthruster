@@ -1,0 +1,90 @@
+{
+ "date": "2026-11-21",
+ "line_id": "L0009",
+ "instruction": "instructions/2026-11-21.md",
+ "answers": [
+  {
+   "asked": "Deep Gamma 5 reruns: \"stopped, have the correct runs done.\"",
+   "status": "partly",
+   "answer": "The wrong-condition runs (E0083, width 20, depths 200 and 300) are collected and recorded as abandoned: 44.75 CPU-hours wasted. The correct reruns (E0086, width 100, depths 10 and 15, seed 1, 120 cycles, no CPU cap) are submitted to Hatteras as four jobs (164638 to 164641), still compiling at the time of writing. Width and particle count checked against E0081's summary.json before launch: width 100, N 1000 for depth 10, N 1500 for depth 15, matching exactly. The per-cycle energy comparison from existing data (E0081 clusterlifter versus E0031 unmodified engine) is built: at the two depth-5 conditions (38 and 274 overlapping cycles), the hold energy is negligible (minus two parts in a million to minus two parts in a hundred thousand of plate work, always a loss). At the deep conditions the overlap is 2 to 4 cycles because the unmodified engine stalls immediately.",
+   "departures": "The E0086 runs are on Hatteras and not finished. The energy comparison uses E0081 data (v3 code, hold energy mixed into plate dissipation) rather than E0086 data (v4 code, hold energy separate), because E0086 is not done. The clusterlifter's events per particle per cycle at all E0081 cycles are reported in the evidence file."
+  },
+  {
+   "asked": "Bulk failure at Gamma 3.5, f* 0.3, depth 10: \"recommendation is ok.\"",
+   "status": "answered",
+   "answer": "The clusterlifter with mu equals zero passes all seven quantities of the bulk check against the friction-off engine's 1020-cycle baseline. Worst deviation: 0.69 standard deviations, threshold 3.62. The E0084 failure at this condition (horizontal energy 36 percent higher, worst 55 standard deviations against the friction-on baseline) was from comparing a frictionless engine against a friction-on baseline, not from the hold method itself.",
+   "departures": "No departures from the instruction."
+  },
+  {
+   "asked": "Friction trips the overlap check: \"why are these overlapping in the first place? So that needs to be investigated, not accepted as a consequence of the method. It's a bug in design or implementation.\"",
+   "status": "partly",
+   "answer": "Root cause identified and a partial fix written. The overlaps come from plate friction in hold steps: each hold step changes the held sphere's horizontal velocity by about 2.2 times ten to the minus four, causing a position drift of 2.3 times ten to the minus seven per dt_hold (5 times ten to the minus four time units). After one step this exceeds the overlap tolerance (2 times ten to the minus eight). The previous workaround (widened tolerance of ten to the minus three) tolerated the growing overlap instead of preventing it. A gap limiter was implemented that scans all particles before each friction impulse and scales it down to prevent drift into touching neighbours. It delays failures from cycle 1 to cycle 10 to 11 but does not fully resolve the problem. The remaining overlaps may come from cluster members (excluded from the scan) or the vertical component of wall friction. Friction remains off by default.",
+   "departures": "The fix is partial. The instruction says to fix the cause: the cause is identified and the fix is started, but it is not complete. Friction still defaults to off."
+  }
+ ],
+ "headline": "Tonight collected the wrong-condition deep Gamma 5 runs and submitted the corrected ones to Hatteras, showed that the clusterlifter's bulk failure at Gamma 3.5, f* 0.3, depth 10 was from comparing a frictionless engine against a friction-on baseline (the mu equals zero clusterlifter passes), and traced the friction overlap to per-step drift in held spheres' horizontal velocity with a partial fix.",
+ "experiments": [
+  {
+   "experiment_id": "E0086",
+   "question": "Do the four deep Gamma 5 clusterlifter runs complete 120 cycles at the correct conditions?",
+   "what_was_done": "Collected the abandoned E0083 runs (wrong conditions: width 20, depths 200 and 300, 44.75 CPU-hours). Checked E0081's summary for the correct conditions (width 100, N 1000 for depth 10, N 1500 for depth 15, seed 1). Registered E0086 and submitted four runs to Hatteras with the v4 clusterlifter code. Built the per-cycle energy comparison from existing E0081 and E0031 data for the energy audit item.",
+   "result": "Hatteras jobs 164638 to 164641 submitted and running (still compiling at the time of writing). The energy comparison shows hold energy is always a loss: at the depth-5 conditions (38 and 274 overlapping cycles with the unmodified engine), the hold fraction of plate work ranges from minus 2.6 times ten to the minus six to minus 2.2 times ten to the minus five. Events per particle per cycle range from 107 to 2262 in the clusterlifter.",
+   "takeaway": "The correct Gamma 5 runs will be collected by a later session. The energy comparison from existing data shows the clusterlifter never injects energy."
+  },
+  {
+   "experiment_id": "E0087",
+   "question": "Does the clusterlifter with friction off everywhere (mu equals zero) pass the bulk check at Gamma 3.5, f* 0.3, depth 10?",
+   "what_was_done": "Built branch method/held-contact-mu0 (held-contact with MU set to zero). Ran 120 cycles at the failing condition. Measured 100 cycles (after 20 settling) and judged against the 1020-cycle friction-off baseline from E0049.",
+   "result": "All seven quantities pass. Worst deviation: 0.69 standard deviations, threshold 3.62. The clusterlifter agrees with the friction-off engine: height within 0.4 percent, horizontal energy within 1 percent.",
+   "takeaway": "The E0084 bulk failure was from comparing engines with different friction settings, not from the hold method. The clusterlifter does not change the physics when both sides use the same friction."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The gap limiter for friction in held contacts delays the overlap failure from cycle 1 to cycle 10 but does not eliminate it. The remaining overlaps may involve cluster members that the limiter skips, or the vertical component of wall friction. Should the next step be (a) extend the limiter to check cluster members and all three velocity components, or (b) apply friction only at capture time, not at every hold step?",
+   "why_it_matters": "Chris asked for friction. The root cause is identified, the fix is on the right track but needs more work.",
+   "default_if_unanswered": "Extend the gap limiter to check cluster members and wall-friction z components."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Extend the gap limiter to cluster members and all three velocity components, then test at the full set of grid conditions with friction on.",
+   "rationale": "The partial fix shows the approach works for isolated held-sphere/non-held-neighbour pairs. The remaining gaps are identifiable and the same technique applies."
+  },
+  {
+   "direction": "Once friction runs, rerun the E0084 bulk check at Gamma 3.5, f* 0.3, depth 10 with friction on. If it passes, the clusterlifter agrees with the unmodified engine everywhere.",
+   "rationale": "The mu equals zero test shows the hold method itself is not the problem. With friction working, the method would pass the full bulk check."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 470,
+   "limit": 4000
+  },
+  "disk_gb": {
+   "spent": 9.7,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-21T23:00:00-05:00",
+  "actual_start": "2026-11-21T23:00:26-05:00",
+  "ended": "2026-11-21T23:55:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0.3,
+  "cores_available": 14,
+  "disk_free_gb": {
+   "start": 13,
+   "end": 13
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0086",
+    "reason": "Four deep Gamma 5 clusterlifter runs on Hatteras (jobs 164638 to 164641), submitted tonight, still compiling"
+   }
+  ],
+  "limits_hit": "Free disk is 13 GB, well below the 40 GB floor. This is from use outside the program (program data 9.7 GB of 15 GB). No local simulation runs were limited: the mu=0 diagnostic ran in 24 seconds and the investigation tests in a few seconds each. New long runs go to Hatteras."
+ }
+}

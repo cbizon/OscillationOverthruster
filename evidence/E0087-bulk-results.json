@@ -1,0 +1,75 @@
+{
+  "experiment": "E0087",
+  "description": "Clusterlifter mu=0 bulk check at Gamma 3.5, f* 0.3, depth 10, against mu=0 baseline (E0049)",
+  "engine": "method/held-contact-mu0 (ee877c7, clusterlifter v4 with MU=0)",
+  "baseline": "E0049/mu0-main-g3.5-f0.3-d10-s1-1020 (1020-cycle, 10-block)",
+  "condition": {
+    "gamma": 3.5,
+    "fstar": 0.3,
+    "depth": 10,
+    "dim": 2,
+    "L": 100,
+    "N": 1000,
+    "seed": 1
+  },
+  "clusterlifter_cycles": 120,
+  "measure_window": {
+    "from_cycle": 20,
+    "cycles": 100,
+    "period": 2
+  },
+  "threshold": 3.62,
+  "verdict": "all pass",
+  "quantities": {
+    "zcm": {
+      "baseline": 16.1903,
+      "sd": 0.0877,
+      "method": 16.2508,
+      "sigmas": 0.69,
+      "pass": true
+    },
+    "thickness": {
+      "baseline": 12.8533,
+      "sd": 0.095,
+      "method": 12.8842,
+      "sigmas": 0.33,
+      "pass": true
+    },
+    "ke_vertical": {
+      "baseline": 7.5742,
+      "sd": 0.0878,
+      "method": 7.56,
+      "sigmas": -0.16,
+      "pass": true
+    },
+    "ke_horizontal": {
+      "baseline": 2.0262,
+      "sd": 0.1177,
+      "method": 2.0489,
+      "sigmas": 0.19,
+      "pass": true
+    },
+    "temp_vertical": {
+      "baseline": 5.3419,
+      "sd": 0.1515,
+      "method": 5.3035,
+      "sigmas": -0.25,
+      "pass": true
+    },
+    "temp_horizontal": {
+      "baseline": 1.9941,
+      "sd": 0.0909,
+      "method": 2.0094,
+      "sigmas": 0.17,
+      "pass": true
+    },
+    "plate_contact": {
+      "baseline": 0.0208,
+      "sd": 0.0007,
+      "method": 0.0205,
+      "sigmas": -0.45,
+      "pass": true
+    }
+  },
+  "conclusion": "The E0084 failure was from comparing a frictionless clusterlifter against a friction-on baseline, not from the hold method itself."
+}

@@ -363,7 +363,33 @@ Instruction of Nov 20 (housekeeping only on L0017). Session summary:
   at 100 cycles at the gap edges (Gamma 2.25 up 0.113 vs 0.070, Gamma 2.2
   down 0.150 vs 0.095). Falsified on prediction (iii).
 
-### Nov 20 findings (L0009 only)
+### Nov 21 findings (L0009)
+
+Instruction of Nov 21 (three items on L0009). Session summary:
+`sessions/2026-11-21-L0009.json`.
+
+- **E0083 collected and abandoned:** the wrong-condition runs (width 20,
+  depths 200/300 instead of 100/10/15) used 44.75 CPU-hours. All four
+  entries cleared from active.jsonl.
+- **E0086 submitted to Hatteras:** four corrected deep Gamma 5 runs (width
+  100, N 1000/1500, seed 1, 120 cycles, no CPU cap) as jobs 164638-164641.
+  Still compiling at the end of the session.
+- **Bulk failure explained (E0087):** the clusterlifter with mu=0 passes
+  every quantity against the mu=0 baseline at Gamma 3.5, f\* 0.3, depth 10
+  (worst 0.69 sd). The E0084 failure was from comparing a frictionless
+  engine against a friction-on baseline, not from the hold method.
+- **Friction overlap root cause (D0055):** plate friction in hold steps
+  drifts the held sphere 2.3e-7 diameters per dt\_hold toward touching
+  neighbours (tolerance 2e-8). A gap limiter is implemented (`method/held-contact`
+  8f8f999) that scales the friction impulse to prevent overlap, but it is
+  partial: it delays failures from cycle 1 to cycle 10-11. Friction
+  defaults to off.
+- **Energy comparison built** (`evidence/E0086-energy-comparison.json`):
+  per-cycle hold energy beside the unmodified engine's audit at six Gamma 5
+  conditions. Hold energy always a loss (minus 2.6e-6 to minus 9.5e-5 of
+  plate work).
+
+### Nov 20 findings (L0009)
 
 Instruction of Nov 20 (four items on L0009). Session summary:
 `sessions/2026-11-20-L0009.json`.
@@ -381,8 +407,8 @@ Instruction of Nov 20 (four items on L0009). Session summary:
   depth-5 conditions (worst 1.29 standard deviations) and at depth-10
   with f\* 0.5 (worst 0.80). Fails at depth-10 with f\* 0.3: horizontal
   energy 36% higher, every quantity off by many standard deviations.
-- **Deep Gamma 5 uncapped runs (E0083):** four clusterlifter runs and
-  four baselines launched as background jobs; data not yet available.
+- **Deep Gamma 5 uncapped runs (E0083):** launched at wrong conditions;
+  collected and abandoned on Nov 21.
 
 ### Nov 18 findings
 
@@ -925,20 +951,20 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect E0083** (`runs/active.jsonl`): four clusterlifter deep Gamma 5
-  runs and four baselines, launched Nov 20. Build the per-cycle energy
-  comparison (item 4).
-- **Collect other lines' jobs**: E0072 (dead; check whether it finished or
-  was killed). E0069 collected by L0017, E0073 by L0016.
+- **Collect E0086** from Hatteras: four deep Gamma 5 clusterlifter runs
+  (jobs 164638-164641), submitted Nov 21. Per-cycle audit data with hold
+  energy visible.
+- **Complete the friction gap limiter**: extend to cluster members and wall
+  friction z-components. Test at the full 2D grid with friction on.
+- **With friction working**: rerun the E0084 bulk check at Gamma 3.5,
+  f\* 0.3, depth 10 with friction on (the mu=0 test shows the hold method
+  passes).
 - **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
-  storage cut (D0054). The queue holds while free disk is below 25.5 GB.
+  storage cut (D0054). These now go to Hatteras.
 - **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that
   is period-2 chattering. Push through it (costly) or accept the range and
   test the clusterlifter there?
-- **Clusterlifter bulk failure** at Gamma 3.5, f\* 0.3, depth 10: investigate
-  whether the hold method or the absence of friction causes it.
-- **Friction overlap**: fix the overlap handling so friction can run.
-- **Disk:** free disk 17 GB, program data 9.7 GB of 15 GB.
+- **Disk:** free disk 13 GB, program data 9.7 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
 

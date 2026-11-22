@@ -1,0 +1,43 @@
+{
+  "experiment": "investigation",
+  "line_id": "L0009",
+  "description": "Friction overlap root cause investigation and partial fix (Nov 21 instruction item 3)",
+  "root_cause": {
+    "mechanism": "Plate friction in hold steps changes the held sphere horizontal velocity. Between hold steps, the sphere drifts at this new velocity toward touching neighbours. The drift per step (about 2.3e-7 diameters) exceeds the overlap tolerance (2e-8) after one step.",
+    "code_path": "granular/edmd.py hold_cluster_step, lines 1097-1113: friction impulse S[a,SVX] += ptx, S[a,SVY] += pty",
+    "previous_workaround": "Widened tolerance htol=1e-3 in re-prediction (line 1210), which tolerated growing overlaps instead of preventing them",
+    "traced_pair": "Spheres 80 and 81 in a 2D Gamma 3.5, f*0.3, depth 10, N=100 run",
+    "overlap_at_failure": -7.2e-07,
+    "tolerance": 2e-08,
+    "steps_to_failure": 8
+  },
+  "fix_attempted": {
+    "name": "_friction_gap_limit",
+    "approach": "After computing each friction impulse, scan all particles. For each non-cluster neighbour within gap < 1e-4, compute the closing rate from the friction velocity change and scale the impulse to keep the gap non-negative (using half the gap as the limit).",
+    "result": "Partial success. The fix delays overlap failures from cycle 1 to cycle 10-11 at the test condition. The remaining failures may be from cluster members (excluded from the scan) or the z-component of wall friction (not fully checked). The gap limiter correctly limits plate friction for isolated held-sphere/non-held-neighbour pairs.",
+    "status": "partial \u2014 friction remains off by default until complete",
+    "commit": "8f8f999 on method/held-contact"
+  },
+  "tests_run": [
+    {
+      "condition": "friction=True, mu=0 (no impulse)",
+      "result": "50 cycles clean \u2014 confirming the tolerance alone is not the issue"
+    },
+    {
+      "condition": "friction=True, mu=0.001",
+      "result": "50 cycles clean"
+    },
+    {
+      "condition": "friction=True, mu=0.01",
+      "result": "overlap cycle 11"
+    },
+    {
+      "condition": "friction=True, mu=0.1",
+      "result": "overlap cycle 10"
+    },
+    {
+      "condition": "friction=True, mu=0.5",
+      "result": "overlap cycle 10"
+    }
+  ]
+}
