@@ -1,0 +1,53 @@
+{
+ "date": "2026-11-21",
+ "line_id": "L0017",
+ "instruction": "instructions/2026-11-21.md",
+ "answers": [
+  {
+   "asked": "A better plan would be an unfixed rate where we just sit and wait until we achieve some statistical hold and then we go up/down however much. Stopping rule is fine.",
+   "status": "answered",
+   "answer": "Built and submitted. The settle-then-step ramp (tools/settle_ramp.py) runs each step in blocks of 50 cycles, checking after at least 200 cycles whether the pattern amplitude and layer height have settled (the mean of the last 100 cycles within 2 block standard errors of the previous 100). A step that settles advances Gamma; one that reaches 3000 cycles is recorded unsettled. The loop (E0090) uses the same engine, box, seed and Gamma range as the 25, 100 and 400-cycle loops so the results compare directly. It was submitted to Hatteras as job 164664 (single core, 5-day wall time).",
+   "departures": "None. The stopping rule follows the instruction: blocks of 50, windows of 100, 2 standard errors, minimum 200, maximum 3000."
+  }
+ ],
+ "headline": "Built the settle-then-step ramp tool (tools/settle_ramp.py) and submitted the first adaptive-rate loop (E0090) to Hatteras, following the agreed stopping rule. The loop will show whether the gap between the way up and the way down at f* 0.44 persists when each step is given enough time to equilibrate, or whether it closes as the fixed-rate loops have been trending.",
+ "experiments": [
+  {
+   "experiment_id": "E0090",
+   "question": "Does the gap between the way up and the way down at f* 0.44 persist when each step is given as long as it needs to equilibrate?",
+   "what_was_done": "Registered the settle-then-step loop on the frictionless unmodified engine (mu0-unmodified, 765c1f0), 60000 particles in a box of 100 diameters, seed 1, f* 0.44, Gamma 1.9 to 2.6 and back in steps of 0.05 (29 steps). The stopping rule (D0056) runs each step in blocks of 50 cycles: after at least 200 cycles, it compares two 100-cycle windows (each split into two 50-cycle blocks) and settles when the mean of the last 100 cycles is within 2 block standard errors of the previous 100 for both the pattern amplitude and the layer height. The maximum is 3000 cycles per step. The tool was tested on a small 2D case on the Mac. Submitted to Hatteras as job 164664, single core, 5-day wall time, estimated 80 CPU-hours.",
+   "result": "Job submitted; no results yet.",
+   "takeaway": "The result will come when the job finishes. At the per-step cost of the 400-cycle loop (8 to 17 seconds per cycle), a step that settles at 200 cycles costs 0.4 to 0.9 CPU-hours; at 3000 cycles, 7 to 14 CPU-hours. The whole ramp should finish in 2 to 4 days."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "Once the settle-then-step loop finishes, compare its gap against the three fixed-rate loops and report which steps settled, which did not, and how many cycles each took. If the gap has closed, the hysteresis was a ramp-rate artifact. If it persists at specific Gamma values, those are candidates for long-hold experiments.",
+   "rationale": "The settle-then-step loop is the decisive test of whether the gap is real or a ramp-rate artifact. The analysis tool (loop_analysis.py) already works on settle_ramp.py's output because the step-directory structure is the same as ramp.py's."
+  },
+  {
+   "direction": "Run a second frequency (f* 0.38 or 0.33, where the fast pass showed a wider gap) at the settle-then-step rate.",
+   "rationale": "Convergence at one frequency tells us the ramp rate needed; a second frequency tests whether the gap is a general feature near the first onset."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {"spent": 695.33, "limit": 4000},
+  "disk_gb": {"spent": 10.0, "limit": 15}
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-22T00:39:00-05:00",
+  "actual_start": "2026-11-22T00:39:26-05:00",
+  "ended": "2026-11-22T00:57:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 12.9,
+  "disk_free_gb": {"start": 15, "end": 14},
+  "unfinished_runs": [
+   {"experiment_id": "E0090", "reason": "Hatteras job 164664, just submitted, estimated 2 to 4 days"}
+  ],
+  "limits_hit": "None. The settle ramp runs on Hatteras; no local simulation was run."
+ }
+}

@@ -389,6 +389,21 @@ Instruction of Nov 21 (three items on L0009). Session summary:
   conditions. Hold energy always a loss (minus 2.6e-6 to minus 9.5e-5 of
   plate work).
 
+### Nov 21 findings (L0017)
+
+Instruction of Nov 21 (one item on L0017). Session summary:
+`sessions/2026-11-21-L0017.json`.
+
+- **Settle-then-step ramp built** (`tools/settle_ramp.py`, D0056): each step
+  runs in blocks of 50 cycles, checking after at least 200 whether the pattern
+  amplitude and layer height have settled (the mean of the last 100 cycles
+  within 2 block standard errors of the previous 100). Maximum 3000 cycles per
+  step. Tested on a small 2D case on the Mac.
+- **E0090 submitted to Hatteras:** the settle-then-step loop at f\* 0.44 on
+  the frictionless unmodified engine, same box and seed as the 25, 100 and
+  400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
+  core, 5-day wall time, estimated 80 CPU-hours.
+
 ### Nov 20 findings (L0009)
 
 Instruction of Nov 20 (four items on L0009). Session summary:
@@ -965,7 +980,10 @@ These are findings, not edits; the referee is his.
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
   and drops by 5.0.
-- **Disk:** free disk 13 GB, program data 9.7 GB of 15 GB.
+- **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
+  loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
+  the settled-rate gap against the 25, 100 and 400-cycle gaps.
+- **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
 

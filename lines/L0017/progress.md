@@ -25,10 +25,22 @@ ramp-rate artifact (it closes when we give the system more time at each step).
 
 ## Jobs in flight
 
-None.
+- **E0090** (settle-then-step loop): Hatteras job 164664, submitted
+  2026-11-22. Frictionless unmodified engine (mu0-unmodified, 765c1f0),
+  3D, N 60000, L 100, f* 0.44, seed 1, Gamma 1.9 to 2.6 and back in
+  steps of 0.05 (29 steps). Each step runs in blocks of 50 cycles with
+  the stopping rule (D0056): settled when the mean of the last 100 cycles
+  is within 2 block standard errors of the previous 100 for both pattern
+  amplitude and layer height; minimum 200, maximum 3000. Checkpoints kept
+  at Gamma multiples of 0.5 and in the gap (Gamma 2.0 to 2.4).
+  Estimated 80 CPU-hours, 2 to 4 days.
 
 ## Next
 
-- The 1600-cycle loop is the next rate. It costs about 138 CPU-hours (5.8
-  days on one core) and would show whether the gap continues to shrink or
-  has stabilised. Waiting for Chris.
+- Collect E0090 when it finishes. Compare the settled-rate gap against the
+  25, 100 and 400-cycle gaps. Report which steps settled, which did not,
+  and how many cycles each took.
+- If the gap has closed, it was a ramp-rate artifact.
+- If it persists, the unsettled steps locate where the gap remains, and
+  long-hold experiments at those Gamma values are the next test.
+- A second frequency (f* 0.38 or 0.33) at the settle-then-step rate.
