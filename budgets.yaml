@@ -3,7 +3,7 @@
 budgets:
   # Simulation CPU time, measured from the runs, not estimated.
   cpu_hours:
-    - {max: 4000, per: week, where: [local, hatteras]}
+    - {max: 10000, per: week, where: [local, hatteras]}
     - {max: 100, per: run, where: [local, hatteras]}
   # Includes simulations left running by earlier sessions. The Mac has 14
   # cores; 10 leaves room for Chris's own work.
