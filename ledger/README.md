@@ -13,3 +13,8 @@ earlier line was changed.
   where it stands, and a note per night. `program map` builds the
   scientist's page from it.
 - `terms.jsonl`: the names the records use, with definitions.
+- `artifacts.jsonl`: data folders: what runs produced, where each lives
+  (here or on a cluster), the code and inputs it came from, a manifest of
+  its files in `manifests/`, and when it was deleted. `program jobs`
+  records cluster outputs; `program record` records data here; data is only
+  deleted with `program delete`.

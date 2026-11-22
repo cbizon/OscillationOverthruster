@@ -43,5 +43,7 @@
   "nodes": "compute-13-1",
   "outputs": "/Users/bizon/Projects/experiments/sequel-data/runs/E0089/hatteras-164649",
   "ended_at": "2026-11-22T05:23:13Z",
-  "record": "evidence/E0089/hatteras-164649.json"
+  "record": "evidence/E0089/hatteras-164649.json",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0089/hatteras-164649",
+  "artifact_id": "A0083"
 }

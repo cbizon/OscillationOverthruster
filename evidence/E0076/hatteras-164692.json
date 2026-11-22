@@ -37,5 +37,7 @@
   "outputs": "/Users/bizon/Projects/experiments/sequel-data/runs/E0076/hatteras-164692",
   "synced_at": "2026-11-22T06:27:14Z",
   "ended_at": "2026-11-22T06:33:04Z",
-  "record": "evidence/E0076/hatteras-164692.json"
+  "record": "evidence/E0076/hatteras-164692.json",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0076/hatteras-164692",
+  "artifact_id": "A0089"
 }

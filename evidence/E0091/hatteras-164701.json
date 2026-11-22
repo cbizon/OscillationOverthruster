@@ -1,0 +1,46 @@
+{
+  "host": "hatteras",
+  "job_id": "164701",
+  "experiment_id": "E0091",
+  "line_id": "L0019",
+  "commit": "68008d45d98813634fa1188a80e64259d66aad2c",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel",
+      "commit": "68008d45d98813634fa1188a80e64259d66aad2c",
+      "branch": "main"
+    },
+    "engine": {
+      "repo": "/Users/bizon/Projects/experiments/sequel",
+      "commit": "0600773b04e2e71c6ab526ce84d8973ee1eb7fa6",
+      "branch": "method/ride"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "e33ca0b4777b499262e7df7b267724fd9e4cecbf",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "SEQUEL_V_CAPTURE=1e-4 uv run python referee/long_contact.py --engine ../engine --dim 2 --gamma 3.5 --fstar 0.5 --N 1500 --L 100 --depth 15 --seed 1 --cycles 120 --max-cpu-hours 2 --outdir $ROBOROBO_OUT"
+  ],
+  "sbatch": {
+    "time": "4:00:00",
+    "mem": "4G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0091/20261122T070059Z",
+  "submitted_at": "2026-11-22T07:00:59Z",
+  "state": "FAILED",
+  "exit_code": "1:0",
+  "elapsed": "00:00:26",
+  "cpu_hours": 0.007,
+  "nodes": "compute-13-2",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0091/hatteras-164701",
+  "ended_at": "2026-11-22T22:13:20Z",
+  "artifact_id": "A0103",
+  "record": "evidence/E0091/hatteras-164701.json"
+}

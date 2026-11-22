@@ -105,12 +105,24 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
 - Records (`PROGRAM.md`, `ledger/`, `sessions/`, `evidence/`) are committed
   on `main`. Code you try out goes on branches as `BRIEF.md` says; merging
   into `main` needs Chris.
-- Large outputs go under `~/Projects/experiments/sequel-data/runs/<experiment-id>/`, never in git.
-  Keep only what a claim needs, and record the size of what you keep in the
-  evidence file.
-- Stay inside `~/Projects/experiments/sequel` and `~/Projects/experiments/sequel-data`. Write nothing anywhere else,
-  including temporary files: use `~/Projects/experiments/sequel-data/tmp/` and empty it before the
-  session ends.
+- Everything in `~/Projects/experiments/sequel-data` is one of four kinds, and `program check`
+  fails on anything else:
+  - **Data**, what runs produce, in `~/Projects/experiments/sequel-data/runs/<experiment-id>/`
+    here or in a job's run folder on a cluster, never in git. Every data
+    folder is an artifact in `ledger/artifacts.jsonl`, with a manifest of
+    its files. Record a folder here with `program record <folder>` when you
+    create it and again when it is finished; `program jobs` records cluster
+    outputs itself. Delete data only with `program delete <id> --reason
+    ...`, never `rm`; cited data can't be deleted. Cite artifacts by id
+    (A0123) in evidence and outcomes.
+  - **Scratch** in `~/Projects/experiments/sequel-data/tmp/`, never recorded; empty it before
+    the session ends. Data fetched to look at goes in `tmp/fetch/` and is
+    removed after every run.
+  - **Code**: git repositories, such as method worktrees and clones of
+    other code.
+  - **Operational state**: `jobs/`, `logs/`, `map/`, `mirror/`, and files
+    directly in `runs/` such as `active.jsonl`.
+- Stay inside `~/Projects/experiments/sequel` and `~/Projects/experiments/sequel-data`. Write nothing anywhere else.
 - Before starting jobs and at the end of the session, check free disk
   (`df -h ~`), the size of `~/Projects/experiments/sequel-data` (`du -sh`), and memory
   (`memory_pressure`), and stay within the limits in `budgets.yaml`. Each
@@ -163,7 +175,9 @@ background processes that outlive the run, and record them in your line's
 
 - Start each with `caffeinate -i nice -n 10 ...` so the Mac doesn't sleep
   under it and Chris's daytime work keeps priority, with output and
-  a log under the experiment's `~/Projects/experiments/sequel-data/runs/` folder.
+  a log under the experiment's `~/Projects/experiments/sequel-data/runs/` folder. Run `program
+  record` on that folder when you start the job, and again when you collect
+  it.
 - Checkpoint often enough that a job killed at any moment loses less than
   about 30 minutes, and make every job resumable.
 - Record each job in `~/Projects/experiments/sequel-data/runs/active.jsonl` (experiment id,
@@ -190,21 +204,31 @@ those hosts; asking for another is a decision for Chris.
 - Code from another branch: `--tree engine=method/nudge` checks it out at
   `../engine`, a real git checkout. Another repository: clone it into
   `~/Projects/experiments/sequel-data` and use `--tree name=<its path>:<revision>`; it lands at
-  `../name`, and the job can `cd` there and `uv run` in its own project. Sibling repositories named as uv path
-  sources in `pyproject.toml` go along by themselves, at their committed
-  state.
-- Files a job starts from (a checkpoint to continue): `--input <path under
-  ~/Projects/experiments/sequel-data>`, repeatable; the job finds them in `$ROBOROBO_IN`.
+  `../name`, and the job can `cd` there and `uv run` in its own project.
+  Sibling repositories named as uv path sources in `pyproject.toml` go along
+  by themselves, at their committed state.
+- Inputs a job starts from (a checkpoint to continue) are artifacts:
+  `--input A0123[:path/in/it]`, or a path inside a recorded folder here;
+  repeatable. The job finds a copy in `$ROBOROBO_IN`, so it can't change the
+  original. An input on the same cluster is copied there, not through this
+  computer.
 - Don't wait for the job; record its id in your line's `progress.md` and
   end the run.
-- Run `program jobs` at the start of each run. It syncs every job's
-  outputs (less the host's `fetch_exclude`, such as checkpoints, which stay
-  on the cluster) and Slurm log into
-  `~/Projects/experiments/sequel-data/runs/<experiment>/<host>-<job>/`, running jobs included, so
-  you can follow progress. A job that ended also gets a record,
+- Outputs stay on the cluster. Run `program jobs` at the start of each run:
+  it copies only small files (the host's `fetch` patterns, such as
+  `*.json`) and the Slurm log into
+  `~/Projects/experiments/sequel-data/mirror/<experiment>/<host>-<job>/`, running jobs included,
+  so you can follow progress. A job that ended becomes an artifact (its id
+  is printed), and gets a job record,
   `evidence/<experiment>/<host>-<job>.json` (commits, command, resources,
-  state, `cpu_hours` for the outcome's `cost_actual`); commit it. A failed,
-  vanished or too-big job is a problem to record, not to retry silently.
+  state, `cpu_hours` for the outcome's `cost_actual`). Commit the ledger and
+  the record. A failed or vanished job is a problem to record, not to retry
+  silently.
+- To look at anything else, `program fetch A0123[:path]` copies it into
+  `~/Projects/experiments/sequel-data/tmp/fetch/`; it is gone after the run. Look at whatever you
+  need. For an analysis over a lot of data (every step of a loop), it's
+  quicker to run it as a job next to the data, with the artifact as its
+  input, and look at the small result.
 
 ## Run conditions
 

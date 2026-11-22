@@ -44,5 +44,7 @@
   "outputs": "/Users/bizon/Projects/experiments/sequel-data/runs/E0089/hatteras-164654",
   "synced_at": "2026-11-22T05:24:49Z",
   "ended_at": "2026-11-22T05:40:28Z",
-  "record": "evidence/E0089/hatteras-164654.json"
+  "record": "evidence/E0089/hatteras-164654.json",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0089/hatteras-164654",
+  "artifact_id": "A0088"
 }
