@@ -1,0 +1,57 @@
+{
+ "date": "2026-11-21",
+ "line_id": "L0009",
+ "reviewer_model": "claude-opus-4-6",
+ "summary": "No claims were proposed or changed. The session's main result is that the clusterlifter with mu equals zero passes the bulk check at Gamma 3.5, f* 0.3, depth 10 (E0087), explaining the E0084 failure as a friction-mismatch artifact. The evidence supports this: all seven quantities within 0.69 standard deviations of the mu equals zero baseline, threshold 3.62. The friction overlap root cause is identified and honestly reported as a partial fix. Two minor factual issues: (1) the E0086 experiment result says events per particle per cycle range from 107 to 2262, but the evidence file shows the overlap-cycle range goes from about 20 to 3229 across the six conditions, and the all-cycle range reaches 23 thousand; (2) the line update's state says 'the clusterlifter passes the bulk check with matched friction settings' without scoping it to the one condition tested (Gamma 3.5, f* 0.3, depth 10 with mu equals zero). Neither affects a claim. The active.jsonl cleanup noted in the Nov 20 review is resolved: it is now empty, with Hatteras jobs tracked in progress.md. The machine did not limit the science: the diagnostic ran in 24 seconds and the larger runs go to Hatteras.",
+ "reviews": [
+  {
+   "claim_id": "E0087",
+   "plain_claim": "The clusterlifter with mu equals zero passes all seven quantities of the bulk check at Gamma 3.5, f* 0.3, depth 10 against the mu equals zero baseline (E0049), with worst deviation 0.69 standard deviations and threshold 3.62. The E0084 failure at this condition was from comparing a frictionless engine against a friction-on baseline, not from the hold method.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Checked the E0087 evidence file for the baseline used, the number of blocks, and the threshold. The registration says to judge against the friction-off engine's 1020-cycle baseline (E0049). The evidence file names E0049/mu0-main-g3.5-f0.3-d10-s1-1020 as the baseline, with a 10-block window and threshold 3.62. This matches the standard pass rule (10 blocks, 3.61 rounded to two decimal places).",
+     "finding": "The baseline, block count and threshold are consistent with the standard bulk check used in E0084 and earlier experiments. No loosened tolerance."
+    },
+    {
+     "check": "Tuned to the test case",
+     "what_was_done": "Checked whether the mu equals zero test covers the right condition. E0084 failed only at Gamma 3.5, f* 0.3, depth 10; the other three conditions passed despite the friction mismatch. E0087 tests only the failing condition.",
+     "finding": "Testing only the one failing condition is the right diagnostic: it asks whether the hold method itself is the problem at this condition, or the friction mismatch. The three passing conditions already showed the hold method works there even with the mismatch. No issue."
+    },
+    {
+     "check": "Energy injection",
+     "what_was_done": "The E0087 evidence file does not include an audit. Checked whether the E0081 evidence (which covers the clusterlifter at Gamma 3.5 conditions) has a clean audit. E0081 reports zero audit-failing cycles and hold energy always a net loss at all conditions.",
+     "finding": "The mu equals zero clusterlifter should produce the same audit picture as the standard clusterlifter at this condition, since mu equals zero means no friction impulse and therefore no friction-related changes. The E0081 audit is clean. No energy injection concern."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "The E0084 failure (horizontal energy 36 percent higher, 55 standard deviations) looked like it could be a contact-method artifact or a friction-mismatch artifact. E0087 separates the two by running the same method without friction against a baseline also without friction.",
+     "finding": "With matched friction settings, the worst deviation is 0.69 standard deviations. The 36 percent horizontal energy excess vanishes. This is clean evidence that the hold method does not change the physics at this condition when friction is controlled. The remaining question is whether the method with friction on will also pass, but that depends on finishing the gap limiter and is correctly left as future work."
+    }
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "asked": "Deep Gamma 5 reruns: 'stopped, have the correct runs done.'",
+   "verdict": "partly",
+   "finding": "The wrong-condition runs (E0083, width 20, depths 200 and 300) are collected and recorded as abandoned with their cost (44.75 CPU-hours). The correct reruns (E0086, width 100, depths 10 and 15, seed 1, 120 cycles) are registered and submitted to Hatteras as four jobs. The conditions were checked against E0081's summary before launch. The energy comparison from existing E0081 and E0031 data is built. Verdict 'partly' is fair: the correct runs are submitted but not finished, so the item is not done. One minor factual issue: the experiment result says events per particle per cycle range from 107 to 2262, but the evidence file's overlap-cycle range spans about 20 to 3229 and the all-cycle range reaches 23 thousand."
+  },
+  {
+   "asked": "Bulk failure at Gamma 3.5, f* 0.3, depth 10: 'recommendation is ok.'",
+   "verdict": "answered",
+   "finding": "The session did what was recommended: ran the clusterlifter with mu equals zero against the mu equals zero baseline (E0049). All seven quantities pass, worst 0.69 standard deviations. The evidence file is complete and the numbers match the summary. The conclusion that the E0084 failure was from mismatched friction settings, not the hold method, is supported."
+  },
+  {
+   "asked": "Friction trips the overlap check: 'why are these overlapping in the first place? So that needs to be investigated, not accepted as a consequence of the method. It's a bug in design or implementation.'",
+   "verdict": "partly",
+   "finding": "The root cause is identified: plate friction in hold steps changes the held sphere's horizontal velocity by about two parts in ten thousand, causing a position drift of about 2.3 times ten to the minus seven per hold time step, which exceeds the overlap tolerance of two times ten to the minus eight after one step. The D0055 evidence file documents the traced pair, the code path, and the previous workaround (widened tolerance). A gap limiter is written that delays failure from cycle 1 to cycle 10-11 but does not fully resolve it. The instruction asked to 'fix the cause' and 'don't widen the tolerance': the cause is found and the fix is on the right track, but it is not complete. Verdict 'partly' is fair."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session ran from 23:00:26 to 23:55, 55 minutes, with no sleep or wake events in the power log during its window (only Chrome video-wake assertions, no system Sleep or DarkWake). It used 0.3 CPU-hours locally and submitted four jobs to Hatteras. The mu equals zero diagnostic (E0087) ran in about 24 seconds. Free disk was 13 GB throughout, well below the 40 GB floor, but the program's data (9.7 GB of 15 GB) is within budget and the shortfall is from use outside the program. No local simulation runs were limited: the investigation tests each took seconds, and the larger runs go to Hatteras. The active.jsonl is now empty (all earlier dead entries cleared), an improvement from the Nov 20 review. The tmp directory is empty.",
+  "discrepancies": []
+ }
+}
