@@ -6,17 +6,17 @@
   {
    "asked": "Nudge wall: \"My inclination is to push through it.\"",
    "status": "answered",
-   "answer": "Yes, pushed through: the eight loops (f* 0.33 to 0.84) are continued on Hatteras with the per-step guard raised to 48 CPU-hours (E0089, jobs 164647 to 164654). Each loop picks up from its last completed step (Gamma 4.45 to 4.5) and runs up to 7.0 and back. The inelastic ball model (E0088) predicts the cost should peak near Gamma 4.6 and drop back above that, so the 48-hour guard should be sufficient for the remaining steps.",
+   "answer": "Yes, pushed through: the eight loops (f* 0.33 to 0.84) are continued on Hatteras with the per-step guard raised to 48 CPU-hours (E0089, jobs 164655 to 164662). Each loop picks up from its last completed step (Gamma 4.45 to 4.5) and runs up to 7.0 and back. The inelastic ball model (E0088) predicts the cost should peak near Gamma 4.6 and drop back above that, so the 48-hour guard should be sufficient for the remaining steps.",
    "departures": "None. The loops are submitted but not yet running past the wall; results come when program jobs collects them."
   },
   {
    "asked": "\"Imagine the layer as a single fully inelastic ball. When it hits the plate it sticks. When the plate's acceleration is down and bigger than g, the layer separates and flies ballistically until the next collision. This simple model shows things like the period doubling and allows you to estimate how hard the collisions will be to the plate. If based on that we feel like we're entering a long phase, we can still push through it I bet.\"",
    "status": "answered",
    "answer": "The inelastic ball model is computed at all ten frequencies, Gamma 3.0 to 7.0 in steps of 0.05. The model is frequency-independent: all transitions depend only on Gamma, not f*. Period-2 onset at Gamma 3.7 (the debrief said 3.72). Both landings soft (impact below 1 g/omega) at Gamma 4.6, with impacts 0.25 and 0.73 g/omega at f* 0.44 (matching the debrief). Period-1 returns at 4.65 (impact 1.59 g/omega). Impact back to 6.5 g/omega by Gamma 5.0, the same as at Gamma 3.5. The stuck fraction (plate contact time per period) peaks at 0.47 at Gamma 4.6 and drops to 0.27 by 5.0. The nudge wall at Gamma 4.3 to 4.45 sits 0.15 to 0.3 below the ball model soft point. The registered prediction (cost peaks within 0.3 of Gamma 4.6 and is back near the Gamma 4.3 level by 5.0) will be tested when the loops continue past the wall.",
-   "departures": "None."
+   "departures": "The model was computed at all ten frequencies, not just one, and was compared with the existing nudge cost data."
   }
  ],
- "headline": "The completely inelastic ball model predicts the nudge cost peak: the layer's collision severity dips to near zero at Gamma 4.6 (both landings soft, impact 0.25 and 0.73 g/omega) and rises back to Gamma 3.5 levels by 5.0, independent of frequency. All eight nudge loops are submitted to Hatteras (jobs 164647 to 164654) with a 48-hour per-step guard to push through the wall.",
+ "headline": "The completely inelastic ball model predicts the nudge cost peak: the layer's collision severity dips to near zero at Gamma 4.6 (both landings soft, impact 0.25 and 0.73 g/omega) and rises back to Gamma 3.5 levels by 5.0, independent of frequency. All eight nudge loops are submitted to Hatteras (jobs 164655 to 164662) with a 48-hour per-step guard to push through the wall.",
  "experiments": [
   {
    "experiment_id": "E0088",
@@ -80,7 +80,7 @@
   "unfinished_runs": [
    {
     "experiment_id": "E0089",
-    "reason": "Eight nudge loop continuations submitted to Hatteras (jobs 164647-164654), not yet started"
+    "reason": "Eight nudge loop continuations submitted to Hatteras (jobs 164655-164662 (resubmitted after fixing the wrapper path; first attempt jobs 164647-164654 failed)), not yet started"
    }
   ],
   "limits_hit": "Free disk is 15 GB, well below the 40 GB floor. No local runs started; all work goes to Hatteras. The session was analysis and job submission only."

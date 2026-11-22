@@ -961,9 +961,10 @@ These are findings, not edits; the referee is his.
   passes).
 - **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
   storage cut (D0054). These now go to Hatteras.
-- **Nudge wall decision**: the nudge pass covers Gamma 2.0 to 4.4; above that
-  is period-2 chattering. Push through it (costly) or accept the range and
-  test the clusterlifter there?
+- **Nudge loops above the wall** (E0089): eight continuations on Hatteras
+  (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
+  The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
+  and drops by 5.0.
 - **Disk:** free disk 13 GB, program data 9.7 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.

@@ -34,14 +34,14 @@
 
 | Experiment | Host | Job ID | f* | From Gamma | Description |
 |---|---|---|---|---|---|
-| E0089 | hatteras | 164647 | 0.33 | 4.50 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164648 | 0.38 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164649 | 0.44 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164650 | 0.50 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164651 | 0.57 | 4.50 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164652 | 0.65 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164653 | 0.74 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164654 | 0.84 | 4.50 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164655 | 0.33 | 4.50 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164656 | 0.38 | 4.45 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164657 | 0.44 | 4.45 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164658 | 0.50 | 4.45 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164659 | 0.57 | 4.50 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164660 | 0.65 | 4.45 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164661 | 0.74 | 4.45 | nudge loop continuation, 48h guard |
+| E0089 | hatteras | 164662 | 0.84 | 4.50 | nudge loop continuation, 48h guard |
 
 ## Key evidence files
 
