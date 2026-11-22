@@ -199,8 +199,10 @@ those hosts; asking for another is a decision for Chris.
   sim.py`. The job runs that commit from the repository's top folder and
   writes outputs to `$ROBOROBO_OUT`. Arguments are passed as given, so to
   use `$ROBOROBO_OUT` or `$ROBOROBO_IN` in them, or chain commands, wrap
-  the command in `bash -c '...'`. Never call `ssh`, `rsync`, `sbatch` or
-  `scancel` yourself.
+  the command in `bash -c '...'`. `$ROBOROBO_OUT` already exists when the
+  command starts, so a tool that refuses an existing output folder needs a
+  subfolder of it (`--outdir "$ROBOROBO_OUT/run"`). Never call `ssh`,
+  `rsync`, `sbatch` or `scancel` yourself.
 - Code from another branch: `--tree engine=method/nudge` checks it out at
   `../engine`, a real git checkout. Another repository: clone it into
   `~/Projects/experiments/sequel-data` and use `--tree name=<its path>:<revision>`; it lands at
