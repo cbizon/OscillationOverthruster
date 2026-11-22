@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-21",
+  "line_id": "L0018",
+  "instruction": "instructions/2026-11-21.md",
+  "answers": [
+    {
+      "asked": "\"We are moving to hatteras tonight so diskspace is not a problem.\"",
+      "status": "answered",
+      "answer": "Done. All 30 width-200 loops (E0074, E0075, E0076, ten frequencies each) are submitted to Hatteras and running: E0074 jobs 164665 to 164674 (no friction, 5-day wall time), E0075 jobs 164675 to 164684 (nudge, 7-day wall time), E0076 jobs 164685 to 164694 (baseline with friction, 7-day wall time). The Mac's disk floor no longer blocks them.",
+      "departures": "No departures."
+    },
+    {
+      "asked": "\"We don't need every ball's trajectory. We need to be able to evaluate bulk quantities. And we want to be able to restart a run. If we really want to see things we can run a few cycles whenever we want.\"",
+      "status": "answered",
+      "answer": "Applied. Each loop stores bulk quantities, audit, counters, summary and the height-field spectrum at every step (no height grids, per D0054). Checkpoints are kept at Gamma multiples of 0.5 (changed from 1.0, D0057), at step 0, and at the latest completed step. The turn at the top of each loop (Gamma 7.0) is a multiple of 0.5 and is kept. Size per loop: E0074 about 640 megabytes on Hatteras (23 checkpoints at 26 megabytes each plus 36 megabytes of data), about 36 megabytes fetched to the Mac (checkpoints excluded by fetch_exclude). E0075 and E0076 about 690 megabytes on Hatteras (25 checkpoints plus 41 megabytes of data), about 41 megabytes fetched.",
+      "departures": "Changed checkpoint interval from 1.0 to 0.5 to match the instruction's storage rule (every Gamma multiple of 0.5). The earlier registration (D0054) used 1.0."
+    }
+  ],
+  "headline": "All 30 width-200 fast-pass loops are launched on Hatteras, no longer blocked by the Mac's disk floor. Each loop keeps bulk data and spectrum at every step, checkpoints at Gamma multiples of 0.5, and no height-field arrays. The fetched data per loop is about 36 to 41 megabytes.",
+  "experiments": [],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "The E0075 nudge loops use 2 and 8 CPU-hour per-step caps (down and up), the same as the original registration. At width 200 with 240000 particles, the period-2 wall above Gamma 4.4 will be even more expensive than at width 100, and these loops will almost certainly stop at the wall. Should the caps be raised (as E0089 did to 48 hours for the width-100 continuations)?",
+      "why_it_matters": "Without raising the caps, the nudge width-200 pass will cover only Gamma 3.0 down to 1.7 and up to about 4.4, missing the top half of the loop.",
+      "default_if_unanswered": "Let the loops run to the wall and stop. Raise the caps in a later instruction if the wall data from E0089 at width 100 shows the cost drops above 4.65."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Compare the E0071 onset at width 200 with the E0060 onset at width 100 for f* 0.44, to test whether the onset moves with the box size.",
+      "rationale": "Both are complete. E0074's registration predicts the onset lies within 0.1 in Gamma of the paper's box. This can be checked without any new run."
+    },
+    {
+      "direction": "Once the first E0074 loops have several steps, check that the per-step cost matches the E0070 cost holds (4.7 to 5.6 times the paper's box per cycle).",
+      "rationale": "The first steps are the cheapest and will finish within hours. An early check catches any unexpected cost escalation before 30 loops run for days."
+    }
+  ],
+  "budget": {
+    "cpu_hours": {"spent": 470, "limit": 4000},
+    "disk_gb": {"spent": 10, "limit": 15}
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-21T23:00:00-05:00",
+    "actual_start": "2026-11-22T01:00:45-05:00",
+    "ended": "2026-11-22T01:35:00-05:00",
+    "interruptions": [],
+    "cpu_hours": 0,
+    "cores_available": 2.74,
+    "disk_free_gb": {"start": 14, "end": 14},
+    "unfinished_runs": [
+      {"experiment_id": "E0074", "reason": "10 loops on Hatteras (jobs 164665-164674), estimated 60 to 100 CPU-hours each, 5-day wall time"},
+      {"experiment_id": "E0075", "reason": "10 loops on Hatteras (jobs 164675-164684), estimated 50 to 600 CPU-hours each, 7-day wall time"},
+      {"experiment_id": "E0076", "reason": "10 loops on Hatteras (jobs 164685-164694), estimated 50 to 500 CPU-hours each, 7-day wall time"}
+    ],
+    "limits_hit": "No limits hit. The Mac's disk floor (14 GB free, below the 40 GB floor) no longer matters: all runs go to Hatteras."
+  }
+}

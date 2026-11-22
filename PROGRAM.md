@@ -404,6 +404,23 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 21 findings (L0018)
+
+Instruction of Nov 21 (two items on L0018). Session summary:
+`sessions/2026-11-21-L0018.json`.
+
+- **Width-200 passes launched on Hatteras (E0074, E0075, E0076):** 30 jobs
+  total, ten frequencies each. E0074 (no friction, jobs 164665-164674,
+  5-day wall time), E0075 (nudge, 164675-164684, 7 days), E0076 (baseline
+  with friction, 164685-164694, 7 days). No longer blocked by the Mac's
+  disk floor.
+- **Storage rule applied (D0057):** checkpoints at Gamma multiples of 0.5
+  (changed from 1.0 in D0054), no height grids, spectrum kept. E0074 about
+  640 MB per loop on Hatteras (36 MB fetched); E0075/E0076 about 690 MB
+  (41 MB fetched). Hatteras checkpoints excluded from fetch.
+- **caseb\_start.py committed** to `tools/` with relative paths for
+  Hatteras (the baseline loops need the half-push start).
+
 ### Nov 20 findings (L0009)
 
 Instruction of Nov 20 (four items on L0009). Session summary:
@@ -974,8 +991,10 @@ These are findings, not edits; the referee is his.
 - **With friction working**: rerun the E0084 bulk check at Gamma 3.5,
   f\* 0.3, depth 10 with friction on (the mu=0 test shows the hold method
   passes).
-- **Width-200 passes queued** (E0074-E0076): 390 MB per loop after the field
-  storage cut (D0054). These now go to Hatteras.
+- **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
+  164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
+  E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
+  multiples of 0.5 (D0057); about 36-41 MB fetched per loop.
 - **Nudge loops above the wall** (E0089): eight continuations on Hatteras
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
