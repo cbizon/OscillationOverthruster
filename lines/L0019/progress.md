@@ -127,10 +127,37 @@ so pairs within the cluster are skipped.
 
 `method/ride` (worktree at `sequel-data/worktrees/ride`).
 
+Commits:
+- af09367: ride v1 (plate-only capture, analytical trajectory, release at
+  closed-form phase, stuck_pair_root for riding pairs, energy accounting)
+- 0600773: SEQUEL_V_CAPTURE env var activation
+
 ## Status
 
-Starting. Design written. No code yet.
+v1 built and tested locally. Functional test at Gamma 3.5, f* 0.5, depth 5
+(non-stalling): 30 cycles, 14 captures, 0 releases (all freed by PP
+collisions before the release phase), clean audit, event count comparable
+to ride-off. At Gamma 5 (stalling): overlaps in cycle 1, same as plate-stick
+(the sphere-on-sphere stall is not handled by v1).
+
+Six of 12 E0091 pilot jobs submitted to Hatteras (the Gamma 3.5 half).
+The Gamma 5 half is blocked by the 48-slot limit.
+
+v2 (sphere-on-sphere capture) is designed (see above) but not built.
+
+v_capture threshold: 1e-4 (same as plate-stick). At 0.01 (the clusterlifter's
+threshold), a capture-unstick chatter loop dominated the event count.
 
 ## Jobs in flight
 
-None.
+E0091 on Hatteras (ride v1, 2D grid pilot, 120 cycles, seed 1):
+- 164696: Gamma 3.5, f* 0.3, depth 5
+- 164697: Gamma 3.5, f* 0.3, depth 10
+- 164698: Gamma 3.5, f* 0.3, depth 15
+- 164699: Gamma 3.5, f* 0.5, depth 5
+- 164700: Gamma 3.5, f* 0.5, depth 10
+- 164701: Gamma 3.5, f* 0.5, depth 15
+
+Not yet submitted (Hatteras slots full):
+- Gamma 5, f* 0.3, depths 5, 10, 15
+- Gamma 5, f* 0.5, depths 5, 10, 15

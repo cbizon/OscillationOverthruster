@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-21",
+  "line_id": "L0019",
+  "instruction": "instructions/2026-11-21.md",
+  "answers": [
+    {
+      "asked": "Unpaused (Chris, Nov 21): \"Since we're going on hatteras, which has plenty of cores, let's unpause everything as well.\"",
+      "status": "answered",
+      "answer": "Started. The analytical-motion contact method (ride v1) is designed, built on branch method/ride, tested locally (74 of 74 frozen tests pass, functional test at Gamma 3.5 completes 30 cycles with 14 captures and clean audit), and 6 of 12 pilot jobs submitted to Hatteras. The remaining 6 (the Gamma 5 conditions) are blocked by Hatteras' 48-slot limit.",
+      "departures": "The instruction said to start the line on its question. The design and v1 build (plate-only capture) are complete. Sphere-on-sphere capture (v2), which would handle the full stall scenario, is designed but not yet built. The v1 pilot will show whether the ride acts at the stalling conditions (it captures on the plate but not between spheres, so the pressed-pair stall remains for Gamma 5 deep layers, same as plate-stick). The capture threshold is 1e-4 (same as plate-stick's v_stick), not 0.01 as in the clusterlifter; 0.01 caused a capture-unstick chatter loop in testing."
+    }
+  ],
+  "headline": "Started L0019: designed and built the analytical-motion contact method (ride), which replaces the clusterlifter's periodic impulses with closed-form sinusoidal trajectories for spheres captured on the plate. The v1 build (plate-only capture) passes all frozen tests and runs clean at non-stalling conditions. Six pilot jobs submitted to Hatteras for the Gamma 3.5 half of the 2D grid; the Gamma 5 half waits for slots.",
+  "experiments": [
+    {
+      "experiment_id": "E0091",
+      "question": "Does the analytical ride v1 (plate-only capture) complete 120 cycles at the 2D grid conditions, and does it capture plate contacts at the stalling conditions?",
+      "what_was_done": "Built ride v1 on branch method/ride: a sphere hitting the plate slower than 1e-4 relative speed is captured and follows the plate analytically (z equals A sin omega t plus the sphere radius). It releases at the closed-form phase where the plate acceleration drops to minus g. Pairs involving riding spheres use a conservative stepping root finder. Submitted 6 of 12 conditions to Hatteras (Gamma 3.5, all frequencies and depths). Gamma 5 conditions blocked by Hatteras slot limit.",
+      "result": "Local test: 30 cycles at Gamma 3.5, f-star 0.5, depth 5 with ride on produced 14 captures, 0 releases (all freed by particle-particle collisions before the release phase), 3.2 million events (comparable to 3.0 million ride-off). At Gamma 5, f-star 0.44, depth 5 with ride on, the engine overlaps in cycle 1: the same pressed-pair failure as plate-stick. This is expected for v1 (no sphere-on-sphere capture).",
+      "takeaway": "Ride v1 works correctly at non-stalling conditions and captures plate contacts as designed. It does not solve the sphere-on-sphere stall; that needs v2 (sphere capture on riding spheres). The Hatteras pilot will confirm survival at all Gamma 3.5 conditions and measure how many captures occur."
+    }
+  ],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "Should v2 (sphere-on-sphere capture with rigid-body coupling) be built next, or should the v1 pilot results come back first?",
+      "why_it_matters": "v1 alone cannot handle Gamma 5 deep layers (the main stalling condition). Building v2 now would let the next session test the full method on Hatteras. Waiting for v1 results first would confirm the plate-capture design is correct before adding complexity.",
+      "default_if_unanswered": "Build v2 next session. The v1 pilot at Gamma 3.5 will confirm plate capture works, and v2 adds sphere capture on top of that. No reason to wait."
+    },
+    {
+      "question": "The capture threshold 1e-4 (same as plate-stick) works at Gamma 3.5 but causes 14 captures in 30 cycles at a non-stalling condition. Should the threshold be lower (1e-6, capturing only genuine stalls) or is 14 captures in 30 cycles acceptable?",
+      "why_it_matters": "More captures means the ride acts more often, changing the dynamics. Fewer captures means only the worst stalls are caught. The energy removed per capture is about 1e-8, negligible.",
+      "default_if_unanswered": "Keep 1e-4. The clusterlifter used 0.01 (broader). Plate-stick used 1e-4 and its captures were similarly rare at non-stalling conditions. The energy accounting is clean."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Build v2: sphere-on-sphere capture with rigid-body coupling, so a free sphere pressing on a riding sphere joins the cluster and follows the plate analytically. This is what the stalling conditions need.",
+      "rationale": "v1 solves plate contacts only; the stall at Gamma 5 is a sphere pressed on a plate-resting sphere, which v1 does not handle. The design for v2 is in progress.md (D0058): the riding sphere's velocity is matched to its supporter's, and the whole cluster releases at the same phase."
+    },
+    {
+      "direction": "Compare ride v1 bulk physics against the unmodified engine and the C code at the Gamma 3.5 grid conditions, using the referee's bulk.py.",
+      "rationale": "Before claiming the ride method is correct, its bulk quantities must pass the referee's check at conditions where a baseline exists. The v1 pilot provides the data."
+    },
+    {
+      "direction": "Sliding coupling (v3): let the riding sphere slide tangentially on its supporter instead of locking all three velocity components. This is more physical but requires numerical sub-stepping for the tangential motion.",
+      "rationale": "The held-contact method's motion-on-sphere variant (sliding free) worked better than fixed-angle. Rigid coupling may cause artifacts; sliding avoids them. But it's only needed if v2's rigid coupling shows problems."
+    }
+  ],
+  "budget": {
+    "cpu_hours_week": {"spent": 464.415, "limit": 4000}
+  },
+  "open_blockers": ["B0006"],
+  "run_conditions": {
+    "scheduled_start": "2026-11-22T04:30:00Z",
+    "actual_start": "2026-11-22T06:30:47Z",
+    "ended": "2026-11-22T07:01:32Z",
+    "interruptions": [],
+    "cpu_hours": 0.0,
+    "cores_available": 11.3,
+    "disk_free_gb": {"start": 14, "end": 14},
+    "unfinished_runs": [
+      {"experiment_id": "E0091", "reason": "6 of 12 Hatteras jobs submitted (Gamma 3.5 half); Gamma 5 half blocked by 48-slot limit"}
+    ],
+    "limits_hit": "Hatteras slot limit prevented submitting the Gamma 5 conditions. Local disk at 14 GB (under the 40 GB floor); no local runs."
+  }
+}

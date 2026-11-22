@@ -297,6 +297,26 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 21 findings (L0019)
+
+Instruction of Nov 21 (one item on L0019: unpaused). Session summary:
+`sessions/2026-11-21-L0019.json`.
+
+- **Analytical ride method designed and v1 built** (`method/ride`, D0058):
+  replaces the clusterlifter's periodic impulses with closed-form sinusoidal
+  trajectories. A sphere captured on the plate follows z = A sin(omega t) + r
+  exactly and releases at the analytical phase where plate acceleration = minus g.
+  No solver, no time step, no impulse stream. v_capture = 1e-4 (same as
+  plate-stick's v_stick). 74 of 74 frozen tests pass with ride off
+  (bit-identical to main).
+- **v1 is plate-only:** does not capture sphere-on-sphere contacts, so the
+  stalling conditions (Gamma 5 deep layers) overlap in cycle 1, same as
+  plate-stick. v2 (sphere-on-sphere rigid-body capture) is designed but not
+  built.
+- **E0091 half-submitted:** 6 of 12 2D grid pilot jobs on Hatteras (the
+  Gamma 3.5 conditions, jobs 164696-164701). The Gamma 5 conditions are blocked
+  by the 48-slot limit.
+
 ### Nov 20 findings (L0016)
 
 Instruction of Nov 20 (housekeeping only on L0016). Session summary:
@@ -1002,6 +1022,9 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
+- **Ride v1 pilot** (E0091): 6 of 12 jobs on Hatteras (Gamma 3.5 grid,
+  jobs 164696-164701). Gamma 5 half needs slots. Next: build v2
+  (sphere-on-sphere capture) and submit the Gamma 5 conditions.
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
