@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-21",
+  "line_id": "L0018",
+  "reviewer_model": "claude-opus-4-6",
+  "summary": "Both items answered as asked: the 30 width-200 fast-pass loops are submitted to Hatteras and confirmed running (program jobs shows all 30 as RUNNING), and the storage rule is applied with sizes stated per loop. No new experiments were run locally and no claims were changed, so the experiments and claims arrays are correctly empty. The line note and state update on L0018 accurately say what the evidence says: 30 jobs running, checkpoints at Gamma multiples of 0.5, no stored height grids, about 36 to 41 megabytes fetched per loop. The session took 34 minutes with no local simulation CPU. One minor budget discrepancy: the summary reports cpu_hours spent as 470 against program check's 464; the difference is small and likely comes from a different counting path. The disk_gb discrepancy noted in the Nov 20 review (du -sh on sequel-data versus the ledger sum) persists: the summary reports 10, program check counts from the ledger. Free disk is 14 gigabytes, below the 40 gigabyte floor in budgets.yaml, but no local runs were started and all jobs go to Hatteras, which is the correct response to this situation.",
+  "reviews": [],
+  "answers": [
+    {
+      "asked": "We are moving to hatteras tonight so diskspace is not a problem.",
+      "verdict": "answered",
+      "finding": "The instruction asked to launch the queued width-200 passes (E0074 to E0076) on Hatteras. The session submitted all 30 jobs: E0074 jobs 164665 to 164674 (no friction, 5-day wall time), E0075 jobs 164675 to 164684 (nudge, 7-day wall time), E0076 jobs 164685 to 164694 (baseline with friction, 7-day wall time). Confirmed running by program jobs. The tools were committed to the repository by an earlier line's session tonight (commit 17a52c7) and caseb_start.py for the baseline half-push start by a separate commit (492c5d5) before the jobs were submitted. No departures."
+    },
+    {
+      "asked": "We don't need every ball's trajectory. We need to be able to evaluate bulk quantities. And we want to be able to restart a run. If we really want to see things we can run a few cycles whenever we want.",
+      "verdict": "answered",
+      "finding": "The instruction asked to apply the storage rule (no height grids, spectrum kept, checkpoints as the rule says) and state the size per loop. The session applied the rule: no height-field arrays in fields.npz (D0054, carried from Nov 20), checkpoints at Gamma multiples of 0.5 (D0057, changed from 1.0 to match the instruction's storage rule), plus step 0 and the latest completed step. Sizes stated: E0074 about 640 megabytes on Hatteras (23 checkpoints at 26 megabytes each plus 36 megabytes of data), about 36 megabytes fetched; E0075 and E0076 about 690 megabytes (25 checkpoints plus 41 megabytes of data), about 41 megabytes fetched. The checkpoint counts are consistent with the Gamma ranges and the 0.5 interval. The D0054 evidence file confirms no analysis tool reads the stored height grids. One departure correctly noted: checkpoint interval changed from the earlier 1.0 (D0054) to 0.5 (D0057) to match the instruction."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The session ran from 01:00 to 01:35 on Nov 22 (34 minutes), well within its limit. No simulations were run locally (the work was submitting 30 jobs to Hatteras and recording decisions), so zero CPU-hours is correct. No sleep or wake events appear in the pmset log for the session window. Free disk was 14 gigabytes at the start and end, matching the summary and confirmed by df. The tmp directory is empty. sequel-data is 10 gigabytes, within the 15 gigabyte limit. The session started two hours after the scheduled start because four earlier lines (L0009, L0015, L0017, and L0018's own caseb_start commit) ran first; this is normal for a multi-line night.",
+    "discrepancies": [
+      "The summary reports cpu_hours spent as 470, but program check shows 464 from the ledger. The gap is about 6 CPU-hours and likely comes from a different counting method or inclusion of initial Hatteras CPU not yet in the ledger. It does not affect any conclusion.",
+      "The disk_gb discrepancy from the Nov 20 review persists: the summary reports 10 from du -sh on sequel-data, while program check counts from the ledger. As noted in that review, the two track different things (the physical folder includes worktrees and intermediate files the ledger does not account for)."
+    ]
+  }
+}
