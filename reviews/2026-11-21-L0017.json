@@ -1,0 +1,21 @@
+{
+ "date": "2026-11-21",
+ "line_id": "L0017",
+ "reviewer_model": "claude-opus-4-6",
+ "summary": "A clean eighteen-minute session that built the settle-then-step ramp tool and submitted the first adaptive-rate loop (E0090) to Hatteras. The one item under Asked was to build an unfixed-rate ramp that waits for each step to equilibrate before advancing Gamma. The session did that: settle_ramp.py implements the agreed stopping rule (D0056) correctly, the registration is complete, the tool was tested on a small 2D case before submission, and the job was submitted to Hatteras with the same engine, box, seed and Gamma range as the three fixed-rate loops for direct comparison. No claims were made or changed. No challenges were open from the previous review. The line note and state update both say what the evidence says. The only housekeeping concern is that the Mac's free disk was about fifteen gigabytes at the start of the session, well below the forty-gigabyte budget floor, but this is a pre-existing condition that the session did not worsen, and the job runs on Hatteras.",
+ "reviews": [],
+ "answers": [
+  {
+   "asked": "A better plan would be an unfixed rate where we just sit and wait until we achieve some statistical hold and then we go up/down however much. Stopping rule is fine.",
+   "verdict": "answered",
+   "finding": "The session built tools/settle_ramp.py, which implements the agreed stopping rule (D0056): blocks of fifty cycles, two hundred minimum, three thousand maximum, settled when the mean of the last hundred cycles is within two block standard errors of the previous hundred for both pattern amplitude and layer height. The code was reviewed and matches the decision. The tool was tested on a small two-dimensional case on the Mac before submission, as the registration records. E0090 was submitted to Hatteras (job 164664) on the frictionless unmodified engine (mu0-unmodified, 765c1f0), three-dimensional, sixty thousand particles, box of one hundred diameters, seed one, f* 0.44, Gamma 1.9 to 2.6 and back in steps of 0.05 — the same parameters as the three fixed-rate loops (E0058, E0064, E0069) so the results compare directly. The job has not returned results yet, but the item asked for the tool and the run, not for results. The session's status of answered is correct."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "An eighteen-minute session (00:39 to 00:57 on November 22) that built a tool and submitted one Hatteras job. No local simulation was run. No sleep or wake events during the session window. Free disk was about fifteen gigabytes at the start, below the forty-gigabyte budget floor, but this is a pre-existing condition and the session did not worsen it. The sequel-data directory was ten gigabytes of the fifteen-gigabyte limit. The session correctly ran on Hatteras rather than locally, respecting the November 21 instruction to move new runs there.",
+  "discrepancies": [
+   "The session's limits_hit says none, but the Mac's free disk was fifteen gigabytes at the start, well below the forty-gigabyte budget floor. The session did not cause this and ran no local simulation, but the field should acknowledge the pre-existing breach rather than saying none."
+  ]
+ }
+}
