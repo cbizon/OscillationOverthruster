@@ -25,5 +25,5 @@ partition = "batch"
 time = "2-00:00:00"
 mem = "4G"
 fetch_max_mb = 1000
-fetch_exclude = ["checkpoint*.npz"]
+fetch = ["*.json", "*.txt", "*.log", "*.csv", "*.md"]
 env = {UV_LINK_MODE = "copy"}
