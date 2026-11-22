@@ -177,8 +177,9 @@ background processes that outlive the run, and record them in your line's
 If `program.toml` lists `[hosts]`, jobs can run there instead. Use only
 those hosts; asking for another is a decision for Chris.
 
-- Say in the experiment's registration which host and why ("hatteras,
-  because 40 seeds × 6 h").
+- Give the experiment's registration a `host` field (`local` or a host in
+  `program.toml`) and say why in the method ("hatteras, because 40 seeds ×
+  6 h"). `program submit` refuses a job for another host.
 - Commit the code, then submit with `program submit --host hatteras
   --experiment E0131 [--time 6:00:00 --mem 16G --cpus 4] -- uv run python
   sim.py`. The job runs that commit from the repository's top folder and
@@ -187,7 +188,9 @@ those hosts; asking for another is a decision for Chris.
   the command in `bash -c '...'`. Never call `ssh`, `rsync`, `sbatch` or
   `scancel` yourself.
 - Code from another branch: `--tree engine=method/nudge` checks it out at
-  `../engine`, a real git checkout. Sibling repositories named as uv path
+  `../engine`, a real git checkout. Another repository: clone it into
+  `~/Projects/experiments/sequel-data` and use `--tree name=<its path>:<revision>`; it lands at
+  `../name`, and the job can `cd` there and `uv run` in its own project. Sibling repositories named as uv path
   sources in `pyproject.toml` go along by themselves, at their committed
   state.
 - Files a job starts from (a checkpoint to continue): `--input <path under
