@@ -1,0 +1,88 @@
+{
+ "date": "2026-11-21",
+ "line_id": "L0015",
+ "instruction": "instructions/2026-11-21.md",
+ "answers": [
+  {
+   "asked": "Nudge wall: \"My inclination is to push through it.\"",
+   "status": "answered",
+   "answer": "Yes, pushed through: the eight loops (f* 0.33 to 0.84) are continued on Hatteras with the per-step guard raised to 48 CPU-hours (E0089, jobs 164647 to 164654). Each loop picks up from its last completed step (Gamma 4.45 to 4.5) and runs up to 7.0 and back. The inelastic ball model (E0088) predicts the cost should peak near Gamma 4.6 and drop back above that, so the 48-hour guard should be sufficient for the remaining steps.",
+   "departures": "None. The loops are submitted but not yet running past the wall; results come when program jobs collects them."
+  },
+  {
+   "asked": "\"Imagine the layer as a single fully inelastic ball. When it hits the plate it sticks. When the plate's acceleration is down and bigger than g, the layer separates and flies ballistically until the next collision. This simple model shows things like the period doubling and allows you to estimate how hard the collisions will be to the plate. If based on that we feel like we're entering a long phase, we can still push through it I bet.\"",
+   "status": "answered",
+   "answer": "The inelastic ball model is computed at all ten frequencies, Gamma 3.0 to 7.0 in steps of 0.05. The model is frequency-independent: all transitions depend only on Gamma, not f*. Period-2 onset at Gamma 3.7 (the debrief said 3.72). Both landings soft (impact below 1 g/omega) at Gamma 4.6, with impacts 0.25 and 0.73 g/omega at f* 0.44 (matching the debrief). Period-1 returns at 4.65 (impact 1.59 g/omega). Impact back to 6.5 g/omega by Gamma 5.0, the same as at Gamma 3.5. The stuck fraction (plate contact time per period) peaks at 0.47 at Gamma 4.6 and drops to 0.27 by 5.0. The nudge wall at Gamma 4.3 to 4.45 sits 0.15 to 0.3 below the ball model soft point. The registered prediction (cost peaks within 0.3 of Gamma 4.6 and is back near the Gamma 4.3 level by 5.0) will be tested when the loops continue past the wall.",
+   "departures": "None."
+  }
+ ],
+ "headline": "The completely inelastic ball model predicts the nudge cost peak: the layer's collision severity dips to near zero at Gamma 4.6 (both landings soft, impact 0.25 and 0.73 g/omega) and rises back to Gamma 3.5 levels by 5.0, independent of frequency. All eight nudge loops are submitted to Hatteras (jobs 164647 to 164654) with a 48-hour per-step guard to push through the wall.",
+ "experiments": [
+  {
+   "experiment_id": "E0088",
+   "question": "Does the completely inelastic ball model predict the nudge cost wall, and where does it place the cost peak?",
+   "what_was_done": "Computed the inelastic ball model (layer as a single ball with restitution zero, sticking on impact, separating when the plate accelerates downward faster than gravity) at all ten frequencies in the fast pass, Gamma 3.0 to 7.0 in steps of 0.05. Computed flight times, impact speed relative to the plate, and stuck time per landing. Compared with the nudge cost per cycle from E0065.",
+   "result": "The model is frequency-independent. Period-2 onset at Gamma 3.7. In the period-2 regime, one landing gets softer (3.1 g/omega at 4.4, 0.25 at 4.6) while the stuck fraction grows (0.19 at 4.4, 0.47 at 4.6). At 4.65 period-1 returns: one flight per period, impact 1.59 g/omega, stuck fraction 0.43. By 5.0: impact 6.5 (same as 3.5), stuck fraction 0.27. The nudge wall sits at Gamma 4.3 to 4.45 across frequencies, with cost rising from 15 to 22 seconds per cycle at 3.5 to 48 to 82 at 4.3 to 4.4.",
+   "takeaway": "The inelastic ball explains the wall as the period-2 regime entering a phase where one landing becomes very soft (many nudge collisions needed) and the stuck fraction peaks (long chattering phase). Above 4.65 the contact hardens and shortens, so the cost should drop."
+  },
+  {
+   "experiment_id": "E0089",
+   "question": "Can the nudge fast pass continue above Gamma 4.5 to 7.0 and back?",
+   "what_was_done": "Submitted eight Hatteras jobs (164647 to 164654), one per frequency f* 0.33 to 0.84, each continuing its E0065 loop from the last completed step (Gamma 4.45 to 4.5). Same parameters as E0065 (3D, N 60000, L 100, seed 1, 25 cycles per step, nudge engine, turn on stop), with the per-step guard raised from 2 to 48 CPU-hours and no stored height grids. Seven-day wall time per job.",
+   "result": "Jobs submitted and queued on Hatteras. No results yet.",
+   "takeaway": "The loops will test the inelastic ball prediction: cost should peak near Gamma 4.6 and drop by 5.0, allowing the loops to complete."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The E0089 loops will likely exceed 100 CPU-hours each (the per-run advisory limit in budgets.yaml). The eight loops together are estimated at about 2000 CPU-hours total (mostly in the Gamma 4.5 to 5.0 range where steps are expensive). Is this acceptable?",
+   "why_it_matters": "The per-run limit is advisory, but 2000 CPU-hours is half the weekly budget and all of it goes to one experiment.",
+   "default_if_unanswered": "Let the jobs run. If they exceed the weekly budget, pause them."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Once the E0089 loops complete, overlay the measured cost per step on the inelastic ball prediction to see how well the simple model explains the wall and the recovery above it.",
+   "rationale": "The inelastic ball model predicts a specific Gamma for the cost peak and a rate of recovery. The measured profile will either validate it or reveal that many-body effects (the full layer, not a single ball) change the picture."
+  },
+  {
+   "direction": "Run the clusterlifter fast pass at the same ten frequencies to see whether its held contacts eliminate the wall entirely.",
+   "rationale": "The wall is a property of simulating chattering contacts individually (the nudge); the clusterlifter holds the contact instead, so the cost should be flat through the wall region."
+  },
+  {
+   "direction": "Compare the nudge and no-friction passes over the common Gamma range below the wall to look for friction effects on the phase diagram.",
+   "rationale": "The nudge pass (with friction) and the no-friction pass (E0060, complete) both cover Gamma 2.0 to 4.4. Their amplitude profiles could differ near transitions."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 470,
+   "limit": 4000
+  },
+  "disk_gb": {
+   "spent": 9.8,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-21T23:00:00-05:00",
+  "actual_start": "2026-11-21T23:58:06-05:00",
+  "ended": "2026-11-22T00:25:00-05:00",
+  "interruptions": [],
+  "cpu_hours": 0.001,
+  "cores_available": 12,
+  "disk_free_gb": {
+   "start": 15,
+   "end": 15
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "Eight nudge loop continuations submitted to Hatteras (jobs 164647-164654), not yet started"
+   }
+  ],
+  "limits_hit": "Free disk is 15 GB, well below the 40 GB floor. No local runs started; all work goes to Hatteras. The session was analysis and job submission only."
+ }
+}
