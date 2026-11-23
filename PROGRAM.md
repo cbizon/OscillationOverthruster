@@ -307,6 +307,25 @@ Session summary: `sessions/2026-11-23-L0020.json`.
   there either. Plan for the review, energies against baseline and phase
   diagram: `lines/L0020/progress.md`.
 
+### Jobs collected, run 3 of Nov 23 (L0019)
+
+Session summary: `sessions/2026-11-23-L0019-3.json`. No instruction; started
+because eight E0098 jobs ended. Evidence: `evidence/E0098-interim.json`.
+
+- **Eight of twelve E0098 jobs** (A0115-A0122) completed 120 cycles with
+  every cycle's audit clean (worst 2.8e-13, no gains, no slow episodes):
+  all six Gamma 3.5 conditions, Gamma 5 f\* 0.3 depth 15 and f\* 0.5 depth 5.
+  This includes three conditions where the unmodified engine stalls in
+  cycle 1 or 3.
+- **Four Gamma 5 jobs are still running**, past the unmodified stall cycle and
+  clean so far: f\* 0.3 depth 5 (cycle 52, in slow episodes near phase
+  0.94), f\* 0.3 depth 10 (cycle 40), f\* 0.5 depths 10 and 15 (cycle 10).
+  The last three have recorded no new cycle for 20 to 50 minutes. Their E0094
+  twins are identical so far and stuck at the same cycles.
+- Each E0098 job matches its E0094 twin cycle for cycle on Hatteras, so the
+  booking fix did not change the motion there either. No scheduled
+  release in any of the eight finished runs.
+
 ### Checker's challenges, run 2 of Nov 23 (L0019)
 
 Session summary: `sessions/2026-11-23-L0019-2.json`. No instruction; started
@@ -1102,10 +1121,12 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v2 (L0019)**: collect E0098 (Hatteras jobs 164950-164962, fixed
-  booking, per-cycle counters) for survival and the audit, and the four
-  E0094 jobs still running (survival only). If clean, the bulk-physics
-  check is the next referee test.
+- **Ride v2 (L0019)**: four E0098 jobs (164950, 164951, 164954, 164955)
+  and their E0094 twins (164936, 164937, 164940, 164941) are still running
+  at Gamma 5. Collect them: whether they finish, stop at the 2 CPU-hour cap,
+  or run into Slurm's 4-hour limit (that would mean a hang inside one
+  event-loop call) tells whether ride v2 crawls or stalls there. Then write
+  E0098's outcome. Bulk-physics check after that (not asked yet).
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
