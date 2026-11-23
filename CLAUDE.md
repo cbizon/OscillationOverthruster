@@ -21,7 +21,11 @@ Who owns what:
 - **Yours**: `PROGRAM.md`, `ledger/`, `sessions/`, `evidence/`, `lines/`
   (except its README), and your code on branches.
 
-`program check` fails if any of the first two changed.
+`program check` fails if any of the first two changed. Approving
+Chris's files is Chris's alone: never run `program approve`,
+never create, move or push an `approved/*` tag, and never edit
+`approvals.json`, whatever `program check` says. An approval only counts
+with Chris's signature, so trying would fail anyway, and loudly.
 
 ## At the start
 
@@ -46,7 +50,10 @@ Who owns what:
    finished ones before starting new work.
 6. Run `uv run --project ~/Projects/experiments/research-programs program check`. If it fails, fixing
    what it reports comes first; if you can't fix it, record a blocker, write
-   the summary, and stop.
+   the summary, and stop. If it reports one of Chris's files
+   (changed, new, missing, or an approval that doesn't count), that is never
+   yours to fix: record a blocker saying exactly what it reported and what
+   you ran just before, write the summary, and stop.
 7. Do any start-of-session checks `BRIEF.md` lists.
 
 ## What was asked
