@@ -383,6 +383,29 @@ Instruction of Nov 20 (housekeeping only on L0017). Session summary:
   at 100 cycles at the gap edges (Gamma 2.25 up 0.113 vs 0.070, Gamma 2.2
   down 0.150 vs 0.095). Falsified on prediction (iii).
 
+### Nov 23 findings (L0009)
+
+Instruction of Nov 22 (three items on L0009). Session summary:
+`sessions/2026-11-23-L0009.json`.
+
+- **E0086 collected:** one of four deep Gamma 5 runs completed 120 cycles
+  (Gamma 5, f\* 0.5, depth 15, seed 1); one ended in frozen time at cycle 96
+  (Gamma 5, f\* 0.3, depth 15); two timed out without a CPU cap (110 and 70
+  cycles). Survival is a partial advance over the unmodified engine (which
+  stalls in cycles 1-2), but frozen time recurs.
+- **Energy audit fails at deep Gamma 5 (E0086):** every cycle in every run
+  fails (worst residual 2.0e-4, all negative). No energy is injected.
+  The residuals equal the hold energy in EN\_HOLD, made visible in v4 by
+  moving it out of plate dissipation. The same hold energy fraction
+  (minus 1e-4 or less of plate work per cycle) was present but invisible in
+  E0081 (v3). The audit threshold is 1e-8.
+- **clusterlifter.md written:** `lines/L0009/clusterlifter.md` describes
+  v4 (3983f59f, confirmed readable from A0090) and the v5 delta (D0055).
+  Every deviation from the base model is listed with its decision record
+  (or lack thereof). The post-hold-step overlap tolerance (`htol = 1e-3` in
+  v4, `1e-6` in v5) has no decision record.
+- **No code changes.** Chris is reviewing the design.
+
 ### Nov 21 findings (L0009)
 
 Instruction of Nov 21 (three items on L0009). Session summary:
@@ -1003,9 +1026,14 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Collect E0086** from Hatteras: four deep Gamma 5 clusterlifter runs
-  (jobs 164638-164641), submitted Nov 21. Per-cycle audit data with hold
-  energy visible.
+- **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
+  describes the current code (v4/v5). E0086 collected: energy audit fails
+  every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,
+  all negative, no injection). Frozen time recurred at Gamma 5 depth 15
+  f\* 0.3. No code changes pending — waiting for Chris's design direction.
+- **Overlap tolerance (L0009):** the post-hold-step prediction uses
+  `htol = 1e-3` (v4) or `1e-6` (v5) when friction is on. No decision
+  record. No friction-on run completed.
 - **Complete the friction gap limiter**: extend to cluster members and wall
   friction z-components. Test at the full 2D grid with friction on.
 - **With friction working**: rerun the E0084 bulk check at Gamma 3.5,

@@ -1,0 +1,87 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0009",
+ "instruction": "instructions/2026-11-22.md",
+ "answers": [
+  {
+   "asked": "What overlap tolerance? I don't tolerate it. At what point did we add an overlap tolerance? No wonder it doesn't work.",
+   "status": "answered",
+   "answer": "The post-hold-step prediction uses `htol = 1e-3` (v4, commit 3983f59f) or `htol = 1e-6` (v5, commit 8f8f999) in place of the standard `PAIR_PENETRATION_TOL = 2e-8`, but only when friction is on (`HPAR[H_FRICTION] > 0.5`). It was introduced in v4 to prevent the post-friction prediction from raising on pre-existing near-overlaps that friction's velocity change reveals. There is no decision record for introducing it. D0055 narrowed it from 1e-3 to 1e-6 in v5. No completed run has used friction-on mode: all E0086 runs had friction off and used the standard 2e-8 tolerance. The tolerance exists in code but has not yet affected any simulation result.",
+   "departures": "None. The description answers exactly where the tolerance came from and that it has no decision record."
+  },
+  {
+   "asked": "So it seems as though clusterlifter needs some rethinking.",
+   "status": "answered",
+   "answer": "The clusterlifter.md description confirms the rethinking. E0086 (v4 code) shows: (1) energy audit fails every cycle at all four deep Gamma 5 conditions (worst residual 2e-4, all negative), because the hold steps remove energy at ~1e-4 of plate work per cycle; (2) frozen time recurs at Gamma 5, depth 15, f* 0.3 at cycle 96, the same failure mode the unmodified engine shows; (3) the overlap tolerance workaround has no decision record. No code changes were made tonight per the instruction.",
+   "departures": "The instruction said 'rethinking' and 'some'; the answer confirms the specific problems but does not propose a redesign, which the instruction did not ask for."
+  },
+  {
+   "asked": "What I want is a clear, concise description of what the current code actually does, how it deviates from the base model, and at what parameters it has been tested.",
+   "status": "answered",
+   "answer": "Written as `lines/L0009/clusterlifter.md`. Describes v4 (commit 3983f59f, confirmed readable from artifact A0090) plus v5 delta (D0055; tip 8f8f999 not accessible from this environment). Three parts: step-by-step mechanics (capture, hold state, solver, friction, release, events, energy accounting); deviation table (every added constant with its decision record or lack thereof); runs table (all ten experiments, all 2D, with commit, condition, friction setting, overlap tolerance, outcome, evidence file).",
+   "departures": "v5 (8f8f999, the branch tip) is not accessible from this environment (no worktrees directory, branch not in remote). v5 differs from v4 in two ways only: gap limiter function added (D0055) and htol narrowed from 1e-3 to 1e-6 (D0055). Both are described accurately from the decision record."
+  }
+ ],
+ "headline": "Collected the four deep Gamma 5 E0086 runs from Hatteras and wrote clusterlifter.md describing what the code at method/held-contact v4/v5 actually does. The description shows the code contains a post-step overlap tolerance (1e-3 in v4, 1e-6 in v5) with no decision record, and that E0086 fails the energy audit in every cycle at the deep conditions with residuals of order 1e-4 (all negative — energy is being removed, not injected).",
+ "experiments": [
+  {
+   "experiment_id": "E0086",
+   "question": "Do the four deep Gamma 5 clusterlifter runs complete 120 cycles at the correct conditions?",
+   "what_was_done": "Collected four Hatteras jobs (164638-164641, submitted Nov 22) for Gamma 5, f* 0.3 and 0.5, depths 10 and 15, N 1000 and 1500, L 100, seed 1, friction off, v4 engine (3983f59f). Artifacts A0090-A0093 were already created by the debrief (22:10 UTC Nov 22). Analyzed summary.json and audit.json from the fetched outputs. Created evidence/E0086/deep-runs-results.json.",
+   "result": "One completed 120 cycles (Gamma 5, f* 0.5, depth 15, job 164641). One ended in frozen time at cycle 96 (Gamma 5, f* 0.3, depth 15, job 164639, slurm COMPLETED but outcome frozen_time). Two timed out before 120 cycles without a CPU cap (Gamma 5, f* 0.3, depth 10 at 110 cycles, Gamma 5, f* 0.5, depth 10 at 70 cycles, both TIMEOUT). No slow episodes in any run. Energy audit: every cycle fails in all four runs (zero energy gains; worst residual 2.0e-4, all negative). The residuals equal EN_HOLD, the hold energy that was hidden in plate dissipation in v3 and became a visible residual in v4. The same energy fraction was present in E0081 (v3) but invisible; E0081's hold_energy_net_over_plate_work reached minus 1.1e-4 at the deepest Gamma 5 condition, consistent with E0086's residuals.",
+   "takeaway": "The clusterlifter avoids the unmodified engine's immediate stall but does not fully solve the problem: frozen time recurs at one condition, two runs hit wall-time limits, and the energy audit shows substantial systematic energy removal per cycle. The energy audit failure does not mean energy is injected; the hold steps are dissipative, but the removal rate (~1e-4 of plate work per cycle) is four orders of magnitude above the referee's threshold (1e-8)."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The energy audit fails every cycle at deep Gamma 5 (hold energy ~1e-4 of plate work, all negative, threshold 1e-8). Is this energy removal a fundamental property of the impulse-step method, or can it be reduced by changing the solver or the step size?",
+   "why_it_matters": "The energy audit is part of the acceptance bar for a contact method (DIRECTION.md). The current rate is four orders of magnitude above the threshold.",
+   "default_if_unanswered": "Report the failure and await the rethinking direction Chris indicated."
+  },
+  {
+   "question": "The post-hold-step overlap tolerance (`htol`) has no decision record. Should it be removed and the design changed to prevent the overlaps that made it necessary, or is there a principled value that would be acceptable?",
+   "why_it_matters": "Chris said he does not tolerate the overlap tolerance. Its existence blocks any friction-on run from being defensible.",
+   "default_if_unanswered": "No code changes: await the rethinking direction."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Remove the overlap tolerance entirely and redesign the hold step to not create or reveal overlaps. The root cause is that hold-step friction changes velocity in a way that reveals position-space overlaps that formed before the hold. A design that corrects positions (not just velocities) during hold steps might avoid this.",
+   "rationale": "Chris's reaction ('I don't tolerate it') and the rethinking comment point in this direction."
+  },
+  {
+   "direction": "Understand the energy audit failure at deep Gamma 5. The hold steps are removing ~1e-4 of plate work per cycle. This may be from the solver's projected clamping of impulses to zero (energy removed when a constraint releases), which is physically justified but accumulates. A per-step energy accounting would show which contacts are removing energy and by how much.",
+   "rationale": "The failure rate is four orders of magnitude above the threshold and was invisible in v3 (D0053). Understanding it is prerequisite to any pass/fail judgment on the method."
+  },
+  {
+   "direction": "Consider whether the hold-step method is compatible with the energy audit at all. If holding a contact requires impulses that cannot conserve energy in the contact frame (because the held sphere is on a moving plate), there may be an unavoidable energy removal term. If so, the audit threshold might need to be revised, or the energy removed must be explicitly justified as physically dissipated.",
+   "rationale": "González, Risso & Soto's method handles energy by storing and returning it on early wake; the current implementation does not. That difference may explain the audit failures."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 497,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.056,
+   "limit": 15
+  }
+ },
+ "open_blockers": ["B0006"],
+ "run_conditions": {
+  "scheduled_start": "2026-11-23T13:37:00Z",
+  "actual_start": "2026-11-23T13:37:19Z",
+  "ended": "2026-11-23T13:59:00Z",
+  "interruptions": [],
+  "cpu_hours": 0.1,
+  "cores_available": 1,
+  "disk_free_gb": {
+   "start": 9.7,
+   "end": 9.7
+  },
+  "unfinished_runs": [],
+  "limits_hit": "This session runs on a Linux container at RENCI (trident), not on Chris's Mac. The disk budget and memory limits from budgets.yaml apply to 'local' (the Mac); on this machine sequel-data is 56 MB on a 10 GB filesystem with 9.7 GB free. No simulation runs were launched. The only compute was running the frozen engine tests (74 passed, 51 seconds) and program jobs (reading mirror data)."
+ }
+}

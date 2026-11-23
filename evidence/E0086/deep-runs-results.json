@@ -1,0 +1,66 @@
+{
+  "experiment": "E0086",
+  "description": "Deep Gamma 5 clusterlifter runs (v4, commit 3983f59f): four conditions at Gamma 5, depths 10 and 15, f* 0.3 and 0.5, width 100, N=1000 or 1500, seed 1, 120 cycles target, friction off. Jobs 164638-164641 on Hatteras, submitted 2026-11-22. Collected 2026-11-22T22:10Z.",
+  "runs": [
+    {
+      "job": "164638",
+      "condition": "g5-f0.3-d10",
+      "artifact": "A0090",
+      "slurm_state": "TIMEOUT",
+      "outcome": "running",
+      "cycles_completed": 110,
+      "slow_episodes": 0,
+      "audit_failing_cycles": 109,
+      "audit_total_cycles": 110,
+      "worst_energy_residual": 8.017533791016336e-05,
+      "mean_energy_residual": 2.5196373503127163e-05,
+      "energy_gains": 0,
+      "note": "energy audit fails every cycle; residuals are negative (hold energy removed, not injected); v4 code shows hold energy in EN_HOLD separately from plate dissipation; the residual equals EN_HOLD/plate_work"
+    },
+    {
+      "job": "164639",
+      "condition": "g5-f0.3-d15",
+      "artifact": "A0091",
+      "slurm_state": "COMPLETED",
+      "outcome": "frozen_time",
+      "cycles_completed": 95,
+      "slow_episodes": 0,
+      "audit_failing_cycles": 95,
+      "audit_total_cycles": 95,
+      "worst_energy_residual": 0.00010775942318805605,
+      "mean_energy_residual": 8.785883667127862e-06,
+      "energy_gains": 0,
+      "note": "energy audit fails every cycle; residuals are negative (hold energy removed, not injected); v4 code shows hold energy in EN_HOLD separately from plate dissipation; the residual equals EN_HOLD/plate_work"
+    },
+    {
+      "job": "164640",
+      "condition": "g5-f0.5-d10",
+      "artifact": "A0092",
+      "slurm_state": "TIMEOUT",
+      "outcome": "running",
+      "cycles_completed": 70,
+      "slow_episodes": 0,
+      "audit_failing_cycles": 70,
+      "audit_total_cycles": 70,
+      "worst_energy_residual": 0.00015014088423663592,
+      "mean_energy_residual": 5.4298061783143774e-05,
+      "energy_gains": 0,
+      "note": "energy audit fails every cycle; residuals are negative (hold energy removed, not injected); v4 code shows hold energy in EN_HOLD separately from plate dissipation; the residual equals EN_HOLD/plate_work"
+    },
+    {
+      "job": "164641",
+      "condition": "g5-f0.5-d15",
+      "artifact": "A0093",
+      "slurm_state": "COMPLETED",
+      "outcome": "completed",
+      "cycles_completed": 120,
+      "slow_episodes": 0,
+      "audit_failing_cycles": 120,
+      "audit_total_cycles": 120,
+      "worst_energy_residual": 0.00020398710631843367,
+      "mean_energy_residual": 5.885315489960991e-05,
+      "energy_gains": 0,
+      "note": "energy audit fails every cycle; residuals are negative (hold energy removed, not injected); v4 code shows hold energy in EN_HOLD separately from plate dissipation; the residual equals EN_HOLD/plate_work"
+    }
+  ]
+}
