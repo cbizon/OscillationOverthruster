@@ -1,0 +1,83 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "The one Asked item (build the sphere-on-sphere version now, keep the capture threshold at 1e-4) was answered only in part, as the run itself says. The version was built and submitted, but its new sphere-on-sphere capture never ran in the fixed build, and the build has an energy-bookkeeping bug the run reports as fixed. When a sphere is captured on the plate, the code books the plate's impulse, work and dissipation twice (granular/edmd.py lines 1246-1256 at 06be1f7). I reran the referee's long-contact test at Gamma 3.5, f* 0.3, depth 10, 20 cycles. With capture on, the energy audit failed in cycles one and two (relative residuals of about 6e-8 and 2.3e-6; momentum residuals of about 5e-8 and 8e-8; no energy gains counted). The same engine with capture off was clean to 4e-15. A scratch copy with only the second booking removed was clean to 8e-15 with capture on. Three consequences follow. First, the run's statement that captures are 'now booked in the energy terms the referee audits' (decision D0060, departure 3 in the summary, PROGRAM.md 'Current state') is wrong as written. Second, the 8e-8 residual the run blames on the unbooked snap is much more likely this double booking: the snap terms in the run's own evidence are about 1e-14. Third, the twelve 120-cycle pilot jobs now on Hatteras (E0094) run this commit, so their energy audit will fail wherever a plate capture happens, for a bookkeeping reason, not a physical one. Those audit results can't be read as an energy test until the duplicate is removed. The line's state on the map ('Ride v2 ... is built and passes the frozen tests, but its sphere-on-sphere capture has not fired ...') is true as far as it goes, but it should add that the energy audit fails with capture on. The run made no claims and left no open blockers. No earlier review of this line exists (the Nov 21 L0019 run was not reviewed), so no challenges were carried over. program check passes. Four approvals of Chris's files were made in the last day, the latest at 15:49 UTC on Nov 23; Chris should confirm they were his. Housekeeping is otherwise clean. The run worked on a Linux container rather than the Mac, which it says plainly. It ran twelve local processes at once, against a ten-core local ceiling in budgets.yaml, and its 1.0 CPU-hour figure is an estimate that probably runs low.",
+ "reviews": [
+  {
+   "claim_id": "D0060",
+   "plain_claim": "Ride captures are booked in the terms the referee's energy audit counts (plate impulse, plate work and plate-frame dissipation for a plate capture), so captures no longer appear as unexplained residuals.",
+   "verdict": "broken",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "I read the plate-collision branch of run_events at method/ride 06be1f7 (granular/edmd.py, lines 1232-1256). Then I ran referee/long_contact.py on the worktree at 06be1f7: Gamma 3.5, f* 0.3, N 1000, width 100, seed 1, 20 cycles, once with SEQUEL_V_CAPTURE=1e-4 and once with it at 0. This is the condition where the run's own check counted 45 plate captures.",
+     "finding": "The capture branch adds the impulse to EN_PLATE_JZ, the work to EN_PLATE_WORK and the dissipation to EN_PLATE_DISS, increments C_PLATE, and then adds all three again with the same values. The same commit's after_unstick capture path books them only once. With capture on, the referee's audit failed in cycle one (energy residual -5.8e-8 relative, momentum -4.8e-8) and cycle two (energy -2.3e-6, momentum -7.9e-8), with zero energy gains. With capture off the run was clean (worst 3.6e-15)."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I copied granular/ from 06be1f7 into checker scratch, deleted only the four repeated booking lines after cnt[C_PLATE] += 1 in the capture branch, and reran the same capture-on case.",
+     "finding": "The audit was clean in every cycle (worst residual 7.9e-15), so the duplicate booking accounts for the whole failure. The residual's sign means more plate work is booked than the layer received. That is a bookkeeping error, not energy put into the layer, but the audit is a pass condition, and it can't tell the two apart."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I compared the run's explanation of the 8e-8 audit failure at Gamma 5, f* 0.3, depth 5, cycle 17 (first build, 3380eb3) with its own evidence. 3380eb3 has the same duplicate block.",
+     "finding": "The run blames the unbooked snap of the captured sphere onto the plate surface. But EN_SNAP in its own evidence is at most 1.6e-14, against an 8e-8 residual. The double booking is the more likely cause."
+    }
+   ],
+   "what_would_resolve": "Remove the second booking in the plate-capture branch of run_events. Then rerun referee/long_contact.py with capture on at Gamma 3.5, f* 0.3, depth 10 and Gamma 5, f* 0.3, depth 5 for 20 cycles, and show that every cycle's audit passes. Also book the after_unstick capture's position snap (it changes potential energy and is booked nowhere, not even in EN_SNAP), or show it is zero. Correct D0060 with a new decision record, and resubmit E0094 on the fixed commit, or say before reading E0094's audit that it is invalid."
+  },
+  {
+   "claim_id": "E0093",
+   "plain_claim": "Ride v2's sphere-on-sphere capture does not act where layers stall: zero sphere captures in 20 cycles at every 2D grid condition that finished or stalled. Deep stalls remain as without the method, and frozen tests pass.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Easy cases only",
+     "what_was_done": "I counted which conditions support 'never fired' in evidence/E0093-results.json for the fixed build (06be1f7).",
+     "finding": "Eight of twelve conditions ended. Six of those are the conditions that don't stall without the method, where no sphere capture is expected. Only two stall: Gamma 3.5, f* 0.3, depth 15, stopped in cycle one with no counters recorded, and Gamma 5, f* 0.3, depth 15, which recorded counters through cycle two. The four deep conditions that matter most hit the 600-second wall-clock cap, and no partial counters were kept. So 'zero at every condition' rests on one stalling condition with counters. The falsification is fair as worded ('at every condition that ended'), but it says little about where the method is needed."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I checked the stall cycles against the referee's survival table (referee/README.md, lines 249-252) and against the run's own capture-off controls.",
+     "finding": "The README table supports 'as without the method': Gamma 3.5, f* 0.3, depth 15 stalls in cycle one, and Gamma 5, f* 0.3, depth 15 in cycle three. The capture-off controls in the evidence file are not a valid baseline. For example, at Gamma 3.5, f* 0.5, depth 5, capture off 'did not finish in 600 s', while capture on, with zero captures, finished in 1.4 s. That batch is almost certainly the one that stalled while twelve processes compiled at once. The evidence file lists it without saying so."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I checked what the frozen tests exercise.",
+     "finding": "The default v_capture is 0, so the frozen tests run the method switched off. They show the switched-off branch is identical to main, not that the ride code is correct. Also, 74 of 74 is recorded for 3380eb3 only; for 06be1f7 the evidence says 'exit code 0'."
+    }
+   ],
+   "what_would_resolve": "Rerun the four deep conditions that hit the cap (Gamma 3.5, f* 0.5, depth 15; Gamma 5, f* 0.3, depth 10; Gamma 5, f* 0.5, depths 10 and 15), saving the counters after every cycle and when the cap hits, so it's known whether sphere capture fired there. Rerun the capture-off controls one or two at a time, or mark them invalid in a new evidence note."
+  },
+  {
+   "claim_id": "E0092",
+   "plain_claim": "The six Gamma 3.5 ride v1 jobs produced no data: all failed after about 29 seconds because the referee refuses an existing output folder. They belong to E0092 though labelled E0091.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "I read the six job records in evidence/E0091/ and the E0094 job files in sequel-data/jobs/.",
+     "finding": "All six are FAILED, elapsed 0:00:29, 0.007 to 0.008 CPU-hours each (0.045 total, matching the outcome). Their command passed --outdir $ROBOROBO_OUT. The E0094 jobs use $ROBOROBO_OUT/run and engine commit 06be1f7, and were still PENDING."
+    }
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "asked": "\"I agree with all of the recs except 4 which requires more discussion.\" (Nov 22 debrief: build the sphere-on-sphere version now; keep the capture threshold at 1e-4.)",
+   "verdict": "partly",
+   "finding": "The item is copied word for word. The run built the sphere-on-sphere version on method/ride, kept v_capture at 1e-4 and the 2e-8 overlap check, tested it locally and submitted the pilot, which is what was asked. 'Partly' is right, and arguably generous. The new sphere-capture path ran zero times in the fixed build, so the version under test is not yet tested. The build also double-books plate captures in the energy audit, which the run reports as fixed. The extras (root-search fix, booking change, submitting all twelve conditions) are reasonable and declared as departures. No time went to unasked work."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "strained",
+  "assessment": "The run worked on a Linux container rather than Chris's Mac. It had to rebuild method/ride from a Hatteras run folder, lost about eight minutes to local batches that died or stalled, and capped local checks at 20 cycles and 600 seconds, which left four of the twelve conditions and most capture-off controls with no result. It ran from 20:14 to about 21:00 UTC and committed at 20:54. The twelve-job pilot is still pending on Hatteras.",
+  "discrepancies": [
+   "cpu_hours is given as 1.0, 'bounded from wall times'. But twelve local processes (four capture-on and eight capture-off) ran to the 600-second cap, about two process-hours on their own. If they were busy, CPU use was nearer two to three hours than one.",
+   "The run started twelve local processes at once, twice. budgets.yaml caps concurrent_cores at ten for 'local'. The run treated the disk and memory limits as the Mac's; it is unclear whether the cores limit applies to the container, but the summary doesn't mention it.",
+   "The summary is dated 2026-11-23, while the instruction it followed and the line note's 'night' are 2026-11-22. CLAUDE.md says the summary is dated like its instruction.",
+   "pmset is not available on this machine, so sleep and wake can't be checked. Free disk (94 GB) and data size (82 MB) match what the machine shows, sequel-data/tmp is empty, and the recently changed files outside the program folders are tool caches only."
+  ]
+ }
+}
