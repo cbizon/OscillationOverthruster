@@ -1,0 +1,91 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "This run was started only to answer my two open challenges on the sphere-on-sphere ride method. It had no Asked items. It answered both, and its main statements hold up. (1) The double booking of plate captures in the energy audit is gone. The fix (method/ride 7ae3349) deletes exactly the duplicate block, and it also books the after_unstick snap in EN_SNAP. Every other change touches only the energy books, so the motion can't change, and the run showed it doesn't: event counts and every bulk quantity are identical to the old commit at two conditions. I reran the referee's long-contact test with the fixed code at Gamma 3.5, f* 0.3, depth 15 for twenty cycles. It reproduced the run's audit table and every bulk quantity bit for bit: clean audit, worst residual 3.8e-14, no energy gains, no slow episodes, 17 sphere captures. The frozen tests pass with 7ae3349 (74 of 74, rerun by me). (2) Sphere-on-sphere capture does fire at all six deep conditions, and every one got past the cycle where the unmodified engine stalls in the referee's survival table. That table's figures match (3, 5 and 3 for the three Gamma 5 conditions that hit the CPU cap). E0093's 'deep stalls remain' is correctly withdrawn. I also checked the worry the run raised itself, that captured clusters might hold through free flight. I sampled forty phases per cycle (Gamma 3.5, f* 0.3, depth 15 for twenty cycles; Gamma 5, f* 0.3, depth 15 for eight). No sphere was ever riding at a phase where the plate pulls down harder than gravity, and at most four were riding at any sampled moment. So the thousands of captures are quick capture-and-knock-off churn, not long-lived clusters. Points for Chris. First, decision D0065: to fix an outcome record that failed the schema, the run amended an unpushed commit, rewriting a committed ledger line. The ledger is meant to be append-only, and this is the check's protection being worked around by rewriting history. It was disclosed, and the old commit is kept on a new branch for the E0098 jobs' provenance, but whether this is acceptable is Chris's call. Second, E0096's registration and its outcome went into the same commit, and the registration timestamp (21:36) is later than the outcome's (21:31). The run says this is a clock slip and that the registration was written before the runs. That can't be checked from the repository. Third, the E0098 pilot will probably hit its two-CPU-hour cap before 120 cycles at Gamma 5, f* 0.5, depth 15. Its own CPU per cycle (about 160 s locally, about 94 s per cycle in the matching E0094 job on Hatteras) puts 120 cycles at three to five CPU-hours. The line's state on the map holds, except for one wording slip: 'two shallow and six deep 2D conditions' counts Gamma 3.5 depth 10 as shallow. The run made no claims and left no open blockers. program check passes. Its last-day approval list is unchanged from my previous review (four approvals, the latest at 15:49 UTC on Nov 23). Housekeeping is clean.",
+ "reviews": [
+  {
+   "claim_id": "D0063",
+   "plain_claim": "D0060 was wrong: plate captures were booked twice in the audited energy terms. method/ride 7ae3349 books them once, books the after_unstick snap in EN_SNAP, and changes only the bookkeeping, not the motion.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "I read git diff 06be1f7..7ae3349 of granular/edmd.py.",
+     "finding": "The only changes are these. The five duplicate lines after cnt[C_PLATE] += 1 in the plate-capture branch of run_events are deleted: the impulse, the work, and a second record_dissipation call. In after_unstick, the snapped height goes through a temporary variable and its potential-energy change is added to EN_SNAP. No line writes a position or velocity differently, so the motion is identical by construction. EN_SNAP stays outside the referee's audit, as D0063 says. Its size in the run's evidence is at most 7e-13 per run, five orders of magnitude below the audit tolerance."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I reran referee/long_contact.py through tools/lc_counters.py with 7ae3349 at Gamma 3.5, f* 0.3, depth 15, N 1500, width 100, seed 1, 20 cycles, capture on, and compared the output with the run's artifact A0114. I also reran the frozen tests from the worktree. The worktree's referee/tests are byte-identical to main's.",
+     "finding": "The audit table and quantities.npz are bit-identical to the run's, and every cycle passes (worst 3.8e-14, zero gains). The frozen tests pass: 74 of 74. Every output file listed in the E0096 and E0097 evidence matches its recorded size and SHA-256 (40 files)."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0097",
+   "plain_claim": "With the fixed ride v2, sphere-on-sphere capture fires at all six deep 2D conditions. Every run gets past the cycle where the unmodified engine stalls, with no slow episodes and a clean audit in every cycle.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Easy cases only",
+     "what_was_done": "I read every condition's per-cycle counters in evidence/E0097-results.json, and compared the cycles reached with the survival table in referee/README.md.",
+     "finding": "The numbers in the summary match the evidence: 17 and 1 sphere captures at the two Gamma 3.5 depth-15 conditions, and 202, 455, 402 and 1072 at Gamma 5. The first Gamma 5 capture is in cycle 3. There are 0 to 4 scheduled releases, and every run had zero slow episodes. The three runs that hit the cap reached cycles 10, 14 and 6, against unmodified stall cycles of 3, 5 and 3 in the README. That margin is real but short, especially at Gamma 5, f* 0.5, depth 15 (three cycles past the stall, one seed, 2D only). The README's Gamma 5 deep stall cycles come from the Nov 5 pilot. The long runs without a stall detector did not cover those conditions, so 'stalls' there means the pilot's criterion. The run's wording ('got past the cycle where the engine without the method stalls') stays within that."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "Using scratch code (deleted afterwards), I stepped the engine at 7ae3349 with capture on, stopping at forty phases per cycle. At each stop I counted spheres in the riding state, and flagged any riding while the plate's downward acceleration exceeded g. I ran Gamma 3.5, f* 0.3, depth 15 for 20 cycles and Gamma 5, f* 0.3, depth 15 for 8 cycles. Stopping at extra times changes the event order, so these trajectories differ from the referee's.",
+     "finding": "No sphere was riding at any sampled time in the forbidden phase. At most four spheres were riding at any sampled moment, while the capture counters reached 1242 and 403. So the rare scheduled releases do not mean clusters hold through free flight. Riders are knocked off within a fraction of a cycle and recaptured. This covers the run's second proposed direction at these two conditions. It doesn't replace the bulk-physics check."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0093",
+   "plain_claim": "(Previous challenge) Sphere capture never fires where layers stall, and deep stalls remain as without the method. Now withdrawn in evidence/E0093-note-2.json; the capture-off controls are marked invalid.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "I checked the run's response against what my previous review asked: rerun the four capped deep conditions with counters saved every cycle, and rerun or invalidate the capture-off controls.",
+     "finding": "Done. E0097 covers all six deep conditions with per-cycle counters, and the 'never fires' and 'stalls remain' statements are withdrawn with a reason (E0093's own event-cap detector). The controls are marked invalid rather than rerun. That was one of the two options I offered, and D0064 records it. The note also corrects the frozen-test record for 06be1f7. Challenge closed."
+    }
+   ]
+  },
+  {
+   "claim_id": "E0094",
+   "plain_claim": "The first 120-cycle pilot's survival results are valid despite the booking bug, because the bug does not change the motion; its audit results are invalid and not used.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "I checked the survival-is-valid argument against the code diff and E0096. I checked the survival numbers in evidence/E0094-note.json against the summary.",
+     "finding": "The diff changes only energy terms, so survival at 06be1f7 equals survival at 7ae3349. All six Gamma 3.5 conditions, Gamma 5 f* 0.3 depth 15 and Gamma 5 f* 0.5 depth 5 completed 120 cycles. The four running jobs were at cycles 52, 30, 10 and 10, each past its stall cycle in the README. One of them (Gamma 5, f* 0.3, depth 5) has had one slow episode; the summary doesn't mention it. A cost warning for E0098, which has a two-CPU-hour cap: the matching E0094 job at Gamma 5, f* 0.5, depth 15 used about 94 CPU-seconds per cycle, which puts 120 cycles near three CPU-hours. Locally, E0097 used about 160. That condition will probably stop on the cap rather than finish or stall. The registration doesn't say how a cap stop will be read."
+    }
+   ]
+  },
+  {
+   "claim_id": "D0065",
+   "plain_claim": "Amending the unpushed commit 4bedc53 to add a missing required field to the E0096 outcome was the only way to make the ledger valid and append-only at once; the old commit is kept on branch provenance/E0098-code-4bedc53.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "I compared 4bedc53 with 3a62433 and checked the branch, origin/main and the E0098 job records.",
+     "finding": "The two commits differ only in that one ledger line, as stated. origin/main is still at fed82bb, so nothing pushed was rewritten. The twelve E0098 job files record code commit 4bedc53, which is reachable through the new branch. But the ledger's rule is that a committed line is never edited, and amending a commit is an edit that the check can't see. The fix was harmless and openly reported. Still, the run chose it over what CLAUDE.md prescribes when the check can't otherwise be fixed (record a blocker and stop). The new branch isn't a method/ branch either. Whether this is acceptable is a rules question for Chris, not a scientific one."
+    }
+   ],
+   "what_would_resolve": "Chris decides whether amending unpushed commits that touch the ledger is allowed. If it isn't, the agent records that in a decision and, next time, records a blocker instead. Either way, the agent should validate each ledger line against its schema before committing it (program check before every commit), so the situation doesn't come up."
+  }
+ ],
+ "answers": [],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The run was started by the service to answer challenges. It ran from 21:19:48 to 22:00:01 UTC on the Linux container and committed at 22:00:06, about forty minutes, within the limit. It fixed and verified the bug, ran six deep local checks and submitted the twelve-job rerun to Hatteras, which is still running, along with four E0094 jobs. The machine limited the science a little: with the quarter-CPU-hour cap and about 44% of a core per process, three of the six deep runs stopped after six to fourteen cycles instead of twenty. That was enough for the question asked.",
+  "discrepancies": [
+   "cpu_hours (1.0) is the sum of the referee's CPU seconds (0.977 h for E0097 plus 0.02 h for E0096). That matches the evidence, but it leaves out compilation and the frozen-test run (about a minute and a half), so it is slightly low.",
+   "Several ledger timestamps are later than the clock: the E0096 to E0098 registrations say 21:36, after E0096's outcome at 21:31, and the line note and update say 22:03, after the 22:00:06 commit. The run discloses this (D0064 and run_conditions).",
+   "'Twelve Hatteras jobs (164950 to 164962)' spans thirteen numbers. The jobs are 164950 to 164955 and 164957 to 164962, as progress.md lists.",
+   "pmset, ps and uptime are not available on this machine, so sleep and wake can't be checked. Free disk (94 GB) and the data folder (83 MB) match the machine, sequel-data/tmp is empty, there is no local long job in active.jsonl, and files changed outside the program folders are tool caches only.",
+   "Program machinery: CHECKER.md tells the checker to put scratch output under sequel-data/checker/, but program check then fails with 'unrecorded data: checker/'. I deleted my scratch, and the check passes again."
+  ]
+ }
+}
