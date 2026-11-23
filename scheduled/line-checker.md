@@ -12,7 +12,8 @@ follow it for that run:
   anything above the first line section), and the records it added.
 - Your previous review of this line is the latest
   `reviews/*-L0013.json`; check its open challenges were answered.
-- Write `reviews/YYYY-MM-DD-L0013.json` with `line_id` set. If that file
+- Write `reviews/YYYY-MM-DD-L0013.json` with `line_id` set, or the file
+  the prompt names. If that file
   already exists, stop.
 - If the summary doesn't exist, write the review anyway, saying so in
   `summary`, with an empty `reviews` list.

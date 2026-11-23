@@ -28,7 +28,9 @@ session:
   Start long work as background jobs (see "Long jobs" in CLAUDE.md), record
   them in `progress.md`, and end the run; a later run collects them. Leave
   ten minutes for the end.
-- **Your summary** is `sessions/YYYY-MM-DD-L0013.json`, with `line_id` set.
+- **Your summary** is `sessions/YYYY-MM-DD-L0013.json`, with `line_id` set,
+  unless the prompt names another file (the always-on service numbers a
+  line's later runs in a day: `sessions/YYYY-MM-DD-L0013-2.json`).
   `answers` covers this line's "Asked" items. `open_blockers` lists the open
   blockers that affect this line and any that affect no particular line.
 - **`PROGRAM.md`**: change only what concerns this line.
