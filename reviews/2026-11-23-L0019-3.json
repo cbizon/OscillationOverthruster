@@ -1,0 +1,65 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "This run had no instruction and no Asked items. The service started it because eight of the twelve 120-cycle Hatteras runs of ride v2 had ended. These are the runs with the corrected energy books (experiment E0098). The run collected the eight, wrote interim evidence, and made no claims. Its numbers hold up. I recomputed every condition's audit from the mirrored audit.json files. All twelve match the evidence file: cycles completed, every cycle passing, worst energy residual, and zero energy gains. The worst of all twelve is 2.8e-13, the 'three parts in ten trillion' in the summary. All 32 mirrored files match their recorded SHA-256. The eight ended artifacts (A0115 to A0122) match their manifests. The eight Slurm records add up to 0.623 CPU-hours, as stated. The claim that the booking fix left the motion unchanged on Hatteras also holds. In all twelve pairs, each E0098 job's per-cycle energy change and events per particle are identical to its E0094 twin on the old commit. Plate work differs only where captures happened, which is what the fix should do. The 'Hatteras and this machine diverge from cycle 1' point is real too: 291.0 against 297.7 events per particle at Gamma 5, f* 0.5, depth 10. One wording point Chris should know about. The summary, the line note, the line state and PROGRAM.md all say the eight finished runs include 'three conditions where the engine without the method stalls in cycle 1 or 3'. That follows the Nov 5 pilot table, whose stall detector stops runs early. The README's long runs without a detector show that at one of the three, Gamma 3.5, f* 0.5, depth 15, the unmodified engine actually completes 120 cycles. It is slow only in cycle 1 and takes 2.9 CPU-hours, against ride v2's 0.05 CPU-hours there. The other two (Gamma 3.5, f* 0.3, depth 15, where time freezes in cycle 1, and Gamma 5, f* 0.3, depth 15) are genuine stalls as far as the records show. So the line state's sentence 'all six Gamma 3.5 conditions (including depth 15, where the engine without the method stalls in cycle 1)' is right for f* 0.3 and overstated for f* 0.5. Ride v2 is far faster there, but the old engine doesn't fail. A second point, not raised in the summary. At Gamma 5, f* 0.3, depth 5, ride v2 is now in slow episodes in cycle 52 at phase 0.940 to 0.942. That is the same phase where the unmodified engine slowed down in cycles 21 and 39 and hit a sphere overlap in cycle 49 (phase 0.942). Both episodes record zero tiny plate and zero tiny pair collisions. So this may be the same failure, reached later, rather than something new. The run's proposed root-search diagnosis is a reasonable next step. Smaller points: the 'no new cycle for 20 to 50 minutes' was 22, 37 and 52 minutes. PROGRAM.md's 'Next' still says 'free disk 14 GB, program data 10 GB of 15 GB', which is stale: the actual figures are 93 GB free and 85 MB. The previous review's challenge on D0065 (amending an unpushed ledger commit) is still with Chris. The run neither addressed nor needed to address it, and nothing new happened there. program check passes. Its last-day approvals are the same three tags (15:06, 15:47 and 15:49 UTC on Nov 23) the program already listed. Housekeeping is clean.",
+ "reviews": [
+  {
+   "claim_id": "E0098",
+   "plain_claim": "(Interim, not proposed as a claim.) Ride v2 with the fixed energy books completed 120 cycles with a clean audit in every cycle at eight of the twelve 2D conditions: all six at Gamma 3.5, plus Gamma 5 f* 0.3 depth 15 and f* 0.5 depth 5. Three of these are conditions where the engine without the method stalls. The other four Gamma 5 runs are past the unmodified stall cycle but have stopped completing cycles.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "I recomputed, from each mirrored audit.json, the number of cycles, whether every cycle passes, the largest relative energy residual and the summed energy gains. I compared these with evidence/E0098-interim.json. I checked all 32 mirrored files against their recorded size and SHA-256, and the eight ended jobs' files against manifests A0115-1 to A0122-1.",
+     "finding": "Everything matches. All twelve runs pass in every recorded cycle (120 each for the eight ended runs; 52, 40, 10 and 10 for the running ones). The worst residual is 2.8e-13, against a tolerance of 1e-8. There are zero energy gains. No checksum mismatches."
+    },
+    {
+     "check": "other",
+     "what_was_done": "I compared each E0098 job's audit cycle by cycle with its E0094 twin on the pre-fix commit: energy change, events per particle, and plate work.",
+     "finding": "Energy change and events per particle are identical in every common cycle in all twelve pairs. So the fix did not alter the motion on Hatteras. Plate work differs in the nine runs with plate captures and is identical in the three without (Gamma 3.5 f* 0.3 depth 5, and Gamma 3.5 f* 0.5 depths 5 and 10). That is exactly the double booking being removed."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "I checked the 'three conditions where the engine without the method stalls in cycle 1 or 3' against both baseline tables in referee/README.md, the Nov 5 pilot and the Nov 5–6 long runs without a stall detector.",
+     "finding": "The pilot table does list Gamma 3.5 f* 0.3 depth 15 and f* 0.5 depth 15 as stalling in cycle 1, and Gamma 5 f* 0.3 depth 15 in cycle 3. But the long-run table shows the unmodified engine completing all 120 cycles at Gamma 3.5, f* 0.5, depth 15, slow only in cycle 1 (2.9 CPU-hours). Under Chris's rule ('runs every condition for the whole run without stalling'), that condition is one where the old engine survives, given time. So 'three stalls' should be 'two stalls, and one condition where the old engine is about sixty times slower'. The ride run's CPU there is 188 seconds against 2.9 hours. This changes the wording in the line state, the note and PROGRAM.md, not the data."
+    },
+    {
+     "check": "Contact-method artifacts read as physics",
+     "what_was_done": "I read the slow_episodes in the mirrored summary of the running job at Gamma 5, f* 0.3, depth 5, and compared them with the unmodified engine's long run at that condition in referee/README.md.",
+     "finding": "Ride v2's two slow episodes in cycle 52 start at phases 0.9401 and 0.9424. Each covers 50,000 events with an advance of about 1e-10 per event, and records zero tiny plate and zero tiny pair collisions. The unmodified engine's trouble at this condition was at the same phase: cycles 21 and 39 cleared after 3 to 4 CPU-hours each, and cycle 49 ended in a sphere overlap at phase 0.942. Ride v2 got through cycles 21 and 39 without slowing, so it is genuine progress. But the slowdown at 52 may be the same pile-up, which ride v2 isn't catching, rather than a new problem. The summary describes it only as 'very slow stretches'."
+    },
+    {
+     "check": "other",
+     "what_was_done": "Per referee/checker.md, I read slow_episodes for the eight completed runs, and checked the cap and the stated stall times against the mirrored file timestamps.",
+     "finding": "None of the eight completed runs ever slowed down. That makes these clean completions, not survivals after hours of crawling. The three silent jobs last wrote at 22:02, 21:48 and 21:33, which is 22, 37 and 52 minutes before collection at 22:25. The summary rounds this to '20 to 50 minutes'. The run correctly leaves open whether they are crawling or hung. The registration's falsification test (failing earlier than the unmodified engine where that engine completes 120 cycles) is not triggered: the only Gamma 5 condition where the old engine runs (f* 0.5, depth 5) completed. Still open, and repeating my last review: the registration doesn't say how a stop at the two-CPU-hour cap will be read. At Gamma 5, f* 0.5, depth 15, the run used 932 CPU-seconds in 10 cycles, so 120 cycles can't fit under the cap."
+    }
+   ],
+   "what_would_resolve": "Two things. First, change the wording in the next line update and PROGRAM.md: Gamma 3.5 f* 0.5 depth 15 is a condition where the unmodified engine completes slowly (2.9 CPU-hours), not one where it stalls. Second, before writing E0098's outcome, record in a decision how a stop at the two-CPU-hour cap counts (crawling, not a pass and not a stall), and say whether the cycle-52 slow-down at Gamma 5 f* 0.3 depth 5 is the unmodified engine's phase-0.94 pile-up. For the latter, read from the job's final checkpoint whether the slow events are plate or pair contacts among riding spheres, and whether ride captures are firing there."
+  },
+  {
+   "claim_id": "D0065",
+   "plain_claim": "(Carried from my previous review.) Amending the unpushed commit 4bedc53 to add a missing field to a ledger line was acceptable; the old commit is kept on branch provenance/E0098-code-4bedc53.",
+   "verdict": "doubtful",
+   "attacks": [
+    {
+     "check": "other",
+     "what_was_done": "I checked whether this run touched D0065 or its provenance. The new artifacts A0115 to A0122 record code commit 4bedc53 on branch 'main'.",
+     "finding": "Nothing changed. That is expected: the question is Chris's. Small consequence: the artifact records name 'main' as the branch of 4bedc53, which is no longer on main. It is reachable only through the provenance branch, so deleting that branch would orphan the E0098 code record."
+    }
+   ],
+   "what_would_resolve": "Chris rules on amending unpushed commits that touch the ledger. Until then, keep the branch provenance/E0098-code-4bedc53."
+  }
+ ],
+ "answers": [],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The run was started by the service when jobs ended. It ran from 22:21:03 to about 22:27:26 UTC, with its commit at 22:27:51, about seven minutes and well within the limit. It collected the eight ended jobs, compared all twelve with their twins, and correctly left the four Gamma 5 jobs and their four E0094 twins running on Hatteras. The machine did not limit the science. What waits is how the four Gamma 5 jobs end.",
+  "discrepancies": [
+   "Weekly CPU: the summary gives 499.1 hours (498.5 plus this run's 0.62). program check still reports 498.498, so the eight new job records aren't counted in its figure yet. The difference is small.",
+   "Cores available: the summary gives a load of 6.1 on 40 cores at the start. At my check, the load average was 20 over one minute and 10 over five, presumably my own and other sessions' work. Nothing in the record contradicts the start figure.",
+   "pmset and ps are unavailable on this Linux container, as the run says. Free disk is 93 GB and sequel-data is 85 MB, both within budget. sequel-data/tmp is empty, and active.jsonl lists no local job. The only files changed outside the program folders are tool state (.claude.json, a uv lock, Claude task output).",
+   "PROGRAM.md 'Next' still says 'free disk 14 GB, program data 10 GB of 15 GB'. That is stale; the machine shows 93 GB free and 85 MB."
+  ]
+ }
+}
