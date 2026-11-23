@@ -307,6 +307,22 @@ Session summary: `sessions/2026-11-23-L0020.json`.
   there either. Plan for the review, energies against baseline and phase
   diagram: `lines/L0020/progress.md`.
 
+### Checker's challenges, run 2 of Nov 23 (L0019)
+
+Session summary: `sessions/2026-11-23-L0019-2.json`. No instruction; started
+for the checker's challenges.
+
+- **Audit bug fixed** (E0096, D0063 corrects D0060): v2 booked plate
+  captures twice in the audited terms. With 7ae3349 the audit is clean in
+  every cycle with capture on; the motion is unchanged.
+- **Sphere capture fires** (E0097) at all six deep 2D conditions (1 to 1072
+  times); the Nov 23 "never fires" came from that check's own event cap.
+  All six passed the cycle where the unmodified engine stalls, with clean
+  audits.
+- **E0094's audit is invalid** (double booking); its survival stands:
+  120 cycles at all Gamma 3.5 conditions and two at Gamma 5, four jobs
+  still running. Rerun on the fixed commit: E0098, jobs 164950-164962.
+
 ### Nov 22 instruction, run of Nov 23 (L0019)
 
 Session summary: `sessions/2026-11-23-L0019.json`.
@@ -316,11 +332,13 @@ Session summary: `sessions/2026-11-23-L0019.json`.
   run folder (4d6c4e0, same files as 0600773).
 - **v2 built** (3380eb3, 06be1f7; D0059 to D0061): sphere-on-sphere capture
   into rigid riding clusters (horizontal momentum conserved), release of
-  dependents on a hit, captures booked in the audited terms, and a fix for
+  dependents on a hit, captures booked in the audited terms (wrongly: booked twice, fixed in
+  run 2), and a fix for
   a silent missed contact in the riding-pair root search. Frozen tests pass.
 - **Sphere capture does not fire** (E0093): zero sphere captures in 20
   cycles at every 2D grid condition that ended; the deep stalls remain.
-  The method does not yet act where it is needed.
+  The method does not yet act where it is needed. (Withdrawn by run 2:
+  E0093's own event cap stopped the deep runs early; see E0097.)
 - **E0092's six v1 jobs failed** in 29 s (referee refuses an existing
   output folder); they are labelled E0091 in the job records. B0006
   resolved.
@@ -1084,11 +1102,10 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v2 (L0019)**: collect E0094 (Hatteras jobs 164936-164947).
-  Before more runs, find why sphere-on-sphere capture never fires at the
-  stalling conditions (log the closing speed and normal of every
-  free-on-riding contact near a stall); then decide whether the capture
-  rule or the threshold is what's missing.
+- **Ride v2 (L0019)**: collect E0098 (Hatteras jobs 164950-164962, fixed
+  booking, per-cycle counters) for survival and the audit, and the four
+  E0094 jobs still running (survival only). If clean, the bulk-physics
+  check is the next referee test.
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
