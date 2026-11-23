@@ -27,3 +27,6 @@ mem = "4G"
 fetch_max_mb = 1000
 fetch = ["*.json", "*.txt", "*.log", "*.csv", "*.md"]
 env = {UV_LINK_MODE = "copy"}
+
+[runs]
+agent = ["claude", "-p", "--model", "claude-opus-5-5"]
