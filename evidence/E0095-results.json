@@ -1,0 +1,24 @@
+{
+ "experiment_id": "E0095",
+ "line_id": "L0020",
+ "artifact": "A0112",
+ "job": "hatteras-164948",
+ "job_record": "evidence/E0095/hatteras-164948.json",
+ "log": {
+  "path": "A0112 run folder, slurm-164948.out (mirrored copy read locally)",
+  "bytes": 410,
+  "sha256": "76b810a2ea862287e725504c925e6ffdc6dbd9ca360b24346155286db70a1e25",
+  "text": "== git dir\ntotal 16\ndrwxr-sr-x 4 bizon storage-sequence_analysis 4096 Nov 21 23:09 .\ndrwxr-sr-x 4 bizon storage-sequence_analysis 4096 Nov 21 23:09 ..\ndrwxr-sr-x 7 bizon storage-sequence_analysis 4096 Nov 23 16:07 research-programs.git\ndrwxr-sr-x 7 bizon storage-sequence_analysis 4096 Nov 23 16:07 sequel.git\n== checkouts\n== has 486d8eb\nfatal: Needed a single revision\nfatal: Refusing to create empty bundle.\n"
+ },
+ "findings": {
+  "bare_repositories_in_hatteras_git_folder": [
+   "research-programs.git",
+   "sequel.git"
+  ],
+  "grapenuts_checkouts_found_depth4": 0,
+  "commit_486d8eb_found": false,
+  "bundle_written": false
+ },
+ "cpu_hours": 0.001,
+ "meaning": "Grapenuts was never shipped through this program's Hatteras workdir, so it can't be recovered from there. The code must be copied to this machine's sequel-data/grapenuts by Chris."
+}

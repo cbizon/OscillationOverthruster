@@ -297,6 +297,16 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 22 instruction, run of Nov 23 (L0020)
+
+Session summary: `sessions/2026-11-23-L0020.json`.
+
+- **Not started; blocked on the code (B0007).** The grapenuts clone
+  (`sequel-data/grapenuts`, 486d8eb) isn't on this machine (Linux
+  container), and a read-only Hatteras job (E0095, D0062) found no copy
+  there either. Plan for the review, energies against baseline and phase
+  diagram: `lines/L0020/progress.md`.
+
 ### Nov 22 instruction, run of Nov 23 (L0019)
 
 Session summary: `sessions/2026-11-23-L0019.json`.
@@ -1046,6 +1056,10 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
+- **Grapenuts (L0020):** waiting for Chris to copy grapenuts (486d8eb) to
+  `sequel-data/grapenuts` on the machine the program runs on. Then: code
+  description for the checker, Hatteras pilot (survival and energy audit at
+  the 2D grid and 3D Gamma 5), bulk judge against the baseline, phase pass.
 - **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
   describes the current code (v4/v5). E0086 collected: energy audit fails
   every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,

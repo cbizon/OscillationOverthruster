@@ -1,0 +1,80 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0020",
+ "instruction": "instructions/2026-11-22.md",
+ "answers": [
+  {
+   "asked": "\"Let grapenuts run.\"",
+   "status": "not_answered",
+   "answer": "No, grapenuts did not run: its code is not on the machine this run used, and not on Hatteras either. Tonight's instruction points to a clone in sequel-data/grapenuts (commit 486d8eb), but that folder doesn't exist here (a Linux container, not the Mac), and neither does the original. A small read-only Hatteras job looked for the copy shipped there for your test run and found none. So no code review, phase diagram or energy comparison was started. The plan for all three is written and ready to run once the code is copied over.",
+   "departures": "I spent one tiny Hatteras job (0.001 CPU-hours) trying to recover the code from Hatteras instead of only recording the blocker (decision D0062). It read only the program's own work folder and wrote nothing outside its run folder."
+  },
+  {
+   "asked": "Unpaused (Chris, Nov 21): \"Since we're going on hatteras, which has plenty of cores, let's unpause everything as well.\"",
+   "status": "not_answered",
+   "answer": "The line is active, but nothing ran, for the reason above. This was the line's first run that started at all. The two earlier attempts today stopped before doing anything: one on a usage limit, one on refused permissions.",
+   "departures": "None: nothing was run, so there is nothing that departs from the instruction."
+  }
+ ],
+ "headline": "This run was meant to start the grapenuts evaluation (a code review for the checker, survival and energy against the baseline, and a phase diagram) with runs on Hatteras. It couldn't: the grapenuts code is neither on this machine (a Linux container) nor in the program's Hatteras work folder, so nothing of grapenuts was read or run. The plan is written down, and the line needs the code copied to sequel-data/grapenuts.",
+ "experiments": [
+  {
+   "experiment_id": "E0095",
+   "question": "Is the grapenuts code you shipped to Hatteras for its test run still there, so it can be recovered?",
+   "what_was_done": "One five-minute job listed the program's git folder on Hatteras and searched its run folders for a grapenuts checkout, ready to bring the code back as a single file if found.",
+   "result": "Only this program's own two repositories are there, and no run folder contains grapenuts. Nothing was recovered.",
+   "takeaway": "Your test run of grapenuts didn't go through this program's Hatteras folder, so the code has to be copied over by hand."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Can you copy grapenuts (commit 486d8eb) to ~/Projects/experiments/sequel-data/grapenuts on the machine the program now runs on? Tonight that was a Linux container, not the Mac.",
+   "why_it_matters": "Without the code, none of the evaluation can start, and that includes shipping it to Hatteras with --tree.",
+   "default_if_unanswered": "The next run of this line checks for the folder. If it isn't there, it carries the blocker and stops without spending anything."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Once the code is here, first write a short description of what grapenuts does with lasting contacts (springs, their constants, energy bookkeeping) for the checker, and run a Hatteras pilot on survival and the energy audit at the twelve 2D grid conditions and the 3D Gamma 5 case.",
+   "rationale": "That answers the first half of your question (the checker's look and energy against baseline), and it measures the cost per cycle that the phase-diagram pass has to be planned from."
+  },
+  {
+   "direction": "Build the phase diagram as the same fast pass (ten frequencies, Gamma up and down) used for the baseline and nudge, so the diagrams can be laid over each other.",
+   "rationale": "Existing baseline passes (lines L0016 and L0018) can be reused, so only grapenuts' side needs computing."
+  },
+  {
+   "direction": "Record on the program's side which machine a night runs on, and check at the start that the folders the instruction names exist.",
+   "rationale": "Both L0019 and this line lost time today to code that existed on the Mac but not on the container."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 497.458,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [
+  "B0007"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-23T21:01:00Z",
+  "actual_start": "2026-11-23T21:01:09Z",
+  "ended": "2026-11-23T21:12:00Z",
+  "interruptions": [
+   {
+    "start": "2026-11-23T21:03:00Z",
+    "end": "2026-11-23T21:07:00Z",
+    "cause": "My first submit command included a stray 'cat' that waited on input, so the submit never ran. I stopped it and resubmitted at 21:07. No machine sleep (Linux container; pmset is not available)."
+   }
+  ],
+  "cpu_hours": 0.001,
+  "cores_available": 30,
+  "disk_free_gb": {
+   "start": 94,
+   "end": 94
+  },
+  "unfinished_runs": [],
+  "limits_hit": "The grapenuts code was missing, so the line could not do its work at all. This ran on a Linux container (40 cores, load about 9 to 10 at the start), not on Chris's Mac. The Mac's disk and memory limits don't describe this machine: sequel-data is 80 MB on a disk with 94 GB free. Note for the checker: blocker B0007, decision D0062 and the E0095 registration carry the timestamp 21:20Z, but were written at about 21:05Z. I wrote a time that I hadn't measured, and those records were committed before I noticed. Later records carry measured times."
+ }
+}

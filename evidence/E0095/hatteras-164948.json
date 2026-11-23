@@ -1,0 +1,43 @@
+{
+  "host": "hatteras",
+  "job_id": "164948",
+  "experiment_id": "E0095",
+  "line_id": "L0020",
+  "commit": "0b8dfdddd047d70b48e439e167fed0f8bb55cac2",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel",
+      "commit": "0b8dfdddd047d70b48e439e167fed0f8bb55cac2",
+      "branch": "main"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "667d0bcc993c4909ea773b3f72f2421c896b0ec2",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "W=/projects/sequence_analysis/vol3/bizon/roborobo; O=\"$ROBOROBO_OUT\"; { echo \"== git dir\"; ls -la \"$W/git\"; echo \"== checkouts\"; find \"$W\" -maxdepth 4 -type d -name \"grapenuts*\" 2>/dev/null; } > \"$O/found.txt\" 2>&1; git init -q --bare \"$O/g.git\"; n=0; for r in \"$W\"/git/grapenuts*.git $(find \"$W\" -maxdepth 4 -type d -name \"grapenuts*\" -not -name \"*.git\" 2>/dev/null); do if git -C \"$r\" rev-parse --git-dir >/dev/null 2>&1; then n=$((n+1)); echo \"== fetch $r\" >> \"$O/found.txt\"; git -C \"$O/g.git\" fetch -q \"$r\" \"+refs/*:refs/src$n/*\" >> \"$O/found.txt\" 2>&1; fi; done; echo \"== has 486d8eb\" >> \"$O/found.txt\"; git -C \"$O/g.git\" rev-parse --verify \"486d8eb^{commit}\" >> \"$O/found.txt\" 2>&1; git -C \"$O/g.git\" for-each-ref >> \"$O/found.txt\" 2>&1; git -C \"$O/g.git\" bundle create \"$O/grapenuts.bundle\" --all >> \"$O/found.txt\" 2>&1; rm -rf \"$O/g.git\"; cat \"$O/found.txt\"",
+    "--repo",
+    "/Users/bizon/Projects/experiments/sequel"
+  ],
+  "sbatch": {
+    "time": "0:10:00",
+    "mem": "1G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0095/20261123T210727Z",
+  "submitted_at": "2026-11-23T21:07:27Z",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:00:03",
+  "cpu_hours": 0.001,
+  "nodes": "compute-13-1",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0095/hatteras-164948",
+  "ended_at": "2026-11-23T21:08:43Z",
+  "artifact_id": "A0112",
+  "record": "evidence/E0095/hatteras-164948.json"
+}
