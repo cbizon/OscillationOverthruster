@@ -1,0 +1,388 @@
+{
+ "experiment_id": "E0093",
+ "line_id": "L0019",
+ "engine_branch": "method/ride",
+ "engine_commits": {
+  "v1_recovered": "4d6c4e0 (byte-for-byte copy of 0600773's granular/ from the Hatteras run folder of A0098)",
+  "v2": "3380eb3",
+  "v2_rootlimit_fix": "06be1f7"
+ },
+ "machine": "Linux container (trident), not Chris's Mac; 40 cores",
+ "frozen_tests": {
+  "v2_3380eb3": "74 passed (run from the worktree, engine import checked)",
+  "v2_06be1f7": "pytest exit code 0 (all passed), same procedure"
+ },
+ "grid_check": {
+  "setup": "2D, width 100, N = 100 x depth, seed 1, 20 cycles, SEQUEL_V_CAPTURE=1e-4, event cap 3000 per particle per cycle = stall, counters read after each completed cycle (cumulative)",
+  "v2_06be1f7": {
+   "g3.5_f0.3_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 537311,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 2.0
+   },
+   "g3.5_f0.3_d10": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 7544398,
+     "capture": 45,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 338,
+     "en_capture": -1.1264206860599627e-07,
+     "en_snap": 3.458179286392229e-15
+    },
+    "cpu_seconds": 34.3
+   },
+   "g3.5_f0.3_d15": {
+    "status": "event cap (4500000) hit in cycle 1: stalled",
+    "cycles_completed": 0,
+    "last_cycle_counters": null,
+    "cpu_seconds": 41.3
+   },
+   "g3.5_f0.5_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 310428,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 1.4
+   },
+   "g3.5_f0.5_d10": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 3662975,
+     "capture": 1,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": -5.03767889175453e-09,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 17.4
+   },
+   "g3.5_f0.5_d15": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.3_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 1191522,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 5.5
+   },
+   "g5_f0.3_d10": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.3_d15": {
+    "status": "event cap (4500000) hit in cycle 3: stalled",
+    "cycles_completed": 2,
+    "last_cycle_counters": {
+     "cycle": 2,
+     "events": 1651733,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 51.3
+   },
+   "g5_f0.5_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 606603,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "rootlim": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 2.9
+   },
+   "g5_f0.5_d10": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.5_d15": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   }
+  },
+  "v2_3380eb3_before_fix_and_before_registration": {
+   "g3.5_f0.3_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 537311,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 1.2
+   },
+   "g3.5_f0.3_d10": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 8066541,
+     "capture": 33,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": -1.0096123268729335e-07,
+     "en_snap": 1.5646087214018758e-14
+    },
+    "cpu_seconds": 19.6
+   },
+   "g3.5_f0.3_d15": {
+    "status": "error in cycle 1: sphere pair overlaps",
+    "cycles_completed": 0,
+    "last_cycle_counters": null,
+    "cpu_seconds": 9.0
+   },
+   "g3.5_f0.5_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 310428,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 0.9
+   },
+   "g3.5_f0.5_d10": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 3662975,
+     "capture": 1,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": -5.03767889175453e-09,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 11.4
+   },
+   "g3.5_f0.5_d15": {
+    "status": "error in cycle 1: sphere pair overlaps",
+    "cycles_completed": 0,
+    "last_cycle_counters": null,
+    "cpu_seconds": 8.0
+   },
+   "g5_f0.3_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 1191522,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 3.7
+   },
+   "g5_f0.3_d10": {
+    "status": "error in cycle 3: sphere pair overlaps",
+    "cycles_completed": 2,
+    "last_cycle_counters": {
+     "cycle": 2,
+     "events": 393547,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 7.5
+   },
+   "g5_f0.3_d15": {
+    "status": "event cap (4500000) hit in cycle 3: stalled",
+    "cycles_completed": 2,
+    "last_cycle_counters": {
+     "cycle": 2,
+     "events": 1651733,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 18.6
+   },
+   "g5_f0.5_d5": {
+    "status": "completed",
+    "cycles_completed": 20,
+    "last_cycle_counters": {
+     "cycle": 20,
+     "events": 606603,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 1.9
+   },
+   "g5_f0.5_d10": {
+    "status": "error in cycle 14: sphere pair overlaps",
+    "cycles_completed": 13,
+    "last_cycle_counters": {
+     "cycle": 13,
+     "events": 8356261,
+     "capture": 132,
+     "scapture": 0,
+     "release": 1,
+     "cascade": 0,
+     "en_capture": -3.6154453360087583e-07,
+     "en_snap": 7.642922587983137e-15
+    },
+    "cpu_seconds": 23.1
+   },
+   "g5_f0.5_d15": {
+    "status": "error in cycle 3: sphere pair overlaps",
+    "cycles_completed": 2,
+    "last_cycle_counters": {
+     "cycle": 2,
+     "events": 1736250,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 16.2
+   }
+  },
+  "capture_off_controls_3380eb3": {
+   "g3.5_f0.3_d5": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g3.5_f0.3_d10": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g3.5_f0.3_d15": {
+    "status": "event cap (4500000) hit in cycle 1: stalled",
+    "cycles_completed": 0,
+    "last_cycle_counters": null,
+    "cpu_seconds": 10.6
+   },
+   "g3.5_f0.5_d5": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g3.5_f0.5_d10": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g3.5_f0.5_d15": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.3_d5": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.3_d10": {
+    "status": "event cap (3000000) hit in cycle 3: stalled",
+    "cycles_completed": 2,
+    "last_cycle_counters": {
+     "cycle": 2,
+     "events": 393547,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 7.8
+   },
+   "g5_f0.3_d15": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.5_d5": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   },
+   "g5_f0.5_d10": {
+    "status": "event cap (3000000) hit in cycle 9: stalled",
+    "cycles_completed": 8,
+    "last_cycle_counters": {
+     "cycle": 8,
+     "events": 5403326,
+     "capture": 0,
+     "scapture": 0,
+     "release": 0,
+     "cascade": 0,
+     "en_capture": 0.0,
+     "en_snap": 0.0
+    },
+    "cpu_seconds": 19.7
+   },
+   "g5_f0.5_d15": {
+    "status": "no result: still running when the 600 s wall-clock limit stopped it (no failure, fewer than 20 cycles)"
+   }
+  }
+ },
+ "overlap_diagnosis_3380eb3": {
+  "G3.5_f0.3_d15": "cycle 1, phase 0.93: free sphere 760 overlapped plate-riding sphere 757 by 3.9e-4 diameters (missed contact); counters at failure: 42 plate captures, 1 sphere capture",
+  "G5_f0.5_d10": "cycle 14, phase 0.0015: two free spheres overlapped by 4.6e-8 (just past the 2e-8 tolerance); 134 plate captures, 0 sphere captures, 1 release"
+ },
+ "referee_long_contact_3380eb3": {
+  "G5_f0.3_d5_on": "completed 20 cycles, audit failed in cycle 17 (worst residual 8.0e-8), no gains",
+  "G5_f0.3_d5_off": "capture off (unmodified behaviour): stopped at the 0.15 h CPU cap after 16 cycles with 19 slow episodes, audit clean (1.7e-14). Same engine with capture on completed 20 cycles; trajectories differ after the cycle-10 checkpoint, so this is one seed, not a controlled comparison.",
+  "G3.5_f0.5_d5_on_and_off": "identical: completed 20 cycles, worst residual 3.8e-15"
+ }
+}

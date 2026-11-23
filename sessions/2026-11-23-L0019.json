@@ -1,0 +1,96 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "instruction": "instructions/2026-11-22.md",
+ "answers": [
+  {
+   "asked": "\"I agree with all of the recs except 4 which requires more discussion.\" (Nov 22 debrief: build the sphere-on-sphere version now; keep the capture threshold at 1e-4.)",
+   "status": "partly",
+   "answer": "Built, but it doesn't act yet. The sphere-on-sphere version (v2) is on method/ride, keeps the capture threshold at 1e-4 and the 2e-8 overlap check unchanged, and passes all frozen tests. In a 20-cycle local check of the twelve 2D grid conditions, a sphere was never captured onto another at any condition that finished or stalled, and the deep layers still stall as they do without the method. The Gamma 5 pilot (and the Gamma 3.5 half, replacing the failed v1 jobs) is submitted to Hatteras, but there are no results yet.",
+   "departures": "(1) The branch and its v1 code weren't on this machine (a Linux container, remote unreachable). I recovered v1 byte-for-byte from the Hatteras run folder of a failed job and rebuilt the branch from main, so its commit ids differ from the Mac's. (2) Choices the debrief didn't make (D0059): the capture applies at any upward contact normal; the cluster's horizontal velocity is merged, conserving momentum, rather than copying the supporter's; a hit releases only the spheres riding on the hit one. (3) Fixes beyond the asked build: captures are now booked in the energy terms the referee audits (D0060), and a v1 root-search bug that silently missed contacts is fixed (D0061). (4) I submitted all twelve grid conditions, not only the Gamma 5 six, because the six Gamma 3.5 v1 jobs produced no data. (5) The six Gamma 3.5 jobs belong to E0092, not E0091; the job records keep the E0091 label, and E0092's outcome says so. (6) I ran the first local check before registering it. Its results are reported only as what prompted the root-search fix."
+  }
+ ],
+ "headline": "This run was for building the sphere-on-sphere version of the analytical ride method. It is built on method/ride and passes the frozen tests. But in a 20-cycle local check the new sphere capture never fired at any condition that ended, so the deep-layer stalls are still there. The earlier pilot jobs had all failed on an output-folder error, and twelve v2 pilot jobs are now on Hatteras.",
+ "experiments": [
+  {
+   "experiment_id": "E0092",
+   "question": "Does ride v1 survive 120 cycles at the Gamma 3.5 grid conditions on Hatteras?",
+   "what_was_done": "Collected the six Hatteras jobs submitted on Nov 22.",
+   "result": "All six failed after half a minute without simulating anything. The referee's test script refuses to write into a folder that already exists, and the job command pointed it at the output folder the job system creates in advance.",
+   "takeaway": "No v1 survival data. The new submissions write into a subfolder instead."
+  },
+  {
+   "experiment_id": "E0093",
+   "question": "Does the sphere-on-sphere version leave the frozen tests unchanged, and does its new capture step actually run where layers stall?",
+   "what_was_done": "Built the method: a free sphere settling slowly onto a riding sphere joins it and moves with the plate, and the cluster's sideways speed is averaged so that no momentum is created. Ran the frozen tests, then ran all twelve 2D grid conditions for twenty cycles each with the method on, counting captures directly in the engine. The first build showed an overlap at a deep condition, which was traced to the root finder silently giving up; I fixed it and repeated the check.",
+   "result": "The frozen tests pass. A sphere was never captured onto another at any of the eight conditions that ended (one capture in total, in the first build, just before an overlap). Spheres were captured on the plate 45 times at Gamma 3.5, f* 0.3, depth 10, and once at f* 0.5, depth 10. All depth-5 runs and both Gamma 3.5 depth-10 runs completed twenty cycles. Gamma 3.5 f* 0.3 depth 15 stalled in cycle one and Gamma 5 f* 0.3 depth 15 in cycle three, as the engine does without the method. Four other deep conditions neither failed nor finished within ten minutes.",
+   "takeaway": "The method is in place but doesn't yet do what it was built for: the contacts behind the stalls are not being captured. The next step is to log every slow contact near a stall to see which capture condition fails."
+  },
+  {
+   "experiment_id": "E0094",
+   "question": "How long does the sphere-on-sphere version survive at all twelve 2D grid conditions over 120 cycles, and is the energy audit clean?",
+   "what_was_done": "Submitted twelve jobs to Hatteras, each capped at two CPU hours.",
+   "result": "Running; no results yet.",
+   "takeaway": "To be collected next run."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The sphere-on-sphere version never captured a sphere at the stalling conditions in twenty cycles. Should the next run diagnose why (log each slow sphere-on-sphere contact near a stall) before changing anything, or do you already want a different capture rule, such as capturing a pressed pair even when neither sphere is riding the plate yet?",
+   "why_it_matters": "If the stalling pairs are two free spheres pressed on the plate, the current rule can never capture them, whatever the threshold.",
+   "default_if_unanswered": "Diagnose first, with no change to the capture rule or the 1e-4 threshold."
+  },
+  {
+   "question": "This run was on a Linux container where the Mac's method branches don't exist. Should method/ride as rebuilt here (descending from main, not from the Mac's v1 commits) become the branch of record?",
+   "why_it_matters": "Both machines now have a method/ride with different histories, and merging them later would be confusing.",
+   "default_if_unanswered": "Treat this machine's method/ride as the branch of record. It contains the same v1 files plus v2."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Instrument a stalling run (Gamma 3.5, f* 0.3, depth 15 stalls in cycle one) to log every slow contact with its closing speed, normal and the riding state of both spheres, and find which capture condition fails.",
+   "rationale": "Zero sphere captures means the method isn't tested yet. Knowing why decides between a rule change and a threshold question."
+  },
+  {
+   "direction": "Report the ride counters (captures, sphere captures, releases) in the referee's run summary through a method-side hook, or log them next to it.",
+   "rationale": "Right now 'did the method act' can only be checked by a separate script, so a 120-cycle pilot can't show it."
+  },
+  {
+   "direction": "Find the 8e-8 audit residual at Gamma 5, f* 0.3, depth 5, cycle 17 (first build).",
+   "rationale": "The snap of the captured sphere onto the plate surface changes potential energy without being booked in an audited term. It is small, but the energy audit is a pass condition. Budget: about 5% of the weekly CPU limit used, so neither the 50% nor the 80% warning applies."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 496.812,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-23T20:14:00Z",
+  "actual_start": "2026-11-23T20:14:20Z",
+  "ended": "2026-11-23T21:00:00Z",
+  "interruptions": [
+   {
+    "start": "2026-11-23T20:29:00Z",
+    "end": "2026-11-23T20:37:00Z",
+    "cause": "Local check batches were lost: one died when its shell was moved to the background; another stalled while twelve processes compiled the engine at once, and I stopped it. Rerun at 20:37. No machine sleep (Linux container; pmset not available)."
+   }
+  ],
+  "cpu_hours": 1.0,
+  "cores_available": 35,
+  "disk_free_gb": {
+   "start": 94,
+   "end": 94
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0094",
+    "reason": "twelve Hatteras jobs running (164936 to 164947), collected next run"
+   }
+  ],
+  "limits_hit": "This ran on a Linux container (trident), not Chris's Mac: the branch had to be recovered from Hatteras, and local checks ran for only 20 cycles with a 600 s cap, so four deep conditions have no local result. Disk and memory budgets apply to the Mac; here sequel-data is 80 MB on a disk with 94 GB free. Local CPU (1.0 h) is bounded from wall times because ps isn't available, not measured per process; Hatteras E0094 is not yet charged."
+ }
+}

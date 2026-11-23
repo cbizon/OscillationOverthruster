@@ -125,39 +125,64 @@ so pairs within the cluster are skipped.
 
 ## Branch
 
-`method/ride` (worktree at `sequel-data/worktrees/ride`).
+`method/ride`, worktree at `sequel-data/worktrees/ride`.
 
-Commits:
-- af09367: ride v1 (plate-only capture, analytical trajectory, release at
-  closed-form phase, stuck_pair_root for riding pairs, energy accounting)
-- 0600773: SEQUEL_V_CAPTURE env var activation
+On Nov 23 the program ran on a Linux container where the Mac's branches
+don't exist and the git remote is unreachable. The branch was recreated
+from main (whose engine hasn't changed since the branch was cut), with v1's
+`granular/` copied from the engine checkout in the Hatteras run folder of
+A0098 (`program fetch A0098:engine/granular`).
 
-## Status
+Commits on this machine's `method/ride`:
+- 4d6c4e0: ride v1, recovered (same files as the Mac's 0600773)
+- 3380eb3: ride v2, sphere-on-sphere capture (D0059), capture booking in
+  audited terms (D0060)
+- 06be1f7: root-search iteration limit re-predicts instead of returning
+  no-contact (D0061), counter C_ROOTLIM
 
-v1 built and tested locally. Functional test at Gamma 3.5, f* 0.5, depth 5
-(non-stalling): 30 cycles, 14 captures, 0 releases (all freed by PP
-collisions before the release phase), clean audit, event count comparable
-to ride-off. At Gamma 5 (stalling): overlaps in cycle 1, same as plate-stick
-(the sphere-on-sphere stall is not handled by v1).
+The Mac's af09367/0600773 may still exist there; if both machines' branches
+meet, this one descends from main 11e1590, not from af09367.
 
-Six of 12 E0091 pilot jobs submitted to Hatteras (the Gamma 3.5 half).
-The Gamma 5 half is blocked by the 48-slot limit.
+## How to test locally
 
-v2 (sphere-on-sphere capture) is designed (see above) but not built.
+The worktree can't `uv run` on its own (its research-programs path is
+relative). Run frozen tests from inside the worktree with main's env:
+`cd worktrees/ride && uv run --project ~/Projects/experiments/sequel python -c
+"import sys; sys.path.insert(0,'.'); import pytest; sys.exit(pytest.main(['-q','referee/tests']))"`.
+PYTHONPATH does not override the editable install. The referee's summary
+doesn't report ride counters; read `sim.cnt` (C_CAPTURE, C_SCAPTURE,
+C_RELEASE, C_CASCADE, C_ROOTLIM) from a direct `Simulation` run.
+Hatteras commands must use `--outdir $ROBOROBO_OUT/run`.
 
-v_capture threshold: 1e-4 (same as plate-stick). At 0.01 (the clusterlifter's
-threshold), a capture-unstick chatter loop dominated the event count.
+## Status (Nov 23)
+
+v2 built, frozen tests pass. E0093 (local, 20 cycles, 12 conditions):
+sphere-on-sphere capture fired 0 times at every condition that ended
+(once in the pre-fix build). Plate capture fires at depth 10 (45 at
+Gamma 3.5 f* 0.3). Deep stalls remain (Gamma 3.5 f* 0.3 d15 cycle 1,
+Gamma 5 f* 0.3 d15 cycle 3); four deep conditions neither ended nor
+finished in 600 s. The method does not act where it is needed yet.
+
+E0092 (v1 pilot, six jobs labelled E0091): all failed in 29 s on the
+existing output folder. No data. B0006 resolved.
+
+## Next
+
+1. Collect E0094.
+2. Find why sphere capture doesn't fire near stalls: log every
+   free-on-riding contact (closing speed, normal z, plate acceleration)
+   in a stalling run. Candidates: the bottom sphere of a pressed pair is
+   not riding (its plate hits stay above 1e-4); closing speeds at
+   sphere contacts stay above 1e-4; the contact is with a free sphere
+   resting on a free sphere (no rider in the chain).
+3. Audit residual 8e-8 at Gamma 5 f* 0.3 d5 cycle 17 (first build): check
+   whether the snap term (EN_SNAP, unaudited) or a missed booking causes it.
 
 ## Jobs in flight
 
-E0091 on Hatteras (ride v1, 2D grid pilot, 120 cycles, seed 1):
-- 164696: Gamma 3.5, f* 0.3, depth 5
-- 164697: Gamma 3.5, f* 0.3, depth 10
-- 164698: Gamma 3.5, f* 0.3, depth 15
-- 164699: Gamma 3.5, f* 0.5, depth 5
-- 164700: Gamma 3.5, f* 0.5, depth 10
-- 164701: Gamma 3.5, f* 0.5, depth 15
+E0094 on Hatteras (ride v2 06be1f7, 120 cycles, seed 1, 2 CPU-h cap):
+- 164936-164941: Gamma 5; f* 0.3 depths 5, 10, 15; f* 0.5 depths 5, 10, 15
+- 164942-164947: Gamma 3.5; same order
 
-Not yet submitted (Hatteras slots full):
-- Gamma 5, f* 0.3, depths 5, 10, 15
-- Gamma 5, f* 0.5, depths 5, 10, 15
+E0092 jobs 164696-164701 (labelled E0091): failed, recorded, nothing to
+collect.

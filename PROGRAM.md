@@ -297,6 +297,26 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 22 instruction, run of Nov 23 (L0019)
+
+Session summary: `sessions/2026-11-23-L0019.json`.
+
+- **Branch recovered.** `method/ride` wasn't on this machine (a Linux
+  container); v1 was copied from the engine checkout in A0098's Hatteras
+  run folder (4d6c4e0, same files as 0600773).
+- **v2 built** (3380eb3, 06be1f7; D0059 to D0061): sphere-on-sphere capture
+  into rigid riding clusters (horizontal momentum conserved), release of
+  dependents on a hit, captures booked in the audited terms, and a fix for
+  a silent missed contact in the riding-pair root search. Frozen tests pass.
+- **Sphere capture does not fire** (E0093): zero sphere captures in 20
+  cycles at every 2D grid condition that ended; the deep stalls remain.
+  The method does not yet act where it is needed.
+- **E0092's six v1 jobs failed** in 29 s (referee refuses an existing
+  output folder); they are labelled E0091 in the job records. B0006
+  resolved.
+- **E0094 submitted**: v2 at all 12 2D grid conditions, 120 cycles,
+  Hatteras jobs 164936 to 164947.
+
 ### Nov 21 findings (L0019)
 
 Instruction of Nov 21 (one item on L0019: unpaused). Session summary:
@@ -1050,9 +1070,11 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v1 pilot** (E0091): 6 of 12 jobs on Hatteras (Gamma 3.5 grid,
-  jobs 164696-164701). Gamma 5 half needs slots. Next: build v2
-  (sphere-on-sphere capture) and submit the Gamma 5 conditions.
+- **Ride v2 (L0019)**: collect E0094 (Hatteras jobs 164936-164947).
+  Before more runs, find why sphere-on-sphere capture never fires at the
+  stalling conditions (log the closing speed and normal of every
+  free-on-riding contact near a stall); then decide whether the capture
+  rule or the threshold is what's missing.
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.
