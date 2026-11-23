@@ -1,0 +1,59 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0009",
+ "reviewer_model": "claude-sonnet-4-6",
+ "summary": "No claims were proposed or changed. The session's main products are (1) the clusterlifter.md description of method/held-contact v4 and v5, and (2) collection and analysis of the four deep Gamma 5 E0086 runs from Hatteras. Both are solidly done. The three Asked items are answered as asked. One factual inaccuracy to note: the session says 'every cycle fails in all four runs' and the outcome record repeats this, but the evidence for the depth-10, f* 0.3 job (164638) shows 109 audit failures in 110 cycles completed, not all 110; the other three runs do fail every cycle. This does not change any finding — the conclusion that the audit fails systematically and substantially holds, and no claim rests on it. A second minor inaccuracy: clusterlifter.md characterises the per-run mean residuals as 2.5e-5 to 5.9e-5, but the depth-15, f* 0.3 job (164639) has a mean of only 8.8e-6; the range understates the variation. Again, no claim rests on this. The description of v5 (commit 8f8f999) was written from the decision record D0055 rather than from the code itself, because the branch is not accessible from the RENCI environment; the session reports this honestly and the limitation affects only two items in the deviation table (gap limiter and htol value), both sourced directly from D0055. The line's state and note are accurate. The machine was left clean: tmp is empty, disk 9.7 GB free, no active jobs, program check passes.",
+ "reviews": [
+  {
+   "claim_id": "E0086",
+   "plain_claim": "Four deep Gamma five clusterlifter runs (v4, commit 3983f59f) at correct conditions (two-dimensional, width one hundred, seed one, friction off): one completed one hundred twenty cycles (Gamma five, f* zero point five, depth fifteen); one failed with frozen time at cycle ninety-six (Gamma five, f* zero point three, depth fifteen); two timed out at one hundred ten and seventy cycles due to wall-time limit (Gamma five, depths ten at both f* values). Energy audit fails in every or nearly every cycle in all four runs with worst residuals of eight times ten to the minus five to two times ten to the minus four (relative to cycle plate work), all negative (hold energy removed, not injected). No slow episodes in any run.",
+   "verdict": "holds",
+   "attacks": [
+    {
+     "check": "Energy injection",
+     "what_was_done": "Checked energy_gains and the sign of all residuals in evidence/E0086/deep-runs-results.json across all four jobs.",
+     "finding": "Energy gains are zero in every run. All residuals are negative: the hold steps are dissipative, removing hold energy that in v3 was hidden inside plate dissipation and became a visible audit residual in v4. No energy is injected. The fact that the audit fails is real and substantial (threshold is one times ten to the minus eight; worst residual is two times ten to the minus four, four orders of magnitude above the threshold), but it fails in the direction of removal, not injection."
+    },
+    {
+     "check": "Easy cases only",
+     "what_was_done": "Confirmed that all four conditions are deep Gamma five layers: the conditions the unmodified engine cannot run at all.",
+     "finding": "These are the hardest conditions in the grid: Gamma five (the stalled case from DIRECTION.md), depths ten and fifteen (the deepest tested). Earlier runs at Gamma three point five and six completed cleanly. The clusterlifter avoids immediate stall at all four conditions, which is the survival criterion, but frozen time recurs at one condition and two runs timed out."
+    },
+    {
+     "check": "Agreement from tolerances, not physics",
+     "what_was_done": "Checked whether any tolerance was loosened relative to E0081 or the registration. The registration specifies commit 3983f59f, friction off, the standard overlap tolerance two times ten to the minus eight. The command in hatteras-164638.json matches: no --htol argument, friction off.",
+     "finding": "The runs use the standard overlap tolerance. The overlap tolerance htol exists in the code but is only active when friction is on, and all four E0086 runs had friction off. No loosened tolerance was applied."
+    },
+    {
+     "check": "'Every cycle fails' claim vs evidence",
+     "what_was_done": "Compared the session's statement 'every cycle fails in all four runs' against audit_failing_cycles and audit_total_cycles in the evidence file for each of the four jobs.",
+     "finding": "Three of four jobs do fail every cycle: jobs 164639 (ninety-five of ninety-five), 164640 (seventy of seventy), and 164641 (one hundred twenty of one hundred twenty). Job 164638 (depth ten, f* zero point three) completed one hundred ten cycles and had one hundred nine audit failures, not one hundred ten. The session's 'every cycle' characterisation is therefore one cycle off for one job. The core finding — systematic, near-total audit failure — is accurate and unaffected."
+    }
+   ]
+  }
+ ],
+ "answers": [
+  {
+   "asked": "What overlap tolerance? I don't tolerate it. At what point did we add an overlap tolerance? No wonder it doesn't work.",
+   "verdict": "answered",
+   "finding": "The session identifies the tolerance as htol, set to one times ten to the minus three in v4 (commit 3983f59f, no decision record) and narrowed to one times ten to the minus six in v5 by D0055. The standard tolerance is two times ten to the minus eight (PAIR_PENETRATION_TOL). The tolerance is applied only when friction is on, in the post-hold-step prediction. No completed run has used friction-on mode, so no simulation result has been affected. The clusterlifter.md deviation table marks it explicitly as having no decision record. The question is answered directly in those terms."
+  },
+  {
+   "asked": "So it seems as though clusterlifter needs some rethinking.",
+   "verdict": "answered",
+   "finding": "This is a statement from Chris, not a question. The instruction clarifies that items one and two are answered together by the description: the description should say where each tolerance came from and what problems exist. The clusterlifter.md and the E0086 results together confirm three specific problems: (1) an undocumented overlap tolerance that Chris has rejected; (2) systematic energy audit failure at deep Gamma five (worst residual four orders of magnitude above threshold); (3) frozen time recurs at one deep condition despite the method's advance over the unmodified engine. No code changes were made, per the instruction. The session honestly reports these as open problems and waits for direction."
+  },
+  {
+   "asked": "what I want is a clear, concise description of what the current code actually does, how it deviates from the base model, and at what parameters it has been tested.",
+   "verdict": "answered",
+   "finding": "clusterlifter.md meets all three requirements. It describes step-by-step mechanics (capture logic, hold state, solver, friction, release, events, energy accounting). It gives a deviation table covering every added constant with its value, the commit that introduced it, and its decision record or lack of one. It gives a runs table covering all ten experiments with commit, dimension, Gamma, f*, depth, N, L, seed, cycle count, friction setting, overlap tolerance, outcome, and evidence file. The only limitation is that v5 (commit 8f8f999) was described from D0055 rather than from the code directly, because the branch is not accessible from the RENCI environment; the session reports this explicitly. The two v5-only items (gap limiter and htol value) are sourced from the decision record, which the session created on the previous night and whose accuracy it can verify."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The session ran on the RENCI trident Linux container, not on Chris's Mac; pmset sleep and wake checks do not apply. It ran from 13:37:19 UTC to approximately 13:59:00 UTC, twenty-two minutes, well within the session limit. No simulation runs were launched: the work was entirely analysis of already-collected Hatteras outputs and writing clusterlifter.md. Local CPU use was zero point one hours. The disk is nine point seven gigabytes free on a ten gigabyte filesystem; sequel-data is fifty-four megabytes, within the fifteen gigabyte budget. The tmp directory is empty. The active.jsonl file is absent, consistent with no jobs in flight. Program check passes. The only machine limitation was the absence of the method/held-contact branch in the accessible environment, which prevented direct reading of v5 code; this was correctly reported as a departure and worked around using D0055.",
+  "discrepancies": [
+   "The session was run on a Linux container (trident, RENCI), not on Chris's Mac where budgets.yaml disk and memory limits apply. The session reports this in limits_hit. The checker cannot verify sleep or wake events. The disk free figure (9.7 GB) matches what df -h shows now."
+  ]
+ }
+}
