@@ -1,0 +1,29 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0020",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "Neither item under Asked was answered, and I agree with the run's own verdict. Grapenuts did not run, and no grapenuts code was read. The cause is real: the clone the instruction names (sequel-data/grapenuts, commit 486d8eb) is not on this machine. I searched the whole disk to six folders deep and found nothing named grapenuts anywhere. The run's one experiment (E0095) was a three-second read-only Hatteras job that looked for a copy of grapenuts left there by Chris's test run. It searched the right place: the program's submit code ships every extra repository to the Hatteras workdir's git/ folder (research-programs/src/roborobo/cluster.py, line 190), and that folder holds only sequel.git and research-programs.git. So the negative result stands. The run made no claims, and almost none of its time went to work nobody asked for. Two things need correcting. First, the program map now carries a description of grapenuts nobody has checked. Term T0032 says grapenuts is 'a separate hybrid hard-sphere and soft-sphere code ... lasting contacts become springs applied as small kicks between free flights', and lines/L0020/progress.md repeats 'springs applied as small kicks between free flights'. No instruction, note or ledger record says this, and the run read no grapenuts code. The next run should check the description against the code at 486d8eb and append a corrected term once it can. Second, three records carry a wrong time. Blocker B0007, decision D0062 and the E0095 registration are stamped 21:20Z, but they were committed at 21:04Z, before the 21:09Z outcome. The run disclosed this itself in the summary's limits_hit. The line's note and state ('Not started: the grapenuts code is not on the machine the program now runs on, nor on Hatteras (B0007). Nothing of grapenuts has been read, run or compared yet.') match the evidence. Housekeeping is clean. program check passes. Four approvals were made in the last day (approved/20261122T221640069820Z, approved/20261123T150635467708Z, approved/20261123T154749869507Z, approved/20261123T154935757398Z). Only the last is an annotated tag naming Chris Bizon; the other three are lightweight tags with no tagger, so Chris should confirm all four were theirs. The line stays blocked until Chris copies grapenuts at 486d8eb into sequel-data/grapenuts on the machine the program runs on.",
+ "reviews": [],
+ "answers": [
+  {
+   "asked": "\"Let grapenuts run.\"",
+   "verdict": "not_answered",
+   "finding": "The summary copies the item word for word and correctly answers no. Nothing of grapenuts was read, run or compared with the baseline, so nothing was tested. I confirmed the code is absent. sequel-data holds only jobs, logs, map, mirror, tmp and worktrees, and a search of the disk to six folders deep finds nothing named grapenuts. The recovery job's log (artifact A0112, checksum 76b810a2... matches the manifest and the evidence file) shows only the two program repositories on Hatteras, with no grapenuts checkout in any run folder. That is where the submit code would have put grapenuts had it ever been shipped through this program. The one departure is the recovery job, and it served this item directly. It cost a thousandth of a CPU-hour and is recorded as decision D0062."
+  },
+  {
+   "asked": "Unpaused (Chris, Nov 21): \"Since we're going on hatteras, which has plenty of cores, let's unpause everything as well.\"",
+   "verdict": "not_answered",
+   "finding": "The summary copies the item word for word. The line is active, but nothing could run, for the same reason as item one. The summary says two earlier attempts today stopped without doing anything. The service logs agree: the earlier L0020 attempt (its worker log ends at 18:23Z) reports that its commands were refused and that it wrote no records."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "inadequate",
+  "assessment": "The run started on time (21:01Z) and finished in about ten minutes, well within its hour. The environment could not support the work: the program now runs on a Linux container that does not have the grapenuts code the instruction depends on, so no science was possible. Budgets were not a constraint. CPU use this week is about 497 of 10,000 hours (5 percent), sequel-data is 80 MB against the 15 GB ceiling, and free disk is 94 GB against the 40 GB floor. The scratch folder tmp/ is empty, no jobs are left running (there is no active.jsonl), and the only files changed outside the two program folders belong to the tools themselves (the Claude settings file, a uv lock file and Claude's own task output).",
+  "discrepancies": [
+   "The ended time recorded as 21:12Z is not borne out. The last commit was made at 21:10:27Z and the worker log was last written at 21:10:53Z.",
+   "Blocker B0007, decision D0062 and the E0095 registration are stamped 21:20Z, after the 21:09Z outcome they precede. They were committed at 21:04Z. The run disclosed this itself.",
+   "The summary file is dated 2026-11-23, but the instruction it followed is 2026-11-22.md and the line records use night 2026-11-22. CLAUDE.md asks for a summary dated like its instruction. The L0019 run named its summary the same way, so this may be the runner's choice of name.",
+   "I could not check cores_available (30 of 40). The core count of 40 matches nproc, but uptime is not installed on this container, and there is no pmset either, so sleep and wake can't be checked. The run said so."
+  ]
+ }
+}
