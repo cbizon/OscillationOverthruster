@@ -1,0 +1,70 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0020",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the last three grapenuts pilot runs ended. All three finished, so every spring run at stiffness 1e7 survived 120 cycles, the deepest Gamma 5 layers and the 3D case included. But enough single cycles gained energy that the pilot's energy hypothesis failed by its own rule. To answer the checker, a bookkeeping-only count of each contact's work showed that most of the friction gain grapenuts books kick by kick cancels within the contact. Still, the sideways force adds energy over 1.5 to 6.6 percent of contacts at three shallow conditions.",
+ "experiments": [
+  {
+   "experiment_id": "E0099",
+   "question": "Does grapenuts with springs at stiffness 1e7 get through the referee's 2D grid and the 3D Gamma 5 case without stalling, and does it add energy?",
+   "what_was_done": "Collected the last three of thirteen 120-cycle runs on Hatteras (2D Gamma 5 depth 15 at both frequencies, and the 3D case with 2400 spheres), and wrote the outcome.",
+   "result": "All thirteen spring runs completed 120 cycles without a single slowdown, including every condition where sequel's own engine stalls. Every run lost energy overall, by four hundred-thousandths to under two thousandths of the energy flowing through. But at six conditions between one and sixteen cycles gained energy, at most just under one percent of throughput in a cycle. That is 'more than a few cycles', the registered falsification rule. The deep Gamma 5 runs cost about 19 and 24 CPU-seconds per cycle, the 3D run about 15.",
+   "takeaway": "Grapenuts' springs survive every condition tried, at one seed. They don't meet an energy standard of 'no gain in any cycle', and the referee's 1e-8 rule is out of reach for any time-stepped spring.",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0102",
+   "question": "The checker asked whether the large positive friction work grapenuts books in single kicks (0.2 to 2.3 percent of plate input) means some contacts gain energy over their whole life.",
+   "what_was_done": "Added a counter to grapenuts that only does bookkeeping. For every spring it sums the work of its normal and sideways forces over the contact's life, and records when the contact opens whether that total was a gain. I checked that the counter changes nothing in the motion: the energy books and frame quantities match the unchanged code exactly. Then I ran 30 cycles locally at three shallow 2D conditions: Gamma 3.5 at frequency 0.5 with stiffness 1e7 and with 1e8, and Gamma 5 at frequency 0.3 with 1e7.",
+   "result": "The counter accounts for all of the energy error: in each run, the summed contact work minus the booked spring losses equals the run's net residual to nine digits. Whole contacts that gained energy: 0.36, 0.21 and 2.7 percent. Their total gain is about a fifth to under a third of the size of the run's net error. The sideways force alone ended with a gain in 2.4, 1.5 and 6.6 percent of contacts, above the one percent limit I registered, so the hypothesis is falsified. Only 2 to 7 percent of the kick-by-kick friction gain survives over a whole contact; the rest cancels within it. At stiffness 1e8 the run gained on net, but that gain is spread over many contacts, not concentrated in the few that gain.",
+   "takeaway": "The checker was right that 'loses energy on net' hid something. Some contacts do gain energy through the sideways force. That is non-physical for a spring with a sliding limit, so it is integration error or how the precomputed collision impulse is delivered. It is small against the losses, but real. One seed, short runs, three conditions.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Grapenuts' sideways (friction) force ends up adding energy over 1.5 to 7 percent of contacts. The gain is small, under a third of each run's net energy error, and every run still loses energy overall. Does that rule grapenuts out as a default candidate, or is it acceptable for a comparison method in the phase diagram?",
+   "why_it_matters": "The acceptance bar says no energy injected by the contact method. If this counts as injection, the line's remaining work is only as a comparison for other methods' phase diagrams.",
+   "default_if_unanswered": "Treat grapenuts as a comparison method only, not a default candidate, and report contact-level gains in every further energy check."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Bulk-physics judge where sequel's engine fails (Gamma 3.5 f* 0.3 depth 10, Gamma 5 f* 0.5 depth 5, and the deep layers), against the 1998 C code, as BRIEF.md prescribes.",
+   "rationale": "Bulk agreement is tested only at three shallow conditions; extra seeds of sequel's engine fail there on the Mac too, so the C code is the only baseline available."
+  },
+  {
+   "direction": "Split the per-contact sideways gain by contact phase (collision phase with the precomputed Walton impulse vs sustained spring phase).",
+   "rationale": "It would show whether the gain comes from delivering a precomputed impulse after the slip has reversed, which grapenuts could fix, or from the time step, which a finer step would shrink."
+  },
+  {
+   "direction": "Stiffness 1e8 over the full grid with three seeds, then the phase-diagram fast pass with grapenuts.",
+   "rationale": "1e8 is the only stiffness that passed bulk physics; the phase diagram is the part of Chris's evaluation not yet started."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 495.837,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [
+  "B0008"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T05:04:12Z",
+  "actual_start": "2026-11-24T05:04:12Z",
+  "ended": "2026-11-24T05:13:35Z",
+  "interruptions": [],
+  "cpu_hours": 2.013,
+  "cores_available": 28,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. This is a Linux container with 40 cores (load 12.4 at the start, so about 28 free), not the Mac. It has no uptime, pmset, caffeinate or free, so sleep can't be checked and local runs went without caffeinate. The runner gave no start time, so scheduled_start is my first measured time. The frozen engine tests passed (74). Bookkeeping slip: E0102's registration carries the timestamp 05:36Z, which I guessed instead of reading the clock. It was written about 05:08Z, before the runs started at 05:08:58Z (decision D0068). sequel-data is 638 MB. Budget: 496 of 10,000 CPU-hours this week (5 percent, no threshold passed); this run's largest job was 0.81 CPU-hours against 100 per run."
+ }
+}

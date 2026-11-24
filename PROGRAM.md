@@ -334,6 +334,28 @@ Session summary: `sessions/2026-11-24-L0001.json`; evidence:
   shown. Bulk check passes only where there are no lasting contacts.
 - Next: Chris closes L0001. Nothing left that was asked.
 
+### Jobs collected, run of Nov 24 (L0020, ran Nov 24 05:04Z)
+
+Session summary: `sessions/2026-11-24-L0020.json`. No new instruction.
+
+- **E0099 collected and closed (falsified on energy).** The last three
+  spring runs completed 120 cycles (2D Gamma 5 depth 15 at both f*, and
+  3D Gamma 5 f* 0.44 N 2400): all 13 spring runs at k = 1e7 survived, with
+  no slow episode. But 1 to 16 cycles per run gained energy at six
+  conditions, which meets the registration's falsification rule.
+- **Checker's challenge on hidden friction gain (E0102).** A bookkeeping-only
+  diagnostic (grapenuts branch `contact-energy` 8030406; dynamics
+  bit-identical) sums each spring's work over its life. It closes the
+  books exactly: summed contact work minus booked dissipation equals the
+  run's residual. Whole contacts that gain energy: 0.2 to 2.7 percent;
+  their total gain is 0.2 to 0.3 of the run's net residual. The tangential
+  force alone gains over 1.5 to 6.6 percent of contacts (the limit set was
+  1 percent), but only 2 to 7 percent of the kick-level friction gain
+  survives a whole contact. Three conditions, 30 cycles, one seed.
+- Withdrawn: "on your Mac these ran" (E0100). Sequel's baselines fail at
+  Gamma 3.5 f* 0.3 depth 10 and Gamma 5 f* 0.5 depth 5 on the Mac too
+  (E0031, other seeds), so it is not a machine difference.
+
 ### Nov 22 instruction, run 3 of Nov 23 (L0020, ran Nov 24 02:36Z)
 
 Session summary: `sessions/2026-11-23-L0020-3.json`.
@@ -1206,10 +1228,11 @@ These are findings, not edits; the referee is his.
 
 - **Nudge (L0001):** waiting for Chris: close now, or after a frozen-test
   run on 16f3334 (needs the nudge branch on this machine, B0008).
-- **Grapenuts (L0020):** collect the rest of E0099 (deep 2D, 3D) and
-  E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
-  grid with more seeds where the judge is close, and the phase-diagram fast
-  pass with grapenuts (`lines/L0020/progress.md`).
+- **Grapenuts (L0020):** all of E0099 to E0102 collected. Next: bulk
+  judge at the conditions where sequel's engine fails, against the 1998 C
+  code (`referee/c_baseline.py`); k = 1e8 over the grid with three seeds;
+  the phase-diagram fast pass with grapenuts (`lines/L0020/progress.md`).
+  Waiting on Chris for the overlap and energy-tolerance questions.
 - **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
   describes the current code (v4/v5). E0086 collected: energy audit fails
   every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,
