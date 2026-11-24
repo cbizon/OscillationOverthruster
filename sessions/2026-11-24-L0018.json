@@ -1,0 +1,62 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the width-200 baseline loop at f* 0.57 (job 164688) ended as FAILED. It stopped under its own rules: on the way down it hit its CPU cap at Gamma 2.3, and on the way up it stalled at Gamma 3.85, so it covered Gamma 2.35 to 3.8, narrower than the 2.2 to 4.0 of the paper's box (one seed). Nothing needs relaunching; 23 of 30 width-200 loops still run.",
+ "experiments": [
+  {
+   "experiment_id": "E0076",
+   "question": "Where does the unmodified engine with friction stop on a Gamma loop in the box twice as wide, compared with the paper's box?",
+   "what_was_done": "Read the fetched per-step summaries of the loop at f* 0.57 that ended on Hatteras, added it to the interim evidence file in the same form as the six loops already there, and compared it with the same loop in the paper's box.",
+   "result": "Going down from Gamma 3.0, the loop completed every step to 2.35; the step at 2.3 used its two CPU-hour cap after twenty-three of twenty-five cycles. Going up from 2.35, it completed every step to 3.8; at 3.85 simulated time stopped advancing in cycle eleven. Forty-three steps completed, fifty-three CPU-hours, a typical step about one CPU-hour. No step gained energy, failed the energy audit or had a slow stretch. In the paper's box the same loop reached 2.2 going down and 4.0 going up.",
+   "takeaway": "This is the second width-200 baseline loop to finish, and again its range is narrower at both ends than in the paper's box. Here the lower end was set by the CPU cap, so it is partly a cost limit rather than a breakdown of the engine. One seed, so not yet a measured box-size effect.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "When all E0076 loops end, tabulate floor and highest Gamma per f* against width 100, marking which limits are CPU-cap stops and which are overlaps or stalls.",
+   "rationale": "Of the two finished loops, the f* 0.65 floor was an overlap and the f* 0.57 floor was a cost stop. A narrower range means different things in the two cases."
+  },
+  {
+   "direction": "Rerun the four width-200 baseline loops that broke on their first step with a second seed.",
+   "rationale": "Carried from Nov 23: four of ten broke against one of ten at width 100, and the slow, dense start at low f* points at the start state as much as at the box."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 561.44,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T11:22:54Z",
+  "actual_start": "2026-11-24T11:24:29Z",
+  "ended": "2026-11-24T11:29:23Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "ten loops running on Hatteras, 5-day wall time"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "nine loops running on Hatteras, 7-day wall time"
+   },
+   {
+    "experiment_id": "E0076",
+    "reason": "four loops running on Hatteras (f* 0.74, 0.50, 0.44, 0.38), 7-day wall time"
+   }
+  ],
+  "limits_hit": "none. This host is Linux: pmset and uptime are not available, so sleep/wake was not measured and cores_available is omitted (load average 2.5 on 40 cores at the start, from /proc/loadavg). scheduled_start is the time the job ended (11:22:54Z, the event that started the run), not a measured runner start."
+ }
+}

@@ -2,9 +2,9 @@
 
 ## Status
 
-Active. 24 of the 30 width-200 fast-pass loops still running on Hatteras
-(as of Nov 24, 04:30 UTC). Six have ended (see below); none needs
-relaunching under the agreed rules.
+Active. 23 of the 30 width-200 fast-pass loops still running on Hatteras
+(as of Nov 24, 11:50 UTC). Seven have ended (see below); none needs
+relaunching under the loops' own stopping rules.
 
 ## What is done
 
@@ -28,9 +28,17 @@ relaunching under the agreed rules.
     first step at Gamma 3.0, 0 or 1 of 50 cycles. Width 100 lost only 0.27.
   - E0076 baseline f* 0.65 (164687, A0171): floor 2.4 (overlap at 2.35),
     ceiling 3.9 (overlap at 3.95); width 100: 2.25 and 4.1. 46.1 CPU-hours,
-    median 0.91 CPU-hours per 25-cycle step (about 5.5 x width 100).
+    median 0.91 CPU-hours per 25-cycle step (five to six times width 100,
+    not like-for-like; see the checker's review of Nov 23).
   - E0075 nudge f* 0.27 (164684, A0094): first-step cap (4 CPU-hours)
-    after 49 of 50 cycles. Raising its cap is Chris's call (caps kept, Nov 22).
+    after 49 of 50 cycles. Raising its cap is Chris's call. The Nov 21
+    question on the caps went unanswered, so its default applies (let the
+    loops run and stop); Chris did NOT reply about caps on Nov 22.
+
+- E0076 baseline f* 0.57 (164688, A0175; Nov 24 run): floor 2.35 (CPU cap,
+  2 CPU-hours, at 2.3 after 23 of 25 cycles), highest Gamma 3.8 (stalled at
+  3.85, cycle 11). Width 100: 2.2 and 4.0. 53.0 CPU-hours, median 1.02
+  CPU-hours per 25-cycle step. Added to evidence/E0076-interim.json.
 
 ## Jobs in flight
 
@@ -38,7 +46,7 @@ relaunching under the agreed rules.
 |---|---|---|---|---|---|
 | E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
 | E0075 | hatteras | 164675-164683 running; 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
-| E0076 | hatteras | 164686, 164688-164691 running (f* 0.74, 0.57, 0.50, 0.44, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
+| E0076 | hatteras | 164686, 164689-164691 running (f* 0.74, 0.50, 0.44, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -56,9 +64,12 @@ Size per loop:
 
 ## What is next
 
-- When the last five E0076 loops end, write E0076's outcome from
-  evidence/E0076-interim.json plus those loops (rerun the builder in the
-  Nov 23 run: same per-step summary.json fields).
+- As each E0076 loop ends, append it to evidence/E0076-interim.json (same
+  per-step summary.json fields: step, gamma, outcome, cycles, cpu_h,
+  energy_gains, audit_failures, slow, sha256 of summary.json). When the
+  last four end, write E0076's outcome: one table of floor and highest
+  Gamma per f* against width 100 (evidence/E0073-results.json). Say which
+  floors are cost stops (CPU cap) and which are overlaps or stalls.
 - Collect the first completed jobs and check per-step cost against E0070.
 - Compare the E0071 onset at L 200 with E0060 at L 100 for f* 0.44.
 - The nudge loops (E0075) will likely stop at the period-2 wall above
