@@ -1,73 +1,39 @@
-# L0009 Option four (clusterlifter) — progress
+# L0009 Option four — progress
 
-## Current state (after Nov 23 session)
+## Current state (after the Nov 24 run, instruction of Nov 23)
 
-Branch `method/held-contact` tip commit **8f8f999** (v5).  No code changes were
-made tonight.  The session wrote `lines/L0009/clusterlifter.md`: a full
-description of the method (step-by-step mechanics, deviation table with every
-parameter and its decision record, runs table for all ten experiments).
+**Clusterlifter (`method/held-contact`, tip 8f8f999) is stopped as built.**
+Chris's instruction says: don't extend it, fix it, or run it. Its description
+stays in `lines/L0009/clusterlifter.md`.
 
-Waiting for Chris's direction on the two open design problems:
-
-1. **Energy audit failure**: every cycle fails at all four deep Gamma 5 E0086
-   conditions (threshold 1e-8; worst residual 2e-4, all negative).  The hold
-   steps are dissipative (~1e-4 of plate work per cycle removed), not
-   energy-injecting.  This was invisible in v3 (absorbed into EN_PLATE_DISS);
-   v4 made it a visible residual (EN_HOLD).  Whether it is fundamental to the
-   impulse-step method or reducible by design is unclear.
-
-2. **Post-hold-step overlap tolerance** (`htol`): 1e-3 (v4) or 1e-6 (v5) when
-   friction on, vs standard PAIR_PENETRATION_TOL = 2e-8.  No decision record
-   for introducing 1e-3 in v4.  Chris said he does not tolerate it.
-
-No jobs are in flight.
-
-## Bulk check results
-
-- E0084 (clusterlifter, friction off, against friction-on baseline):
-  - Gamma 3.5, f* 0.3, depth 5: pass (worst 1.10 sd)
-  - Gamma 3.5, f* 0.5, depth 5: pass (worst 1.29 sd)
-  - Gamma 3.5, f* 0.5, depth 10: pass (worst 0.80 sd)
-  - Gamma 3.5, f* 0.3, depth 10: FAIL (every quantity; horizontal energy +36%)
-
-- E0087 (clusterlifter mu=0, against mu=0 baseline):
-  - Gamma 3.5, f* 0.3, depth 10: PASS (worst 0.69 sd)
-  - Conclusion: the E0084 failure was from comparing different friction settings,
-    not from the hold method.
-
-## E0086 deep Gamma 5 results
-
-Collected Nov 23.  Four runs at Gamma 5, friction off, v4 engine (3983f59f),
-width 100, N 1000/1500 for depths 10/15.  Artifacts A0090–A0093.
-
-| condition | outcome | cycles | audit failures |
-|---|---|---|---|
-| f* 0.3, depth 10 | TIMEOUT at 110 cycles | 110 | 109 of 109 (worst 8e-5) |
-| f* 0.3, depth 15 | frozen_time at cycle 96 | 95 | 95 of 95 (worst 1.1e-4) |
-| f* 0.5, depth 10 | TIMEOUT at 70 cycles | 70 | 70 of 70 (worst 1.5e-4) |
-| f* 0.5, depth 15 | completed 120 cycles | 120 | 120 of 120 (worst 2.0e-4) |
-
-Energy audit: all cycles fail in all four runs; no energy gains.  The failures
-are from hold-step energy removal, now visible as EN_HOLD residuals in v4.
-
-## Friction overlap investigation (D0055)
-
-Root cause: plate friction in hold steps changes the held sphere's horizontal
-velocity, causing drift of ~2.3e-7 per dt_hold into touching neighbours.  Gap
-limiter implemented in v5 (D0055); delays overlap failure from cycle 1 to
-cycle 10-11 but partial.  Remaining overlaps may involve cluster members or
-wall-friction z-components.  Friction defaults to off.
+**The design that replaces it is in `lines/L0009/design.md`** (Nov 24). It is on paper only: no code and no runs.
+- It follows González, Risso and Soto (arXiv 1012.4844), which was read tonight in its ar5iv version.
+- It opens with a table: clusterlifter kept one of the paper's seven elements fully (wake on a fast hit), two partly, and four not at all.
+- The design has three states:
+  - **free**: the base model;
+  - **riding**: a lasting contact whose approach speed is held at zero while the sphere slides or rolls along the surface. On the plate the motion is in closed form; on a still sphere it is integrated until the contact force reaches zero;
+  - **still**: the paper's frozen state, made relative to the plate. The sphere moves with the plate, has no spin and is never integrated. A sphere enters it only if the balance test passes (friction-limited force and torque balance against its own weight).
+- Capture is the base collision with normal restitution zero, with Walton's tangential rule unchanged.
+- The paper's restitution on frozen spheres (0.4), its periodic check, its 1.05 d support distance and its energy store-and-return are all dropped.
+- Departures are named P1 to P7 and additions A1 to A3.
+- Five choices for Chris are at the end of the design, and proposed decision D0069 records the defaults.
 
 ## What's next
 
-Awaiting Chris's direction on the two open design problems above.  No new
-experiments should be run until the energy audit failure and the overlap
-tolerance are resolved.  Possible directions (see session summary
-proposed_directions):
+1. Wait for Chris's answers to the five choices (D0069).
+2. Then the first build, on a new branch (for example `method/rest`) in `sequel-data/worktrees/`:
+   - the plate part first, reusing the closed-form plate motion from L0019 `method/ride`, plus Coulomb sliding to rolling while riding;
+   - frozen engine tests and the replayed stalls before the 2D grid.
+3. Optional and cheap: run the balance test on its own over the Nov 16 and 17 stall snapshots (no engine runs).
 
-1. Remove the overlap tolerance and redesign the hold step to not create
-   overlaps (position correction instead of velocity correction).
-2. Per-step energy accounting to identify which contacts remove energy and by
-   how much; then judge whether the removal is fundamental or reducible.
-3. Consider whether the impulse-step method can pass the energy audit at all,
-   or whether the threshold needs revision with explicit justification.
+## Jobs in flight
+
+None.
+
+## Background (older results, still valid)
+
+- E0086 (clusterlifter v4, deep Gamma 5, collected Nov 23):
+  - one completed 120 cycles, one hit frozen time at cycle 96, and two timed out;
+  - the audit failed in nearly every cycle (worst 2.0e-4, energy removed and never injected).
+- E0087: clusterlifter with friction set to zero passed the bulk check against a friction-zero baseline at Gamma 3.5, f* 0.3, depth 10.
+- The overlap tolerance in v4 and v5 (1e-3 and 1e-6) has no decision record, and Chris rejects it. The new design keeps the engine's 2e-8 check unchanged.

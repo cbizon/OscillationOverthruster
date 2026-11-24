@@ -1,0 +1,23 @@
+{
+  "what": "Numbers cited by lines/L0009/design.md and sessions/2026-11-24-L0009.json. No runs: values are copied from their sources.",
+  "paper": {
+    "source": "Gonzalez, Risso, Soto, arXiv 1012.4844 (ar5iv HTML, read 2026-11-24)",
+    "V_sleep_deposition": [0.01, 0.10], "V_sleep_drum": 0.05, "V_wakeup_drum_values": [0.01, 0.05, 0.25, 0.50],
+    "V_wakeup_drum_best": 0.50, "alpha_frozen": 0.4, "alpha": 0.7, "tau_check": 0.1, "support_distance_d": 1.05,
+    "V_c_regularisation": 1e-4, "energy_storage_time": "2 V_sleep / ((1 - alpha_frozen) g)"
+  },
+  "clusterlifter": {
+    "source": "lines/L0009/clusterlifter.md, decisions D0049-D0055, evidence/E0086/deep-runs-results.json",
+    "v_hold": 0.01, "dt_hold": 5e-4, "free_pair_capture_speed": 1e-10, "gap_release": 1e-4,
+    "max_sweeps": 200, "over_relaxation": 1.5, "added_numerical_constants_besides_dt_hold": 5,
+    "E0086_worst_audit_residual": 2.0e-4, "paper_elements_checked": 7, "elements_fully_kept": 1, "elements_partly_kept": 2, "elements_absent": 4
+  },
+  "base_model": {
+    "source": "granular/sim.py lines 13-18, granular/edmd.py",
+    "eps": 0.7, "alpha_exponent": 0.75, "B": 0.3, "v0": 1.0, "mu": 0.5, "beta0": 0.35, "K_inertia": 0.4,
+    "overlap_check": 2e-8, "rolling_on_fixed_sphere_factor": "1/(1+K) = 1/1.4"
+  },
+  "referee": {"audit_relative_tolerance": 1e-8},
+  "design_defaults": {"V_rest": 0.01, "V_rest_checks": [0.003, 0.03], "V_wake": "equal to V_rest",
+    "integrator_target_residual": 1e-10, "choices_for_chris": 5, "named_departures": 7, "named_additions": 3}
+}

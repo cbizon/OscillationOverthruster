@@ -297,6 +297,28 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 23 instruction to L0009: option four from the paper (ran Nov 24 05:05Z)
+
+Session summary: `sessions/2026-11-24-L0009.json`. A design on paper only,
+with no code and no runs: `lines/L0009/design.md`.
+
+- **Clusterlifter against the paper:** of the paper's seven elements, it
+  kept one fully (a fast hit wakes the sphere), two partly, and four not
+  at all. D0049 replaced the resting state with periodic pushes solved
+  jointly. It cost a time step and five more numerical constants, energy
+  removed at every step, overlaps under friction, and the paper's speed-up.
+- **The resting-contact design:**
+  - three states: free; riding (a lasting contact that keeps rolling or
+    sliding, on the plate in closed form, on a still sphere integrated
+    until the contact force reaches zero); still (the paper's frozen state
+    carried with the plate, not integrated);
+  - a sphere becomes still only if the balance test passes, so unstable
+    stacks last until the upper sphere rolls off;
+  - capture is the base collision with normal restitution zero;
+  - the paper's restitution of 0.4 on frozen spheres, its periodic check
+    and its energy return are dropped.
+- Five choices for Chris end the design.
+
 ### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
 
 Session summary: `sessions/2026-11-23-L0001.json`; review:
@@ -1167,19 +1189,12 @@ These are findings, not edits; the referee is his.
   E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
   grid with more seeds where the judge is close, and the phase-diagram fast
   pass with grapenuts (`lines/L0020/progress.md`).
-- **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
-  describes the current code (v4/v5). E0086 collected: energy audit fails
-  every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,
-  all negative, no injection). Frozen time recurred at Gamma 5 depth 15
-  f\* 0.3. No code changes pending — waiting for Chris's design direction.
-- **Overlap tolerance (L0009):** the post-hold-step prediction uses
-  `htol = 1e-3` (v4) or `1e-6` (v5) when friction is on. No decision
-  record. No friction-on run completed.
-- **Complete the friction gap limiter**: extend to cluster members and wall
-  friction z-components. Test at the full 2D grid with friction on.
-- **With friction working**: rerun the E0084 bulk check at Gamma 3.5,
-  f\* 0.3, depth 10 with friction on (the mu=0 test shows the hold method
-  passes).
+- **Option four from the paper (L0009):** waiting for Chris's answers to
+  the five choices at the end of `lines/L0009/design.md` (proposed
+  decision D0069). Then a first build on a new method branch: the plate
+  part first (closed-form, reusing L0019's plate motion), tested on the
+  replayed stalls and the frozen engine tests. Clusterlifter
+  (`method/held-contact`) is stopped as built: no fixes, no runs.
 - **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
   164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
   E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma

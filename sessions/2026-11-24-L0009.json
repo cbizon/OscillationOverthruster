@@ -1,0 +1,96 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0009",
+ "instruction": "instructions/2026-11-23.md",
+ "answers": [
+  {
+   "asked": "\"The point of this model was to try to follow what happened in the relevant paper. This algorithm seems to have essentially nothing to do with it.\"",
+   "status": "answered",
+   "answer": "Agreed: clusterlifter kept little of the paper. Of the paper's seven elements, it has one fully (a fast hit wakes the sphere), two only partly (a capture speed of the paper's size, but tested on approach speed alone; a check every push step on the sign of the force, not on whether supporters are present), and four not at all: no frozen state, no skipping of resting spheres, no infinite-mass hits with restitution 0.4, no stored energy returned. Decision D0049 swapped the paper's resting state for periodic pushes solved jointly over a cluster. In effect that bolted a time-stepped contact solver onto the event-driven engine. It cost a time step and five more numerical constants, energy removed at every step (the audit failed every deep Gamma 5 cycle, worst 2.0e-4), overlaps once friction was on, and none of the paper's speed-up. The table and these sentences open lines/L0009/design.md.",
+   "departures": "The paper was read in its ar5iv HTML version, through a tool that summarises and quotes the page, not as the journal PDF. The quoted details agree with notes/contact-options.md. The paper leaves one thing unstated: what happens to the spheres above a sphere that the support check wakes. The design does not rely on it."
+  },
+  {
+   "asked": "\"I don't think the multi-contact criterion is quite right. ... it's entirely possible to have a long lived contact even if the situation is not fully stable one ball rolling off of another for instance. So I think keeping the ability for a longish lived 'stack' of balls, but somehow handling their collapse. And part of it is certainly friction and spin.\"",
+   "status": "answered",
+   "answer": "Yes, the design keeps long-lived stacks that are not stable, and handles their collapse with friction and spin. A sphere that lands slowly on a still sphere, off to one side, becomes riding. Its approach speed is held at zero while it rolls (or slides, with friction 0.5 times the contact force, the base model's coefficient) over its supporter. Its motion is integrated until the contact force reaches zero and it rolls off. A sphere becomes still (at rest with the plate) only if its contacts could hold it against its own weight with friction: the balance test. One supporter directly below passes, one to the side fails, and no number of contacts is required. A stack ends in four ways, each with a stated end state and no positions moved: the plate's acceleration reaches minus g (all leave together with their current velocity, and still spheres with zero spin); a supporter is woken by a hit (every sphere touching it is checked again at once and left still, riding or free); a rider's contact force reaches zero; or a fast hit (the struck sphere becomes free, then the ordinary collision happens). Friction at a lasting contact is the limit of Walton's rule over vanishing impacts: slide at 0.5 times the force until rolling.",
+   "departures": "First build restricts what can carry a rider to the plate and still spheres. A sphere landing slowly on a rolling sphere bounces by the base model instead (question 1). Side walls are not used as supporters in the first build. The design does not settle whether a sphere pressed against a wall by a still cluster chatters."
+  },
+  {
+   "asked": "\"So yes, a design with this in mind.\"",
+   "status": "answered",
+   "answer": "Written: lines/L0009/design.md, on paper only, no code and no runs. It says keep, change or drop for each element of the paper, with seven departures and three additions, each named. It covers the state of a resting sphere, unstable stacks, collapse, friction and spin, the energy audit at capture, rest and collapse, overlaps, the parameters (the paper's restitution on frozen spheres, check interval, support distance and energy storage time are all dropped; one rest speed of 0.01 is kept), the difference from L0019's ride method, and five choices for Chris.",
+   "departures": "The design is longer than about two pages: it is about three, because each of the seven required questions has its own section. The energy and overlap answers are arguments from the design, not measurements; nothing was built."
+  }
+ ],
+ "headline": "Tonight was a design on paper for option four that starts from the González, Risso and Soto paper, as Chris asked. Clusterlifter turns out to have kept one of the paper's seven elements fully and two partly. The new design (lines/L0009/design.md) keeps the paper's frozen state, carried along with the plate, and adds a riding state, so a stack can last while its upper sphere rolls or slides off. A sphere rests only when the balance test passes. Five choices are left for Chris.",
+ "experiments": [],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Should a sphere be able to ride on a sphere that is itself rolling, which means moving a whole rolling stack together with a small solver for its contact forces? Or should the first build let only the plate and still spheres carry a rider?",
+   "why_it_matters": "It decides whether the method stays solver-free like the paper, or risks chatter where a sphere lands slowly on a rolling one.",
+   "default_if_unanswered": "Restrict first, then measure chatter on the replayed stalls before adding stacks that move."
+  },
+  {
+   "question": "Should the wake speed equal the rest speed (one threshold), or be higher as in the paper, with hits in between bouncing off the resting sphere as if it were immovable?",
+   "why_it_matters": "One threshold drops the paper's invented restitution of 0.4 entirely. A higher wake speed keeps more spheres resting but stops slow hits from moving them.",
+   "default_if_unanswered": "One threshold, the wake speed equal to the rest speed."
+  },
+  {
+   "question": "Is a rest speed of 0.01 (the paper's deposition value) right, with bulk checks at 0.003 and 0.03 to show results don't depend on it?",
+   "why_it_matters": "It is the only constant the design adds that touches the physics.",
+   "default_if_unanswered": "0.01, with the two checks."
+  },
+  {
+   "question": "Should the paper's store-and-return of the energy removed at freezing be dropped?",
+   "why_it_matters": "The referee's audit would count a return as injected energy, and the 1998 model's own bounces never give that energy back.",
+   "default_if_unanswered": "Drop it; captures and freezing only ever remove energy."
+  },
+  {
+   "question": "Should the balance test let friction help hold a sphere still (0.5 times each contact's push), or count only frictionless contacts?",
+   "why_it_matters": "Frictionless is stricter: fewer spheres become still, and more ride and are integrated.",
+   "default_if_unanswered": "With friction, as in the base collision law."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Once Chris answers the choices, build the plate part first on a new method branch, reusing L0019's closed-form plate motion, and add Coulomb sliding to rolling while riding. Test it on the replayed stalls and the frozen engine tests before adding riders on spheres.",
+   "rationale": "The plate part is all closed form and shares code with ride, so it shows quickly whether the capture and still states keep the energy audit at round-off."
+  },
+  {
+   "direction": "Before building riders on spheres, write the balance test as a standalone function and run it on the stall snapshots already examined on Nov 16 and 17, counting how many pressed spheres it calls still.",
+   "rationale": "This uses no engine runs. It shows whether the test separates the stalled pairs from stable seats, which is Chris's concern about the old criterion."
+  },
+  {
+   "direction": "If L0019's ride survives all twelve 2D conditions with a clean audit, compare its bulk quantities with this design's plate-only build at the same conditions.",
+   "rationale": "Ride locks riders rigidly and this design lets them roll off. A difference in the bulk quantities would be evidence of what rigid locking does to the physics."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 491.944,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.638,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0008"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T05:05:00Z",
+  "actual_start": "2026-11-24T05:05:09Z",
+  "ended": "2026-11-24T05:14:41Z",
+  "interruptions": [],
+  "cpu_hours": 0.02,
+  "cores_available": 30,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. No simulations: the session wrote a design on paper. The only compute was the frozen engine tests, 74 passed in 55 seconds. This ran on a Linux worker (40 cores, load about 10 at start), not on Chris's Mac. budgets.yaml's local limits are written for the Mac. The data folder was 638 MB, including other lines' data."
+ }
+}
