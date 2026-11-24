@@ -30,3 +30,6 @@ env = {UV_LINK_MODE = "copy"}
 
 [runs]
 agent = ["claude", "-p", "--model", "claude-opus-5-5"]
+
+[service]
+max_parallel_lines = 4
