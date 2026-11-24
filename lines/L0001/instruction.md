@@ -15,3 +15,13 @@ You asked:
 Answer:
 
 Yes run the frozen engine tests
+
+## 2026-11-24 00:04, Chris, from the dashboard
+
+You asked:
+
+> Close the nudge line now, or first run the frozen engine tests on the nudge version the phase-diagram loops use?
+
+Answer:
+
+Yes run the frozen engine tests
