@@ -2,7 +2,9 @@
 
 ## Status
 
-Active. All 30 width-200 fast-pass loops running on Hatteras.
+Active. 24 of the 30 width-200 fast-pass loops still running on Hatteras
+(as of Nov 24, 04:30 UTC). Six have ended (see below); none needs
+relaunching under the agreed rules.
 
 ## What is done
 
@@ -20,13 +22,23 @@ Active. All 30 width-200 fast-pass loops running on Hatteras.
   multiples of 0.5, step 0, and the latest completed step. This matches the
   instruction's storage rule.
 
+- Ended loops examined (Nov 23 run, evidence/E0076-interim.json):
+  - E0076 baseline f* 0.84 (164685, A0095), 0.33 (164692, A0089),
+    0.30 (164693, A0096), 0.27 (164694, A0097): sphere overlap in the
+    first step at Gamma 3.0, 0 or 1 of 50 cycles. Width 100 lost only 0.27.
+  - E0076 baseline f* 0.65 (164687, A0171): floor 2.4 (overlap at 2.35),
+    ceiling 3.9 (overlap at 3.95); width 100: 2.25 and 4.1. 46.1 CPU-hours,
+    median 0.91 CPU-hours per 25-cycle step (about 5.5 x width 100).
+  - E0075 nudge f* 0.27 (164684, A0094): first-step cap (4 CPU-hours)
+    after 49 of 50 cycles. Raising its cap is Chris's call (caps kept, Nov 22).
+
 ## Jobs in flight
 
 | Experiment | Host | Jobs | f* | Description | Wall time |
 |---|---|---|---|---|---|
-| E0074 | hatteras | 164665-164674 | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
-| E0075 | hatteras | 164675-164684 | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
-| E0076 | hatteras | 164685-164694 | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
+| E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
+| E0075 | hatteras | 164675-164683 running; 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
+| E0076 | hatteras | 164686, 164688-164691 running (f* 0.74, 0.57, 0.50, 0.44, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -44,6 +56,9 @@ Size per loop:
 
 ## What is next
 
+- When the last five E0076 loops end, write E0076's outcome from
+  evidence/E0076-interim.json plus those loops (rerun the builder in the
+  Nov 23 run: same per-step summary.json fields).
 - Collect the first completed jobs and check per-step cost against E0070.
 - Compare the E0071 onset at L 200 with E0060 at L 100 for f* 0.44.
 - The nudge loops (E0075) will likely stop at the period-2 wall above

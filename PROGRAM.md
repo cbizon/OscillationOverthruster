@@ -545,6 +545,27 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 23 findings (L0018, started by the service for job 164687)
+
+No instruction. Session summary: `sessions/2026-11-23-L0018.json`.
+Evidence: `evidence/E0076-interim.json`.
+
+- **Six of the 30 width-200 loops have ended** (all FAILED in Slurm terms;
+  each stopped under its own rules, none needs relaunching):
+  - Baseline (E0076) f\* 0.84, 0.33, 0.30, 0.27: sphere overlap in the
+    first step at Gamma 3.0 (0 or 1 of 50 cycles). At width 100 (E0073)
+    only f\* 0.27 failed there.
+  - Baseline f\* 0.65 (job 164687, A0171): down to a floor at Gamma 2.4
+    (overlap at 2.35), up to 3.9, overlap at 3.95. Width 100 at the same
+    f\*: floor 2.25, ceiling 4.1. 46.1 CPU-hours; median 0.91 CPU-hours
+    per 25-cycle step, about 5.5 times width 100 (E0070 measured 4.7 to 5.6).
+    No energy gains, no audit failures.
+  - Nudge (E0075) f\* 0.27 (job 164684): hit its 4 CPU-hour first-step
+    cap after 49 of 50 cycles at Gamma 3.0. No data past the first step.
+- One seed. A larger box has four times the particles, so more chances per
+  cycle for the unmodified engine's overlap; a narrower working range at
+  width 200 is what that predicts, not yet a measured size effect.
+
 ### Nov 21 findings (L0018)
 
 Instruction of Nov 21 (two items on L0018). Session summary:
@@ -1144,7 +1165,10 @@ These are findings, not edits; the referee is his.
 - **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
   164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
   E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
-  multiples of 0.5 (D0057); about 36-41 MB fetched per loop.
+  multiples of 0.5 (D0057); about 36-41 MB fetched per loop. As of Nov 24,
+  24 still running; ended: E0076 f\* 0.84, 0.65, 0.33, 0.30, 0.27 and
+  E0075 f\* 0.27 (see Nov 23 findings, L0018). E0076's outcome waits for
+  its last five loops (f\* 0.38-0.57, 0.74).
 - **Nudge loops above the wall** (E0089): eight continuations on Hatteras
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
