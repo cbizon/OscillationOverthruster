@@ -1,0 +1,4 @@
+# Rendered from RoboRobo's template by `program sync`; don't edit here.
+# Ledger files are append-only: when two lines' runs both appended records,
+# a merge keeps both (git's built-in union driver) instead of conflicting.
+ledger/*.jsonl merge=union
