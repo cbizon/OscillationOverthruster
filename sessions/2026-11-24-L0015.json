@@ -1,0 +1,63 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the first of the eight continued nudge loops ended. The loop at f* 0.57 did not crash: it got through Gamma 4.55 and then stopped at Gamma 4.6 when that step used its whole 48 CPU-hour allowance, 23 of the 25 cycles in. That is where the inelastic ball model puts the hardest stretch. Whether the cost falls again above 4.6, as the model predicts, is still untested, and the other seven loops are still running.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Can the nudge loops be pushed above the wall, up to Gamma 7.0 and back, with 48 CPU-hours allowed per step, and does the cost peak near Gamma 4.6 and fall again by 5.0, as the inelastic ball model predicts?",
+   "what_was_done": "Collected the first of the eight loops to end (f* 0.57, run on the cluster). Read its step summaries and event counters from Gamma 4.3 to 4.6 and set them beside the inelastic ball model's values at each Gamma.",
+   "result": "Gamma 4.55 finished in 25 cycles at about 980 CPU-seconds a cycle, five times the cost at 4.5. Gamma 4.6 ran about 7,500 CPU-seconds a cycle, almost eight times the cost at 4.55, and hit the 48-hour allowance after 23 cycles. The loop is written to stop at the first step on the way up that does not finish, so the job ended there; the energy check stayed clean throughout. Plate collisions per particle per cycle went from about 1,300 at 4.5 to 2,300 at 4.55 and 7,700 at 4.6, which fits the model's landing turning soft and sticking for nearly half the period at 4.6. On the same machine the computer time per event also rose two and a half times from 4.55 to 4.6, though the counted work per event barely changed. Something the counters don't track is growing, and this run did not look into it.",
+   "takeaway": "The cost peak sits where the model said it would start, but the loop cannot get through Gamma 4.6 within 48 CPU-hours a step. The model's real test, a drop in cost above 4.6, needs either a bigger allowance at 4.6 or a cheaper probe above it. This run waits for the other seven frequencies before choosing."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The f* 0.57 loop needs about 52 CPU-hours to finish its Gamma 4.6 step, and the next steps up are unknown. If the other seven loops also stop at 4.6, should I (a) let the loops take more than 48 CPU-hours per step through Gamma 4.6 to 5.0, which could pass the 100 CPU-hour per-run limit for each loop, or (b) run a cheaper test: start from the Gamma 4.6 state and measure a few cycles each at 4.65, 4.7 and up to 5.0, to see whether the cost falls as the inelastic ball model predicts, giving up on a full loop above the wall?",
+   "why_it_matters": "It decides whether the nudge part of the phase diagram above Gamma 4.6 gets measured at all, and it could cost several hundred to a few thousand CPU-hours.",
+   "default_if_unanswered": "Once all eight have ended, do (b) at one or two frequencies. It is a new experiment with a short hold per Gamma and stays under 100 CPU-hours per run. No loop gets a bigger allowance without your answer."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Once all eight loops have stopped, measure the cost a cycle at Gamma 4.65 to 5.0 with a few cycles at each, starting from the Gamma 4.6 state at one or two frequencies.",
+   "rationale": "This tests the inelastic ball model's one untested prediction (the cost falls above 4.6) for tens of CPU-hours rather than thousands."
+  },
+  {
+   "direction": "Find out what makes each event dearer near Gamma 4.6: profile one short run at 4.55 and 4.6 on one machine.",
+   "rationale": "On one machine (the Mac, Gamma 4.3 to 4.5), computer time per cycle rose about seven times while events per cycle rose only a quarter, and the counted work per event barely changed. If the extra time goes to something fixable in the code, such as event-queue work, part of the wall is a cost of the code rather than of the physics."
+  },
+  {
+   "direction": "Compare the nudge and friction-off passes over Gamma 2.0 to 4.4, the range they share.",
+   "rationale": "Both passes are complete there, so this costs no new runs, and it shows whether friction moves the transitions."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 616.48,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T12:35:22Z",
+  "actual_start": "2026-11-24T12:37:31Z",
+  "ended": "2026-11-24T12:41:36Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "seven loops (f* 0.33, 0.38, 0.44, 0.50, 0.65, 0.74, 0.84) still running on the cluster, each in its Gamma 4.55 or 4.6 step"
+   }
+  ],
+  "limits_hit": "The 48 CPU-hour per-step allowance (the registered method) stopped the f* 0.57 loop at Gamma 4.6. This host runs Linux, so pmset and uptime are unavailable: sleep and wake were not measured, and cores_available is left out (/proc/loadavg read 4.0 on 40 cores at the start). scheduled_start is when the job ended, the event that started this run. Weekly CPU budget: 616.48 of 10,000 hours, under 50% (561.44 reported by the L0018 run at 11:29Z plus this job's 55.04). The seven E0089 loops still running have each used about 55 CPU-hours that are not yet counted."
+ }
+}

@@ -1,0 +1,236 @@
+{
+ "experiment_id": "E0089",
+ "line_id": "L0015",
+ "status": "interim: one of eight loops ended (f* 0.57); seven still running on Hatteras",
+ "job": {
+  "host": "hatteras",
+  "job_id": "164659",
+  "artifact": "A0176",
+  "record": "evidence/E0089/hatteras-164659.json",
+  "state": "FAILED",
+  "exit_code": "1:0",
+  "cpu_hours": 55.044
+ },
+ "why_failed": "Not a crash. On the way up, step 84 (Gamma 4.6) reached the registered 48 CPU-hour per-step cap after 23 of 25 cycles (outcome cpu_budget). ramp.py ends the loop on the first up-branch step that does not complete, with exit code 1 (tools/ramp.py, else branch after the step). Energy audit clean throughout (worst residual 1.3e-11, no audit failures, no energy gains).",
+ "f_star": 0.57,
+ "rows": [
+  {
+   "step": "step-078-g4.3",
+   "gamma": 4.3,
+   "host": "local (E0065, copied in as the job input)",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 673.5,
+   "cpu_seconds_per_cycle": 26.9,
+   "events_per_particle_cycle": 10290,
+   "plate_collisions_per_particle_cycle": 696,
+   "cpu_microseconds_per_event": 0.044,
+   "worst_energy_residual": 5.753507440297222e-13,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.1326,
+   "ball_model_impact_min_gw": 3.8539,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 49.9,
+   "root_calls_per_event": 1.28
+  },
+  {
+   "step": "step-079-g4.35",
+   "gamma": 4.35,
+   "host": "local (E0065, copied in as the job input)",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 997.4,
+   "cpu_seconds_per_cycle": 39.9,
+   "events_per_particle_cycle": 10504,
+   "plate_collisions_per_particle_cycle": 731,
+   "cpu_microseconds_per_event": 0.063,
+   "worst_energy_residual": 8.253421341732159e-13,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.157,
+   "ball_model_impact_min_gw": 3.5145,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 49.9,
+   "root_calls_per_event": 1.28
+  },
+  {
+   "step": "step-080-g4.4",
+   "gamma": 4.4,
+   "host": "local (E0065, copied in as the job input)",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 1474.3,
+   "cpu_seconds_per_cycle": 59.0,
+   "events_per_particle_cycle": 10824,
+   "plate_collisions_per_particle_cycle": 802,
+   "cpu_microseconds_per_event": 0.091,
+   "worst_energy_residual": 1.1161115201195292e-12,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.1851,
+   "ball_model_impact_min_gw": 3.1269,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 49.9,
+   "root_calls_per_event": 1.28
+  },
+  {
+   "step": "step-081-g4.45",
+   "gamma": 4.45,
+   "host": "local (E0065, copied in as the job input)",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 2004.6,
+   "cpu_seconds_per_cycle": 80.2,
+   "events_per_particle_cycle": 11405,
+   "plate_collisions_per_particle_cycle": 953,
+   "cpu_microseconds_per_event": 0.117,
+   "worst_energy_residual": 1.0130918562383752e-12,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.2183,
+   "ball_model_impact_min_gw": 2.6761,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 49.9,
+   "root_calls_per_event": 1.29
+  },
+  {
+   "step": "step-082-g4.5",
+   "gamma": 4.5,
+   "host": "local (E0065, copied in as the job input)",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 4632.6,
+   "cpu_seconds_per_cycle": 185.3,
+   "events_per_particle_cycle": 12756,
+   "plate_collisions_per_particle_cycle": 1319,
+   "cpu_microseconds_per_event": 0.242,
+   "worst_energy_residual": 1.666014433275276e-12,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.2598,
+   "ball_model_impact_min_gw": 2.1345,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 50.1,
+   "root_calls_per_event": 1.31
+  },
+  {
+   "step": "step-083-g4.55",
+   "gamma": 4.55,
+   "host": "hatteras",
+   "outcome": "completed",
+   "cycles": 25,
+   "cpu_seconds": 24507.9,
+   "cpu_seconds_per_cycle": 980.3,
+   "events_per_particle_cycle": 17133,
+   "plate_collisions_per_particle_cycle": 2297,
+   "cpu_microseconds_per_event": 0.954,
+   "worst_energy_residual": 3.164766235407821e-12,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.3185,
+   "ball_model_impact_min_gw": 1.4384,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 51.3,
+   "root_calls_per_event": 1.39
+  },
+  {
+   "step": "step-084-g4.6",
+   "gamma": 4.6,
+   "host": "hatteras",
+   "outcome": "cpu_budget",
+   "cycles": 23,
+   "cpu_seconds": 172813.1,
+   "cpu_seconds_per_cycle": 7513.6,
+   "events_per_particle_cycle": 51918,
+   "plate_collisions_per_particle_cycle": 7720,
+   "cpu_microseconds_per_event": 2.412,
+   "worst_energy_residual": 1.2941116299260235e-11,
+   "audit_failures": 0,
+   "ball_model_stuck_fraction_max": 0.4659,
+   "ball_model_impact_min_gw": 0.2479,
+   "ball_model_period2": true,
+   "pair_checks_per_event": 55.7,
+   "root_calls_per_event": 1.59
+  }
+ ],
+ "ratios": {
+  "cpu_per_cycle_4p6_over_4p55": 7.66,
+  "events_per_cycle_4p6_over_4p55": 3.03,
+  "cpu_per_event_4p6_over_4p55": 2.53,
+  "events_per_cycle_4p6_over_4p4": 4.8,
+  "cpu_per_cycle_4p6_over_4p3": 279.3
+ },
+ "caveats": [
+  "Steps up to Gamma 4.5 ran on the Mac (E0065); 4.55 and 4.6 ran on Hatteras node compute-13-1. CPU seconds per event are not comparable across the two machines; only the 4.55 to 4.6 comparison is same-machine.",
+  "Event counts are machine-independent and are the cleaner cost measure across the whole range.",
+  "Ball-model columns are from evidence/E0088-ball-f0.44.json; the model is frequency-independent (E0088), so they apply at f* 0.57.",
+  "The registered prediction (cost peaks near Gamma 4.6 and is back near the 4.3 level by 5.0) cannot yet be tested: nothing above 4.6 has run."
+ ],
+ "files": [
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-078-g4.3/summary.json",
+   "bytes": 770,
+   "sha256": "116429520c95d816648ebacea348781bfaaee1ecf286d4f138cb4e92c7b4c07b"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-078-g4.3/counters.json",
+   "bytes": 929,
+   "sha256": "cf64146726e68ce98bc453c652b8ad7ac36723b1de96f05133c9c21706ff7528"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-079-g4.35/summary.json",
+   "bytes": 778,
+   "sha256": "81533fab24abd037e963b36c544014a559a009d2beab28e4badc7eaeba04aea2"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-079-g4.35/counters.json",
+   "bytes": 932,
+   "sha256": "49f9f768eeb6eb89dbd67fcefcbd9ae005e81fa93d6f898997d0f9ec8f63d9fb"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-080-g4.4/summary.json",
+   "bytes": 780,
+   "sha256": "11a21e99f640c760492fadb5b53073ea3872e91849d3d58eda1e86615809a295"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-080-g4.4/counters.json",
+   "bytes": 932,
+   "sha256": "edd3a2953db7e32e42f8d2d767df5bb0a0873e4361b8060bd95edf6c83861c9d"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-081-g4.45/summary.json",
+   "bytes": 789,
+   "sha256": "5bbfd468bb97c98dfd4e3418cfcba936099c09fd4751c3451a8418aeb8cae1da"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-081-g4.45/counters.json",
+   "bytes": 929,
+   "sha256": "12268dba07444ac2f5ea384297909dad6600d55fbc96ccd64a41c73f8e1544c5"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-082-g4.5/summary.json",
+   "bytes": 778,
+   "sha256": "d7b968d580c17a4c5d180811ac6bb2d9549ed17855fd2ace5141762cc24b8db4"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-082-g4.5/counters.json",
+   "bytes": 932,
+   "sha256": "e0896a417c210a80d595cb63b8fd88c5359c3e4114bb0e81566da869b2b18465"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-083-g4.55/summary.json",
+   "bytes": 801,
+   "sha256": "cce8dc8d528f5fbd202c0693c69233e9b88139a54fa9a48acb778be95c4a7ca8"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-083-g4.55/counters.json",
+   "bytes": 903,
+   "sha256": "97f52ffa83c4cff294e9198e3763da6cc604da1ebba5455c66add2604e77ed6c"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-084-g4.6/summary.json",
+   "bytes": 812,
+   "sha256": "4317ff3ed5ddb5dc908b553183341a67acd170ce52752bdb4c8a2dfa0b541231"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/mirror/E0089/hatteras-164659/out/loop/step-084-g4.6/counters.json",
+   "bytes": 923,
+   "sha256": "a438b282a57fc6630d350756a2123431a6fdb80ef0c5db8ae3d13223176a8c06"
+  }
+ ]
+}

@@ -298,6 +298,25 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): first continued loop ended at Gamma 4.6 (ran Nov 24 12:37Z)
+
+Started by the service for job hatteras-164659 (FAILED, artifact A0176).
+Session summary: `sessions/2026-11-24-L0015.json`. Evidence
+`evidence/E0089-interim-f0.57.json`.
+
+- **f\* 0.57 loop (E0089):** finished Gamma 4.55 (980 CPU-seconds per
+  cycle on Hatteras) and stopped at 4.6 on its 48 CPU-hour step cap after
+  23 of 25 cycles (7,514 CPU-seconds per cycle). The loop is built to end
+  at the first step on the way up that does not finish; the energy audit
+  stayed clean. Nothing above 4.6 has run, so the inelastic ball model's
+  prediction (cost drops again by 5.0) is still untested.
+- Plate collisions per particle per cycle: 1,319 at Gamma 4.5, 2,297 at
+  4.55, 7,720 at 4.6. CPU per event also rose 2.5 times from 4.55 to 4.6
+  on the same machine.
+- The other seven loops are still running, all in their 4.55 or 4.6 step.
+  D0071: no resubmission until all eight have ended; raising the cap again
+  goes to Chris.
+
 ### Nov 23 instruction to L0009: option four from the paper (ran Nov 24 05:05Z)
 
 Session summary: `sessions/2026-11-24-L0009.json`. A design on paper only,

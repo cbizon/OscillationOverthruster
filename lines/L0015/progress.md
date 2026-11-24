@@ -23,28 +23,62 @@
   The stuck fraction peaks at 0.47 at 4.6 and drops to 0.27 by 5.0.
   Prediction: cost peaks near 4.6 and drops back by 5.0.
 
+- **E0089, f* 0.57 (job 164659, artifact A0176), ended Nov 24:** completed
+  Gamma 4.55 (980 CPU-s/cycle, Hatteras), then stopped at Gamma 4.6 on the
+  48 CPU-hour step cap after 23 of 25 cycles (7,514 CPU-s/cycle; 55.04
+  CPU-hours for the job). Exit 1 is by design (ramp.py ends the loop on the
+  first up-branch step that does not finish), not a crash; audit clean.
+  Plate collisions per particle per cycle 1,319 (4.5), 2,297 (4.55), 7,720
+  (4.6). Evidence `evidence/E0089-interim-f0.57.json` (table with
+  ball-model columns). The step-084 checkpoint (23 cycles at 4.6) is in
+  A0176 on Hatteras; continue_loop.sh as written would delete that
+  unfinished step and redo 4.6 from the 4.55 checkpoint.
+
+## Things noticed, not yet followed up
+
+- CPU per event rises much faster than any event counter: on the Mac,
+  0.044 microseconds per event at 4.3 to 0.242 at 4.5 (5.5 times) while
+  pair checks per event stay at 50 (50 at 4.3 to 56 at 4.6) and root
+  calls per event go from 1.28 to 1.59. Same-machine 4.55 to 4.6 on
+  Hatteras: 2.5 times. Something uncounted (queue work, nudge iterations,
+  or machine load) is growing. Not examined.
+- Gamma 3.5 cost across frequencies is 13 to 22 s/cycle (Nov 21 summary
+  said 15 to 22; corrected in the Nov 24 note).
+
 ## What's next
 
-- **Collect E0089** from Hatteras and test the inelastic ball prediction:
-  does the cost peak near 4.6 and drop to the 4.3 level by 5.0?
-- Once E0089 completes, overlay measured cost on the ball model.
-- Compare nudge and no-friction passes over the common Gamma range.
+- **Collect the other seven E0089 loops** as they end (each ending starts
+  this line). Add each to an E0089 interim table like the f* 0.57 one.
+- **D0071:** don't resubmit f* 0.57 alone. Once all eight have ended,
+  if they all stop at 4.6, ask Chris: (a) a bigger per-step cap at 4.6 to
+  5.0 (4.6 alone needs about 52 CPU-hours per loop on Hatteras; per-run
+  limit in budgets.yaml is 100), or (b) a cheaper cost probe at 4.65 to
+  5.0 started from the 4.6 state (a new experiment, not a loop). If
+  resuming, change continue_loop.sh to keep the partial 4.6 step instead
+  of deleting it (check the referee resume counts CPU from zero).
+- Then: overlay measured cost on the ball model; write the E0089 outcome
+  (falsified_if: cost at 5.0 not within a factor 2 of the 4.3 level, or
+  loops cannot complete above 5.0).
 
 ## Jobs in flight
 
-| Experiment | Host | Job ID | f* | From Gamma | Description |
-|---|---|---|---|---|---|
-| E0089 | hatteras | 164655 | 0.33 | 4.50 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164656 | 0.38 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164657 | 0.44 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164658 | 0.50 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164659 | 0.57 | 4.50 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164660 | 0.65 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164661 | 0.74 | 4.45 | nudge loop continuation, 48h guard |
-| E0089 | hatteras | 164662 | 0.84 | 4.50 | nudge loop continuation, 48h guard |
+| Experiment | Host | Job ID | f* | State on Nov 24 12:40Z |
+|---|---|---|---|---|
+| E0089 | hatteras | 164655 | 0.33 | running, step 4.6 |
+| E0089 | hatteras | 164656 | 0.38 | running, step 4.55 |
+| E0089 | hatteras | 164657 | 0.44 | running, step 4.6 |
+| E0089 | hatteras | 164658 | 0.50 | running, step 4.6 |
+| E0089 | hatteras | 164659 | 0.57 | ENDED (cap at 4.6), collected |
+| E0089 | hatteras | 164660 | 0.65 | running, step 4.6 |
+| E0089 | hatteras | 164661 | 0.74 | running, step 4.6 |
+| E0089 | hatteras | 164662 | 0.84 | running, step 4.6 |
+
+(164647 to 164654 were the first, broken submission: failed in 20 s on a
+wrong wrapper path; artifacts A0081 to A0088.)
 
 ## Key evidence files
 
+- `evidence/E0089-interim-f0.57.json` (f* 0.57 above the wall)
 - `evidence/E0065-results.json` (all ten loops)
 - `evidence/E0085-nudge-wall-fields.json` (wall analysis)
 - `evidence/E0088-comparison.json` (inelastic ball vs nudge cost)
