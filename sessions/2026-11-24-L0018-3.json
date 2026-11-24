@@ -1,0 +1,66 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the width-200 baseline loop at f* 0.74 ended (job 164686). Slurm marks it FAILED, but that is how every loop exits when it stops. It stopped under its own rules: it covered Gamma 2.25 to 4.0, against 2.15 to 4.1 in the paper's box. Neither end can be fully compared. The floor was a CPU cap stop at both widths. At the top, width 200 had a sphere overlap at 4.05, while width 100 passed that Gamma and stopped later on its cap. As the checker asked, the up-leg cost ratio is now recorded too: its median is 7.3 across five f*, but it varies widely near the tops. Nothing needs relaunching.",
+ "experiments": [
+  {
+   "experiment_id": "E0076",
+   "question": "Where does the unmodified engine with friction stop on a Gamma loop in the box twice as wide, compared with the paper's box?",
+   "what_was_done": "Read the fetched per-step summaries of the f* 0.74 loop and added them to the interim evidence file in the same form as the earlier loops. For each end, I recorded how it stopped at both widths. Fetched the width-100 step logs for the five f* values with a full width-200 loop. Computed the cost ratio of matched steps on the way up, as the checker asked, and added f* 0.74 to the way-down ratio.",
+   "result": "On the way down, the loop completed every step to Gamma 2.25. The step at 2.2 reached its two CPU-hour cap after twenty-three of twenty-five cycles. On the way up, it completed every step to 4.0. At 4.05, two spheres overlapped in the twenty-fifth cycle, after twenty-four had completed. The 4.0 step cost about six and a quarter CPU-hours, about ten times each of the steps just below it. Fifty-one steps completed, using about sixty CPU-hours. No step gained energy, failed the energy audit or had a slow stretch. In the paper's box, the same loop covered 2.15 to 4.1, stopping on its cap at both ends. Matched steps on the way down cost six point eight to eight times as much at width 200 (fifteen pairs). On the way up, the ratio across five f* runs from under one to sixty-four. The median is about seven, but it is eleven and a half at f* 0.44 and 0.57. The extremes are single expensive steps near the tops, which fall at different Gamma at the two widths.",
+   "takeaway": "The floor at f* 0.74 is a cost floor at both widths, so it says nothing about the box. The top is the first case where width 200 broke at a Gamma (4.05) that width 100 completed. Where width 100 would itself have broken is unknown, because it stopped on its cap. So the wider box reached no further here either, but this is one seed and a one-sided comparison. Step caps scaled four times from width 100 are too low on both legs to compare ends set by cost.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "When the last baseline loop (f* 0.38, job 164691) ends, write E0076's outcome table: floor and highest Gamma per f* at both widths, with the stop type at each end, comparing only ends that stopped for a physical reason at both.",
+   "rationale": "Nine of the nineteen loop ends at width 100 were cap stops (evidence/E0076-interim.json, width100_stop_modes), so most raw differences are cost effects."
+  },
+  {
+   "direction": "If the width-200 working range matters for L0013, rerun the cap-stopped ends from their stored checkpoints with caps scaled by the measured cost: about 3.7 CPU-hours down and 15 or more up.",
+   "rationale": "Carried from the second run, now also for the top. The up-leg ratio has a median of about seven but reaches eleven and a half at two f*, so a four-times cap cuts tops short too. This changes a cap set in D0046, so it is proposed rather than done."
+  },
+  {
+   "direction": "Rerun the four width-200 baseline loops that broke on their first step with a second seed.",
+   "rationale": "Carried from Nov 23: four of ten broke against one of ten at width 100, which points at the start state as much as at the box."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 561.44,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T18:17:09Z",
+  "actual_start": "2026-11-24T18:18:22Z",
+  "ended": "2026-11-24T18:30:00Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "ten loops running on Hatteras, 5-day wall time"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "nine loops running on Hatteras, 7-day wall time"
+   },
+   {
+    "experiment_id": "E0076",
+    "reason": "one loop running on Hatteras (f* 0.38, job 164691), 7-day wall time"
+   }
+  ],
+  "limits_hit": "None from the machine. This host is Linux, so pmset and uptime are not available: sleep and wake were not measured, and cores_available is omitted (load average 19.5 on 40 cores, from /proc/loadavg). scheduled_start is when the job ended (18:17:09Z), not a measured runner start. The loop's own step caps (D0046) set its floor at both widths and its top at width 100. That is a limit of the design, not of the machine. The job used 60.0 CPU-hours, under the 100 CPU-hour per-run limit. Weekly budget: program check's figure. It does not yet count the three baseline jobs that ended today (56.9, 56.9 and 60.0 CPU-hours by their job records). With them, about 735, or 7 percent. Below 50 percent."
+ }
+}

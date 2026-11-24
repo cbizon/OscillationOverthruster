@@ -2,9 +2,11 @@
 
 ## Status
 
-Active. 21 of the 30 width-200 fast-pass loops still running on Hatteras
-(as of the Nov 24 second run, 15:26 UTC). Nine have ended (see below); none
-needs relaunching under the loops' own stopping rules.
+Active. 20 of the 30 width-200 fast-pass loops still running on Hatteras
+(as of the Nov 24 third run, 18:28 UTC). Ten have ended (see below); none
+needs relaunching under the loops' own stopping rules. Slurm marks every
+ended loop FAILED (exit 1): that is how ramp.py exits when a loop stops, not
+a crash. Read the step outcomes.
 
 ## What is done
 
@@ -57,13 +59,28 @@ needs relaunching under the loops' own stopping rules.
     cap are cost floors and not comparable (checker, Nov 24). Use "about
     seven times", not "five to seven".
 
+- Nov 24 third run (evidence/E0076-interim.json):
+  - E0076 baseline f* 0.74 (164686, A0182): floor 2.25 (CPU cap at 2.2,
+    23 of 25 cycles), highest 4.0 (overlap at 4.05, 24 cycles completed).
+    Width 100: 2.15 (CPU cap at 2.1) to 4.1 (CPU cap at 4.15). Floor not
+    comparable; top one-sided (width 200 broke at a Gamma width 100 passed).
+    The width-200 step at Gamma 4.0 cost 6.23 CPU-hours, ten times its
+    neighbours (end_comparison and slow_step_before_top in the loop entry).
+    60.0 CPU-hours.
+  - up_leg_cost_ratio added (checker, Nov 24): matched up-leg steps above
+    Gamma 3.0, 94 pairs at f* 0.44-0.74, median 7.33, but 11.5 at f* 0.44
+    and 0.57, and extremes 0.63 to 64 from single slow steps near the tops.
+    down_leg_cost_ratio now has f* 0.74 too (64 pairs, median 7.39).
+  - failure_cycle in summary.json = cycles completed before the failure
+    (checker): an overlap with failure_cycle 24 happened in cycle 25.
+
 ## Jobs in flight
 
 | Experiment | Host | Jobs | f* | Description | Wall time |
 |---|---|---|---|---|---|
 | E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
 | E0075 | hatteras | 164675-164683 running; 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
-| E0076 | hatteras | 164686, 164691 running (f* 0.74, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
+| E0076 | hatteras | 164691 running (f* 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -81,10 +98,10 @@ Size per loop:
 
 ## What is next
 
-- As each E0076 loop ends, append it to evidence/E0076-interim.json (same
+- When the last E0076 loop (164691, f* 0.38) ends, append it to evidence/E0076-interim.json (same
   per-step summary.json fields: step, gamma, outcome, cycles, cpu_h,
-  energy_gains, audit_failures, slow, sha256 of summary.json). When the
-  last two end, write E0076's outcome: one table of floor and highest
+  energy_gains, audit_failures, slow, sha256 of summary.json; entries were
+  built straight from the mirrored summary.json files with a short script, not kept). Then write E0076's outcome: one table of floor and highest
   Gamma per f* against width 100 (evidence/E0073-results.json). Mark for
   each end, at BOTH widths, whether it was a CPU cap stop, an overlap or a
   stall (width-100 modes are in width100_stop_modes); compare only ends
