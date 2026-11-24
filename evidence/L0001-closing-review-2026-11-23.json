@@ -1,51 +1,71 @@
 {
-  "what": "Review of line L0001 (nudge) against its question and the referee's evidence list for 'contact method works', made to answer Chris's Nov 23 23:42 instruction (lines/L0001/instruction.md): is there anything left to do, or has the phase diagram superseded it? No simulation was run; every number below is copied from the ledger outcome or evidence file named with it.",
-  "line_question": "Start RQ1 with two independent methods: option 3, the elastic window, and option 1, the position nudge. Each is judged on its own against the full-physics baseline.",
-  "elastic_window_half": "Split off as L0007 and closed (no better survival than the unmodified engine).",
-  "referee_items_for_contact_method_works": {
-    "survival": {
-      "status": "fails, narrowly",
-      "2d_gamma5_runs_completed_1000_cycles": "17 of 18 (unmodified engine 0 of 18)",
-      "the_one_failure": "overlap at Gamma 5, f* 0.3, depth 10, seed 1, zero-based cycle 162 (the 163rd cycle): a free sphere pressed on a sphere the nudge keeps putting back on the plate",
-      "slow_at_same_condition": "seeds 2 and 3 completed but spent 47% and 13% of their CPU in slow stretches",
-      "3d_survival_case": "1000 cycles at five seeds, no slow episodes",
-      "sources": ["ledger outcome E0031", "evidence/E0008-collected.json", "evidence/E0018-results.json", "evidence/E0025-results.json", "evidence/E0028-results.json"]
-    },
-    "energy_audit": {
-      "status": "clean after the accumulator fix",
-      "detail": "the audit failures seen earlier were round-off in the engine's running totals; reruns with the fix had 0 failing cycles and bit-identical trajectories",
-      "caveat_by_design": "the nudge moves a sphere up onto the plate by at most a round-off distance; notes/contact-options.md says this injects m g delta per plate hit. Measured energy of the nudge's lifts at most 3.1e-13 of the energy throughput (PROGRAM.md, E0031 checker item).",
-      "sources": ["evidence/E0044-results.json", "ledger outcome E0031"]
-    },
-    "bulk_physics": {
-      "status": "passes wherever a baseline exists",
-      "where": "2D shallow and deep layers against the unmodified engine and the C code; 2D width 400 at three conditions, three seeds each; 3D case b at four seeds from the gentle start; 3D case g at three seeds against a single-seed baseline, weakly (same-sign deviations, settling too short)",
-      "sources": ["evidence/E0024-results.json", "ledger outcome E0037", "ledger outcome E0033"]
-    },
-    "frozen_engine_tests": {
-      "status": "no recorded run on method/nudge",
-      "how_checked": "searched PROGRAM.md, ledger/experiments.jsonl and evidence/ for a frozen-test (referee/tests) run on the nudge branch; found runs for plate-stick, persistent contact and ride, none for the nudge",
-      "can_it_be_run_here": "no: neither method/nudge nor its commits (b608fef, 16f3334) exist in this clone (git for-each-ref, git cat-file on Nov 24 04:5xZ); blocker B0008"
-    },
-    "figure_1_comparison": {
-      "status": "not available for any method",
-      "detail": "referee/README.md section 2 is 'to build with Chris'; the evaluator repository ~/Projects/experiments/granular_mean is not on this machine"
-    },
-    "acceptance_bar_3_minimally_invasive": "cannot be met by design: notes/contact-options.md and PROGRAM.md RQ1 option 1 call the nudge 'a baseline only' that 'can at best postpone a failure'"
+ "what": "Review of line L0001 (nudge) against its question and the referee's evidence list for 'contact method works', made to answer Chris's Nov 23 23:42 instruction (lines/L0001/instruction.md): is there anything left to do, or has the phase diagram superseded it? No simulation was run; every number below is copied from the ledger outcome or evidence file named with it.",
+ "line_question": "Start RQ1 with two independent methods: option 3, the elastic window, and option 1, the position nudge. Each is judged on its own against the full-physics baseline.",
+ "elastic_window_half": "Split off as L0007 and closed (no better survival than the unmodified engine).",
+ "referee_items_for_contact_method_works": {
+  "survival": {
+   "status": "fails, narrowly",
+   "2d_gamma5_runs_completed_1000_cycles": "17 of 18 (unmodified engine 0 of 18)",
+   "the_one_failure": "overlap at Gamma 5, f* 0.3, depth 10, seed 1, zero-based cycle 162 (the 163rd cycle): a free sphere pressed on a sphere the nudge keeps putting back on the plate",
+   "slow_at_same_condition": "seeds 2 and 3 completed but spent 47% and 13% of their CPU in slow stretches",
+   "3d_survival_case": "1000 cycles at five seeds, no slow episodes",
+   "sources": [
+    "ledger outcome E0031",
+    "evidence/E0008-collected.json",
+    "evidence/E0018-results.json",
+    "evidence/E0025-results.json",
+    "evidence/E0028-results.json"
+   ]
   },
-  "use_by_other_lines": {
-    "L0015": "Fast pass, nudge: the nudge is one of the engines of the phase diagram (L0013); eight loop continuations (E0089) were left running on Hatteras. That work is L0015's, not L0001's.",
-    "L0002": "Engine comparison: closed; it holds the condition-by-condition survival table cited above."
+  "energy_audit": {
+   "status": "clean after the accumulator fix",
+   "detail": "the audit failures seen earlier were round-off in the engine's running totals; reruns with the fix had 0 failing cycles and bit-identical trajectories",
+   "caveat_by_design": "the nudge moves a sphere up onto the plate by at most a round-off distance; notes/contact-options.md says this injects m g delta per plate hit. Measured energy of the nudge's lifts at most 3.1e-13 of the energy throughput (PROGRAM.md, E0031 checker item).",
+   "sources": [
+    "evidence/E0044-results.json",
+    "ledger outcome E0031"
+   ]
   },
-  "nudge_commits": {
-    "b608fef": "original method/nudge, used for E0003 to E0031",
-    "16f3334": "method/nudge with the energy-accumulator fix; reruns bit-identical to b608fef (evidence/E0044-results.json); used by the phase-diagram loops (evidence/E0089/hatteras-164647.json)"
+  "bulk_physics": {
+   "status": "passes wherever a baseline exists",
+   "where": "2D shallow and deep layers against the unmodified engine and the C code; 2D width 400 at three conditions, three seeds each; 3D case b at four seeds from the gentle start; 3D case g at three seeds against a single-seed baseline, weakly (same-sign deviations, settling too short)",
+   "sources": [
+    "evidence/E0024-results.json",
+    "ledger outcome E0037",
+    "ledger outcome E0033"
+   ]
   },
-  "files_read": {
-    "evidence/E0003-results.json": "sha256 prefix 99be346b408056eb4ef2",
-    "evidence/E0008-collected.json": "sha256 prefix 10ea1efde40f30e508a4",
-    "evidence/E0018-results.json": "sha256 prefix 6ea1b86788e994b13ef2",
-    "evidence/E0028-results.json": "sha256 prefix 96a9451874147552c213",
-    "evidence/E0044-results.json": "sha256 prefix cb8f1004f220c519c6c4"
-  }
+  "frozen_engine_tests": {
+   "status": "no recorded run on method/nudge",
+   "how_checked": "searched PROGRAM.md, ledger/experiments.jsonl and evidence/ for a frozen-test (referee/tests) run on the nudge branch; found runs for plate-stick, persistent contact and ride, none for the nudge",
+   "can_it_be_run_here": "no: neither method/nudge nor its commits (b608fef, 16f3334) exist in this clone (git for-each-ref, git cat-file on Nov 24 04:5xZ); blocker B0008"
+  },
+  "figure_1_comparison": {
+   "status": "not available for any method",
+   "detail": "referee/README.md section 2 is 'to build with Chris'; the evaluator repository ~/Projects/experiments/granular_mean is not on this machine"
+  },
+  "acceptance_bar_3_minimally_invasive": "cannot be met by design: notes/contact-options.md and PROGRAM.md RQ1 option 1 call the nudge 'a baseline only' that 'can at best postpone a failure'"
+ },
+ "use_by_other_lines": {
+  "L0015": "Fast pass, nudge: the nudge is one of the engines of the phase diagram (L0013); eight loop continuations (E0089) were left running on Hatteras. That work is L0015's, not L0001's.",
+  "L0002": "Engine comparison: closed; it holds the condition-by-condition survival table cited above."
+ },
+ "nudge_commits": {
+  "b608fef": "original method/nudge, used for E0003 to E0031",
+  "16f3334": "method/nudge with the energy-accumulator fix; reruns bit-identical to b608fef (evidence/E0044-results.json); used by the phase-diagram loops (evidence/E0089/hatteras-164647.json)"
+ },
+ "files_read": {
+  "evidence/E0003-results.json": "sha256 prefix 99be346b408056eb4ef2",
+  "evidence/E0008-collected.json": "sha256 prefix 10ea1efde40f30e508a4",
+  "evidence/E0018-results.json": "sha256 prefix 6ea1b86788e994b13ef2",
+  "evidence/E0028-results.json": "sha256 prefix 96a9451874147552c213",
+  "evidence/E0044-results.json": "sha256 prefix cb8f1004f220c519c6c4"
+ },
+ "corrections_2026-11-24": {
+  "source": "checker review reviews/2026-11-23-L0001.json (verdict broken); verified by reading the files named here",
+  "frozen_engine_tests": "Wrong above. The frozen referee tests were run on method/nudge at b608fef with the branch's engine imported: 74 of 74 passed on Nov 6 (checker, reviews/2026-11-06.json) and Nov 7 (agent, evidence/frozen-tests-2026-11-07.json, PROGRAM.md 'Branches and tests'). Only 16f3334 (b608fef plus the energy-accumulator fix) was untested; E0103 runs them on it.",
+  "energy_audit": "'Clean after the accumulator fix' overstates it. Only two nudge runs with audit-failing cycles were rerun with the fix (130 and 46 failing cycles, 176 of the nudge's roughly 830), and all of those went to zero with bit-identical trajectories (evidence/E0044-results.json). That the remaining failing cycles were also round-off is likely, not shown (L0005's closing state).",
+  "survival_caveat": "Seed 1 at Gamma 5, f* 0.3, depth 15 counts as completed but spent 71% of its CPU in slow stretches. The 2D width-400 runs and the 3D case b and Gamma 5 width-100 runs reached only 120 cycles.",
+  "bulk_caveat": "Every condition with a bulk baseline is one where the unmodified engine runs without lasting contacts, so the bulk check never reached a lasting-contact condition."
+ }
 }

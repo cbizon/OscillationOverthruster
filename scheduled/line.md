@@ -19,7 +19,9 @@ session:
   challenges and stop.
 - **A line's own instruction**, `lines/L0013/instruction.md`, if the prompt
   names it, is your instruction in place of a section of a dated file.
-  Chris writes it; you never edit it.
+  Chris writes it (answers to your questions and instructions,
+  newest last) and starts you when it is complete; you never edit it. Deal
+  with the entries added since this line's last summary.
 - **To be started again later** under the always-on service (to collect a
   job at the time you expect it, say), run `program wake --line L0013
   --in-minutes 360 --reason "collect E0131"`. Up to three timers per line,

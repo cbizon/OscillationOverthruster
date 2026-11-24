@@ -155,55 +155,53 @@ doesn't report ride counters; read `sim.cnt` (C_CAPTURE, C_SCAPTURE,
 C_RELEASE, C_CASCADE, C_ROOTLIM) from a direct `Simulation` run.
 Hatteras commands must use `--outdir $ROBOROBO_OUT/run`.
 
-## Status (Nov 23, run 3, jobs collected)
+## Status (Nov 24, all E0098 jobs collected)
 
-- E0098 (7ae3349, fixed audit, Hatteras), 8 of 12 ended (A0115-A0122):
-  all completed 120 cycles, every cycle's audit clean (worst 2.8e-13, no
-  gains, no slow episodes): Gamma 3.5 all six; Gamma 5 f* 0.3 d15; Gamma 5
-  f* 0.5 d5. Evidence: `evidence/E0098-interim.json`.
-- Still running, all past the unmodified stall cycle, clean so far:
-  G5 f0.3 d5 (164950) at cycle 52, in slow episodes near phase 0.94, each
-  50000-event chunk about 45 CPU-s; G5 f0.3 d10 (164951) at cycle 40;
-  G5 f0.5 d10 (164954) and d15 (164955) at cycle 10. The last three record
-  nothing between cycles unless a slow episode is open, so "no new cycle
-  for 20-50 min" means either crawling just above the slow threshold or
-  hung inside one `run_to` call. The referee checks the CPU cap only when
-  `run_to` returns: a cap stop (outcome cpu_budget) means crawling; a Slurm
-  TIMEOUT at 4 h with no cap stop means a hang.
-- Every E0098 job matches its E0094 twin (06be1f7) cycle for cycle on
-  Hatteras (energy change and events per particle), all 12 conditions. The
-  E0094 twins started 40 min earlier and sit at the same cycles, so they
-  show first how the four end (E0094 164936 was at 5550 of 7200 CPU-s at
-  22:23 UTC).
-- Scheduled releases: 0 in all eight finished runs (captures up to 1106 plate,
-  47 sphere). The checker sampled 40 phases per cycle and found riders are
-  knocked off quickly, not held through free flight.
-- Hatteras and this machine don't follow the same trajectory (G5 f0.5 d10
-  cycle 1: 298 vs 291 events per particle, same settings except run length
-  and cap). Not explained. A Hatteras crawl can't be reproduced locally by
-  rerunning; use a checkpoint (`--input`) instead.
-- Earlier (run 2): audit fix verified (E0096), sphere capture fires at all
-  six deep conditions (E0097), E0094's audit invalid, survival valid.
+E0098 (ride v2 7ae3349, 120 cycles, seed 1, 2 CPU-h cap, Hatteras) is
+finished and its outcome written (supported; D0067 says how a cap stop is
+read). Evidence: `evidence/E0098-results.json` (per-cycle counters of the
+capped runs and of A0115 inside).
+
+- Completed 120 cycles, audit clean every cycle, no slow episodes: all six
+  Gamma 3.5 conditions, G5 f0.3 d15 (A0115), G5 f0.5 d5 (A0116). The
+  unmodified engine does not complete G3.5 f0.3 d15 (time freezes in cycle 1)
+  or G5 f0.3 d15. At G3.5 f0.5 d15 it DOES complete, slowly (2.9 CPU-h vs
+  ride's 188 CPU-s); don't call that one a stall (checker, Nov 23 run 3).
+- Stopped at the CPU cap (audit clean in every completed cycle):
+  G5 f0.3 d5 after 52 (A0127), G5 f0.3 d10 after 48 (A0128), G5 f0.5 d10
+  after 14 (A0129), G5 f0.5 d15 after 12 (A0130). E0094 twins identical.
+- Why: the unfinished last cycle of each holds 74-99% of all the run's
+  C_ROOTLIM hits (6.4-8.7 million, each 10000 iterations of
+  `stuck_pair_root`), plus thousands to 259000 captures (churn: captured,
+  knocked off, recaptured). Events per CPU-s 1700-11000 vs 72000-490000 in
+  completed runs; root calls per event unchanged (~1.8), so each call got
+  far more expensive. Tiny plate collisions zero everywhere. G5 f0.3 d5's
+  stuck cycle sits at phase 0.940-0.943 (unmodified engine overlapped there
+  in cycle 49) and does have tiny pair collisions (up to 25714 per episode).
+  Not yet shown: how many steps non-limit root calls take (no counter), and
+  which pairs (rider-rider, rider-free) hit the limit.
+- Cumulative counters exist per cycle in each artifact's
+  `out/run/counters_by_cycle.jsonl` (fetch it: `program fetch A0129:out/run/counters_by_cycle.jsonl`);
+  checkpoints every 10 cycles in `out/run/checkpoint.npz`.
+- Hatteras and this machine don't follow the same trajectory (unexplained);
+  reproduce a Hatteras slow-down from its checkpoint (`--input`), not by
+  rerunning.
 
 ## Next
 
-1. Collect the four E0098 jobs and the four E0094 twins. Write E0098's
-   outcome (registration: falsified if v2 fails earlier than the unmodified
-   engine where that engine completes 120 cycles (it didn't, at all 5), or any
-   audit failure (none so far)). State how each cap stop or timeout is read.
-2. If they crawl or hang at Gamma 5: diagnose on Hatteras from the cycle-50 /
-   cycle-10 / cycle-40 checkpoint (`checkpoint.npz` in the run folder,
-   `--input` of the ended artifact). C_ROOTLIM is large at Gamma 5 (326548
-   at f* 0.3 d15): suspect the root-search re-predict path (D0061).
-3. If E0098 is clean: bulk-physics check where the unmodified engine runs
-   (not asked yet).
-4. Run `program check` before every commit (checker, D0065).
+1. Wait for Chris (questions in `sessions/2026-11-24-L0019.json`): root
+   search first, or bulk check at the eight completed conditions first.
+2. Root search: add counters (total iterations, limit hits by pair kind:
+   riding-riding, riding-free) on method/ride, check the frozen tests and
+   that motion is unchanged, then run cycle 11 of G5 f0.5 d10 from A0129's
+   checkpoint on Hatteras (`--input A0129:out/run/checkpoint.npz`, copy into
+   the outdir, `--resume`). Likely fix: replace the fixed-safe-step search
+   with a bracketing step on the sinusoid, or stop predicting pairs inside
+   one rigid riding cluster (design says these should be skipped; check
+   they are).
+3. Bulk check (not asked yet) where the unmodified engine runs.
+4. Run `program check` before every commit (D0065).
 
 ## Jobs in flight
 
-E0098 on Hatteras (ride v2 7ae3349, 120 cycles, seed 1, 2 CPU-h cap,
-Slurm 4 h): 164950 (G5 f0.3 d5), 164951 (G5 f0.3 d10), 164954 (G5 f0.5
-d10), 164955 (G5 f0.5 d15). Collected: 164952, 164953, 164957-164962.
-
-E0094 still running (same motion, survival only): 164936 (G5 f0.3 d5),
-164937 (G5 f0.3 d10), 164940 (G5 f0.5 d10), 164941 (G5 f0.5 d15).
+None. All E0094 and E0098 jobs collected (A0115-A0130).

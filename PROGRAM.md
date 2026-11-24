@@ -178,7 +178,8 @@ The five options in `notes/contact-options.md`.
 
 ### Option 1, position nudge
 
-- Branch: `method/nudge` (b608fef).
+- Branch: `method/nudge` (b608fef; 16f3334 with the accumulator fix).
+- Frozen tests: 74 of 74 at b608fef (Nov 6, 7) and 16f3334 (E0103, Nov 24).
 - The only method that gets through the stalled conditions:
   - 120 cycles at all 8 stalled 2D conditions, and at 3D Gamma 5 at seeds
     1 to 3;
@@ -297,21 +298,21 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
-### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
+### L0001 (nudge): frozen tests on 16f3334 (ran Nov 24 05:52Z)
 
-Session summary: `sessions/2026-11-23-L0001.json`; review:
-`evidence/L0001-closing-review-2026-11-23.json`. No runs.
+Session summary: `sessions/2026-11-24-L0001.json`; evidence:
+`evidence/E0103-results.json`, `evidence/L0001-closing-review-2026-11-23.json`
+(with the checker's corrections).
 
-- The line's question is answered as far as the referee can judge: the
-  nudge survives where the unmodified engine stalls (one overlap), its
-  audit is clean after the accumulator fix, and it passes the bulk check
-  wherever a baseline exists.
-- Not done: the frozen engine tests on method/nudge (never recorded), and
-  the Figure 1 comparison (not built for any method). By design the nudge
-  can't become the default.
-- The phase diagram doesn't supersede it; it uses the nudge (L0015).
-- Recommended to Chris: close L0001. Option: one frozen-test run on
-  16f3334 first, which needs the nudge branch on this machine (B0008).
+- Frozen engine tests: 74 of 74 on the nudge at 16f3334 (E0103, Hatteras
+  job 165153, main as control also 74). b608fef had passed them Nov 6
+  and 7, so the Nov 23 run's "never run" was wrong.
+- method/nudge is back in this clone at 16f3334 (bundle from A0172);
+  B0008 resolved.
+- Audit: only the two nudge runs rerun after the accumulator fix are
+  shown clean (176 failing cycles, all round-off); the rest likely, not
+  shown. Bulk check passes only where there are no lasting contacts.
+- Next: Chris closes L0001. Nothing left that was asked.
 
 ### Jobs collected, run of Nov 24 (L0020, ran Nov 24 05:04Z)
 
@@ -375,6 +376,28 @@ Session summary: `sessions/2026-11-23-L0020.json`.
   container), and a read-only Hatteras job (E0095, D0062) found no copy
   there either. Plan for the review, energies against baseline and phase
   diagram: `lines/L0020/progress.md`.
+
+### Last Gamma 5 jobs collected, Nov 24 (L0019)
+
+Session summary: `sessions/2026-11-24-L0019.json`. No instruction; started
+because the last four E0098 jobs and their E0094 twins ended. Evidence:
+`evidence/E0098-results.json`; E0098's outcome is written (supported).
+
+- **Final E0098 count: eight of twelve 2D conditions completed 120 cycles**
+  with ride, audit clean in every cycle of all twelve runs (worst 2.8e-13,
+  no gains). Two of the eight are conditions the unmodified engine does not
+  complete (Gamma 3.5 f\* 0.3 depth 15, Gamma 5 f\* 0.3 depth 15). At
+  Gamma 3.5 f\* 0.5 depth 15 the unmodified engine does complete, in 2.9
+  CPU-hours against ride's 188 CPU-seconds (correcting run 3's "three
+  stalls", per the checker).
+- **The four other Gamma 5 runs stopped at the 2 CPU-hour cap** after 52,
+  48, 14 and 12 cycles (f\* 0.3 depths 5 and 10, f\* 0.5 depths 10 and 15);
+  read as not survived, not proven stalled (D0067). In each, the unfinished
+  last cycle holds 74-99% of the run's root-search limit hits (6.4-8.7
+  million, 10000 steps each) and thousands to hundreds of thousands of
+  captures; events per CPU-second drop to 1700-11000 against 72000-490000 in
+  completed runs. The time goes into ride's own search for riding-pair
+  contacts, not into tiny plate bounces (none in any run).
 
 ### Jobs collected, run 3 of Nov 23 (L0019)
 
@@ -1217,12 +1240,11 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v2 (L0019)**: four E0098 jobs (164950, 164951, 164954, 164955)
-  and their E0094 twins (164936, 164937, 164940, 164941) are still running
-  at Gamma 5. Collect them: whether they finish, stop at the 2 CPU-hour cap,
-  or run into Slurm's 4-hour limit (that would mean a hang inside one
-  event-loop call) tells whether ride v2 crawls or stalls there. Then write
-  E0098's outcome. Bulk-physics check after that (not asked yet).
+- **Ride v2 (L0019)**: E0098 is collected (eight of twelve completed; four
+  Gamma 5 runs at the CPU cap, time in the riding-pair root search). Next,
+  if Chris agrees: count root-search steps from the A0129 checkpoint on
+  Hatteras and make the search cheaper, then rerun the four; or the bulk
+  check at the eight completed conditions first. No jobs running.
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.

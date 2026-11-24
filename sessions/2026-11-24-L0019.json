@@ -1,0 +1,62 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0019",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the last four 120-cycle Gamma 5 runs of the ride method and their four twins on the older code had ended; the run collected them and wrote the experiment's outcome. All four stopped at their two-CPU-hour cap, after 52, 48, 14 and 12 cycles, with a clean energy audit, so the final count is eight of twelve 2D conditions completed. In each capped run the time went into the ride method's own search for when riding spheres next touch, not into the tiny bounces that stall the unmodified engine.",
+ "experiments": [
+  {
+   "experiment_id": "E0098",
+   "question": "Does the ride method, with its energy books fixed, run 120 cycles at more of the twelve 2D grid conditions than the unmodified engine, with a clean energy audit?",
+   "what_was_done": "Collected the four remaining Hatteras runs (Gamma 5, f* 0.3 at depths 5 and 10, f* 0.5 at depths 10 and 15) and their twins on the code before the booking fix. Fetched the per-cycle counters each run wrote and split its work by cycle, including the cycle it was in when it stopped. Wrote the final evidence file and the outcome. No new runs.",
+   "result": "All four stopped at the two-CPU-hour cap: after 52, 48, 14 and 12 completed cycles. Every completed cycle of all twelve runs passes the energy audit, with no energy gained. So eight of twelve conditions completed 120 cycles: all six at Gamma 3.5 and two at Gamma 5. Two of those eight are conditions the unmodified engine never completes. At a third (Gamma 3.5, f* 0.5, depth 15) the unmodified engine also completes, but needs 2.9 CPU-hours against the ride method's 3 CPU-minutes; the previous run wrongly counted that one as a stall. In the four capped runs, the cycle each was stuck in holds three quarters or more of all the times the riding-pair search hit its 10,000-step limit: 6 to 9 million hits in one part-cycle. Each also holds thousands to a quarter of a million captures. The runs processed 1,700 to 11,000 events per CPU-second, against 72,000 to 490,000 in the completed runs, so each event cost far more. At Gamma 5, f* 0.3, depth 5 the stuck cycle also had about eighty times the events of a normal cycle. No run had a tiny plate collision. At Gamma 5, f* 0.3, depth 5 the stuck cycle sits at phase 0.94, where the unmodified engine overlapped in its cycle 49, and there tiny sphere-sphere collisions do pile up. The twins on the old code match exactly.",
+   "takeaway": "The ride method survives where the unmodified engine stalls at two conditions and is much faster at a third, with a clean audit. At four Gamma 5 conditions it slows to a crawl, and the cost is its own contact search and repeated capture, which can be engineered, rather than the unmodified engine's resting-contact failure. Whether these runs would finish once the search is cheaper is not known. One seed.",
+   "graded_by_referee": true
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The ride method crawls at four Gamma 5 conditions because its search for the next contact of riding spheres gets very expensive. Should the next run make that search cheaper and rerun those four, or first run the bulk check at the eight conditions it completes?",
+   "why_it_matters": "Making the search cheaper decides whether the method can survive the full grid (acceptance bar item 2). The bulk check decides whether it changes the physics where the unmodified engine runs (item 1). Each takes about one run.",
+   "default_if_unanswered": "Make the search cheaper first: add step counters on method/ride, find which pairs hit the limit from the depth 10 run's cycle-10 checkpoint on Hatteras, then change the search and rerun the four capped conditions."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Profile and fix the riding-pair contact search: count search steps and limit hits by pair kind (rider-rider, rider-free) from the A0129 checkpoint, then replace the fixed safe-step search with one that brackets the root on the known sinusoid, and check that spheres locked in one rigid riding cluster are not searched against each other.",
+   "rationale": "The four capped runs spend nearly all their time there (6 to 9 million limit hits in the stuck cycle), so this is the cheapest way to learn whether the method can survive Gamma 5."
+  },
+  {
+   "direction": "Bulk check of the ride method at the conditions where the unmodified engine completes (Gamma 3.5 depths 5 and 10, f* 0.5 depth 15).",
+   "rationale": "Acceptance bar item 1; the runs already exist for the method side, and only one baseline per condition is needed."
+  },
+  {
+   "direction": "Count capture churn: how often the same sphere is captured, knocked off and recaptured within a cycle at the capped conditions.",
+   "rationale": "Tens of thousands of captures in one part-cycle with 500 to 1500 spheres means each sphere is recaptured many times; a capture rule that avoids that would cut events as well as search cost."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 491.9,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [
+  "B0008"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T05:04:00Z",
+  "actual_start": "2026-11-24T05:04:40Z",
+  "ended": "2026-11-24T05:11:54Z",
+  "interruptions": [],
+  "cpu_hours": 0.0,
+  "cores_available": 31,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. This ran on the Linux container, not Chris's Mac (no uptime, pmset, ps or free), so sleep can't be checked; cores available are from /proc/loadavg (load 8.9 on 40 cores at the start). No computation was run this session; the jobs it collected used 8.80 CPU-hours (E0098) and 8.64 CPU-hours (E0094) on Hatteras, from their Slurm records, already in the weekly figure from program check. program check fails at the time of writing on runs/E0102/, a data folder another line created at 05:09 while this run was going; it is not this line's to record. B0008 (L0001's nudge branch missing from this machine) is listed because program check requires every open blocker; it does not affect this line."
+ }
+}
