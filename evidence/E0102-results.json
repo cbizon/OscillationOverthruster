@@ -1,0 +1,231 @@
+{
+ "experiment_id": "E0102",
+ "artifact": "A0172",
+ "code": {
+  "diagnostic": "grapenuts branch contact-energy (worktree sequel-data/worktrees/grapenuts-ce), parent sequel-eval 23a3676",
+  "baseline": "grapenuts sequel-eval 23a3676 (worktree sequel-data/worktrees/grapenuts-base)"
+ },
+ "notes": [
+  "Per-contact work: normal and tangential impulse of each kick times the mean of the relative velocity before and after the kick (the trapezoid grapenuts uses for its dashpot and friction books), summed over the contact life and booked when the spring opens. Contacts still open at the end are not counted (none were).",
+  "Identity check: unmodified code (3 cycles) and diagnostic code give bit-identical per-cycle energy books, spring and kick counts in cycles 1-3, and identical frame quantities over the 97 frames both have: the diagnostic does not change the dynamics.",
+  "Closure: in every run the sum of per-contact work minus the booked soft dissipation equals the run net energy residual (contact_work_minus_booked vs net_energy_residual), so the residual is work done by the springs and not booked; the diagnostic accounts for all of it.",
+  "When several contacts kick one sphere at once, the split of the work among them uses each contact own impulse and the common velocity change, so per-contact values (not their sum) are approximate."
+ ],
+ "identity_check": {
+  "cycles_compared": 3,
+  "books_identical": true,
+  "quantities_frames_identical": 97
+ },
+ "runs": [
+  {
+   "run": "ce_g35f05d5_k1e7",
+   "dim": 2,
+   "N": 500,
+   "L": 100,
+   "seed": 1,
+   "mode": "tc",
+   "tangential": "walton",
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5,
+   "stiffness": 10000000.0,
+   "outcome": "completed",
+   "cycles": 30,
+   "contacts_closed": 34079,
+   "contacts_gained": 124,
+   "fraction_contacts_gained": 0.003638604419143754,
+   "contact_gain_sum": 3.0712775769551746,
+   "contacts_tangential_gained": 818,
+   "fraction_contacts_tangential_gained": 0.024003051732738638,
+   "contact_tangential_gain_sum": 14.91158336260568,
+   "contact_max_gain_rel_to_gross": 0.9190887489325441,
+   "contact_work_sum": -11249.627307778635,
+   "contact_gross_sum": 28944.083952917397,
+   "booked_soft_dissipation": -11235.233267425556,
+   "net_energy_residual": -14.394040355266753,
+   "net_residual_rel": -4.6450911770483594e-05,
+   "throughput": 309876.37931389734,
+   "plate_work": 154801.31875397047,
+   "contact_work_minus_booked": -14.394040353079617,
+   "friction_gain_kick_sum": 363.3554035053649,
+   "tangential_gain_over_friction_gain": 0.041038562296722564,
+   "contact_gain_sum_over_abs_residual": 0.21337147188359798,
+   "contact_gain_sum_over_plate_work": 1.984012540510996e-05,
+   "positive_residual_cycles": 0
+  },
+  {
+   "run": "ce_g35f05d5_k1e8",
+   "dim": 2,
+   "N": 500,
+   "L": 100,
+   "seed": 1,
+   "mode": "tc",
+   "tangential": "walton",
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5,
+   "stiffness": 100000000.0,
+   "outcome": "completed",
+   "cycles": 30,
+   "contacts_closed": 13549,
+   "contacts_gained": 29,
+   "fraction_contacts_gained": 0.0021403793637906855,
+   "contact_gain_sum": 0.4640225684933216,
+   "contacts_tangential_gained": 208,
+   "fraction_contacts_tangential_gained": 0.015351686471326297,
+   "contact_tangential_gain_sum": 2.4230258571975867,
+   "contact_max_gain_rel_to_gross": 0.5618556193897202,
+   "contact_work_sum": -3803.5703629882614,
+   "contact_gross_sum": 9845.90913002943,
+   "booked_soft_dissipation": -3805.2018446785414,
+   "net_energy_residual": 1.631481690233926,
+   "net_residual_rel": 5.26109163022367e-06,
+   "throughput": 310103.2646649732,
+   "plate_work": 154875.76033514956,
+   "contact_work_minus_booked": 1.6314816902799976,
+   "friction_gain_kick_sum": 121.01281523290928,
+   "tangential_gain_over_friction_gain": 0.020022886440035883,
+   "contact_gain_sum_over_abs_residual": 0.28441788300228416,
+   "contact_gain_sum_over_plate_work": 2.996095499316236e-06,
+   "positive_residual_cycles": 28
+  },
+  {
+   "run": "ce_g5f03d5_k1e7",
+   "dim": 2,
+   "N": 500,
+   "L": 100,
+   "seed": 1,
+   "mode": "tc",
+   "tangential": "walton",
+   "gamma": 5,
+   "f_star": 0.3,
+   "depth": 5,
+   "stiffness": 10000000.0,
+   "outcome": "completed",
+   "cycles": 30,
+   "contacts_closed": 531236,
+   "contacts_gained": 14196,
+   "fraction_contacts_gained": 0.026722586571693182,
+   "contact_gain_sum": 33.132001570328285,
+   "contacts_tangential_gained": 35199,
+   "fraction_contacts_tangential_gained": 0.06625868728775912,
+   "contact_tangential_gain_sum": 131.29843202854025,
+   "contact_max_gain_rel_to_gross": 0.8866688907617587,
+   "contact_work_sum": -54086.05613244443,
+   "contact_gross_sum": 143433.80011251906,
+   "booked_soft_dissipation": -53913.73827854807,
+   "net_energy_residual": -172.3178538964994,
+   "net_residual_rel": -0.00027564881519546937,
+   "throughput": 625135.478178292,
+   "plate_work": 316270.8151038643,
+   "contact_work_minus_booked": -172.3178538963548,
+   "friction_gain_kick_sum": 1880.2809460774342,
+   "tangential_gain_over_friction_gain": 0.06982915627712429,
+   "contact_gain_sum_over_abs_residual": 0.19227259869559782,
+   "contact_gain_sum_over_plate_work": 0.00010475832731972956,
+   "positive_residual_cycles": 1
+  }
+ ],
+ "files": [
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/base_g35f05d5_k1e7.log",
+   "bytes": 845,
+   "sha256": "2d770d0e2ba5101dba0f8aeb1c69e007228641518cf26f0dc2de005b8d8b5f3a"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e7.log",
+   "bytes": 840,
+   "sha256": "1613468e949d25666efe7f197cdd059a970f1a47b80cb7fd38e2699104aa0747"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e8.log",
+   "bytes": 181,
+   "sha256": "76a48880ac4b1ba45a3de2f748b5428973996c6019b60c7be607351127112886"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g5f03d5_k1e7.log",
+   "bytes": 180,
+   "sha256": "929acd8f8fab6265ad4613792b52ec659d9d1501dcd9bf485909153e992a15cb"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/base_g35f05d5_k1e7/audit.json",
+   "bytes": 2042,
+   "sha256": "c872c05264d93903257afedbecceb9376c5b8000b1ce7381ced059e7cbc457ee"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/base_g35f05d5_k1e7/checkpoint.npz",
+   "bytes": 65218,
+   "sha256": "74190a8e860787a80b888066cc0812dc3c5d9d0abd95206f8b6a3debcc04530e"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/base_g35f05d5_k1e7/quantities.npz",
+   "bytes": 9546,
+   "sha256": "dfeb37e5b0b9f0170d86ba698569394280cdb9a54a5167b7bd29220e73671009"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/base_g35f05d5_k1e7/summary.json",
+   "bytes": 1363,
+   "sha256": "81b0f4d19889448c52dc06482b2f84577806d74c2504351cff7bfca5cf91bc21"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e8/audit.json",
+   "bytes": 20309,
+   "sha256": "45677ba5d4f7987f2d24298b6d705966714eb400841c70e200da93b155568eb7"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e8/checkpoint.npz",
+   "bytes": 64802,
+   "sha256": "0455b0e8e87991d7f5d5d55a90c71800040bd1f23c1450c659156c25b7ce8ea9"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e8/quantities.npz",
+   "bytes": 71754,
+   "sha256": "ebf0d8956cc73af65c5c8b5bdab38789ba1bde27ab37430bb29b9d9a8a443104"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e8/summary.json",
+   "bytes": 1995,
+   "sha256": "a758f6082f3c23e17a6687d27b247d3fbf468f53da0afd496b8aa6c1e9584ee2"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e7/audit.json",
+   "bytes": 20383,
+   "sha256": "6c50651b03b16a0431a0cc45f25bfb8290a1dbf466c57e3a6b9f811c0d53f37f"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e7/checkpoint.npz",
+   "bytes": 64802,
+   "sha256": "3a3f80763a508a5f0ffdea1a12ab6f29477a1d9799f953ba1726231924da1fbd"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e7/quantities.npz",
+   "bytes": 71754,
+   "sha256": "7c37caaea076d7e5c008b9ae9ae3c146526df2a576337d7bd4cbd2d8a44492d1"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g35f05d5_k1e7/summary.json",
+   "bytes": 2010,
+   "sha256": "c81d856b84e52385065d65eea6059bf7ca3da3328e9821557de0b84286e1f122"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g5f03d5_k1e7/audit.json",
+   "bytes": 20450,
+   "sha256": "911fdb90633d431df9ef6417e30989e2f1870ebb38644f3ce9786efeaa7bc717"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g5f03d5_k1e7/checkpoint.npz",
+   "bytes": 64802,
+   "sha256": "7dac744d04f6e0116c5b3bb49f638a54a2004a8cacb6280b99b186c39a7f95b6"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g5f03d5_k1e7/quantities.npz",
+   "bytes": 71754,
+   "sha256": "ed53b346b362f335f0fb40d34a3e5380437eb1fd4c4680595785593fc47de477"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0102/ce_g5f03d5_k1e7/summary.json",
+   "bytes": 2006,
+   "sha256": "948f4d624594ad10b454db6eb126eb590ecd9249fa2b9d3395700cbdf38ee9d8"
+  }
+ ]
+}
