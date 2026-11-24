@@ -297,6 +297,22 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
+
+Session summary: `sessions/2026-11-23-L0001.json`; review:
+`evidence/L0001-closing-review-2026-11-23.json`. No runs.
+
+- The line's question is answered as far as the referee can judge: the
+  nudge survives where the unmodified engine stalls (one overlap), its
+  audit is clean after the accumulator fix, and it passes the bulk check
+  wherever a baseline exists.
+- Not done: the frozen engine tests on method/nudge (never recorded), and
+  the Figure 1 comparison (not built for any method). By design the nudge
+  can't become the default.
+- The phase diagram doesn't supersede it; it uses the nudge (L0015).
+- Recommended to Chris: close L0001. Option: one frozen-test run on
+  16f3334 first, which needs the nudge branch on this machine (B0008).
+
 ### Nov 22 instruction, run 3 of Nov 23 (L0020, ran Nov 24 02:36Z)
 
 Session summary: `sessions/2026-11-23-L0020-3.json`.
@@ -1145,6 +1161,8 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
+- **Nudge (L0001):** waiting for Chris: close now, or after a frozen-test
+  run on 16f3334 (needs the nudge branch on this machine, B0008).
 - **Grapenuts (L0020):** collect the rest of E0099 (deep 2D, 3D) and
   E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
   grid with more seeds where the judge is close, and the phase-diagram fast

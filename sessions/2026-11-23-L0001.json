@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-23",
+  "line_id": "L0001",
+  "instruction": "lines/L0001/instruction.md",
+  "answers": [
+    {
+      "asked": "There doesn't seem to be a closing criteria for this line.  Is there anything left to do or has the phase diagram superseded it?",
+      "status": "answered",
+      "answer": "Almost nothing is left, and the phase diagram has not superseded the line: it uses the nudge as one of its engines (L0015). The line's question, to judge the nudge on its own against the full-physics baseline, is answered as far as the referee can judge today. The nudge survives where the unmodified engine stalls (17 of 18 runs at Gamma 5 in 2D against 0 of 18, with one overlap at Gamma 5, f* 0.3, depth 10), its energy audit is clean after the accumulator fix, and it passes the bulk check wherever a baseline exists. Two referee items were never done: the frozen engine tests were never run on the nudge branch, and the Figure 1 comparison doesn't exist yet for any method. By design (your contact-options note) the nudge can't become the default, so no further work would change the verdict. I have now written a closing criterion into the line: it closes when you agree it is answered, or, if you want the frozen engine tests run first, when they have been run on the nudge version the phase-diagram loops use (commit 16f3334). I recommend closing it now.",
+      "departures": "No runs. The answer comes from the ledger and evidence files, collected in evidence/L0001-closing-review-2026-11-23.json. I couldn't run the frozen engine tests on the nudge: its branch is not in the clone on the machine this run used (B0008). The line belongs to Chris, so it stays open for Chris to close."
+    }
+  ],
+  "headline": "Chris asked whether line L0001 (the position nudge) has anything left to do or has been superseded by the phase diagram. A review of the records, with no new runs, finds its question answered except that the nudge never went through the frozen engine tests. The phase diagram still uses the nudge as an engine, through L0015. The line now has a closing criterion, and I recommend closing it.",
+  "experiments": [],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "Close the nudge line now, or first run the frozen engine tests on the nudge version the phase-diagram loops use?",
+      "why_it_matters": "The nudge's phase-diagram results (L0015) count toward whether a result holds across contact methods. The frozen engine tests are the only cheap referee check never run on it. Running them needs the nudge branch on the machine these runs now use.",
+      "default_if_unanswered": "Leave the line open and idle, with nothing run. If the nudge branch appears on this machine, run the frozen engine tests on it, record the result, and propose closing again."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Run the frozen engine tests on the nudge (16f3334) once its branch is on this machine, then close L0001.",
+      "rationale": "It is the one referee check the nudge never had. It costs minutes, and it backs the nudge's role as an engine of the phase diagram."
+    },
+    {
+      "direction": "Settle the Figure 1 comparison with Chris (referee/README.md section 2), so that it exists before any method is put forward as the default.",
+      "rationale": "No method can meet the claim class for 'contact method works' without it. It matters most for option four, ride (L0019) and grapenuts (L0020), not for the nudge."
+    }
+  ],
+  "budget": {
+    "cpu_hours_week": {
+      "spent": 493.04,
+      "limit": 10000
+    }
+  },
+  "open_blockers": [
+    "B0008"
+  ],
+  "run_conditions": {
+    "scheduled_start": "2026-11-24T04:49:23Z",
+    "actual_start": "2026-11-24T04:49:23Z",
+    "ended": "2026-11-24T04:55:00Z",
+    "interruptions": [],
+    "cpu_hours": 0,
+    "cores_available": 36,
+    "disk_free_gb": {
+      "start": 92,
+      "end": 92
+    },
+    "unfinished_runs": [],
+    "limits_hit": "The nudge branch is not on this machine, so its frozen engine tests could not be run. The power log (pmset) and uptime don't exist on this Linux machine; cores available come from /proc/loadavg (load 3.66 on 40 cores). scheduled_start is not known separately and is set to the start I noted."
+  }
+}
