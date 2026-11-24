@@ -1,0 +1,76 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because baseline loop 164687 (width 200, f* 0.65) ended as FAILED. It and four earlier failed baseline loops stopped under the loop's own rules: the unmodified engine hit a sphere overlap. Nothing needs relaunching. Four of the ten width-200 baseline loops broke on their first step, against one at width 100, and f* 0.65 covered a narrower range of Gamma than in the paper's box (2.4 to 3.9 against 2.25 to 4.1, one seed).",
+ "experiments": [
+  {
+   "experiment_id": "E0076",
+   "question": "Where does the unmodified engine with friction stop on a Gamma loop in the box twice as wide, compared with the paper's box?",
+   "what_was_done": "Read the fetched per-step summaries of the five baseline loops that have ended on Hatteras and compared them with the same loops in the paper's box. Collected into an interim evidence file; the experiment's outcome waits for the other five loops.",
+   "result": "At f* 0.65 the loop went down to Gamma 2.4 (overlap at 2.35), turned, climbed to 3.9 and hit an overlap at 3.95, using 46 CPU-hours. The paper's box at the same f* reached 2.25 and 4.1. At f* 0.84, 0.33, 0.30 and 0.27 the loop broke in its first step at Gamma 3.0 after zero or one of fifty cycles; in the paper's box only 0.27 broke there. No completed step gained energy or failed the audit. A 25-cycle step cost a median of 0.91 CPU-hours, about five and a half times the paper's box.",
+   "takeaway": "The wider box gives the unmodified engine four times as many particles that can overlap, so a narrower working range is what one expects. With one seed this is not yet a measured size effect. The cost agrees with the cost holds (4.7 to 5.6 times).",
+   "graded_by_referee": false
+  },
+  {
+   "experiment_id": "E0075",
+   "question": "(Collected in passing) Why did the width-200 nudge loop at f* 0.27 end?",
+   "what_was_done": "Read its Slurm log and first-step summary.",
+   "result": "It hit the four CPU-hour cap of its 50-cycle first step at Gamma 3.0 after 49 cycles, so the loop has no data past its start.",
+   "takeaway": "The caps are the ones Chris kept on Nov 22, so I did not relaunch it.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The width-200 nudge loop at f* 0.27 stopped one cycle short of finishing its first step (cap of four CPU-hours). Should I restart it from its start with a higher first-step cap, for example eight CPU-hours?",
+   "why_it_matters": "Without it the nudge has no width-200 data at the lowest frequency; the other nine nudge loops are running.",
+   "default_if_unanswered": "Leave it stopped, as the Nov 22 reply kept the caps."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Rerun the four width-200 baseline loops that broke on their first step with a second seed, to tell a size effect from bad luck in the start.",
+   "rationale": "Four of ten broke against one of ten at width 100; with one seed each, this could be the start state rather than the box."
+  },
+  {
+   "direction": "When all E0076 loops end, compare floor and ceiling per f* with width 100 in one table.",
+   "rationale": "That gives the baseline's working range against box size, which the comparison with the nudge needs."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 493.04,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T04:25:16Z",
+  "actual_start": "2026-11-24T04:26:11Z",
+  "ended": "2026-11-24T04:33:00Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "ten loops running on Hatteras, 5-day wall time"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "nine loops running on Hatteras, 7-day wall time"
+   },
+   {
+    "experiment_id": "E0076",
+    "reason": "five loops running on Hatteras (f* 0.38 to 0.74 except 0.65), 7-day wall time"
+   }
+  ],
+  "limits_hit": "none. This host is Linux: pmset and uptime are not available, so sleep/wake and load average were not measured; cores_available is omitted."
+ }
+}
