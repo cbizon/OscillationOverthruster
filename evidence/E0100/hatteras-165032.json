@@ -1,0 +1,44 @@
+{
+  "host": "hatteras",
+  "job_id": "165032",
+  "experiment_id": "E0100",
+  "line_id": "L0020",
+  "commit": "a1f6f8d24122ff99adc968ce6fcff7e8921b0eea",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel.L0020",
+      "commit": "a1f6f8d24122ff99adc968ce6fcff7e8921b0eea",
+      "branch": "line/L0020"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "6eb69b24559961eb757387e0595018aa9be3200c",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "uv run python referee/long_contact.py --engine . --dim 2 --gamma 3.5 --fstar 0.5 --N 1000 --L 100 --depth 10 --seed 1 --cycles 1020 --max-cpu-hours 3 --outdir \"$ROBOROBO_OUT/run\"",
+    "--repo",
+    "/Users/bizon/Projects/experiments/sequel.L0020"
+  ],
+  "sbatch": {
+    "time": "6:00:00",
+    "mem": "4G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0100/20261124T025014Z",
+  "submitted_at": "2026-11-24T02:50:14Z",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:05:46",
+  "cpu_hours": 0.096,
+  "nodes": "compute-13-2",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0100/hatteras-165032",
+  "synced_at": "2026-11-24T02:55:05Z",
+  "ended_at": "2026-11-24T02:58:17Z",
+  "artifact_id": "A0146",
+  "record": "evidence/E0100/hatteras-165032.json"
+}

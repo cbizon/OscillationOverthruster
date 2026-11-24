@@ -2,6 +2,20 @@
  "experiment_id": "E0100",
  "tool": "tools/grapenuts_judge.py",
  "rule": "referee/bulk.py judge: 100-cycle mean (cycles 20-120) within the threshold of block sd of a 10-block baseline (cycles 20-1020)",
+ "baselines_unavailable": [
+  {
+   "job": "hatteras-165033",
+   "artifact": "A0155",
+   "condition": [
+    5.0,
+    0.5,
+    5.0
+   ],
+   "outcome": "frozen_time",
+   "error": null,
+   "cycles_completed": 4
+  }
+ ],
  "comparisons": [
   {
    "condition": {
@@ -11,9 +25,10 @@
    },
    "baseline_job": "hatteras-165029",
    "baseline_artifact": "A0142",
+   "method_experiment": "E0099",
    "method_job": "hatteras-165011",
    "method_artifact": "A0131",
-   "method_mode": "tc",
+   "method_mode": "tc k=1e7",
    "threshold_sd": 3.62,
    "baseline_blocks": 10,
    "passes": true,
@@ -89,6 +104,7 @@
    },
    "baseline_job": "hatteras-165029",
    "baseline_artifact": "A0142",
+   "method_experiment": "E0099",
    "method_job": "hatteras-165024",
    "method_artifact": "A0135",
    "method_mode": "never",
@@ -159,14 +175,171 @@
   {
    "condition": {
     "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165029",
+   "baseline_artifact": "A0142",
+   "method_experiment": "E0101",
+   "method_job": "hatteras-165034",
+   "method_artifact": "A0156",
+   "method_mode": "tc k=1e6",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 2.8073906335563996,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 8.388460109034764,
+     "baseline_sd": 0.03374848056982397,
+     "candidate_mean": 8.413047831265414,
+     "sigmas": 0.7285579029189165,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7192930685066217,
+     "baseline_sd": 0.05016217575788464,
+     "candidate_mean": 3.7926217611475477,
+     "sigmas": 1.461832377344597,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 2.8070453008997305,
+     "baseline_sd": 0.016358282138182863,
+     "candidate_mean": 2.834618921361504,
+     "sigmas": 1.6856061185918843,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.41447902763808964,
+     "baseline_sd": 0.019072909110118975,
+     "candidate_mean": 0.43310573586077267,
+     "sigmas": 0.9766055149290668,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 1.1926573167904946,
+     "baseline_sd": 0.015222994743779117,
+     "candidate_mean": 1.2353942096488584,
+     "sigmas": 2.8073906335563996,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.4100255321043179,
+     "baseline_sd": 0.018564221964798674,
+     "candidate_mean": 0.429155721236775,
+     "sigmas": 1.0304869855968957,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.014327999999999999,
+     "baseline_sd": 0.00016774386269614234,
+     "candidate_mean": 0.014246875,
+     "sigmas": -0.4836242512606902,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165029",
+   "baseline_artifact": "A0142",
+   "method_experiment": "E0101",
+   "method_job": "hatteras-165039",
+   "method_artifact": "A0159",
+   "method_mode": "tc k=1e8",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 0.7054213081826856,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 8.388460109034764,
+     "baseline_sd": 0.03374848056982397,
+     "candidate_mean": 8.398559448974776,
+     "sigmas": 0.2992531743500984,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7192930685066217,
+     "baseline_sd": 0.05016217575788464,
+     "candidate_mean": 3.7378505843257135,
+     "sigmas": 0.3699503767273271,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 2.8070453008997305,
+     "baseline_sd": 0.016358282138182863,
+     "candidate_mean": 2.813253062765943,
+     "sigmas": 0.37948739444484336,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.41447902763808964,
+     "baseline_sd": 0.019072909110118975,
+     "candidate_mean": 0.42250337312193237,
+     "sigmas": 0.42071953667442796,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 1.1926573167904946,
+     "baseline_sd": 0.015222994743779117,
+     "candidate_mean": 1.2033959416571094,
+     "sigmas": 0.7054213081826856,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.4100255321043179,
+     "baseline_sd": 0.018564221964798674,
+     "candidate_mean": 0.41756313636320175,
+     "sigmas": 0.4060285571448444,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.014327999999999999,
+     "baseline_sd": 0.00016774386269614234,
+     "candidate_mean": 0.01425125,
+     "sigmas": -0.45754282014494074,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": [
+    "ke_vertical",
+    "ke_horizontal",
+    "temp_horizontal"
+   ]
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
     "f_star": 0.5,
     "depth": 5.0
    },
    "baseline_job": "hatteras-165031",
    "baseline_artifact": "A0143",
+   "method_experiment": "E0099",
    "method_job": "hatteras-165014",
    "method_artifact": "A0132",
-   "method_mode": "tc",
+   "method_mode": "tc k=1e7",
    "threshold_sd": 3.62,
    "baseline_blocks": 10,
    "passes": true,
@@ -239,6 +412,7 @@
    },
    "baseline_job": "hatteras-165031",
    "baseline_artifact": "A0143",
+   "method_experiment": "E0099",
    "method_job": "hatteras-165026",
    "method_artifact": "A0136",
    "method_mode": "never",
@@ -305,6 +479,317 @@
     }
    },
    "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165031",
+   "baseline_artifact": "A0143",
+   "method_experiment": "E0101",
+   "method_job": "hatteras-165036",
+   "method_artifact": "A0157",
+   "method_mode": "tc k=1e6",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": false,
+   "worst_sigmas": 4.485424251027321,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 4.518016718430262,
+     "baseline_sd": 0.00289751404871085,
+     "candidate_mean": 4.523436606330581,
+     "sigmas": 1.870530326757117,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.0023342577471,
+     "baseline_sd": 0.0030986724285087205,
+     "candidate_mean": 2.0105063875874922,
+     "sigmas": 2.6373003371399397,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 0.9243462593635774,
+     "baseline_sd": 0.0014315132097795457,
+     "candidate_mean": 0.9279493690984809,
+     "sigmas": 2.5169937030887772,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09151951189775986,
+     "baseline_sd": 0.0005714386779884757,
+     "candidate_mean": 0.09364331842438603,
+     "sigmas": 3.716595688101106,
+     "threshold": 3.62,
+     "passes": false
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.3724835107904326,
+     "baseline_sd": 0.0019146634622702115,
+     "candidate_mean": 0.37995712573069634,
+     "sigmas": 3.903356954126169,
+     "threshold": 3.62,
+     "passes": false
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09075510017778342,
+     "baseline_sd": 0.0005331479392100215,
+     "candidate_mean": 0.09314649487370129,
+     "sigmas": 4.485424251027321,
+     "threshold": 3.62,
+     "passes": false
+    },
+    "plate_contact": {
+     "baseline_mean": 0.0227176875,
+     "baseline_sd": 9.674253936925213e-05,
+     "candidate_mean": 0.022481249999999998,
+     "sigmas": -2.4439869114615123,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165031",
+   "baseline_artifact": "A0143",
+   "method_experiment": "E0101",
+   "method_job": "hatteras-165041",
+   "method_artifact": "A0153",
+   "method_mode": "tc k=1e8",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 2.2139950160133637,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 4.518016718430262,
+     "baseline_sd": 0.00289751404871085,
+     "candidate_mean": 4.512216810281533,
+     "sigmas": -2.001684220067781,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.0023342577471,
+     "baseline_sd": 0.0030986724285087205,
+     "candidate_mean": 2.00365962805972,
+     "sigmas": 0.4277219819772939,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 0.9243462593635774,
+     "baseline_sd": 0.0014315132097795457,
+     "candidate_mean": 0.9253825815874399,
+     "sigmas": 0.7239347962580888,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09151951189775986,
+     "baseline_sd": 0.0005714386779884757,
+     "candidate_mean": 0.09162844516176982,
+     "sigmas": 0.1906298404465985,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.3724835107904326,
+     "baseline_sd": 0.0019146634622702115,
+     "candidate_mean": 0.3753741992371626,
+     "sigmas": 1.509763205750257,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09075510017778342,
+     "baseline_sd": 0.0005331479392100215,
+     "candidate_mean": 0.09098548968375185,
+     "sigmas": 0.43213053830763215,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.0227176875,
+     "baseline_sd": 9.674253936925213e-05,
+     "candidate_mean": 0.022931875,
+     "sigmas": 2.2139950160133637,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "baseline_job": "hatteras-165032",
+   "baseline_artifact": "A0146",
+   "method_experiment": "E0099",
+   "method_job": "hatteras-165015",
+   "method_artifact": "A0138",
+   "method_mode": "tc k=1e7",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": false,
+   "worst_sigmas": 3.8032819113857754,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 9.00693052095647,
+     "baseline_sd": 0.020331024619672917,
+     "candidate_mean": 8.99950020787036,
+     "sigmas": -0.36546673003973995,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7227146758573064,
+     "baseline_sd": 0.0339596383008534,
+     "candidate_mean": 3.7523803792156936,
+     "sigmas": 0.8735576950371008,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 1.832384591019693,
+     "baseline_sd": 0.013290552400415497,
+     "candidate_mean": 1.8399875057180959,
+     "sigmas": 0.5720540779151678,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.14816117484569769,
+     "baseline_sd": 0.0072882203638193295,
+     "candidate_mean": 0.1555045141876029,
+     "sigmas": 1.007562748563353,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.5236309912532751,
+     "baseline_sd": 0.014560550558905172,
+     "candidate_mean": 0.5392068785886197,
+     "sigmas": 1.069732031926396,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.14565061326357895,
+     "baseline_sd": 0.007459113015119135,
+     "candidate_mean": 0.1535734403005579,
+     "sigmas": 1.062167448183167,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.01193134375,
+     "baseline_sd": 9.380878365390503e-05,
+     "candidate_mean": 0.012288124999999999,
+     "sigmas": 3.8032819113857754,
+     "threshold": 3.62,
+     "passes": false
+    }
+   },
+   "drifting": [
+    "thickness",
+    "ke_vertical",
+    "temp_vertical"
+   ]
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "baseline_job": "hatteras-165032",
+   "baseline_artifact": "A0146",
+   "method_experiment": "E0099",
+   "method_job": "hatteras-165027",
+   "method_artifact": "A0137",
+   "method_mode": "never",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 0.9591217051013511,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 9.00693052095647,
+     "baseline_sd": 0.020331024619672917,
+     "candidate_mean": 9.003139621787232,
+     "sigmas": -0.18645883521133808,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7227146758573064,
+     "baseline_sd": 0.0339596383008534,
+     "candidate_mean": 3.7022298838035668,
+     "sigmas": -0.6032099597840792,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 1.832384591019693,
+     "baseline_sd": 0.013290552400415497,
+     "candidate_mean": 1.8281508647952935,
+     "sigmas": -0.31855156180469063,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.14816117484569769,
+     "baseline_sd": 0.0072882203638193295,
+     "candidate_mean": 0.14143169195590674,
+     "sigmas": -0.9233369126979054,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.5236309912532751,
+     "baseline_sd": 0.014560550558905172,
+     "candidate_mean": 0.5150298054789378,
+     "sigmas": -0.5907184443020094,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.14565061326357895,
+     "baseline_sd": 0.007459113015119135,
+     "candidate_mean": 0.1384964160699742,
+     "sigmas": -0.9591217051013511,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.01193134375,
+     "baseline_sd": 9.380878365390503e-05,
+     "candidate_mean": 0.0118575,
+     "sigmas": -0.7871730889554732,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": [
+    "zcm",
+    "plate_contact"
+   ]
   }
  ]
 }

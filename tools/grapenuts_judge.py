@@ -1,4 +1,4 @@
-"""E0100: bulk judge of grapenuts (E0099) against sequel's unmodified engine.
+"""E0100/E0101: bulk judge of grapenuts (E0099, E0101) against sequel's unmodified engine.
 
 For each finished E0100 baseline job (referee/long_contact.py, 1020 cycles),
 fetch its quantities.npz, build the 10-block baseline (bulk.py baseline
@@ -31,9 +31,11 @@ def jobs(experiment):
         cmd = rec["command"][2]
         arg = lambda name: re.search(rf"--{name} (\S+)", cmd).group(1)
         mode = re.search(r"--mode (\S+)", cmd)
+        k = re.search(r"--stiffness (\S+)", cmd)
         out.append(dict(job=f.stem, artifact=rec["artifact_id"],
                         cond=(float(arg("gamma")), float(arg("fstar")), float(arg("depth"))),
-                        mode=mode.group(1) if mode else "sequel-main"))
+                        mode=(mode.group(1) + (" k=" + k.group(1) if k else "")) if mode else "sequel-main",
+                        experiment=experiment))
     return out
 
 
@@ -53,9 +55,19 @@ def load_bulk():
 
 def main():
     bulk = load_bulk()
-    methods = jobs("E0099")
+    methods = jobs("E0099") + jobs("E0101")
     rows = []
+    unavailable = []
     for base in jobs("E0100"):
+        summary = json.loads((DATA / "mirror" / "E0100" / base["job"] / "out" / "run"
+                              / "summary.json").read_text())
+        if summary["outcome"] != "completed":
+            unavailable.append(dict(job=base["job"], artifact=base["artifact"],
+                                    condition=base["cond"], outcome=summary["outcome"],
+                                    error=summary.get("error"),
+                                    cycles_completed=summary["cycles_completed"]))
+            print(base["cond"], "baseline unavailable:", summary["outcome"], flush=True)
+            continue
         b = bulk.baseline(fetch(base["artifact"]), 20, 100, 10, 2)
         for m in (m for m in methods if m["cond"] == base["cond"]):
             meas = bulk.measure(fetch(m["artifact"]), 20, 100, 2)
@@ -63,7 +75,7 @@ def main():
             rows.append(dict(
                 condition=dict(zip(("gamma", "f_star", "depth"), base["cond"])),
                 baseline_job=base["job"], baseline_artifact=base["artifact"],
-                method_job=m["job"], method_artifact=m["artifact"], method_mode=m["mode"],
+                method_experiment=m["experiment"], method_job=m["job"], method_artifact=m["artifact"], method_mode=m["mode"],
                 threshold_sd=b["threshold"], baseline_blocks=b["blocks"],
                 passes=all(r["passes"] for r in verdict.values()),
                 worst_sigmas=max(abs(r["sigmas"]) for r in verdict.values()),
@@ -76,7 +88,7 @@ def main():
     out = dict(experiment_id="E0100", tool="tools/grapenuts_judge.py",
                rule="referee/bulk.py judge: 100-cycle mean (cycles 20-120) within the "
                     "threshold of block sd of a 10-block baseline (cycles 20-1020)",
-               comparisons=rows)
+               baselines_unavailable=unavailable, comparisons=rows)
     (HERE / "evidence" / "E0100-results.json").write_text(
         json.dumps(out, indent=1, default=float) + "\n")
 

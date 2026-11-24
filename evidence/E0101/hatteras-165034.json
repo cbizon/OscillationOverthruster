@@ -1,0 +1,48 @@
+{
+  "host": "hatteras",
+  "job_id": "165034",
+  "experiment_id": "E0101",
+  "line_id": "L0020",
+  "commit": "3c5c10a7ebf70873fe8c3d9bd2ed5f068c21c18e",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel.L0020",
+      "commit": "3c5c10a7ebf70873fe8c3d9bd2ed5f068c21c18e",
+      "branch": "line/L0020"
+    },
+    "grapenuts": {
+      "repo": "/Users/bizon/Projects/experiments/sequel-data/grapenuts",
+      "commit": "23a3676666c245e76dc1a86fb90143380d8594f7",
+      "branch": "sequel-eval"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "6eb69b24559961eb757387e0595018aa9be3200c",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "B=$PWD/referee/bulk.py; cd ../grapenuts && uv run python scripts/sequel_long_contact.py --bulk $B --dim 2 --gamma 3.5 --fstar 0.3 --N 500 --L 100 --depth 5 --mode tc --stiffness 1e6 --cycles 120 --max-cpu-hours 3 --outdir \"$ROBOROBO_OUT/run\"",
+    "--repo",
+    "/Users/bizon/Projects/experiments/sequel.L0020"
+  ],
+  "sbatch": {
+    "time": "6:00:00",
+    "mem": "4G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0101/20261124T025705Z",
+  "submitted_at": "2026-11-24T02:57:05Z",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:00:55",
+  "cpu_hours": 0.015,
+  "nodes": "compute-13-1",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0101/hatteras-165034",
+  "ended_at": "2026-11-24T03:01:20Z",
+  "artifact_id": "A0156",
+  "record": "evidence/E0101/hatteras-165034.json"
+}
