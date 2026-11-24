@@ -2,9 +2,9 @@
 
 ## Status
 
-Active. 23 of the 30 width-200 fast-pass loops still running on Hatteras
-(as of Nov 24, 11:50 UTC). Seven have ended (see below); none needs
-relaunching under the loops' own stopping rules.
+Active. 21 of the 30 width-200 fast-pass loops still running on Hatteras
+(as of the Nov 24 second run, 15:26 UTC). Nine have ended (see below); none
+needs relaunching under the loops' own stopping rules.
 
 ## What is done
 
@@ -40,13 +40,30 @@ relaunching under the loops' own stopping rules.
   3.85, cycle 11). Width 100: 2.2 and 4.0. 53.0 CPU-hours, median 1.02
   CPU-hours per 25-cycle step. Added to evidence/E0076-interim.json.
 
+- Nov 24 second run (evidence/E0076-interim.json):
+  - E0076 baseline f* 0.50 (164689, A0178): floor 2.35 (CPU cap at 2.3),
+    highest 4.0 (overlap at 4.05). Width 100: 2.4 (CPU cap at 2.35) to 4.05
+    (CPU cap at 4.1). 56.9 CPU-hours.
+  - E0076 baseline f* 0.44 (164690, A0179): floor 2.4 (CPU cap at 2.35),
+    highest 4.0 (overlap at 4.05). Width 100: 2.3 (CPU cap at 2.25) to 4.0
+    (stall at 4.05). 56.9 CPU-hours.
+  - width100_stop_modes in the evidence file: outcome of every non-completed
+    step of all ten width-100 loops (from A0068 ramp.jsonl). Width-100 floors
+    that were CPU cap stops: f* 0.30, 0.44, 0.50, 0.57, 0.74, 0.84. Overlap
+    floors: 0.33, 0.38, 0.65.
+  - down_leg_cost_ratio: a 25-cycle step below Gamma 3.0 costs 6.6 to 8.4
+    times as much at width 200 (median 7.4, 49 matched steps, f* 0.44 to
+    0.65). Caps were scaled 4x (D0046), so floors where both widths hit the
+    cap are cost floors and not comparable (checker, Nov 24). Use "about
+    seven times", not "five to seven".
+
 ## Jobs in flight
 
 | Experiment | Host | Jobs | f* | Description | Wall time |
 |---|---|---|---|---|---|
 | E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
 | E0075 | hatteras | 164675-164683 running; 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
-| E0076 | hatteras | 164686, 164689-164691 running (f* 0.74, 0.50, 0.44, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
+| E0076 | hatteras | 164686, 164691 running (f* 0.74, 0.38); others ended | 0.27-0.84 | baseline (friction, main), L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -67,9 +84,11 @@ Size per loop:
 - As each E0076 loop ends, append it to evidence/E0076-interim.json (same
   per-step summary.json fields: step, gamma, outcome, cycles, cpu_h,
   energy_gains, audit_failures, slow, sha256 of summary.json). When the
-  last four end, write E0076's outcome: one table of floor and highest
-  Gamma per f* against width 100 (evidence/E0073-results.json). Say which
-  floors are cost stops (CPU cap) and which are overlaps or stalls.
+  last two end, write E0076's outcome: one table of floor and highest
+  Gamma per f* against width 100 (evidence/E0073-results.json). Mark for
+  each end, at BOTH widths, whether it was a CPU cap stop, an overlap or a
+  stall (width-100 modes are in width100_stop_modes); compare only ends
+  that stopped for a physical reason at both widths.
 - Collect the first completed jobs and check per-step cost against E0070.
 - Compare the E0071 onset at L 200 with E0060 at L 100 for f* 0.44.
 - The nudge loops (E0075) will likely stop at the period-2 wall above

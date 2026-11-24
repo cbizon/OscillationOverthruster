@@ -1547,13 +1547,1707 @@
     }
    ],
    "cost_ratio_note": "Total CPU over all steps run divided by steps run: width 200 52.685/45 = 1.171 CPU-hours, width 100 9.68/55 = 0.176, about 6.7 times. Not like-for-like: width 100 covered a wider Gamma range (2.2 to 4.0 against 2.35 to 3.8) and used a 50-cycle first step and caps of 0.5/2.0 CPU-hours against 2.0/8.0 here.",
-   "floor_note": "The down-branch stop at Gamma 2.3 is the per-step CPU cap (2.0 CPU-hours, 23 of 25 cycles), not an overlap or frozen time. The caps are four times width 100's, in proportion to the particle count, while a cycle costs roughly six times as much, so this floor is partly set by cost."
+   "floor_note": "The down-branch stop at Gamma 2.3 is the per-step CPU cap (2.0 CPU-hours, 23 of 25 cycles). Corrected Nov 24 (second run), after the checker: the width-100 floor of 2.2 was also a CPU-cap stop (0.5 CPU-hours at Gamma 2.15; width100_stop_modes). Caps scaled four times, cost per step about seven times (down_leg_cost_ratio), so both lower ends are cost floors and the difference between them says nothing about box size."
+  },
+  {
+   "experiment": "E0076",
+   "job": 164689,
+   "artifact": "A0178",
+   "fstar": "0.50",
+   "slurm_state": "FAILED",
+   "elapsed": "2-08:53:32",
+   "job_cpu_hours": 56.892,
+   "steps_completed": 47,
+   "down_floor": 2.35,
+   "up_ceiling": 4.0,
+   "stops": [
+    {
+     "step": 14,
+     "gamma": 2.3,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 23,
+     "of": 25,
+     "cpu_h": 2.004
+    },
+    {
+     "step": 73,
+     "gamma": 4.05,
+     "outcome": "physical_failure",
+     "error": "sphere pair overlaps",
+     "cycles": 1,
+     "of": 25,
+     "cpu_h": 0.715
+    }
+   ],
+   "energy_gains_any_step": 0,
+   "audit_failures_any_step": 0,
+   "slow_episodes_any_step": 0,
+   "cpu_h_25cycle_steps": {
+    "n": 46,
+    "median": 1.071,
+    "mean": 1.127
+   },
+   "cpu_h_sum_of_steps": 56.55,
+   "width100_same_model": {
+    "fstar": "0.50",
+    "steps_completed": 46,
+    "steps_total": 48,
+    "down_floor": 2.4,
+    "up_ceiling": 4.05,
+    "fail_gamma": 4.1,
+    "fail_mode": "cpu_budget",
+    "fail_cycles": 1,
+    "cpu_hours": 11.49,
+    "audit_failures": 0,
+    "slow_episodes": 0,
+    "source": "evidence/E0073-results.json"
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 50,
+     "requested": 50,
+     "cpu_h": 1.995,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "19cfb626792206e530eff712da183633c322e8ed303eaa0146d9ead118a70420"
+    },
+    {
+     "step": 1,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.046,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "918e77bf320900e4331e5f484492586059824c63891e82435323da63188e9e98"
+    },
+    {
+     "step": 2,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.071,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "2aa1fe6248cf0caf68121e02bd4ae202c0f2e6b7d1785a155c06110eabcecb3f"
+    },
+    {
+     "step": 3,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.051,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "07e53397cf1bc77d6382e28befb018c1f9f724d343b7d0b3d01b4b6453aa5779"
+    },
+    {
+     "step": 4,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.096,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5ff8c8896c07d89eeef15ba238ab09fe0cd9015d9e102055cd5fbb4a7959781e"
+    },
+    {
+     "step": 5,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.109,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "b9392dfa8081cc753ddc58b53410345a14ff9c881ceef11525df9d8de694464b"
+    },
+    {
+     "step": 6,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.191,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ba3104f088602606e215c0d6734d36f612fdb7e3d3654638fea5d8b424737a5e"
+    },
+    {
+     "step": 7,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.24,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "aece300b49244e4dae5795c21805afa8a1b664d4d988ce930f7b5ec2c29d5376"
+    },
+    {
+     "step": 8,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.334,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "e0fb621fe8dbf1ea37bf6242bda80d91819d1eeddb067025d3cc09beb8746024"
+    },
+    {
+     "step": 9,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.406,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "11b77e3bc21a18e4dca33e54df96713e6a67fcb4b7bb1dfb63fd13907413ceef"
+    },
+    {
+     "step": 10,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.496,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8f5485d3ccd88361f8bca04c79c465400abe3144ee6bbc40e368d2284d32401d"
+    },
+    {
+     "step": 11,
+     "gamma": 2.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.62,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "82d6bd83a4a9a85326bf741ab06052c537b69d3f7e80cea1288bc28cb8ce79cd"
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.755,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f3bea10a46270ff838a12921a5b96ec512115a05b6412ad6a60995b87a62a7ae"
+    },
+    {
+     "step": 13,
+     "gamma": 2.35,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.934,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "aca27632a18eea885453a03bc0459f18a697f8866d38cd72c2348769ddf3df4a"
+    },
+    {
+     "step": 14,
+     "gamma": 2.3,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 23,
+     "requested": 25,
+     "cpu_h": 2.004,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "caafffed01989ce256c011672a13e8ea13ded552be163d0474e77b6d6d2296df"
+    },
+    {
+     "step": 40,
+     "gamma": 2.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.925,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "533f51fb7a2991d489b665314dd7c1adc2dd48633667db548baa89f42f4ac12a"
+    },
+    {
+     "step": 41,
+     "gamma": 2.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.803,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8fd9893d734f48cf798990a5deaca737feef0c1aa9c8da0197455e617cf4d7d4"
+    },
+    {
+     "step": 42,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.634,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "62f3b55217b470d014bd4c04eb2c5097aa88877be89bac6c931ad4c00cf99cb6"
+    },
+    {
+     "step": 43,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.489,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5e768a614664c82e8cc462ba0d399ba2283c7862a4991dc48455e38a7e888709"
+    },
+    {
+     "step": 44,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.382,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "906a507f93c4517c6e089755a03034775bfeda95513e05e0d0289ae370746bb6"
+    },
+    {
+     "step": 45,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.304,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "08e0757cc9642e49328d24aa182022b7800572c354067e7b10e403f9279ce037"
+    },
+    {
+     "step": 46,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.252,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "7ae20b330fa52b7a733d656b394ac2a427438459b70cb895c56bd42feb9f147c"
+    },
+    {
+     "step": 47,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.19,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "a34e7be678dd06fcb220af788d5db2d5f8d07c400d38a6d986f7ee0381e4d864"
+    },
+    {
+     "step": 48,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.139,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0bf68f82aa1ae6cef569eaa52f04cb37e239999963dad183626cf22d772870b9"
+    },
+    {
+     "step": 49,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.127,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ee4d411e216a7c183fb1b635d8417d29fea6b241e7e250fed8072eeada7e9bdc"
+    },
+    {
+     "step": 50,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.071,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f2118cc0feb17317f78fb70b3991d6c1e0d7d50272069d3745f756e7627b16a9"
+    },
+    {
+     "step": 51,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.095,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "1fd5e7747f1c0908af53303ee14993ed18660814548d5b472c15ea1e220e19f3"
+    },
+    {
+     "step": 52,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.09,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "b621ecb401c027ac770bd55f456e019195e698713621016585e8dc2991c7abbb"
+    },
+    {
+     "step": 53,
+     "gamma": 3.05,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.014,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f7fd37298e4a7761c3db49f43cd6da2f0fb58e19ed4864be82450ff7ce2aacf9"
+    },
+    {
+     "step": 54,
+     "gamma": 3.1,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.98,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "24a2c6377ff8e896b5ce790298e0814a15856708b9f96b939abcc299bb12fa34"
+    },
+    {
+     "step": 55,
+     "gamma": 3.15,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.987,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5714a736d809072f14d3a4e3122d1d9d2ffe2ec12f9aa1316074bc051c7ac7e6"
+    },
+    {
+     "step": 56,
+     "gamma": 3.2,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.967,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "291ba1a2c57bb5435b14279e89b8ed6cabec17ab72d5b95f469e5589a1175f09"
+    },
+    {
+     "step": 57,
+     "gamma": 3.25,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.939,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "45de5ccde1070c6245d7500b9e0c326c48203db8d944e6afe061edc83dfe1c93"
+    },
+    {
+     "step": 58,
+     "gamma": 3.3,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.865,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "6d8ac45eb7abd1491715e227f5e6a682e125c83d597efa2cbd939d11c8db5e45"
+    },
+    {
+     "step": 59,
+     "gamma": 3.35,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.834,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "98282dbae4e4620759eff3e82a6e194d77a1e6f0fa87e1b60349db7d97c8d782"
+    },
+    {
+     "step": 60,
+     "gamma": 3.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.807,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "6d4ad33476e80a56865680bcdcc74a40a7226154d1af40c169ed020d6eefe6a4"
+    },
+    {
+     "step": 61,
+     "gamma": 3.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.803,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5454fd87fef3a141db24edf76a9b290c3194826526a3193532b7d0f2e11ce36b"
+    },
+    {
+     "step": 62,
+     "gamma": 3.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.805,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5a7051c7bc8f6f4c24e934db4fc6426eed66668a3f95ee850c7963e0188b1b81"
+    },
+    {
+     "step": 63,
+     "gamma": 3.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.796,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "43cf98119749776fc36f0fea25b3f29c30551ec53f46878829f6a3c4defafd53"
+    },
+    {
+     "step": 64,
+     "gamma": 3.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.708,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c8d5683a92d9d3f26d98aaeaa0f34e15d75a050d93c6a85e1d76a2fb5bf49e42"
+    },
+    {
+     "step": 65,
+     "gamma": 3.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.783,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "7c62fcb00ae2d1feea50ca3a3d2def3279b05b928ad14a3da9149ded765f077c"
+    },
+    {
+     "step": 66,
+     "gamma": 3.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.837,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "2aa35528c576213668608e4149c3d92bc25c0567b5759c1aed87878aadb65743"
+    },
+    {
+     "step": 67,
+     "gamma": 3.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.778,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c126f3270ce222b7e24a9d95374f833c6a1b08d85f33a85c43bea880227bebbd"
+    },
+    {
+     "step": 68,
+     "gamma": 3.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.773,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0e0feaf30eacb5e835683e49fba91c232f06f1e6b13cf4492906c61d941a4b75"
+    },
+    {
+     "step": 69,
+     "gamma": 3.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.756,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "4ac216e11a7959370bdd330c4a32519ee54a6c330fddc4eaa7765b92fb5cdd2f"
+    },
+    {
+     "step": 70,
+     "gamma": 3.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.937,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8a6a02ba025315546c752ee466bed45a58eb583987f1659599f171da12f5081b"
+    },
+    {
+     "step": 71,
+     "gamma": 3.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.792,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c6214f956fe28b0ea0f303188aa8fe3082e73663321cfd60acd6569f89977286"
+    },
+    {
+     "step": 72,
+     "gamma": 4.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.825,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "a2d392f20e58891a761148b0dac20ee489501c300aa6a8462ca4f49aceacfa74"
+    },
+    {
+     "step": 73,
+     "gamma": 4.05,
+     "outcome": "physical_failure",
+     "error": "sphere pair overlaps",
+     "cycles": 1,
+     "requested": 25,
+     "cpu_h": 0.715,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "e2510467851b0bcb36a9d075448ebd7f658ecbc58127cacf5d0db19ebef7d50e"
+    }
+   ]
+  },
+  {
+   "experiment": "E0076",
+   "job": 164690,
+   "artifact": "A0179",
+   "fstar": "0.44",
+   "slurm_state": "FAILED",
+   "elapsed": "2-08:51:14",
+   "job_cpu_hours": 56.854,
+   "steps_completed": 45,
+   "down_floor": 2.4,
+   "up_ceiling": 4.0,
+   "stops": [
+    {
+     "step": 13,
+     "gamma": 2.35,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 22,
+     "of": 25,
+     "cpu_h": 2.007
+    },
+    {
+     "step": 73,
+     "gamma": 4.05,
+     "outcome": "physical_failure",
+     "error": "sphere pair overlaps",
+     "cycles": 16,
+     "of": 25,
+     "cpu_h": 1.034
+    }
+   ],
+   "energy_gains_any_step": 0,
+   "audit_failures_any_step": 0,
+   "slow_episodes_any_step": 0,
+   "cpu_h_25cycle_steps": {
+    "n": 44,
+    "median": 1.148,
+    "mean": 1.165
+   },
+   "cpu_h_sum_of_steps": 56.517,
+   "width100_same_model": {
+    "fstar": "0.44",
+    "steps_completed": 49,
+    "steps_total": 51,
+    "down_floor": 2.3,
+    "up_ceiling": 4.0,
+    "fail_gamma": 4.05,
+    "fail_mode": "frozen_time",
+    "fail_cycles": 13,
+    "cpu_hours": 10.47,
+    "audit_failures": 0,
+    "slow_episodes": 0,
+    "source": "evidence/E0073-results.json"
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 50,
+     "requested": 50,
+     "cpu_h": 2.22,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "d1de7f15111b6dbd36cd9bfa2eac3de047cd4494c4fa4e33559b1b1ebd13e2f8"
+    },
+    {
+     "step": 1,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.117,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c64ed296ed1a15b16e2ab0576d9004eb71a18159dcdf6ea5cf43f27041286e40"
+    },
+    {
+     "step": 2,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.163,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "036a4046632e7db305b56a8a819a95c571f74c1c02bf9ea7497c35e20e478707"
+    },
+    {
+     "step": 3,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.208,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "99cb66554a230a10bbbb80ce86cf695c364d397bf6d299fd8217e7f7af60d5b2"
+    },
+    {
+     "step": 4,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.23,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ce4724416558e2f8475a4a67faecce48713a294ac1a01de5bdee987bf5138659"
+    },
+    {
+     "step": 5,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.241,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "21fb4ed2c412ee08cd636cacbd376a1e5abec08e6a0a72a39278d94f4fdd4ef3"
+    },
+    {
+     "step": 6,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.308,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "74d688e0cb1661508439aefe9a37d5c6f01ba38afcbf74891e6f2d52bb7e58a4"
+    },
+    {
+     "step": 7,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.276,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "3c0d0ca9a474d64a4098dfbc773cde3673e4a76ccf9eb4c2b663f1d63c48f0d6"
+    },
+    {
+     "step": 8,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.333,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "cf27d9cfc4856dc6ddab1de4fb6c5bd8f01c02c45ea8d031dd30631095d0a10f"
+    },
+    {
+     "step": 9,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.458,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8c13b059af7714a5ebf3ab588d3e508b0cf6182fdff45095d75d919f22a5c80d"
+    },
+    {
+     "step": 10,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.596,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "45009aabb3b1f735c580219b182c0f5ba6d6d2949fede2781a2f35516a243417"
+    },
+    {
+     "step": 11,
+     "gamma": 2.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.803,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f4ecee8dfb6fda45030945272c04347ad64dc135ca6b3b1211429fa444f071a4"
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.937,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "a6965802be467d52fdf3920ccd12b3c7e87f93d9bba4464b47ce095134ca0bcd"
+    },
+    {
+     "step": 13,
+     "gamma": 2.35,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 22,
+     "requested": 25,
+     "cpu_h": 2.007,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "d71539b656a2f7ebf046db667683b9f8d513af32ffc21e9c6e120e09407b51e0"
+    },
+    {
+     "step": 41,
+     "gamma": 2.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.906,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "212d4ef9f5db68c5ee044a3ed87a5e69f428fe9cab61b81a3e3eb9d1d99d4dac"
+    },
+    {
+     "step": 42,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.701,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "538d3c71b35d79ebaa755fcf35e9f8adc3b1ea5e73c13d19f5c266a5a3f4fb8a"
+    },
+    {
+     "step": 43,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.59,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "b125d15714adf8b990315b64cda5863a347dd60723a4c66689a6ce4f6abfa930"
+    },
+    {
+     "step": 44,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.46,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ce3178646fe97d1224e96a1b8e099e7cd62b2fd5ddc6bb2b8bf6b7e56d08bf77"
+    },
+    {
+     "step": 45,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.392,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "2a8222b138b9692787bdf8915cec8e179da4d93f66736e22ed369ab537fe0224"
+    },
+    {
+     "step": 46,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.307,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "226391647ae2b3a83dacebb7154c7ee74f3c987fbea1d3266b9e76d918a1cc0b"
+    },
+    {
+     "step": 47,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.254,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c5c43b5d4a11fc3e73240487407eada019ab1a830a8ac236d19e43e37ee27be0"
+    },
+    {
+     "step": 48,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.169,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0512957a630df0bb4e5df43cec012b91babc2562dc826506304522a5b19fee88"
+    },
+    {
+     "step": 49,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.174,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "de41dff968d58630b39df2fea0bb26511a17aeb7439de3a8fd50544e7dcfedd0"
+    },
+    {
+     "step": 50,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.175,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "60a87a414aeb154c181ad8c0c81fe6adaf32ea378d5367dd565e2824487fee0f"
+    },
+    {
+     "step": 51,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.15,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "55ebc35cdcf7652d9f3c0279b57fc3eadabb75738885e0e7606f889b4d412e82"
+    },
+    {
+     "step": 52,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.106,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "001c9e0fde359d68eef45785f8667ecd187cfbcc27b3ed8c764be500e18bde45"
+    },
+    {
+     "step": 53,
+     "gamma": 3.05,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.147,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "43148d2e52a5caa8e3e4cf057926072102da12144ef4a1fd6454c9b9904e57a8"
+    },
+    {
+     "step": 54,
+     "gamma": 3.1,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.997,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5afa7ad99214abcfdcfe717c3cb32946c6433efbc0cec693204373a32397e003"
+    },
+    {
+     "step": 55,
+     "gamma": 3.15,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.055,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "294901cf3215b2afe44b37ce34e22fa42fda28c5deb6dad3c17586c468f20726"
+    },
+    {
+     "step": 56,
+     "gamma": 3.2,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.987,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0dc5a349c5e76c78d8d6565e1c232bed1ceca125eae177a33c670a5199ed253b"
+    },
+    {
+     "step": 57,
+     "gamma": 3.25,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.965,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f15e7fdf429c626a9e928b9c64a2ecc2310cb6b2d04527c6f1bb580a66bff1e2"
+    },
+    {
+     "step": 58,
+     "gamma": 3.3,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.925,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "82e15a8dea439be49aebdf4f8d437f6c3953167a31d5b1f02171d11f1acf6ad8"
+    },
+    {
+     "step": 59,
+     "gamma": 3.35,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.888,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "7ea732d70c68e812073eed54add628ca58115d2277ac9e7e60ae02fa14c7a918"
+    },
+    {
+     "step": 60,
+     "gamma": 3.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.893,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f9021d085e37136ef0c07d4392652f88e508f51bc59c0c0a1bfe1ff48e36ed36"
+    },
+    {
+     "step": 61,
+     "gamma": 3.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.862,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "23399afab82c7f22c8d5d999a6fa2e208a192a97c307e0332fd3968c6f8e2e5e"
+    },
+    {
+     "step": 62,
+     "gamma": 3.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.838,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "e7dc546b81acb7e46667f449ffe0c6276c195d0c4947bcf6e755367d84875217"
+    },
+    {
+     "step": 63,
+     "gamma": 3.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.85,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "30cacf45526218ceb158c682494dc7b697a066224bdd1859ec5b0eb922f92a7d"
+    },
+    {
+     "step": 64,
+     "gamma": 3.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.817,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "21b19a6668aaa40b3ae66576a2ac7545760fe3eff87848b7aa209ef6b1ba244f"
+    },
+    {
+     "step": 65,
+     "gamma": 3.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.759,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "61bc5f8a22502af41d497221463ef4c579d87de547c3339e40153dd62d680979"
+    },
+    {
+     "step": 66,
+     "gamma": 3.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.808,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "81917237dde0ec5efc3f647869cbe828f1a9811fc17caf9a0ea00f330ee7686f"
+    },
+    {
+     "step": 67,
+     "gamma": 3.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.876,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "90e15fc267be1274f027ed18bee503ece73d8516c8aac1d8880b87215f822f46"
+    },
+    {
+     "step": 68,
+     "gamma": 3.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.804,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "30222581bde4f6394dd36c6d1968488b7a0f7e7619e590148ee3971e0269e014"
+    },
+    {
+     "step": 69,
+     "gamma": 3.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.927,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f2df71ee31826aeb0a47db161b5c7d61b2080070c467870f641ea2f68298f87c"
+    },
+    {
+     "step": 70,
+     "gamma": 3.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.888,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "96f8199560cc473800ea890e40cb8e20a7e8689c6f7e8d34dc9622b644a32740"
+    },
+    {
+     "step": 71,
+     "gamma": 3.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.006,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "92812fa2cb72a8083c08b08bf360f754f9da8c7e8e3ad6565cd46c2424926344"
+    },
+    {
+     "step": 72,
+     "gamma": 4.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.91,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c700e4e1673dff7887ec20777df460715ab108f071a4f083805fac3d38637ce0"
+    },
+    {
+     "step": 73,
+     "gamma": 4.05,
+     "outcome": "physical_failure",
+     "error": "sphere pair overlaps",
+     "cycles": 16,
+     "requested": 25,
+     "cpu_h": 1.034,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8cf33a54a16768356136e5ed02eba26fdf1ededb2344a965505c79c3194c52b7"
+    }
+   ]
   }
  ],
  "updated": [
   {
    "at": "2026-11-24",
    "what": "added the f* 0.57 baseline loop (job 164688, A0175), built the same way from the mirrored summary.json files"
+  },
+  {
+   "at": "2026-11-24 (second run)",
+   "what": "added the f* 0.50 (job 164689, A0178) and f* 0.44 (job 164690, A0179) baseline loops from the mirrored summary.json files; added width100_stop_modes (stop outcome of every width-100 loop, from A0068 ramp.jsonl) and down_leg_cost_ratio; corrected the f* 0.57 floor_note (both floors are cost floors)"
   }
- ]
+ ],
+ "width100_stop_modes": {
+  "note": "Every non-completed step of the width-100 baseline loops (E0073), read from ramp.jsonl in A0068. cpu_budget stops on the down leg hit the 0.5 CPU-hour cap; on the up leg the 2.0 CPU-hour cap.",
+  "loops": {
+   "0.27": {
+    "stops": [
+     {
+      "step": 0,
+      "gamma": 3.0,
+      "outcome": "physical_failure",
+      "cpu_h": 0.083
+     }
+    ],
+    "ramp_jsonl_sha256": "bb3bd9926e9e7bc6da208c53f0ff6b14aaf1a7e8bbae0ffbf99e626439565de2",
+    "path": "A0068:main-3d-f0.27/ramp.jsonl"
+   },
+   "0.30": {
+    "stops": [
+     {
+      "step": 11,
+      "gamma": 2.45,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.5
+     },
+     {
+      "step": 78,
+      "gamma": 4.3,
+      "outcome": "physical_failure",
+      "cpu_h": 1.303
+     }
+    ],
+    "ramp_jsonl_sha256": "1b3edca5625f71df9d68ad39e6ca6400a14a03515745c94b3654f7ce436dbf4c",
+    "path": "A0068:main-3d-f0.30/ramp.jsonl"
+   },
+   "0.33": {
+    "stops": [
+     {
+      "step": 14,
+      "gamma": 2.3,
+      "outcome": "physical_failure",
+      "cpu_h": 0.138
+     },
+     {
+      "step": 80,
+      "gamma": 4.4,
+      "outcome": "cpu_budget",
+      "cpu_h": 2.001
+     }
+    ],
+    "ramp_jsonl_sha256": "3ed9fb2e31f5915f1fa93a613b201157c85186fcbf5ff1c87a21dd0aff133d80",
+    "path": "A0068:main-3d-f0.33/ramp.jsonl"
+   },
+   "0.38": {
+    "stops": [
+     {
+      "step": 14,
+      "gamma": 2.3,
+      "outcome": "physical_failure",
+      "cpu_h": 0.449
+     },
+     {
+      "step": 73,
+      "gamma": 4.05,
+      "outcome": "frozen_time",
+      "cpu_h": 0.958
+     }
+    ],
+    "ramp_jsonl_sha256": "87ea18a5d0a792cacfc25ac1938001b3b83701b648c03877645b7eb8fb630dbe",
+    "path": "A0068:main-3d-f0.38/ramp.jsonl"
+   },
+   "0.44": {
+    "stops": [
+     {
+      "step": 15,
+      "gamma": 2.25,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.501
+     },
+     {
+      "step": 73,
+      "gamma": 4.05,
+      "outcome": "frozen_time",
+      "cpu_h": 0.346
+     }
+    ],
+    "ramp_jsonl_sha256": "b9a6248ca4972cc495a61fdc8501af89f10be55a57111a27679b36a2b18bfa08",
+    "path": "A0068:main-3d-f0.44/ramp.jsonl"
+   },
+   "0.50": {
+    "stops": [
+     {
+      "step": 13,
+      "gamma": 2.35,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.5
+     },
+     {
+      "step": 74,
+      "gamma": 4.1,
+      "outcome": "cpu_budget",
+      "cpu_h": 2.002
+     }
+    ],
+    "ramp_jsonl_sha256": "34251e37b3f9a9f371f44fd782fbc9d46e6d6e2cb0893539716548d9ee2656cb",
+    "path": "A0068:main-3d-f0.50/ramp.jsonl"
+   },
+   "0.57": {
+    "stops": [
+     {
+      "step": 17,
+      "gamma": 2.15,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.501
+     },
+     {
+      "step": 73,
+      "gamma": 4.05,
+      "outcome": "physical_failure",
+      "cpu_h": 0.564
+     }
+    ],
+    "ramp_jsonl_sha256": "70128cf41c464119b164f2f795f0dfacb7a842f2b40de777da76637dff110eed",
+    "path": "A0068:main-3d-f0.57/ramp.jsonl"
+   },
+   "0.65": {
+    "stops": [
+     {
+      "step": 16,
+      "gamma": 2.2,
+      "outcome": "physical_failure",
+      "cpu_h": 0.415
+     },
+     {
+      "step": 75,
+      "gamma": 4.15,
+      "outcome": "physical_failure",
+      "cpu_h": 0.239
+     }
+    ],
+    "ramp_jsonl_sha256": "f4d0759501bc3e51a4731423be939cd62417b09dba6998d26581045fd39c75eb",
+    "path": "A0068:main-3d-f0.65/ramp.jsonl"
+   },
+   "0.74": {
+    "stops": [
+     {
+      "step": 18,
+      "gamma": 2.1,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.5
+     },
+     {
+      "step": 75,
+      "gamma": 4.15,
+      "outcome": "cpu_budget",
+      "cpu_h": 2.003
+     }
+    ],
+    "ramp_jsonl_sha256": "9725f3c142c45d4348a2d51d4119d10cdff28c73d800f5b114e1082ba006121d",
+    "path": "A0068:main-3d-f0.74/ramp.jsonl"
+   },
+   "0.84": {
+    "stops": [
+     {
+      "step": 17,
+      "gamma": 2.15,
+      "outcome": "cpu_budget",
+      "cpu_h": 0.501
+     },
+     {
+      "step": 77,
+      "gamma": 4.25,
+      "outcome": "physical_failure",
+      "cpu_h": 1.035
+     }
+    ],
+    "ramp_jsonl_sha256": "7d86b2cfc2fdf267e3cce34847ca6e5cb5481da20be25882010176a8edbe2d74",
+    "path": "A0068:main-3d-f0.84/ramp.jsonl"
+   }
+  }
+ },
+ "down_leg_cost_ratio": {
+  "note": "CPU-hours of a completed 25-cycle step at width 200 divided by the same step at width 100 (same f*, same Gamma), down leg below Gamma 3.0, both steps completed. Step caps were scaled four times from width 100 (0.5 to 2.0 CPU-hours down, 2.0 to 8.0 up; D0046) while a step costs this many times more, so where both widths stopped on the cap, their floors are cost floors and are not comparable.",
+  "by_fstar": {
+   "0.44": {
+    "width200_job": 164690,
+    "gammas": [
+     2.4,
+     2.45,
+     2.5,
+     2.55,
+     2.6,
+     2.65,
+     2.7,
+     2.75,
+     2.8,
+     2.85,
+     2.9,
+     2.95
+    ],
+    "ratios": [
+     7.06,
+     7.11,
+     7.05,
+     7.14,
+     7.19,
+     7.33,
+     8.04,
+     7.6,
+     7.57,
+     7.74,
+     7.7,
+     7.52
+    ],
+    "min": 7.05,
+    "max": 8.04,
+    "median": 7.42
+   },
+   "0.50": {
+    "width200_job": 164689,
+    "gammas": [
+     2.4,
+     2.45,
+     2.5,
+     2.55,
+     2.6,
+     2.65,
+     2.7,
+     2.75,
+     2.8,
+     2.85,
+     2.9,
+     2.95
+    ],
+    "ratios": [
+     6.63,
+     6.67,
+     6.91,
+     7.19,
+     7.56,
+     7.68,
+     7.37,
+     7.15,
+     7.21,
+     7.23,
+     7.62,
+     7.54
+    ],
+    "min": 6.63,
+    "max": 7.68,
+    "median": 7.22
+   },
+   "0.57": {
+    "width200_job": 164688,
+    "gammas": [
+     2.35,
+     2.4,
+     2.45,
+     2.5,
+     2.55,
+     2.6,
+     2.65,
+     2.7,
+     2.75,
+     2.8,
+     2.85,
+     2.9,
+     2.95
+    ],
+    "ratios": [
+     6.91,
+     7.1,
+     7.18,
+     7.42,
+     7.94,
+     7.53,
+     7.15,
+     7.39,
+     7.71,
+     7.4,
+     7.71,
+     7.71,
+     8.06
+    ],
+    "min": 6.91,
+    "max": 8.06,
+    "median": 7.42
+   },
+   "0.65": {
+    "width200_job": 164687,
+    "gammas": [
+     2.4,
+     2.45,
+     2.5,
+     2.55,
+     2.6,
+     2.65,
+     2.7,
+     2.75,
+     2.8,
+     2.85,
+     2.9,
+     2.95
+    ],
+    "ratios": [
+     7.01,
+     7.6,
+     7.38,
+     7.46,
+     7.6,
+     7.49,
+     7.3,
+     7.06,
+     7.58,
+     8.41,
+     8.17,
+     8.23
+    ],
+    "min": 7.01,
+    "max": 8.41,
+    "median": 7.54
+   }
+  },
+  "overall": {
+   "n": 49,
+   "min": 6.63,
+   "max": 8.41,
+   "median": 7.42
+  }
+ }
 }

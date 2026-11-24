@@ -691,6 +691,30 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 24 findings, second run (L0018, started by the service for jobs 164689 and 164690)
+
+No instruction. Session summary: `sessions/2026-11-24-L0018-2.json`.
+Evidence: `evidence/E0076-interim.json` (two loops added, width-100 stop
+modes, per-step cost ratio).
+
+- **Baseline (E0076) f\* 0.50 at width 200 (job 164689, A0178):** floor
+  Gamma 2.35 (CPU cap at 2.3, 23 of 25 cycles), highest Gamma 4.0 (sphere
+  overlap at 4.05 in cycle 1). Width 100: 2.4 (CPU cap at 2.35) to 4.05 (CPU
+  cap at 4.1). 47 steps, 56.9 CPU-hours.
+- **Baseline (E0076) f\* 0.44 at width 200 (job 164690, A0179):** floor 2.4
+  (CPU cap at 2.35, 22 of 25 cycles), highest 4.0 (overlap at 4.05 in cycle
+  16). Width 100: 2.3 (CPU cap at 2.25) to 4.0 (stall at 4.05). 45 steps,
+  56.9 CPU-hours. Neither loop had energy gains, audit failures or slow
+  stretches. Nothing to relaunch.
+- **Correction (checker, Nov 24):** at f\* 0.57, 0.50 and 0.44 the floor was a
+  CPU cap stop at both widths, so those floors are cost floors and are not
+  comparable. The caps were scaled four times (D0046) while a down-leg step
+  costs 6.6 to 8.4 times as much at width 200 (median 7.4 over 49 matched
+  steps at four f\*), replacing the earlier "five to seven times".
+  Comparable ends so far: f\* 0.65 (overlaps at both widths at both ends:
+  2.4 to 3.9 against 2.25 to 4.1) and the upper end at f\* 0.57 (3.8 against
+  4.0) and 0.44 (4.0 at both).
+
 ### Nov 24 findings (L0018, started by the service for job 164688)
 
 No instruction. Session summary: `sessions/2026-11-24-L0018.json`.
