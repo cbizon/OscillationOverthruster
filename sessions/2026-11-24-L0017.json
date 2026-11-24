@@ -1,0 +1,64 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0017",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "Collected the settle-then-step loop at f* 0.44 (one seed), which lets each Gamma step run until the pattern stops changing before moving on. Every step settled within 200 to 400 cycles. Over the settled window the gap between the way up and the way down is 0.021 D at Gamma 2.2 and 0.048 at 2.25, against 0.103 at 400 cycles a step; the gap at 2.2 was the ramp being too fast, and one seed cannot say whether the 0.05 left at 2.25 is real. (Housekeeping: the outcome record first written this session miscounted the steps by length; it was replaced before commit, so the committed ledger has only the correct one.)",
+ "experiments": [
+  {
+   "experiment_id": "E0090",
+   "question": "Does the gap between the way up and the way down at f* 0.44 stay when each step is allowed to run until the layer settles?",
+   "what_was_done": "The loop ran on Hatteras for two days: no-friction engine, sixty thousand spheres, the paper's box, seed one, Gamma from 1.9 to 2.6 and back in steps of 0.05, each step running in fifty-cycle blocks until the agreed stopping rule said the pattern amplitude and layer height had stopped changing. This session fetched the output and computed the pattern amplitude per step in two ways: over the whole step, as registered, and over the last hundred cycles of the step, the window the stopping rule judged settled. Both were compared with the fixed-rate loops at 25, 100 and 400 cycles a step.",
+   "result": "All twenty-nine steps settled: fourteen at the 200-cycle minimum, nine at 250, four at 300, two at 400 (Gamma 2.2 and 2.05 on the way down); none came near the 3000-cycle limit. Forty-eight CPU-hours, no stalls, clean energy audit. Over whole steps the largest gap is 0.111 diameters at Gamma 2.25 (0.108 at 2.2), about the same as at 400 cycles a step, so the registered prediction of at most 0.05 is falsified. But the whole-step amplitude includes the relaxation from the previous Gamma: the way-down step at 2.2 starts at 0.37 and falls over 300 cycles to a flat 0.15, close to the way-up value of 0.13. Over the settled window the gap is 0.021 at 2.2 and 0.048 at 2.25; its largest value anywhere is 0.057 at 2.5, well above the transition, where each branch's amplitude wanders by about 0.05 within a hundred cycles.",
+   "takeaway": "Given time to settle, the way down at 2.2 comes back to the way up, so most of the gap seen at fixed rates was the ramp being too fast. What remains at 2.25 is the same size as the amplitude's wandering in the patterned state, so on one seed it cannot be told from noise. Two cautions: the stopping rule's error estimate rests on just two blocks, so it passes easily (one step at 2.55 passed while its amplitude was falling from 0.62 to 0.54); and a physical result needs at least three seeds and a check on the contact method."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The settled-window gap is 0.02 at Gamma 2.2 and 0.05 at 2.25 on one seed. Should I run the settle-then-step loop at f* 0.44 with two more seeds (about 50 CPU-hours each on Hatteras, in parallel, about two days), to tell the 0.05 at 2.25 from seed-to-seed spread?",
+   "why_it_matters": "Three seeds are the minimum for a hysteresis result, and the remaining gap is the size of the amplitude's wandering, so one seed cannot decide it.",
+   "default_if_unanswered": "Nothing runs on this line until you answer."
+  },
+  {
+   "question": "The stopping rule you approved passed one step (Gamma 2.55 on the way up) while its amplitude was still falling, because its error estimate rests on two blocks. For more seeds, keep the rule as it is, or require it to pass on two checks in a row (adds about 100 cycles per step, roughly half again the CPU)?",
+   "why_it_matters": "A lenient rule can advance Gamma before the layer has settled, which is what the loop is meant to avoid; a stricter one costs more.",
+   "default_if_unanswered": "Keep the rule as approved, so the seeds compare directly with this one."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Two more seeds of the settle-then-step loop at f* 0.44, reporting the settled-window gap at each Gamma with the seed-to-seed spread.",
+   "rationale": "Decides whether the 0.05 gap left at Gamma 2.25 is hysteresis or wandering, and meets the three-seed minimum for a physical result."
+  },
+  {
+   "direction": "Report the settled-window amplitude (last 100 cycles of a step) rather than the whole-step amplitude for adaptive-rate loops, and re-read the 400-cycle loop over its last 100 cycles the same way.",
+   "rationale": "The whole-step amplitude mixes in the relaxation from the previous Gamma, which is exactly the ramp-rate effect being tested; the same window applied to the 400-cycle loop makes the comparison fair."
+  },
+  {
+   "direction": "The settle-then-step loop at a second frequency (f* 0.38 or 0.33), where the fast pass showed a wider gap.",
+   "rationale": "Tests whether the gap closes on settling there too; 48 CPU-hours a loop is cheaper than the 80 estimated."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 557.55,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T06:11:00Z",
+  "actual_start": "2026-11-24T06:11:03Z",
+  "ended": "2026-11-24T06:18:00Z",
+  "interruptions": [],
+  "cpu_hours": 48.14,
+  "cores_available": 30.6,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. The loop ran on Hatteras; this session only fetched 179 MB to analyse and ran the frozen tests (74 passed). This machine has no pmset; sleep could not be checked, and no gap was seen in the session's clock."
+ }
+}

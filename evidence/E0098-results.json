@@ -1,0 +1,3712 @@
+{
+ "experiment_id": "E0098",
+ "line_id": "L0019",
+ "status": "final",
+ "engine": "method/ride 7ae3349",
+ "code_commit": "4bedc53 (branch provenance/E0098-code-4bedc53)",
+ "cap_reading": "D0067: a stop at the 2 CPU-hour cap is neither a completion nor a proven stall; cycles completed before the cap are the progress measure, and the condition is not survived.",
+ "root_search_iteration_limit": 10000,
+ "conditions": [
+  {
+   "job": "hatteras-164950",
+   "artifact": "A0127",
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "outcome": "cpu_budget",
+   "cycles_completed": 52,
+   "cpu_seconds": 7232.2,
+   "slurm_cpu_hours": 2.032,
+   "audit_cycles": 52,
+   "audit_all_pass": true,
+   "worst_energy_residual": 1.5361037018820968e-13,
+   "energy_gains": 0,
+   "slow_episodes": 7,
+   "slow_episode_cpu_seconds": 398.7,
+   "slow_episode_tiny_pair": [
+    0,
+    886,
+    1431,
+    3371,
+    25714,
+    3050,
+    84
+   ],
+   "slow_episode_tiny_plate": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "slow_episode_phases": [
+    0.9401,
+    0.9424,
+    0.9427,
+    0.9427,
+    0.9427,
+    0.9427,
+    0.9427
+   ],
+   "events_total": 12601628,
+   "events_per_cpu_second": 1742,
+   "root_limit_hits": 8338927,
+   "root_limit_hits_per_event": 0.6617,
+   "plate_captures": 100589,
+   "sphere_captures": 259471,
+   "cascades": 114931,
+   "scheduled_releases": 1,
+   "tiny_pair_collisions": 101429,
+   "unmodified_engine_pilot": "stalls in cycle 21",
+   "unmodified_engine_long_run": "sphere-pair overlap in cycle 49 after 48 completed, 10.7 CPU-hours (long run, no detector)",
+   "E0094_twin": "hatteras-164936",
+   "interim_snapshot": {
+    "cycles": 52,
+    "cpu_seconds": 3257.5,
+    "at": "2026-11-23T22:25:11.150719Z"
+   },
+   "cpu_seconds_after_snapshot": 3974.7,
+   "cycles_after_snapshot": 0,
+   "unfinished_cycle": {
+    "cycle": 53,
+    "events": 8376885,
+    "share_of_run_events": 0.665,
+    "root_limit_hits": 8148135,
+    "share_of_run_root_limit_hits": 0.977,
+    "plate_captures": 99435,
+    "sphere_captures": 258990,
+    "tiny_pair": 101382,
+    "tiny_plate": 0
+   },
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 15059,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 20358,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 24655,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 4,
+     "events": 20908,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 62737,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 20875,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 95099,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 21383,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 101930,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 25377,
+     "root_limit_hits": 4552,
+     "plate_captures": 8,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 128104,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 20776,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 13,
+     "events": 130588,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 14,
+     "events": 22735,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 15,
+     "events": 127527,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 16,
+     "events": 20292,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 17,
+     "events": 97157,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 18,
+     "events": 22177,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 19,
+     "events": 97588,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 20,
+     "events": 20213,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 21,
+     "events": 114641,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 22,
+     "events": 23626,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 23,
+     "events": 107432,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 24,
+     "events": 20020,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 25,
+     "events": 109572,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 26,
+     "events": 21255,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 27,
+     "events": 99234,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 28,
+     "events": 19639,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 29,
+     "events": 108327,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 30,
+     "events": 19856,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 31,
+     "events": 142963,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 32,
+     "events": 24572,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 33,
+     "events": 96263,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 34,
+     "events": 19577,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 35,
+     "events": 126325,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 36,
+     "events": 23232,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 37,
+     "events": 179681,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 38,
+     "events": 22843,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 39,
+     "events": 133764,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 40,
+     "events": 24229,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 41,
+     "events": 213468,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 42,
+     "events": 27188,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 43,
+     "events": 161052,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 44,
+     "events": 21778,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 45,
+     "events": 146637,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 46,
+     "events": 23468,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 47,
+     "events": 209260,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 48,
+     "events": 27845,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 49,
+     "events": 200580,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 50,
+     "events": 28284,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 51,
+     "events": 475653,
+     "root_limit_hits": 95603,
+     "plate_captures": 612,
+     "sphere_captures": 188,
+     "tiny_pair": 31
+    },
+    {
+     "cycle": 52,
+     "events": 156941,
+     "root_limit_hits": 90637,
+     "plate_captures": 529,
+     "sphere_captures": 291,
+     "tiny_pair": 16
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164951",
+   "artifact": "A0128",
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "outcome": "cpu_budget",
+   "cycles_completed": 48,
+   "cpu_seconds": 7207.1,
+   "slurm_cpu_hours": 2.025,
+   "audit_cycles": 48,
+   "audit_all_pass": true,
+   "worst_energy_residual": 2.4219165296066964e-13,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 80292662,
+   "events_per_cpu_second": 11141,
+   "root_limit_hits": 8700889,
+   "root_limit_hits_per_event": 0.1084,
+   "plate_captures": 67777,
+   "sphere_captures": 94648,
+   "cascades": 36644,
+   "scheduled_releases": 7,
+   "tiny_pair_collisions": 33895,
+   "unmodified_engine_pilot": "stalls in cycle 3",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164937",
+   "interim_snapshot": {
+    "cycles": 40,
+    "cpu_seconds": 1900.8,
+    "at": "2026-11-23T22:02:48.785257Z"
+   },
+   "cpu_seconds_after_snapshot": 5306.3,
+   "cycles_after_snapshot": 8,
+   "unfinished_cycle": {
+    "cycle": 49,
+    "events": 9584435,
+    "share_of_run_events": 0.119,
+    "root_limit_hits": 6395832,
+    "share_of_run_root_limit_hits": 0.735,
+    "plate_captures": 50888,
+    "sphere_captures": 93265,
+    "tiny_pair": 33893,
+    "tiny_plate": 0
+   },
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 105318,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 284917,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 2041649,
+     "root_limit_hits": 71160,
+     "plate_captures": 28,
+     "sphere_captures": 4,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 4,
+     "events": 136179,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 1710306,
+     "root_limit_hits": 0,
+     "plate_captures": 9,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 109081,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 1921624,
+     "root_limit_hits": 34514,
+     "plate_captures": 92,
+     "sphere_captures": 9,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 137014,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 1768893,
+     "root_limit_hits": 26492,
+     "plate_captures": 46,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 142300,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 1363453,
+     "root_limit_hits": 0,
+     "plate_captures": 4,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 103254,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 13,
+     "events": 1495976,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 14,
+     "events": 109603,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 15,
+     "events": 1870773,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 16,
+     "events": 150346,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 17,
+     "events": 1592223,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 18,
+     "events": 101339,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 19,
+     "events": 3690623,
+     "root_limit_hits": 212723,
+     "plate_captures": 1663,
+     "sphere_captures": 107,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 20,
+     "events": 135688,
+     "root_limit_hits": 0,
+     "plate_captures": 5,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 21,
+     "events": 4673190,
+     "root_limit_hits": 493378,
+     "plate_captures": 4162,
+     "sphere_captures": 383,
+     "tiny_pair": 2
+    },
+    {
+     "cycle": 22,
+     "events": 151138,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 23,
+     "events": 6350387,
+     "root_limit_hits": 751797,
+     "plate_captures": 6192,
+     "sphere_captures": 689,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 24,
+     "events": 343018,
+     "root_limit_hits": 11,
+     "plate_captures": 51,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 25,
+     "events": 2116327,
+     "root_limit_hits": 32845,
+     "plate_captures": 86,
+     "sphere_captures": 8,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 26,
+     "events": 192043,
+     "root_limit_hits": 1682,
+     "plate_captures": 13,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 27,
+     "events": 4093018,
+     "root_limit_hits": 204050,
+     "plate_captures": 723,
+     "sphere_captures": 24,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 28,
+     "events": 379552,
+     "root_limit_hits": 1605,
+     "plate_captures": 248,
+     "sphere_captures": 4,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 29,
+     "events": 4959805,
+     "root_limit_hits": 243666,
+     "plate_captures": 2023,
+     "sphere_captures": 88,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 30,
+     "events": 164325,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 31,
+     "events": 2129028,
+     "root_limit_hits": 81702,
+     "plate_captures": 155,
+     "sphere_captures": 10,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 32,
+     "events": 174345,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 33,
+     "events": 2245967,
+     "root_limit_hits": 9132,
+     "plate_captures": 68,
+     "sphere_captures": 6,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 34,
+     "events": 128477,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 35,
+     "events": 3586713,
+     "root_limit_hits": 61035,
+     "plate_captures": 149,
+     "sphere_captures": 13,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 36,
+     "events": 200530,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 37,
+     "events": 2416426,
+     "root_limit_hits": 14688,
+     "plate_captures": 53,
+     "sphere_captures": 6,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 38,
+     "events": 195793,
+     "root_limit_hits": 1392,
+     "plate_captures": 31,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 39,
+     "events": 4774800,
+     "root_limit_hits": 12522,
+     "plate_captures": 447,
+     "sphere_captures": 9,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 40,
+     "events": 399678,
+     "root_limit_hits": 13511,
+     "plate_captures": 229,
+     "sphere_captures": 6,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 41,
+     "events": 4086965,
+     "root_limit_hits": 18753,
+     "plate_captures": 311,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 42,
+     "events": 281767,
+     "root_limit_hits": 75,
+     "plate_captures": 29,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 43,
+     "events": 2693797,
+     "root_limit_hits": 10368,
+     "plate_captures": 31,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 44,
+     "events": 153016,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 45,
+     "events": 2342838,
+     "root_limit_hits": 0,
+     "plate_captures": 3,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 46,
+     "events": 150065,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 47,
+     "events": 2228082,
+     "root_limit_hits": 7956,
+     "plate_captures": 30,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 48,
+     "events": 126578,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164952",
+   "artifact": "A0115",
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 952.7,
+   "slurm_cpu_hours": 0.28,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 1.7071519002059616e-13,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 348716032,
+   "events_per_cpu_second": 366025,
+   "root_limit_hits": 326548,
+   "root_limit_hits_per_event": 0.0009,
+   "plate_captures": 1106,
+   "sphere_captures": 47,
+   "cascades": 13,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "stalls in cycle 3",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164938",
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 437548,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 1399941,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 4883318,
+     "root_limit_hits": 2670,
+     "plate_captures": 6,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 4,
+     "events": 326007,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 7481060,
+     "root_limit_hits": 618,
+     "plate_captures": 96,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 424605,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 6464141,
+     "root_limit_hits": 39412,
+     "plate_captures": 11,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 486189,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 5358163,
+     "root_limit_hits": 34842,
+     "plate_captures": 44,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 329482,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 4905341,
+     "root_limit_hits": 28695,
+     "plate_captures": 117,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 382755,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 13,
+     "events": 4635487,
+     "root_limit_hits": 4063,
+     "plate_captures": 297,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 14,
+     "events": 548238,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 15,
+     "events": 8352799,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 16,
+     "events": 350435,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 17,
+     "events": 3431014,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 18,
+     "events": 378001,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 19,
+     "events": 7524894,
+     "root_limit_hits": 61677,
+     "plate_captures": 58,
+     "sphere_captures": 7,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 20,
+     "events": 327781,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 21,
+     "events": 7831701,
+     "root_limit_hits": 56266,
+     "plate_captures": 41,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 22,
+     "events": 411939,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 23,
+     "events": 6293522,
+     "root_limit_hits": 47100,
+     "plate_captures": 16,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 24,
+     "events": 528859,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 25,
+     "events": 6594433,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 26,
+     "events": 699979,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 27,
+     "events": 4380134,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 28,
+     "events": 513234,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 29,
+     "events": 5033050,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 30,
+     "events": 326072,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 31,
+     "events": 6305852,
+     "root_limit_hits": 0,
+     "plate_captures": 21,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 32,
+     "events": 475771,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 33,
+     "events": 8941825,
+     "root_limit_hits": 0,
+     "plate_captures": 12,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 34,
+     "events": 547480,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 35,
+     "events": 5050911,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 36,
+     "events": 788523,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 37,
+     "events": 4595012,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 38,
+     "events": 671000,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 39,
+     "events": 2999967,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 40,
+     "events": 527549,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 41,
+     "events": 3902820,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 42,
+     "events": 566393,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 43,
+     "events": 5353455,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 44,
+     "events": 617093,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 45,
+     "events": 4051206,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 46,
+     "events": 489380,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 47,
+     "events": 4906321,
+     "root_limit_hits": 3942,
+     "plate_captures": 8,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 48,
+     "events": 605317,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 49,
+     "events": 3505170,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 50,
+     "events": 398434,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 51,
+     "events": 5742045,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 52,
+     "events": 505044,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 53,
+     "events": 7341387,
+     "root_limit_hits": 3062,
+     "plate_captures": 16,
+     "sphere_captures": 2,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 54,
+     "events": 606183,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 55,
+     "events": 4128924,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 56,
+     "events": 504681,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 57,
+     "events": 5675613,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 58,
+     "events": 575635,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 59,
+     "events": 3520980,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 60,
+     "events": 344033,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 61,
+     "events": 5506958,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 62,
+     "events": 572122,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 63,
+     "events": 6916609,
+     "root_limit_hits": 423,
+     "plate_captures": 27,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 64,
+     "events": 671615,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 65,
+     "events": 3002785,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 66,
+     "events": 487259,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 67,
+     "events": 4489098,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 68,
+     "events": 458598,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 69,
+     "events": 3923358,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 70,
+     "events": 479551,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 71,
+     "events": 5688513,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 72,
+     "events": 344383,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 73,
+     "events": 9207439,
+     "root_limit_hits": 21036,
+     "plate_captures": 35,
+     "sphere_captures": 4,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 74,
+     "events": 367734,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 75,
+     "events": 8449612,
+     "root_limit_hits": 17684,
+     "plate_captures": 37,
+     "sphere_captures": 3,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 76,
+     "events": 345876,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 77,
+     "events": 9168357,
+     "root_limit_hits": 0,
+     "plate_captures": 19,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 78,
+     "events": 544539,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 79,
+     "events": 4819828,
+     "root_limit_hits": 5058,
+     "plate_captures": 222,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 80,
+     "events": 579312,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 81,
+     "events": 3401688,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 82,
+     "events": 684577,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 83,
+     "events": 3889306,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 84,
+     "events": 376299,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 85,
+     "events": 5422741,
+     "root_limit_hits": 0,
+     "plate_captures": 7,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 86,
+     "events": 407184,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 87,
+     "events": 7431235,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 88,
+     "events": 525186,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 89,
+     "events": 4788409,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 90,
+     "events": 753268,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 91,
+     "events": 4074707,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 92,
+     "events": 845329,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 93,
+     "events": 2608751,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 94,
+     "events": 499019,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 95,
+     "events": 3208524,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 96,
+     "events": 400326,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 97,
+     "events": 6886991,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 98,
+     "events": 652654,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 99,
+     "events": 4196698,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 100,
+     "events": 529082,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 101,
+     "events": 5663259,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 102,
+     "events": 499547,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 103,
+     "events": 4942787,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 104,
+     "events": 692604,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 105,
+     "events": 3643747,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 106,
+     "events": 444155,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 107,
+     "events": 4960749,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 108,
+     "events": 707801,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 109,
+     "events": 3781000,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 110,
+     "events": 489162,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 111,
+     "events": 4516776,
+     "root_limit_hits": 0,
+     "plate_captures": 5,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 112,
+     "events": 507912,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 113,
+     "events": 5642042,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 114,
+     "events": 485974,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 115,
+     "events": 5160767,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 116,
+     "events": 514470,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 117,
+     "events": 7146724,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 118,
+     "events": 532169,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 119,
+     "events": 4775813,
+     "root_limit_hits": 0,
+     "plate_captures": 2,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 120,
+     "events": 718928,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164953",
+   "artifact": "A0116",
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 44.9,
+   "slurm_cpu_hours": 0.032,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 2.844474936863292e-13,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 4197847,
+   "events_per_cpu_second": 93463,
+   "root_limit_hits": 17626,
+   "root_limit_hits_per_event": 0.0042,
+   "plate_captures": 7,
+   "sphere_captures": 1,
+   "cascades": 0,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "runs",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164939",
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 12233,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 15528,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 35529,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 4,
+     "events": 11638,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 75961,
+     "root_limit_hits": 17626,
+     "plate_captures": 6,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 12051,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 58706,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 11844,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 61681,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 12320,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 57278,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 12751,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 13,
+     "events": 49736,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 14,
+     "events": 11797,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 15,
+     "events": 65029,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 16,
+     "events": 11856,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 17,
+     "events": 48581,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 18,
+     "events": 11720,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 19,
+     "events": 53040,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 20,
+     "events": 11405,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 21,
+     "events": 52238,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 22,
+     "events": 10871,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 23,
+     "events": 58086,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 24,
+     "events": 12068,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 25,
+     "events": 54265,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 26,
+     "events": 10891,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 27,
+     "events": 46043,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 28,
+     "events": 11260,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 29,
+     "events": 44710,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 30,
+     "events": 10432,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 31,
+     "events": 56948,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 32,
+     "events": 13558,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 33,
+     "events": 54614,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 34,
+     "events": 11634,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 35,
+     "events": 53375,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 36,
+     "events": 12241,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 37,
+     "events": 53682,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 38,
+     "events": 11754,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 39,
+     "events": 53922,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 40,
+     "events": 11451,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 41,
+     "events": 50050,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 42,
+     "events": 12867,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 43,
+     "events": 55091,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 44,
+     "events": 11612,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 45,
+     "events": 62964,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 46,
+     "events": 11590,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 47,
+     "events": 47540,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 48,
+     "events": 11084,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 49,
+     "events": 72936,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 50,
+     "events": 12503,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 51,
+     "events": 62805,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 52,
+     "events": 12616,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 53,
+     "events": 62578,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 54,
+     "events": 11125,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 55,
+     "events": 66100,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 56,
+     "events": 13881,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 57,
+     "events": 63828,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 58,
+     "events": 13453,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 59,
+     "events": 67933,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 60,
+     "events": 13880,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 61,
+     "events": 59379,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 62,
+     "events": 12664,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 63,
+     "events": 54875,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 64,
+     "events": 11492,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 65,
+     "events": 98396,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 66,
+     "events": 12757,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 67,
+     "events": 53727,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 68,
+     "events": 12054,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 69,
+     "events": 69476,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 70,
+     "events": 12361,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 71,
+     "events": 60243,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 72,
+     "events": 11910,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 73,
+     "events": 53245,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 74,
+     "events": 13283,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 75,
+     "events": 55939,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 76,
+     "events": 11963,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 77,
+     "events": 61285,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 78,
+     "events": 10235,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 79,
+     "events": 51086,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 80,
+     "events": 11192,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 81,
+     "events": 56818,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 82,
+     "events": 11620,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 83,
+     "events": 57537,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 84,
+     "events": 13049,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 85,
+     "events": 72201,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 86,
+     "events": 12713,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 87,
+     "events": 55159,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 88,
+     "events": 10961,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 89,
+     "events": 58441,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 90,
+     "events": 13159,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 91,
+     "events": 55317,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 92,
+     "events": 11771,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 93,
+     "events": 53539,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 94,
+     "events": 10689,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 95,
+     "events": 71021,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 96,
+     "events": 12441,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 97,
+     "events": 68991,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 98,
+     "events": 11377,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 99,
+     "events": 70840,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 100,
+     "events": 11398,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 101,
+     "events": 59594,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 102,
+     "events": 12610,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 103,
+     "events": 72551,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 104,
+     "events": 11273,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 105,
+     "events": 60883,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 106,
+     "events": 12635,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 107,
+     "events": 60504,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 108,
+     "events": 12441,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 109,
+     "events": 54261,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 110,
+     "events": 11678,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 111,
+     "events": 56386,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 112,
+     "events": 10389,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 113,
+     "events": 54150,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 114,
+     "events": 12030,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 115,
+     "events": 57215,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 116,
+     "events": 11079,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 117,
+     "events": 48298,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 118,
+     "events": 11597,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 119,
+     "events": 59008,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 120,
+     "events": 11498,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164954",
+   "artifact": "A0129",
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "outcome": "cpu_budget",
+   "cycles_completed": 14,
+   "cpu_seconds": 7266.6,
+   "slurm_cpu_hours": 2.047,
+   "audit_cycles": 14,
+   "audit_all_pass": true,
+   "worst_energy_residual": 2.6147200772993044e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 21109671,
+   "events_per_cpu_second": 2905,
+   "root_limit_hits": 8832132,
+   "root_limit_hits_per_event": 0.4184,
+   "plate_captures": 7497,
+   "sphere_captures": 8192,
+   "cascades": 2151,
+   "scheduled_releases": 2,
+   "tiny_pair_collisions": 1316,
+   "unmodified_engine_pilot": "stalls in cycle 5",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164940",
+   "interim_snapshot": {
+    "cycles": 10,
+    "cpu_seconds": 53.1,
+    "at": "2026-11-23T21:33:10.548419Z"
+   },
+   "cpu_seconds_after_snapshot": 7213.6,
+   "cycles_after_snapshot": 4,
+   "unfinished_cycle": {
+    "cycle": 15,
+    "events": 10922555,
+    "share_of_run_events": 0.517,
+    "root_limit_hits": 8713284,
+    "share_of_run_root_limit_hits": 0.987,
+    "plate_captures": 6680,
+    "sphere_captures": 8168,
+    "tiny_pair": 1316,
+    "tiny_plate": 0
+   },
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 297711,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 57354,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 1175835,
+     "root_limit_hits": 5616,
+     "plate_captures": 11,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 4,
+     "events": 77886,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 1526355,
+     "root_limit_hits": 4800,
+     "plate_captures": 17,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 89184,
+     "root_limit_hits": 0,
+     "plate_captures": 1,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 1637483,
+     "root_limit_hits": 0,
+     "plate_captures": 150,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 124932,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 1032736,
+     "root_limit_hits": 12732,
+     "plate_captures": 5,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 79355,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 1598299,
+     "root_limit_hits": 14022,
+     "plate_captures": 84,
+     "sphere_captures": 4,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 211497,
+     "root_limit_hits": 6974,
+     "plate_captures": 225,
+     "sphere_captures": 5,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 13,
+     "events": 2105641,
+     "root_limit_hits": 74563,
+     "plate_captures": 229,
+     "sphere_captures": 11,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 14,
+     "events": 172848,
+     "root_limit_hits": 141,
+     "plate_captures": 95,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164955",
+   "artifact": "A0130",
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "outcome": "cpu_budget",
+   "cycles_completed": 12,
+   "cpu_seconds": 7307.6,
+   "slurm_cpu_hours": 2.068,
+   "audit_cycles": 12,
+   "audit_all_pass": true,
+   "worst_energy_residual": 1.53787192762156e-13,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 79001799,
+   "events_per_cpu_second": 10811,
+   "root_limit_hits": 8728168,
+   "root_limit_hits_per_event": 0.1105,
+   "plate_captures": 33392,
+   "sphere_captures": 5135,
+   "cascades": 1444,
+   "scheduled_releases": 9,
+   "tiny_pair_collisions": 789,
+   "unmodified_engine_pilot": "stalls in cycle 3",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164941",
+   "interim_snapshot": {
+    "cycles": 10,
+    "cpu_seconds": 932.1,
+    "at": "2026-11-23T21:48:43.218334Z"
+   },
+   "cpu_seconds_after_snapshot": 6375.4,
+   "cycles_after_snapshot": 2,
+   "unfinished_cycle": {
+    "cycle": 13,
+    "events": 20805871,
+    "share_of_run_events": 0.263,
+    "root_limit_hits": 7657734,
+    "share_of_run_root_limit_hits": 0.877,
+    "plate_captures": 20010,
+    "sphere_captures": 4749,
+    "tiny_pair": 758,
+    "tiny_plate": 0
+   },
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "events": 1533765,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 2,
+     "events": 208819,
+     "root_limit_hits": 0,
+     "plate_captures": 0,
+     "sphere_captures": 0,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 3,
+     "events": 10467464,
+     "root_limit_hits": 374299,
+     "plate_captures": 1567,
+     "sphere_captures": 145,
+     "tiny_pair": 31
+    },
+    {
+     "cycle": 4,
+     "events": 662988,
+     "root_limit_hits": 11514,
+     "plate_captures": 415,
+     "sphere_captures": 14,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 5,
+     "events": 11098920,
+     "root_limit_hits": 88769,
+     "plate_captures": 2186,
+     "sphere_captures": 45,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 6,
+     "events": 665389,
+     "root_limit_hits": 2302,
+     "plate_captures": 253,
+     "sphere_captures": 1,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 7,
+     "events": 11904329,
+     "root_limit_hits": 62599,
+     "plate_captures": 2343,
+     "sphere_captures": 29,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 8,
+     "events": 666980,
+     "root_limit_hits": 3483,
+     "plate_captures": 306,
+     "sphere_captures": 9,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 9,
+     "events": 12754387,
+     "root_limit_hits": 454950,
+     "plate_captures": 4883,
+     "sphere_captures": 107,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 10,
+     "events": 1030963,
+     "root_limit_hits": 25160,
+     "plate_captures": 869,
+     "sphere_captures": 18,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 11,
+     "events": 6674608,
+     "root_limit_hits": 43114,
+     "plate_captures": 380,
+     "sphere_captures": 10,
+     "tiny_pair": 0
+    },
+    {
+     "cycle": 12,
+     "events": 527316,
+     "root_limit_hits": 4244,
+     "plate_captures": 180,
+     "sphere_captures": 8,
+     "tiny_pair": 0
+    }
+   ]
+  },
+  {
+   "job": "hatteras-164957",
+   "artifact": "A0117",
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "N": 500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 28.5,
+   "slurm_cpu_hours": 0.04,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 4.4321567022701444e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 3460487,
+   "events_per_cpu_second": 121280,
+   "root_limit_hits": 0,
+   "root_limit_hits_per_event": 0.0,
+   "plate_captures": 0,
+   "sphere_captures": 0,
+   "cascades": 0,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "runs",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164942"
+  },
+  {
+   "job": "hatteras-164958",
+   "artifact": "A0118",
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "N": 1000,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 96.5,
+   "slurm_cpu_hours": 0.054,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 3.2087521656703016e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 39981471,
+   "events_per_cpu_second": 414135,
+   "root_limit_hits": 7033,
+   "root_limit_hits_per_event": 0.0002,
+   "plate_captures": 154,
+   "sphere_captures": 5,
+   "cascades": 1,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "runs",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164943"
+  },
+  {
+   "job": "hatteras-164959",
+   "artifact": "A0119",
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "N": 1500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 277.4,
+   "slurm_cpu_hours": 0.102,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 4.3930757097857386e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 135818805,
+   "events_per_cpu_second": 489535,
+   "root_limit_hits": 13959,
+   "root_limit_hits_per_event": 0.0001,
+   "plate_captures": 498,
+   "sphere_captures": 12,
+   "cascades": 5,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "stalls in cycle 1",
+   "unmodified_engine_long_run": "time frozen in cycle 1 (long run, no detector)",
+   "E0094_twin": "hatteras-164944"
+  },
+  {
+   "job": "hatteras-164960",
+   "artifact": "A0120",
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "N": 500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 25.4,
+   "slurm_cpu_hours": 0.019,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 4.452525122230417e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 1839762,
+   "events_per_cpu_second": 72360,
+   "root_limit_hits": 0,
+   "root_limit_hits_per_event": 0.0,
+   "plate_captures": 0,
+   "sphere_captures": 0,
+   "cascades": 0,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "runs",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164945"
+  },
+  {
+   "job": "hatteras-164961",
+   "artifact": "A0121",
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "N": 1000,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 60.8,
+   "slurm_cpu_hours": 0.025,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 6.499698631374942e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 21600860,
+   "events_per_cpu_second": 355524,
+   "root_limit_hits": 0,
+   "root_limit_hits_per_event": 0.0,
+   "plate_captures": 0,
+   "sphere_captures": 0,
+   "cascades": 0,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "runs",
+   "unmodified_engine_long_run": null,
+   "E0094_twin": "hatteras-164946"
+  },
+  {
+   "job": "hatteras-164962",
+   "artifact": "A0122",
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "N": 1500,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 188.5,
+   "slurm_cpu_hours": 0.071,
+   "audit_cycles": 120,
+   "audit_all_pass": true,
+   "worst_energy_residual": 6.578883311439642e-14,
+   "energy_gains": 0,
+   "slow_episodes": 0,
+   "slow_episode_cpu_seconds": 0,
+   "slow_episode_tiny_pair": [],
+   "slow_episode_tiny_plate": [],
+   "slow_episode_phases": [],
+   "events_total": 90090714,
+   "events_per_cpu_second": 478047,
+   "root_limit_hits": 204,
+   "root_limit_hits_per_event": 0.0,
+   "plate_captures": 18,
+   "sphere_captures": 1,
+   "cascades": 0,
+   "scheduled_releases": 0,
+   "tiny_pair_collisions": 0,
+   "unmodified_engine_pilot": "stalls in cycle 1",
+   "unmodified_engine_long_run": "completes 120 cycles, 2.9 CPU-hours, slow in cycle 1 only (long run, no detector)",
+   "E0094_twin": "hatteras-164947"
+  }
+ ],
+ "E0098_cpu_hours_total": 8.795,
+ "E0094_cpu_hours_total": 8.638,
+ "E0094_last_four": [
+  {
+   "job": "hatteras-164936",
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "outcome": "cpu_budget",
+   "cycles_completed": 52,
+   "cpu_seconds": 7200.5,
+   "audit_failures": 7,
+   "worst_energy_residual": 0.00017320282230357672
+  },
+  {
+   "job": "hatteras-164937",
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "outcome": "cpu_budget",
+   "cycles_completed": 48,
+   "cpu_seconds": 7211.5,
+   "audit_failures": 32,
+   "worst_energy_residual": 3.646941009187024e-05
+  },
+  {
+   "job": "hatteras-164940",
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "outcome": "cpu_budget",
+   "cycles_completed": 14,
+   "cpu_seconds": 7262.3,
+   "audit_failures": 9,
+   "worst_energy_residual": 4.9439087866175096e-05
+  },
+  {
+   "job": "hatteras-164941",
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "outcome": "cpu_budget",
+   "cycles_completed": 12,
+   "cpu_seconds": 7203.8,
+   "audit_failures": 10,
+   "worst_energy_residual": 0.000148380967961902
+  }
+ ],
+ "completed_120": 8,
+ "unmodified_completes_120_per_records": [
+  "G3.5 f0.3 d5",
+  "G3.5 f0.3 d10",
+  "G3.5 f0.5 d5",
+  "G3.5 f0.5 d10",
+  "G3.5 f0.5 d15 (2.9 CPU-h)",
+  "G5 f0.5 d5 (Nov 5 pilot; but the E0100 Hatteras run froze in cycle 5)"
+ ],
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164950/out/run/summary.json",
+   "bytes": 3342,
+   "sha256": "124417b1a97971231d1c7ecf72428d8f48c9459a375bd35b0930b1629b2a0e89"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164950/out/run/audit.json",
+   "bytes": 19290,
+   "sha256": "ae1d1a7f23480aba9471c04f4c10cceffc9e9c16445dd5153eff45169e1f82ad"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164950/out/run/counters.json",
+   "bytes": 894,
+   "sha256": "bf4ccf09f1998bd9de4a4a7a6e1baa8fb931b3340fac678edd7b4082c6711228"
+  },
+  {
+   "path": "A0127:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 36728,
+   "sha256": "c4614a2902bc09897656e512a6882dd15d1bebb1496e58b61fb1c7c44ec2765e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164951/out/run/summary.json",
+   "bytes": 808,
+   "sha256": "c1eaade4ab93d3ccaa01874e845615c05f5f544bf7395938b43cc1235dc799f6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164951/out/run/audit.json",
+   "bytes": 17854,
+   "sha256": "e58f443a57352fc2aed9b7ff6cc23bccc93b84d4f56d3166d5d60f8b0da751e0"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164951/out/run/counters.json",
+   "bytes": 903,
+   "sha256": "152e3780c2a91691e194e45b43184776e8881535c9223b81042330b2242f9894"
+  },
+  {
+   "path": "A0128:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 34957,
+   "sha256": "b99cd08428b0419df01c938b03c4bac214d1c4da535c19e7299af1385aa619b2"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164952/out/run/summary.json",
+   "bytes": 802,
+   "sha256": "d8c6992601592710fa8e9f09165b698c9ce3b446e6d1a754e47b9f0a14aed27c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164952/out/run/audit.json",
+   "bytes": 45446,
+   "sha256": "cfb5e4bc1dd6c08852691c814222653f3af18b2702ef270b4e5ae036c55b61dc"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164952/out/run/counters.json",
+   "bytes": 880,
+   "sha256": "389311e82eb6b14b340800889cded8cbbcb217b519d8f3c721303a82b8c6c04a"
+  },
+  {
+   "path": "A0115:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 87910,
+   "sha256": "4969e0306401c47e434d2aa45e1157a9f3130bd09d1068f34332a4feafdede82"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164953/out/run/summary.json",
+   "bytes": 799,
+   "sha256": "2ee7a72773635180eae320360da067e20a330470b3d5fccfeca6edba8791ab73"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164953/out/run/audit.json",
+   "bytes": 44509,
+   "sha256": "98bd6ce8a0594b0f6db866511d7bdf4417c6a3f4201d08202cd512726bb26b9c"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164953/out/run/counters.json",
+   "bytes": 857,
+   "sha256": "9b254f0176f2b40c5769172c3c9a48930c06654e156e1fe2f1c328b3d5aa06a7"
+  },
+  {
+   "path": "A0116:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 85624,
+   "sha256": "52b2de2046954ced92a0eb745d0c3152a8ad63c3017426f61f830836a489bec7"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164954/out/run/summary.json",
+   "bytes": 804,
+   "sha256": "bd22fb6e131694c6682d280cf9e83b6164724e9b95d580a1e0ba5c2070729a3d"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164954/out/run/audit.json",
+   "bytes": 5189,
+   "sha256": "69068e244ec1f33769fe22e98f0514a6391433cb65c6f5af3a6b4b6ac257eeaf"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164954/out/run/counters.json",
+   "bytes": 894,
+   "sha256": "6e14f22edfd6c54f4b8d84dc9d72e61d0b11e2387d907dd16df66e477d192236"
+  },
+  {
+   "path": "A0129:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 9980,
+   "sha256": "b609e35a654ea61a2e575a8f24588a30d92e15081ff333a7d37f3b3a611bec9a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164955/out/run/summary.json",
+   "bytes": 801,
+   "sha256": "beff49b052b65e7725959d055cad4e9430cea9825d8f3ef3c704b59c25a4a392"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164955/out/run/audit.json",
+   "bytes": 4549,
+   "sha256": "17d171b2419316404ad7f74995140bc71fcc87f846ad395ac727121d457abf30"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164955/out/run/counters.json",
+   "bytes": 895,
+   "sha256": "fd909ed77e47ccf9e1e05a878942634f73815c40f8f020622fcec105ef9687a8"
+  },
+  {
+   "path": "A0130:out/run/counters_by_cycle.jsonl (fetched)",
+   "bytes": 8676,
+   "sha256": "fe48d9865b8d754736cfd0f624dafd8e43abb1e6e2ab0d31fe45ae82f374af98"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164957/out/run/summary.json",
+   "bytes": 800,
+   "sha256": "a0a6b29187df57c9ab558f9cf8ad7f2f9c49f895eac5f0988fa0a73346d164ad"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164957/out/run/audit.json",
+   "bytes": 44661,
+   "sha256": "49eeba7c7c4ee4b67026719042c94dcb645b255c7c7590c3929140053605a207"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164957/out/run/counters.json",
+   "bytes": 819,
+   "sha256": "ea0ab7c15b6eb99424e4f904f2a59562259ffad973b9de9837f8febcb3610eb4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164958/out/run/summary.json",
+   "bytes": 795,
+   "sha256": "b1a0e2ce180ef94f3571b2ca7117673dc4706962571ef5b9b654f36ef2de21de"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164958/out/run/audit.json",
+   "bytes": 44543,
+   "sha256": "a68d6ccbe2c8dd8887d30fd1776d57607e70abd574e54bbb463c4cb2395ab8f4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164958/out/run/counters.json",
+   "bytes": 867,
+   "sha256": "adea0c26c665f21b9945c02ebfe97007976bcf1241866ac9ad713e75131cdea6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164959/out/run/summary.json",
+   "bytes": 807,
+   "sha256": "21c0478b3a9b1f77cf5e5c25cb673e37fb0cca69d0c2f45ae6810bff977f1736"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164959/out/run/audit.json",
+   "bytes": 45360,
+   "sha256": "4795e67782665e68ea54a962e43c07be5c5f489b4f08dad4864462948a04a15a"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164959/out/run/counters.json",
+   "bytes": 878,
+   "sha256": "86049d4f646191eccafa42d0cd301979fabd237395c4b0214d20485ea830c262"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164960/out/run/summary.json",
+   "bytes": 807,
+   "sha256": "01096557c3f387c50904c787a3c4b1f44023f1653615d1b663c317896c5ff32f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164960/out/run/audit.json",
+   "bytes": 44466,
+   "sha256": "0952ec39e7fb8cda48aa01fe41beb416bf11d74125e15be5c132e7a09e159ed6"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164960/out/run/counters.json",
+   "bytes": 817,
+   "sha256": "3f074fdb21fcf26eb8aa0e3154ad32ce2708eaa3bb18e26098aa6632332f250e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164961/out/run/summary.json",
+   "bytes": 800,
+   "sha256": "ca9988305b22de8b3a897378ff0b2048a0dd3e2a682bec8e6e0ac57313439d41"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164961/out/run/audit.json",
+   "bytes": 44667,
+   "sha256": "5e78d0a930d5e95d3b630b7322855bebc95cee7c9e1f683f1b7b4a564b013da9"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164961/out/run/counters.json",
+   "bytes": 827,
+   "sha256": "814479b9b88e88e569237f254cf249e371d40068c0026e32b802c16bbaa47ca4"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164962/out/run/summary.json",
+   "bytes": 803,
+   "sha256": "b0b1f84f543c366b37d4332c19cbb33516053fe56acfe4cad32be9311a61f63f"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164962/out/run/audit.json",
+   "bytes": 45410,
+   "sha256": "cdfbd12b81b65bf245fac5f1c1aacda32be4a0f17abf4a914ae2ed61e2c69f20"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0098/hatteras-164962/out/run/counters.json",
+   "bytes": 869,
+   "sha256": "fcd3442863f27fc4d62066bcc9836944e01f01bb668e459043bbfffb3d7695c8"
+  }
+ ]
+}

@@ -178,7 +178,8 @@ The five options in `notes/contact-options.md`.
 
 ### Option 1, position nudge
 
-- Branch: `method/nudge` (b608fef).
+- Branch: `method/nudge` (b608fef; 16f3334 with the accumulator fix).
+- Frozen tests: 74 of 74 at b608fef (Nov 6, 7) and 16f3334 (E0103, Nov 24).
 - The only method that gets through the stalled conditions:
   - 120 cycles at all 8 stalled 2D conditions, and at 3D Gamma 5 at seeds
     1 to 3;
@@ -321,19 +322,63 @@ with no code and no runs: `lines/L0009/design.md`.
 
 ### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
 
-Session summary: `sessions/2026-11-23-L0001.json`; review:
-`evidence/L0001-closing-review-2026-11-23.json`. No runs.
+### L0017 (slow loops): settle-then-step loop collected (ran Nov 24 06:11Z)
 
-- The line's question is answered as far as the referee can judge: the
-  nudge survives where the unmodified engine stalls (one overlap), its
-  audit is clean after the accumulator fix, and it passes the bulk check
-  wherever a baseline exists.
-- Not done: the frozen engine tests on method/nudge (never recorded), and
-  the Figure 1 comparison (not built for any method). By design the nudge
-  can't become the default.
-- The phase diagram doesn't supersede it; it uses the nudge (L0015).
-- Recommended to Chris: close L0001. Option: one frozen-test run on
-  16f3334 first, which needs the nudge branch on this machine (B0008).
+Started by the service for job hatteras-164664. Session summary:
+`sessions/2026-11-24-L0017.json`. Evidence `evidence/E0090-results.json`
+(tools/settle_loop_gap.py), artifact A0173.
+
+- **E0090 (falsified on iii as registered):** all 29 steps settled under the
+  stopping rule (D0056) in 200 to 400 cycles (14 at 200, 9 at 250, 4 at 300,
+  2 at 400), none near the 3000 limit; 48.14 CPU-hours, no slow stretch, no
+  audit failure.
+- Gap over each whole step (the registered measure): largest 0.111 D at
+  Gamma 2.25, 0.108 at 2.2, about the same as at 400 cycles a step (0.103).
+- That measure includes the relaxation from the previous Gamma. The way-down
+  step at 2.2 falls from 0.37 to a flat 0.15 D; over the settled window (last
+  100 cycles) the gap is 0.021 D at 2.2 and 0.048 at 2.25. Largest
+  settled-window gap 0.057 at 2.5, where each branch wanders by about 0.05 D.
+- Reading, one seed only: at 2.2 the gap closes once the step is allowed to
+  settle; at 2.25 a 0.05 D difference remains, the size of the wandering seen
+  at 2.5. The stopping rule is lenient (one degree of freedom in its error).
+
+### L0001 (nudge): frozen tests on 16f3334 (ran Nov 24 05:52Z)
+
+Session summary: `sessions/2026-11-24-L0001.json`; evidence:
+`evidence/E0103-results.json`, `evidence/L0001-closing-review-2026-11-23.json`
+(with the checker's corrections).
+
+- Frozen engine tests: 74 of 74 on the nudge at 16f3334 (E0103, Hatteras
+  job 165153, main as control also 74). b608fef had passed them Nov 6
+  and 7, so the Nov 23 run's "never run" was wrong.
+- method/nudge is back in this clone at 16f3334 (bundle from A0172);
+  B0008 resolved.
+- Audit: only the two nudge runs rerun after the accumulator fix are
+  shown clean (176 failing cycles, all round-off); the rest likely, not
+  shown. Bulk check passes only where there are no lasting contacts.
+- Next: Chris closes L0001. Nothing left that was asked.
+
+### Jobs collected, run of Nov 24 (L0020, ran Nov 24 05:04Z)
+
+Session summary: `sessions/2026-11-24-L0020.json`. No new instruction.
+
+- **E0099 collected and closed (falsified on energy).** The last three
+  spring runs completed 120 cycles (2D Gamma 5 depth 15 at both f*, and
+  3D Gamma 5 f* 0.44 N 2400): all 13 spring runs at k = 1e7 survived, with
+  no slow episode. But 1 to 16 cycles per run gained energy at six
+  conditions, which meets the registration's falsification rule.
+- **Checker's challenge on hidden friction gain (E0102).** A bookkeeping-only
+  diagnostic (grapenuts branch `contact-energy` 8030406; dynamics
+  bit-identical) sums each spring's work over its life. It closes the
+  books exactly: summed contact work minus booked dissipation equals the
+  run's residual. Whole contacts that gain energy: 0.2 to 2.7 percent;
+  their total gain is 0.2 to 0.3 of the run's net residual. The tangential
+  force alone gains over 1.5 to 6.6 percent of contacts (the limit set was
+  1 percent), but only 2 to 7 percent of the kick-level friction gain
+  survives a whole contact. Three conditions, 30 cycles, one seed.
+- Withdrawn: "on your Mac these ran" (E0100). Sequel's baselines fail at
+  Gamma 3.5 f* 0.3 depth 10 and Gamma 5 f* 0.5 depth 5 on the Mac too
+  (E0031, other seeds), so it is not a machine difference.
 
 ### Nov 22 instruction, run 3 of Nov 23 (L0020, ran Nov 24 02:36Z)
 
@@ -375,6 +420,28 @@ Session summary: `sessions/2026-11-23-L0020.json`.
   container), and a read-only Hatteras job (E0095, D0062) found no copy
   there either. Plan for the review, energies against baseline and phase
   diagram: `lines/L0020/progress.md`.
+
+### Last Gamma 5 jobs collected, Nov 24 (L0019)
+
+Session summary: `sessions/2026-11-24-L0019.json`. No instruction; started
+because the last four E0098 jobs and their E0094 twins ended. Evidence:
+`evidence/E0098-results.json`; E0098's outcome is written (supported).
+
+- **Final E0098 count: eight of twelve 2D conditions completed 120 cycles**
+  with ride, audit clean in every cycle of all twelve runs (worst 2.8e-13,
+  no gains). Two of the eight are conditions the unmodified engine does not
+  complete (Gamma 3.5 f\* 0.3 depth 15, Gamma 5 f\* 0.3 depth 15). At
+  Gamma 3.5 f\* 0.5 depth 15 the unmodified engine does complete, in 2.9
+  CPU-hours against ride's 188 CPU-seconds (correcting run 3's "three
+  stalls", per the checker).
+- **The four other Gamma 5 runs stopped at the 2 CPU-hour cap** after 52,
+  48, 14 and 12 cycles (f\* 0.3 depths 5 and 10, f\* 0.5 depths 10 and 15);
+  read as not survived, not proven stalled (D0067). In each, the unfinished
+  last cycle holds 74-99% of the run's root-search limit hits (6.4-8.7
+  million, 10000 steps each) and thousands to hundreds of thousands of
+  captures; events per CPU-second drop to 1700-11000 against 72000-490000 in
+  completed runs. The time goes into ride's own search for riding-pair
+  contacts, not into tiny plate bounces (none in any run).
 
 ### Jobs collected, run 3 of Nov 23 (L0019)
 
@@ -1195,6 +1262,25 @@ These are findings, not edits; the referee is his.
   part first (closed-form, reusing L0019's plate motion), tested on the
   replayed stalls and the frozen engine tests. Clusterlifter
   (`method/held-contact`) is stopped as built: no fixes, no runs.
+
+- **Grapenuts (L0020):** all of E0099 to E0102 collected. Next: bulk
+  judge at the conditions where sequel's engine fails, against the 1998 C
+  code (`referee/c_baseline.py`); k = 1e8 over the grid with three seeds;
+  the phase-diagram fast pass with grapenuts (`lines/L0020/progress.md`).
+  Waiting on Chris for the overlap and energy-tolerance questions.
+- **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
+  describes the current code (v4/v5). E0086 collected: energy audit fails
+  every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,
+  all negative, no injection). Frozen time recurred at Gamma 5 depth 15
+  f\* 0.3. No code changes pending — waiting for Chris's design direction.
+- **Overlap tolerance (L0009):** the post-hold-step prediction uses
+  `htol = 1e-3` (v4) or `1e-6` (v5) when friction is on. No decision
+  record. No friction-on run completed.
+- **Complete the friction gap limiter**: extend to cluster members and wall
+  friction z-components. Test at the full 2D grid with friction on.
+- **With friction working**: rerun the E0084 bulk check at Gamma 3.5,
+  f\* 0.3, depth 10 with friction on (the mu=0 test shows the hold method
+  passes).
 - **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
   164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
   E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
@@ -1206,15 +1292,14 @@ These are findings, not edits; the referee is his.
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
   and drops by 5.0.
-- **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
-  loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
-  the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v2 (L0019)**: four E0098 jobs (164950, 164951, 164954, 164955)
-  and their E0094 twins (164936, 164937, 164940, 164941) are still running
-  at Gamma 5. Collect them: whether they finish, stop at the 2 CPU-hour cap,
-  or run into Slurm's 4-hour limit (that would mean a hang inside one
-  event-loop call) tells whether ride v2 crawls or stalls there. Then write
-  E0098's outcome. Bulk-physics check after that (not asked yet).
+- **Slow loops (L0017):** E0090 collected (see Current state). Waiting for
+  Chris: more seeds of the settle-then-step loop at f\* 0.44 with a stricter
+  stopping rule, a second f\*, or stop. No jobs running.
+- **Ride v2 (L0019)**: E0098 is collected (eight of twelve completed; four
+  Gamma 5 runs at the CPU cap, time in the riding-pair root search). Next,
+  if Chris agrees: count root-search steps from the A0129 checkpoint on
+  Hatteras and make the search cheaper, then rerun the four; or the bulk
+  check at the eight completed conditions first. No jobs running.
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.

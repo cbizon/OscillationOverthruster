@@ -1,0 +1,62 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0001",
+ "instruction": "lines/L0001/instruction.md",
+ "answers": [
+  {
+   "asked": "Yes run the frozen engine tests",
+   "status": "answered",
+   "answer": "Done: the nudge version the phase-diagram loops use (16f3334) passed all 74 frozen engine tests, and main's engine, run alongside as a control, passed all 74 too. The older nudge version (b608fef) had already passed them on Nov 6 and 7, which the Nov 23 run wrongly said had never happened.",
+   "departures": "The instruction file holds no 'Asked' heading; I took Chris's answer to my Nov 23 question as the item. The commit was not on this machine, so the job took it from the copy of the repository Hatteras keeps for earlier jobs instead of shipping it from here (decision D0070); the job records the commit it checked out."
+  }
+ ],
+ "headline": "Chris asked for the frozen engine tests on the nudge version used by the phase-diagram loops. A two-minute Hatteras job ran them: 74 of 74 passed, as did main's engine in the same job, so every item asked of this line is done and it is ready for Chris to close. The run also corrected the Nov 23 records the checker challenged (the older nudge had passed these tests on Nov 6 and 7; the energy audit is shown clean only for the two runs rerun after the fix), and put the nudge branch back on this machine.",
+ "experiments": [
+  {
+   "experiment_id": "E0103",
+   "question": "Does the nudge version with the energy-total fix, the one the phase-diagram loops run, still pass the frozen engine tests?",
+   "what_was_done": "A single short job on the cluster took that exact version from the copy of the code the cluster kept from earlier jobs, and ran the program's fixed set of seventy-four engine tests against it, the same way as on Nov 7, with the main engine tested alongside as a control. The job also sent back a packed copy of the nudge branch.",
+   "result": "All seventy-four tests passed for the nudge, and all seventy-four for the main engine. The printed import path confirms the nudge's own engine was the one tested. The packed branch was unpacked here, so the nudge code is on this machine again.",
+   "takeaway": "Both nudge versions the program has used pass the frozen tests. Nothing Chris asked of this line is left; it can close."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Close the nudge line (L0001) now? Everything asked of it is done, including tonight's frozen tests (74 of 74).",
+   "why_it_matters": "Closing a line Chris opened is Chris's call; the line has no further work, and the nudge stays in use as a phase-diagram engine under L0015 either way.",
+   "default_if_unanswered": "Leave it open and idle; run nothing on it."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Close L0001 and keep the nudge only as a phase-diagram engine (L0015).",
+   "rationale": "Its question is answered and by design it cannot become the default contact method."
+  },
+  {
+   "direction": "If the nudge's energy audit ever matters for a claim, rerun a few more of its audit-failing runs on 16f3334 (the remaining ~650 failing cycles were never rerun after the fix).",
+   "rationale": "Would turn 'likely round-off' into 'shown', cheaply on Hatteras; nothing currently depends on it."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 493.07,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T05:52:04Z",
+  "actual_start": "2026-11-24T05:52:04Z",
+  "ended": "2026-11-24T06:02:28Z",
+  "interruptions": [],
+  "cpu_hours": 0.03,
+  "cores_available": 17,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. Notes: 'ended' is the time this summary was written, a few minutes before the final commit. scheduled_start is not known separately and is the start I noted. cores_available is 40 cores minus the load average at the start (22.5); uptime and pmset do not exist on this Linux machine. Disk free was first measured mid-session (91 GB). The local frozen-test dry run used about one CPU-minute, not counted."
+ }
+}

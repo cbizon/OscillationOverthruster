@@ -1,0 +1,48 @@
+{
+  "host": "hatteras",
+  "job_id": "164664",
+  "experiment_id": "E0090",
+  "line_id": "L0017",
+  "commit": "d2e312e6bed9d7cdb57c5b6784c222662d95f6b0",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel",
+      "commit": "d2e312e6bed9d7cdb57c5b6784c222662d95f6b0",
+      "branch": "main"
+    },
+    "engine": {
+      "repo": "/Users/bizon/Projects/experiments/sequel",
+      "commit": "765c1f0ac32a4611a0527114328996af6bd79dab",
+      "branch": "method/mu0-unmodified"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "e33ca0b4777b499262e7df7b267724fd9e4cecbf",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "uv run python tools/settle_ramp.py ../engine $ROBOROBO_OUT/loop --dim 3 --fstar 0.44 --N 60000 --L 100 --seed 1 --gammas 1.9,1.95,2.0,2.05,2.1,2.15,2.2,2.25,2.3,2.35,2.4,2.45,2.5,2.55,2.6,2.55,2.5,2.45,2.4,2.35,2.3,2.25,2.2,2.15,2.1,2.05,2.0,1.95,1.9 --block-cycles 50 --min-cycles 200 --max-cycles 3000 --max-cpu-hours-per-step 20 --keep-checkpoints-every 0.5 --keep-checkpoints-range 2.0:2.4"
+  ],
+  "sbatch": {
+    "time": "5-00:00:00",
+    "mem": "8G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0090/20261122T055330Z",
+  "submitted_at": "2026-11-22T05:53:30Z",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "2-00:08:37",
+  "cpu_hours": 48.144,
+  "nodes": "compute-13-1",
+  "outputs": "/Users/bizon/Projects/experiments/sequel-data/runs/E0090/hatteras-164664",
+  "synced_at": "2026-11-24T06:01:15Z",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0090/hatteras-164664",
+  "ended_at": "2026-11-24T06:08:31Z",
+  "artifact_id": "A0173",
+  "record": "evidence/E0090/hatteras-164664.json"
+}
