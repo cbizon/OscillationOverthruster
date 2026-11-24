@@ -1,0 +1,310 @@
+{
+ "experiment_id": "E0100",
+ "tool": "tools/grapenuts_judge.py",
+ "rule": "referee/bulk.py judge: 100-cycle mean (cycles 20-120) within the threshold of block sd of a 10-block baseline (cycles 20-1020)",
+ "comparisons": [
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165029",
+   "baseline_artifact": "A0142",
+   "method_job": "hatteras-165011",
+   "method_artifact": "A0131",
+   "method_mode": "tc",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 3.4704583651107916,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 8.388460109034764,
+     "baseline_sd": 0.03374848056982397,
+     "candidate_mean": 8.35365282359997,
+     "sigmas": -1.0313734084347401,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7192930685066217,
+     "baseline_sd": 0.05016217575788464,
+     "candidate_mean": 3.812950768782189,
+     "sigmas": 1.8670980447024528,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 2.8070453008997305,
+     "baseline_sd": 0.016358282138182863,
+     "candidate_mean": 2.8435318287825653,
+     "sigmas": 2.230462072644497,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.41447902763808964,
+     "baseline_sd": 0.019072909110118975,
+     "candidate_mean": 0.42878468643283313,
+     "sigmas": 0.7500512225035321,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 1.1926573167904946,
+     "baseline_sd": 0.015222994743779117,
+     "candidate_mean": 1.2454880862410804,
+     "sigmas": 3.4704583651107916,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.4100255321043179,
+     "baseline_sd": 0.018564221964798674,
+     "candidate_mean": 0.4256183721396354,
+     "sigmas": 0.8399404006741831,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.014327999999999999,
+     "baseline_sd": 0.00016774386269614234,
+     "candidate_mean": 0.014530625000000002,
+     "sigmas": 1.2079428525325295,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": [
+    "zcm",
+    "plate_contact"
+   ]
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165029",
+   "baseline_artifact": "A0142",
+   "method_job": "hatteras-165024",
+   "method_artifact": "A0135",
+   "method_mode": "never",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 0.9456381738826323,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 8.388460109034764,
+     "baseline_sd": 0.03374848056982397,
+     "candidate_mean": 8.403828262033214,
+     "sigmas": 0.455373182406064,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 3.7192930685066217,
+     "baseline_sd": 0.05016217575788464,
+     "candidate_mean": 3.6850645860598603,
+     "sigmas": -0.6823564155584144,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 2.8070453008997305,
+     "baseline_sd": 0.016358282138182863,
+     "candidate_mean": 2.8070979596213044,
+     "sigmas": 0.003219086278685769,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.41447902763808964,
+     "baseline_sd": 0.019072909110118975,
+     "candidate_mean": 0.41991809123444696,
+     "sigmas": 0.2851722076036984,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 1.1926573167904946,
+     "baseline_sd": 0.015222994743779117,
+     "candidate_mean": 1.181906318435624,
+     "sigmas": -0.7062341238253392,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.4100255321043179,
+     "baseline_sd": 0.018564221964798674,
+     "candidate_mean": 0.41487381736381207,
+     "sigmas": 0.2611628577102469,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.014327999999999999,
+     "baseline_sd": 0.00016774386269614234,
+     "candidate_mean": 0.014169375,
+     "sigmas": -0.9456381738826323,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165031",
+   "baseline_artifact": "A0143",
+   "method_job": "hatteras-165014",
+   "method_artifact": "A0132",
+   "method_mode": "tc",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 2.3519899988564776,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 4.518016718430262,
+     "baseline_sd": 0.00289751404871085,
+     "candidate_mean": 4.520587062577805,
+     "sigmas": 0.8870860000442297,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.0023342577471,
+     "baseline_sd": 0.0030986724285087205,
+     "candidate_mean": 1.999616329036772,
+     "sigmas": -0.8771268254502448,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 0.9243462593635774,
+     "baseline_sd": 0.0014315132097795457,
+     "candidate_mean": 0.9227868327243257,
+     "sigmas": -1.0893553958135218,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09151951189775986,
+     "baseline_sd": 0.0005714386779884757,
+     "candidate_mean": 0.09174963603707433,
+     "sigmas": 0.4027101212758684,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.3724835107904326,
+     "baseline_sd": 0.0019146634622702115,
+     "candidate_mean": 0.36798024147599717,
+     "sigmas": -2.3519899988564776,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09075510017778342,
+     "baseline_sd": 0.0005331479392100215,
+     "candidate_mean": 0.09101175648876646,
+     "sigmas": 0.48139792374201595,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.0227176875,
+     "baseline_sd": 9.674253936925213e-05,
+     "candidate_mean": 0.022552500000000003,
+     "sigmas": -1.707496010307321,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "baseline_job": "hatteras-165031",
+   "baseline_artifact": "A0143",
+   "method_job": "hatteras-165026",
+   "method_artifact": "A0136",
+   "method_mode": "never",
+   "threshold_sd": 3.62,
+   "baseline_blocks": 10,
+   "passes": true,
+   "worst_sigmas": 1.5136929655495737,
+   "quantities": {
+    "zcm": {
+     "baseline_mean": 4.518016718430262,
+     "baseline_sd": 0.00289751404871085,
+     "candidate_mean": 4.518941041974951,
+     "sigmas": 0.3190057163313612,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "thickness": {
+     "baseline_mean": 2.0023342577471,
+     "baseline_sd": 0.0030986724285087205,
+     "candidate_mean": 2.004772710992691,
+     "sigmas": 0.7869348251065502,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_vertical": {
+     "baseline_mean": 0.9243462593635774,
+     "baseline_sd": 0.0014315132097795457,
+     "candidate_mean": 0.9259113815556799,
+     "sigmas": 1.093334089696249,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "ke_horizontal": {
+     "baseline_mean": 0.09151951189775986,
+     "baseline_sd": 0.0005714386779884757,
+     "candidate_mean": 0.09238449460487397,
+     "sigmas": 1.5136929655495737,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_vertical": {
+     "baseline_mean": 0.3724835107904326,
+     "baseline_sd": 0.0019146634622702115,
+     "candidate_mean": 0.37221634733465636,
+     "sigmas": -0.13953546460822402,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "temp_horizontal": {
+     "baseline_mean": 0.09075510017778342,
+     "baseline_sd": 0.0005331479392100215,
+     "candidate_mean": 0.09149118234271927,
+     "sigmas": 1.38063398693152,
+     "threshold": 3.62,
+     "passes": true
+    },
+    "plate_contact": {
+     "baseline_mean": 0.0227176875,
+     "baseline_sd": 9.674253936925213e-05,
+     "candidate_mean": 0.022855000000000004,
+     "sigmas": 1.419360096347089,
+     "threshold": 3.62,
+     "passes": true
+    }
+   },
+   "drifting": []
+  }
+ ]
+}

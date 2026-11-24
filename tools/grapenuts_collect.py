@@ -39,6 +39,12 @@ def run_row(job_dir: Path) -> dict | None:
         "worst_residual_with_springs": s["worst_energy_residual"],
         "mean_residual_with_springs": sum(residuals) / len(residuals) if residuals else None,
         "largest_positive_residual": max([x for x in residuals if x > 0], default=0.0),
+        # whole run: summed residual over summed throughput (throughput = residual / rel)
+        "net_residual_with_springs": (
+            sum(r["energy_residual"] for r in audit)
+            / sum(r["energy_residual"] / r["energy_residual_rel"] for r in audit
+                  if r["energy_residual_rel"])
+            if any(r["energy_residual_rel"] for r in audit) else None),
         "positive_residual_cycles": s["positive_residual_cycles"],
         "worst_referee_residual": s["worst_referee_residual"],
         "worst_momentum_residual": s["worst_momentum_residual"],
@@ -85,7 +91,7 @@ def main():
                                   r["worst_referee_residual"]),
               "gain/soft %.3f" % (r["friction_gain_total"] / r["soft_dissipation_total"]
                                    if r["soft_dissipation_total"] else 0),
-              "%.1f s/cyc" % r["cpu_seconds_per_cycle"])
+              "%.1f s/cyc" % (r["cpu_seconds_per_cycle"] or 0))
 
 
 if __name__ == "__main__":
