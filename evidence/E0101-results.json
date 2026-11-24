@@ -1,0 +1,354 @@
+{
+ "experiment_id": "E0101",
+ "source": "mirror/E0101 summary.json and audit.json; bulk judge rows from evidence/E0100-results.json (tools/grapenuts_judge.py)",
+ "runs": [
+  {
+   "job": "hatteras-165034",
+   "artifact": "A0156",
+   "stiffness": 1000000.0,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.00043996259236067284,
+   "net_residual_with_springs": -0.00032631305977115754,
+   "largest_positive_residual": -0.00013015736363774784,
+   "positive_residual_cycles": 0,
+   "worst_referee_residual": 0.1432007861833739,
+   "energy_gains": 0,
+   "max_overlap": 0.00864640472800915,
+   "springs_made": 507388,
+   "cpu_seconds": 40.124819042
+  },
+  {
+   "job": "hatteras-165035",
+   "artifact": "A0163",
+   "stiffness": 1000000.0,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0021775109110126964,
+   "net_residual_with_springs": -0.0010723506414180419,
+   "largest_positive_residual": 0.00039405219065153166,
+   "positive_residual_cycles": 1,
+   "worst_referee_residual": 0.5285146918793289,
+   "energy_gains": 0,
+   "max_overlap": 0.017822638768271837,
+   "springs_made": 6721252,
+   "cpu_seconds": 320.710337871
+  },
+  {
+   "job": "hatteras-165036",
+   "artifact": "A0157",
+   "stiffness": 1000000.0,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0005933058415867568,
+   "net_residual_with_springs": -0.0002616120162765193,
+   "largest_positive_residual": -0.0001816718133189135,
+   "positive_residual_cycles": 0,
+   "worst_referee_residual": 0.19190723251553962,
+   "energy_gains": 0,
+   "max_overlap": 0.00540232054755993,
+   "springs_made": 279128,
+   "cpu_seconds": 31.533691803000004
+  },
+  {
+   "job": "hatteras-165037",
+   "artifact": "A0162",
+   "stiffness": 1000000.0,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0016834747261414316,
+   "net_residual_with_springs": -0.001368497365355131,
+   "largest_positive_residual": -0.00010483729652445127,
+   "positive_residual_cycles": 0,
+   "worst_referee_residual": 0.442808470293423,
+   "energy_gains": 0,
+   "max_overlap": 0.009495331774095339,
+   "springs_made": 4542069,
+   "cpu_seconds": 216.69857209
+  },
+  {
+   "job": "hatteras-165038",
+   "artifact": "A0158",
+   "stiffness": 1000000.0,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0008830011323356318,
+   "net_residual_with_springs": -0.0006877074394842175,
+   "largest_positive_residual": 0.0001253461518376219,
+   "positive_residual_cycles": 1,
+   "worst_referee_residual": 0.2753837145460822,
+   "energy_gains": 0,
+   "max_overlap": 0.006024019007153325,
+   "springs_made": 939359,
+   "cpu_seconds": 57.018428845
+  },
+  {
+   "job": "hatteras-165039",
+   "artifact": "A0159",
+   "stiffness": 100000000.0,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 3.430226538139545e-05,
+   "net_residual_with_springs": -2.8273974214255588e-06,
+   "largest_positive_residual": 1.3840578019595107e-05,
+   "positive_residual_cycles": 44,
+   "worst_referee_residual": 0.027876096145515714,
+   "energy_gains": 0,
+   "max_overlap": 0.000883293628181181,
+   "springs_made": 152582,
+   "cpu_seconds": 30.144831304
+  },
+  {
+   "job": "hatteras-165040",
+   "artifact": "A0164",
+   "stiffness": 100000000.0,
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0008436530117278791,
+   "net_residual_with_springs": -0.0003747199291872908,
+   "largest_positive_residual": -2.547886495573069e-05,
+   "positive_residual_cycles": 0,
+   "worst_referee_residual": 0.2343562022853826,
+   "energy_gains": 0,
+   "max_overlap": 0.001341190804035275,
+   "springs_made": 8673200,
+   "cpu_seconds": 389.788163228
+  },
+  {
+   "job": "hatteras-165041",
+   "artifact": "A0160",
+   "stiffness": 100000000.0,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 4.1739926919142164e-05,
+   "net_residual_with_springs": 8.326109341542174e-06,
+   "largest_positive_residual": 1.8852887335868233e-05,
+   "positive_residual_cycles": 115,
+   "worst_referee_residual": 0.030958423261393368,
+   "energy_gains": 0,
+   "max_overlap": 0.0005205874767433283,
+   "springs_made": 44861,
+   "cpu_seconds": 23.637878813999997
+  },
+  {
+   "job": "hatteras-165042",
+   "artifact": "A0165",
+   "stiffness": 100000000.0,
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.000496070631123336,
+   "net_residual_with_springs": -0.0003674556874204576,
+   "largest_positive_residual": -1.1304875007125196e-05,
+   "positive_residual_cycles": 0,
+   "worst_referee_residual": 0.16293603071586082,
+   "energy_gains": 0,
+   "max_overlap": 0.0008609657297782292,
+   "springs_made": 5307369,
+   "cpu_seconds": 233.914488964
+  },
+  {
+   "job": "hatteras-165043",
+   "artifact": "A0161",
+   "stiffness": 100000000.0,
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "worst_residual_with_springs": 0.0002405380245574,
+   "net_residual_with_springs": -0.00010597521768194014,
+   "largest_positive_residual": 5.301936995153085e-05,
+   "positive_residual_cycles": 31,
+   "worst_referee_residual": 0.08980523175394323,
+   "energy_gains": 0,
+   "max_overlap": 0.0005417904060153189,
+   "springs_made": 609838,
+   "cpu_seconds": 51.519112913
+  }
+ ],
+ "bulk_judge": [
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e7",
+   "experiment": "E0099",
+   "artifact": "A0131",
+   "passes": true,
+   "worst_sigmas": 3.4704583651107916,
+   "worst_quantity": "temp_vertical"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "mode": "never",
+   "experiment": "E0099",
+   "artifact": "A0135",
+   "passes": true,
+   "worst_sigmas": 0.9456381738826323,
+   "worst_quantity": "plate_contact"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e6",
+   "experiment": "E0101",
+   "artifact": "A0156",
+   "passes": true,
+   "worst_sigmas": 2.8073906335563996,
+   "worst_quantity": "temp_vertical"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.3,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e8",
+   "experiment": "E0101",
+   "artifact": "A0159",
+   "passes": true,
+   "worst_sigmas": 0.7054213081826856,
+   "worst_quantity": "temp_vertical"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e7",
+   "experiment": "E0099",
+   "artifact": "A0132",
+   "passes": true,
+   "worst_sigmas": 2.3519899988564776,
+   "worst_quantity": "temp_vertical"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "mode": "never",
+   "experiment": "E0099",
+   "artifact": "A0136",
+   "passes": true,
+   "worst_sigmas": 1.5136929655495737,
+   "worst_quantity": "ke_horizontal"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e6",
+   "experiment": "E0101",
+   "artifact": "A0157",
+   "passes": false,
+   "worst_sigmas": 4.485424251027321,
+   "worst_quantity": "temp_horizontal"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 5.0
+   },
+   "mode": "tc k=1e8",
+   "experiment": "E0101",
+   "artifact": "A0160",
+   "passes": true,
+   "worst_sigmas": 2.2139950160133637,
+   "worst_quantity": "plate_contact"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "mode": "tc k=1e7",
+   "experiment": "E0099",
+   "artifact": "A0138",
+   "passes": false,
+   "worst_sigmas": 3.8032819113857754,
+   "worst_quantity": "plate_contact"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "mode": "never",
+   "experiment": "E0099",
+   "artifact": "A0137",
+   "passes": true,
+   "worst_sigmas": 0.9591217051013511,
+   "worst_quantity": "temp_horizontal"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "mode": "tc k=1e6",
+   "experiment": "E0101",
+   "artifact": "A0162",
+   "passes": false,
+   "worst_sigmas": 5.162429690877265,
+   "worst_quantity": "plate_contact"
+  },
+  {
+   "condition": {
+    "gamma": 3.5,
+    "f_star": 0.5,
+    "depth": 10.0
+   },
+   "mode": "tc k=1e8",
+   "experiment": "E0101",
+   "artifact": "A0165",
+   "passes": true,
+   "worst_sigmas": 1.1588615709821783,
+   "worst_quantity": "temp_vertical"
+  }
+ ]
+}

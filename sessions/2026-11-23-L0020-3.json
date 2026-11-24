@@ -1,0 +1,101 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0020",
+ "instruction": "instructions/2026-11-22.md",
+ "answers": [
+  {
+   "asked": "\"Let grapenuts run.\"",
+   "status": "partly",
+   "answer": "Yes, grapenuts ran: 33 Hatteras jobs this run. Three of the four parts of the evaluation have started; the phase diagram has not. (1) For the checker: a description of what the code does, its added constants, its energy books and how it departs from the paper's model, written from the code at 486d8eb (lines/L0020/grapenuts.md). (2) Survival: with springs at stiffness 1e7, grapenuts completed 120 cycles at 10 of the 12 2D grid conditions. That includes deep and Gamma 5 layers where sequel's engine stalls. The two Gamma 5 depth-15 runs and the 3D Gamma 5 case were still running, at 60, 80 and 100 cycles, when the run ended; none had failed. (3) Energy against the baseline: over every run the method loses energy on net (4e-5 to 1.8e-3 of the energy flowing through), but single cycles gain energy, up to 9.5e-3 in one. That is far outside the referee's 1e-8 rule, which a spring stepped in time can't meet. Sequel's engine without a contact method balances to 1e-12. (4) Bulk physics against sequel's engine, at the three shallow conditions where a baseline ran on Hatteras: the result depends on the stiffness. At 1e6 it fails two of three, at 1e7 it fails one (plate contact, 3.8 standard deviations against a 3.62 limit), and at 1e8 it passes all three, but at 1e8 one run gained a very small amount of energy on net (8e-6). Everything is one seed.",
+   "departures": "The referee's long-contact script can't run grapenuts as it stands: it would run grapenuts' hard-sphere engine, and its energy sum has no term for the springs. So I ran a step-for-step copy of it inside grapenuts. It has the same survival rules, frames, tolerance and bulk quantities, records the referee's own residual alongside, and has the contact settings as arguments (decision D0066). Choosing stiffness 1e7 for the main pass was my call; I then added 1e6 and 1e8 at the shallow conditions (E0101). The program's earlier friction-on baselines are on your Mac, not on this container, so I reran five on Hatteras; two of them failed there at seed 1. No phase diagram yet."
+  },
+  {
+   "asked": "Unpaused (Chris, Nov 21): \"Since we're going on hatteras, which has plenty of cores, let's unpause everything as well.\"",
+   "status": "answered",
+   "answer": "Yes: the line ran on Hatteras this time, 33 jobs and about 2.7 CPU-hours collected so far. The grapenuts clone you copied removed the blocker (B0007 resolved).",
+   "departures": "None: the line ran as asked, with its long runs on Hatteras."
+  }
+ ],
+ "headline": "Grapenuts ran for the first time. With springs it survives 120 cycles at 10 of 12 2D grid conditions, including deep and Gamma 5 layers where sequel's engine stalls (three runs still going, none failed). Over each run it loses energy on net, though single cycles gain some. Its agreement with sequel's engine at three shallow conditions depends on the spring stiffness and holds only at the stiffest setting tried. A code description for the checker is written; the phase diagram has not been started.",
+ "experiments": [
+  {
+   "experiment_id": "E0099",
+   "question": "Does grapenuts, with springs at stiffness 1e7, get through the referee's 2D grid and the 3D Gamma 5 case without stalling, and does it add energy?",
+   "what_was_done": "Thirteen runs of 120 cycles on Hatteras, with a copy of the referee's long-contact loop that also counts the energy the springs dissipate, plus five runs of grapenuts' hard-sphere mode as controls.",
+   "result": "Ten of twelve 2D conditions completed. The two deepest Gamma 5 runs and the 3D run were still going (60, 80 and 100 cycles), with no failures. Up to several thousand springs form per cycle, so the method acts. Energy is lost on net in every run. Single cycles gain up to about one percent of the energy throughput at Gamma 5 and low frequency. Overlaps reach 0.002 to 0.006 diameters. The hard controls balance energy to a trillionth. Two of them fail at seed 1 in exactly the way sequel's engine does on Hatteras.",
+   "takeaway": "Grapenuts survives where sequel's engine stalls. Its energy books close only to about a thousandth, not to the referee's standard. The three unfinished runs are collected next time."
+  },
+  {
+   "experiment_id": "E0100",
+   "question": "At the shallow conditions where sequel's engine runs, does grapenuts give the same layer height, energies, temperatures and plate contact?",
+   "what_was_done": "Ran sequel's unmodified engine for 1020 cycles at five shallow 2D conditions on Hatteras as baselines, then applied the referee's bulk pass rule to grapenuts and to its hard mode.",
+   "result": "Only three baselines ran. At Gamma 3.5, f* 0.3, depth 10 sequel's engine stopped on a sphere overlap in its first cycle, and at Gamma 5, f* 0.5, depth 5 it froze in cycle five; on your Mac these ran. Grapenuts with springs passes two of the three and fails one, Gamma 3.5, f* 0.5, depth 10, on plate contact only (3 percent more spheres touching the plate). Grapenuts' hard mode passes all three.",
+   "takeaway": "Close agreement, with one marginal failure, on one seed. That same seed fails on Hatteras in sequel's engine, so other lines comparing against Mac baselines should know."
+  },
+  {
+   "experiment_id": "E0101",
+   "question": "Does that agreement depend on the spring stiffness, which is a constant grapenuts adds?",
+   "what_was_done": "Repeated the five shallow runs at stiffness 1e6 and 1e8 and judged them against the same baselines.",
+   "result": "Yes. At 1e6 it fails two of three conditions; at 1e8 it passes all three. Overlaps shrink from up to 0.018 to under 0.0013 diameters. At 1e8, though, one shallow run gained energy on net, eight parts in a million, with a gain in 115 of 120 cycles.",
+   "takeaway": "Grapenuts approaches sequel's physics as the springs stiffen, so it is not free of a tuned constant. At the stiff end its small integration error turns into a small gain."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Grapenuts' springs let spheres overlap by design: up to 0.006 diameters at stiffness 1e7 and about 0.001 at 1e8. You said of clusterlifter's overlap tolerance \"I don't tolerate it.\" Does that rule out grapenuts, or is a spring's overlap acceptable?",
+   "why_it_matters": "It decides whether grapenuts is a candidate for the default or only a comparison method for the phase diagram.",
+   "default_if_unanswered": "Keep evaluating it as a comparison method, and report the largest overlap of every run."
+  },
+  {
+   "question": "A spring stepped in time can't balance energy to the referee's 1e-8. Grapenuts closes to about 1e-3, mostly as a loss, with some gaining cycles. Should its energy audit be judged by a looser rule, such as no net gain over a run with the per-cycle residual shrinking as the step shrinks, or does it fail the audit?",
+   "why_it_matters": "Under the referee's rule as written, grapenuts fails the energy audit at every condition, so it can never meet the acceptance bar.",
+   "default_if_unanswered": "Report both numbers, treat it as failing the referee's audit, and make no claim that it works."
+  },
+  {
+   "question": "Which stiffness should the phase diagram use? 1e8 agrees with sequel's engine at the three shallow conditions; 1e7 is about twice as cheap but fails one.",
+   "why_it_matters": "The phase diagram is the expensive part, and the result depends on stiffness.",
+   "default_if_unanswered": "1e8, after three seeds on the full grid confirm survival and the energy sign there."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Stiffness 1e8 over the full 2D grid and the 3D case with three seeds: survival, energy sign and the bulk judge, plus one finer time step at 1e8 to see whether the small net gain shrinks.",
+   "rationale": "That settles whether grapenuts at a fixed stiffness meets the survival and bulk bars on more than one seed, and whether its energy gain is integration error."
+  },
+  {
+   "direction": "Then the phase-diagram fast pass with grapenuts (ten frequencies, Gamma up and down, the same box and ramp as lines L0016 and L0018), so it can be laid over the baseline and nudge diagrams.",
+   "rationale": "It is the remaining part of your evaluation question, and E0099 now gives the cost per cycle (0.2 to 24 CPU-seconds in 2D at width 100)."
+  },
+  {
+   "direction": "For the lines that judge against the program's Mac baselines: on Hatteras, sequel's engine fails at seed 1 at Gamma 3.5, f* 0.3, depth 10 (overlap in cycle 1) and Gamma 5, f* 0.5, depth 5 (frozen in cycle 5), though both ran on the Mac. Check other seeds there and whether the difference is the machine or the library versions.",
+   "rationale": "A baseline that depends on the machine undermines any comparison that mixes Mac and Hatteras runs."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 499.273,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T02:36:16Z",
+  "actual_start": "2026-11-24T02:36:16Z",
+  "ended": "2026-11-24T03:20:00Z",
+  "interruptions": [],
+  "cpu_hours": 2.655,
+  "cores_available": 37,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0099",
+    "reason": "Three Hatteras jobs were still running when the run ended: 2D Gamma 5 depth 15 at f* 0.3 and f* 0.5, and the 3D Gamma 5 case, at 60, 80 and 100 of 120 cycles. They take 17 to 24 CPU-seconds per cycle and are collected next run."
+   }
+  ],
+  "limits_hit": "No machine limit constrained the science; the time limit left three runs unfinished. The runner didn't give me its start time, so scheduled_start is set to my first measured time. This is a Linux container (40 cores, load 2.8 at the start), not the Mac; uptime, pmset and ps are missing, so sleep can't be checked. sequel-data is 377 MB. Grapenuts' own test suite never finished here: twice it stopped advancing at test 90 of about 139, with no failures before that. It passed on Hatteras for you. The referee's frozen tests passed (74). Budget: 5% of the weekly CPU budget (no threshold passed); the largest job was 0.3 CPU-hours against 100 per run."
+ }
+}

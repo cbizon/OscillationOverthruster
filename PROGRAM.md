@@ -297,6 +297,37 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### Nov 22 instruction, run 3 of Nov 23 (L0020, ran Nov 24 02:36Z)
+
+Session summary: `sessions/2026-11-23-L0020-3.json`.
+
+- **Grapenuts ran.** The clone is here (486d8eb, B0007 resolved). Code
+  description for the checker: `lines/L0020/grapenuts.md`. The referee's
+  `long_contact.py` would run grapenuts' hard engine and has no audit term
+  for spring dissipation. So E0099 runs a step-for-step copy of it in
+  grapenuts (`scripts/sequel_long_contact.py`, branch `sequel-eval`
+  23a3676), D0066.
+- **Survival (E0099, tc, k = 1e7, seed 1, 120 cycles):** 10 of the 12
+  2D grid conditions completed 120 cycles, including Gamma 3.5 depth 15 and
+  Gamma 5 depths 5 and 10, where sequel's engine stalls; Gamma 5 depth 15 (both f*) and the 3D
+  case were at 60, 80 and 100 cycles and still running.
+- **Energy:** with the springs' booked dissipation counted, the per-cycle
+  residual's worst cycle per run is 1.5e-4 to 9.5e-3 of throughput, mostly a loss. A few cycles
+  at Gamma 5 (mostly f* 0.3) gain, up to +9.5e-3 in one cycle (net over
+  every run still a loss). That is far above the
+  referee's 1e-8 rule, which a time-stepped spring can't meet. The
+  referee's own sum, which leaves the springs out, is off by 6e-2 to 5e-1.
+- **Bulk (E0100):** sequel's baselines ran on Hatteras at three of the five
+  shallow conditions. The other two failed at seed 1 (pair overlap in cycle
+  1, frozen time in cycle 5), the same way as grapenuts' hard mode. At k =
+  1e7 grapenuts passes 2 of 3 and fails Gamma 3.5 f* 0.5 depth 10 on plate
+  contact only (+3.8 sd). At k = 1e6 it fails Gamma 3.5 f* 0.5 depth 5
+  and f* 0.5 depth 10; k = 1e8 passes all three (worst 2.2 sd) (E0101).
+  The bulk result depends on the stiffness and converges as it grows, but
+  at k = 1e8 one shallow run gained energy on net (+8e-6 of throughput).
+  E0099's two deepest Gamma 5 runs and the 3D run were still going at the
+  end of the run (none had failed).
+
 ### Nov 22 instruction, run of Nov 23 (L0020)
 
 Session summary: `sessions/2026-11-23-L0020.json`.
@@ -1093,10 +1124,10 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Grapenuts (L0020):** waiting for Chris to copy grapenuts (486d8eb) to
-  `sequel-data/grapenuts` on the machine the program runs on. Then: code
-  description for the checker, Hatteras pilot (survival and energy audit at
-  the 2D grid and 3D Gamma 5), bulk judge against the baseline, phase pass.
+- **Grapenuts (L0020):** collect the rest of E0099 (deep 2D, 3D) and
+  E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
+  grid with more seeds where the judge is close, and the phase-diagram fast
+  pass with grapenuts (`lines/L0020/progress.md`).
 - **Clusterlifter design review (L0009):** `lines/L0009/clusterlifter.md`
   describes the current code (v4/v5). E0086 collected: energy audit fails
   every cycle at Gamma 5 deep conditions (hold energy ~1e-4 of plate work,
