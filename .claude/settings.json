@@ -31,6 +31,7 @@
       "Edit(lines/README.md)",
       "Edit(reviews/README.md)",
       "Edit(sessions/README.md)",
+      "Edit(.gitattributes)",
       "Edit(.claude/**)",
       "Bash(git push:*)",
       "Bash(git tag:*)",
