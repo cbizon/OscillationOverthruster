@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-24",
+  "line_id": "L0001",
+  "reviewer_model": "claude-opus-5-5",
+  "summary": "Chris asked one thing: 'Yes run the frozen engine tests'. The run answered it as asked. A Hatteras job (165153, under two minutes) ran the seventy-four frozen referee tests against the nudge at 16f3334, the version the phase-diagram loops use. All seventy-four passed. Main's engine, run in the same job as a control, also passed all seventy-four. I checked that the test touched the nudge and not something else. The job's checkout was at commit 16f33345, and the printed import path was the nudge checkout. Main and the nudge differ by seventeen lines in granular/edmd.py: a call after every plate event that lifts a sphere to two floating-point steps above the plate. I reran the four frozen-test scenarios that involve the plate on the nudge myself. In every one the nudge actually moved spheres: the potential energy it added was between 4e-14 and 1e-12, over 27 to 1,112 plate events. So the tests exercised the new code path and did not merely rerun an unchanged engine. The seven mirrored output files match their recorded checksums. The branch is back in this clone at 16f3334, and b608fef is an ancestor of it, so blocker B0008 is rightly resolved. All the challenges in my Nov 23 review were answered. The line state now says the nudge passed these tests at b608fef on Nov 6 and 7. It limits the energy-audit statement to the two runs that were rerun. It says the bulk check never reached a condition with lasting contacts, and it names the run with 71% of its CPU in slow stretches. The L0001 state and note match the evidence. 'Answered, ready to close' is fair. One caveat is not written down, and the state doesn't overclaim on it: the frozen tests check engine correctness in short, dilute cases. They say nothing about the nudge in the lasting-contact regime. No claims were proposed or changed. Problems with the records: (1) The ledger times are later than the commits that contain them. The E0103 registration and D0070 say 06:05Z, but they were committed at 05:54:41Z. The outcome, blocker resolution and line update say 06:12Z to 06:14Z, but they were committed at 06:03:05Z. The registration did come before the job was submitted (05:56:53Z), so pre-registration held, but the times were written in advance rather than measured. This is the same fault as last time's 'ended'. (2) The session's local dry run of the frozen tests wrote pytest temporary folders to ~/.tmp/pytest-of-roborobo (pytest-4 to pytest-6, 05:54Z to 05:56Z), outside the two allowed folders. (3) The job got the commit by cloning the bare repository program submit keeps on Hatteras (D0070), not through --tree. That is recorded and its provenance is sound, but it is a workaround Chris may want to know about. Program check passes, after I removed my own scratch folder and undid a uv.lock change my probe had made. Four approvals were made in the last day: Nov 23 15:06Z, 15:47Z and 15:49Z, and Nov 24 03:19Z. The machine is clean: tmp is empty, sequel-data holds 640 MB against a 15 GB limit, 91 GB of disk is free against a 40 GB floor, and no local jobs are running.",
+  "reviews": [
+    {
+      "claim_id": "L0001",
+      "plain_claim": "Line state of Nov 24: the nudge passed the frozen engine tests, seventy-four of seventy-four, at both commits used (b608fef on Nov 6 and 7; 16f3334 in E0103). It survives where the unmodified engine stalls (17 of 18 vs 0 of 18, one overlap). The audit failures rerun after the fix were round-off and the rest were not rerun. The bulk check passes only where there are no lasting contacts. The line is ready to close.",
+      "verdict": "holds",
+      "attacks": [
+        {
+          "check": "other",
+          "what_was_done": "Read the mirrored job outputs (A0172 out/*.txt and the Slurm log). Checked the seven SHA-256 values against evidence/E0103-results.json, and the commit and import path. Checked that b608fef is an ancestor of the restored method/nudge.",
+          "finding": "engine_commit.txt is 16f33345. frozen-nudge.txt prints the import path inside out/nudge-engine and says '74 passed in 50.82s'. frozen-main.txt says '74 passed in 46.54s', and both return codes are zero. All seven checksums match. setup.txt carries the warning 'You appear to have cloned an empty repository', because the bare repository has no branch refs. The checkout by commit still worked, as engine_commit.txt shows. b608fef is an ancestor of method/nudge here."
+        },
+        {
+          "check": "other",
+          "what_was_done": "Asked whether the test acted, as CLAUDE.md requires. I diffed granular between main and method/nudge. Then I extracted the nudge's granular into scratch and reran the four frozen-test scenarios that involve the plate: the two all-pairs reference cases, the checkpoint case and the static-plate energy case. For each I read the nudge's energy accumulator, en[EN_NUDGE].",
+          "finding": "The only engine difference is nudge_onto_plate (seventeen lines), which is called after every plate event. It fired in all four scenarios. The energy it added was 3.7e-14 over 27 plate events, 1.2e-13 over 177, 8.3e-14 over 131 and 9.9e-13 over 1,112. So the frozen tests ran the new code path. The run itself did not show this; I did."
+        },
+        {
+          "check": "Easy cases only",
+          "what_was_done": "Read referee/tests to see which regimes the frozen tests cover.",
+          "finding": "The tests cover short, dilute runs, a static plate, and the stretch before the dense layer lands, where the reference test stops on purpose. None reaches lasting contacts. So passing them shows only that the nudge does not break the engine's basic correctness. The line state does not claim more."
+        },
+        {
+          "check": "other",
+          "what_was_done": "Compared the new line state, progress.md and PROGRAM.md with each challenge in reviews/2026-11-23-L0001.json.",
+          "finding": "All were answered. The b608fef passes are stated. The audit statement is narrowed to two runs and 176 cycles, with about 654 never rerun (830 minus 176). The bulk-check caveat is added. The 71% slow run is named. The question resting on the false premise was replaced by a plain question about closing. B0008 is resolved with evidence."
+        }
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "asked": "Yes run the frozen engine tests",
+      "verdict": "answered",
+      "finding": "The `asked` field copies Chris's answer word for word. The instruction file has no 'Asked' heading, and the run's reading is the obvious one. The run did exactly what was asked, on the nudge version Chris's question named (16f3334). It used a control and confirmed the import path. The result is seventy-four of seventy-four. My own probe showed that the nudge code path fired during those tests. Almost all the remaining time went to correcting records that my previous review had challenged, which was required. None went to work nobody asked for."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The run started at 05:52Z, 48 minutes after Chris's answer was committed (05:04Z). Its one short Hatteras job ran from 05:56Z to 06:01Z, and the run committed at 06:03Z. It left nothing running, and the machine limited nothing.",
+    "discrepancies": [
+      "Ledger 'at' times are later than the commits that contain them. The E0103 registration and D0070 say 06:05Z but were committed at 05:54:41Z. The outcome and blocker resolution (06:12Z) and the line update and note (06:14Z) were committed at 06:03:05Z.",
+      "Budget: the summary gives 493.07 CPU-hours spent this week, but program check now reports 491.97. Both are about 5% of the limit.",
+      "The local dry run wrote pytest temporary folders to ~/.tmp/pytest-of-roborobo, outside the allowed folders. The summary does not mention it.",
+      "cores_available (17, from a load of 22.5 on 40 cores) and the 91 GB of free disk agree with what I see. pmset does not exist on this Linux machine, as the run said."
+    ]
+  }
+}
