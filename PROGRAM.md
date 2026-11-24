@@ -307,6 +307,41 @@ Session summary: `sessions/2026-11-23-L0020.json`.
   there either. Plan for the review, energies against baseline and phase
   diagram: `lines/L0020/progress.md`.
 
+### Jobs collected, run 3 of Nov 23 (L0019)
+
+Session summary: `sessions/2026-11-23-L0019-3.json`. No instruction; started
+because eight E0098 jobs ended. Evidence: `evidence/E0098-interim.json`.
+
+- **Eight of twelve E0098 jobs** (A0115-A0122) completed 120 cycles with
+  every cycle's audit clean (worst 2.8e-13, no gains, no slow episodes):
+  all six Gamma 3.5 conditions, Gamma 5 f\* 0.3 depth 15 and f\* 0.5 depth 5.
+  This includes three conditions where the unmodified engine stalls in
+  cycle 1 or 3.
+- **Four Gamma 5 jobs are still running**, past the unmodified stall cycle and
+  clean so far: f\* 0.3 depth 5 (cycle 52, in slow episodes near phase
+  0.94), f\* 0.3 depth 10 (cycle 40), f\* 0.5 depths 10 and 15 (cycle 10).
+  The last three have recorded no new cycle for 20 to 50 minutes. Their E0094
+  twins are identical so far and stuck at the same cycles.
+- Each E0098 job matches its E0094 twin cycle for cycle on Hatteras, so the
+  booking fix did not change the motion there either. No scheduled
+  release in any of the eight finished runs.
+
+### Checker's challenges, run 2 of Nov 23 (L0019)
+
+Session summary: `sessions/2026-11-23-L0019-2.json`. No instruction; started
+for the checker's challenges.
+
+- **Audit bug fixed** (E0096, D0063 corrects D0060): v2 booked plate
+  captures twice in the audited terms. With 7ae3349 the audit is clean in
+  every cycle with capture on; the motion is unchanged.
+- **Sphere capture fires** (E0097) at all six deep 2D conditions (1 to 1072
+  times); the Nov 23 "never fires" came from that check's own event cap.
+  All six passed the cycle where the unmodified engine stalls, with clean
+  audits.
+- **E0094's audit is invalid** (double booking); its survival stands:
+  120 cycles at all Gamma 3.5 conditions and two at Gamma 5, four jobs
+  still running. Rerun on the fixed commit: E0098, jobs 164950-164962.
+
 ### Nov 22 instruction, run of Nov 23 (L0019)
 
 Session summary: `sessions/2026-11-23-L0019.json`.
@@ -316,11 +351,13 @@ Session summary: `sessions/2026-11-23-L0019.json`.
   run folder (4d6c4e0, same files as 0600773).
 - **v2 built** (3380eb3, 06be1f7; D0059 to D0061): sphere-on-sphere capture
   into rigid riding clusters (horizontal momentum conserved), release of
-  dependents on a hit, captures booked in the audited terms, and a fix for
+  dependents on a hit, captures booked in the audited terms (wrongly: booked twice, fixed in
+  run 2), and a fix for
   a silent missed contact in the riding-pair root search. Frozen tests pass.
 - **Sphere capture does not fire** (E0093): zero sphere captures in 20
   cycles at every 2D grid condition that ended; the deep stalls remain.
-  The method does not yet act where it is needed.
+  The method does not yet act where it is needed. (Withdrawn by run 2:
+  E0093's own event cap stopped the deep runs early; see E0097.)
 - **E0092's six v1 jobs failed** in 29 s (referee refuses an existing
   output folder); they are labelled E0091 in the job records. B0006
   resolved.
@@ -1084,11 +1121,12 @@ These are findings, not edits; the referee is his.
 - **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
   loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
   the settled-rate gap against the 25, 100 and 400-cycle gaps.
-- **Ride v2 (L0019)**: collect E0094 (Hatteras jobs 164936-164947).
-  Before more runs, find why sphere-on-sphere capture never fires at the
-  stalling conditions (log the closing speed and normal of every
-  free-on-riding contact near a stall); then decide whether the capture
-  rule or the threshold is what's missing.
+- **Ride v2 (L0019)**: four E0098 jobs (164950, 164951, 164954, 164955)
+  and their E0094 twins (164936, 164937, 164940, 164941) are still running
+  at Gamma 5. Collect them: whether they finish, stop at the 2 CPU-hour cap,
+  or run into Slurm's 4-hour limit (that would mean a hang inside one
+  event-loop call) tells whether ride v2 crawls or stalls there. Then write
+  E0098's outcome. Bulk-physics check after that (not asked yet).
 - **Disk:** free disk 14 GB, program data 10 GB of 15 GB.
 - Option-four earlier branches (`method/persistent-contact*`) are superseded
   by `method/held-contact`; kept, not deleted.

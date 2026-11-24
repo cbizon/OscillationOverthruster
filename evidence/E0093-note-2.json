@@ -1,0 +1,8 @@
+{
+ "experiment_id": "E0093",
+ "line_id": "L0019",
+ "written": "2026-11-23 (L0019 run 2, answering the checker's review of Nov 23)",
+ "capture_off_controls_3380eb3": "INVALID as a baseline. These runs were started twelve at a time while the engine compiled in every process; most hit the 600 s wall clock without a result even where the same engine with capture on and zero captures finished in about 1 s (for example Gamma 3.5, f* 0.5, depth 5: capture off 'did not finish in 600 s', capture on 1.4 s). Their outcomes measure the compile contention, not the engine. The baseline for these conditions is the referee's survival table (referee/README.md, Nov 5 pilot and Nov 5-6 long runs). Not rerun: decision D0064.",
+ "stall_definition": "E0093's 'stalled' means its own event cap (3000 events per particle in a cycle), not the referee's survival test. referee/long_contact.py has no event cap and records slow episodes; at the same commit (06be1f7) the Hatteras pilot E0094 completed 120 cycles at Gamma 3.5 f* 0.3 depth 15 and Gamma 5 f* 0.3 depth 15, two conditions E0093 lists as stalling in cycles 1 and 3. E0093's 'deep stalls remain as without the method' is therefore withdrawn; see E0094 and E0097.",
+ "frozen_tests_06be1f7": "The evidence for 06be1f7 recorded only 'exit code 0'. The fixed commit 7ae3349 (only booking changes) was run this session: 74 passed (evidence/E0096-results.json). The frozen tests run the method switched off (default v_capture 0); they show the switched-off engine matches main, not that the ride code is correct."
+}

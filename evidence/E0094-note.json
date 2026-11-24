@@ -1,0 +1,131 @@
+{
+ "experiment_id": "E0094",
+ "line_id": "L0019",
+ "written": "2026-11-23 L0019 run 2",
+ "audit_status": "INVALID as an energy test. E0094 ran method/ride 06be1f7, whose plate-capture branch booked plate impulse, work and dissipation twice (checker review Nov 23; D0063). E0096 shows the double booking alone explains the audit failures at two conditions and that the motion is identical without it. I read E0094's summaries at the start of this run, before fixing the bug; the audit columns below are listed only to show they are not used. The audit is rerun on the fixed commit in E0098.",
+ "survival_status": "Valid: the booking terms don't feed back into the motion (E0096: identical events and bulk quantities between 06be1f7 and the fix).",
+ "unmodified_engine_survival": "referee/README.md: Gamma 3.5 depth 15 stalls in cycle 1 (f* 0.3 time frozen; f* 0.5 completes 120 cycles in 2.9 CPU-h after a cycle-1 slow episode of 8e9 events); Gamma 5 f* 0.3 stalls in cycles 21, 3, 3 (depths 5, 10, 15); Gamma 5 f* 0.5 depth 10 cycle 5, depth 15 cycle 3.",
+ "jobs_as_of_mirror_2026-11-23T21:20Z": {
+  "164936": {
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "outcome": "running",
+   "cycles_completed": 52,
+   "cpu_seconds": 439,
+   "slow_episodes": 1,
+   "audit_failures_INVALID": 7
+  },
+  "164937": {
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "outcome": "running",
+   "cycles_completed": 30,
+   "cpu_seconds": 1715,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 17
+  },
+  "164938": {
+   "gamma": 5.0,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 951,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 16
+  },
+  "164939": {
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 45,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 2
+  },
+  "164940": {
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "outcome": "running",
+   "cycles_completed": 10,
+   "cpu_seconds": 52,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 5
+  },
+  "164941": {
+   "gamma": 5.0,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "outcome": "running",
+   "cycles_completed": 10,
+   "cpu_seconds": 936,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 8
+  },
+  "164942": {
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 28,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 0
+  },
+  "164943": {
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 98,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 3
+  },
+  "164944": {
+   "gamma": 3.5,
+   "f_star": 0.3,
+   "depth": 15.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 279,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 12
+  },
+  "164945": {
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 5.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 25,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 0
+  },
+  "164946": {
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 10.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 61,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 0
+  },
+  "164947": {
+   "gamma": 3.5,
+   "f_star": 0.5,
+   "depth": 15.0,
+   "outcome": "completed",
+   "cycles_completed": 120,
+   "cpu_seconds": 189,
+   "slow_episodes": 0,
+   "audit_failures_INVALID": 1
+  }
+ },
+ "note_running": "Jobs 164936, 164937, 164940, 164941 were still running; their rows are progress, not results."
+}

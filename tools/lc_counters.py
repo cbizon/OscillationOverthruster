@@ -40,11 +40,30 @@ _init = simmod.Simulation.__init__
 mu_override = os.environ.get("SEQUEL_MU")
 
 
+def _counter_dict(sim):
+    names = {v: n for n, v in vars(K).items() if n.startswith("C_") and isinstance(v, int)}
+    ennames = {v: n for n, v in vars(K).items() if n.startswith("EN_") and isinstance(v, int)}
+    return dict(counters={names.get(k, "c%d" % k): int(x) for k, x in enumerate(sim.cnt)},
+                energy_terms={ennames.get(k, "en%d" % k): float(x) for k, x in enumerate(sim.en)})
+
+
 def init(self, *a, **k):
     if mu_override is not None:
         k.setdefault("mu", float(mu_override))
     _init(self, *a, **k)
     made.append(self)
+    # also append the cumulative counters after every completed cycle to
+    # OUTDIR/counters_by_cycle.jsonl, so a run cut short keeps them
+    end_cycle = self.end_cycle
+
+    def logged_end_cycle(*a2, **k2):
+        d = _counter_dict(self)
+        d["cycles_completed"] = int(self.cycle) + 1
+        with open(outdir / "counters_by_cycle.jsonl", "a") as fh:
+            fh.write(json.dumps(d) + "\n")
+        return end_cycle(*a2, **k2)
+
+    self.end_cycle = logged_end_cycle
 
 
 simmod.Simulation.__init__ = init

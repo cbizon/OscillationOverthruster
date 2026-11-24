@@ -1,0 +1,84 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "instruction": "none: started by the service for challenge",
+ "answers": [],
+ "headline": "This run answered the checker's challenges to the sphere-on-sphere ride method. The checker was right that plate captures were booked twice in the energy audit; with that removed, the audit is clean in every cycle with capture on, and the motion is exactly as before. The earlier finding that sphere-on-sphere capture never fires was wrong: it fires at all six deep conditions, and every deep run got past the cycle where the engine without the method stalls. The earlier check's own stall cutoff had stopped those runs too early.",
+ "experiments": [
+  {
+   "experiment_id": "E0096",
+   "question": "Does removing the duplicate booking of plate captures make the energy audit pass with capture on, without changing the motion?",
+   "what_was_done": "Removed the second copy of the booking, recorded the small position correction of the second capture path as well, ran the frozen tests, and ran the referee's long-contact test for twenty cycles at the two conditions the checker named, with both the old and the fixed code.",
+   "result": "The frozen tests pass (74 of 74). The fixed code passes the audit in all forty cycles, with residuals around one part in ten to the fourteenth. The old code fails in exactly the cycles where a sphere was captured on the plate (cycle 17 at the Gamma 5 condition; cycles 1 and 2 at the Gamma 3.5 condition). Event counts and every bulk quantity are identical between the two, so the fix changes only the bookkeeping. The position correction it now records is about one part in ten to the fourteenth.",
+   "takeaway": "The audit failures came from the bookkeeping bug, not from energy put into the layer. The earlier explanation (the unrecorded position correction) was wrong."
+  },
+  {
+   "experiment_id": "E0097",
+   "question": "Does the sphere-on-sphere capture fire at the deep conditions where the layer stalls without the method?",
+   "what_was_done": "Ran the referee's long-contact test with the fixed code at the six deep conditions for up to twenty cycles, capped at a quarter CPU-hour each, saving the method's counters after every cycle and when the cap hit.",
+   "result": "Sphere-on-sphere capture fired at all six: once and seventeen times at the two Gamma 3.5 depth-15 conditions (from the first cycle), and between about two hundred and about a thousand times at the four Gamma 5 conditions (from the third cycle). Three conditions finished twenty cycles; three reached the CPU cap after six, ten and fourteen cycles, all past the cycle where the engine without the method stalls. No slow episodes and every cycle's audit clean. Captured spheres are almost never released at the scheduled phase (at most four times per run); most leave the cluster by being hit.",
+   "takeaway": "The method acts where it is needed. The earlier check used its own cutoff for a stall and stopped these runs before any capture; that check's statement that the deep stalls remain is withdrawn."
+  },
+  {
+   "experiment_id": "E0094",
+   "question": "How long does the sphere-on-sphere version survive at all twelve grid conditions over 120 cycles (submitted last run, on the code with the booking bug)?",
+   "what_was_done": "Collected the eight jobs that had finished and read the progress of the four still running.",
+   "result": "Survival is valid because the bug doesn't change the motion: all six Gamma 3.5 conditions completed 120 cycles (including both depth-15 conditions, where the engine without the method stalls in the first cycle or needs hours to get through it), as did Gamma 5 at f* 0.3 depth 15 (stalls in cycle 3 without the method) and f* 0.5 depth 5. The four running Gamma 5 jobs were already past their no-method stall cycles. Their audit results are invalid and not used; I had read them before fixing the bug.",
+   "takeaway": "The first 120-cycle survival results are promising, but the energy audit has to come from the rerun."
+  },
+  {
+   "experiment_id": "E0098",
+   "question": "The same twelve-condition, 120-cycle pilot on the fixed code, with the method's counters saved every cycle.",
+   "what_was_done": "Submitted twelve jobs to Hatteras, each capped at two CPU-hours. One bookkeeping note: an outcome record I committed earlier this run was missing a required field, and the program's check forbids editing committed records, so I amended that unpushed commit (decision D0065). The jobs were submitted from the commit before the amend, which I kept on its own branch so their record still points to existing code.",
+   "result": "Running; no results yet.",
+   "takeaway": "To be collected next run; this gives the audit that counts."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "Collect the fixed-code pilot and, if survival and audit hold, run the bulk-physics check against the engine without the method at the conditions where it runs.",
+   "rationale": "That is the next referee test for this method; survival and audit alone don't show the physics is unchanged."
+  },
+  {
+   "direction": "Find out why riding spheres are almost never released at the scheduled phase.",
+   "rationale": "Thousands of captures and at most four scheduled releases per run means clusters are broken up only by hits. If clusters hold through the free-flight part of the cycle, the method could change the physics, which the bulk-physics check would show."
+  },
+  {
+   "direction": "Look at the count of root-search limit hits (up to about a million per run at Gamma 5).",
+   "rationale": "Each one triggers a re-prediction; it is probably the main cost at Gamma 5, where the deep runs managed only six to fourteen cycles in a quarter CPU-hour."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 498.5,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-23T21:19:00Z",
+  "actual_start": "2026-11-23T21:19:48Z",
+  "ended": "2026-11-23T22:00:01Z",
+  "interruptions": [],
+  "cpu_hours": 1.0,
+  "cores_available": 37,
+  "disk_free_gb": {
+   "start": 94,
+   "end": 94
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0098",
+    "reason": "twelve Hatteras jobs (164950 to 164962) just submitted"
+   },
+   {
+    "experiment_id": "E0094",
+    "reason": "four Hatteras jobs (164936, 164937, 164940, 164941) still running; survival only"
+   }
+  ],
+  "limits_hit": "Ran on the Linux container, not Chris's Mac (no caffeinate, ps, pmset or uptime; sleep can't be checked). The six deep local runs got about 44% of a core each, so three of them reached the quarter-CPU-hour cap after six to fourteen cycles instead of twenty. At most ten local processes ran at once. CPU (1.0 hours) is the sum of the referee's measured CPU seconds, excluding compilation. Some ledger timestamps I wrote this run are a few minutes later than the clock (registrations E0096 to E0098 say 21:36 but were written about 21:24, before their runs began; the E0097 outcome and the line note likewise); D0064 records the registration one."
+ }
+}

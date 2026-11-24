@@ -1,0 +1,955 @@
+{
+ "experiment_id": "E0097",
+ "line_id": "L0019",
+ "artifact": "A0114",
+ "engine": "method/ride 7ae3349",
+ "machine": "Linux container (trident); the six processes got about 44% of a core each",
+ "setup": "referee/long_contact.py via tools/lc_counters.py (counters appended after every cycle; final counters written at the CPU cap), SEQUEL_V_CAPTURE=1e-4, 2D, width 100, N = 100 x depth, seed 1, 20 cycles, --max-cpu-hours 0.25",
+ "reading": "Counters are cumulative. 'cycles_completed' in each per-cycle row is the number of cycles finished when the row was written.",
+ "conditions": {
+  "g3.5_f0.3_d15": {
+   "outcome": "completed",
+   "cycles_completed": 20,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.7738776563521984e-14,
+   "energy_gains": 0,
+   "cpu_seconds": 101.027683749,
+   "log_last_line": "completed 20 cycles; 0 slow episodes; energy audit clean (worst residual 3.8e-14); 318 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.3_d15",
+   "counters_at_end": {
+    "C_CAPTURE": 946,
+    "C_SCAPTURE": 17,
+    "C_RELEASE": 2,
+    "C_CASCADE": 3,
+    "C_ROOTLIM": 38798,
+    "cycle_index_at_end": 20,
+    "EN_SNAP": -9.497466167926481e-14
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 245,
+     "C_SCAPTURE": 5,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 10049
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 934,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 934,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 934,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 934,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 934,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 7,
+     "C_CAPTURE": 935,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 8,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 9,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 10,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 11,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 12,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 13,
+     "C_CAPTURE": 936,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 14,
+     "C_CAPTURE": 937,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 15,
+     "C_CAPTURE": 938,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 16,
+     "C_CAPTURE": 938,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 17,
+     "C_CAPTURE": 938,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 18358
+    },
+    {
+     "cycles_completed": 18,
+     "C_CAPTURE": 945,
+     "C_SCAPTURE": 17,
+     "C_RELEASE": 2,
+     "C_CASCADE": 3,
+     "C_ROOTLIM": 38798
+    },
+    {
+     "cycles_completed": 19,
+     "C_CAPTURE": 946,
+     "C_SCAPTURE": 17,
+     "C_RELEASE": 2,
+     "C_CASCADE": 3,
+     "C_ROOTLIM": 38798
+    },
+    {
+     "cycles_completed": 20,
+     "C_CAPTURE": 946,
+     "C_SCAPTURE": 17,
+     "C_RELEASE": 2,
+     "C_CASCADE": 3,
+     "C_ROOTLIM": 38798
+    }
+   ]
+  },
+  "g3.5_f0.5_d15": {
+   "outcome": "completed",
+   "cycles_completed": 20,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 5.244988239560755e-15,
+   "energy_gains": 0,
+   "cpu_seconds": 53.957165123,
+   "log_last_line": "completed 20 cycles; 0 slow episodes; energy audit clean (worst residual 5.2e-15); 197 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.5_d15",
+   "counters_at_end": {
+    "C_CAPTURE": 9,
+    "C_SCAPTURE": 1,
+    "C_RELEASE": 0,
+    "C_CASCADE": 0,
+    "C_ROOTLIM": 7942,
+    "cycle_index_at_end": 20,
+    "EN_SNAP": 4.972247411307915e-15
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 7,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 8,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 9,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 10,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 11,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 12,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 13,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 14,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 15,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 16,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 17,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 18,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 19,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    },
+    {
+     "cycles_completed": 20,
+     "C_CAPTURE": 9,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 7942
+    }
+   ]
+  },
+  "g5_f0.3_d10": {
+   "outcome": "cpu_budget",
+   "cycles_completed": 10,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.1064311368131486e-14,
+   "energy_gains": 0,
+   "cpu_seconds": 905.283044952,
+   "log_last_line": "stopped at the CPU budget after 10 cycles; 0 slow episodes; energy audit clean (worst residual 3.1e-14); 1771 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d10",
+   "counters_at_end": {
+    "C_CAPTURE": 6004,
+    "C_SCAPTURE": 1072,
+    "C_RELEASE": 1,
+    "C_CASCADE": 283,
+    "C_ROOTLIM": 1001529,
+    "cycle_index_at_end": 10,
+    "EN_SNAP": -7.097055804331434e-13
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 66,
+     "C_SCAPTURE": 8,
+     "C_RELEASE": 0,
+     "C_CASCADE": 7,
+     "C_ROOTLIM": 22425
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 66,
+     "C_SCAPTURE": 8,
+     "C_RELEASE": 0,
+     "C_CASCADE": 7,
+     "C_ROOTLIM": 22425
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 203,
+     "C_SCAPTURE": 13,
+     "C_RELEASE": 0,
+     "C_CASCADE": 9,
+     "C_ROOTLIM": 80136
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 211,
+     "C_SCAPTURE": 13,
+     "C_RELEASE": 0,
+     "C_CASCADE": 9,
+     "C_ROOTLIM": 80136
+    },
+    {
+     "cycles_completed": 7,
+     "C_CAPTURE": 241,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 0,
+     "C_CASCADE": 10,
+     "C_ROOTLIM": 84058
+    },
+    {
+     "cycles_completed": 8,
+     "C_CAPTURE": 245,
+     "C_SCAPTURE": 16,
+     "C_RELEASE": 1,
+     "C_CASCADE": 10,
+     "C_ROOTLIM": 84058
+    },
+    {
+     "cycles_completed": 9,
+     "C_CAPTURE": 831,
+     "C_SCAPTURE": 30,
+     "C_RELEASE": 1,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 109073
+    },
+    {
+     "cycles_completed": 10,
+     "C_CAPTURE": 831,
+     "C_SCAPTURE": 30,
+     "C_RELEASE": 1,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 109073
+    }
+   ]
+  },
+  "g5_f0.3_d15": {
+   "outcome": "completed",
+   "cycles_completed": 20,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.32912234130802e-14,
+   "energy_gains": 0,
+   "cpu_seconds": 565.110606507,
+   "log_last_line": "completed 20 cycles; 0 slow episodes; energy audit clean (worst residual 3.3e-14); 1258 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d15",
+   "counters_at_end": {
+    "C_CAPTURE": 6878,
+    "C_SCAPTURE": 202,
+    "C_RELEASE": 4,
+    "C_CASCADE": 43,
+    "C_ROOTLIM": 429643,
+    "cycle_index_at_end": 20,
+    "EN_SNAP": 4.701670265895631e-13
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 541,
+     "C_SCAPTURE": 19,
+     "C_RELEASE": 0,
+     "C_CASCADE": 6,
+     "C_ROOTLIM": 113327
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 557,
+     "C_SCAPTURE": 20,
+     "C_RELEASE": 3,
+     "C_CASCADE": 7,
+     "C_ROOTLIM": 114969
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 692,
+     "C_SCAPTURE": 24,
+     "C_RELEASE": 3,
+     "C_CASCADE": 8,
+     "C_ROOTLIM": 115121
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 693,
+     "C_SCAPTURE": 24,
+     "C_RELEASE": 3,
+     "C_CASCADE": 8,
+     "C_ROOTLIM": 115121
+    },
+    {
+     "cycles_completed": 7,
+     "C_CAPTURE": 725,
+     "C_SCAPTURE": 28,
+     "C_RELEASE": 3,
+     "C_CASCADE": 10,
+     "C_ROOTLIM": 161861
+    },
+    {
+     "cycles_completed": 8,
+     "C_CAPTURE": 725,
+     "C_SCAPTURE": 28,
+     "C_RELEASE": 3,
+     "C_CASCADE": 10,
+     "C_ROOTLIM": 161861
+    },
+    {
+     "cycles_completed": 9,
+     "C_CAPTURE": 768,
+     "C_SCAPTURE": 32,
+     "C_RELEASE": 3,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 10,
+     "C_CAPTURE": 768,
+     "C_SCAPTURE": 32,
+     "C_RELEASE": 3,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 11,
+     "C_CAPTURE": 782,
+     "C_SCAPTURE": 32,
+     "C_RELEASE": 3,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 12,
+     "C_CAPTURE": 782,
+     "C_SCAPTURE": 32,
+     "C_RELEASE": 3,
+     "C_CASCADE": 12,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 13,
+     "C_CAPTURE": 792,
+     "C_SCAPTURE": 33,
+     "C_RELEASE": 3,
+     "C_CASCADE": 13,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 14,
+     "C_CAPTURE": 792,
+     "C_SCAPTURE": 33,
+     "C_RELEASE": 3,
+     "C_CASCADE": 13,
+     "C_ROOTLIM": 169163
+    },
+    {
+     "cycles_completed": 15,
+     "C_CAPTURE": 836,
+     "C_SCAPTURE": 36,
+     "C_RELEASE": 3,
+     "C_CASCADE": 14,
+     "C_ROOTLIM": 169164
+    },
+    {
+     "cycles_completed": 16,
+     "C_CAPTURE": 836,
+     "C_SCAPTURE": 36,
+     "C_RELEASE": 3,
+     "C_CASCADE": 14,
+     "C_ROOTLIM": 169164
+    },
+    {
+     "cycles_completed": 17,
+     "C_CAPTURE": 872,
+     "C_SCAPTURE": 40,
+     "C_RELEASE": 3,
+     "C_CASCADE": 16,
+     "C_ROOTLIM": 194120
+    },
+    {
+     "cycles_completed": 18,
+     "C_CAPTURE": 872,
+     "C_SCAPTURE": 40,
+     "C_RELEASE": 3,
+     "C_CASCADE": 16,
+     "C_ROOTLIM": 194120
+    },
+    {
+     "cycles_completed": 19,
+     "C_CAPTURE": 4705,
+     "C_SCAPTURE": 121,
+     "C_RELEASE": 3,
+     "C_CASCADE": 29,
+     "C_ROOTLIM": 376306
+    },
+    {
+     "cycles_completed": 20,
+     "C_CAPTURE": 6878,
+     "C_SCAPTURE": 202,
+     "C_RELEASE": 4,
+     "C_CASCADE": 43,
+     "C_ROOTLIM": 429643
+    }
+   ]
+  },
+  "g5_f0.5_d10": {
+   "outcome": "cpu_budget",
+   "cycles_completed": 14,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 3.879613642285433e-14,
+   "energy_gains": 0,
+   "cpu_seconds": 938.232363585,
+   "log_last_line": "stopped at the CPU budget after 14 cycles; 0 slow episodes; energy audit clean (worst residual 3.9e-14); 1805 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d10",
+   "counters_at_end": {
+    "C_CAPTURE": 6652,
+    "C_SCAPTURE": 455,
+    "C_RELEASE": 0,
+    "C_CASCADE": 138,
+    "C_ROOTLIM": 1078744,
+    "cycle_index_at_end": 14,
+    "EN_SNAP": 1.809430882196856e-13
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 5,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 5,
+     "C_SCAPTURE": 1,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 17,
+     "C_SCAPTURE": 2,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 362
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 17,
+     "C_SCAPTURE": 2,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 362
+    },
+    {
+     "cycles_completed": 7,
+     "C_CAPTURE": 189,
+     "C_SCAPTURE": 11,
+     "C_RELEASE": 0,
+     "C_CASCADE": 1,
+     "C_ROOTLIM": 20772
+    },
+    {
+     "cycles_completed": 8,
+     "C_CAPTURE": 200,
+     "C_SCAPTURE": 11,
+     "C_RELEASE": 0,
+     "C_CASCADE": 1,
+     "C_ROOTLIM": 20885
+    },
+    {
+     "cycles_completed": 9,
+     "C_CAPTURE": 337,
+     "C_SCAPTURE": 15,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 27352
+    },
+    {
+     "cycles_completed": 10,
+     "C_CAPTURE": 337,
+     "C_SCAPTURE": 15,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 27352
+    },
+    {
+     "cycles_completed": 11,
+     "C_CAPTURE": 430,
+     "C_SCAPTURE": 15,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 28536
+    },
+    {
+     "cycles_completed": 12,
+     "C_CAPTURE": 432,
+     "C_SCAPTURE": 15,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 28562
+    },
+    {
+     "cycles_completed": 13,
+     "C_CAPTURE": 2268,
+     "C_SCAPTURE": 136,
+     "C_RELEASE": 0,
+     "C_CASCADE": 58,
+     "C_ROOTLIM": 391031
+    },
+    {
+     "cycles_completed": 14,
+     "C_CAPTURE": 2275,
+     "C_SCAPTURE": 136,
+     "C_RELEASE": 0,
+     "C_CASCADE": 58,
+     "C_ROOTLIM": 391127
+    }
+   ]
+  },
+  "g5_f0.5_d15": {
+   "outcome": "cpu_budget",
+   "cycles_completed": 6,
+   "slow_episodes": 0,
+   "audit_failures": [],
+   "worst_energy_residual": 2.464572500177673e-14,
+   "energy_gains": 0,
+   "cpu_seconds": 952.655196157,
+   "log_last_line": "stopped at the CPU budget after 6 cycles; 0 slow episodes; energy audit clean (worst residual 2.5e-14); 1818 s -> /Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d15",
+   "counters_at_end": {
+    "C_CAPTURE": 6134,
+    "C_SCAPTURE": 402,
+    "C_RELEASE": 4,
+    "C_CASCADE": 111,
+    "C_ROOTLIM": 1025100,
+    "cycle_index_at_end": 6,
+    "EN_SNAP": 1.0351840448559559e-13
+   },
+   "counters_after_each_cycle": [
+    {
+     "cycles_completed": 1,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 2,
+     "C_CAPTURE": 0,
+     "C_SCAPTURE": 0,
+     "C_RELEASE": 0,
+     "C_CASCADE": 0,
+     "C_ROOTLIM": 0
+    },
+    {
+     "cycles_completed": 3,
+     "C_CAPTURE": 68,
+     "C_SCAPTURE": 7,
+     "C_RELEASE": 0,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 3108
+    },
+    {
+     "cycles_completed": 4,
+     "C_CAPTURE": 71,
+     "C_SCAPTURE": 7,
+     "C_RELEASE": 2,
+     "C_CASCADE": 2,
+     "C_ROOTLIM": 3108
+    },
+    {
+     "cycles_completed": 5,
+     "C_CAPTURE": 967,
+     "C_SCAPTURE": 22,
+     "C_RELEASE": 2,
+     "C_CASCADE": 8,
+     "C_ROOTLIM": 62295
+    },
+    {
+     "cycles_completed": 6,
+     "C_CAPTURE": 1214,
+     "C_SCAPTURE": 26,
+     "C_RELEASE": 4,
+     "C_CASCADE": 9,
+     "C_ROOTLIM": 69634
+    }
+   ]
+  }
+ },
+ "output_files": {
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.3_d15/summary.json": {
+   "bytes": 769,
+   "sha256": "83307c6e543f1613e304965c8b8699dcb0089a897c8c6d6b8a9acfcf5f645f6d"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.3_d15/audit.json": {
+   "bytes": 7547,
+   "sha256": "8a501399c0128022e2e988185b34437cbc0e206dd24c008761ea142af21a0f94"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.3_d15/counters.json": {
+   "bytes": 870,
+   "sha256": "6f0be4cb56405904df093ed5c13263d0a66b84c88be24307101c631393afb162"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.3_d15/counters_by_cycle.jsonl": {
+   "bytes": 14570,
+   "sha256": "56822960493b3d8a41a56d537961a5843fbec101a01717383f92162d5fc7bf35"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.5_d15/summary.json": {
+   "bytes": 777,
+   "sha256": "5a9237339c7c60873ffddf7452fe61ea3b7d3797a081a15b00c11c825c39e2d8"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.5_d15/audit.json": {
+   "bytes": 7507,
+   "sha256": "aa595ec5ba3038ab98b3c75f959f07fb33373972623e867e592c1f7b085e3301"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.5_d15/counters.json": {
+   "bytes": 861,
+   "sha256": "299c8953a96bcd5ffad925a65fdc0a0e9ab1431e077f31fb80c78b91c56e1222"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g3.5_f0.5_d15/counters_by_cycle.jsonl": {
+   "bytes": 14379,
+   "sha256": "53bc26c9be9141b8b12f39457b1ad97becea71be174cca1f5e9f3a544e45c4f3"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d10/summary.json": {
+   "bytes": 771,
+   "sha256": "f94f771e9798386615775144610b911d886551ee8fd93e8443750ffcfa5d78b4"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d10/audit.json": {
+   "bytes": 3720,
+   "sha256": "e3731ffcc453afe6138991295379e0f5fe85a60294ea448af7e28a841db306e4"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d10/counters.json": {
+   "bytes": 890,
+   "sha256": "01ef08d1af7fc077e2c15aa835d60bed466781f4eae48eefa124b9ff585d42d3"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d10/counters_by_cycle.jsonl": {
+   "bytes": 7117,
+   "sha256": "810cfe77bbaf8b984216bac23287d8b0ab3dba11c0956b0d8cf2e35148d067be"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d15/summary.json": {
+   "bytes": 768,
+   "sha256": "cda65b87f18d2946f61df4f404a1d4d4d3a251fcdc9abf5af7aa028406b82969"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d15/audit.json": {
+   "bytes": 7580,
+   "sha256": "9374dfa1d182d4bfd8af6e278039ec81f759e05dda8f39001097ac6848dcf123"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d15/counters.json": {
+   "bytes": 875,
+   "sha256": "308f3656e4cc73bf2283adf0ae538cd7e3b221c5c650433fd90b41ff07f75d2d"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.3_d15/counters_by_cycle.jsonl": {
+   "bytes": 14476,
+   "sha256": "e8ac44cd47e2297ce6f96adde886618d257aa646da5e3eb1dec135ed1c335f9d"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d10/summary.json": {
+   "bytes": 780,
+   "sha256": "e3bde561ffbade73842fd6e394f3231b15c5e662ac5a2f5212a6534c037247c0"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d10/audit.json": {
+   "bytes": 5169,
+   "sha256": "47fed2e7f4b640d2ee06f3339c99e703f2d69db70689fc908f670e37758b234f"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d10/counters.json": {
+   "bytes": 884,
+   "sha256": "07638f8dc8d62c2252090a95c2faaa3ff15132dc8af947d92c2d4167b78abb75"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d10/counters_by_cycle.jsonl": {
+   "bytes": 9953,
+   "sha256": "22aa8dcf6f0b49999f050b6f5b05877d29768faa2cde1b7d6a9d33fea49d94ad"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d15/summary.json": {
+   "bytes": 769,
+   "sha256": "158c32dd10f8a7588c4a704ed3760168d6abf73f2e35b511b08b009a0b6dcff8"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d15/audit.json": {
+   "bytes": 2257,
+   "sha256": "d711ef4e5ddee2e0b310c1859be415ba6f3b69b0e5fdba32554807764c947751"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d15/counters.json": {
+   "bytes": 886,
+   "sha256": "0f32936c3b243153ddbb9fcac3de24d6569b62837dc249e7ca21e8fc9a8e47ad"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0097/g5_f0.5_d15/counters_by_cycle.jsonl": {
+   "bytes": 4240,
+   "sha256": "3af3b0a5e035c0325f8324c5d5d440b883692e691d00d3e26c1cd4b7757f3737"
+  }
+ }
+}

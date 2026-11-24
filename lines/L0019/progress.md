@@ -135,10 +135,11 @@ A0098 (`program fetch A0098:engine/granular`).
 
 Commits on this machine's `method/ride`:
 - 4d6c4e0: ride v1, recovered (same files as the Mac's 0600773)
-- 3380eb3: ride v2, sphere-on-sphere capture (D0059), capture booking in
-  audited terms (D0060)
-- 06be1f7: root-search iteration limit re-predicts instead of returning
-  no-contact (D0061), counter C_ROOTLIM
+- 3380eb3: ride v2, sphere-on-sphere capture (D0059), capture booking (D0060)
+- 06be1f7: root-search iteration limit re-predicts (D0061), counter C_ROOTLIM
+- 7ae3349: plate captures booked once (3380eb3/06be1f7 booked them twice,
+  D0063 corrects D0060); after_unstick capture snap booked in EN_SNAP.
+  Motion identical to 06be1f7 (E0096).
 
 The Mac's af09367/0600773 may still exist there; if both machines' branches
 meet, this one descends from main 11e1590, not from af09367.
@@ -154,35 +155,55 @@ doesn't report ride counters; read `sim.cnt` (C_CAPTURE, C_SCAPTURE,
 C_RELEASE, C_CASCADE, C_ROOTLIM) from a direct `Simulation` run.
 Hatteras commands must use `--outdir $ROBOROBO_OUT/run`.
 
-## Status (Nov 23)
+## Status (Nov 23, run 3, jobs collected)
 
-v2 built, frozen tests pass. E0093 (local, 20 cycles, 12 conditions):
-sphere-on-sphere capture fired 0 times at every condition that ended
-(once in the pre-fix build). Plate capture fires at depth 10 (45 at
-Gamma 3.5 f* 0.3). Deep stalls remain (Gamma 3.5 f* 0.3 d15 cycle 1,
-Gamma 5 f* 0.3 d15 cycle 3); four deep conditions neither ended nor
-finished in 600 s. The method does not act where it is needed yet.
-
-E0092 (v1 pilot, six jobs labelled E0091): all failed in 29 s on the
-existing output folder. No data. B0006 resolved.
+- E0098 (7ae3349, fixed audit, Hatteras), 8 of 12 ended (A0115-A0122):
+  all completed 120 cycles, every cycle's audit clean (worst 2.8e-13, no
+  gains, no slow episodes): Gamma 3.5 all six; Gamma 5 f* 0.3 d15; Gamma 5
+  f* 0.5 d5. Evidence: `evidence/E0098-interim.json`.
+- Still running, all past the unmodified stall cycle, clean so far:
+  G5 f0.3 d5 (164950) at cycle 52, in slow episodes near phase 0.94, each
+  50000-event chunk about 45 CPU-s; G5 f0.3 d10 (164951) at cycle 40;
+  G5 f0.5 d10 (164954) and d15 (164955) at cycle 10. The last three record
+  nothing between cycles unless a slow episode is open, so "no new cycle
+  for 20-50 min" means either crawling just above the slow threshold or
+  hung inside one `run_to` call. The referee checks the CPU cap only when
+  `run_to` returns: a cap stop (outcome cpu_budget) means crawling; a Slurm
+  TIMEOUT at 4 h with no cap stop means a hang.
+- Every E0098 job matches its E0094 twin (06be1f7) cycle for cycle on
+  Hatteras (energy change and events per particle), all 12 conditions. The
+  E0094 twins started 40 min earlier and sit at the same cycles, so they
+  show first how the four end (E0094 164936 was at 5550 of 7200 CPU-s at
+  22:23 UTC).
+- Scheduled releases: 0 in all eight finished runs (captures up to 1106 plate,
+  47 sphere). The checker sampled 40 phases per cycle and found riders are
+  knocked off quickly, not held through free flight.
+- Hatteras and this machine don't follow the same trajectory (G5 f0.5 d10
+  cycle 1: 298 vs 291 events per particle, same settings except run length
+  and cap). Not explained. A Hatteras crawl can't be reproduced locally by
+  rerunning; use a checkpoint (`--input`) instead.
+- Earlier (run 2): audit fix verified (E0096), sphere capture fires at all
+  six deep conditions (E0097), E0094's audit invalid, survival valid.
 
 ## Next
 
-1. Collect E0094.
-2. Find why sphere capture doesn't fire near stalls: log every
-   free-on-riding contact (closing speed, normal z, plate acceleration)
-   in a stalling run. Candidates: the bottom sphere of a pressed pair is
-   not riding (its plate hits stay above 1e-4); closing speeds at
-   sphere contacts stay above 1e-4; the contact is with a free sphere
-   resting on a free sphere (no rider in the chain).
-3. Audit residual 8e-8 at Gamma 5 f* 0.3 d5 cycle 17 (first build): check
-   whether the snap term (EN_SNAP, unaudited) or a missed booking causes it.
+1. Collect the four E0098 jobs and the four E0094 twins. Write E0098's
+   outcome (registration: falsified if v2 fails earlier than the unmodified
+   engine where that engine completes 120 cycles (it didn't, at all 5), or any
+   audit failure (none so far)). State how each cap stop or timeout is read.
+2. If they crawl or hang at Gamma 5: diagnose on Hatteras from the cycle-50 /
+   cycle-10 / cycle-40 checkpoint (`checkpoint.npz` in the run folder,
+   `--input` of the ended artifact). C_ROOTLIM is large at Gamma 5 (326548
+   at f* 0.3 d15): suspect the root-search re-predict path (D0061).
+3. If E0098 is clean: bulk-physics check where the unmodified engine runs
+   (not asked yet).
+4. Run `program check` before every commit (checker, D0065).
 
 ## Jobs in flight
 
-E0094 on Hatteras (ride v2 06be1f7, 120 cycles, seed 1, 2 CPU-h cap):
-- 164936-164941: Gamma 5; f* 0.3 depths 5, 10, 15; f* 0.5 depths 5, 10, 15
-- 164942-164947: Gamma 3.5; same order
+E0098 on Hatteras (ride v2 7ae3349, 120 cycles, seed 1, 2 CPU-h cap,
+Slurm 4 h): 164950 (G5 f0.3 d5), 164951 (G5 f0.3 d10), 164954 (G5 f0.5
+d10), 164955 (G5 f0.5 d15). Collected: 164952, 164953, 164957-164962.
 
-E0092 jobs 164696-164701 (labelled E0091): failed, recorded, nothing to
-collect.
+E0094 still running (same motion, survival only): 164936 (G5 f0.3 d5),
+164937 (G5 f0.3 d10), 164940 (G5 f0.5 d10), 164941 (G5 f0.5 d15).

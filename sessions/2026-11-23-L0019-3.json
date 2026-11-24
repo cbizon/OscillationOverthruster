@@ -1,0 +1,63 @@
+{
+ "date": "2026-11-23",
+ "line_id": "L0019",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "Started because eight of the twelve 120-cycle Hatteras runs of the ride method (with the corrected energy books) finished. All eight completed 120 cycles with a clean energy audit in every cycle, including three conditions where the engine without the method stalls in cycle 1 or 3. The four remaining Gamma 5 runs are past the unmodified engine's stall cycle and clean so far, but have stopped completing cycles; how they end is still open.",
+ "experiments": [
+  {
+   "experiment_id": "E0098",
+   "question": "Does ride v2, with the energy books fixed, run 120 cycles at more of the twelve 2D grid conditions than the engine without the method, with a clean energy audit?",
+   "what_was_done": "Collected the eight finished Hatteras jobs and read the latest progress files of the four still running. Compared each job cycle by cycle with its twin from the earlier run on the code before the booking fix. No new runs.",
+   "result": "Eight conditions completed all 120 cycles: all six at Gamma 3.5 and two at Gamma 5 (f* 0.3 depth 15, f* 0.5 depth 5). Every cycle of every run passes the audit, with the worst energy mismatch about three parts in ten trillion, no collision gaining energy and no slow stretches. Three of these conditions stall in cycle 1 or 3 without the method. The other four Gamma 5 conditions are past the cycle where the engine without the method stalls, but had stopped completing cycles: f* 0.3 depth 5 in very slow stretches near the end of cycle 52; f* 0.3 depth 10 at cycle 40; f* 0.5 depths 10 and 15 at cycle 10, with no new cycle for 20 to 50 minutes. Each job matches its twin on the old code exactly, so the booking fix did not change the motion on Hatteras either. No rider was released at the scheduled phase in any finished run.",
+   "takeaway": "At Gamma 3.5 the method now survives 120 cycles everywhere with a clean audit, and so do two of the Gamma 5 conditions. Whether it survives at the other four Gamma 5 conditions is not known yet. The results are interim: the outcome is not written until the last four jobs end."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "When the four Gamma 5 jobs end, tell crawling from a hang from how they end: a stop at the 2 CPU-hour cap means crawling, a 4-hour Slurm timeout without a cap stop means stuck inside one event-loop call. Then diagnose on Hatteras from the latest checkpoint, starting with the root-search limit path, which fires hundreds of thousands of times at Gamma 5.",
+   "rationale": "These four conditions are the ones that decide whether the method meets the survival part of the referee's long-contact test. Hatteras and this machine don't follow the same trajectory, so the stuck cycle can only be reproduced there."
+  },
+  {
+   "direction": "If the four end cleanly, run the bulk-physics check against the engine without the method at the five conditions where it runs.",
+   "rationale": "It is the next referee test. Survival and the audit don't show that the physics is unchanged."
+  },
+  {
+   "direction": "Find out why this machine and Hatteras give different trajectories from cycle 1 with the same settings.",
+   "rationale": "It affects whether local checks can stand in for Hatteras runs, which earlier sessions assumed."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 499.1,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "decisions_needing_you": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-23T22:21:00Z",
+  "actual_start": "2026-11-23T22:21:03Z",
+  "ended": "2026-11-23T22:27:26Z",
+  "interruptions": [],
+  "cpu_hours": 0.62,
+  "cores_available": 34,
+  "disk_free_gb": {
+   "start": 93,
+   "end": 93
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0098",
+    "reason": "four Hatteras jobs (164950, 164951, 164954, 164955) still running at Gamma 5; not completing cycles when last collected"
+   },
+   {
+    "experiment_id": "E0094",
+    "reason": "four Hatteras jobs (164936, 164937, 164940, 164941) still running, same motion as the E0098 four; survival only"
+   }
+  ],
+  "limits_hit": "none. This ran on the Linux container, not Chris's Mac (no uptime, pmset, ps or free), so sleep can't be checked. Cores available are from /proc/loadavg (load 6.1 on 40 cores). The CPU hours are the eight ended E0098 jobs' Slurm records (0.623 h); no local computation was run. The weekly figure adds them to the previous summary's 498.5."
+ }
+}

@@ -1,0 +1,632 @@
+{
+ "experiment_id": "E0096",
+ "line_id": "L0019",
+ "artifact": "A0113",
+ "machine": "Linux container (trident), 40 cores; not Chris's Mac",
+ "commits": {
+  "fixed": "method/ride 7ae3349",
+  "old": "method/ride 06be1f7 (the E0094 commit)"
+ },
+ "frozen_tests_7ae3349": "74 passed (run from the worktree with main's env, as in progress.md)",
+ "setup": "referee/long_contact.py via tools/lc_counters.py, SEQUEL_V_CAPTURE=1e-4, 2D, width 100, seed 1, 20 cycles",
+ "acted": "Per-frame bulk quantities (quantities.npz, every array) and events per particle per cycle are identical between the two commits at both conditions. The audit's plate terms differ beyond round-off only in cycles with plate captures (Gamma 5 f* 0.3 d5: cycle 17; Gamma 3.5 f* 0.3 d10: cycles 1 and 2, relative 1.1e-7 and 2.7e-6 in plate work). Cycles 3 and 11 at Gamma 3.5 differ by 2e-16 relative (round-off from the shifted cumulative sum).",
+ "conditions": {
+  "g5_f0.3_d5": {
+   "quantities_identical": true,
+   "events_per_particle_identical": true,
+   "cycles": [
+    20,
+    20
+   ],
+   "first_cycle_where_audit_terms_differ": 17,
+   "cycles_with_captures": [
+    17
+   ],
+   "cycles_where_terms_differ": [
+    17
+   ],
+   "total_plate_captures": 19,
+   "sphere_captures": 1,
+   "en_snap_fixed": 7.012130311373855e-15,
+   "old_audit_failures": [
+    17
+   ],
+   "fixed_audit_failures": [],
+   "old_worst": [
+    7.985970778244145e-08,
+    5.131278743588459e-08
+   ],
+   "fixed_worst": [
+    2.3184117926724268e-14,
+    3.653648130218118e-15
+   ],
+   "fixed_energy_gains": 0,
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -7.348102604614538e-17,
+     "fixed_energy_residual": -7.348102604614538e-17,
+     "old_momentum_residual": 3.562038026062807e-17,
+     "fixed_momentum_residual": 3.562038026062807e-17,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 2,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.643570069454662e-16,
+     "fixed_energy_residual": -1.643570069454662e-16,
+     "old_momentum_residual": 9.338235973008363e-17,
+     "fixed_momentum_residual": 9.338235973008363e-17,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 3,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 1.7839504083615645e-16,
+     "fixed_energy_residual": 1.7839504083615645e-16,
+     "old_momentum_residual": 3.1172740023994424e-16,
+     "fixed_momentum_residual": 3.1172740023994424e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 4,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.1611132236593653e-15,
+     "fixed_energy_residual": -1.1611132236593653e-15,
+     "old_momentum_residual": -1.7865202944080824e-16,
+     "fixed_momentum_residual": -1.7865202944080824e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 5,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -8.462902652796065e-16,
+     "fixed_energy_residual": -8.462902652796065e-16,
+     "old_momentum_residual": 4.219932526510033e-17,
+     "fixed_momentum_residual": 4.219932526510033e-17,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 6,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -3.9708436090072704e-15,
+     "fixed_energy_residual": -3.9708436090072704e-15,
+     "old_momentum_residual": 6.344254087846824e-16,
+     "fixed_momentum_residual": 6.344254087846824e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 7,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 1.4462467276208394e-16,
+     "fixed_energy_residual": 1.4462467276208394e-16,
+     "old_momentum_residual": -3.3435591970258255e-16,
+     "fixed_momentum_residual": -3.3435591970258255e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 8,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -7.064368691868844e-15,
+     "fixed_energy_residual": -7.064368691868844e-15,
+     "old_momentum_residual": 2.1274501480220557e-16,
+     "fixed_momentum_residual": 2.1274501480220557e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 9,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.8536362247225574e-16,
+     "fixed_energy_residual": -1.8536362247225574e-16,
+     "old_momentum_residual": 5.378488603934225e-16,
+     "fixed_momentum_residual": 5.378488603934225e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 10,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.7293199918023136e-14,
+     "fixed_energy_residual": -1.7293199918023136e-14,
+     "old_momentum_residual": 8.046262216983795e-16,
+     "fixed_momentum_residual": 8.046262216983795e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 11,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -3.979376936991756e-16,
+     "fixed_energy_residual": -3.979376936991756e-16,
+     "old_momentum_residual": -7.762014513780631e-16,
+     "fixed_momentum_residual": -7.762014513780631e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 12,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 7.295822679786972e-15,
+     "fixed_energy_residual": 7.295822679786972e-15,
+     "old_momentum_residual": 4.595623941382884e-16,
+     "fixed_momentum_residual": 4.595623941382884e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 13,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 1.01644006507216e-15,
+     "fixed_energy_residual": 1.01644006507216e-15,
+     "old_momentum_residual": -1.1990030451999358e-15,
+     "fixed_momentum_residual": -1.1990030451999358e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 14,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 2.9449321794109938e-15,
+     "fixed_energy_residual": 2.9449321794109938e-15,
+     "old_momentum_residual": 1.6293746589764037e-15,
+     "fixed_momentum_residual": 1.6293746589764037e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 15,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.6805156140764162e-15,
+     "fixed_energy_residual": -1.6805156140764162e-15,
+     "old_momentum_residual": -5.314536651343975e-16,
+     "fixed_momentum_residual": -5.314536651343975e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 16,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -7.316905733671411e-15,
+     "fixed_energy_residual": -7.316905733671411e-15,
+     "old_momentum_residual": 2.115254980675967e-15,
+     "fixed_momentum_residual": 2.115254980675967e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 17,
+     "plate_captures_this_cycle": 19,
+     "plate_work_differs": true,
+     "old_energy_residual": -7.985970778244145e-08,
+     "fixed_energy_residual": -1.0611779301385691e-15,
+     "old_momentum_residual": -5.131278743588459e-08,
+     "fixed_momentum_residual": 1.7838564537045804e-15,
+     "old_passes": false,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 18,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -6.033714092765265e-15,
+     "fixed_energy_residual": -6.033714092765265e-15,
+     "old_momentum_residual": 2.395045067456768e-15,
+     "fixed_momentum_residual": 2.395045067456768e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 19,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.6668953474065675e-15,
+     "fixed_energy_residual": -1.6668953474065675e-15,
+     "old_momentum_residual": -3.653648130218118e-15,
+     "fixed_momentum_residual": -3.653648130218118e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 20,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 2.3184117926724268e-14,
+     "fixed_energy_residual": 2.3184117926724268e-14,
+     "old_momentum_residual": 2.3023457974382813e-16,
+     "fixed_momentum_residual": 2.3023457974382813e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    }
+   ]
+  },
+  "g3.5_f0.3_d10": {
+   "quantities_identical": true,
+   "events_per_particle_identical": true,
+   "cycles": [
+    20,
+    20
+   ],
+   "first_cycle_where_audit_terms_differ": 1,
+   "cycles_with_captures": [
+    1,
+    2
+   ],
+   "cycles_where_terms_differ": [
+    1,
+    2,
+    3,
+    11
+   ],
+   "total_plate_captures": 32,
+   "sphere_captures": 0,
+   "en_snap_fixed": 4.131139214453545e-15,
+   "old_audit_failures": [
+    1,
+    2
+   ],
+   "fixed_audit_failures": [],
+   "old_worst": [
+    2.342587081605895e-06,
+    7.89388232809343e-08
+   ],
+   "fixed_worst": [
+    7.892227521959087e-15,
+    3.3567864444560474e-15
+   ],
+   "fixed_energy_gains": 0,
+   "per_cycle": [
+    {
+     "cycle": 1,
+     "plate_captures_this_cycle": 19,
+     "plate_work_differs": true,
+     "old_energy_residual": -5.76859250893844e-08,
+     "fixed_energy_residual": 1.103776915847641e-15,
+     "old_momentum_residual": -4.826615511330323e-08,
+     "fixed_momentum_residual": 5.669550964813588e-16,
+     "old_passes": false,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 2,
+     "plate_captures_this_cycle": 13,
+     "plate_work_differs": true,
+     "old_energy_residual": -2.342587081605895e-06,
+     "fixed_energy_residual": 7.892227521959087e-15,
+     "old_momentum_residual": -7.89388232809343e-08,
+     "fixed_momentum_residual": -1.674458899084659e-16,
+     "old_passes": false,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 3,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": true,
+     "old_energy_residual": -3.990588787739035e-16,
+     "fixed_energy_residual": -2.894461395398699e-16,
+     "old_momentum_residual": -1.1664826377897398e-15,
+     "fixed_momentum_residual": -1.1664826377897398e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 4,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -8.019159348345768e-16,
+     "fixed_energy_residual": -8.019159348345768e-16,
+     "old_momentum_residual": -2.663398088669188e-16,
+     "fixed_momentum_residual": -2.663398088669188e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 5,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.7687345849948647e-15,
+     "fixed_energy_residual": -1.7687345849948647e-15,
+     "old_momentum_residual": 5.021512065063172e-16,
+     "fixed_momentum_residual": 5.021512065063172e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 6,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -5.676492700310716e-16,
+     "fixed_energy_residual": -5.676492700310716e-16,
+     "old_momentum_residual": 2.260683858328736e-16,
+     "fixed_momentum_residual": 2.260683858328736e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 7,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.4637925671940622e-15,
+     "fixed_energy_residual": -1.4637925671940622e-15,
+     "old_momentum_residual": 7.715020022463539e-17,
+     "fixed_momentum_residual": 7.715020022463539e-17,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 8,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 3.103395673786383e-16,
+     "fixed_energy_residual": 3.103395673786383e-16,
+     "old_momentum_residual": -1.1835197462181667e-15,
+     "fixed_momentum_residual": -1.1835197462181667e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 9,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.097657497436208e-15,
+     "fixed_energy_residual": -1.097657497436208e-15,
+     "old_momentum_residual": -4.336826527417011e-16,
+     "fixed_momentum_residual": -4.336826527417011e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 10,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -5.969279894961417e-16,
+     "fixed_energy_residual": -5.969279894961417e-16,
+     "old_momentum_residual": -5.216150181660367e-16,
+     "fixed_momentum_residual": -5.216150181660367e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 11,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": true,
+     "old_energy_residual": 3.119105405683015e-15,
+     "fixed_energy_residual": 2.1165358109991872e-15,
+     "old_momentum_residual": 4.0546322565309237e-17,
+     "fixed_momentum_residual": 4.0546322565309237e-17,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 12,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 6.30489202897533e-16,
+     "fixed_energy_residual": 6.30489202897533e-16,
+     "old_momentum_residual": 4.683464962636705e-16,
+     "fixed_momentum_residual": -2.45324355185732e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 13,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -7.14442792998754e-16,
+     "fixed_energy_residual": -7.14442792998754e-16,
+     "old_momentum_residual": -1.4280490759405409e-15,
+     "fixed_momentum_residual": -1.4280490759405409e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 14,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 7.070385540017535e-16,
+     "fixed_energy_residual": 7.070385540017535e-16,
+     "old_momentum_residual": -3.681174267818307e-16,
+     "fixed_momentum_residual": -3.681174267818307e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 15,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 2.9427984439655094e-15,
+     "fixed_energy_residual": 2.9427984439655094e-15,
+     "old_momentum_residual": 4.779873731084727e-16,
+     "fixed_momentum_residual": 4.779873731084727e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 16,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -2.8833347456558013e-16,
+     "fixed_energy_residual": -2.8833347456558013e-16,
+     "old_momentum_residual": 1.9765587557773764e-16,
+     "fixed_momentum_residual": 1.9765587557773764e-16,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 17,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -1.3091490003530442e-15,
+     "fixed_energy_residual": -1.3091490003530442e-15,
+     "old_momentum_residual": -2.1605445808540774e-15,
+     "fixed_momentum_residual": -2.1605445808540774e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 18,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": -3.258995315092635e-15,
+     "fixed_energy_residual": -3.258995315092635e-15,
+     "old_momentum_residual": -3.3567864444560474e-15,
+     "fixed_momentum_residual": -3.3567864444560474e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 19,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 7.279530247060235e-15,
+     "fixed_energy_residual": 7.279530247060235e-15,
+     "old_momentum_residual": -2.6701602053711097e-15,
+     "fixed_momentum_residual": -2.6701602053711097e-15,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    },
+    {
+     "cycle": 20,
+     "plate_captures_this_cycle": 0,
+     "plate_work_differs": false,
+     "old_energy_residual": 5.358269726710407e-16,
+     "fixed_energy_residual": 5.358269726710407e-16,
+     "old_momentum_residual": 0.0,
+     "fixed_momentum_residual": 0.0,
+     "old_passes": true,
+     "fixed_passes": true,
+     "fixed_gains": 0
+    }
+   ]
+  }
+ },
+ "output_files": {
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g5_f0.3_d5/counters_by_cycle.jsonl": {
+   "bytes": 13520,
+   "sha256": "cca721c30d75b2bd5111991b75d5d4379df7fe2f95d1e087a90c0cead216e9ec"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g5_f0.3_d5/audit.json": {
+   "bytes": 7428,
+   "sha256": "32b18c18fdf72aabc29029c21871f8587ffd35da074e2bf9c28909de4e2ee589"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g5_f0.3_d5/summary.json": {
+   "bytes": 770,
+   "sha256": "386d4c33a5acbf348d8c0c9be5361a70309d0847f89642b7551c03ba66579665"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g5_f0.3_d5/counters.json": {
+   "bytes": 849,
+   "sha256": "78da9c2c12d95226aa1c9d375bc68f44b968b5429b5681b5e6d9714d28b71524"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g5_f0.3_d5/counters_by_cycle.jsonl": {
+   "bytes": 13521,
+   "sha256": "9e98425fa8c9611660b881f4a4a487a114e742a48108a7ef2b3a7fbf0fcd62db"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g5_f0.3_d5/audit.json": {
+   "bytes": 7430,
+   "sha256": "8042dd2870d713db9d389d7d9acd826db76d13ee416b0a2398b3a4b9c5b86ad9"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g5_f0.3_d5/summary.json": {
+   "bytes": 766,
+   "sha256": "ef0e3081bdb797f4bd8d3048f1b8975e8e682cc17533f5d068e1dc0300a619a7"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g5_f0.3_d5/counters.json": {
+   "bytes": 850,
+   "sha256": "058ecf2b19db3c6c5d0f5b4b0679d329c1643b3f260cadf9925a71f7dff6e8da"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g3.5_f0.3_d10/counters_by_cycle.jsonl": {
+   "bytes": 14315,
+   "sha256": "c1ee740f301d9680684e52d8f2cb949ef6844fa75e0581218acd21db7728cd10"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g3.5_f0.3_d10/audit.json": {
+   "bytes": 7389,
+   "sha256": "50c186e0ab8dfca9ca568c860853291ec8daf27e6e8a6b8cfb3df8ecc312be38"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g3.5_f0.3_d10/summary.json": {
+   "bytes": 771,
+   "sha256": "cdb03274175d653b4f476d2fd231a504b0a6abda6932abd8f49673786ee236d5"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/old_g3.5_f0.3_d10/counters.json": {
+   "bytes": 858,
+   "sha256": "39ffe9d71fbec93e35fb06330704e6dacc142bb6703e60f52682e1e68b35f988"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g3.5_f0.3_d10/counters_by_cycle.jsonl": {
+   "bytes": 14309,
+   "sha256": "486d5585b818196d774c0b29853c6510e4e21da96c8f766603c7ec65640ac171"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g3.5_f0.3_d10/audit.json": {
+   "bytes": 7389,
+   "sha256": "f1efbbd0f424d9c546c6fc3fad848b74d0f009256b13d2b946caafcf8b66328a"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g3.5_f0.3_d10/summary.json": {
+   "bytes": 773,
+   "sha256": "3c3d71a1b0caf37964d32f39f9e294626f2dbd52736550a84bb5da33c8c919a3"
+  },
+  "/Users/bizon/Projects/experiments/sequel-data/runs/E0096/fixed_g3.5_f0.3_d10/counters.json": {
+   "bytes": 860,
+   "sha256": "c6af15433eaeb32d77fade8c07176922171c3732ac1461d0950da74ce2349e58"
+  }
+ }
+}
