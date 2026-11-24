@@ -1,4 +1,5 @@
 {
+ "superseded": "2026-11-24 (L0015 run 3): the columns events_per_particle_cycle, plate_collisions_per_particle_cycle, cpu_microseconds_per_event, pair_checks_per_event and root_calls_per_event in this file are loop running totals (counters carried in checkpoints since the loop began), not per-step values. Use evidence/E0089-step-table.json. cpu_seconds, cpu_seconds_per_cycle, outcomes, cycles, audit and ball-model columns are unaffected.",
  "experiment_id": "E0089",
  "line_id": "L0015",
  "status": "interim: one of eight loops ended (f* 0.57); seven still running on Hatteras",

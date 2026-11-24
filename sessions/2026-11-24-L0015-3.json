@@ -1,0 +1,81 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because two more nudge loops ended: f* 0.84 stopped at Gamma 4.6 and f* 0.38 at 4.55, both on their 48 CPU-hour step cap, so four of eight loops have now stopped without getting above Gamma 4.6. Following the checker, the per-step collision counts were recomputed. The saved counters had been running totals for the whole loop. With the corrected counts, the cost wall comes from more events per cycle, not from dearer events: on one machine, CPU per event stays within 3% while events per cycle rise five to nine times in the last step.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Can the nudge loops continue above the wall near Gamma 4.5 and reach 5.0 and above, and does their cost fall again there as the inelastic ball model predicts?",
+   "what_was_done": "Collected the loops at f* 0.38 and f* 0.84 when their cluster jobs ended. Rebuilt the step-by-step table for all four ended loops (f* 0.33, 0.38, 0.57, 0.84) from Gamma 4.3 up, taking each step's counts as the difference from the previous step's.",
+   "result": "The f* 0.84 loop finished Gamma 4.55 and stopped on the cap at 4.6 after 24 of 25 cycles, at about 7,200 CPU-seconds a cycle. The f* 0.38 loop stopped one step earlier, at Gamma 4.55, after 14 of 25 cycles, at about 12,300 CPU-seconds a cycle. Both jobs used about 58 CPU-hours, and both energy audits were clean. In the step where each of the four loops stopped, events per particle per cycle were 4.9 to 8.9 times those of the step before (about 30,000 to 50,000, against about 1,350 to 1,800 at Gamma 4.5). Plate collisions per cycle were 6 to 14 times their Gamma 4.5 level. CPU per event changed by at most 3% between those two steps on the cluster.",
+   "takeaway": "No loop has got above Gamma 4.6, so the part of the experiment that expected the loops to finish above Gamma 5.0 has failed at all four ended frequencies. Whether the cost falls again above 4.6 is still untested. The rise in cost is a rise in the number of collisions per cycle, which is physics the inelastic ball model can be compared with. It is not the code getting slower per collision."
+  },
+  {
+   "experiment_id": "E0089",
+   "question": "(Checker, Nov 24, second review.) Are the per-step collision counts in the earlier tables right?",
+   "what_was_done": "Confirmed that the saved counters carry over from step to step: each step starts from a copy of the previous step's saved state, and the referee divides the total counter by that step's cycles. Wrote a small tool that differences consecutive steps, and checked it against the checker's corrected figures.",
+   "result": "The checker's figures reproduce exactly. For example, at f* 0.33, events per particle per cycle are about 1,780, 6,200 and 37,600 at Gamma 4.5, 4.55 and 4.6, where the earlier table said about 14,000, 20,200 and 61,600. The earlier corrected ratio from Gamma 4.5 to 4.55 (1.34 times at f* 0.57) was wrong. The true ratio is 3.2 times (3.5 at f* 0.33). The cluster costs 1.6 to 2.0 times more CPU per event than the Mac. The earlier tables are marked superseded, the wall-analysis file is annotated where it had the same error, and the earlier observation that CPU per event grows several times toward the wall is withdrawn.",
+   "takeaway": "Per-step counts from this program's loops must always be taken as differences between steps. Other lines that use the same ramp tool may have the same error in their tables."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The referee's 'events per particle per cycle' in each step's summary counts every event since the loop began, not just that step's, whenever a loop step starts from the previous step's saved state (as all loops here do). Do you want the referee changed to report the step's own rate, or should every line keep taking differences between steps?",
+   "why_it_matters": "Any line reading that number from loop steps gets a figure that mixes in all earlier steps. It made the wall look like slower collisions when it is more collisions.",
+   "default_if_unanswered": "This line takes differences between consecutive steps (tools/e0089_step_table.py) and never uses the referee's number directly. Tables from other lines are not touched."
+  },
+  {
+   "question": "(Still open from the earlier run today.) budgets.yaml limits CPU to 100 hours 'per run'. Does a run mean one cluster job (one whole nudge loop at one frequency) or one Gamma step of a loop?",
+   "why_it_matters": "Under the job reading, no nudge loop can get past Gamma 4.6: each has used 55 to 98 CPU-hours by the time its 4.6 step ends.",
+   "default_if_unanswered": "Treat a run as one job. On Nov 26 at 08:00 UTC, cancel any loop that has gone past its current step (D0072)."
+  },
+  {
+   "question": "(Repeated; now four loops agree.) When all eight loops have stopped, should I (a) give the loops more than 48 CPU-hours a step from Gamma 4.6 to 5.0, or (b) run a cheaper test: start from the saved Gamma 4.6 state and run a few cycles at each Gamma from 4.65 to 5.0, to see whether the cost falls as the inelastic ball model predicts?",
+   "why_it_matters": "It decides whether the nudge is measured above Gamma 4.6 at all. Option (a) could cost several hundred CPU-hours per loop.",
+   "default_if_unanswered": "Option (b) at one or two frequencies, registered as a new experiment and kept under 100 CPU-hours per job."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state at one or two frequencies, a few cycles each at 4.65, 4.7, 4.8 and 5.0.",
+   "rationale": "It tests the one untested prediction (the cost falls again above 4.6) for tens of CPU-hours instead of hundreds."
+  },
+  {
+   "direction": "Other lines that run loops with tools/ramp.py (for example L0018's baseline loops) should check whether their per-step event counts are running totals.",
+   "rationale": "The same carry-over affects every loop started from saved states; this line found it in its own tables and in one wall-analysis table."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 790.01,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 58.11,
+   "limit": 100
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T15:45:08Z",
+  "actual_start": "2026-11-24T16:06:22Z",
+  "ended": "2026-11-24T16:16:00Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 35,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "Four loops still running on Hatteras, all in their Gamma 4.6 step (f* 0.44, 0.50, 0.65, 0.74). Each ends on its own; a timer on Nov 26 08:00Z enforces the per-run limit (D0072)."
+   }
+  ],
+  "limits_hit": "The registered cap of 48 CPU-hours per step stopped the f* 0.38 loop at Gamma 4.55 and the f* 0.84 loop at 4.6. The machine did not limit the science. This host runs Linux: pmset and uptime are unavailable, so sleep and wake were not measured. cores_available comes from /proc/loadavg (2.64 on 40 cores at the start). scheduled_start is when the later of the two jobs ended (164662, 15:45:08Z; 164656 ended 15:38:19Z). Local CPU use was negligible (reading mirrored files). Budget: the weekly total is 790.01 of 10,000 CPU-hours (8%, under 50%): 673.97 reported earlier today plus 57.92 and 58.11 for the two jobs. cpu_hours_per_run gives the largest ended job (f* 0.84, 58.11 of 100). B0008 was listed open in the previous summary by mistake; it was resolved at 06:12Z today, and no blocker is open. The D0072 wake for Nov 26 08:00Z was set again in this run because the checker could not confirm the first; the service accepted it."
+ }
+}

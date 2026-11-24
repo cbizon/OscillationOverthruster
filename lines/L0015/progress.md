@@ -14,98 +14,110 @@
 
 - **E0085 (wall analysis):** The period-2 is documented at f* 0.44 and
   0.84. CPU per cycle doubles between 4.4 and 4.45 and again between 4.45
-  and 4.5 at f* 0.44. The spatial pattern disappears by Gamma 4.4.
+  and 4.5 at f* 0.44. The spatial pattern disappears by Gamma 4.4. (Its
+  `cpu_and_events_at_wall` events column is a running total; noted in the
+  file.)
 
 - **E0088 (inelastic ball model):** Computed at all ten frequencies,
   Gamma 3.0 to 7.0. The model is frequency-independent. Period-2 onset at
   Gamma 3.7, both landings soft at 4.6 (impact 0.25 and 0.73 g/omega),
   period-1 returns at 4.65 (impact 1.59), impact back to 6.5 by 5.0.
   The stuck fraction peaks at 0.47 at 4.6 and drops to 0.27 by 5.0.
-  Prediction: cost peaks near 4.6 and drops back by 5.0.
+  Prediction: cost peaks near 4.6 and drops back by 5.0. (Uses CPU only;
+  not affected by the running-total error.)
 
-- **E0089, f* 0.57 (job 164659, artifact A0176), ended Nov 24:** completed
-  Gamma 4.55 (980 CPU-s/cycle, Hatteras), then stopped at Gamma 4.6 on the
-  48 CPU-hour step cap after 23 of 25 cycles (7,514 CPU-s/cycle; 55.04
-  CPU-hours for the job). Exit 1 is by design (ramp.py ends the loop on the
-  first up-branch step that does not finish), not a crash; audit clean.
-  Plate collisions per particle per cycle 1,319 (4.5), 2,297 (4.55), 7,720
-  (4.6). Evidence `evidence/E0089-interim-f0.57.json` (table with
-  ball-model columns). The step-084 checkpoint (23 cycles at 4.6) is in
-  A0176 on Hatteras; continue_loop.sh as written would delete that
-  unfinished step and redo 4.6 from the 4.55 checkpoint.
+- **E0089, four of eight loops ended (Nov 24), all on the 48 CPU-hour step
+  cap.** Exit 1 is by design (ramp.py ends the loop on the first up-branch
+  step that does not finish); energy audit clean throughout. Per-step table
+  for all four: `evidence/E0089-step-table.json`, built by
+  `python3 tools/e0089_step_table.py <mirror job dir> <f*> <out.json>
+  --ball evidence/E0089-interim-f0.57.json`, then merged (see the file's
+  `loops` list).
 
-- **E0089, f* 0.33 (job 164655, artifact A0177), ended Nov 24 15:01Z:**
-  same as f* 0.57. Completed 4.55 (1,332 CPU-s/cycle, Hatteras), stopped
-  at 4.6 on the cap after 21 of 25 cycles (8,229 CPU-s/cycle); 57.49
-  CPU-hours for the job; audit clean. Plate collisions per particle-cycle
-  1,336 / 2,405 / 7,398 at 4.5 / 4.55 / 4.6; events 13,967 / 20,168 /
-  61,579. Evidence `evidence/E0089-interim-f0.33.json` (same columns and
-  formulas as f* 0.57; the script reproduced the f* 0.57 table exactly).
+  | f* | job | artifact | stopped at | cycles | CPU-s/cycle there | job CPU-h |
+  |---|---|---|---|---|---|---|
+  | 0.33 | 164655 | A0177 | 4.6 | 21/25 | 8,229 | 57.49 |
+  | 0.38 | 164656 | A0180 | 4.55 | 14/25 | 12,344 | 57.92 |
+  | 0.57 | 164659 | A0176 | 4.6 | 23/25 | 7,514 | 55.04 |
+  | 0.84 | 164662 | A0181 | 4.6 | 24/25 | 7,201 | 58.11 |
+
+  Corrected (step-difference) events per particle per cycle at 4.5 / 4.55
+  / 4.6: f* 0.33 1,778 / 6,201 / 37,569; f* 0.57 1,351 / 4,378 / 33,296;
+  f* 0.84 1,520 / 6,121 / 30,238. f* 0.38: 1,644 (4.45) / 5,575 (4.5) /
+  49,631 (4.55). CPU per event on Hatteras 3.6 to 4.2 microseconds, flat
+  within 3% between the last two steps; Mac to Hatteras 1.6 to 2.0 times.
+  Plate collisions per cycle at the stopping step: 6.4 to 14.3 times 4.5.
+
+- **Counters are running totals.** Checkpoints carry the counters, and
+  ramp.py starts each step from the previous step's checkpoint, so
+  counters.json and the referee's events_per_particle_cycle add up the
+  whole loop. Always difference consecutive steps. The interim f* 0.33 and
+  0.57 files carry a `superseded` note. Question put to Chris (referee is
+  Chris's).
+
 - **E0089's loop-completion clause** ("falsified if the loops cannot
-  complete above 5.0") has failed at f* 0.33 and 0.57 under the registered
-  48-hour cap. Say so in the E0089 outcome. A raised cap or a probe is a
-  NEW experiment.
-- **Checker Nov 24, answered this run:** (1) "five times" at 4.55 vs 4.5
-  was Mac vs Hatteras; in events it is 1.34x (f* 0.57), 1.44x (f* 0.33).
-  (2) loop-completion clause stated as failed (above). (3) per-run budget:
-  `evidence/E0089-budget-check.json` + D0072 guard (below).
+  complete above 5.0") has failed at f* 0.33, 0.38, 0.57 and 0.84 under
+  the registered 48-hour cap. Say so in the E0089 outcome. A raised cap or
+  a probe is a NEW experiment. The partial last-step checkpoints are in the
+  artifacts on Hatteras; continue_loop.sh as written would delete that
+  unfinished step and redo it.
+
+- **Checker Nov 24 (two reviews), answered:** cross-machine ratio, failed
+  clause, per-run budget (D0072), running totals (Nov 24 run 3), B0008 is
+  resolved (no longer listed open), D0072 wake re-set in run 3 (service
+  replied "L0015 will be started at 03:00 EST on Nov 26"). There may be two
+  timers for that time if the first was set too; harmless.
 
 ## Things noticed, not yet followed up
 
-- CPU per event rises much faster than any event counter: on the Mac,
-  0.044 microseconds per event at 4.3 to 0.242 at 4.5 (5.5 times) while
-  pair checks per event stay at 50 (50 at 4.3 to 56 at 4.6) and root
-  calls per event go from 1.28 to 1.59. Same-machine 4.55 to 4.6 on
-  Hatteras: 2.5 times. Something uncounted (queue work, nudge iterations,
-  or machine load) is growing. Not examined.
-- Gamma 3.5 cost across frequencies is 13 to 22 s/cycle (Nov 21 summary
-  said 15 to 22; corrected in the Nov 24 note).
+- The earlier note that CPU per event grows 5.5 times toward the wall was
+  an artifact of the running totals; withdrawn. On the Mac, CPU per event
+  jumps 1.4 to 1.5 times at single steps (f* 0.33 at 4.5, f* 0.38 at 4.4,
+  f* 0.84 at 4.5) and falls at others; probably machine load. Not examined.
+- Gamma 3.5 cost across frequencies is 13 to 22 s/cycle.
 
 ## What's next
 
 - **D0072 budget guard, wake set for Nov 26 08:00Z (03:00 EST).** At that
   run: `program jobs`; for every E0089 job still running, look at which
   step is in progress in its mirror (the step folder whose summary.json is
-  a stub with only `ramp`). If it is past the step listed in
-  `evidence/E0089-budget-check.json` (f* 0.38: 4.55; others: 4.6),
-  `program cancel <job> --reason "D0072: would pass 100 CPU-hours per run"`
-  before 09:27Z. f* 0.44 (164657) in 4.6 hits its cap about 07:05 to
-  07:30Z at about 97.6 CPU-hours: leave it, unless still running at 09:00Z.
-  If Chris has answered the "per run" question first, follow the answer.
-
-- **Collect the other seven E0089 loops** as they end (each ending starts
-  this line). Add each to an E0089 interim table like the f* 0.57 one.
-- **D0071:** don't resubmit f* 0.57 alone. Once all eight have ended,
-  if they all stop at 4.6, ask Chris: (a) a bigger per-step cap at 4.6 to
-  5.0 (4.6 alone needs about 52 CPU-hours per loop on Hatteras; per-run
-  limit in budgets.yaml is 100), or (b) a cheaper cost probe at 4.65 to
-  5.0 started from the 4.6 state (a new experiment, not a loop). If
-  resuming, change continue_loop.sh to keep the partial 4.6 step instead
-  of deleting it (check the referee resume counts CPU from zero).
+  a stub with only `ramp`). If it is past 4.6, `program cancel <job>
+  --reason "D0072: would pass 100 CPU-hours per run"` before 09:27Z.
+  f* 0.44 (164657) in 4.6 hits its cap about 07:05 to 07:30Z at about 97.6
+  CPU-hours: leave it, unless still running at 09:00Z. If Chris has
+  answered the "per run" question first, follow the answer.
+- **Collect the other four E0089 loops** (f* 0.44, 0.50, 0.65, 0.74, all
+  in 4.6 at Nov 24 16:10Z) as they end (each ending starts this line); add
+  each to `evidence/E0089-step-table.json` with tools/e0089_step_table.py.
+- **D0071:** don't resubmit any loop alone. Once all eight have ended,
+  ask Chris: (a) a bigger per-step cap at 4.6 to 5.0, or (b) a cheaper
+  cost probe at 4.65 to 5.0 started from the 4.6 state (a new experiment).
+  If resuming, change continue_loop.sh to keep the partial step instead of
+  deleting it (check the referee resume counts CPU from zero).
 - Then: overlay measured cost on the ball model; write the E0089 outcome
   (falsified_if: cost at 5.0 not within a factor 2 of the 4.3 level, or
   loops cannot complete above 5.0).
 
 ## Jobs in flight
 
-| Experiment | Host | Job ID | f* | State on Nov 24 15:08Z |
+| Experiment | Host | Job ID | f* | State on Nov 24 16:15Z |
 |---|---|---|---|---|
 | E0089 | hatteras | 164655 | 0.33 | ENDED (cap at 4.6), collected |
-| E0089 | hatteras | 164656 | 0.38 | running, step 4.55 (since Nov 22 15:11Z; cap due about now) |
+| E0089 | hatteras | 164656 | 0.38 | ENDED (cap at 4.55), collected run 3 |
 | E0089 | hatteras | 164657 | 0.44 | running, step 4.6 |
 | E0089 | hatteras | 164658 | 0.50 | running, step 4.6 |
 | E0089 | hatteras | 164659 | 0.57 | ENDED (cap at 4.6), collected |
 | E0089 | hatteras | 164660 | 0.65 | running, step 4.6 |
 | E0089 | hatteras | 164661 | 0.74 | running, step 4.6 |
-| E0089 | hatteras | 164662 | 0.84 | running, step 4.6 |
+| E0089 | hatteras | 164662 | 0.84 | ENDED (cap at 4.6), collected run 3 |
 
 (164647 to 164654 were the first, broken submission: failed in 20 s on a
 wrong wrapper path; artifacts A0081 to A0088.)
 
 ## Key evidence files
 
-- `evidence/E0089-interim-f0.57.json` (f* 0.57 above the wall)
-- `evidence/E0089-interim-f0.33.json` (f* 0.33 above the wall)
+- `evidence/E0089-step-table.json` (four ended loops, step differences)
+- `evidence/E0089-interim-f0.57.json`, `-f0.33.json` (counter columns superseded)
 - `evidence/E0089-budget-check.json` (worst case per running loop, D0072)
 - `evidence/E0065-results.json` (all ten loops)
 - `evidence/E0085-nudge-wall-fields.json` (wall analysis)
@@ -120,3 +132,4 @@ wrong wrapper path; artifacts A0081 to A0088.)
 - `tools/lc_counters.py` — counter recorder
 - `tools/inelastic_ball.py` — completely inelastic ball model
 - `tools/continue_loop.sh` — Hatteras loop continuation helper
+- `tools/e0089_step_table.py` — per-step table from counter differences

@@ -298,6 +298,34 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): f\* 0.38 and 0.84 loops ended; per-step counters corrected (ran Nov 24 16:06Z)
+
+Started by the service for jobs hatteras-164656 (f\* 0.38, A0180) and
+hatteras-164662 (f\* 0.84, A0181), both FAILED (exit 1 by design on the CPU
+cap). Session summary: `sessions/2026-11-24-L0015-3.json`. Evidence
+`evidence/E0089-step-table.json` (all four ended loops, Gamma 4.3 up).
+
+- **Stops:** f\* 0.84 stopped at Gamma 4.6 after 24 of 25 cycles, like
+  f\* 0.33 and 0.57. f\* 0.38 stopped one step earlier, at Gamma 4.55,
+  after 14 of 25 cycles (about 12,300 CPU-seconds per cycle). Four of eight
+  loops have now ended, all on the 48 CPU-hour cap, none above 4.6.
+- **Correction (checker, Nov 24, second review):** the counter columns of
+  the earlier E0089 tables were loop running totals, because checkpoints
+  carry the counters from step to step. Recomputed from step-to-step
+  differences: from the step before the stop to the stop, events per cycle
+  rose 4.9 to 8.9 times, while CPU per event stayed within 3% on the same
+  machine. **The wall is more events, not slower events.** The earlier
+  "1.34 times" (below) is wrong; it is 3.2 to 3.5 times from 4.5 to 4.55.
+  Plate collisions per cycle at the last step are 6 to 14 times their 4.5
+  level, not 5.5 times. The Mac to Hatteras step costs 1.6 to 2.0 times
+  more CPU per event.
+- The referee's `events_per_particle_cycle` is a loop running total
+  whenever `tools/ramp.py` starts a step from a copied checkpoint (put to
+  Chris; the referee is Chris's). `evidence/E0085-nudge-wall-fields.json`
+  carried the same error in one table; noted in the file.
+- **Budget guard (D0072):** wake re-set for Nov 26 08:00Z. Four loops
+  (f\* 0.44, 0.50, 0.65, 0.74) are still in Gamma 4.6.
+
 ### L0015 (nudge fast pass): second continued loop ended at Gamma 4.6; per-run budget guard (ran Nov 24 15:03Z)
 
 Started by the service for job hatteras-164655 (FAILED, artifact A0177).
@@ -314,6 +342,7 @@ Session summary: `sessions/2026-11-24-L0015-2.json`. Evidence
 - **Correction (checker, Nov 24):** the "five times" rise in cost from 4.5
   to 4.55 at f\* 0.57 compared the Mac with Hatteras. In events, which do
   not depend on the machine, the rise is 1.34 times (1.44 at f\* 0.33).
+  (Wrong, running totals: 3.2 and 3.5 times; see the Nov 24 16:06Z run.)
 - **Budget guard (D0072):** the six loops still running should stop at
   58 to 98 CPU-hours each. A loop that finishes its current step could go
   past the 100 CPU-hour per-run limit, but not before Nov 26 09:27Z. A
@@ -1334,6 +1363,11 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
+- **Nudge fast pass (L0015, Nov 24 16:06Z run):** collect the four E0089
+  loops still in Gamma 4.6 (f\* 0.44, 0.50, 0.65, 0.74) as they end, adding
+  each to `evidence/E0089-step-table.json`; D0072 wake on Nov 26 08:00Z.
+  Then ask Chris for a bigger allowance or a cheaper cost probe above 4.6
+  (D0071), and write the E0089 outcome.
 - **Nudge (L0001):** waiting for Chris: close now, or after a frozen-test
   run on 16f3334 (needs the nudge branch on this machine, B0008).
 - **Grapenuts (L0020):** collect the rest of E0099 (deep 2D, 3D) and
