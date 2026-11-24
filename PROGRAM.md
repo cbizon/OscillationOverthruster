@@ -178,7 +178,8 @@ The five options in `notes/contact-options.md`.
 
 ### Option 1, position nudge
 
-- Branch: `method/nudge` (b608fef).
+- Branch: `method/nudge` (b608fef; 16f3334 with the accumulator fix).
+- Frozen tests: 74 of 74 at b608fef (Nov 6, 7) and 16f3334 (E0103, Nov 24).
 - The only method that gets through the stalled conditions:
   - 120 cycles at all 8 stalled 2D conditions, and at 3D Gamma 5 at seeds
     1 to 3;
@@ -297,21 +298,21 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
-### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
+### L0001 (nudge): frozen tests on 16f3334 (ran Nov 24 05:52Z)
 
-Session summary: `sessions/2026-11-23-L0001.json`; review:
-`evidence/L0001-closing-review-2026-11-23.json`. No runs.
+Session summary: `sessions/2026-11-24-L0001.json`; evidence:
+`evidence/E0103-results.json`, `evidence/L0001-closing-review-2026-11-23.json`
+(with the checker's corrections).
 
-- The line's question is answered as far as the referee can judge: the
-  nudge survives where the unmodified engine stalls (one overlap), its
-  audit is clean after the accumulator fix, and it passes the bulk check
-  wherever a baseline exists.
-- Not done: the frozen engine tests on method/nudge (never recorded), and
-  the Figure 1 comparison (not built for any method). By design the nudge
-  can't become the default.
-- The phase diagram doesn't supersede it; it uses the nudge (L0015).
-- Recommended to Chris: close L0001. Option: one frozen-test run on
-  16f3334 first, which needs the nudge branch on this machine (B0008).
+- Frozen engine tests: 74 of 74 on the nudge at 16f3334 (E0103, Hatteras
+  job 165153, main as control also 74). b608fef had passed them Nov 6
+  and 7, so the Nov 23 run's "never run" was wrong.
+- method/nudge is back in this clone at 16f3334 (bundle from A0172);
+  B0008 resolved.
+- Audit: only the two nudge runs rerun after the accumulator fix are
+  shown clean (176 failing cycles, all round-off); the rest likely, not
+  shown. Bulk check passes only where there are no lasting contacts.
+- Next: Chris closes L0001. Nothing left that was asked.
 
 ### Nov 22 instruction, run 3 of Nov 23 (L0020, ran Nov 24 02:36Z)
 

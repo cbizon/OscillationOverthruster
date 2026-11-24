@@ -1,0 +1,44 @@
+{
+  "host": "hatteras",
+  "job_id": "165153",
+  "experiment_id": "E0103",
+  "line_id": "L0001",
+  "commit": "6cc762fd8acea7bd31e26e3876b477b7d2a23389",
+  "trees": {
+    "code": {
+      "repo": "/Users/bizon/Projects/experiments/sequel.L0001",
+      "commit": "6cc762fd8acea7bd31e26e3876b477b7d2a23389",
+      "branch": "line/L0001"
+    },
+    "research-programs": {
+      "repo": "/Users/bizon/Projects/experiments/research-programs",
+      "commit": "3b957f2d98bfd5f245e1f06e21284084eb8744a3",
+      "branch": "main"
+    }
+  },
+  "inputs": [],
+  "command": [
+    "bash",
+    "-c",
+    "set -u\nC=$PWD; O=$ROBOROBO_OUT; B=${O%/sequel/*}/git/sequel.git; N=16f33345b89927ddbe1c1a737a2dd1b32dffc189\necho \"bare=$B\" > $O/setup.txt\nE=$O/nudge-engine\ngit clone -q --shared --no-checkout $B $E && git -C $E checkout -q --detach $N || { echo \"checkout failed\" >> $O/setup.txt; exit 3; }\ngit -C $E rev-parse HEAD > $O/engine_commit.txt\ngit -C $C rev-parse HEAD > $O/main_commit.txt\ngit -C $E log --format=\"%H %ad %s\" -8 > $O/engine_log.txt\ngit -C $E branch method-nudge $N && git -C $E bundle create $O/method-nudge.bundle method-nudge 2>> $O/setup.txt\nmkdir -p $O/w && cd $O/w\nfor which in nudge main; do\n  if [ $which = nudge ]; then P=$E; else P=$C; fi\n  NUMBA_CACHE_DIR=$O/w/nb-$which PYTHONPATH=$P uv run --project $C python -c \"import granular,sys,pytest; print(\\\"imported_from\\\", granular.__file__); sys.exit(pytest.main([\\\"-q\\\",\\\"-p\\\",\\\"no:cacheprovider\\\",sys.argv[1]]))\" $C/referee/tests > $O/frozen-$which.txt 2>&1\n  echo \"$which rc=$?\" >> $O/rc.txt\ndone\ncd $O && rm -rf $O/w $E\ncat $O/rc.txt",
+    "--repo",
+    "/Users/bizon/Projects/experiments/sequel.L0001"
+  ],
+  "sbatch": {
+    "time": "1:00:00",
+    "mem": "4G",
+    "cpus": 1
+  },
+  "run_dir": "/projects/sequence_analysis/vol3/bizon/roborobo/sequel/E0103/20261124T055653Z",
+  "submitted_at": "2026-11-24T05:56:53Z",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed": "00:01:49",
+  "cpu_hours": 0.03,
+  "nodes": "compute-13-1",
+  "mirror": "/Users/bizon/Projects/experiments/sequel-data/mirror/E0103/hatteras-165153",
+  "synced_at": "2026-11-24T05:59:30Z",
+  "ended_at": "2026-11-24T06:00:58Z",
+  "artifact_id": "A0172",
+  "record": "evidence/E0103/hatteras-165153.json"
+}

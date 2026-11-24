@@ -1,0 +1,62 @@
+{
+ "experiment_id": "E0103",
+ "line_id": "L0001",
+ "what": "Frozen referee tests (referee/tests, unchanged since the program's setup) run on Hatteras job 165153 against the nudge engine at 16f33345 (b608fef plus the energy-accumulator fix; the version the phase-diagram loops E0089 run), with main's engine as a control in the same job. Method as on Nov 7 (evidence/frozen-tests-2026-11-07.json): cwd outside both repositories, PYTHONPATH set to the engine, granular imported before pytest and its path printed, fresh numba cache per engine.",
+ "artifact": "A0172",
+ "job_record": "evidence/E0103/hatteras-165153.json",
+ "runs": [
+  {
+   "engine": "method/nudge",
+   "commit": "16f33345b89927ddbe1c1a737a2dd1b32dffc189",
+   "commit_source": "cloned from the bare repository program submit keeps on Hatteras (<workdir>/git/sequel.git), D0070",
+   "imported_from": ".../E0103/20261124T055653Z/out/nudge-engine/granular/__init__.py",
+   "result": "74 passed in 50.82s",
+   "returncode": 0
+  },
+  {
+   "engine": "main (control)",
+   "commit": "6cc762fd8acea7bd31e26e3876b477b7d2a23389",
+   "imported_from": ".../E0103/20261124T055653Z/code/granular/__init__.py",
+   "result": "74 passed in 46.54s",
+   "returncode": 0
+  }
+ ],
+ "engine_history": "16f3334 <- 6c4cc74 (carry fix/energy-accumulators into method/nudge) <- 901a971 (the accumulator fix) <- ...; b608fef is an ancestor (git cat-file after restoring the branch).",
+ "branch_restored": "method/nudge restored in this machine's clone from out/method-nudge.bundle (git bundle verify: complete history), at 16f3334. Resolves B0008.",
+ "earlier_runs_on_nudge": "b608fef: 74 of 74 on Nov 6 (checker, reviews/2026-11-06.json) and Nov 7 (evidence/frozen-tests-2026-11-07.json).",
+ "cpu_hours": 0.03,
+ "files": {
+  "A0172:out/engine_commit.txt": {
+   "size": 41,
+   "sha256": "255bbeafc7f78a27332db5b9b260b909245b009d8ccd83317a9e1a23b3d03dc8"
+  },
+  "A0172:out/engine_log.txt": {
+   "size": 1048,
+   "sha256": "c77c28756fa809a62b36579ffd2da0a84b9aee8462f69460d21817e8518fc28a"
+  },
+  "A0172:out/frozen-main.txt": {
+   "size": 298,
+   "sha256": "ce99112654927e4d0c134b849968fb54be2e9e58dfde5c4076be49223212f1cf"
+  },
+  "A0172:out/frozen-nudge.txt": {
+   "size": 959,
+   "sha256": "e7f449480ab2a6f8eb019d7e10ae1a5d8d26ad5cbd4ae1674c8f2a30ae5f2203"
+  },
+  "A0172:out/main_commit.txt": {
+   "size": 41,
+   "sha256": "4cd8c60d75152faf5f55fc544e611bf15b1085d3b3c88107a2b5a7f4e4284e55"
+  },
+  "A0172:out/rc.txt": {
+   "size": 21,
+   "sha256": "3cded1e8d7d67cf8811d45899ad5bc7694d531e8fe5eb6cba0e9c63d27b7b2ba"
+  },
+  "A0172:out/setup.txt": {
+   "size": 68,
+   "sha256": "34daa908757a081dbaae33838295a4a5817091d026b71e7b30c02e7ce18b5d0e"
+  },
+  "A0172:out/method-nudge.bundle": {
+   "size": 505734,
+   "sha256": "32eeb1d17142e5043cece636ee0ef874c9b4a77aaf10f295028a26eb26418913"
+  }
+ }
+}

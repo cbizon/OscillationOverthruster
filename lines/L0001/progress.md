@@ -1,41 +1,36 @@
 # L0001, Nudge: progress
 
-Rewritten 2026-11-24 (run for the Nov 23 23:42 instruction in
-`lines/L0001/instruction.md`).
+Rewritten 2026-11-24 (run for Chris's Nov 24 00:04 answer in
+`lines/L0001/instruction.md`: "Yes run the frozen engine tests").
 
 ## Where it stands
 
-- The line's question (judge the position nudge on its own against the
-  full-physics baseline; the elastic-window half went to L0007, closed) is
-  answered as far as the referee can judge today. Summary of the record,
-  with sources: `evidence/L0001-closing-review-2026-11-23.json`.
-  - Survival: 17 of 18 2D Gamma 5 runs to 1000 cycles (unmodified 0 of 18);
-    one overlap at Gamma 5, f* 0.3, depth 10, seed 1. 3D survival case:
-    five seeds, 1000 cycles.
-  - Energy audit: clean after the accumulator fix (E0044).
-  - Bulk check: passes wherever a baseline exists (case g only weakly).
-  - Frozen engine tests: never run on method/nudge. Figure 1 comparison:
-    not built for any method (referee/README.md section 2).
-  - By design (notes/contact-options.md) it can't become the default.
-- The phase diagram did not supersede the line; it uses the nudge as an
-  engine. That work is L0015's (E0089 loops on Hatteras).
+- Everything asked is done. Waiting for Chris to close the line.
+- Frozen engine tests: 74 of 74 at b608fef (Nov 6 checker, Nov 7 agent,
+  `evidence/frozen-tests-2026-11-07.json`) and at 16f3334 (E0103, Hatteras
+  job 165153, artifact A0172, `evidence/E0103-results.json`; main control
+  74 of 74 in the same job).
+- Survival: 17 of 18 2D Gamma 5 runs to 1000 cycles (unmodified 0 of 18);
+  one overlap at Gamma 5, f* 0.3, depth 10, seed 1. Completed runs with
+  heavy slow stretches: f* 0.3 depth 10 seeds 2, 3 (47%, 13%), f* 0.3
+  depth 15 seed 1 (71%). 3D survival case: five seeds, 1000 cycles.
+- Energy audit: the two nudge runs rerun after the accumulator fix (176
+  failing cycles) were all round-off (E0044); the remaining ~650 failing
+  cycles were not rerun ("likely, not shown").
+- Bulk check: passes wherever a baseline exists, but all such conditions
+  lack lasting contacts; case g only weakly.
+- Corrections from the Nov 23 review are in
+  `evidence/L0001-closing-review-2026-11-23.json` ("corrections_2026-11-24").
+- By design (notes/contact-options.md) the nudge can't become the default.
+  The phase diagram uses it as an engine (L0015).
 
-## Waiting for
+## Code
 
-- Chris: close now (recommended), or close after one frozen-test run on
-  16f3334 (the nudge with the accumulator fix, used by the phase-diagram
-  loops).
-- B0008: method/nudge (b608fef, 16f3334) isn't in the clone on the Linux
-  machine these runs now use. Needed for the frozen-test run, and for any
-  nudge job submitted from here.
-
-## If asked to run the frozen tests
-
-Get the branch onto this machine (Chris), make a worktree under
-`sequel-data/worktrees/nudge` at 16f3334, run `uv run pytest referee/tests`
-from main's referee against that engine the way the ride/plate-stick checks
-did (see PROGRAM.md, Option 4 / ride sections), record the result as an
-evidence file, then close the line.
+- `method/nudge` restored in this machine's clone at 16f3334 from the
+  bundle in A0172 (`out/method-nudge.bundle`). B0008 resolved; nudge jobs
+  can use `--tree engine=method/nudge` again.
+- How E0103 got the commit (D0070): Hatteras keeps a bare repo of shipped
+  trees at `<workdir>/git/sequel.git`; a job can clone a commit from it.
 
 ## Jobs in flight
 
