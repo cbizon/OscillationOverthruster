@@ -222,7 +222,8 @@ those hosts; asking for another is a decision for Chris.
   original. An input on the same cluster is copied there, not through this
   computer.
 - Don't wait for the job; record its id in your line's `progress.md` and
-  end the run.
+  end the run. To stop a job that shouldn't go on (wrong settings, no
+  longer needed), use `program cancel <job id> --reason ...`.
 - Outputs stay on the cluster. Run `program jobs` at the start of each run:
   it copies only small files (the host's `fetch` patterns, such as
   `*.json`) and the Slurm log into
