@@ -2,3 +2,7 @@
 # Ledger files are append-only: when two lines' runs both appended records,
 # a merge keeps both (git's built-in union driver) instead of conflicting.
 ledger/*.jsonl merge=union
+# PROGRAM.md: each line adds its own section under "Current state". When
+# lines run at the same time, a merge keeps both lines' sections instead of
+# stopping on a conflict.
+PROGRAM.md merge=union
