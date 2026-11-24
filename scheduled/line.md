@@ -17,6 +17,13 @@ session:
   "Asked" items are the ones you answer. If you were started only to
   answer the checker's open challenges, there are no items: answer the
   challenges and stop.
+- **A line's own instruction**, `lines/L0013/instruction.md`, if the prompt
+  names it, is your instruction in place of a section of a dated file.
+  Chris writes it; you never edit it.
+- **To be started again later** under the always-on service (to collect a
+  job at the time you expect it, say), run `program wake --line L0013
+  --in-minutes 360 --reason "collect E0131"`. Up to three timers per line,
+  from ten minutes to seven days ahead. A job ending starts you anyway.
 - **Your memory** for this line is `lines/L0013/progress.md`: what's done,
   what's next, jobs in flight with their ids and where they run. Read it
   first; create it if it doesn't exist. Rewrite it at the end so the next
