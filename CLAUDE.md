@@ -105,7 +105,18 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   Chris opened is Chris's call: propose it in `questions`.
 - When a note or summary needs a name for a method, a condition or a
   check, add it to `ledger/terms.jsonl` once (id from `program next-id T`),
-  with the `aliases` it goes by, and use that name from then on.
+  with the `aliases` it goes by, and use that name from then on. The
+  dashboard shows a term's definition wherever it is used, so every such
+  name in a `state`, `next`, headline, answer or question must be in
+  `terms.jsonl`, defined in plain words for someone outside the work
+  (define "impulse-step method"; don't assume it). If you wouldn't define
+  it, say the thing in plain words instead.
+- With every `update` of a line's `state`, also give `next` (what the line
+  does next, or what it is waiting for: a job, an answer, another line)
+  and `closes_when` (what result or decision would close the line, and
+  what would keep it going). A line that only says what was done leaves
+  Chris unable to tell whether to continue it. Name other lines by
+  id (L0015) and documents by path, so the dashboard links them.
 
 ## Where work goes, and keeping the machine clean
 
