@@ -298,6 +298,26 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0017 (slow loops): settle-then-step loop collected (ran Nov 24 06:11Z)
+
+Started by the service for job hatteras-164664. Session summary:
+`sessions/2026-11-24-L0017.json`. Evidence `evidence/E0090-results.json`
+(tools/settle_loop_gap.py), artifact A0173.
+
+- **E0090 (falsified on iii as registered):** all 29 steps settled under the
+  stopping rule (D0056) in 200 to 400 cycles (14 at 200, 9 at 250, 4 at 300,
+  2 at 400), none near the 3000 limit; 48.14 CPU-hours, no slow stretch, no
+  audit failure.
+- Gap over each whole step (the registered measure): largest 0.111 D at
+  Gamma 2.25, 0.108 at 2.2, about the same as at 400 cycles a step (0.103).
+- That measure includes the relaxation from the previous Gamma. The way-down
+  step at 2.2 falls from 0.37 to a flat 0.15 D; over the settled window (last
+  100 cycles) the gap is 0.021 D at 2.2 and 0.048 at 2.25. Largest
+  settled-window gap 0.057 at 2.5, where each branch wanders by about 0.05 D.
+- Reading, one seed only: at 2.2 the gap closes once the step is allowed to
+  settle; at 2.25 a 0.05 D difference remains, the size of the wandering seen
+  at 2.5. The stopping rule is lenient (one degree of freedom in its error).
+
 ### L0001 (nudge): frozen tests on 16f3334 (ran Nov 24 05:52Z)
 
 Session summary: `sessions/2026-11-24-L0001.json`; evidence:
@@ -1214,9 +1234,9 @@ These are findings, not edits; the referee is his.
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
   and drops by 5.0.
-- **Settle-then-step loop** (E0090): Hatteras job 164664, the adaptive-rate
-  loop at f\* 0.44, estimated 80 CPU-hours. Collect when finished and compare
-  the settled-rate gap against the 25, 100 and 400-cycle gaps.
+- **Slow loops (L0017):** E0090 collected (see Current state). Waiting for
+  Chris: more seeds of the settle-then-step loop at f\* 0.44 with a stricter
+  stopping rule, a second f\*, or stop. No jobs running.
 - **Ride v2 (L0019)**: E0098 is collected (eight of twelve completed; four
   Gamma 5 runs at the CPU cap, time in the riding-pair root search). Next,
   if Chris agrees: count root-search steps from the A0129 checkpoint on
