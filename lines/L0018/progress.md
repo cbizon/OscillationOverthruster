@@ -3,7 +3,7 @@
 ## Status
 
 Active. 20 of the 30 width-200 fast-pass loops still running on Hatteras
-(as of the Nov 24 third run, 18:28 UTC). Ten have ended (see below); none
+(as of the Nov 24 third run, 18:24 UTC). Ten have ended (see below); none
 needs relaunching under the loops' own stopping rules. Slurm marks every
 ended loop FAILED (exit 1): that is how ramp.py exits when a loop stops, not
 a crash. Read the step outcomes.

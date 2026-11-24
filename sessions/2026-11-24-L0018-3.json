@@ -40,7 +40,7 @@
  "run_conditions": {
   "scheduled_start": "2026-11-24T18:17:09Z",
   "actual_start": "2026-11-24T18:18:22Z",
-  "ended": "2026-11-24T18:30:00Z",
+  "ended": "2026-11-24T18:25:30Z",
   "interruptions": [],
   "cpu_hours": 0,
   "disk_free_gb": {
@@ -61,6 +61,6 @@
     "reason": "one loop running on Hatteras (f* 0.38, job 164691), 7-day wall time"
    }
   ],
-  "limits_hit": "None from the machine. This host is Linux, so pmset and uptime are not available: sleep and wake were not measured, and cores_available is omitted (load average 19.5 on 40 cores, from /proc/loadavg). scheduled_start is when the job ended (18:17:09Z), not a measured runner start. The loop's own step caps (D0046) set its floor at both widths and its top at width 100. That is a limit of the design, not of the machine. The job used 60.0 CPU-hours, under the 100 CPU-hour per-run limit. Weekly budget: program check's figure. It does not yet count the three baseline jobs that ended today (56.9, 56.9 and 60.0 CPU-hours by their job records). With them, about 735, or 7 percent. Below 50 percent."
+  "limits_hit": "None from the machine. This host is Linux, so pmset and uptime are not available: sleep and wake were not measured, and cores_available is omitted (load average 19.5 on 40 cores, from /proc/loadavg). scheduled_start is when the job ended (18:17:09Z), not a measured runner start. The loop's own step caps (D0046) set its floor at both widths and its top at width 100. That is a limit of the design, not of the machine. The job used 60.0 CPU-hours, under the 100 CPU-hour per-run limit. Weekly budget: program check's figure. It does not yet count the three baseline jobs that ended today (56.9, 56.9 and 60.0 CPU-hours by their job records). With them, about 735, or 7 percent. Below 50 percent. The line note and update in ledger/lines.jsonl carry at 18:28:00Z, written ahead of their commit at 18:24:29Z. The ledger is append-only, so they are left as they are."
  }
 }
