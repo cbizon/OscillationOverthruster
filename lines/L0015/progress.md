@@ -34,6 +34,22 @@
   A0176 on Hatteras; continue_loop.sh as written would delete that
   unfinished step and redo 4.6 from the 4.55 checkpoint.
 
+- **E0089, f* 0.33 (job 164655, artifact A0177), ended Nov 24 15:01Z:**
+  same as f* 0.57. Completed 4.55 (1,332 CPU-s/cycle, Hatteras), stopped
+  at 4.6 on the cap after 21 of 25 cycles (8,229 CPU-s/cycle); 57.49
+  CPU-hours for the job; audit clean. Plate collisions per particle-cycle
+  1,336 / 2,405 / 7,398 at 4.5 / 4.55 / 4.6; events 13,967 / 20,168 /
+  61,579. Evidence `evidence/E0089-interim-f0.33.json` (same columns and
+  formulas as f* 0.57; the script reproduced the f* 0.57 table exactly).
+- **E0089's loop-completion clause** ("falsified if the loops cannot
+  complete above 5.0") has failed at f* 0.33 and 0.57 under the registered
+  48-hour cap. Say so in the E0089 outcome. A raised cap or a probe is a
+  NEW experiment.
+- **Checker Nov 24, answered this run:** (1) "five times" at 4.55 vs 4.5
+  was Mac vs Hatteras; in events it is 1.34x (f* 0.57), 1.44x (f* 0.33).
+  (2) loop-completion clause stated as failed (above). (3) per-run budget:
+  `evidence/E0089-budget-check.json` + D0072 guard (below).
+
 ## Things noticed, not yet followed up
 
 - CPU per event rises much faster than any event counter: on the Mac,
@@ -46,6 +62,16 @@
   said 15 to 22; corrected in the Nov 24 note).
 
 ## What's next
+
+- **D0072 budget guard, wake set for Nov 26 08:00Z (03:00 EST).** At that
+  run: `program jobs`; for every E0089 job still running, look at which
+  step is in progress in its mirror (the step folder whose summary.json is
+  a stub with only `ramp`). If it is past the step listed in
+  `evidence/E0089-budget-check.json` (f* 0.38: 4.55; others: 4.6),
+  `program cancel <job> --reason "D0072: would pass 100 CPU-hours per run"`
+  before 09:27Z. f* 0.44 (164657) in 4.6 hits its cap about 07:05 to
+  07:30Z at about 97.6 CPU-hours: leave it, unless still running at 09:00Z.
+  If Chris has answered the "per run" question first, follow the answer.
 
 - **Collect the other seven E0089 loops** as they end (each ending starts
   this line). Add each to an E0089 interim table like the f* 0.57 one.
@@ -62,10 +88,10 @@
 
 ## Jobs in flight
 
-| Experiment | Host | Job ID | f* | State on Nov 24 12:40Z |
+| Experiment | Host | Job ID | f* | State on Nov 24 15:08Z |
 |---|---|---|---|---|
-| E0089 | hatteras | 164655 | 0.33 | running, step 4.6 |
-| E0089 | hatteras | 164656 | 0.38 | running, step 4.55 |
+| E0089 | hatteras | 164655 | 0.33 | ENDED (cap at 4.6), collected |
+| E0089 | hatteras | 164656 | 0.38 | running, step 4.55 (since Nov 22 15:11Z; cap due about now) |
 | E0089 | hatteras | 164657 | 0.44 | running, step 4.6 |
 | E0089 | hatteras | 164658 | 0.50 | running, step 4.6 |
 | E0089 | hatteras | 164659 | 0.57 | ENDED (cap at 4.6), collected |
@@ -79,6 +105,8 @@ wrong wrapper path; artifacts A0081 to A0088.)
 ## Key evidence files
 
 - `evidence/E0089-interim-f0.57.json` (f* 0.57 above the wall)
+- `evidence/E0089-interim-f0.33.json` (f* 0.33 above the wall)
+- `evidence/E0089-budget-check.json` (worst case per running loop, D0072)
 - `evidence/E0065-results.json` (all ten loops)
 - `evidence/E0085-nudge-wall-fields.json` (wall analysis)
 - `evidence/E0088-comparison.json` (inelastic ball vs nudge cost)

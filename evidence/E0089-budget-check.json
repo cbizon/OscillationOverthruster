@@ -1,0 +1,146 @@
+{
+ "experiment_id": "E0089",
+ "line_id": "L0015",
+ "purpose": "Answer the Nov 24 checker review, point 3: worst case of each running E0089 loop against the budgets.yaml limit of 100 CPU-hours per run.",
+ "as_of": "2026-11-24T15:08Z",
+ "method": "Each job runs on 1 CPU, so its CPU time is at most its wall time (job 164655: 57.49 CPU-h in 57.49 h wall; step 84: 172,810 CPU-s in 173,491 s wall). Upper bounds therefore use wall time from the job's run-folder timestamp. The current step's start is the time its summary.json stub was written (mirror mtime). Completed Hatteras steps are those whose summary was written after the job started. In-step progress is not visible: logs and counters of the running step are written only at its end.",
+ "jobs": [
+  {
+   "job": "164656",
+   "f_star": 0.38,
+   "submitted_run_dir": "20261122T052723Z",
+   "hatteras_steps_completed": {
+    "4.5": {
+     "cpu_seconds": 34830,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 1393.2
+    }
+   },
+   "current_step": "step-083-g4.55",
+   "current_step_started": "2026-11-22T15:11Z",
+   "cpu_hours_before_current_step_upper": 9.7,
+   "cpu_hours_used_by_now_upper": 57.7,
+   "if_current_step_hits_cap_job_total_upper": 57.7,
+   "cap_reached_about": "2026-11-24T15:11Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:27Z"
+  },
+  {
+   "job": "164657",
+   "f_star": 0.44,
+   "submitted_run_dir": "20261122T052753Z",
+   "hatteras_steps_completed": {
+    "4.5": {
+     "cpu_seconds": 28414,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 1136.6
+    },
+    "4.55": {
+     "cpu_seconds": 149482,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 5979.3
+    }
+   },
+   "current_step": "step-084-g4.6",
+   "current_step_started": "2026-11-24T07:05Z",
+   "cpu_hours_before_current_step_upper": 49.6,
+   "cpu_hours_used_by_now_upper": 57.7,
+   "if_current_step_hits_cap_job_total_upper": 97.6,
+   "cap_reached_about": "2026-11-26T07:05Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:27Z"
+  },
+  {
+   "job": "164658",
+   "f_star": 0.5,
+   "submitted_run_dir": "20261122T052850Z",
+   "hatteras_steps_completed": {
+    "4.5": {
+     "cpu_seconds": 21311,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 852.4
+    },
+    "4.55": {
+     "cpu_seconds": 101229,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 4049.2
+    }
+   },
+   "current_step": "step-084-g4.6",
+   "current_step_started": "2026-11-23T15:40Z",
+   "cpu_hours_before_current_step_upper": 34.2,
+   "cpu_hours_used_by_now_upper": 57.7,
+   "if_current_step_hits_cap_job_total_upper": 82.2,
+   "cap_reached_about": "2026-11-25T15:40Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:28Z"
+  },
+  {
+   "job": "164660",
+   "f_star": 0.65,
+   "submitted_run_dir": "20261122T053022Z",
+   "hatteras_steps_completed": {
+    "4.5": {
+     "cpu_seconds": 11732,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 469.3
+    },
+    "4.55": {
+     "cpu_seconds": 49524,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 1980.9
+    }
+   },
+   "current_step": "step-084-g4.6",
+   "current_step_started": "2026-11-22T22:36Z",
+   "cpu_hours_before_current_step_upper": 17.1,
+   "cpu_hours_used_by_now_upper": 57.6,
+   "if_current_step_hits_cap_job_total_upper": 65.1,
+   "cap_reached_about": "2026-11-24T22:36Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:30Z"
+  },
+  {
+   "job": "164661",
+   "f_star": 0.74,
+   "submitted_run_dir": "20261122T053056Z",
+   "hatteras_steps_completed": {
+    "4.5": {
+     "cpu_seconds": 11625,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 465.0
+    },
+    "4.55": {
+     "cpu_seconds": 43160,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 1726.4
+    }
+   },
+   "current_step": "step-084-g4.6",
+   "current_step_started": "2026-11-22T20:49Z",
+   "cpu_hours_before_current_step_upper": 15.3,
+   "cpu_hours_used_by_now_upper": 57.6,
+   "if_current_step_hits_cap_job_total_upper": 63.3,
+   "cap_reached_about": "2026-11-24T20:49Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:30Z"
+  },
+  {
+   "job": "164662",
+   "f_star": 0.84,
+   "submitted_run_dir": "20261122T053143Z",
+   "hatteras_steps_completed": {
+    "4.55": {
+     "cpu_seconds": 35519,
+     "cycles": 25,
+     "cpu_seconds_per_cycle": 1420.8
+    }
+   },
+   "current_step": "step-084-g4.6",
+   "current_step_started": "2026-11-22T15:27Z",
+   "cpu_hours_before_current_step_upper": 9.9,
+   "cpu_hours_used_by_now_upper": 57.6,
+   "if_current_step_hits_cap_job_total_upper": 57.9,
+   "cap_reached_about": "2026-11-24T15:27Z",
+   "crosses_100_cpu_hours_no_earlier_than": "2026-11-26T09:31Z"
+  }
+ ],
+ "conclusion": "If every running loop stops on the cap at its current step, as f* 0.33 and 0.57 did, the largest job total is f* 0.44 at about 97.6 CPU-hours (in 4.6 since Nov 24 07:05Z; it had used about 49.6 hours before that). The others stop at about 58 to 82 hours. A loop that finishes its current step inside the cap moves on with another 48 hours allowed, and can pass 100. No job can pass 100 CPU-hours before Nov 26 09:27Z (100 hours of wall time after it started).",
+ "guard": "D0072: a timer wakes this line at about Nov 26 07:30Z. At that run, any E0089 job still running that is in a step above the one listed here is cancelled with program cancel before 09:27Z. A job still in its listed step and due to hit the cap before 100 hours (only f* 0.44, cap about Nov 26 07:05 to 07:30Z, job total about 97.6) is left to stop on its own; if it is still running at 09:00Z, it is cancelled.",
+ "registration_note": "E0089's registration estimated 2,000 CPU-hours for eight loops (about 250 per loop), already above the 100 CPU-hour per-run limit when it was registered on Nov 22. Neither that run nor later ones flagged it. Asked as a question in sessions/2026-11-24-L0015-2.json."
+}

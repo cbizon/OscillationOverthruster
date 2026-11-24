@@ -298,6 +298,28 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): second continued loop ended at Gamma 4.6; per-run budget guard (ran Nov 24 15:03Z)
+
+Started by the service for job hatteras-164655 (FAILED, artifact A0177).
+Session summary: `sessions/2026-11-24-L0015-2.json`. Evidence
+`evidence/E0089-interim-f0.33.json`, `evidence/E0089-budget-check.json`.
+
+- **f\* 0.33 loop (E0089):** same as f\* 0.57. Finished Gamma 4.55 (1,332
+  CPU-seconds per cycle on Hatteras), then stopped at 4.6 on the 48
+  CPU-hour CPU cap after 21 of 25 cycles (8,229 CPU-seconds per cycle).
+  Energy audit clean. The job used 57.5 CPU-hours.
+- **E0089's "loops complete above Gamma 5.0" clause has failed** at f\*
+  0.33 and 0.57 under the registered 48-hour cap. The cost-drop
+  prediction of the inelastic ball model is still untested.
+- **Correction (checker, Nov 24):** the "five times" rise in cost from 4.5
+  to 4.55 at f\* 0.57 compared the Mac with Hatteras. In events, which do
+  not depend on the machine, the rise is 1.34 times (1.44 at f\* 0.33).
+- **Budget guard (D0072):** the six loops still running should stop at
+  58 to 98 CPU-hours each. A loop that finishes its current step could go
+  past the 100 CPU-hour per-run limit, but not before Nov 26 09:27Z. A
+  timer wakes L0015 at 08:00Z that day to cancel any such loop. The
+  question of whether "per run" means a job or a step is put to Chris.
+
 ### L0015 (nudge fast pass): first continued loop ended at Gamma 4.6 (ran Nov 24 12:37Z)
 
 Started by the service for job hatteras-164659 (FAILED, artifact A0176).

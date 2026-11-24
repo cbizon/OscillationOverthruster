@@ -1,0 +1,78 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the f* 0.33 nudge loop ended. Like the f* 0.57 loop, it stopped at Gamma 4.6 when it reached its 48 CPU-hour cap per step, so E0089's expectation that the loops complete above Gamma 5.0 has failed at two of eight frequencies. The run also answered the checker's three points: a corrected cross-machine ratio, the failed clause stated plainly, and a timed guard that keeps the six running loops under the 100 CPU-hour per-run limit.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Can the nudge loops continue above the wall near Gamma 4.5 and reach 5.0 and above, and does their cost fall again there as the inelastic ball model predicts?",
+   "what_was_done": "Collected the loop at frequency f* 0.33 when its cluster job ended, and tabulated each step from Gamma 4.3 to 4.6 with the same formulas as the f* 0.57 table (they reproduce that table exactly).",
+   "result": "The loop finished Gamma 4.55 at about 1,330 CPU-seconds a cycle, then reached its 48 CPU-hour cap at 4.6 after 21 of 25 cycles, at about 8,230 CPU-seconds a cycle. On the same machine, 4.6 cost about six times as much per cycle as 4.55, with three times the collisions overall and three times the plate collisions. Plate collisions per particle per cycle were about 1,340 at 4.5, 2,410 at 4.55 and 7,400 at 4.6. The energy audit was clean throughout. The job used about 57.5 CPU-hours.",
+   "takeaway": "Two of eight frequencies now stop at Gamma 4.6 under the registered allowance, at almost the same cost per cycle, so the loop-completion half of the hypothesis has failed at both. Whether the cost falls again above 4.6 is still untested, because no loop has run above 4.6. Correction asked for by the checker: the earlier report that the cost at f* 0.57 rose 'five times' from Gamma 4.5 to 4.55 compared the Mac with the cluster. In collisions per cycle, which do not depend on the machine, the rise is 1.34 times (1.44 times at f* 0.33)."
+  },
+  {
+   "experiment_id": "E0089",
+   "question": "Can any of the six running loops pass the 100 CPU-hour per-run limit in budgets.yaml? (Checker, Nov 24, point 3.)",
+   "what_was_done": "Worked out, from the mirrored outputs, how much CPU each running job had used before its current step, and its total if that step stops on the cap. Each job runs on one CPU, so wall time bounds CPU time.",
+   "result": "If every running loop stops on the cap at its current step, totals range from about 58 to about 98 CPU-hours. The largest is f* 0.44, which has been in Gamma 4.6 since this morning after about 50 hours on the lower steps. A loop that finishes its current step inside the cap gets another 48 hours and could pass 100, but no job can do so before Nov 26 at 09:27 UTC.",
+   "takeaway": "No cancellation is needed now. A timer starts this line at Nov 26 08:00 UTC to cancel any loop that has gone past its current step, so the limit holds without throwing away the Gamma 4.6 measurements in progress."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "budgets.yaml limits CPU to 100 hours 'per run'. Does a run mean one cluster job (one whole nudge loop at one frequency, which E0089 estimated at about 250 CPU-hours when it was registered) or one Gamma step of a loop?",
+   "why_it_matters": "Under the job reading, no nudge loop can get past Gamma 4.6, because each loop has used 55 to 98 CPU-hours by the time 4.6 ends. Under the step reading, the loops can go on, but a single step at 4.6 needs about 52 to 57 CPU-hours to finish.",
+   "default_if_unanswered": "Treat a run as one job. On Nov 26 at 08:00 UTC, cancel any loop that has gone past its current step before it reaches 100 CPU-hours (D0072). Submit nothing for this line that is expected to pass 100 CPU-hours."
+  },
+  {
+   "question": "(Repeated from the earlier run today, now that two loops agree.) When all eight loops have stopped at Gamma 4.6, should I (a) give the loops more than 48 CPU-hours a step from Gamma 4.6 to 5.0, or (b) run a cheaper test: start from the Gamma 4.6 state and run a few cycles at each Gamma from 4.65 to 5.0, to see whether the cost falls as the inelastic ball model predicts?",
+   "why_it_matters": "It decides whether the nudge is measured above Gamma 4.6 at all. Option (a) could cost several hundred CPU-hours per loop.",
+   "default_if_unanswered": "Option (b) at one or two frequencies, registered as a new experiment and kept under 100 CPU-hours per job."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state at f* 0.33 or 0.57, with a few cycles each at 4.65, 4.7, 4.8 and 5.0.",
+   "rationale": "It tests the one untested prediction (the cost falls again above 4.6) for a few tens of CPU-hours, instead of hundreds for a full loop."
+  },
+  {
+   "direction": "Find out why CPU per collision grows 2 to 2.5 times from Gamma 4.55 to 4.6 on the same machine (2.0 at f* 0.33, 2.5 at f* 0.57) while checks per collision grow only about 10%.",
+   "rationale": "An uncounted cost (queue work or repeated nudges) would make the wall partly a property of the code rather than of the physics. A profile of one cycle at 4.6 would show which."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 673.97,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 57.49,
+   "limit": 100
+  }
+ },
+ "open_blockers": [
+  "B0008"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-24T15:01:36Z",
+  "actual_start": "2026-11-24T15:03:35Z",
+  "ended": "2026-11-24T15:09:50Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 35,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "Six loops still running on Hatteras: f* 0.38 in its Gamma 4.55 step and f* 0.44, 0.50, 0.65, 0.74 and 0.84 in 4.6. Each ends on its own; a timer on Nov 26 08:00Z enforces the per-run limit (D0072)."
+   }
+  ],
+  "limits_hit": "The registered cap of 48 CPU-hours per step stopped the f* 0.33 loop at Gamma 4.6. The machine did not limit the science. This host runs Linux: pmset and uptime are unavailable, so sleep and wake were not measured. cores_available comes from /proc/loadavg (4.57 on 40 cores at the start). scheduled_start is when the job ended, the event that started this run. Local CPU use was negligible (reading mirrored files only). Budget: the weekly total is 673.97 of 10,000 CPU-hours (7%, under 50%). That is the 616.48 reported earlier today plus this job's 57.49. cpu_hours_per_run gives the largest job that has ended (f* 0.33, 57.49 of 100). The six running loops have each used at most about 57.7 CPU-hours, which the weekly total does not count yet. Open blocker B0008 (the nudge's code branch is missing from this machine's clone) would stop any new nudge job being submitted from here."
+ }
+}
