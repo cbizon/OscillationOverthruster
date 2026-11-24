@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-23",
+  "line_id": "L0001",
+  "reviewer_model": "claude-opus-5-5",
+  "summary": "Chris asked one thing: whether anything is left to do on the nudge line, or whether the phase diagram has superseded it. The run answered it directly from the records, with no new runs, and recommended closing. But the one item it named as 'left to do' is wrong. The run says the frozen engine tests were 'never run' on the nudge. They were run twice. On Nov 6 the checker ran them on the nudge branch (commit b608fef), with the branch's own engine imported, and it passed all seventy-four (reviews/2026-11-06.json). On Nov 7 the agent ran them on every branch, and PROGRAM.md, section 'Branches and tests', records 'The frozen referee tests pass on every branch (74 each), run with the branch's engine imported (Nov 7)'. The Nov 7 review confirms this. The run says it searched PROGRAM.md and found nothing, but that sentence is in PROGRAM.md. What really has not been tested is narrower: the frozen tests on 16f3334, which is b608fef plus the energy-accumulator fix. That fix only changes the running energy totals; three reruns on it, two of them with the nudge, gave bit-identical trajectories (evidence/E0044-results.json), and main passed the frozen tests with the same fix once a stale compiled cache was cleared (PROGRAM.md, 'Numba cache hazard'). So the true answer to Chris is simpler than the run's: nothing that matters is left, and the line can close now. The run's question to Chris ('close now, or first run the frozen tests?') rests on the false premise. So does part of the reason for blocker B0008. The branch really is missing from this machine (I confirmed that neither commit exists here), but no L0001 work needs it. Two statements on the L0001 line page should change. (1) The state says 'It has never been through the frozen engine tests'. That is wrong: it passed them at b608fef on Nov 6 and Nov 7. (2) The state says 'its energy audit is clean after the accumulator fix'. Only two of the nudge's audit-failing runs were rerun with the fix (176 of its roughly 830 failing cycles, all of which disappeared). L0005's own closing state says it is 'likely, not shown' that the rest were bookkeeping too. Say 'the audit failures checked after the fix (two nudge runs) were all round-off'. Everything else checks. The survival numbers match evidence/E0031-E0034-results.json exactly. At Gamma 5 in 2D the nudge completed seventeen of eighteen runs and the unmodified engine none. The one overlap was seed 1 at Gamma 5, f* 0.3, depth 10, in cycle 162. That condition's other two seeds spent 47% and 13% of their CPU in slow stretches. The 3D survival case completed five of five runs with no slow stretches. Two caveats are missing. Seed 1 at Gamma 5, f* 0.3, depth 15 also counts as 'completed' but spent 71% of its CPU slowed. And every condition with a bulk baseline is one without lasting contacts, which is the 'easy cases only' failure mode, though earlier records say this openly. The five recorded checksum prefixes match. The run proposed and changed no claims. Program check passes. The approvals in the last day include two signed by Chris and two unsigned tags (Nov 23 15:06Z and 15:47Z) that the check does not count. The machine was left clean: tmp is empty, sequel-data holds 368 MB against a 15 GB limit, 92 GB of disk is free against a 40 GB floor, and there are no local jobs.",
+  "reviews": [
+    {
+      "claim_id": "L0001",
+      "plain_claim": "The nudge line's question is answered except that the nudge has never been through the frozen engine tests (and the Figure 1 comparison exists for no method); its energy audit is clean after the accumulator fix; it passes the bulk check wherever a baseline exists (line state of 2026-11-24, evidence/L0001-closing-review-2026-11-23.json).",
+      "verdict": "broken",
+      "attacks": [
+        {
+          "check": "other",
+          "what_was_done": "Searched PROGRAM.md, the sessions and the reviews for frozen-test runs on the nudge branch.",
+          "finding": "Two runs exist. reviews/2026-11-06.json: 'Ran the frozen referee tests against each branch myself ... Both branches pass all seventy-four tests', where the two branches were the elastic window and the nudge, and the nudge runs record commit b608fef. PROGRAM.md, 'Branches and tests': 'The frozen referee tests pass on every branch (74 each), run with the branch's engine imported (Nov 7).' reviews/2026-11-07.json confirms it. So 'never run on method/nudge' is false. What is untested is 16f3334 (the accumulator fix on top of b608fef)."
+        },
+        {
+          "check": "Energy injection",
+          "what_was_done": "Read evidence/E0044-results.json, the E0031 outcome and L0005's closing state.",
+          "finding": "E0044 reran two nudge runs, which had 130 and 46 failing cycles; both went to zero, with bit-identical trajectories. E0031 counts 830 failing cycles for the nudge in 49,490 (6 positive, 824 negative). The rest were never rerun, and L0005's state says that they were bookkeeping is 'likely, not shown'. 'Clean after the fix' therefore goes beyond the evidence. No energy gain from the method itself was found: the nudge's own lift is at most 3.1e-13 of the throughput (PROGRAM.md)."
+        },
+        {
+          "check": "Easy cases only",
+          "what_was_done": "Read the bulk outcomes the run cites: E0004, E0009, E0024, E0033 and E0037.",
+          "finding": "The nudge passes wherever a baseline exists. But by their own records, every one of those conditions is one where the unmodified engine runs without lasting contacts. At case g the pass is weak, with same-sign deviations because settling was too short. The run's evidence file states the case g weakness. Its state sentence does not say that the bulk check never reached a lasting-contact condition."
+        },
+        {
+          "check": "other",
+          "what_was_done": "Recomputed the survival tally from evidence/E0031-E0034-results.json and read slow_cpu_share for each run, as referee/checker.md asks.",
+          "finding": "Seventeen of eighteen and zero of eighteen are both exact. The overlap at cycle 162 is exact, as are the 47% and 13% slow shares. Seed 1 at Gamma 5, f* 0.3, depth 15 completed with 71% of its CPU in slow stretches and is not mentioned. The 2D width-400 runs and the 3D case b and Gamma 5 width-100 runs reached only 120 cycles."
+        },
+        {
+          "check": "other",
+          "what_was_done": "Checked the five SHA-256 prefixes in the run's evidence file, and that commits b608fef and 16f3334 are absent here (git cat-file in this worktree and in the main clone).",
+          "finding": "All five prefixes match, and both commits are absent, as B0008 says. Evidence/E0089 job records confirm that the phase-diagram loops ran 16f3334."
+        }
+      ],
+      "what_would_resolve": "Correct the L0001 state, the progress file, PROGRAM.md and the closing-review evidence file. The nudge passed the frozen tests, seventy-four of seventy-four, at b608fef on Nov 6 (checker) and Nov 7 (agent). Only 16f3334 is untested, and E0044's bit-identical reruns make a rerun on it nearly redundant. Reword 'energy audit clean' to the two nudge runs actually rerun. Withdraw or reword the question to Chris, and narrow B0008 so it blocks only future nudge jobs submitted from here. No runs are needed; one session of editing records."
+    }
+  ],
+  "answers": [
+    {
+      "asked": "There doesn't seem to be a closing criteria for this line.  Is there anything left to do or has the phase diagram superseded it?",
+      "verdict": "partly",
+      "finding": "The `asked` field copies the item word for word. The run replies to the question as asked: not superseded, because the phase diagram uses the nudge as an engine in L0015, and it adds a closing criterion. But 'anything left to do' gets a wrong answer. The run names the frozen engine tests as the item never done, and they were done twice, with all seventy-four passing (Nov 6 and Nov 7). So the choice the run puts to Chris rests on a false premise, and the closing criterion has a branch ('if Chris wants the frozen engine tests run first') that is already met for b608fef. The correct answer is that nothing material is left. The Figure 1 comparison is unbuilt for every method, and the nudge can't become the default by design. No time went to work nobody asked for, and nothing was run, which suits a question about records."
+    }
+  ],
+  "run_conditions": {
+    "verdict": "adequate",
+    "assessment": "The question needed only the records. The run began at 04:49Z, seven minutes after Chris's instruction was committed (04:42Z), and committed its records at 04:52:57Z. Nothing was run, nothing was left running, and the machine limited nothing except the missing nudge branch, which this question did not need.",
+    "discrepancies": [
+      "The summary gives 'ended' as 04:55:00Z, but it was committed at 04:52:57Z, so the end time was written in advance rather than measured.",
+      "Cores available (36, from a load of 3.66 on 40 cores) cannot be checked after the fact. The load at review time was 9.3. pmset does not exist on this Linux machine, as the run said."
+    ]
+  }
+}
