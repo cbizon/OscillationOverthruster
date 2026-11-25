@@ -416,6 +416,24 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: stacks start where the event loop meets them (ran Nov 25 11:42Z)
+
+Session summary: `sessions/2026-11-25-L0009-3.json`; numbers in
+`evidence/L0009-build-2026-11-25-4.json`; branch `method/rest` at c6ad1ff.
+
+- **Checker's point fixed (D0084):** a stack contact handed over as
+  rolling while slipping now starts sliding; the integrator refuses a
+  slipping rolling contact. In the stall pair both contacts slipped (0.017
+  and 0.042); the lower one now slides 0.004 time units, then rolls.
+- **Hand-off in the event loop (D0085):** a touch on a riding sphere
+  slower than the rest speed no longer frees the rider (D0078); the loop
+  returns to Python, which builds the moving stack, booking the touch as a
+  loss in the rider's frame plus plate work. At three 2D conditions the
+  first stack ran 0.40 to 0.95 time units, books to 3e-13, 7 to 15 s CPU
+  in Python per stack, offline.
+- Not yet: the stack's motion fed back to the other spheres, so no layer
+  runs past its first stack. Method tests 55 pass; frozen 74 pass.
+
 ### L0009, timer run: moving stacks prepared, stall pair replayed offline (ran Nov 25 10:38Z)
 
 Session summary: `sessions/2026-11-25-L0009-2.json`; numbers in
@@ -1564,9 +1582,11 @@ These are findings, not edits; the referee is his.
   grid with more seeds where the judge is close, and the phase-diagram fast
   pass with grapenuts (`lines/L0020/progress.md`).
 - **Option four from the paper (L0009):** the plate part runs in the
-  event loop on `method/rest` (Nov 25 09:33Z run). Next: sphere-on-sphere
-  rest (moving stacks, still spheres) in the event loop, starting with the
-  stall replay `scripts/rest_plate/stall.py` on the branch; then the 2D
+  event loop on `method/rest` (Nov 25 09:33Z run); the loop stops at a
+  slow touch on a rider and builds the moving stack (Nov 25 11:42Z run).
+  Next: feed the stack's motion back into the loop (other spheres' and
+  walls' searches against stack spheres), run the stall layer
+  `scripts/rest_plate/stack_event.py` past its first stack; then the 2D
   grid. Clusterlifter (`method/held-contact`) is stopped as built: no
   fixes, no runs.
 

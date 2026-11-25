@@ -1,0 +1,61 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "This timer run continued building the resting-contact method on branch method/rest, toward moving stacks in the event loop. It fixed the checker's open point: a stack contact handed over as rolling while it slips now starts sliding, as Coulomb's law requires (in the first stall both contacts slipped). The event loop now stops at the first slow touch on a riding sphere and builds the moving stack there; at three 2D conditions the stack, run offline, carried its pair for 0.4 to 0.95 time units until the top sphere left, with energy books closing to round-off. The stack's motion is not yet fed back to the other spheres, so no layer runs past its first stack.",
+ "experiments": [],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The piece being built moves a sphere resting on a riding sphere together with it. Their smooth motion is integrated between exact events (adaptive steps at round-off accuracy, contact forces from a small linear solve, nothing corrected at steps). Is that within the plan, or does it count as time-stepping for you? (Asked three times before; still unanswered.)",
+   "why_it_matters": "Every first stall seen so far (three layers) is this case, and each such stack takes 125 or more integrator steps and 7 to 15 seconds of Python per pair. If you count this as time-stepping, sphere-on-sphere rest needs another approach before the feed-back into the event loop is built.",
+   "default_if_unanswered": "Keep building it as designed (decision D0076) and report the share of sphere-time spent in integrated stacks once a layer runs, so it can be judged on numbers."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Feed stacks back into the event loop (decision D0082): stack spheres as a new state whose positions come from stored segments, other spheres' and walls' searches against them, and the hand-back to free or riding spheres when the stack ends.",
+   "rationale": "It is the last missing piece before a layer can run past its first stack; the hand-off and the stack's start are now in place and tested."
+  },
+  {
+   "direction": "Once a layer runs, measure the share of sphere-time in stacks and the Python CPU per cycle over the 2D grid before compiling the stack code.",
+   "rationale": "At 7 to 15 seconds per stack against hundredths of a second per cycle for the engine, these numbers decide both the time-stepping question to Chris and whether the stack code must be compiled."
+  },
+  {
+   "direction": "Give the free-sphere search against stack spheres a proven speed bound per segment rather than sampling.",
+   "rationale": "The search for contact changes inside a stack is a sampling test (decision D0081); the searches between free and stack spheres should not add a second unproven step."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 561.365,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.685,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T11:42:00Z",
+  "actual_start": "2026-11-25T11:42:28Z",
+  "ended": "PLACEHOLDER",
+  "interruptions": [
+   {
+    "start": "2026-11-25T11:52:00Z",
+    "end": "2026-11-25T12:02:00Z",
+    "cause": "Waited on three background checks that had never started: they were launched through /usr/bin/time, which this worker does not have. Rerun without it."
+   }
+  ],
+  "cpu_hours": 0.12,
+  "cores_available": 35,
+  "disk_free_gb": {
+   "start": 90,
+   "end": 90
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. Only short single-threaded local checks: the method tests three times (50, 50 and 76 s by pytest's clock), the frozen engine tests three times (37, 39 and 36 s), the offline stall replay once (6.4 s of stack CPU), and the stack hand-off script four times (engine 0.03 to 14 s with numba compiling on the first, stack 6 to 15 s CPU measured inside the script). The CPU figure sums those times; ps and /usr/bin/time are not on this Linux worker (40 cores, load about 4.3 at start, from /proc/loadavg), and neither are pmset or memory_pressure; memory was checked from /proc/meminfo (about 725 GB available). Data folder 685 MB, 90 GB free. pytest scratch went to sequel-data/tmp. No experiments were registered: these are development checks of the build, recorded in evidence/L0009-build-2026-11-25-4.json. Weekly CPU at 6% of the limit, below the 50% warning; this run's few minutes far below the 100-hour per-run limit. The two build checks (the slipping-contact fix and the event loop's stack hand-off) are described in PROGRAM.md and evidence/L0009-build-2026-11-25-4.json rather than under experiments, which needs registered experiment ids."
+ }
+}

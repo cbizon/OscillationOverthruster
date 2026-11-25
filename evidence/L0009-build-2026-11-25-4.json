@@ -1,0 +1,314 @@
+{
+ "line_id": "L0009",
+ "date": "2026-11-25",
+ "run": "service run 3 (timer), 11:42Z",
+ "code": {
+  "branch": "method/rest",
+  "commit": "c6ad1ff",
+  "worktree": "~/Projects/experiments/sequel-data/worktrees/rest",
+  "parent": "e299265"
+ },
+ "tests": {
+  "method_tests": "55 passed (tests/test_rest_engine.py tests/test_rest.py tests/test_stack.py tests/test_rest_kernel.py)",
+  "frozen_referee_tests_method_off": "74 passed",
+  "frozen_on_main_at_start": "74 passed"
+ },
+ "challenge_slipping_rolling_contact": {
+  "fix": "Stack.consistent_modes switches rolling contacts with tangential slip > SLIP0 (1e-13) to sliding; integrate refuses a rolling contact slipping > 1e-9 (D0084)",
+  "new_tests": [
+   "test_a_rolling_contact_that_slips_is_refused_then_made_sliding",
+   "test_sliding_sphere_comes_to_rolling_at_the_coulomb_time (roll time s0/(mu g (1+1/K)) to 1e-10, measured 4.0e-11 late; roll speed s0/(1+K) and friction loss K/(1+K) of start energy to 1e-9)"
+  ],
+  "where_output_first_differs": "at the stack's start: before (e299265) modes were [roll, slide] with contact 0 (rider on plate) holding slip 0.0171 for the whole run; now both contacts start sliding (contact 0 slip 0.0171, contact 1 slip 0.0421), so the motion differs from the first step",
+  "new_code_path_count": "switched_for_slip = 2 in the replay; contact 0 slides 0.00377 time units, then rolls (slip at end 5.6e-17)",
+  "replay_after": {
+   "t_local": 5.834632,
+   "mode_a": 1,
+   "mode_b": 0,
+   "gap_ab": 5.10702591327572e-15,
+   "gap_a_plate": 0.0,
+   "vn_ab": -1.1932249096621653e-08,
+   "vz_a_minus_plate": 0.0,
+   "normal_angle_deg": 60.99014815235134,
+   "plate_accel_over_g": 1.9576827269484622,
+   "approach_removed": -1.1932249096621653e-08,
+   "approach_energy_removed": 7.305926155132399e-17,
+   "pushes_at_start": [
+    4.375566120758096,
+    1.4189631076192855
+   ],
+   "rolling_friction_needed_over_mu_push": [
+    0.36800182144151683,
+    1.103040398890607
+   ],
+   "slip_at_start": [
+    0.017099741063514747,
+    0.04211372784472451
+   ],
+   "switched_to_sliding_at_start": [
+    0,
+    1
+   ],
+   "switched_for_slip": 2,
+   "modes_at_start": [
+    "slide",
+    "slide"
+   ],
+   "event": [
+    1,
+    "open"
+   ],
+   "mode_changes": [
+    [
+     0.003772222674102821,
+     0,
+     "roll"
+    ],
+    [
+     0.0037722226744705267,
+     0,
+     "roll"
+    ],
+    [
+     0.39852066973704137,
+     1,
+     "open"
+    ]
+   ],
+   "modes_at_end": [
+    "roll",
+    "slide"
+   ],
+   "slip_at_end": [
+    5.551115123125783e-17,
+    0.5385124816704513
+   ],
+   "stack_time": 0.39852066973704137,
+   "plate_periods": 0.053467158478246055,
+   "steps": 125,
+   "force_solves": 2709,
+   "dip_samples": 849,
+   "dips": 1,
+   "cpu_s": 6.4249965010000025,
+   "energy_change": 1.2013233975863042,
+   "plate_work": 1.2286318036278203,
+   "friction_loss": -0.027308406041526734,
+   "books_residual": 1.0658141036401503e-14,
+   "gap_a_plate_end": -5.329070518200751e-15,
+   "gap_ab_end": -1.1324274851176597e-14
+  },
+  "replay_before_e299265": {
+   "modes_at_start": [
+    "roll",
+    "slide"
+   ],
+   "switched_to_sliding_at_start": [
+    1
+   ],
+   "event": [
+    1,
+    "open"
+   ],
+   "stack_time": 0.3964654852972904,
+   "steps": 66,
+   "force_solves": 840,
+   "friction_loss": -0.02954057153295849,
+   "books_residual": 2.6277591214096674e-14,
+   "cpu_s": 3.6768086890000014
+  }
+ },
+ "stack_handoff_in_event_loop": {
+  "what": "run_events returns 2 when a sphere touches a plate rider with normal approach < v_rest (0.01); Simulation.build_stack builds the stack; stack.evolve runs it offline (not fed back) until a contact opens or one period passes (scripts/rest_plate/stack_event.py)",
+  "conditions": "2D, N 100, L 20, Gamma 2, depth 5, v_rest 0.01, v_wake 0.05",
+  "runs": {
+   "seed_1_fstar_0.3": {
+    "seed": 1,
+    "f_star": 0.3,
+    "run_to_status": 2,
+    "cycle": 0,
+    "engine_cpu_s": 0.03424872099999998,
+    "stack_events": 1,
+    "rider_hits": 25,
+    "captures": 27,
+    "event": {
+     "t": 5.833992683886753,
+     "i": 92,
+     "j": 94,
+     "mode_i": 1,
+     "mode_j": 0,
+     "approach": 0.005241142592069717,
+     "normal_angle_deg": 60.98808771005462,
+     "approach_dissipation": -1.4095568847250298e-05,
+     "approach_plate_work": 0.001291459037503646,
+     "approach_books_residual": -6.505213034913027e-19,
+     "slip_at_start": [
+      0.018765008273877563,
+      0.049259032775373045
+     ],
+     "switched_to_sliding_at_start": [
+      0,
+      1
+     ],
+     "modes_at_start": [
+      "slide",
+      "slide"
+     ]
+    },
+    "stack_cpu_s": 7.2204799170000005,
+    "stack_time": 0.39807094068160787,
+    "end_event": [
+     1,
+     "open"
+    ],
+    "mode_changes": [
+     [
+      0.0041392465270471135,
+      0,
+      "roll"
+     ],
+     [
+      0.004139246527423701,
+      0,
+      "roll"
+     ],
+     [
+      0.39807094068160787,
+      1,
+      "open"
+     ]
+    ],
+    "force_solves": 2632,
+    "plate_work": 1.2252470507259474,
+    "friction_loss": -0.028601408177896196,
+    "books_residual": 1.0384054727197167e-14
+   },
+   "seed_2_fstar_0.3": {
+    "seed": 2,
+    "f_star": 0.3,
+    "run_to_status": 2,
+    "cycle": 0,
+    "engine_cpu_s": 0.03469335600000001,
+    "stack_events": 1,
+    "rider_hits": 7,
+    "captures": 8,
+    "event": {
+     "t": 5.822874437186896,
+     "i": 10,
+     "j": 16,
+     "mode_i": 1,
+     "mode_j": 0,
+     "approach": 0.00908172738219004,
+     "normal_angle_deg": 29.369097925817222,
+     "approach_dissipation": -4.0232136847415266e-05,
+     "approach_plate_work": 0.003460729462991841,
+     "approach_books_residual": -1.431146867680866e-17,
+     "slip_at_start": [
+      0.013688301628283576,
+      0.015280336805416671
+     ],
+     "switched_to_sliding_at_start": [
+      0,
+      1
+     ],
+     "modes_at_start": [
+      "slide",
+      "slide"
+     ]
+    },
+    "stack_cpu_s": 14.583649449000001,
+    "stack_time": 0.9154933961875171,
+    "end_event": [
+     1,
+     "open"
+    ],
+    "mode_changes": [
+     [
+      0.0010283699391893109,
+      1,
+      "roll"
+     ],
+     [
+      0.001590263021476801,
+      0,
+      "roll"
+     ],
+     [
+      0.7563298542677721,
+      1,
+      "slide"
+     ],
+     [
+      0.9154933961875171,
+      1,
+      "open"
+     ]
+    ],
+    "force_solves": 3178,
+    "plate_work": 4.4935703499610655,
+    "friction_loss": -0.0009266068635199295,
+    "books_residual": -5.699921871299418e-14
+   },
+   "seed_1_fstar_0.4": {
+    "seed": 1,
+    "f_star": 0.4,
+    "run_to_status": 2,
+    "cycle": 0,
+    "engine_cpu_s": 0.04035584400000003,
+    "stack_events": 1,
+    "rider_hits": 25,
+    "captures": 26,
+    "event": {
+     "t": 4.909965874660845,
+     "i": 42,
+     "j": 43,
+     "mode_i": 1,
+     "mode_j": 0,
+     "approach": 0.008748060082414338,
+     "normal_angle_deg": 29.935466219457464,
+     "approach_dissipation": -3.797774851378136e-05,
+     "approach_plate_work": 0.009614030069942998,
+     "approach_books_residual": 1.734723475976807e-18,
+     "slip_at_start": [
+      2.662800535624399e-15,
+      0.028129871416708488
+     ],
+     "switched_to_sliding_at_start": [
+      1
+     ],
+     "modes_at_start": [
+      "roll",
+      "slide"
+     ]
+    },
+    "stack_cpu_s": 12.555950902000001,
+    "stack_time": 0.9526365962854788,
+    "end_event": [
+     1,
+     "open"
+    ],
+    "mode_changes": [
+     [
+      0.006334050955278059,
+      1,
+      "roll"
+     ],
+     [
+      0.8571064198767049,
+      1,
+      "slide"
+     ],
+     [
+      0.9526365962854788,
+      1,
+      "open"
+     ]
+    ],
+    "force_solves": 2485,
+    "plate_work": 3.7472782648280303,
+    "friction_loss": -0.00011939590007199916,
+    "books_residual": -3.437649335113688e-13
+   }
+  },
+  "note": "each run's engine_cpu_s is with numba caches warm; stack_cpu_s is the pure-Python stack integration (7 to 15 s per stack)"
+ }
+}
