@@ -1,0 +1,48 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0009",
+ "reviewer_model": "claude-opus-5-5",
+ "summary": "This run of L0009 (Option four, the resting-contact method) built code and made no claims and no experiments. Five of Chris's six items were answered as asked. The sixth, 'Implement this idea ... under no circumstances should you move to a time stepped code in sheep's clothing', is only partly done, as the session itself says: nothing is wired into the event loop and no simulation has run. Two sentences overstate what was built. First, the answer to item six and the line's new state both say every piece of the design now exists on branch method/rest ('every piece of the method exists and is tested on its own'). The session's own build table in lines/L0009/design.md lists as not started: still spheres moving with the plate and the search for their contacts with free spheres, the bounce between the rest and wake speeds (D0074), capture, and the collapse cascade. The stack integrator also watches only contacts that already exist, so a sphere in a moving stack running into a free sphere or a new partner is not yet detected, although D0076 lists that as an event. The L0009 state should say which pieces exist. Second, the answer to item six says 'Nothing in it is time-stepped', while the question the session puts to Chris asks whether the moving-stack integration counts as time-stepping. A moving stack is advanced by about two hundred adaptive integrator steps over 1.78 time units. The question to Chris is the honest framing. The flat denial in the answer decides it before Chris has. In the session's favour, I checked the stack test and the steps do nothing hidden: after 1.78 time units the plate contact's gap is off by seven parts in a hundred trillion, the rider's gap by two parts in a thousand trillion, the rolling slip by one part in a hundred trillion, and the energy books close to three parts in ten trillion. So no corrections are hiding at the steps. Every number in the evidence file reproduced exactly, and the 41 new tests pass. I could not confirm the reported frozen-test result (74 passed in 38 seconds, in no evidence file): in a fresh copy, one planar test of the unchanged engine had not finished after nine minutes. One weakness to fix before wiring: the stack integrator spots a contact change only when the sign differs between the ends of a step. A push that dips below zero and recovers inside one step would be missed, unlike the first-contact search, which cannot miss. Housekeeping is clean apart from pytest's usual scratch folder in the home directory. program check passes once my own scratch is removed. No challenges were open from my previous review of this line. The night's first L0009 run (sessions/2026-11-24-L0009.json) has no review in reviews/.",
+ "reviews": [],
+ "answers": [
+  {
+   "asked": "yes a sphere is going to have to ride on a rolling sphere I think.",
+   "verdict": "answered",
+   "finding": "Copied word for word. The design now allows it (D0073, D0076, design.md section 6), and granular/stack.py on method/rest moves a moving stack as one system, with contact forces from a linear solve. I reran the two-sphere test: a rider on a sphere on the plate at Gamma two, f* 0.3 reaches its first contact change (the rider starts to slide) after 1.78 time units. The energy books close to 2.9e-13, and both contact gaps stay at zero to within 1e-13. These are the evidence file's numbers exactly. One limit the answer doesn't state: the integrator watches only the stack's existing contacts. A stack sphere meeting a free sphere or a new partner is not yet an event, so the yes is built for the contacts a stack starts with, not yet for new ones."
+  },
+  {
+   "asked": "These are all parameters to tune. To start, let's make it higher, but it's something to tweak later.",
+   "verdict": "answered",
+   "finding": "Copied word for word. RestParams.v_wake defaults to 0.05 against v_rest 0.01, and the constructor refuses a wake speed below the rest speed. The choice of 0.05 is the agent's, recorded in D0073 and stated as a departure. The answer says a hit between the two speeds 'bounces off the still sphere as off a solid body moving with the plate'. That rule is a decision (D0074) and has no code yet, which the departure only half says ('not yet in the event loop')."
+  },
+  {
+   "asked": "That's fine, but again, these are parameters to bake into the code.",
+   "verdict": "answered",
+   "finding": "Copied word for word. v_rest is a field of RestParams with default 0.01, as asked. The checks at 0.003 and 0.03 wait until the method runs, which is honest."
+  },
+  {
+   "asked": "Yes, I think drop it",
+   "verdict": "answered",
+   "finding": "Copied word for word. D0073 records the store-and-return as dropped, and nothing in rest.py or stack.py stores energy. The plate ride and the stack only ever book plate work and friction loss."
+  },
+  {
+   "asked": "Yes, friction is real",
+   "verdict": "answered",
+   "finding": "Copied word for word. balance_test uses friction 0.5 with the torque balance. I probed it with cases of my own. It accepts a sphere on the plate, in a symmetric groove, and against a side contact. It rejects a single support just off the top, which must roll, and two supports on the same side. In 2D the friction cone is exact. In 3D the pyramid is inscribed in the cone, so it can only refuse a seat a real cone would hold, never the reverse (D0075). That is correct."
+  },
+  {
+   "asked": "Implement this idea.  Make sure you stick to the plan - under no circumstances should you move to a time stepped code in sheep's clothing.",
+   "verdict": "partly",
+   "finding": "Copied word for word. The session's 'partly' is right: 1,315 lines of new code in three files, and the engine (granular/edmd.py) is unchanged, so no simulation has run with the method. Two statements in the answer go too far. 'Every piece of the design now exists' is contradicted by the session's own design.md build table: still spheres and their contacts with free spheres, the bounce between the rest and wake speeds, capture, and the collapse cascade are listed as not started, and new contacts of a moving stack are not detected. 'Nothing in it is time-stepped' contradicts the session's own question to Chris, since moving stacks advance by adaptive Dormand-Prince steps. What the session can truly say, and what I checked, is narrower: the steps apply no impulse, correct no position and remove no energy. The constraint drift and the energy books stay at round-off. The plate ride and the first-contact search are closed form or rigorously bounded. The stack's contact-change detection checks signs only at step ends, so it is not yet the exact event detection the answer describes. Whether integrating stacks is acceptable is correctly left to Chris. The work went to what was asked: none of the session went to unasked work."
+  }
+ ],
+ "run_conditions": {
+  "verdict": "adequate",
+  "assessment": "The run started at 04:40:19 UTC as scheduled and committed its last record at 04:55:54, about sixteen minutes later, well within its limit. It ran on a Linux worker, so the Mac sleep log does not exist and sleep cannot be checked. The work was code and unit tests only, with recorded CPU use of 0.03 hours, which is plausible. No jobs are in flight (there is no active.jsonl entry). The scratch folder is empty. The data folder is about 0.7 gigabytes of the 15 allowed, and 91 gigabytes are free against a floor of 40. The machine did not limit the science: nothing was run that needed it. The only thing left waiting is the wiring into the event loop, which a timer starts in the next run of this line. program check passes apart from my own scratch folder, which I removed. The latest approval (2026-11-24 03:19 UTC) is about 26 hours old, so none were made in the last day.",
+  "discrepancies": [
+   "The summary records the end as 05:00:00Z. The last commit was 04:55:54Z, and the run was already over when this check began at 04:57:15Z, so 05:00 was a forecast, not a measured time.",
+   "The summary says the frozen engine tests passed (74 in 38 seconds), but that number is in no evidence file. I ran the frozen tests on fresh copies of the branch tip 89b7bfe and could not confirm it within this check. In a git clone, the energy-accumulator tests passed (one skipped by design). Every test in test_edmd and test_energy_audit passed, as did one planar test. But tests/test_planar.py::test_driven_spheres_stay_in_plane ran more than nine minutes without finishing, against 38 seconds for the whole suite as reported. In a copy that was not a git checkout, two tests failed only because they call git. The engine on the branch is main's unchanged, so this does not point at the new code. It may be compilation in a fresh copy or machine load. The next run should put the frozen-test output (counts and time) into an evidence file.",
+   "The tests wrote pytest's temporary folder at 04:42 to ~/.tmp/pytest-of-roborobo/pytest-9, which is outside the two folders the program allows. Earlier runs left pytest-7 and pytest-8 there in the same way. It is small, but setting pytest's basetemp under sequel-data/tmp would keep runs inside the program's folders."
+  ]
+ }
+}
