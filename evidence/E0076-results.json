@@ -447,7 +447,7 @@
     "reason": "CPU cap stop at both widths"
    }
   ],
-  "summary": "Of four comparable ends, width 200 reached less far at three (by 0.15 to 0.2 in Gamma) and the same at one. Of four one-sided ends, width 200 broke at a Gamma width 100 completed at two, stopped at the same Gamma at one, and stopped for cost above the width-100 floor at one. At no end did width 200 reach further than width 100. Four of ten width-200 loops broke in their first step against one of ten at width 100. One seed each."
+  "summary": "Of four comparable ends, width 200 reached less far at three (by 0.15 to 0.2 in Gamma) and the same at one. Of four one-sided ends, width 200 broke at a Gamma width 100 completed at two, stopped at the same Gamma at one, and stopped for cost above the width-100 floor at one. At no end where the comparison means something (a physical stop at both widths, or a stop at one width only) did width 200 reach further than width 100; at the f* 0.50 floor, where both widths stopped on their CPU caps, width 200 completed Gamma 2.35 and width 100 did not (floors 2.35 against 2.4), which says nothing about the box. Four of ten width-200 loops broke in their first step against one of ten at width 100. One seed each."
  },
  "cpu_hours": {
   "total_job_records": 343.62,
@@ -467,5 +467,11 @@
  "onset_judgement": {
   "registered": "Fails if at 3 or more f* where both boxes have an onset the L 200 onset is more than 0.1 in Gamma from the paper's box (judged by amplitude against Gamma on both branches per f*).",
   "status": "not made. The width-100 baseline loops (E0073) have no onset measured, and the onset rule the program used before (tools/loop_analysis.py, first of three rising steps above the flat level, named in E0071) is not in the repository. The width-200 fields.npz (ring spectrum and height variance at 32 phases a cycle) are on Hatteras in each loop artifact; the width-100 fields.npz are in A0068. Loops start at Gamma 3.0, inside the patterned range, and go down only to their floors (2.25 to 2.45), so whether either box goes flat on the way down, and so has an onset to compare, is itself unknown. A pilot at f* 0.38 (evidence/E0076-onset-pilot.json) finds the same pattern wavelength at both widths and the pattern lost between Gamma 2.5 and 2.45 on the way down and back at 2.65 (width 100) and 2.7 (width 200) on the way up, under an ad hoc measure; so the test can be applied, once the measure is decided."
- }
+ },
+ "corrections": [
+  {
+   "at": "2026-11-25T09:50Z",
+   "what": "tally.summary: replaced 'At no end did width 200 reach further than width 100' (false at the f* 0.50 floor, a CPU-cap stop at both widths, where width 200 went 0.05 lower) with the narrowed sentence; raised by the checker's review of the Nov 25 run."
+  }
+ ]
 }

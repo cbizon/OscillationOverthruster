@@ -1,0 +1,58 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the width-200 nudge loop at f* 0.38 (job 164681) ended. It covered Gamma 2.45 to 4.35 and stalled at 4.4. The paper's box covered 2.25 to 4.35 with the same loop and stopped at 4.4 on its CPU cap, so the wall at Gamma 4.4 is there in the wider box too. Both floors were CPU cap stops, so they cannot be compared. The checker's correction is made: the claim that width 200 never reached further was false at one floor where both widths stopped on their caps, and is now narrowed.",
+ "experiments": [
+  {
+   "experiment_id": "E0075",
+   "question": "Where does the nudge model stop on a Gamma loop in the box twice as wide, compared with the paper's box, at f* 0.38?",
+   "what_was_done": "Read the mirrored per-step summaries of the loop that ended on Hatteras. Added them to the interim evidence file in the same form as the earlier loops. Compared them with the nudge loop at the same f* in the paper's box, including the cost of matching steps.",
+   "result": "Going down from Gamma 3.0, every step completed to 2.45. The step at 2.4 used its two CPU-hour cap after twenty-four of twenty-five cycles, so the loop turned there. Going up, every step completed to 4.35. At 4.4 simulated time stopped advancing in the twenty-fifth cycle, after six and a half CPU-hours, below the eight-hour cap. There were fifty completed steps and about seventy-five CPU-hours in all. No step gained energy, failed the energy audit or had a slow stretch before the final one. In the paper's box the same loop went from 2.25 to 4.35. Both of its stops were half-hour CPU cap stops: at 2.2 after seventeen cycles and at 4.4 after nineteen. A matching step cost about seven and a half times as much in the wider box going down and about ten times going up (medians of eleven and thirty-eight pairs). The caps were scaled only four times.",
+   "takeaway": "Both boxes completed 4.35 and stopped at 4.4, the same step where every nudge loop in the paper's box stopped on Nov 18. In the wider box the stop is a stall, but in the paper's box it is a cost stop, so it is not known whether the smaller box would also have stalled there. The floors are cost floors at both widths and say nothing about box size. This is one seed, and where the pattern appears has not been measured.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "Measure where the pattern appears at both widths for the loops that have ended, judging the pattern by its wavelength in sphere diameters, as a Hatteras job next to the stored spectra.",
+   "rationale": "This is the registered test of E0075 and E0076, and it is still unmeasured. The checker showed that a rule based on ring index or on a variance share above one half would make the wider box look unpatterned."
+  },
+  {
+   "direction": "Scale the width-200 step caps by the measured cost ratio (about seven and a half going down, ten going up) for any rerun of cap-stopped ends.",
+   "rationale": "All the nudge and baseline floors so far are cost floors at both widths. Caps scaled by particle count alone (four times) cannot compare them."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 561.37,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T09:31:51Z",
+  "actual_start": "2026-11-25T09:34:04Z",
+  "ended": "2026-11-25T09:37:37Z",
+  "interruptions": [],
+  "cpu_hours": 0.01,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "ten loops running on Hatteras, 5-day wall time (ends about Nov 27)"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "eight nudge loops running on Hatteras, 7-day wall time (ends about Nov 29)"
+   }
+  ],
+  "limits_hit": "None from the machine. This host is Linux, so pmset and uptime are unavailable and sleep and wake were not measured. The load average was 2.0 from /proc/loadavg. scheduled_start is the service's job-record commit (09:31:51Z), not a measured runner start. The loop's own step caps set both floors, at both widths. That is a limit of the design, not of the machine. The weekly budget figure from program check (561.37) does not include jobs that ended since Nov 19. By the checker's count and this job's 75.1 CPU-hours, the true figure is about 875, which is 9% of the weekly limit. The job is under the 100 CPU-hour per-run limit."
+ }
+}
