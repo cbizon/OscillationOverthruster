@@ -3,8 +3,9 @@
 ## Status
 
 Active. All ten E0076 (baseline) loops have ended (last: f* 0.38, job
-164691, Nov 24 23:55Z, collected Nov 25). 19 width-200 loops still run on
-Hatteras: ten E0074 (no friction) and nine E0075 (nudge). Slurm marks every
+164691, collected Nov 25). E0075 (nudge) f* 0.27 (164684) and f* 0.38
+(164681, collected Nov 25 second run) have ended. 18 width-200 loops still
+run on Hatteras: ten E0074 (no friction) and eight E0075 (nudge). Slurm marks every
 ended loop FAILED (exit 1): that is how ramp.py exits when a loop stops, not
 a crash. Read the step outcomes.
 
@@ -26,7 +27,10 @@ a crash. Read the step outcomes.
   up_leg_cost_ratio, 114 pairs, median 7.31; width100_cost_jump_near_3_35).
 - E0076 working ranges (Nov 25): evidence/E0076-results.json. Table per f*
   of floor and highest Gamma at both widths with the stop type at each end
-  (CPU cap, overlap, stall). Width 200 never reached further than width 100.
+  (CPU cap, overlap, stall). At no end where the comparison means something
+  (physical stop at both widths, or one-sided) did width 200 reach further
+  than width 100. NOT "never": at the f* 0.50 floor (cap stop at both
+  widths) width 200 went 0.05 lower (2.35 vs 2.4); checker Nov 25, fixed.
   Comparable ends (physical stop at both widths): f* 0.65 floor 2.4 vs 2.25,
   top 3.9 vs 4.1; f* 0.57 top 3.8 vs 4.0; f* 0.44 top 4.0 vs 4.0. First-step
   failures: four of ten at width 200, one at width 100. 343.6 CPU-hours.
@@ -39,13 +43,22 @@ a crash. Read the step outcomes.
   not size up-leg caps; that proposal is withdrawn. Timestamps: write the
   real time when appending to the ledger.
 - E0075 nudge f* 0.27 (164684, A0094): first-step cap after 49 of 50 cycles.
+- E0075 nudge f* 0.38 (164681, A0186, Nov 25): floor 2.45 (2.0 CPU-hour cap
+  at 2.4, 24 of 25 cycles), top 4.35, stall (frozen_time) at 4.4 in cycle 25
+  at 6.51 CPU-hours (under the 8.0 cap). 50 steps, 75.1 CPU-hours, clean.
+  Width-100 nudge (E0065 loop nudge-3d-f0.38): 2.25 (0.5 cap at 2.2) to 4.35
+  (0.5 cap at 4.4 after 19 cycles). Top: same last step, one-sided (wall at
+  Gamma 4.4 in both boxes). Floors: cost floors, not comparable. Matched-step
+  cost ratio 7.6 down (11 pairs), 10.3 up (38 pairs). In E0076-interim.json
+  (loops[-1]). The up leg resumes at floor+0.05 by design (ramp.py skips
+  steps at or below the floor).
 
 ## Jobs in flight
 
 | Experiment | Host | Jobs | f* | Description | Wall time |
 |---|---|---|---|---|---|
 | E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
-| E0075 | hatteras | 164675-164683 running; 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
+| E0075 | hatteras | 164675-164680, 164682, 164683 running; 164681, 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -69,6 +82,11 @@ E0074 started about Nov 22 06:15Z, so its 5-day wall time ends about Nov 27
   One fetch takes about 3 to 7 s; a whole loop's fields.npz about 3 to 5 min.
   For all 15 loops, a Hatteras job next to the data is quicker.
 - Collect E0074 and E0075 loops as they end, same per-step form.
+- Onset rule (checker Nov 25): judge the pattern by its wavelength in sphere
+  diameters, not by ring index or a variance share above one half; at width
+  200 the pattern ring holds a smaller share (0.3 to 0.54 vs 0.5 to 0.76)
+  because rings at larger k hold more modes, and width 100 cannot resolve
+  wavelengths between 33 and 25 diameters.
 - Compare the E0071 onset at L 200 with E0060 at L 100 for f* 0.44.
 - If E0089 shows the nudge cost drops above Gamma 4.65, raise the E0075 caps.
 

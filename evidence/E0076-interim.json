@@ -4,7 +4,7 @@
   "E0075"
  ],
  "line_id": "L0018",
- "kind": "interim: all ten E0076 loops have ended; E0074 and E0075 still running",
+ "kind": "interim: all ten E0076 loops have ended; E0074 still running; E0075 f* 0.27 and 0.38 ended, eight running",
  "made_at": "2026-11-24",
  "source": "Slurm job records in evidence/E0076/ and evidence/E0075/, and the fetched per-step summary.json files in the mirror",
  "loops": [
@@ -4343,6 +4343,967 @@
      "sha256": "cbcc4e20fbb26b3a7de053c2bcd26ae511217e0407d31eac1177e050fa2d4009"
     }
    ]
+  },
+  {
+   "experiment": "E0075",
+   "job": 164681,
+   "artifact": "A0186",
+   "fstar": "0.38",
+   "model": "nudge (method/nudge 16f3334), L 200, N 240000",
+   "slurm_state": "FAILED",
+   "elapsed": "3-03:06:54",
+   "job_cpu_hours": 75.115,
+   "steps_completed": 50,
+   "down_floor": 2.45,
+   "up_ceiling": 4.35,
+   "stops": [
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 24,
+     "of": 25,
+     "cpu_h": 2.02
+    },
+    {
+     "step": 80,
+     "gamma": 4.4,
+     "outcome": "frozen_time",
+     "error": null,
+     "cycles": 24,
+     "of": 25,
+     "cpu_h": 6.514
+    }
+   ],
+   "energy_gains_any_step": 0,
+   "audit_failures_any_step": 0,
+   "slow_episodes_any_step": 0,
+   "cpu_h_25cycle_steps": {
+    "n": 49,
+    "median": 1.221,
+    "mean": 1.296
+   },
+   "cpu_h_sum_of_steps": 74.68,
+   "turn_note": "--turn-on-stop: the down step at 2.4 stopped on its 2.0 CPU-hour cap after 24 of 25 cycles, so the floor is 2.45 and the up leg resumed from the 2.45 checkpoint at 2.5 (step 42); steps 13 to 41 were skipped by design. The loop ended at the first up-leg stop, so the branch from 7.0 back down never ran.",
+   "width100_same_model": {
+    "fstar": "0.38",
+    "source": "evidence/E0065-results.json (loop nudge-3d-f0.38, N 60000, L 100)",
+    "steps_completed": 58,
+    "down_floor": 2.25,
+    "up_ceiling": 4.35,
+    "stops": [
+     {
+      "step": 16,
+      "gamma": 2.2,
+      "outcome": "cpu_budget",
+      "cycles": 17
+     },
+     {
+      "step": 80,
+      "gamma": 4.4,
+      "outcome": "cpu_budget",
+      "cycles": 19
+     }
+    ],
+    "step_caps_cpu_h": 0.5,
+    "cpu_hours": 11.341,
+    "stop_cpu_seconds": {
+     "2.2": 1806.0,
+     "4.4": 1803.4
+    }
+   },
+   "end_comparison": {
+    "floor": "not comparable: CPU cap stop at both widths. Width 200 stopped on its 2.0 CPU-hour cap at 2.4 after 24 of 25 cycles (floor 2.45); width 100 stopped on its 0.5 CPU-hour cap at 2.2 after 17 of 25 cycles (floor 2.25). The cap was scaled four times while a matched down step costs about 7.6 times as much at width 200.",
+    "top": "one-sided, same last completed step: both completed 4.35 and stopped at 4.4. Width 200 stopped for a physical reason: time froze (the event rate diverged) in cycle 25 after 24 completed cycles, at 6.51 CPU-hours, under its 8.0 cap. Width 100 stopped on its 0.5 CPU-hour cap after 19 cycles, so whether it would also have frozen is unknown. Cost per cycle at 4.4 against 4.35: width 200 2.5 times (977 s against 373 s), width 100 1.86 times (94.9 s against 51.0 s)."
+   },
+   "cost_ratio_width200_over_width100": {
+    "note": "completed 25-cycle steps, same Gamma and leg, width-100 cpu_seconds from evidence/E0065-results.json",
+    "down": {
+     "pairs": [
+      [
+       2.95,
+       5.54
+      ],
+      [
+       2.9,
+       5.65
+      ],
+      [
+       2.85,
+       7.4
+      ],
+      [
+       2.8,
+       7.39
+      ],
+      [
+       2.75,
+       7.68
+      ],
+      [
+       2.7,
+       7.6
+      ],
+      [
+       2.65,
+       7.18
+      ],
+      [
+       2.6,
+       8.38
+      ],
+      [
+       2.55,
+       8.01
+      ],
+      [
+       2.5,
+       8.88
+      ],
+      [
+       2.45,
+       8.05
+      ]
+     ],
+     "median": 7.6
+    },
+    "up": {
+     "pairs": [
+      [
+       2.5,
+       9.47
+      ],
+      [
+       2.55,
+       9.27
+      ],
+      [
+       2.6,
+       9.95
+      ],
+      [
+       2.65,
+       9.7
+      ],
+      [
+       2.7,
+       10.44
+      ],
+      [
+       2.75,
+       10.08
+      ],
+      [
+       2.8,
+       10.27
+      ],
+      [
+       2.85,
+       10.35
+      ],
+      [
+       2.9,
+       10.31
+      ],
+      [
+       2.95,
+       10.24
+      ],
+      [
+       3.0,
+       10.67
+      ],
+      [
+       3.05,
+       10.48
+      ],
+      [
+       3.1,
+       10.48
+      ],
+      [
+       3.15,
+       11.03
+      ],
+      [
+       3.2,
+       10.98
+      ],
+      [
+       3.25,
+       10.75
+      ],
+      [
+       3.3,
+       10.92
+      ],
+      [
+       3.35,
+       10.55
+      ],
+      [
+       3.4,
+       10.25
+      ],
+      [
+       3.45,
+       9.96
+      ],
+      [
+       3.5,
+       9.86
+      ],
+      [
+       3.55,
+       10.37
+      ],
+      [
+       3.6,
+       10.27
+      ],
+      [
+       3.65,
+       10.5
+      ],
+      [
+       3.7,
+       11.14
+      ],
+      [
+       3.75,
+       10.61
+      ],
+      [
+       3.8,
+       9.18
+      ],
+      [
+       3.85,
+       10.37
+      ],
+      [
+       3.9,
+       11.5
+      ],
+      [
+       3.95,
+       9.9
+      ],
+      [
+       4.0,
+       10.02
+      ],
+      [
+       4.05,
+       8.62
+      ],
+      [
+       4.1,
+       9.38
+      ],
+      [
+       4.15,
+       8.81
+      ],
+      [
+       4.2,
+       8.97
+      ],
+      [
+       4.25,
+       8.29
+      ],
+      [
+       4.3,
+       8.49
+      ],
+      [
+       4.35,
+       7.32
+      ]
+     ],
+     "median": 10.26
+    }
+   },
+   "steps": [
+    {
+     "step": 0,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 50,
+     "requested": 50,
+     "cpu_h": 2.625,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f356c25d211b912c743305c6015e9c06885e1db932a2f6c248181d5907c4b4b5"
+    },
+    {
+     "step": 1,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.221,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "7a5ab9cbf99d3c631d8bdd01590d160305f640a100061232af1dcb2b318cb449"
+    },
+    {
+     "step": 2,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.286,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "460e115facd2d25b77dec8aefdaa6a8fc11bc5c3dc42a4423d420734dbfe638f"
+    },
+    {
+     "step": 3,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.266,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "97b2d815a3b6a3dc7d6f3b2787821f5354db685c5f46b13b061e9b7642c0e6e5"
+    },
+    {
+     "step": 4,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.348,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "4ef89dbe1b3f8324118a55b7e9b2717284dc02c61bbe45c054a992502e6a3062"
+    },
+    {
+     "step": 5,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.402,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "dcc66f2f44c194a10b57bf189c6c137d021101691c5b4512964873a7e6340e87"
+    },
+    {
+     "step": 6,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.473,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "cb5ce0bd9e694b59bc68014be98afae0d34122396a19af7ca47bd47e72302972"
+    },
+    {
+     "step": 7,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.475,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ded2a448246e0c8a9984a01431379949a27ef38302fd016b7b2547fc0dca7e21"
+    },
+    {
+     "step": 8,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.567,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "f50db0177cb675fd6f0ff9c8e3e7003b736f87f888772b17756d8bf423b2ba21"
+    },
+    {
+     "step": 9,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.567,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "31ac126f56279c93fedc052136d03ebfc9fd8c4736aa2e268157c79d7bf0ebfa"
+    },
+    {
+     "step": 10,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.694,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c298085ba79ff9bee711f8440efe54b1911dd0b5fb1835e70d81bc917081c30b"
+    },
+    {
+     "step": 11,
+     "gamma": 2.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.821,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8de026c7872b2bc5788abc422de2de43a831f875b7315696e5d5dc3492e851c5"
+    },
+    {
+     "step": 12,
+     "gamma": 2.4,
+     "outcome": "cpu_budget",
+     "error": null,
+     "cycles": 24,
+     "requested": 25,
+     "cpu_h": 2.02,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "920bf66f5bac3b8f779dbcb71bbe565f9ad387710288d7bb3d566361516bcb20"
+    },
+    {
+     "step": 42,
+     "gamma": 2.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.75,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0628f34db3eff4770a0f8ff34bb0fc115772b88c0dffc3b5d9ea479788117286"
+    },
+    {
+     "step": 43,
+     "gamma": 2.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.559,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "a04a0a62a4861d4da51c4aa9f98d029794fb5a4b92e8fd7a65a6722ba5bd2cbe"
+    },
+    {
+     "step": 44,
+     "gamma": 2.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.519,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ce4a1a341a6046b7552bdfde6ad15d6aeeaa2b3c5322ed5437a4f06922aebb0c"
+    },
+    {
+     "step": 45,
+     "gamma": 2.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.427,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c0b52c441cbc842cd71a3428f446707400f3b9b9db24c68feff52c9c109b1845"
+    },
+    {
+     "step": 46,
+     "gamma": 2.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.455,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "273d30fbbac6625501562d9f1fba3eb066b148897b54987525e4f5f15270763f"
+    },
+    {
+     "step": 47,
+     "gamma": 2.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.372,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "81ce20815c8036778f5a6de52d1470cddbe1e3dedd4c5060839f617edef6b6f9"
+    },
+    {
+     "step": 48,
+     "gamma": 2.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.308,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "33c1c4b0f30ac775ab37630e1f2c83a06fa384e15a7fb9e03b58bd4901778fdd"
+    },
+    {
+     "step": 49,
+     "gamma": 2.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.284,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "74faf54bd8fc2339f3d94c3a10a8637f4c66d00739d40bbd505ca27846f83905"
+    },
+    {
+     "step": 50,
+     "gamma": 2.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.246,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "5fdb7dcc76bd922df8ea550f63fda615ff5fcb59332a2fae4743cfee50500137"
+    },
+    {
+     "step": 51,
+     "gamma": 2.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.213,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "3841cbb5269ad12834b31925351d6ecb8aff758ec57b9f590dc61778e66312c7"
+    },
+    {
+     "step": 52,
+     "gamma": 3.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.203,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "88f50f93fc119a01417f38796c8893e42f6d6ba2a45a867ab608d1615789f758"
+    },
+    {
+     "step": 53,
+     "gamma": 3.05,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.147,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ed46e0ba3e9e2b1ddbebada9a95e5d61f55a2c788487ccd1408a34beadf89439"
+    },
+    {
+     "step": 54,
+     "gamma": 3.1,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.137,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "bdbf42066d9547b9bd0af6adc4749b193d5b2f61b59231df66971754d69f363d"
+    },
+    {
+     "step": 55,
+     "gamma": 3.15,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.16,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c9b0c6a26f2298dfe1659a2f9c7498174cb3c31e5a5cbb194b1938b406696987"
+    },
+    {
+     "step": 56,
+     "gamma": 3.2,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.138,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "bb4ae9aa1c4b73970c3c9fb44cecfc2ed7ba0b80257b5b9ad97c9ef838a35143"
+    },
+    {
+     "step": 57,
+     "gamma": 3.25,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.097,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "cea4520f8dad0acef9891372d2aa6ec6012da8066d3098df361115fdf6a8f86a"
+    },
+    {
+     "step": 58,
+     "gamma": 3.3,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.097,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "a6a1f99e5f4682d976cc434d42db28b5fcbba2d27a06136341edd595555d757c"
+    },
+    {
+     "step": 59,
+     "gamma": 3.35,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.05,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ee20f2a5a259e8a9fe58aa892b991e91676754475856bfb065e90f7d858b8ba6"
+    },
+    {
+     "step": 60,
+     "gamma": 3.4,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.013,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "6491663f5118421aab25bd6c7707260f5d4371b0fe27bb31d144e73df2c46a21"
+    },
+    {
+     "step": 61,
+     "gamma": 3.45,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.985,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "704d5929a1a961eedd732aac8150b253bfc6eec24f133e0573fbf81f8d7c75e3"
+    },
+    {
+     "step": 62,
+     "gamma": 3.5,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.968,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0c6a1c540334fc265d0c8a592d2fc46cf643789f4ec689baa8a1113d1889d7eb"
+    },
+    {
+     "step": 63,
+     "gamma": 3.55,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.98,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "30fd15adbad7da3e56592329d052f76dfb31666aee25b60ed7932f40e8724ba2"
+    },
+    {
+     "step": 64,
+     "gamma": 3.6,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.953,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "65ee7e5987029055ba1859d1f38195a185ab21edad3f4df3706a263acb875445"
+    },
+    {
+     "step": 65,
+     "gamma": 3.65,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.961,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "ef65925c7646899ac98ecd2a0fe54d31ab71fc4d609e79f61d123d88b1befee7"
+    },
+    {
+     "step": 66,
+     "gamma": 3.7,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.013,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "6b64826cb609301be16e8d616b236e2bf80ee91a6edab3bbd0f9c0331a1eccb0"
+    },
+    {
+     "step": 67,
+     "gamma": 3.75,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.95,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "76f73ca15bedd9138060afb859b3d532277b9f425433ff59b4e7ec490226f4ff"
+    },
+    {
+     "step": 68,
+     "gamma": 3.8,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.824,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c3c1746df1f9211ca8d833170e3b02777374ad8bff27ee1407ff41fbcaa25ceb"
+    },
+    {
+     "step": 69,
+     "gamma": 3.85,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.931,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "b3b6b566ea808bf3970a5a9ea9dcd24deebe983de94d207c388a82751e94dc7e"
+    },
+    {
+     "step": 70,
+     "gamma": 3.9,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.991,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "2e6856393ea630b9417a175dad6ec66a20542d5e01e720bf9b70cf34d7b18e18"
+    },
+    {
+     "step": 71,
+     "gamma": 3.95,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.854,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8d3368f5f6f84dbb96ef9ea1c6717297f96c79ff7b285ff7f95d593cd21e7aee"
+    },
+    {
+     "step": 72,
+     "gamma": 4.0,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.866,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "254f91ae6ba8854f372d9749b9190fef8a6aca80c6b45a500bb5c5450638cce3"
+    },
+    {
+     "step": 73,
+     "gamma": 4.05,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 0.852,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "084b5c6e29e5db7ebf82e21ab04af07d09967bbe78ada9b64affa774db449b5d"
+    },
+    {
+     "step": 74,
+     "gamma": 4.1,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.15,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "8bb953469923a9dd277583c93162a140f3257d1add7b099101c1892fa2da6cb4"
+    },
+    {
+     "step": 75,
+     "gamma": 4.15,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.332,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "628ef5b2e7a61b2e0f33e029e16f76a9c8089350cfd0b916d2c8a5ea23888ee1"
+    },
+    {
+     "step": 76,
+     "gamma": 4.2,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.63,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "87c4a2337212e184faf8490df7724e350ad5585d2eba70a8646b86aea6e0f9df"
+    },
+    {
+     "step": 77,
+     "gamma": 4.25,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 1.993,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "0cb18e7c00b1c41d28503e5434148a59fb4e4f09071583a6aab74a7db9171c29"
+    },
+    {
+     "step": 78,
+     "gamma": 4.3,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 2.404,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "c71d379e1dfd77a0369e493ee6d0655928a9e48384fcdbb6b7476ab00d743110"
+    },
+    {
+     "step": 79,
+     "gamma": 4.35,
+     "outcome": "completed",
+     "error": null,
+     "cycles": 25,
+     "requested": 25,
+     "cpu_h": 2.593,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "e3d033cb1be4f74a19b9384b58901e28278034f1d98e64ef6a1395ad01f0e87e"
+    },
+    {
+     "step": 80,
+     "gamma": 4.4,
+     "outcome": "frozen_time",
+     "error": null,
+     "cycles": 24,
+     "requested": 25,
+     "cpu_h": 6.514,
+     "energy_gains": 0,
+     "audit_failures": 0,
+     "slow": 0,
+     "sha256": "339bf05c1974753c477c8b968f5e318026cb14d5e810ff6887e0cac3c10fea53"
+    }
+   ]
   }
  ],
  "updated": [
@@ -4361,6 +5322,10 @@
   {
    "at": "2026-11-25",
    "what": "added the f* 0.38 baseline loop (job 164691, A0185), the last E0076 loop, from the mirrored summary.json files, with end_comparison; added f* 0.38 to both cost-ratio tables and recomputed their overall figures and per-f* medians; added width100_cost_jump_near_3_35 (checker, Nov 24 third review)"
+  },
+  {
+   "at": "2026-11-25T09:50Z",
+   "what": "added the E0075 nudge loop at f* 0.38 (job 164681, A0186) from the mirrored summary.json files, with its end comparison against the width-100 nudge loop (E0065) and matched-step cost ratios"
   }
  ],
  "width100_stop_modes": {

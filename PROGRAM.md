@@ -766,6 +766,28 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 25 findings, second run (L0018, started by the service for job 164681)
+
+No instruction. Session summary: `sessions/2026-11-25-L0018-2.json`.
+Evidence: `evidence/E0076-interim.json` (nudge f\* 0.38 loop added),
+`evidence/E0076-results.json` (one sentence corrected).
+
+- **Nudge (E0075) f\* 0.38 at width 200 (job 164681, A0186):** floor
+  Gamma 2.45 (2.0 CPU-hour cap at 2.4 after 24 of 25 cycles), highest
+  Gamma 4.35; at 4.4 time froze (a stall) in cycle 25, at 6.5 CPU-hours,
+  under the 8.0 cap. 50 steps completed, 75.1 CPU-hours, no energy gains,
+  audit failures or slow stretches. The width-100 nudge loop (E0065) covered
+  2.25 to 4.35: its floor and its stop at 4.4 were both 0.5 CPU-hour cap
+  stops. So the top is the same last completed step (the wall at Gamma 4.4
+  appears in the wider box too); the floors are cost floors and not
+  comparable. A matched step costs 7.6 times as much at width 200 going
+  down and 10.3 times going up (medians, 11 and 38 pairs). Slurm says
+  FAILED; that is how a loop ends.
+- **Checker's point (Nov 25 review):** "width 200 never reached further"
+  was false at the f\* 0.50 floor (2.35 against 2.4, both cap stops).
+  Narrowed in `evidence/E0076-results.json`, the line state and progress:
+  no end where the comparison means something reached further.
+
 ### Nov 25 findings (L0018, started by the service for job 164691)
 
 No instruction. Session summary: `sessions/2026-11-25-L0018.json`.
@@ -781,8 +803,10 @@ E0076 loops).
   stretches. At 4.05 the cost per cycle rose 14 times at width 200 and
   17 times at width 100: the same slow-down at the same Gamma. This is the
   first width-200 top set by the up-leg cap.
-- **E0076 working ranges, all ten f\*:** at no end did width 200 reach
-  further than width 100. Of four ends where both widths stopped for a
+- **E0076 working ranges, all ten f\*:** at no end where the comparison
+  means something did width 200 reach further than width 100 (corrected
+  in the second run: at the f\* 0.50 floor, a cap stop at both widths, it
+  went 0.05 lower). Of four ends where both widths stopped for a
   physical reason, width 200 reached 0.15 to 0.2 less far at three (f\*
   0.65 both ends, 0.57 top) and the same at one (0.44 top). At f\* 0.74 and
   0.50 width 200 overlapped at 4.05, a Gamma width 100 completed. Four
@@ -1507,8 +1531,8 @@ These are findings, not edits; the referee is his.
   164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
   E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
   multiples of 0.5 (D0057); about 36-41 MB fetched per loop. As of Nov 25,
-  19 still running (ten E0074, nine E0075); all ten E0076 loops and E0075
-  f\* 0.27 have ended (see Nov 23 to Nov 25 findings, L0018). E0076's
+  18 still running (ten E0074, eight E0075); all ten E0076 loops and E0075
+  f\* 0.27 and 0.38 have ended (see Nov 23 to Nov 25 findings, L0018). E0076's
   working ranges are tabled (`evidence/E0076-results.json`); its registered
   judgement (where the pattern appears, within 0.1 in Gamma of width 100)
   still needs an onset measurement at both widths, then its outcome.
