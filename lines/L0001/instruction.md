@@ -25,3 +25,13 @@ You asked:
 Answer:
 
 Yes run the frozen engine tests
+
+## 2026-11-24 22:12, Chris, from the dashboard
+
+You asked:
+
+> Close the nudge line (L0001) now? Everything asked of it is done, including tonight's frozen tests (74 of 74).
+
+Answer:
+
+yes, close it
