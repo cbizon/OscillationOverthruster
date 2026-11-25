@@ -51,3 +51,7 @@ You asked:
 Answer:
 
 Yes, friction is real
+
+## 2026-11-24 23:16, Chris, from the dashboard
+
+Implement this idea.  Make sure you stick to the plan - under no circumstances should you move to a time stepped code in sheep's clothing.
