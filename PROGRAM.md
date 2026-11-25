@@ -740,6 +740,44 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 25 findings (L0018, started by the service for job 164691)
+
+No instruction. Session summary: `sessions/2026-11-25-L0018.json`.
+Evidence: `evidence/E0076-interim.json` (f\* 0.38 loop added; cost jump
+near Gamma 3.35), `evidence/E0076-results.json` (working ranges, all ten
+E0076 loops).
+
+- **Baseline (E0076) f\* 0.38 at width 200 (job 164691, A0185), the last
+  E0076 loop:** floor Gamma 2.45 (CPU cap at 2.4, 23 of 25 cycles),
+  highest Gamma 4.0 (8.0 CPU-hour up-leg cap at 4.05 after 17 of 25
+  cycles). Width 100: 2.35 (overlap at 2.3) to 4.0 (stall at 4.05).
+  43 steps, 65.5 CPU-hours, no energy gains, audit failures or slow
+  stretches. At 4.05 the cost per cycle rose 14 times at width 200 and
+  17 times at width 100: the same slow-down at the same Gamma. This is the
+  first width-200 top set by the up-leg cap.
+- **E0076 working ranges, all ten f\*:** at no end did width 200 reach
+  further than width 100. Of four ends where both widths stopped for a
+  physical reason, width 200 reached 0.15 to 0.2 less far at three (f\*
+  0.65 both ends, 0.57 top) and the same at one (0.44 top). At f\* 0.74 and
+  0.50 width 200 overlapped at 4.05, a Gamma width 100 completed. Four
+  floors are cost floors at both widths. Four of ten width-200 loops broke
+  in their first step, against one of ten at width 100. One seed each.
+  343.6 CPU-hours for the ten loops.
+- **Checker's points (Nov 24 third review):** corrected the f\* 0.57 up-leg
+  median to 11.4 (it was written 11.5 in the third run's text above). Agreed
+  that the high up-leg medians at f\* 0.44 and 0.57 come from the width-100
+  cost halving near Gamma 3.35, not from width 200 being dearer; withdrew
+  the proposal to size up-leg caps from them. At f\* 0.38 the width-100
+  cost instead rises 1.7 times at 3.35, with more of the height variance
+  in the same spectral ring (0.61 to 0.67), and no change of ring.
+- E0076's outcome is not written: its registered test is on where the
+  pattern appears, and no onset has been measured at either width. A pilot
+  at f\* 0.38 (`evidence/E0076-onset-pilot.json`, ad hoc measure, no claim):
+  the pattern wavelength is the same at both widths (22 to 25 sphere
+  diameters). The pattern is lost between Gamma 2.5 and 2.45 on the way down
+  at both widths, and back at 2.65 (width 100) and 2.7 (width 200) on the
+  way up. So the test can be applied once the measure is decided.
+
 ### Nov 24 findings, third run (L0018, started by the service for job 164686)
 
 No instruction. Session summary: `sessions/2026-11-24-L0018-3.json`.
@@ -1442,10 +1480,12 @@ These are findings, not edits; the referee is his.
 - **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
   164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
   E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
-  multiples of 0.5 (D0057); about 36-41 MB fetched per loop. As of Nov 24,
-  23 still running; ended: E0076 f\* 0.84, 0.65, 0.57, 0.33, 0.30, 0.27
-  and E0075 f\* 0.27 (see Nov 23 and Nov 24 findings, L0018). E0076's
-  outcome waits for its last four loops (f\* 0.38-0.50, 0.74).
+  multiples of 0.5 (D0057); about 36-41 MB fetched per loop. As of Nov 25,
+  19 still running (ten E0074, nine E0075); all ten E0076 loops and E0075
+  f\* 0.27 have ended (see Nov 23 to Nov 25 findings, L0018). E0076's
+  working ranges are tabled (`evidence/E0076-results.json`); its registered
+  judgement (where the pattern appears, within 0.1 in Gamma of width 100)
+  still needs an onset measurement at both widths, then its outcome.
 - **Nudge loops above the wall** (E0089): eight continuations on Hatteras
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6

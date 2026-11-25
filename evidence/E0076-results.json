@@ -1,0 +1,471 @@
+{
+ "experiment_id": "E0076",
+ "line_id": "L0018",
+ "kind": "working range per f* at width 200 against width 100, all ten loops ended; the registered onset judgement is not yet made (see onset_judgement)",
+ "made_at": "2026-11-25",
+ "source": "evidence/E0076-interim.json (width-200 per-step summary.json, width-100 ramp.jsonl from A0068 in width100_stop_modes) and the job records in evidence/E0076/",
+ "how_to_read": "floor = lowest Gamma completed on the way down; top = highest Gamma completed on the way up. Each end has the stop that set it: 'cpu cap' (the per-step CPU cap: 2.0 CPU-hours down, 8.0 up at width 200; 0.5 down, 2.0 up at width 100; D0046), 'overlap' (two spheres overlap, the engine stops the run) or 'stall' (frozen time: the event clock stops advancing). Ends are compared only where both widths stopped for a physical reason (overlap or stall). A CPU cap end is a cost limit: at width 200 a 25-cycle step costs about 7.4 times as much as at width 100 (median of 75 matched steps on the way down, down_leg_cost_ratio) while the caps are four times higher. One seed per f* at each width.",
+ "table": {
+  "0.84": {
+   "width200": {
+    "job": 164685,
+    "artifact": "A0095",
+    "floor": null,
+    "top": null,
+    "stops": {
+     "first_step": {
+      "stop_gamma": 3.0,
+      "mode": "overlap",
+      "end": null
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.2,
+    "top": 4.2,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.15,
+      "mode": "cpu cap",
+      "end": 2.2
+     },
+     "top": {
+      "stop_gamma": 4.25,
+      "mode": "overlap",
+      "end": 4.2
+     }
+    }
+   },
+   "comparison": "width 200 broke in its first step (Gamma 3.0, overlap); width 100 completed its loop"
+  },
+  "0.74": {
+   "width200": {
+    "job": 164686,
+    "artifact": "A0182",
+    "floor": 2.25,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.2,
+      "mode": "cpu cap",
+      "end": 2.25
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "overlap",
+      "end": 4.0
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.15,
+    "top": 4.1,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.1,
+      "mode": "cpu cap",
+      "end": 2.15
+     },
+     "top": {
+      "stop_gamma": 4.15,
+      "mode": "cpu cap",
+      "end": 4.1
+     }
+    }
+   },
+   "floor_comparison": "not comparable: CPU cap stop at both widths",
+   "top_comparison": "one-sided: width 200 had an overlap at a Gamma width 100 completed before its CPU cap"
+  },
+  "0.65": {
+   "width200": {
+    "job": 164687,
+    "artifact": "A0171",
+    "floor": 2.4,
+    "top": 3.9,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.35,
+      "mode": "overlap",
+      "end": 2.4
+     },
+     "top": {
+      "stop_gamma": 3.95,
+      "mode": "overlap",
+      "end": 3.9
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.25,
+    "top": 4.1,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.2,
+      "mode": "overlap",
+      "end": 2.25
+     },
+     "top": {
+      "stop_gamma": 4.15,
+      "mode": "overlap",
+      "end": 4.1
+     }
+    }
+   },
+   "floor_comparison": "comparable: both physical (overlap / overlap); width 200 reached 0.15 less far",
+   "top_comparison": "comparable: both physical (overlap / overlap); width 200 reached 0.2 less far"
+  },
+  "0.57": {
+   "width200": {
+    "job": 164688,
+    "artifact": "A0175",
+    "floor": 2.35,
+    "top": 3.8,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.3,
+      "mode": "cpu cap",
+      "end": 2.35
+     },
+     "top": {
+      "stop_gamma": 3.85,
+      "mode": "stall",
+      "end": 3.8
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.2,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.15,
+      "mode": "cpu cap",
+      "end": 2.2
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "overlap",
+      "end": 4.0
+     }
+    }
+   },
+   "floor_comparison": "not comparable: CPU cap stop at both widths",
+   "top_comparison": "comparable: both physical (stall / overlap); width 200 reached 0.2 less far"
+  },
+  "0.50": {
+   "width200": {
+    "job": 164689,
+    "artifact": "A0178",
+    "floor": 2.35,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.3,
+      "mode": "cpu cap",
+      "end": 2.35
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "overlap",
+      "end": 4.0
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.4,
+    "top": 4.05,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.35,
+      "mode": "cpu cap",
+      "end": 2.4
+     },
+     "top": {
+      "stop_gamma": 4.1,
+      "mode": "cpu cap",
+      "end": 4.05
+     }
+    }
+   },
+   "floor_comparison": "not comparable: CPU cap stop at both widths",
+   "top_comparison": "one-sided: width 200 had an overlap at a Gamma width 100 completed before its CPU cap"
+  },
+  "0.44": {
+   "width200": {
+    "job": 164690,
+    "artifact": "A0179",
+    "floor": 2.4,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.35,
+      "mode": "cpu cap",
+      "end": 2.4
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "overlap",
+      "end": 4.0
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.3,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.25,
+      "mode": "cpu cap",
+      "end": 2.3
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "stall",
+      "end": 4.0
+     }
+    }
+   },
+   "floor_comparison": "not comparable: CPU cap stop at both widths",
+   "top_comparison": "comparable: both physical (overlap / stall); same end"
+  },
+  "0.38": {
+   "width200": {
+    "job": 164691,
+    "artifact": "A0185",
+    "floor": 2.45,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.4,
+      "mode": "cpu cap",
+      "end": 2.45
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "cpu cap",
+      "end": 4.0
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.35,
+    "top": 4.0,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.3,
+      "mode": "overlap",
+      "end": 2.35
+     },
+     "top": {
+      "stop_gamma": 4.05,
+      "mode": "stall",
+      "end": 4.0
+     }
+    }
+   },
+   "floor_comparison": "one-sided: width 200 hit its CPU cap at a Gamma width 100 completed; where width 200 would break is unknown",
+   "top_comparison": "one-sided: width 200 hit its CPU cap at the Gamma where width 100 had a stall"
+  },
+  "0.33": {
+   "width200": {
+    "job": 164692,
+    "artifact": "A0089",
+    "floor": null,
+    "top": null,
+    "stops": {
+     "first_step": {
+      "stop_gamma": 3.0,
+      "mode": "overlap",
+      "end": null
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.35,
+    "top": 4.35,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.3,
+      "mode": "overlap",
+      "end": 2.35
+     },
+     "top": {
+      "stop_gamma": 4.4,
+      "mode": "cpu cap",
+      "end": 4.35
+     }
+    }
+   },
+   "comparison": "width 200 broke in its first step (Gamma 3.0, overlap); width 100 completed its loop"
+  },
+  "0.30": {
+   "width200": {
+    "job": 164693,
+    "artifact": "A0096",
+    "floor": null,
+    "top": null,
+    "stops": {
+     "first_step": {
+      "stop_gamma": 3.0,
+      "mode": "overlap",
+      "end": null
+     }
+    }
+   },
+   "width100": {
+    "floor": 2.5,
+    "top": 4.25,
+    "stops": {
+     "floor": {
+      "stop_gamma": 2.45,
+      "mode": "cpu cap",
+      "end": 2.5
+     },
+     "top": {
+      "stop_gamma": 4.3,
+      "mode": "overlap",
+      "end": 4.25
+     }
+    }
+   },
+   "comparison": "width 200 broke in its first step (Gamma 3.0, overlap); width 100 completed its loop"
+  },
+  "0.27": {
+   "width200": {
+    "job": 164694,
+    "artifact": "A0097",
+    "floor": null,
+    "top": null,
+    "stops": {
+     "first_step": {
+      "stop_gamma": 3.0,
+      "mode": "overlap",
+      "end": null
+     }
+    }
+   },
+   "width100": {
+    "floor": null,
+    "top": null,
+    "stops": {
+     "first_step": {
+      "stop_gamma": 3.0,
+      "mode": "overlap",
+      "end": null
+     }
+    }
+   },
+   "comparison": "width 200 broke in its first step (Gamma 3.0, overlap); so did width 100"
+  }
+ },
+ "tally": {
+  "first_step_failures": {
+   "width200": 4,
+   "width100": 1,
+   "fstar_width200": [
+    "0.84",
+    "0.33",
+    "0.30",
+    "0.27"
+   ],
+   "fstar_width100": [
+    "0.27"
+   ],
+   "note": "All at Gamma 3.0 from the half-push start (caseb_start.py), all sphere overlaps, 0 or 1 of 50 cycles completed at width 200."
+  },
+  "comparable_ends": [
+   {
+    "fstar": "0.65",
+    "end": "floor",
+    "width200": 2.4,
+    "width100": 2.25,
+    "width200_reaches": "0.15 less far"
+   },
+   {
+    "fstar": "0.65",
+    "end": "top",
+    "width200": 3.9,
+    "width100": 4.1,
+    "width200_reaches": "0.2 less far"
+   },
+   {
+    "fstar": "0.57",
+    "end": "top",
+    "width200": 3.8,
+    "width100": 4.0,
+    "width200_reaches": "0.2 less far"
+   },
+   {
+    "fstar": "0.44",
+    "end": "top",
+    "width200": 4.0,
+    "width100": 4.0,
+    "width200_reaches": "the same"
+   }
+  ],
+  "one_sided_ends": [
+   {
+    "fstar": "0.74",
+    "end": "top",
+    "reading": "width 200 overlapped at 4.05, which width 100 completed (width 100 then capped at 4.15)"
+   },
+   {
+    "fstar": "0.50",
+    "end": "top",
+    "reading": "width 200 overlapped at 4.05, which width 100 completed (width 100 then capped at 4.1)"
+   },
+   {
+    "fstar": "0.38",
+    "end": "top",
+    "reading": "both stopped at 4.05: width 100 as a stall, width 200 on its 8.0 CPU-hour cap after the cost per cycle rose 14 times; the same slow-down at the same Gamma"
+   },
+   {
+    "fstar": "0.38",
+    "end": "floor",
+    "reading": "width 200 capped at 2.4, which width 100 completed before an overlap at 2.3"
+   }
+  ],
+  "not_comparable_ends": [
+   {
+    "fstar": "0.74",
+    "end": "floor",
+    "reason": "CPU cap stop at both widths"
+   },
+   {
+    "fstar": "0.57",
+    "end": "floor",
+    "reason": "CPU cap stop at both widths"
+   },
+   {
+    "fstar": "0.50",
+    "end": "floor",
+    "reason": "CPU cap stop at both widths"
+   },
+   {
+    "fstar": "0.44",
+    "end": "floor",
+    "reason": "CPU cap stop at both widths"
+   }
+  ],
+  "summary": "Of four comparable ends, width 200 reached less far at three (by 0.15 to 0.2 in Gamma) and the same at one. Of four one-sided ends, width 200 broke at a Gamma width 100 completed at two, stopped at the same Gamma at one, and stopped for cost above the width-100 floor at one. At no end did width 200 reach further than width 100. Four of ten width-200 loops broke in their first step against one of ten at width 100. One seed each."
+ },
+ "cpu_hours": {
+  "total_job_records": 343.62,
+  "by_job": {
+   "164685": 0.259,
+   "164686": 59.97,
+   "164687": 46.105,
+   "164688": 53.003,
+   "164689": 56.892,
+   "164690": 56.854,
+   "164691": 65.528,
+   "164692": 0.159,
+   "164693": 1.675,
+   "164694": 3.171
+  }
+ },
+ "onset_judgement": {
+  "registered": "Fails if at 3 or more f* where both boxes have an onset the L 200 onset is more than 0.1 in Gamma from the paper's box (judged by amplitude against Gamma on both branches per f*).",
+  "status": "not made. The width-100 baseline loops (E0073) have no onset measured, and the onset rule the program used before (tools/loop_analysis.py, first of three rising steps above the flat level, named in E0071) is not in the repository. The width-200 fields.npz (ring spectrum and height variance at 32 phases a cycle) are on Hatteras in each loop artifact; the width-100 fields.npz are in A0068. Loops start at Gamma 3.0, inside the patterned range, and go down only to their floors (2.25 to 2.45), so whether either box goes flat on the way down, and so has an onset to compare, is itself unknown. A pilot at f* 0.38 (evidence/E0076-onset-pilot.json) finds the same pattern wavelength at both widths and the pattern lost between Gamma 2.5 and 2.45 on the way down and back at 2.65 (width 100) and 2.7 (width 200) on the way up, under an ad hoc measure; so the test can be applied, once the measure is decided."
+ }
+}

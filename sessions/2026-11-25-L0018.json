@@ -1,0 +1,68 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the last width-200 baseline loop, at f* 0.38 (job 164691), ended. It stopped under its own rules, covering Gamma 2.45 to 4.0 against 2.35 to 4.0 in the paper's box, so nothing needs relaunching. With all ten baseline loops ended, the working-range table shows that the wider box never reached further in Gamma than the paper's box. At three of the four ends where both boxes stopped for a physical reason, it reached 0.15 to 0.2 less far (one seed each). The experiment's registered test is on where the pattern appears, and that has not been measured yet. A one-frequency pilot shows it can be: both boxes show the same pattern wavelength, and they lose and regain the pattern within 0.05 in Gamma of each other.",
+ "experiments": [
+  {
+   "experiment_id": "E0076",
+   "question": "Where does the unmodified engine with friction stop on a Gamma loop in the box twice as wide, compared with the paper's box? (The registration judges it on where the pattern first appears, within 0.1 in Gamma of the paper's box.)",
+   "what_was_done": "I added the f* 0.38 loop to the interim evidence from its per-step summaries, in the same form as the earlier loops, and compared its step costs with the paper's box. Then I built one table for all ten frequencies: the lowest and highest Gamma completed at each width, and what stopped each end. That was a CPU cap, two spheres overlapping, or the event clock stalling. I answered the checker's three points from the last review. Finally, I ran a pilot at f* 0.38, reading the stored height spectra of every step at both widths, to see whether the pattern-onset test the experiment was registered with can be applied.",
+   "result": "At f* 0.38, the way down stopped on its two CPU-hour step cap at Gamma 2.4, after twenty-three of twenty-five cycles. The way up completed every step to 4.0, then hit its eight CPU-hour cap at 4.05 after seventeen cycles. At 4.05 the cost per cycle jumped fourteen times at width 200. In the paper's box the same step stalled after nine cycles, its cost per cycle up seventeen times: the same slow-down at the same Gamma. This is the first width-200 top set by the cap on the way up. The loop completed forty-three steps on sixty-five and a half CPU-hours, with no energy gain, audit failure or slow stretch. Across all ten frequencies, four ends stopped for a physical reason at both widths. The wider box reached 0.15 less far at the f* 0.65 floor and 0.2 less far at the f* 0.65 and 0.57 tops; it reached the same Gamma at the f* 0.44 top. At f* 0.74 and 0.50 the wider box had an overlap at Gamma 4.05, a step the paper's box completed before stopping on its cap. Four floors were cap stops at both widths. Four of ten wide loops broke in their first step, against one of ten in the paper's box. The ten loops used 343.6 CPU-hours. In the pilot, the pattern wavelength is 22 to 25 sphere diameters at both widths. On the way down, the pattern gives way to long, weak waves between Gamma 2.5 and 2.45 at both widths. On the way up it returns at 2.65 in the paper's box and at 2.7 in the wide box.",
+   "takeaway": "On working range, the wider box is no better and at some ends worse, but this is one seed per frequency. The first-step breaks point at the start state as much as at the box. The registered question, whether the pattern appears at the same Gamma in both boxes, is still open. The pilot suggests it is close at f* 0.38, but its measure was chosen ad hoc and needs to be decided before it is applied to all frequencies. So the experiment's outcome is not written yet.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "Decide a rule for where the pattern appears, from the stored spectra: the first step at which the ring at the pattern wavelength carries most of the height variance, on the way up and on the way down. Apply it to the six width-200 baseline loops that ran and to the matching paper's-box loops, then write the experiment's outcome against its registration.",
+   "rationale": "That is the experiment's registered test, and it has not been run. The pilot shows that both widths lose and regain the pattern inside their working range at f* 0.38, so the test can be applied. Fetching one loop took about five minutes, so all fifteen loops would be quicker as a short Hatteras job next to the data."
+  },
+  {
+   "direction": "Rerun the four width-200 baseline loops that broke on their first step with a second seed.",
+   "rationale": "Carried from Nov 23: four of ten broke at Gamma 3.0 against one of ten at width 100, which points at the half-push start as much as at the box."
+  },
+  {
+   "direction": "If the width-200 floors matter for L0013, rerun the floors that stopped on the cap from their stored checkpoints, with a way-down cap scaled by the measured cost (about 3.7 CPU-hours a step, 7.4 times the 0.5 at width 100).",
+   "rationale": "Four of the ten floors are cost floors at both widths. The way-up proposal from the last run (caps of 15 or more) is withdrawn, as the checker showed. Its high cost ratios come from cost jumps in the paper's box near Gamma 3.35, not from the wide box being dearer. The one way-up cap stop (f* 0.38) is a sudden slow-down that also stalled the paper's box at the same Gamma, so a higher cap would not make that end comparable. This changes a cap set in D0046, so it is proposed, not done."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 561.37,
+   "limit": 10000
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T05:41:08Z",
+  "actual_start": "2026-11-25T05:41:08Z",
+  "ended": "2026-11-25T05:52:52Z",
+  "interruptions": [
+   {
+    "start": "2026-11-25T05:44:30Z",
+    "end": "2026-11-25T05:46:30Z",
+    "cause": "Another line's run emptied the shared fetch folder (sequel-data/tmp/fetch) while my fetches were in it (times approximate). I lost the first fetched files, and one fetch failed. I re-fetched them, copying each file into a private scratch folder as soon as it arrived. This cost a few minutes and no data."
+   }
+  ],
+  "cpu_hours": 0.05,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "ten loops running on Hatteras, 5-day wall time (ends about Nov 27)"
+   },
+   {
+    "experiment_id": "E0075",
+    "reason": "nine loops running on Hatteras, 7-day wall time"
+   }
+  ],
+  "limits_hit": "None from the machine. This host is Linux, so pmset and uptime are not available. Sleep and wake were not measured; load average was 7.5 on 40 cores at the start (/proc/loadavg). The runner's start time was not given to me, so scheduled_start is the time I noted at the start. Local CPU was only fetching and short Python reads of stored spectra, estimated at a few minutes; ps is not available to measure it. The job itself used 65.5 CPU-hours on Hatteras, under the 100 CPU-hour per-run limit. Weekly budget: program check reports 561.4 of 10000. If it does not yet count the four baseline jobs that ended on Nov 24 (56.9, 56.9, 60.0 and 65.5 CPU-hours by their job records), the total is about 800, or 8 percent. Below 50 percent either way. The loops' own step caps (D0046) set four floors at both widths and one top at width 200; that is a limit of the design, not of the machine. Frozen referee tests: 74 passed. program check passed."
+ }
+}
