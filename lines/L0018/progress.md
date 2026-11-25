@@ -3,9 +3,10 @@
 ## Status
 
 Active. All ten E0076 (baseline) loops have ended (last: f* 0.38, job
-164691, collected Nov 25). E0075 (nudge) f* 0.27 (164684) and f* 0.38
-(164681, collected Nov 25 second run) have ended. 18 width-200 loops still
-run on Hatteras: ten E0074 (no friction) and eight E0075 (nudge). Slurm marks every
+164691, collected Nov 25). E0075 (nudge) f* 0.27 (164684), f* 0.38
+(164681, collected Nov 25 second run) and f* 0.74 (164676, collected Nov 25
+third run) have ended. 17 width-200 loops still run on Hatteras: ten E0074
+(no friction) and seven E0075 (nudge). Slurm marks every
 ended loop FAILED (exit 1): that is how ramp.py exits when a loop stops, not
 a crash. Read the step outcomes.
 
@@ -52,13 +53,23 @@ a crash. Read the step outcomes.
   cost ratio 7.6 down (11 pairs), 10.3 up (38 pairs). In E0076-interim.json
   (loops[-1]). The up leg resumes at floor+0.05 by design (ramp.py skips
   steps at or below the floor).
+- E0075 nudge f* 0.74 (164676, A0187, Nov 25 third run): floor 2.3 (2.0
+  CPU-hour cap at 2.25, 23 of 25 cycles), top 4.45 (8.0 CPU-hour cap at 4.5,
+  12 of 25 cycles). 58 steps, 77.1 CPU-hours, clean, no stall. Width-100
+  nudge: 2.05 (0.5 cap at 2.0) to 4.4 (0.5 cap at 4.45). All four ends are
+  cap stops: not comparable. Matched-step cost ratio 8.8 down (14 pairs), 7.7
+  up (42 pairs). In E0076-interim.json (loops[-1]).
+- Checker Nov 25 second review answered: width-100 nudge loops stopped at
+  4.45 (five), 4.4 (two), 4.5 (one), not all at 4.4; up caps are 16 times
+  width 100's (8.0 vs 0.5), above the cost ratio, so only down caps are too
+  small; 09:50Z stamps corrected to 09:37Z.
 
 ## Jobs in flight
 
 | Experiment | Host | Jobs | f* | Description | Wall time |
 |---|---|---|---|---|---|
 | E0074 | hatteras | 164665-164674 (all running) | 0.27-0.84 | no friction, L 200, N 240000, 213 steps | 5 days |
-| E0075 | hatteras | 164675-164680, 164682, 164683 running; 164681, 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
+| E0075 | hatteras | 164675, 164677-164680, 164682, 164683 running; 164676, 164681, 164684 ended | 0.27-0.84 | nudge, L 200, N 240000, 239 steps | 7 days |
 
 E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
 E0075: Gamma 3.0 down to 1.7, up to 7.0, back, 50/25 cycles first/rest,
@@ -89,6 +100,8 @@ E0074 started about Nov 22 06:15Z, so its 5-day wall time ends about Nov 27
   wavelengths between 33 and 25 diameters.
 - Compare the E0071 onset at L 200 with E0060 at L 100 for f* 0.44.
 - If E0089 shows the nudge cost drops above Gamma 4.65, raise the E0075 caps.
+- Cap scaling: only the width-200 DOWN caps are short of the cost ratio
+  (4 times vs 7.4 to 8.8); up caps (16 times) already exceed it (7.7 to 10.3).
 
 ## Key evidence
 

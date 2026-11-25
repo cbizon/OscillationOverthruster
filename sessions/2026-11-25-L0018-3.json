@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-25",
+  "line_id": "L0018",
+  "instruction": "none: started by the service for job",
+  "answers": [],
+  "headline": "The service started this run because the width-200 nudge loop at f* 0.74 (job 164676) ended. It covered Gamma 2.3 to 4.45 and stopped on its CPU cap at both ends; the paper's box covered 2.05 to 4.4, also stopping on its cap at both ends, so neither end says anything about box size. The checker's three corrections to the previous run were accepted and the wrong evidence timestamps fixed. The previous summary was wrong that every width-100 nudge loop stopped at Gamma 4.4 (five of eight stopped at 4.45) and that caps were scaled four times (going up they were sixteen times), so its cap proposal is replaced.",
+  "experiments": [
+    {
+      "experiment_id": "E0075",
+      "question": "Where does the nudge model stop on a Gamma loop in the box twice as wide, compared with the paper's box, at f* 0.74?",
+      "what_was_done": "Read the mirrored per-step summaries of the loop that ended on Hatteras and added them to the interim evidence file in the same form as earlier loops. Compared them with the nudge loop at the same f* in the paper's box, including the cost of matching steps.",
+      "result": "Going down from Gamma 3.0, every step completed to 2.3. The step at 2.25 used its two CPU-hour cap after twenty-three of twenty-five cycles, so the loop turned there. Going up, every step completed to 4.45. At 4.5 it used its eight CPU-hour cap after twelve cycles. Fifty-eight steps completed, about seventy-seven CPU-hours in all, with no energy gains, audit failures, slow stretches or stalls. In the paper's box the same loop went from 2.05 to 4.4, stopping on its half-hour cap at 2.0 and at 4.45. A matching step cost about nine times as much in the wider box going down and about eight times going up (medians of fourteen and forty-two pairs). The cost of one cycle in the wider box rose from about 190 CPU-seconds at Gamma 4.35 to 285 at 4.4, 690 at 4.45 and 2400 at 4.5.",
+      "takeaway": "All four ends were cost stops, so this loop cannot say whether the wider box reaches further. The wider box completed one step more at the top (4.45), but it was given sixteen times the cap of the paper's box for about eight times the cost, so that step reflects the budget, not the box. Unlike f* 0.38, there was no stall: the cost simply climbs steeply above Gamma 4.35 in both boxes. One seed; where the pattern appears is still not measured.",
+      "graded_by_referee": false
+    }
+  ],
+  "claims_changed": [],
+  "questions": [],
+  "proposed_directions": [
+    {
+      "direction": "Measure where the pattern appears at both widths for the loops that have ended, judging the pattern by its wavelength in sphere diameters, as a Hatteras job next to the stored spectra.",
+      "rationale": "This is the registered test of E0075 and E0076 and is still unmeasured. The working ranges collected so far are mostly cost stops and cannot carry the comparison."
+    },
+    {
+      "direction": "For any rerun of cap-stopped floors, scale only the width-200 down caps, to about nine times the paper's box instead of four.",
+      "rationale": "Every nudge and baseline floor so far is a cost floor at both widths. The up caps (sixteen times) already exceed the measured cost ratio (about eight to ten), so they need no change; this replaces the previous run's proposal, which the checker showed was half wrong."
+    }
+  ],
+  "budget": {
+    "cpu_hours_week": {
+      "spent": 561.37,
+      "limit": 10000
+    }
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-25T11:24:25Z",
+    "actual_start": "2026-11-25T11:25:38Z",
+    "ended": "2026-11-25T11:31:00Z",
+    "interruptions": [],
+    "cpu_hours": 0.01,
+    "cores_available": 23.7,
+    "disk_free_gb": {
+      "start": 90,
+      "end": 90
+    },
+    "unfinished_runs": [
+      {
+        "experiment_id": "E0074",
+        "reason": "ten loops running on Hatteras, 5-day wall time (ends about Nov 27)"
+      },
+      {
+        "experiment_id": "E0075",
+        "reason": "seven nudge loops running on Hatteras, 7-day wall time (ends about Nov 29)"
+      }
+    ],
+    "limits_hit": "None from the machine. This host is Linux, so pmset is unavailable and sleep was not measured. scheduled_start is the service's job-record commit, not a measured runner start. The loop's own step caps set both ends at both widths; that is a limit of the design. program check counts 561.37 weekly CPU-hours but undercounts ended jobs; by the checker's count of about 877 plus this job's 77.1, the true figure is about 954, under 10% of the weekly limit. The job is under the 100 CPU-hour per-run limit. Checker points answered: The previous summary's takeaway said every width-100 nudge loop stopped at Gamma 4.4 on Nov 18. Wrong: five of eight stopped at 4.45, two at 4.4 and one at 4.5. The line state never carried it; it now says 'for this f*' of the f* 0.38 wall. The previous summary said caps were scaled four times. True going down only; the up cap is sixteen times. The second proposed direction of that run is withdrawn and replaced above. The 09:50Z stamps in evidence/E0076-interim.json ('updated') and evidence/E0076-results.json ('corrections') are corrected to 09:37Z, the end of that run, with a note of the correction. cores_available is nproc minus the 16.3 load average at the end (/proc/loadavg)."
+  }
+}

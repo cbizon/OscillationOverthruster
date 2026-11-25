@@ -803,6 +803,30 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 25 findings, third run (L0018, started by the service for job 164676)
+
+No instruction. Session summary: `sessions/2026-11-25-L0018-3.json`.
+Evidence: `evidence/E0076-interim.json` (nudge f\* 0.74 loop added).
+
+- **Nudge (E0075) f\* 0.74 at width 200 (job 164676, A0187):** floor
+  Gamma 2.3 (2.0 CPU-hour cap at 2.25 after 23 of 25 cycles), highest
+  Gamma 4.45 (8.0 CPU-hour cap at 4.5 after 12 of 25 cycles). 58 steps
+  completed, 77.1 CPU-hours, no energy gains, audit failures, slow
+  stretches or stalls. The width-100 nudge loop (E0065) covered 2.05 to
+  4.4, with 0.5 CPU-hour cap stops at 2.0 and 4.45. All four ends are cost
+  stops, so neither end can be compared. Width 200 completed 4.45, one step
+  past width 100, but its up cap is 16 times width 100's while a matched up
+  step costs 7.7 times as much (median, 42 pairs; 8.8 going down, 14 pairs).
+  Cost per cycle rises steeply above 4.35 in both boxes (width 200: 285 s at
+  4.4, 691 s at 4.45, 2405 s at 4.5).
+- **Checker's points (Nov 25 second review):** the Nov 25 second-run summary
+  wrongly said every width-100 nudge loop stopped at 4.4 (five of eight
+  stopped at 4.45, two at 4.4, one at 4.5) and that caps were scaled four
+  times (true going down; going up it is sixteen times). Its second proposed
+  direction (scale up caps to about ten times) is withdrawn: up caps already
+  exceed the cost ratio. The 09:50Z stamps in the two E0076 evidence files
+  are corrected to 09:37Z, the run's end.
+
 ### Nov 25 findings, second run (L0018, started by the service for job 164681)
 
 No instruction. Session summary: `sessions/2026-11-25-L0018-2.json`.
