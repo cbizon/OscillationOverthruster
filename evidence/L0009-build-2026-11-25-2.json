@@ -1,0 +1,45 @@
+{
+  "line_id": "L0009",
+  "run": "2026-11-25 09:33Z, service run started by this line's timer",
+  "what": "Plate part of the resting-contact design wired into the event loop on branch method/rest (commits 4221e36 code and tests, bcd1d5f reproducer scripts in scripts/rest_plate/). No experiment registered: development checks only.",
+  "machine": "Linux worker, 40 cores; python from /Users/bizon/Projects/experiments/sequel.L0009/.venv",
+  "frozen_engine_tests_method_off": {
+    "command": "cd <worktree> && PYTHONPATH=. python -m pytest -q -p no:cacheprovider <main>/referee/tests",
+    "result": "74 passed in 40.40 s (final code, after clearing the numba cache); an earlier run on the first wiring: 74 passed in 39.52 s",
+    "meaning": "Simulation(v_rest=0), the default, still matches the all-pairs reference loop's event counts exactly and states to 1e-8, restarts reproducibly, and the plate solver matches brute force."
+  },
+  "method_tests": {
+    "command": "PYTHONPATH=.:tests python -m pytest -q -p no:cacheprovider tests/test_rest_engine.py tests/test_rest.py tests/test_stack.py tests/test_rest_kernel.py",
+    "result": "45 passed in 24.03 s (41 earlier plus 4 new in tests/test_rest_engine.py)"
+  },
+  "one_sphere_books": {
+    "script": "scripts/rest_plate/one.py 20 (2D, Gamma 2, f* 0.3, one sphere just above the plate moving with it, vx 0.3, backspin 2)",
+    "captures": 1,
+    "releases": 1,
+    "plate_collisions": 15,
+    "energy_gains_flagged": 0,
+    "largest_capture_position_correction": 0.0,
+    "max_abs_energy_residual_over_20_cycles": 6.22e-15,
+    "max_abs_momentum_residual_over_20_cycles": 7.99e-15,
+    "same_sphere_dropped_bouncing_freely": "17 plate collisions, no capture (its plate approach speeds never fell below 0.01); residuals 3.11e-15 energy, 6.55e-15 momentum"
+  },
+  "layer_2d": {
+    "script": "scripts/rest_plate/layer.py 100 20 2.0 0.3 5 5 0.01 (2D, N 100, L 20, Gamma 2, f* 0.3, depth 5, seed 1, v_rest 0.01, v_wake 0.05)",
+    "result": "stalled in cycle 0: 20,000,000 events (the call's limit) without passing time 5.834632169853275 of the first cycle; 143 s wall",
+    "first_attempt": "before the fix below, the rider contact search refused an overlap at the same place; it had refused overlaps beyond 1e-13 in squared distance, tighter than the engine's own 2e-8 limit on overlap depth (D0079). Part of that first failure was a stale numba cache: the compiled engine still used the previous search after rest_kernel.py changed."
+  },
+  "stall_pattern": {
+    "script": "scripts/rest_plate/stall.py",
+    "output_sha256": "bd57647e2a4ca0bc1d4f2fd8c6c36cc5c85065a369cc11238597547f07f441d2 (scratch copy, removed at the end of the run; regenerate with the script)",
+    "t_start": 5.834632012431334,
+    "events_followed": 20000,
+    "sim_time_advanced": 5.986519990841543e-08,
+    "captures": 10000,
+    "rider_hits": 10000,
+    "pair_collisions": 10000,
+    "plate_collisions": 10000,
+    "releases": 0,
+    "events": "all 20,000 are sphere 92's: 10,000 collisions with sphere 94 and 10,000 with the plate",
+    "reading": "Sphere 94 rests on sphere 92, which rides the plate while the plate pushes upward (effective gravity 2.96). Each time 92 is captured it is carried into 94, the hit frees it (D0078), it meets the plate again at once and is captured again. This is the case the design sends to sphere-on-sphere rest (a capture into a moving stack below the rest speed), which is not built yet."
+  }
+}

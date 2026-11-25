@@ -416,6 +416,23 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: plate riders wired into the event loop (ran Nov 25 09:33Z)
+
+Session summary: `sessions/2026-11-25-L0009.json`; numbers in
+`evidence/L0009-build-2026-11-25-2.json`; branch `method/rest` at bcd1d5f.
+
+- **Built:** sphere modes (free, riding the plate), capture at a plate
+  collision slower than the rest speed while the plate pushes (D0077),
+  closed-form ride with its energy booked as plate work and friction loss,
+  release, and the riding sphere's event searches. `Simulation(v_rest=0)`
+  (the default) is main's engine: the frozen engine tests pass (74/74).
+- **One sphere:** captured, rides, released; energy and momentum books
+  close to 6e-15 and 8e-15 over 20 cycles; no gains.
+- **2D layer (N 100, Gamma 2, f\* 0.3, depth 5):** stalls in cycle 0. A
+  sphere rests on a riding sphere; each hit frees the rider (D0078), the
+  plate recaptures it at once: 10,000 rounds in 6e-8 time. Moving stacks
+  (not yet wired) are what the design uses here.
+
 ### L0009 instruction of Nov 24: implement the resting-contact design (ran Nov 25 04:40Z)
 
 Session summary: `sessions/2026-11-24-L0009-2.json`. Building began on
@@ -1478,12 +1495,12 @@ These are findings, not edits; the referee is his.
   E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
   grid with more seeds where the judge is close, and the phase-diagram fast
   pass with grapenuts (`lines/L0020/progress.md`).
-- **Option four from the paper (L0009):** continue the build on
-  `method/rest` (`lines/L0009/design.md` section 6 lists what is done):
-  sphere states and capture in the event loop, still spheres moving with
-  the plate, a single rider on still spheres, then moving stacks; then the
-  frozen engine tests and the replayed stalls. Clusterlifter
-  (`method/held-contact`) is stopped as built: no fixes, no runs.
+- **Option four from the paper (L0009):** the plate part runs in the
+  event loop on `method/rest` (Nov 25 09:33Z run). Next: sphere-on-sphere
+  rest (moving stacks, still spheres) in the event loop, starting with the
+  stall replay `scripts/rest_plate/stall.py` on the branch; then the 2D
+  grid. Clusterlifter (`method/held-contact`) is stopped as built: no
+  fixes, no runs.
 
 - **Grapenuts (L0020):** all of E0099 to E0102 collected. Next: bulk
   judge at the conditions where sequel's engine fails, against the 1998 C

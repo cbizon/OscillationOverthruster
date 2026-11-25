@@ -1,54 +1,61 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 25 04:40Z run, instruction lines/L0009/instruction.md)
+## Current state (after the Nov 25 09:33Z timer run)
 
-Chris answered the five design choices (Nov 24 23:13) and said "Implement
-this idea ... under no circumstances should you move to a time stepped code
-in sheep's clothing". The answers are decisions D0073 to D0076 and
-`lines/L0009/design.md` section 6 (with a build-status table).
+Chris's instruction (lines/L0009/instruction.md, Nov 24): implement the resting-contact
+design, no time-stepped code in disguise. Answers are D0073 to D0076 and
+`lines/L0009/design.md` section 6. No new instruction entries since then.
+Open question to Chris (asked twice): does the moving-stack integration count as
+time-stepping? Default: build it (D0076) and measure the share of sphere-time in stacks.
 
-**Build: branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
-tip 89b7bfe (branched from main 9d1db8b). The engine (`granular/edmd.py`) is still main's.**
-- `granular/rest.py`: `RestParams` (v_rest 0.01, v_wake 0.05, n_friction_dirs 8);
-  `balance_test` (phase-one simplex, inscribed 8-edge pyramid in 3D, exact in 2D);
-  `PlateRide` (closed-form slide-to-roll on the plate, release time, plate work,
-  friction loss); `first_root` (conservative-advancement first-contact search, status
-  0 contact / 1 none / 2 re-predict here; refuses overlaps); `rider_free_gap`.
-- `granular/stack.py`: moving stacks. `Stack` (contacts to PLATE, a `Fixed` still
-  sphere, or another body; mode 'roll' or 'slide'), contact forces from a linear solve,
-  `integrate` (Dormand-Prince 5(4), rtol 1e-12) returning at the first contact event
-  ('open', 'slide', 'roll'). The caller switches the contact's mode or removes it;
-  nothing is changed at ordinary steps. Last two state entries: plate work, friction loss.
-- `granular/rest_kernel.py`: numba `ride_setup`, `ride_state`, `first_contact_rider_free`
-  with rider rows (`RP_*`, 13 floats per sphere).
-- Tests: `tests/test_rest.py` (29), `tests/test_stack.py` (3), `tests/test_rest_kernel.py` (9);
-  41 pass. Run with the main checkout's venv:
-  `cd <worktree> && PYTHONPATH=.:tests /Users/bizon/Projects/experiments/sequel.L0009/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_rest.py tests/test_stack.py tests/test_rest_kernel.py`
-  (`uv run` inside the worktree fails: the roborobo path source is relative).
-- Numbers: `evidence/L0009-build-2026-11-25.json`.
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip bcd1d5f.** The plate part is now in the event loop (commit 4221e36):
+- `granular/edmd.py`: `P_VREST`, `P_VWAKE` (NP_FLOAT 18; v_rest 0 = main's engine);
+  `mode` array (MODE_FREE 0, MODE_RIDER 1) and rider rows `RP` (rest_kernel layout) passed
+  to `run_events`/`schedule`/`predict`; `advance_rider` books each ride segment (vertical
+  energy change -> EN_PLATE_WORK, horizontal+spin change -> EN_PLATE_DISS with gain check,
+  m(dvz + g dt) -> EN_PLATE_JZ); `advance_any` dispatches; `capture_on_plate` (Walton, e = 0)
+  in EV_PLATE when |vp - vz| < v_rest and G > 0 (D0077), centre snapped to the plate with
+  EN_MAX_SNAP (D0080); `EV_REL` release; `predict_rider` (release, x/y/z faces and walls by
+  `first_cross` monotone pieces + bisection, rider-free and rider-rider conservative
+  advancement); free spheres' `predict` calls the rider-free search for rider neighbours;
+  EV_PP and EV_WALL free a rider (D0078, temporary); counters C_CAPTURE, C_RELEASE,
+  C_RIDERHIT, C_RIDERSEARCH, C_REPREDICT; `project_rest`, `synchronize_rest`, `rebase_rest`.
+- `granular/sim.py`: `Simulation(..., v_rest=0.0, v_wake=0.0)`, `mode`/`RP` permuted at sort,
+  saved in checkpoints, rebased per cycle; `snapshot` uses `project_rest`.
+- `granular/rest_kernel.py`: `first_cross`, `first_contact_rider_rider`; overlap refusal at
+  the engine's 2e-8 (D0079).
+- Tests: 45 pass (tests/test_rest_engine.py 4 new). Frozen tests with method off: 74 pass.
+  Run: `cd <worktree> && PYTHONPATH=.:tests /Users/bizon/Projects/experiments/sequel.L0009/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_rest_engine.py tests/test_rest.py tests/test_stack.py tests/test_rest_kernel.py`
+  and `PYTHONPATH=. ... -m pytest -q -p no:cacheprovider <main>/referee/tests`.
+- **Numba cache trap:** after editing `rest_kernel.py`, delete `granular/__pycache__/*.nbi
+  *.nbc` in the worktree, or `edmd` keeps the old compiled version (cost one false failure).
+- Reproducers: `scripts/rest_plate/{one.py,layer.py,stall.py}` on the branch (run with
+  `PYTHONPATH=.` from the worktree). Numbers: `evidence/L0009-build-2026-11-25-2.json`.
 
-## What's next: wiring into the event loop (stage "plate" first)
+**Result:** one sphere captured/ridden/released, books close to 1e-14. A 2D layer (N 100,
+L 20, Gamma 2, f* 0.3, depth 5, seed 1) stalls in cycle 0 at t = 5.8346320: sphere 94 rests
+on rider 92; the plate carries 92 into 94, the hit frees 92 (D0078), plate recaptures it at
+once; 10,000 rounds in 6e-8 time units. This is the stage-3 case.
 
-Touch points in `granular/edmd.py` (all assume ballistic motion today):
-1. a per-sphere mode array (0 free, 1 plate rider, 2 still, 3 stack member) and the
-   rider rows; `advance` dispatches on mode (rider: `ride_state`);
-2. `EV_PLATE`: capture when approach speed < v_rest and effective gravity > 0
-   (Walton collision with e = 0, booked as plate collision), then `ride_setup`;
-3. rider events: release time (→ free, ballistic from the ride state), horizontal cell
-   faces and side walls (nonlinear while sliding: use the conservative search),
-   pair contacts with free spheres (`first_contact_rider_free`, from both sides of the
-   pair: the inline pair formula in `predict` must skip riders), rider–rider on the plate;
-4. a rider hit: below v_rest capture into a stack (stage 3), above it the rider becomes
-   free and the ordinary collision happens;
-5. energy books: plate work and friction loss of rides into EN_PLATE_WORK / EN_PLATE_DISS
-   at each ride's end or at each sync; `project`, `synchronize`, `rebase`, `min_gap`,
-   `check_cells`, checkpoints and `sim.py` must know about riders;
-6. then still spheres (moving with the plate, wake/bounce/capture by D0074), riders on
-   still spheres and moving stacks (compile `stack.py` or call it from Python between
-   kernel calls; decide and record);
-7. frozen engine tests on the branch, replayed stalls, then the 2D grid (register first).
+## What's next: sphere-on-sphere rest in the event loop
 
-A timer (`program wake`) starts the next run of this line to continue.
+1. Fix the stack integrator's weakness the checker raised (review of 2026-11-24-L0009-2):
+   contact changes are found only by a sign change between step ends; a push dipping below
+   zero and recovering within one step is missed. Use a bound (like first_root) or check
+   the dense output's extremum within each step.
+2. Decide and record how stacks run with the compiled loop: `run_events` returns to Python
+   at a stack event (new return code) and `stack.py` advances it, or compile stack.py.
+3. A sphere hitting a rider (or a stack sphere) below v_rest joins a moving stack; still
+   spheres (balance test passes, no slip) move rigidly with the plate (a rider row with zero
+   horizontal motion; a sphere on still spheres is the plate plus an offset, needs a z-offset
+   field separate from RP_R); hits between v_rest and v_wake bounce as off the plate (D0074);
+   above v_wake the sphere is freed.
+4. Stack spheres' contacts with free spheres and cell faces as events (dense output roots).
+5. Replay the stall (stall.py), then the 2D grid (register experiments first), counting the
+   share of sphere-time in stacks.
+
+A timer (`program wake`) starts the next run of this line.
 
 ## Jobs in flight
 

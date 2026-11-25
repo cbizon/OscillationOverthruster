@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-25",
+  "line_id": "L0009",
+  "instruction": "none: started by the service for timer",
+  "answers": [],
+  "headline": "This run continued building the resting-contact method on branch method/rest, starting with spheres resting on the plate. That part now runs inside the simulation: a slow sphere is captured by the plate, rides it and is released, with its energy and momentum books closing to round-off, and with the method switched off the engine still passes the frozen engine tests. A real two-dimensional layer still stalls in its first cycle, where a sphere rests on top of a riding sphere. That case needs the moving stacks, which are not wired in yet.",
+  "experiments": [],
+  "claims_changed": [],
+  "questions": [
+    {
+      "question": "The next piece moves a sphere resting on a riding sphere together with it. Their smooth motion is integrated between exact events (adaptive steps at round-off accuracy, contact forces from a small linear solve, nothing corrected at steps). Is that within the plan, or does it count as time-stepping for you? (Asked last run; still unanswered.)",
+      "why_it_matters": "Tonight's layer showed that the method cannot run without this piece. The first stall is a sphere resting on a riding sphere. If you count it as time-stepping, sphere-on-sphere rest needs another approach.",
+      "default_if_unanswered": "Build it as designed (D0076) and report the share of sphere-time spent in integrated stacks once a layer runs, so it can be judged on numbers."
+    }
+  ],
+  "proposed_directions": [
+    {
+      "direction": "Wire moving stacks into the event loop next: a sphere hitting a riding sphere below the rest speed joins it in a stack, and the stack's contacts with free spheres are events. Fix the stack integrator's weakness the checker found (a push that dips below zero and recovers within one step) first.",
+      "rationale": "It is what stops the first layer. Every dense layer will have spheres resting on riding spheres within the first cycle."
+    },
+    {
+      "direction": "Replay tonight's stall (scripts/rest_plate/stall.py on method/rest) as the first test of the stack build, then the 2D grid conditions.",
+      "rationale": "It is a small, exactly reproducible case where the plate part alone fails, so it shows at once whether stacks remove the chatter."
+    },
+    {
+      "direction": "Once stacks run, measure the share of sphere-time spent in integrated stacks at the deep Gamma 5 conditions.",
+      "rationale": "It decides whether stacks are a cheap exception or a hidden time-stepper, the question put to Chris."
+    }
+  ],
+  "budget": {
+    "cpu_hours": {
+      "spent": 561.365,
+      "limit": 10000
+    },
+    "disk_gb": {
+      "spent": 0.683,
+      "limit": 15
+    }
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-25T09:33:00Z",
+    "actual_start": "2026-11-25T09:33:18Z",
+    "ended": "2026-11-25T09:52:00Z",
+    "interruptions": [],
+    "cpu_hours": 0.15,
+    "cores_available": 35,
+    "disk_free_gb": {
+      "start": 91,
+      "end": 91
+    },
+    "unfinished_runs": [],
+    "limits_hit": "none. Only short local checks, each single-threaded: frozen tests twice (40 s each), method tests three times (about 25 s each), a 2D layer that stalled (143 s), event-by-event debugging and the stall trace (a few minutes). The CPU figure is the sum of those wall times, not read from ps. This ran on a Linux worker (40 cores, load 5.2 at start), not Chris's Mac, so pmset and memory_pressure are not available; budgets.yaml's local limits were checked against this machine's disk only. The data folder is 683 MB, including other lines' data. A stale numba cache cost one misleading failure: after a change to granular/rest_kernel.py, compiled engine functions kept the old version until the cache files were deleted. No experiments were registered: the checks above are development checks of the build (as in the previous run), described in evidence/L0009-build-2026-11-25-2.json and in PROGRAM.md."
+  }
+}
