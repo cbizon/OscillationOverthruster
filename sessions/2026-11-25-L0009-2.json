@@ -1,0 +1,55 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "This timer run continued building the resting-contact method on branch method/rest, on the moving-stack piece (spheres resting on riding spheres), which is still outside the event loop. The stack integrator no longer misses a contact condition that fails and recovers inside one step, and it stores stack paths in a form the compiled loop can read. Replayed offline, the pair from the first stall moved smoothly as a two-sphere stack until the top sphere slid off, with books closing to round-off. That is one pair, not a layer: the layer still stalls until stacks are wired in.",
+ "experiments": [],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "The piece being built moves a sphere resting on a riding sphere together with it. Their smooth motion is integrated between exact events (adaptive steps at round-off accuracy, contact forces from a small linear solve, nothing corrected at steps). Is that within the plan, or does it count as time-stepping for you? (Asked twice before; still unanswered.)",
+   "why_it_matters": "The first stall of a real layer is exactly this case. Tonight's offline replay of it needed 66 integrator steps over 0.4 time units for one pair. If you count this as time-stepping, sphere-on-sphere rest needs another approach before more is built on it.",
+   "default_if_unanswered": "Keep building it as designed (decision D0076) and report the share of sphere-time spent in integrated stacks once a layer runs, so it can be judged on numbers."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Wire stacks into the event loop as recorded in decision D0082: a sphere hitting a riding sphere below the rest speed forms a stack in Python, the path is stored as segments the compiled loop reads, and the loop returns to Python only at stack events.",
+   "rationale": "It is what stops the first layer; every piece it needs (integrator, dip search, start modes, segment storage and evaluator) now exists and is tested."
+  },
+  {
+   "direction": "Once the stall replays in the loop, run the 2D grid conditions and measure the share of sphere-time in stacks and the CPU spent in the Python stack integrator.",
+   "rationale": "Those two numbers decide whether stacks are a cheap exception or a hidden time-stepper, the open question to Chris; at about 9 ms per stack step in Python, they also decide whether stack.py must be compiled."
+  },
+  {
+   "direction": "Give the free-sphere search against stack spheres a proven speed bound per segment (from the polynomial's derivative) rather than sampling.",
+   "rationale": "The dip search inside stacks is a sampling test (decision D0081); the searches between free and stack spheres should not add a second unproven step to the method."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 561.365,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.684,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T10:38:00Z",
+  "actual_start": "2026-11-25T10:38:01Z",
+  "ended": "2026-11-25T10:53:00Z",
+  "interruptions": [],
+  "cpu_hours": 0.12,
+  "cores_available": 30,
+  "disk_free_gb": {
+   "start": 90,
+   "end": 90
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. Only short single-threaded local checks: the stack tests five times (20 to 40 s each), the full method tests and the frozen engine tests twice each (about 40 to 65 s, run side by side), two comparisons of the old and new integrator (about 10 s), and the offline stall replay twice (under 30 s each). The CPU figure is the sum of those wall times, not read from ps. This ran on a Linux worker (40 cores, load about 10 at start, from /proc/loadavg since uptime is missing), not Chris's Mac, so pmset and memory_pressure are not available; local budget limits were checked against this machine's disk only (90 GB free, data folder 684 MB). The end time is the time the summary was written, a few minutes before the final commit. pytest's scratch went to sequel-data/tmp this time (--basetemp), as the checker asked. No experiments were registered: these are development checks of the build, recorded in evidence/L0009-build-2026-11-25-3.json. Budget: 6% of the weekly CPU limit, below the 50% warning."
+ }
+}

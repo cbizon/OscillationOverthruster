@@ -416,6 +416,26 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: moving stacks prepared, stall pair replayed offline (ran Nov 25 10:38Z)
+
+Session summary: `sessions/2026-11-25-L0009-2.json`; numbers in
+`evidence/L0009-build-2026-11-25-3.json`; branch `method/rest` at e299265.
+
+- **Missed dips fixed (checker's point, D0081):** each integrator step's
+  smooth interpolant is sampled for a push or friction margin that goes
+  below zero and comes back. Three synthetic dips found to 1e-12; the
+  physical stack tests give bit-identical results (it never fired there),
+  at about 80% more force solves. A sampling test, not a bound.
+- **How stacks will meet the compiled loop (D0082):** stack paths stored
+  as per-sphere polynomial segments the compiled loop reads; built and
+  tested (`seg_position`), not yet used by the loop.
+- **Stall pair as a stack, offline:** the riding sphere and the sphere on
+  it moved together for 0.40 time units (66 steps, 3.7 s CPU in Python)
+  until the top one slid off; books close to 3e-14. Its contact needed
+  1.10 times the friction limit to roll, which the integrator had silently
+  ignored; a stack now starts such contacts sliding (D0083).
+- Method tests 52 pass; frozen engine tests 74 pass (method off).
+
 ### L0009, timer run: plate riders wired into the event loop (ran Nov 25 09:33Z)
 
 Session summary: `sessions/2026-11-25-L0009.json`; numbers in

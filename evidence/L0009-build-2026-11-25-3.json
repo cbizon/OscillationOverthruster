@@ -1,0 +1,140 @@
+{
+ "line_id": "L0009",
+ "run": "timer run of 2026-11-25 10:38Z (service, second run of the day)",
+ "what": "Development checks of the moving-stack piece of the resting-contact method on branch method/rest. No experiments registered: building and unit checks, plus an offline replay of the Nov 25 stall pair as a stack.",
+ "machine": "Linux worker, 40 cores, load about 10 at start; not Chris's Mac",
+ "branch": "method/rest",
+ "commits": {
+  "dip_search": "4431b64",
+  "segments": "df31662",
+  "start_modes": "e299265"
+ },
+ "frozen_engine_tests_method_off": {
+  "command": "PYTHONPATH=<worktree> python -m pytest -q <main>/referee/tests",
+  "result": "74 passed",
+  "commit": "e299265"
+ },
+ "method_tests": {
+  "command": "PYTHONPATH=.:tests python -m pytest -q tests/test_rest_engine.py tests/test_rest.py tests/test_stack.py tests/test_rest_kernel.py",
+  "result": "52 passed",
+  "commit": "e299265",
+  "new": [
+   "test_dense_output_reproduces_the_fifth_order_step",
+   "test_a_dip_inside_one_step_is_found[3 cases]",
+   "test_no_dip_no_event",
+   "test_recorded_segments_cover_the_run_and_match_the_motion",
+   "test_a_start_that_needs_more_than_mu_N_is_refused_then_made_sliding"
+  ]
+ },
+ "dip_search": {
+  "decision": "D0081",
+  "synthetic": "event function (s-c)^2 - h^2 over one step of length 1 on y'=1: dips (c,h) = (0.5,0.1), (0.53,0.01), (0.9,0.04) each found once, event time c-h to 1e-12; the end-point test alone misses all three (both ends positive)",
+  "physical_cases_vs_old_integrator": [
+   {
+    "case": "roll off a fixed sphere, theta0 0.05, mu 1e8",
+    "event": "slide",
+    "event_time": 4.317100508724,
+    "difference_in_time": 0.0,
+    "max_state_difference": 0.0,
+    "force_solves_in_rhs": 1848,
+    "extra_event_evaluations_for_dip_search": 1470,
+    "dips_found": 0
+   },
+   {
+    "case": "roll off a fixed sphere, theta0 0.05, mu 0.5",
+    "event": "slide",
+    "event_time": 4.006321004422,
+    "difference_in_time": 0.0,
+    "max_state_difference": 0.0,
+    "force_solves_in_rhs": 1701,
+    "extra_event_evaluations_for_dip_search": 1316,
+    "dips_found": 0
+   }
+  ],
+  "reading": "the new path ran on every accepted step (that is the sample count) and never fired on these cases, so results are bit-identical; cost about 80% more force solves"
+ },
+ "segments": {
+  "decision": "D0082",
+  "check": "rider on a sphere rolling on the plate (Gamma 2, f* 0.3): segments join to 1e-12, last one ends at the returned state to 1e-12, mid-step value equals the dense output to 1e-10, out-of-span time returns -1"
+ },
+ "stall_replay": {
+  "script": "scripts/rest_plate/stack_replay.py (commit e299265), run with PYTHONPATH=. from the worktree",
+  "condition": "2D layer N 100, L 20, Gamma 2, f* 0.3, depth 5, seed 1, v_rest 0.01, v_wake 0.05, run to t_local 5.8346320 (the stall); spheres 92 (plate rider) and 94 (resting on it), sorted indices",
+  "first_run_before_start_check": {
+   "commit": "df31662 plus the replay script",
+   "rolling_friction_needed_over_mu_push_contact_94_on_92": 1.103040398890607,
+   "event": "open of 94 on 92",
+   "stack_time": 0.5271965268856729,
+   "note": "ran with the top contact rolling although rolling needed more than mu N; integrate now refuses such a start"
+  },
+  "result": {
+   "t_local": 5.834632,
+   "mode_a": 1,
+   "mode_b": 0,
+   "gap_ab": 5.10702591327572e-15,
+   "gap_a_plate": 0.0,
+   "vn_ab": -1.1932249096621653e-08,
+   "vz_a_minus_plate": 0.0,
+   "normal_angle_deg": 60.99014815235134,
+   "plate_accel_over_g": 1.9576827269484622,
+   "approach_removed": -1.1932249096621653e-08,
+   "pushes_at_start": [
+    4.375566120758096,
+    1.4189631076192855
+   ],
+   "rolling_friction_needed_over_mu_push": [
+    0.36800182144151683,
+    1.103040398890607
+   ],
+   "switched_to_sliding_at_start": [
+    1
+   ],
+   "modes_at_start": [
+    "roll",
+    "slide"
+   ],
+   "event": [
+    1,
+    "open"
+   ],
+   "stack_time": 0.3964654852972904,
+   "plate_periods": 0.053191426551431074,
+   "steps": 66,
+   "force_solves": 840,
+   "dip_samples": 455,
+   "dips": 0,
+   "cpu_s": 3.6768086890000014,
+   "energy_change": 1.1880719111613236,
+   "plate_work": 1.2176124826942558,
+   "friction_loss": -0.02954057153295849,
+   "books_residual": 2.6277591214096674e-14,
+   "gap_a_plate_end": -4.440892098500626e-16,
+   "gap_ab_end": 1.0880185641326534e-14,
+   "x_end": [
+    [
+     19.504428945287785,
+     0.5263157894736842,
+     -1.9110431521378923
+    ],
+    [
+     18.548753662296605,
+     0.5263157894736842,
+     -1.594031032022848
+    ]
+   ],
+   "v_end": [
+    [
+     0.034645423343261775,
+     0.0,
+     1.220394476874407
+    ],
+    [
+     -0.2574533510016156,
+     0.0,
+     0.3398237948069108
+    ]
+   ]
+  },
+  "output_file_sha256_before_deletion": "a990b6ec15a55ac3714b4913046931799c4eee3fcb978ed7c39eb55b14571292 (tmp/replay/out.json, scratch, deleted at the end of the run; this record holds its numbers except the final packed state vector)"
+ }
+}
