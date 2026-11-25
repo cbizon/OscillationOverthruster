@@ -298,6 +298,29 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): f\* 0.50 loop ended at Gamma 4.6 after one cycle (ran Nov 25 15:59Z)
+
+Started by the service for job hatteras-164658 (f\* 0.50, A0194, 82.38
+CPU-hours, including a redo of the unfinished Gamma 4.5 step). FAILED is the
+loop's exit on the 48 CPU-hour step cap; the energy audit was clean in every
+step. Session summary: `sessions/2026-11-25-L0015-2.json`. Added to
+`evidence/E0089-step-table.json`, which now holds seven loops.
+
+- **Stop:** Gamma 4.6 after 1 completed cycle (1.86 covered). There it cost
+  about 389,000 events per particle per cycle and 92,700 CPU-seconds per
+  cycle: six times any other frequency, and 23 times its own 4.55 level
+  (others 4.4 to 8.3 times). CPU per event stayed flat. One seed; the ball
+  model predicts no frequency dependence.
+- **Covered cycles (D0086, T0047):** stopped steps also ran part of an
+  unfinished cycle, so per-cycle figures are now divided by completed plus
+  partial cycles. This lowers the other loops' stopping-step figures by 3 to
+  8 percent.
+- **Budget:** this job used 82.38 of the 100 CPU-hours per run (over 80%).
+  The f\* 0.44 loop (164657) is still in 4.6, projected at up to 97.6; the
+  Nov 26 08:00Z timer (D0072) is the backstop.
+- **Next:** collect f\* 0.44, then the D0071 question to Chris and the E0089
+  outcome.
+
 ### L0015 (nudge fast pass): f\* 0.65 and 0.74 loops ended at Gamma 4.6 (ran Nov 25 05:40Z)
 
 Started by the service for jobs hatteras-164660 (f\* 0.65, A0184, 65.29

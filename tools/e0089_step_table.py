@@ -83,6 +83,19 @@ def main():
                 "energy_gains": summ["energy_gains"],
                 "slow_episodes": len(summ["slow_episodes"]),
             }
+            if summ["outcome"] != "completed":
+                # A step stopped on the CPU cap also ran part of the next cycle;
+                # counters.json's event_time is the next event's time within that
+                # cycle (the engine rebases time to 0 at each cycle end).
+                period = (summ["depth"] ** 0.5) / summ["f_star"]
+                frac = cnt["event_time"] / period
+                cov = cyc + frac
+                row["unfinished_cycle_fraction"] = round(frac, 3)
+                row["cycles_covered"] = round(cov, 3)
+                row["cpu_seconds_per_covered_cycle"] = round(cpu / cov, 1)
+                row["events_per_particle_covered_cycle"] = round(d["C_EVENTS"] / N / cov, 1)
+                row["plate_collisions_per_particle_covered_cycle"] = round(d["C_PLATE"] / N / cov, 1)
+                row["pp_collisions_per_particle_covered_cycle"] = round(d["C_PP"] / N / cov, 1)
             row.update(ball.get(summ["gamma"], {}))
             rows.append(row)
             for p in (sp, cp, os.path.join(loop, prev[2], "counters.json")):

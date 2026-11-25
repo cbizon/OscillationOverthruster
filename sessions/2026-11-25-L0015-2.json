@@ -1,0 +1,78 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the f* 0.50 nudge loop (Hatteras job 164658) ended FAILED. That is the loop's normal exit when a step runs out of CPU: it stopped on the 48 CPU-hour step cap at Gamma 4.6 after only one completed cycle, so seven of eight loops have now stopped and none got above Gamma 4.6. At f* 0.50, Gamma 4.6 cost about 389,000 engine events per particle per cycle, six times any other frequency and 23 times its own cost at 4.55. Correcting for the unfinished last cycle in each stopped step also lowers the earlier loops' stopping-step figures by 3 to 8 percent.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "What did the nudge loop at f* 0.50 cost near the wall, and where did it stop?",
+   "what_was_done": "Collected the ended job's mirrored per-step counters and added the loop to the step-by-step cost table, taking differences between consecutive steps. Found that a step stopped on the CPU cap also ran part of an unfinished cycle, which the earlier per-cycle figures did not count. Added a 'covered cycles' count (completed cycles plus the fraction of the unfinished one) for every stopped step in all seven loops, and checked it two independent ways.",
+   "result": "The loop stopped at Gamma 4.6 after one completed cycle and 0.86 of the next, using 48 CPU-hours in that step and 82.4 CPU-hours for the whole job. The job also redid the Gamma 4.5 step, which the earlier job had left unfinished. Per covered cycle, Gamma 4.6 cost about 389,000 engine events per particle and about 92,700 CPU-seconds. The other five loops that reached 4.6 cost 29,000 to 65,000 events. From 4.55 to 4.6 the cost rose 23 times, against 4.4 to 8.2 times at the other frequencies. CPU per event stayed the same, so the extra cost comes from more events, not more work per event. Plate collisions per cycle were 45 times their Gamma 4.5 level (6 to 15 times elsewhere). At 4.5 and 4.55, f* 0.38 cost more than f* 0.50. The energy audit was clean throughout. Counting the unfinished cycle lowers the other loops' stopping-step figures by 3.4 to 8.4 percent, and the f* 0.50 one by 1.86 times.",
+   "takeaway": "The 'complete above Gamma 5.0' part of the loop experiment has now failed at seven frequencies under the registered cap. The inelastic ball model is the same at every frequency, so it does not predict a frequency where the cost is far higher. With one loop and one seed, it is untested whether that comes from f* 0.50 or from this run's particular state."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "(Repeated; seven loops now agree.) When the last loop (f* 0.44) has stopped, should I (a) give the loops more than 48 CPU-hours a step from Gamma 4.6 to 5.0, or (b) run a cheaper test: start from the saved Gamma 4.6 state and run a few cycles at each Gamma from 4.65 to 5.0, to see whether the cost falls as the inelastic ball model predicts?",
+   "why_it_matters": "It decides whether the nudge is measured above Gamma 4.6 at all. At f* 0.50 one cycle at 4.6 costs about 26 CPU-hours, so option (a) is out of reach at that frequency within 100 CPU-hours per run.",
+   "default_if_unanswered": "Option (b) at one or two frequencies other than f* 0.50, registered as a new experiment and kept under 100 CPU-hours per job."
+  },
+  {
+   "question": "(Still open.) budgets.yaml limits CPU to 100 hours 'per run'. Does a run mean one cluster job (one whole nudge loop at one frequency) or one Gamma step of a loop?",
+   "why_it_matters": "Under the job reading, no nudge loop can get past Gamma 4.6. The f* 0.50 job used 82.4 CPU-hours, and f* 0.44 is projected at up to 97.6.",
+   "default_if_unanswered": "Treat a run as one job. On Nov 26 at 08:00 UTC, cancel any loop that has gone past its current step (D0072)."
+  },
+  {
+   "question": "(Still open.) The referee's 'events per particle per cycle' in each loop step counts every event since the loop began, and divides by completed cycles only. Do you want the referee changed to report the step's own rate, or should every line keep taking differences between steps?",
+   "why_it_matters": "Any line reading that number from loop steps gets a figure that mixes in all earlier steps. A step stopped after one cycle is also off by up to two times.",
+   "default_if_unanswered": "This line takes differences between consecutive steps and divides by covered cycles (tools/e0089_step_table.py, D0086)."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state at one or two frequencies (not f* 0.50), a few cycles each at 4.65, 4.7, 4.8 and 5.0.",
+   "rationale": "It tests the one untested prediction (the cost falls again above 4.6) for tens of CPU-hours instead of hundreds."
+  },
+  {
+   "direction": "Compare the nudge loops' collisions per cycle near Gamma 4.5 to 4.6 with L0018's plain-engine loops at the same Gamma and frequency, f* 0.50 included.",
+   "rationale": "It would show whether the extra collisions, and the f* 0.50 outlier, come from the nudge method or from the physics, before anything is read as physics."
+  },
+  {
+   "direction": "Re-run Gamma 4.55 to 4.6 at f* 0.50 with a second seed for a few cycles.",
+   "rationale": "It tells whether the 23-fold jump belongs to the frequency or to this run's particular state, and it is cheap if capped at a few cycles."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 1001.16,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 82.38,
+   "limit": 100
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T15:57:12Z",
+  "actual_start": "2026-11-25T15:59:11Z",
+  "ended": "2026-11-25T16:05:52Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 36,
+  "disk_free_gb": {
+   "start": 90,
+   "end": 90
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "f* 0.44 (job 164657) is still running in its Gamma 4.6 step on Hatteras. It ends on its own at the step cap, projected for about Nov 26 07:05 to 07:30Z. The Nov 26 08:00Z timer enforces the per-run limit (D0072)."
+   }
+  ],
+  "limits_hit": "The registered cap of 48 CPU-hours per step stopped the f* 0.50 loop at Gamma 4.6 after one completed cycle; the machine did not limit the science. scheduled_start is the job's end time from its record (the service started this run for it). The host runs Linux: pmset, uptime, memory_pressure and free are unavailable, so sleep and wake and memory were not measured; cores_available comes from /proc/loadavg (about 3.4 on 40 cores). Local CPU use was negligible: the run read mirrored files, and one fetch attempt found the per-cycle counter file was not written on Hatteras. Budget: the weekly total is 1,001.16 of 10,000 CPU-hours (10%, under 50%), the earlier 918.78 plus 82.38 for this job. Per-run budget: the f* 0.50 job used 82.38 of 100 CPU-hours, which PASSES 80%. f* 0.44 is projected at up to 97.6 when it ends. program check sums less from the ledger because E0089 outcomes are not written yet."
+ }
+}
