@@ -119,6 +119,19 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   that has none, and update it when the line's aim changes. No shorthand
   from an old conversation: every name in it is in `terms.jsonl` or spelled
   out.
+- A line can have **pinned** items (`pinned` in its record): the things
+  Chris looks at first, such as its current algorithm in
+  pseudocode, its phase diagram, its amplitude plot. Each is one file,
+  `lines/<line>/pinned/<slug>.<ext>`: Markdown for text and pseudocode;
+  SVG or PNG (under 500 KB) for a plot, drawn by a committed script from
+  recorded data. At every run, make any pinned item that has no file yet
+  and bring each one up to date: rewrite the file in place and commit it,
+  whenever what it shows has changed. Never keep dated copies; the
+  dashboard shows earlier versions from the file's history, so one commit
+  per real change, with a message saying what changed. The file stands
+  alone: a title, the date and source of what it shows, axes labelled,
+  every name in `terms.jsonl` or spelled out. If a line plainly has such a
+  thing and nothing is pinned, pin it yourself with an `update` record.
 - With every `update` of a line's `state`, also give `next` (what the line
   does next, or what it is waiting for: a job, an answer, another line)
   and `closes_when` (what result or decision would close the line, and
