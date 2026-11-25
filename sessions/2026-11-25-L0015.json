@@ -1,0 +1,74 @@
+{
+ "date": "2026-11-25",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because two more nudge loops ended: f* 0.65 and f* 0.74 both stopped at Gamma 4.6 on their 48 CPU-hour step cap, so six of eight loops have now stopped and none got above Gamma 4.6. Both were added to the step-by-step cost table; in the stopping step, collisions per cycle rose 8.9 and 4.6 times over the step before while CPU per collision on the cluster stayed within 3%. The checker's three wording corrections from the last review were made.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Can the nudge loops continue above the wall near Gamma 4.5 and reach 5.0 and above, and does their cost fall again there as the inelastic ball model predicts?",
+   "what_was_done": "Collected the loops at f* 0.65 and f* 0.74 when their cluster jobs ended, and added their steps from Gamma 4.3 up to the step-by-step cost table, taking each step's counts as the difference from the previous step's.",
+   "result": "Both loops finished Gamma 4.55 and stopped on the cap at 4.6. The f* 0.65 loop completed only ten of twenty-five cycles there, at about 17,300 CPU-seconds a cycle, the most expensive step any loop has reached; the f* 0.74 loop completed twenty-one, at about 8,200. The jobs used about 65 and 63 CPU-hours. Every step's energy audit was clean. In the stopping step, events per particle per cycle were about 71,000 at f* 0.65 and about 33,000 at f* 0.74, 8.9 and 4.6 times the step before; CPU per event changed by 0.98 and 1.03 times. Plate collisions per cycle at the stopping step were 16 and 9 times their Gamma 4.5 level.",
+   "takeaway": "Six frequencies now agree: under the registered cap no nudge loop gets above Gamma 4.6, so the experiment's expectation that the loops finish above Gamma 5.0 has failed at all six, and whether the cost falls again above 4.6 is still untested. Two loops (f* 0.44 and 0.50) are still running at Gamma 4.6."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "(Repeated; six loops now agree.) When the last two loops have stopped, should I (a) give the loops more than 48 CPU-hours a step from Gamma 4.6 to 5.0, or (b) run a cheaper test: start from the saved Gamma 4.6 state and run a few cycles at each Gamma from 4.65 to 5.0, to see whether the cost falls as the inelastic ball model predicts?",
+   "why_it_matters": "It decides whether the nudge is measured above Gamma 4.6 at all. At f* 0.65 one cycle at 4.6 already costs about 4.8 CPU-hours, so option (a) could cost several hundred CPU-hours per loop.",
+   "default_if_unanswered": "Option (b) at one or two frequencies, registered as a new experiment and kept under 100 CPU-hours per job."
+  },
+  {
+   "question": "(Still open.) budgets.yaml limits CPU to 100 hours 'per run'. Does a run mean one cluster job (one whole nudge loop at one frequency) or one Gamma step of a loop?",
+   "why_it_matters": "Under the job reading, no nudge loop can get past Gamma 4.6: each has used 55 to 98 CPU-hours by the time its 4.6 step ends.",
+   "default_if_unanswered": "Treat a run as one job. On Nov 26 at 08:00 UTC, cancel any loop that has gone past its current step (D0072)."
+  },
+  {
+   "question": "(Still open.) The referee's 'events per particle per cycle' in each loop step counts every event since the loop began. Do you want the referee changed to report the step's own rate, or should every line keep taking differences between steps?",
+   "why_it_matters": "Any line reading that number from loop steps gets a figure that mixes in all earlier steps.",
+   "default_if_unanswered": "This line takes differences between consecutive steps (tools/e0089_step_table.py)."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state at one or two frequencies, a few cycles each at 4.65, 4.7, 4.8 and 5.0.",
+   "rationale": "It tests the one untested prediction (the cost falls again above 4.6) for tens of CPU-hours instead of hundreds."
+  },
+  {
+   "direction": "Compare the nudge loops' collisions per cycle near Gamma 4.5 to 4.6 with L0018's plain-engine loops at the same Gamma and frequency.",
+   "rationale": "The checker pointed out that the rise in particle-particle collisions might come from the nudge method rather than the physics; a plain-engine comparison at the same conditions settles it before anything is read as physics."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 918.78,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 65.29,
+   "limit": 100
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T05:40:00Z",
+  "actual_start": "2026-11-25T05:40:09Z",
+  "ended": "2026-11-25T05:44:31Z",
+  "interruptions": [],
+  "cpu_hours": 0,
+  "cores_available": 36,
+  "disk_free_gb": {
+   "start": 92,
+   "end": 92
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0089",
+    "reason": "Two loops still running on Hatteras in their Gamma 4.6 step (f* 0.44 job 164657, f* 0.50 job 164658). Each ends on its own; the timer on Nov 26 08:00Z enforces the per-run limit (D0072)."
+   }
+  ],
+  "limits_hit": "The registered cap of 48 CPU-hours per step stopped the f* 0.65 and 0.74 loops at Gamma 4.6; the machine did not limit the science. The two jobs ended on Nov 24 at 21:03Z (164661) and 22:51Z (164660); this run started at 05:40:09Z on Nov 25, so scheduled_start is given as the run's start, not the job end times. This host runs Linux: pmset and uptime are unavailable, so sleep and wake were not measured; cores_available comes from /proc/loadavg (4.21 on 40 cores at the start). Local CPU use was negligible (reading mirrored files, frozen referee tests: 74 passed in 51 s). Budget: weekly total 918.78 of 10,000 CPU-hours (9%, under 50%): 790.01 reported earlier plus 65.29 and 63.49 for the two jobs; program check sums 561.37 from the ledger because E0089 outcomes are not written yet. cpu_hours_per_run gives the largest ended job (f* 0.65, 65.29 of 100). The D0072 wake for Nov 26 08:00Z was set in earlier runs and not re-set; program wake has no way to list timers. Timestamps in this run's records were taken from the clock when written."
+ }
+}
