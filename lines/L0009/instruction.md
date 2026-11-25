@@ -21,3 +21,13 @@ You asked:
 Answer:
 
 These are all parameters to tune. To start, let's make it higher, but it's something to tweak later.
+
+## 2026-11-24 23:13, Chris, from the dashboard
+
+You asked:
+
+> Is a rest speed of 0.01 (the paper's deposition value) right, with bulk checks at 0.003 and 0.03 to show results don't depend on it?
+
+Answer:
+
+That's fine, but again, these are parameters to bake into the code.
