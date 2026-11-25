@@ -111,6 +111,14 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   `terms.jsonl`, defined in plain words for someone outside the work
   (define "impulse-step method"; don't assume it). If you wouldn't define
   it, say the thing in plain words instead.
+- A line starts defined. Its `open` record carries, besides `name` and
+  `question`: `purpose` (below), `closes_when`, and `pinned` (the one or two
+  things the line will always show: its algorithm, its diagram, its plot),
+  or says in `reason` why nothing is worth pinning. If Chris asked
+  for the line and you can't write its purpose from what was said, open it
+  with your best reading and ask in `questions` whether that is right;
+  don't leave it undefined. The dashboard won't let a proposed line be
+  made active without a purpose.
 - Every line has a `purpose`: two to four plain sentences for someone who
   wasn't there, saying what the line is trying to find out or build, why
   the program needs it, and how it differs from the lines near it. The
