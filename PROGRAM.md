@@ -390,6 +390,22 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009 instruction of Nov 24: implement the resting-contact design (ran Nov 25 04:40Z)
+
+Session summary: `sessions/2026-11-24-L0009-2.json`. Building began on
+branch `method/rest`; nothing is wired into the event loop or run yet.
+
+- **Chris's answers built in** (D0073 to D0076, `lines/L0009/design.md`
+  section 6): spheres may ride on rolling spheres (a moving stack,
+  integrated as one smooth system, every contact change an event, no fixed
+  step); wake speed 0.05 above rest speed 0.01, both parameters; hits in
+  between bounce off the still sphere by the base collision law; no stored
+  energy; friction in the balance test.
+- **Built and tested in isolation (17 tests):** the parameters, the
+  balance test with friction, and the closed-form ride on the plate
+  (agrees with a numerical solve to 1e-11; energy books close at
+  round-off).
+
 ### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
 
 ### L0017 (slow loops): settle-then-step loop collected (ran Nov 24 06:11Z)
@@ -1394,11 +1410,11 @@ These are findings, not edits; the referee is his.
   E0101 (stiffness); write their outcomes. Then a k = 1e8 pass over the
   grid with more seeds where the judge is close, and the phase-diagram fast
   pass with grapenuts (`lines/L0020/progress.md`).
-- **Option four from the paper (L0009):** waiting for Chris's answers to
-  the five choices at the end of `lines/L0009/design.md` (proposed
-  decision D0069). Then a first build on a new method branch: the plate
-  part first (closed-form, reusing L0019's plate motion), tested on the
-  replayed stalls and the frozen engine tests. Clusterlifter
+- **Option four from the paper (L0009):** continue the build on
+  `method/rest` (`lines/L0009/design.md` section 6 lists what is done):
+  sphere states and capture in the event loop, still spheres moving with
+  the plate, a single rider on still spheres, then moving stacks; then the
+  frozen engine tests and the replayed stalls. Clusterlifter
   (`method/held-contact`) is stopped as built: no fixes, no runs.
 
 - **Grapenuts (L0020):** all of E0099 to E0102 collected. Next: bulk

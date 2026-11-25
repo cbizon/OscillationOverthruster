@@ -136,3 +136,32 @@ The ride method already moves spheres on the plate in closed form, using the pla
 3. **Rest speed.** Should it be 0.01 √(gD), the paper's deposition value (default), and is a check at 0.003 and 0.03 enough to show the results don't depend on it?
 4. **Energy return.** Should the paper's store-and-return be dropped (default), given that it would show up in the audit as injected energy?
 5. **Friction in the balance test.** Should a sphere count as able to rest with friction helping (0.5 times each contact's force; default), or only if frictionless contacts could hold it? The frictionless version is stricter and gives fewer still spheres.
+
+## 6. After Chris's answers (Nov 25)
+
+Chris answered the five choices on Nov 24 (`lines/L0009/instruction.md`; decisions D0073 to D0076). What changes:
+
+1. **Riders on moving spheres are allowed** (replaces A3). A slow landing (below V_rest) on a riding sphere is a capture into a **moving stack**. A moving stack is a set of riding spheres joined by lasting contacts, resting on the plate or on still spheres. It is moved as one rigid-body system (D0076):
+   - Between events its motion is a smooth differential equation. At each evaluation, a small linear solve gives the contact forces: each push keeps its contact's approach acceleration at zero, and each friction force either keeps the slip at zero (rolling) or is 0.5 times the push against the slip (sliding).
+   - It is integrated by an adaptive high-order integrator at round-off tolerance, with dense output.
+   - Every change of a contact's state is a root of that dense output, located and handled as an event: a push reaching zero (the rider leaves), slip stopping, rolling needing more than 0.5 times the push, a collision with a free sphere, and the plate's release time.
+   - **What keeps this from being a time-stepped code in disguise:** there is no fixed time step; there are no impulses, position corrections or energy removed at steps; the integrator's steps never change any contact's state; free spheres stay exactly event-driven. The engine will count integrator steps and the share of sphere-time spent in integrated stacks. If that share is large in a dense layer, the method has failed as a speed-up and the summary says so; it is not tuned away.
+   - A sphere on the plate alone, or on still spheres alone, is a stack of one and keeps its closed form (plate) or single-sphere integration (still supporters).
+2. **Two thresholds.** V_wake is above V_rest; default 0.05, a parameter (D0073). A hit on a still sphere between the two speeds bounces off it as off an immovable body moving with the plate, by the base model's e(v) and Walton's rule, the engine's wall operator (D0074). P6 now means only that the paper's 0.4 is dropped. A hit on a *riding* sphere: below V_rest it is a capture into the stack; above, the rider becomes free and the ordinary collision happens.
+3. **V_rest** = 0.01, a parameter (`RestParams.v_rest`); the bulk checks at 0.003 and 0.03 stay in the plan.
+4. **Store-and-return dropped**, as in section 2.
+5. **Friction in the balance test**, as in section 2. In 3D the cone is an inscribed 8-sided pyramid, so the test errs toward riding, never toward resting (D0075); in 2D it is exact.
+
+### Build status (branch `method/rest`, worktree `sequel-data/worktrees/rest`)
+
+| Piece | State |
+|---|---|
+| Parameters (`RestParams`) | built, tested |
+| Balance test with friction (`balance_test`) | built, tested on plate, side, groove, off-line and tripod seats |
+| Riding the plate in closed form (`PlateRide`): slide to roll, release time, exact plate work and friction loss | built, tested against a numerical solve (agrees to 1e-11) and the energy books (round-off) |
+| Per-sphere state (free, riding, still) and capture in the event loop | not started |
+| Still spheres moving with the plate: prediction against free spheres | not started |
+| Single rider on still spheres (integrated) | not started |
+| Moving stacks (joint ODE with contact-force solve) | designed above, not started |
+| Collapse cascade, energy books in the audit | not started |
+| Frozen tests, replayed stalls, 2D grid | not run on the branch |
