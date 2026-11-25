@@ -36,7 +36,7 @@
   "run_conditions": {
     "scheduled_start": "2026-11-25T11:24:25Z",
     "actual_start": "2026-11-25T11:25:38Z",
-    "ended": "2026-11-25T11:31:00Z",
+    "ended": "2026-11-25T11:29:41Z",
     "interruptions": [],
     "cpu_hours": 0.01,
     "cores_available": 23.7,
