@@ -31,3 +31,13 @@ You asked:
 Answer:
 
 That's fine, but again, these are parameters to bake into the code.
+
+## 2026-11-24 23:14, Chris, from the dashboard
+
+You asked:
+
+> Should the paper's store-and-return of the energy removed at freezing be dropped?
+
+Answer:
+
+Yes, I think drop it
