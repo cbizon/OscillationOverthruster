@@ -111,6 +111,14 @@ there is what Chris sees. Schema: `~/Projects/experiments/research-programs/sche
   `terms.jsonl`, defined in plain words for someone outside the work
   (define "impulse-step method"; don't assume it). If you wouldn't define
   it, say the thing in plain words instead.
+- Every line has a `purpose`: two to four plain sentences for someone who
+  wasn't there, saying what the line is trying to find out or build, why
+  the program needs it, and how it differs from the lines near it. The
+  line's `question` keeps Chris's own words; `purpose` explains
+  them. Give it when you open a line, write it at your next run for a line
+  that has none, and update it when the line's aim changes. No shorthand
+  from an old conversation: every name in it is in `terms.jsonl` or spelled
+  out.
 - With every `update` of a line's `state`, also give `next` (what the line
   does next, or what it is waiting for: a job, an answer, another line)
   and `closes_when` (what result or decision would close the line, and
