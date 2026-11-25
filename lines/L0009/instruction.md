@@ -11,3 +11,13 @@ You asked:
 Answer:
 
 yes a sphere is going to have to ride on a rolling sphere I think.
+
+## 2026-11-24 23:13, Chris, from the dashboard
+
+You asked:
+
+> Should the wake speed equal the rest speed (one threshold), or be higher as in the paper, with hits in between bouncing off the resting sphere as if it were immovable?
+
+Answer:
+
+These are all parameters to tune. To start, let's make it higher, but it's something to tweak later.
