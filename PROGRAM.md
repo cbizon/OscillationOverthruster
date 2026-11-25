@@ -401,10 +401,14 @@ branch `method/rest`; nothing is wired into the event loop or run yet.
   step); wake speed 0.05 above rest speed 0.01, both parameters; hits in
   between bounce off the still sphere by the base collision law; no stored
   energy; friction in the balance test.
-- **Built and tested in isolation (17 tests):** the parameters, the
-  balance test with friction, and the closed-form ride on the plate
-  (agrees with a numerical solve to 1e-11; energy books close at
-  round-off).
+- **Built and tested in isolation (41 tests,
+  `evidence/L0009-build-2026-11-25.json`):** the parameters; the balance
+  test with friction; the closed-form ride on the plate (agrees with a
+  numerical solve to 1e-13); a first-contact search on curved paths that
+  cannot step past a contact; moving-stack motion with contact forces from
+  a linear solve and contact changes as exact events (roll-off from a
+  fixed sphere at the textbook angle to 1e-9, energy books to 3e-13); and
+  compiled forms of the plate ride. Not yet in the event loop.
 
 ### Nov 23 instruction to L0001 (nudge): is anything left? (ran Nov 24 04:49Z)
 

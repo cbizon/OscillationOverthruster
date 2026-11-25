@@ -1,0 +1,92 @@
+{
+ "date": "2026-11-24",
+ "line_id": "L0009",
+ "instruction": "lines/L0009/instruction.md",
+ "answers": [
+  {
+   "asked": "yes a sphere is going to have to ride on a rolling sphere I think.",
+   "status": "answered",
+   "answer": "Done in the design and in code: a sphere may ride on a rolling sphere. Such a moving stack is moved as one system. Its contact forces come from a small linear solve, and every change of a contact (a rider leaving, starting to slide, starting to roll) is found at its exact time as an event (decision D0076, lines/L0009/design.md section 6). It is built and tested on its own (granular/stack.py on method/rest). A rider on a sphere that rolls on the plate runs 1.78 time units until the rider starts to slide, with the energy books closed to 3e-13. It is not yet in the event loop.",
+   "departures": "The answer was to Chris's question; the design's first-build restriction (A3) is withdrawn. The integrator is adaptive Dormand-Prince 5(4) at relative tolerance 1e-12, written in Python for now. Integrating a moving stack was the design's own addition A1, extended from one rider to several; the summary's question 1 asks whether that fits Chris's reading of the plan."
+  },
+  {
+   "asked": "These are all parameters to tune. To start, let's make it higher, but it's something to tweak later.",
+   "status": "answered",
+   "answer": "Higher, as a parameter: wake speed 0.05 against a rest speed of 0.01 (RestParams.v_wake; decision D0073). A hit between the two bounces off the still sphere as off a solid body moving with the plate, using the model's own restitution law and Walton's friction rule. This is the operator the engine already uses for walls, and the paper's restitution of 0.4 is not used (D0074).",
+   "departures": "The value 0.05 is my choice (five times the rest speed, inside the paper's range of 0.01 to 0.5). The rule for hits in between is not yet in the event loop."
+  },
+  {
+   "asked": "That's fine, but again, these are parameters to bake into the code.",
+   "status": "answered",
+   "answer": "The rest speed is a parameter, RestParams.v_rest, default 0.01. The checks at 0.003 and 0.03 stay in the plan for when the method runs.",
+   "departures": "No departure: built as asked; the 0.003 and 0.03 checks wait until the method runs."
+  },
+  {
+   "asked": "Yes, I think drop it",
+   "status": "answered",
+   "answer": "Dropped. Captures and becoming still only ever remove energy; nothing is stored or returned (D0073).",
+   "departures": "No departure: dropped as asked."
+  },
+  {
+   "asked": "Yes, friction is real",
+   "status": "answered",
+   "answer": "Yes, friction helps hold a sphere still in the balance test: up to 0.5 times each contact's push (granular/rest.py balance_test, 17 tests on seats). In 3D the friction cone is an inscribed eight-sided pyramid, so the test can only err toward riding, never toward resting. In 2D it is exact (D0075).",
+   "departures": "The inscribed pyramid is my choice; it changes the outcome only for seats within about 8 percent of the friction limit."
+  },
+  {
+   "asked": "Implement this idea.  Make sure you stick to the plan - under no circumstances should you move to a time stepped code in sheep's clothing.",
+   "status": "partly",
+   "answer": "Partly. Every piece of the design now exists on branch method/rest and passes its own tests (41): the parameters, the balance test, the closed-form ride on the plate, a first-contact search that cannot step past a contact, moving-stack motion with exact contact events, and compiled forms of the plate ride. None of it is in the event loop yet, so no simulation has run with the method. Nothing in it is time-stepped. Positions and velocities change only by closed-form motion, by smooth integration between located events, or at collisions; no step ever applies an impulse, corrects a position or removes energy.",
+   "departures": "Wiring into the event loop is left for the next run of this line, started by a timer. It touches every place where the engine assumes ballistic motion: advance, prediction, output, time rebasing, checkpoints and the audit (listed in lines/L0009/progress.md). The pieces were built and tested on their own first, in the design's order: plate, then still spheres, then stacks."
+  }
+ ],
+ "headline": "Chris answered the five design choices and asked for the resting-contact design to be built without becoming a time-stepped code. Every piece now exists and is tested on its own on branch method/rest, including spheres riding on rolling spheres. A sphere rolling off a fixed sphere leaves at the textbook angle to within 1e-9, and the energy books close to round-off. The pieces are not yet in the event loop, so the method has not run a simulation.",
+ "experiments": [],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "To let a sphere ride on a rolling sphere, the whole moving stack is moved by integrating its smooth equations of motion between exact events (adaptive steps at round-off accuracy, contact forces from a small linear solve, no impulses or corrections at steps). Is that within the plan, or does it count as time-stepping for you?",
+   "why_it_matters": "It is the only place the method integrates anything, and it was your warning. If you count it as time-stepping, riders on rolling spheres would need a different approach or have to go.",
+   "default_if_unanswered": "Keep it, and report the share of sphere-time spent in integrated stacks once the method runs, so it can be judged on numbers."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Wire plate riders into the event loop first (capture, closed-form ride, release, contacts with free spheres) and run the frozen engine tests and a replayed stall before adding still spheres and stacks.",
+   "rationale": "The plate stage is all closed form and already compiled, so it shows quickly whether capture alone stops the plate stalls and keeps the audit at round-off."
+  },
+  {
+   "direction": "Once stacks run, measure the share of sphere-time spent in integrated stacks at the deep Gamma 5 conditions.",
+   "rationale": "It is the number that decides whether moving stacks are a cheap exception or a hidden time-stepper."
+  },
+  {
+   "direction": "Compare this method's bulk quantities with L0019's ride at the same 2D conditions once both survive.",
+   "rationale": "Ride locks riders rigidly and this method lets them roll off. A difference shows what rigid locking does to the physics."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 561.365,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.678,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-25T04:40:00Z",
+  "actual_start": "2026-11-25T04:40:19Z",
+  "ended": "2026-11-25T05:00:00Z",
+  "interruptions": [],
+  "cpu_hours": 0.03,
+  "cores_available": 40,
+  "disk_free_gb": {
+   "start": 91,
+   "end": 91
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. No simulations: building and unit tests only (frozen engine tests on main, 74 passed in 38 s, plus 41 new tests at about 23 s per run). This ran on a Linux worker (40 cores, load about 5 at start), not on Chris's Mac, so pmset is not available and budgets.yaml's local limits, written for the Mac, were checked against this machine's disk only. The data folder is 678 MB, including other lines' data."
+ }
+}

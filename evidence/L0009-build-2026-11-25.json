@@ -1,0 +1,59 @@
+{
+ "line_id": "L0009",
+ "night": "2026-11-24",
+ "branch": "method/rest",
+ "commit": "89b7bfe5368964740ff9fce6e3c28efee77cca1f",
+ "kind": "unit-level checks of the resting-contact pieces; no simulation was run",
+ "tests": {
+  "files": [
+   "tests/test_rest.py",
+   "tests/test_stack.py",
+   "tests/test_rest_kernel.py"
+  ],
+  "passed": 41,
+  "failed": 0
+ },
+ "plate_ride": {
+  "max_abs_diff_closed_form_vs_rk4_4000_steps": 1.0247358517290195e-13,
+  "energy_books_residual_at_release": 1.6653345369377348e-16
+ },
+ "roll_off_fixed_sphere_mu_1e8": {
+  "cos_theta_at_event": 0.5875001541255594,
+  "exact_10_17_cos_theta0": 0.5875001531735096,
+  "abs_diff": 9.520498833737179e-10,
+  "event": [
+   0,
+   "slide"
+  ],
+  "energy_change": 4.4853010194856324e-14,
+  "rhs_evaluations": 1848
+ },
+ "fixed_sphere_mu_0.5": {
+  "starts_sliding_at_deg": 41.87786083559021,
+  "leaves_at_deg": 52.806015662573145,
+  "friction_loss": -0.0005009116519305893,
+  "books_residual": 5.598668230410997e-14
+ },
+ "two_sphere_moving_stack_gamma2_f0.3": {
+  "event": [
+   1,
+   "slide"
+  ],
+  "time_to_event": 1.7814796331805802,
+  "plate_work": 0.7027627186264286,
+  "books_residual": 2.8811148440487006e-13,
+  "rhs_evaluations": 1351
+ },
+ "first_contact_search": {
+  "cases": 6,
+  "all_contacts_found": true,
+  "gap_evaluations_per_case": [
+   15,
+   12,
+   13,
+   12,
+   23,
+   15
+  ]
+ }
+}

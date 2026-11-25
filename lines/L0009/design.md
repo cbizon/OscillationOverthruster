@@ -156,12 +156,15 @@ Chris answered the five choices on Nov 24 (`lines/L0009/instruction.md`; decisio
 
 | Piece | State |
 |---|---|
-| Parameters (`RestParams`) | built, tested |
+| Parameters (`RestParams`, `granular/rest.py`) | built, tested |
 | Balance test with friction (`balance_test`) | built, tested on plate, side, groove, off-line and tripod seats |
-| Riding the plate in closed form (`PlateRide`): slide to roll, release time, exact plate work and friction loss | built, tested against a numerical solve (agrees to 1e-11) and the energy books (round-off) |
-| Per-sphere state (free, riding, still) and capture in the event loop | not started |
-| Still spheres moving with the plate: prediction against free spheres | not started |
-| Single rider on still spheres (integrated) | not started |
-| Moving stacks (joint ODE with contact-force solve) | designed above, not started |
-| Collapse cascade, energy books in the audit | not started |
-| Frozen tests, replayed stalls, 2D grid | not run on the branch |
+| Riding the plate in closed form (`PlateRide`): slide to roll, release time, exact plate work and friction loss | built, tested against a numerical solve (agrees to 1e-13) and the energy books (round-off) |
+| First-contact search on curved paths (`first_root`; conservative advancement, never steps past a contact) and the free-sphere/plate-rider gap | built, tested against brute force, contacts during sliding and rolling |
+| Moving stacks (`granular/stack.py`): contact-force solve, adaptive integration, contact changes located as events, plate work and friction loss integrated | built, tested: roll-off from a fixed sphere at the textbook angle (to 1e-9); slide then leave with friction 0.5; a two-sphere stack on the plate; energy books close to 3e-13 |
+| Compiled (numba) plate ride and rider/free contact search (`granular/rest_kernel.py`) | built, agrees with the Python versions |
+| Per-sphere state (free, riding, still) and capture in the event loop; advance, prediction, output, time rebasing and checkpoints for riders | not started |
+| Still spheres moving with the plate: prediction against free spheres; the bounce between rest and wake speeds | not started |
+| Stacks in the event loop (compiled), collapse cascade, energy books in the referee's audit | not started |
+| Frozen tests, replayed stalls, 2D grid on the branch | not run (the branch's engine is still main's) |
+
+Evidence for the numbers: `evidence/L0009-build-2026-11-25.json`. Cost seen so far: a single rolling episode on a sphere took 1,350 to 1,850 evaluations of the stack equations (including locating the event). That cost is per episode, not per collision; whether it pays off in a dense layer is measured once the method runs.
