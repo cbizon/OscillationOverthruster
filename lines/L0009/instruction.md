@@ -41,3 +41,13 @@ You asked:
 Answer:
 
 Yes, I think drop it
+
+## 2026-11-24 23:14, Chris, from the dashboard
+
+You asked:
+
+> Should the balance test let friction help hold a sphere still (0.5 times each contact's push), or count only frictionless contacts?
+
+Answer:
+
+Yes, friction is real
