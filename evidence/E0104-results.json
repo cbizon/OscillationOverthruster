@@ -1,0 +1,99 @@
+{
+ "experiment_id": "E0104",
+ "artifact": "A0198",
+ "code": "method/rest c6dfd4d (the runs used the same code before a comment-only edit)",
+ "files": {
+  "seed1-f0.3.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0104/seed1-f0.3.json",
+   "size": 821,
+   "sha256": "52f0a592d9b29f59005c0a58f2d2a613f6ddaaac87622e4bef8cb96324045b03"
+  },
+  "seed1-f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0104/seed1-f0.3.log",
+   "size": 749,
+   "sha256": "6c83fda4068fe03549fe3bef7b60167f8e2c28a2fe481637fe116a16bddad30c"
+  },
+  "seed1-f0.4.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0104/seed1-f0.4.log",
+   "size": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "seed2-f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0104/seed2-f0.3.log",
+   "size": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ },
+ "acted": {
+  "note": "The new path ran: in seed 1 at f* 0.3 the loop built 28 stacks, joined 7 touches into stacks, broke 28, recorded 38 spans with 661 integrator pieces, and ran 505 contact searches against stack spheres; the old engine stalled at t = 5.8346320 in this layer, this run passed it and reached the 5.88 checkpoint.",
+  "seed1_f0.3": {
+   "seed": 1,
+   "f_star": 0.3,
+   "cpu_cap_s": 400.0,
+   "T": 7.4535599249993005,
+   "stopped_by": "error",
+   "error": "ValueError: rider and free sphere overlap",
+   "t_reached": 5.889999999999919,
+   "first_stack_by": 5.83999999999992,
+   "cpu_s": 54.206889323999995,
+   "stack_stats": {
+    "built": 28,
+    "joined": 7,
+    "broken": 28,
+    "split": 0,
+    "spans": 38,
+    "segments": 661,
+    "sphere_time": 0.05550928636040098,
+    "python_cpu_s": 54.140766638000024,
+    "fallback_collisions": 2,
+    "start_refused": 1,
+    "ends": {
+     "stop": 34,
+     "cell": 4
+    },
+    "largest": 3
+   },
+   "stack_sphere_time_share": 9.424327056095371e-05,
+   "counters": {
+    "C_EVENTS": 10645,
+    "C_STACKEV": 30,
+    "C_STACKHIT": 34,
+    "C_STACKEND": 2,
+    "C_STACKSEARCH": 505,
+    "C_CAPTURE": 60,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 57,
+    "C_EGAIN": 0
+   },
+   "max_gain": 0.0
+  }
+ },
+ "seed1_f0.3": {
+  "stopped_by": "error",
+  "error": "ValueError: rider and free sphere overlap",
+  "error_in_step_ending": 5.89,
+  "last_completed_step": 5.88,
+  "old_stall_time": 5.834632,
+  "first_stack_by": 5.83999999999992,
+  "python_cpu_s_in_stacks": 54.140766638000024,
+  "cpu_s": 54.206889323999995,
+  "stack_sphere_time": 0.05550928636040098,
+  "egain_count": 0
+ },
+ "seed2_f0.3": {
+  "stopped_by": "killed by the agent",
+  "note": "no output: the first 0.01 step containing stack work did not finish in about 705 s of CPU (measured from /proc); the CPU cap is checked only between steps, so it did not act. Where the time went is not known (a same-instant loop or integrator cost)."
+ },
+ "seed1_f0.4": {
+  "stopped_by": "killed by the agent",
+  "note": "as seed 2: about 705 s of CPU, no step reported."
+ },
+ "debug_runs": {
+  "seed1_f0.3_before_fixes": "Before the break-then-collide fix (D0087) the layer looped at t = 5.8556101 (stack 93-94 rebuilt, rider 92 hit it at 0.020, break, repeat). Before lazy spans (D0088) each stack was integrated to the cycle's end and interrupted about 0.001 later."
+ },
+ "audit": "Not available: the only run that produced output ended in an error, so no energy residual over a completed stretch was computed.",
+ "tests": {
+  "method_tests": "55 passed",
+  "frozen_tests_on_branch": "74 passed"
+ }
+}

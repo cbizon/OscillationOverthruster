@@ -1,50 +1,51 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 25 11:42Z timer run)
+## Current state (after the Nov 26 05:05Z timer run)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
-tip c6ad1ff.** Numbers: `evidence/L0009-build-2026-11-25-4.json`.
+tip c6dfd4d.** Numbers: `evidence/E0104-results.json` (artifact A0198). Pinned page (Chris
+asked Nov 25): `lines/L0009/pinned/current-algorithm.md`. Keep it current at every change.
 
-Nov 25 11:42Z run:
-- Checker's challenge (review 2026-11-25-L0009-2, slipping contact accepted as rolling)
-  answered: `Stack.consistent_modes` switches rolling contacts with slip > SLIP0 (1e-13) to
-  sliding; `integrate` refuses a rolling contact slipping > 1e-9; `Stack.contact_slip`;
-  `stack.evolve(stack, t0, y0, t_end, record)` runs through slide/roll changes until a
-  contact opens (D0084). Known limit: a slide->roll event is located to ~1e-10 in time
-  (friction flips past the root inside bisection trial steps; measured 4e-11). After a
-  'roll' event consistent_modes sometimes switches back to slide once (slip just above
-  1e-13), giving a second 'roll' 4e-13 later: harmless, watch it in layers.
-- `edmd.run_events` returns **2** when a sphere touches a plate rider with normal approach
-  < v_rest (`pair_approach`; counter `C_STACKEV` = 19); the event stays at the head of the
-  queue, both spheres advanced to t. Re-entering run_events without handling it would hit
-  it again. Above v_rest the D0078 rule (rider freed) still applies (D0085).
-- `Simulation.stack_event()` -> (t, i, j); `Simulation.build_stack(i, j)` -> (stack, t, y0,
-  info): bodies [i, j]; rider(s) on PLATE, upper on lower; residual approach removed from
-  the upper sphere as e = 0 touch: info['approach_dissipation'] (-0.5 m vn^2) and
-  info['approach_plate_work'] (v_lo . J), to book when fed back. Raises if both are riders
-  (side-by-side stacks not built). Nothing in the engine is changed by build_stack.
-- `scripts/rest_plate/stack_event.py [seed] [f*] [out.json]`: layer -> first stack ->
-  evolve offline. Results (Gamma 2, depth 5, N 100, L 20): seed 1 f* 0.3: t 5.83399,
-  pair (92, 94), stack 0.398 time units; seed 2 f* 0.3: t 5.82287, (10, 16), 0.915;
-  seed 1 f* 0.4: t 4.90997, (42, 43), 0.953. All end with the top contact opening; books
-  <= 3.4e-13; 7 to 15 s Python CPU per stack.
-- Tests: 55 method tests pass, 74 frozen pass. `/usr/bin/time` and `ps` do not exist on
-  this worker: measure CPU inside scripts.
+Stage 4 is built (D0087, D0088):
+- `edmd`: MODE_STACK (2), EV_STACK (7); stack store SB (N+1,2: slot, body), SEGF (8 slots x
+  2048 pieces x (2 + 15*8)), SINFO (t_end, accel bound, nseg); `rest_kernel.seg_state`
+  (position plus velocity from the quartic); `body_state`, `first_contact_any`
+  (conservative advancement, any pair with a stack sphere, horizon cut at span end),
+  `predict_stack`, `invalidate`. run_events returns 3 (touch on a stack sphere) and 4 (span
+  end). Stack spheres' S stays at span start until Python finishes the span.
+- `sim`: `run_to` handles statuses 2 to 4 when `feed_stacks` (default True; tests and
+  stack_event.py set False to get the old return 2). `_stack_span` integrates lazily (0.01,
+  doubling) and cuts the span at a cell exit or side wall (sampled every 2e-4 of motion).
+  `_stack_finish` books plate work, friction loss and plate impulse. `_on_stack_hit`: below
+  v_rest join, else break plus an immediate ordinary collision (left to the queue, it looped
+  at one instant). `_on_span_end`: split at an open contact, break at a wall, otherwise
+  continue. Checkpoints with live stacks raise NotImplementedError; spans are paused at each
+  run_to end.
+- Tests: 55 method, 74 frozen pass.
 
-## What's next: feed stacks back into the event loop
+E0104 (falsified): seed 1 f* 0.3 passes the old stall (5.8346) and reaches 5.88: 28 built,
+7 joined, 28 broken, 661 pieces, 54 s Python. It then raises "rider and free sphere overlap"
+in the step to 5.89. Seed 2 f* 0.3 and seed 1 f* 0.4 each spent about 705 s CPU inside one
+0.01 step with no report, and I killed them. The CPU cap in feed_capped.py is only checked
+between steps.
 
-4. In `edmd.py`: MODE_STACK; stack segment arrays (SEG_T, SEG_H, SEG_C per stack, sphere ->
-   (stack, body) map); `advance_any` for stack spheres via `seg_position` (velocity from
-   the polynomial's derivative); free spheres' contact searches against stack spheres with
-   a speed bound per segment (from the derivative); stack spheres' cell faces and walls;
-   a run_events return at the segments' end (stack's next internal event or horizon).
-   Python: on status 2 build the stack, book the touch (D0085), evolve with `record` to the
-   next mode change or horizon, write segments, set modes; on 'open' hand spheres back as
-   free (upper) / rider (lower, re-run ride_setup). Hits between v_rest and v_wake on stack
-   spheres bounce off as if immovable (D0074); above v_wake break the stack.
-5. Still spheres (balance test): later, after a layer runs.
-6. Run the three stall layers past their first stack, then the 2D grid (register
-   experiments first), counting the share of sphere-time in stacks and Python CPU per cycle.
+## What's next
+
+1. Trace the overlap at 5.88 (seed 1, f* 0.3). Suspects: `_hand_back` of a broken stack
+   sphere to rider (ride_setup from a state slightly off the plate), or a contact search
+   against a stack sphere missing a touch because the span was cut or restarted. Debug
+   harness pattern: wrap `s._on_stack_event/_on_stack_hit/_on_span_end` and print (see the
+   session's tmp scripts; not kept). Start from `s.run_to(5.83)`, then `s.run_to(5.9)`.
+2. Find where seed 2 and the f* 0.4 layer spend CPU (same harness, with faulthandler
+   `dump_traceback_later`).
+3. Rerun E0104 as a new experiment. Record the stack lifetime and the approach speed of
+   each breaking hit, to answer the cost question and the question to Chris (immovable
+   bounce between v_rest and v_wake for stack spheres?).
+4. Still spheres (balance test): later.
+
+## Jobs in flight
+
+None (E0104 runs were killed; active.jsonl unchanged).
 
 ## Older state (after the Nov 25 10:38Z timer run)
 

@@ -1,0 +1,79 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "This timer run did step 4 of the build: moving stacks (spheres resting on a riding sphere) now feed back into the event loop on branch method/rest. One 2D stall layer (seed 1, f* 0.3) gets past its old stall time for the first time, but only by 0.05 time units. Near the plate, neighbours hit stacks at about twice the rest speed and break them almost as soon as they form (28 built and 28 broken), at about two seconds of Python per stack. The run then stops on an overlap error. The other two stall layers made no reported progress in about twelve CPU-minutes each.",
+ "experiments": [
+  {
+   "experiment_id": "E0104",
+   "question": "With moving stacks fed back into the event loop, do the three 2D layers that stalled in their first cycle run past their first stack and complete cycles with a clean energy audit?",
+   "what_was_done": "Each layer was run in steps of one hundredth of a time unit under a CPU cap. The new code's counters were recorded: stacks built, joined, broken and split, integrator pieces, and contact searches against stack spheres. Before this, the method's own tests and the frozen engine tests were run on the branch.",
+   "result": "The new code path ran. In the seed 1 layer at f* 0.3, the run passed the time where the old engine stalled (5.8346) and reached 5.88. In those 0.05 time units the loop built 28 stacks, added 7 slow touches to existing stacks, broke 28 stacks, recorded 661 integrator pieces and ran 505 contact searches against stack spheres. That took 54 seconds of Python. In the step to 5.89 it stopped with an overlap between a riding sphere and a free sphere. The other two layers (seed 2 at f* 0.3, seed 1 at f* 0.4) each used about 705 seconds of CPU inside a single step without reporting, and I stopped them. The cap is checked only between steps, so it never acted. The method tests (55) and the frozen engine tests (74) pass on the branch.",
+   "takeaway": "Feeding stacks back works mechanically but does not yet survive a layer, so the registered prediction is falsified. There are two problems. First, a correctness bug: the overlap. Second, a cost problem the checker predicted: in a dense bottom layer a stack lasts about a thousandth of a time unit before a neighbour hits it above the rest speed. Alone, it would have lasted half to one time unit. Nothing about energy can be judged yet, because no stretch of a run completed."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Moving stacks are now in the event loop. In the first stall layer they are hit at about twice the rest speed and break as fast as they form: 28 built and 28 broken in 0.05 time units, at about two seconds of Python each. Should a hit on a stack sphere between the rest speed (0.01) and the wake speed (0.05) bounce off it as if it were immovable, the rule you chose for still spheres, instead of breaking the stack?",
+   "why_it_matters": "With the rule used now (break above the rest speed, as for a hit riding sphere), the wake speed plays no part for stacks, and most of the Python work is thrown away. The immovable bounce would keep stacks alive but adds a new place where a sphere is treated as infinitely heavy.",
+   "default_if_unanswered": "Keep breaking above the rest speed (decision D0087), fix the overlap error, and measure how often stacks break and what that costs across the three stall layers before changing the rule."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Trace the seed 1 overlap at t 5.88 and the CPU sink in the other two layers with a per-event log, and make the CPU cap act inside a step.",
+   "rationale": "No layer can be judged until these are fixed. The overlap is a correctness bug, either in how broken stacks hand their spheres back or in the contact search against stack spheres."
+  },
+  {
+   "direction": "Count, per layer, how long each stack lives and the approach speed of the hit that ends it. Use the counts to decide between the break rule and the immovable-bounce rule.",
+   "rationale": "This is the cost question the checker raised, and the data now exist to answer it."
+  },
+  {
+   "direction": "Move the stack's force solve and integration step into compiled code if stacks turn out to live long enough to be worth it.",
+   "rationale": "At about 80 ms of Python per integrator piece, even long-lived stacks would dominate the run time."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 562.2,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.693,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T05:05:00Z",
+  "actual_start": "2026-11-26T05:05:17Z",
+  "ended": "2026-11-26T06:02:00Z",
+  "interruptions": [
+   {
+    "start": "2026-11-26T05:17:00Z",
+    "end": "2026-11-26T05:27:00Z",
+    "cause": "Waited on a first layer run whose output was buffered behind a pipe. It had spent 680 s of CPU in a same-instant loop (since fixed). I stopped it and reran with progress output."
+   },
+   {
+    "start": "2026-11-26T05:41:00Z",
+    "end": "2026-11-26T05:50:00Z",
+    "cause": "Waited on two layer runs that never reported a step, then stopped them."
+   }
+  ],
+  "cpu_hours": 0.8,
+  "cores_available": 34,
+  "disk_free_gb": {
+   "start": 82,
+   "end": 82
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0104",
+    "reason": "seed 2 f* 0.3 and seed 1 f* 0.4 stopped by the agent after about 705 s of CPU each with no step reported"
+   }
+  ],
+  "limits_hit": "none from the machine. The science was limited by the session's hour: the overlap error and the two stuck layers were not traced. CPU figure: Measured from /proc for the four long processes (680, 705 and 705 s, plus 54 s inside the seed 1 run). Pytest's clock gave 43, 131 and 63 s. Debug runs were bounded by their timeouts (about 330 s in all). pmset and uptime do not exist on this Linux worker, so no sleep log was taken."
+ }
+}

@@ -439,6 +439,21 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: moving stacks fed into the event loop (ran Nov 26 05:05Z)
+
+Session summary: `sessions/2026-11-26-L0009.json`; numbers in
+`evidence/E0104-results.json`; branch `method/rest` at c6dfd4d; the method as
+it stands is pinned at `lines/L0009/pinned/current-algorithm.md`.
+
+- Stacks are now part of the event loop (D0087, D0088). The seed 1, f* 0.3
+  stall layer passes its old stall time (5.8346) for the first time and reaches
+  5.88: 28 stacks were built and 28 broken in 0.05 time units, at 54 s of
+  Python. Then it stops on an overlap error. The other two stall layers made no
+  reported progress in about 705 s of CPU each.
+- A stack near the plate lasts about 0.001 time units before a neighbour hits it
+  at about twice the rest speed. This is the cost problem the checker predicted.
+- Next: fix the overlap error and the stuck layers, then rerun E0104.
+
 ### L0009, timer run: stacks start where the event loop meets them (ran Nov 25 11:42Z)
 
 Session summary: `sessions/2026-11-25-L0009-3.json`; numbers in
