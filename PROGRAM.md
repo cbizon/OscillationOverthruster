@@ -859,6 +859,40 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 26 findings (L0018, started by the service for nine ended jobs)
+
+No instruction. Session summary: `sessions/2026-11-26-L0018.json`.
+Evidence: `evidence/E0075-results.json` (all ten nudge loops),
+`evidence/E0074-interim.json` (two friction-off loops). Pinned table:
+`lines/L0018/pinned/working-ranges.md`.
+
+- **Nudge (E0075) at width 200: all ten loops have ended.** The last seven
+  (jobs 164675, 164677-164680, 164682, 164683; A0188-A0191, A0193, A0195,
+  A0197) turned going down at Gamma 2.3 to 2.5 and topped out at 4.35 to
+  4.5, every end a CPU cap stop (each down stop after 23 or 24 of 25
+  cycles). Width 200 turned 0.1 to 0.3 higher than width 100 at every f\*;
+  its tops are within 0.1 of width 100's either way. Against the width-100
+  loops continued with a 2 CPU-hour up cap (E0072), width 200 never got
+  further and was 0.05 to 0.15 short at five f\*. None of it is comparable:
+  caps were 4 times width 100's going down (and 4 or 16 times going up)
+  while a matching step costs 8.7 to 9.5 times going down and 7.3 to 10.3
+  going up. No energy gains, audit failures or slow stretches.
+- **Cost per cycle, which no cap sets:** rises steeply from Gamma 4.35 to
+  4.4 on in both boxes at f\* 0.84 to 0.38, a little more steeply at width
+  200 (cost at 4.45 over cost at 4.3: 3.2 to 6.6 against 2.9 to 3.8). At
+  f\* 0.33 the rise comes about one step earlier at width 200 (10.3 times
+  from 4.3 to 4.4, against 2.0 at width 100). One seed.
+- **Friction off (E0074), f\* 0.84 and 0.74 (164665, 164666; A0192,
+  A0196):** both completed all 213 steps, as at width 100, at 80.5 and
+  89.9 CPU-hours; a matching step costs about 10 times width 100's, twice
+  the 4.7 to 5.6 measured in E0070's short cost holds. Eight E0074 loops
+  still run (wall time ends about Nov 27 06:15Z).
+- **Checker's points (Nov 25 third review):** the claim that up caps exceed
+  the cost ratio held for the nudge loops only; the baseline (E0076) up
+  caps were 4 times width 100's, below its 7.4 to 11.4 cost ratio, and
+  baseline floors were not all cost floors (f\* 0.65 physical at both
+  widths). progress.md and the line state now say so.
+
 ### Nov 25 findings, third run (L0018, started by the service for job 164676)
 
 No instruction. Session summary: `sessions/2026-11-25-L0018-3.json`.
@@ -1646,15 +1680,15 @@ These are findings, not edits; the referee is his.
 - **With friction working**: rerun the E0084 bulk check at Gamma 3.5,
   f\* 0.3, depth 10 with friction on (the mu=0 test shows the hold method
   passes).
-- **Width-200 passes running** (E0074-E0076): 30 loops on Hatteras (jobs
-  164665-164694), submitted Nov 21. E0074 no friction (5-day wall time),
-  E0075 nudge (7 days), E0076 baseline (7 days). Checkpoints at Gamma
-  multiples of 0.5 (D0057); about 36-41 MB fetched per loop. As of Nov 25,
-  18 still running (ten E0074, eight E0075); all ten E0076 loops and E0075
-  f\* 0.27 and 0.38 have ended (see Nov 23 to Nov 25 findings, L0018). E0076's
-  working ranges are tabled (`evidence/E0076-results.json`); its registered
-  judgement (where the pattern appears, within 0.1 in Gamma of width 100)
-  still needs an onset measurement at both widths, then its outcome.
+- **Width-200 passes running** (E0074-E0076, L0018): 30 loops on Hatteras
+  (jobs 164665-164694), submitted Nov 21. As of Nov 26, all ten E0076
+  (baseline) and all ten E0075 (nudge) loops and two E0074 (friction off)
+  loops have ended; eight E0074 loops still run (wall time ends about Nov
+  27 06:15Z). Working ranges are tabled (`evidence/E0076-results.json`,
+  `evidence/E0075-results.json`, `lines/L0018/pinned/working-ranges.md`).
+  The registered judgement of all three (where the pattern appears, within
+  0.1 in Gamma of width 100) still needs an onset measurement at both
+  widths, then the outcomes.
 - **Nudge loops above the wall** (E0089): eight continuations on Hatteras
   (jobs 164655-164662), f\* 0.33 to 0.84, 48 CPU-hour per step guard.
   The inelastic ball model (E0088) predicts cost peaks near Gamma 4.6
