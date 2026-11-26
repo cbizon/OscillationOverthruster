@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-26",
+  "line_id": "L0018",
+  "instruction": "none: started by the service for job",
+  "answers": [],
+  "headline": "The service started this run because nine width-200 loops ended on Hatteras: the last seven nudge loops and the first two friction-off loops. All ten nudge loops have now ended; every end of every one stopped on its CPU allowance in both boxes (one stalled), so their working ranges say nothing about box size. The one thing no allowance sets, the cost per cycle, shows the climb-up wall at Gamma 4.35 to 4.5 in the wider box as in the paper's box, one step earlier only at f* 0.33. Both friction-off loops completed the whole loop, as in the paper's box.",
+  "experiments": [
+    {
+      "experiment_id": "E0075",
+      "question": "Where do the nudge-model loops stop in Gamma in the box twice as wide, compared with the paper's box, at the seven f* that were still running?",
+      "what_was_done": "Read every step's mirrored summary for the seven loops that ended, with a committed collection script, and compared each loop with the nudge loop at the same f* in the paper's box, both as first run (half-hour allowance a step) and as continued with a two-hour allowance going up. Compared the cost of matching steps and the cost per cycle near the top.",
+      "result": "Going down, the wider box turned between Gamma 2.3 and 2.5, each time running out of its two-hour allowance after twenty-three or twenty-four of twenty-five cycles; that is 0.1 to 0.3 higher than the paper's box at every f*. Going up, it reached 4.35 to 4.5, each time running out of its eight-hour allowance. The paper's box reached within 0.1 of that either way on its half-hour allowance, and the same or 0.05 to 0.15 further on its two-hour allowance. A matching step cost about nine times as much in the wider box going down and seven to ten times going up, while the allowances were four times going down and four or sixteen times going up. Cost per cycle rose steeply from Gamma 4.35 or 4.4 in both boxes at f* 0.84 to 0.38, a little more steeply in the wider box (from 4.3 to 4.45 it rose three to seven times, against three to four in the paper's box). At f* 0.33 the wider box's cost rose ten times between 4.3 and 4.4, against two times in the paper's box. No energy gains, audit failures or slow stretches in any step.",
+      "takeaway": "With all ten nudge loops in, every end is set by the allowance, not by the physics, except the stall at f* 0.38, so the working ranges cannot show a box-size effect either way. The steep cost rise near Gamma 4.4 is there in the wider box too; at f* 0.33 it comes about one step earlier, which with one seed per box may be the start state. Where the pattern appears, the registered test, is still unmeasured.",
+      "graded_by_referee": false
+    },
+    {
+      "experiment_id": "E0074",
+      "question": "Does the friction-off model cover the whole loop in the box twice as wide, and at what cost, at the first two f* to end (0.84 and 0.74)?",
+      "what_was_done": "Read every step's mirrored summary for the two loops and compared step costs with the friction-off loops in the paper's box.",
+      "result": "Both completed all 213 steps, Gamma 1.7 to 7.0 and back, as in the paper's box, at about eighty and ninety CPU-hours. No step came near its four-hour allowance (the costliest under one hour). A matching step cost about ten times as much as in the paper's box, about twice the five times measured in short cost tests before the passes started.",
+      "takeaway": "For the friction-off model the wider box runs the whole loop, so its comparison will rest on where the pattern appears, which needs the stored spectra. The earlier cost tests underestimated the cost of the wider box by about half, though the loops stayed inside the cost registered for them.",
+      "graded_by_referee": false
+    }
+  ],
+  "claims_changed": [],
+  "questions": [],
+  "proposed_directions": [
+    {
+      "direction": "Once the eight remaining friction-off loops end (about Nov 27), measure where the pattern appears at both widths for all three passes, judging the pattern by its wavelength in sphere diameters, as a Hatteras job next to the stored spectra; then write the three outcomes.",
+      "rationale": "This is the registered test of all three width-200 passes. The working ranges are nearly all set by allowances and cannot carry the comparison; the friction-off loops complete in both boxes, so onset is the only comparison they offer."
+    },
+    {
+      "direction": "Run a second seed of the width-200 nudge loop at f* 0.33 from Gamma 4.2 upward with a large allowance (about twenty CPU-hours a step), to see whether the earlier cost rise is the box or the start state.",
+      "rationale": "It is the only place where a quantity no allowance sets differs between the boxes on the nudge loops; one seed cannot separate box size from the start state."
+    }
+  ],
+  "budget": {
+    "cpu_hours_week": {
+      "spent": 293.625,
+      "limit": 10000
+    }
+  },
+  "open_blockers": [],
+  "run_conditions": {
+    "scheduled_start": "2026-11-26T05:06:06Z",
+    "actual_start": "2026-11-26T05:06:06Z",
+    "ended": "2026-11-26T05:13:24Z",
+    "interruptions": [],
+    "cpu_hours": 0.01,
+    "cores_available": 31.6,
+    "disk_free_gb": {
+      "start": 82,
+      "end": 82
+    },
+    "unfinished_runs": [
+      {
+        "experiment_id": "E0074",
+        "reason": "eight friction-off loops (f* 0.65 to 0.27) still running on Hatteras; 5-day wall time ends about Nov 27 06:15Z"
+      }
+    ],
+    "limits_hit": "None from the machine. This host is Linux: pmset and uptime are unavailable, so sleep was not measured and cores_available is 40 cores minus the 8.4 load average at the start (/proc/loadavg). scheduled_start is the time noted at the start; the runner's own start time was not given. The loops' own step allowances set every nudge end at both widths, a limit of the design. program check reports 293.6 weekly CPU-hours; the nine jobs collected used 744 CPU-hours on Hatteras by their records (77.8, 80.1, 83.0, 80.0, 81.2, 80.0, 91.9, 80.5, 89.9), each under the 100 CPU-hour per-run limit, and the week's total remains under 20% of the 10000 limit. Checker Nov 25 third review answered: the statement that up caps exceed the cost ratio held only for the nudge loops; baseline up caps were four times width 100's, below its cost ratio of 7.4 to 11.4, and baseline floors included physical stops. progress.md and the line state now say so, and closes_when's stale 'about seven times' is replaced by about nine down and seven to ten up. The checker's suggested comparison with the width-100 loops continued under a two-hour up allowance is done (evidence/E0075-results.json, width100_tops_with_2h_up_cap). sequel-data/tmp holds frozen0 files from another line; left in place."
+  }
+}
