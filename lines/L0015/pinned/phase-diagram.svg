@@ -1,0 +1,657 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="720" viewBox="0 0 980 720" font-family="Helvetica, Arial, DejaVu Sans, sans-serif">
+<rect width="980" height="720" fill="#ffffff"/>
+<text x="90" y="34" font-size="20" fill="#1f1f1d" font-weight="bold">L0015 phase diagram: nudge contact method, fast pass</text>
+<text x="90" y="58" font-size="13" fill="#6b6b66">Engine: method/nudge 16f3334. Box 100 x 100 sphere diameters, N 60000, layer depth 5.42, one seed, 25 drive cycles per Gamma step of 0.05.</text>
+<text x="90" y="78" font-size="13" fill="#6b6b66">Data: E0065 (Mac, Nov 17-20; evidence/E0065-results.json) and E0089 (Hatteras, ended Nov 24-26; evidence/E0089-step-table.json). Newest data 2026-11-26.</text>
+<line x1="90" x2="700" y1="588.0" y2="588.0" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="592.0" font-size="12" fill="#6b6b66" text-anchor="end">2.0</text>
+<line x1="90" x2="700" y1="499.5" y2="499.5" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="503.5" font-size="12" fill="#6b6b66" text-anchor="end">2.5</text>
+<line x1="90" x2="700" y1="411.0" y2="411.0" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="415.0" font-size="12" fill="#6b6b66" text-anchor="end">3.0</text>
+<line x1="90" x2="700" y1="322.5" y2="322.5" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="326.5" font-size="12" fill="#6b6b66" text-anchor="end">3.5</text>
+<line x1="90" x2="700" y1="233.9" y2="233.9" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="237.9" font-size="12" fill="#6b6b66" text-anchor="end">4.0</text>
+<line x1="90" x2="700" y1="145.4" y2="145.4" stroke="#e4e3df" stroke-width="1"/>
+<text x="82" y="149.4" font-size="12" fill="#6b6b66" text-anchor="end">4.5</text>
+<line x1="90" x2="700" y1="650" y2="650" stroke="#6b6b66"/>
+<line x1="90" x2="90" y1="110" y2="650" stroke="#6b6b66"/>
+<text x="30" y="380.0" font-size="14" fill="#1f1f1d" text-anchor="middle" transform="rotate(-90 30 380.0)">Gamma (peak plate acceleration / g)</text>
+<text x="395.0" y="694" font-size="14" fill="#1f1f1d" text-anchor="middle">f* (dimensionless drive frequency, log scale)</text>
+<text x="657.4" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.84</text>
+<circle cx="650.4" cy="411.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.0, down, completed, A 0.1234</title></circle>
+<circle cx="650.4" cy="419.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.95, down, completed, A 0.1555</title></circle>
+<circle cx="650.4" cy="428.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.9, down, completed, A 0.1561</title></circle>
+<circle cx="650.4" cy="437.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.85, down, completed, A 0.1474</title></circle>
+<circle cx="650.4" cy="446.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.8, down, completed, A 0.1332</title></circle>
+<circle cx="650.4" cy="455.2" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.75, down, completed, A 0.1162</title></circle>
+<circle cx="650.4" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.7, down, completed, A 0.1057</title></circle>
+<circle cx="650.4" cy="473.0" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.65, down, completed, A 0.0883</title></circle>
+<circle cx="650.4" cy="481.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.6, down, completed, A 0.0774</title></circle>
+<circle cx="650.4" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.55, down, completed, A 0.0607</title></circle>
+<circle cx="650.4" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.5, down, completed, A 0.0565</title></circle>
+<circle cx="650.4" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.45, down, completed, A 0.047</title></circle>
+<circle cx="650.4" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.4, down, completed, A 0.042</title></circle>
+<circle cx="650.4" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.35, down, completed, A 0.0359</title></circle>
+<circle cx="650.4" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.3, down, completed, A 0.0251</title></circle>
+<circle cx="650.4" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.25, down, completed, A 0.0329</title></circle>
+<circle cx="650.4" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.2, down, completed, A 0.0192</title></circle>
+<circle cx="650.4" cy="561.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.15, down, completed, A 0.0255</title></circle>
+<circle cx="650.4" cy="570.3" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.1, down, completed, A 0.0208</title></circle>
+<circle cx="650.4" cy="579.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.05, down, completed, A 0.0227</title></circle>
+<circle cx="650.4" cy="588.0" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.0, down, completed, A 0.0218</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.84, Gamma 1.95, down, cpu_budget (Mac step cap)</title><line x1="646.9" y1="593.4" x2="653.9" y2="600.4"/><line x1="646.9" y1="600.4" x2="653.9" y2="593.4"/></g>
+<circle cx="664.4" cy="579.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.05, up, completed, A 0.011</title></circle>
+<circle cx="664.4" cy="570.3" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.1, up, completed, A 0.0236</title></circle>
+<circle cx="664.4" cy="561.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.15, up, completed, A 0.0238</title></circle>
+<circle cx="664.4" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.2, up, completed, A 0.0248</title></circle>
+<circle cx="664.4" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.25, up, completed, A 0.0377</title></circle>
+<circle cx="664.4" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.3, up, completed, A 0.034</title></circle>
+<circle cx="664.4" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.35, up, completed, A 0.0311</title></circle>
+<circle cx="664.4" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.4, up, completed, A 0.0358</title></circle>
+<circle cx="664.4" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.45, up, completed, A 0.0455</title></circle>
+<circle cx="664.4" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.5, up, completed, A 0.0462</title></circle>
+<circle cx="664.4" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.55, up, completed, A 0.0496</title></circle>
+<circle cx="664.4" cy="481.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.6, up, completed, A 0.0639</title></circle>
+<circle cx="664.4" cy="473.0" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.65, up, completed, A 0.0751</title></circle>
+<circle cx="664.4" cy="464.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.7, up, completed, A 0.0828</title></circle>
+<circle cx="664.4" cy="455.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.75, up, completed, A 0.0992</title></circle>
+<circle cx="664.4" cy="446.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.8, up, completed, A 0.1266</title></circle>
+<circle cx="664.4" cy="437.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.85, up, completed, A 0.1495</title></circle>
+<circle cx="664.4" cy="428.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.9, up, completed, A 0.1702</title></circle>
+<circle cx="664.4" cy="419.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 2.95, up, completed, A 0.1915</title></circle>
+<circle cx="664.4" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.0, up, completed, A 0.2077</title></circle>
+<circle cx="664.4" cy="402.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.05, up, completed, A 0.2174</title></circle>
+<circle cx="664.4" cy="393.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.1, up, completed, A 0.2301</title></circle>
+<circle cx="664.4" cy="384.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.15, up, completed, A 0.2512</title></circle>
+<circle cx="664.4" cy="375.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.2, up, completed, A 0.2582</title></circle>
+<circle cx="664.4" cy="366.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.25, up, completed, A 0.2657</title></circle>
+<circle cx="664.4" cy="357.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.3, up, completed, A 0.2786</title></circle>
+<circle cx="664.4" cy="349.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.35, up, completed, A 0.2784</title></circle>
+<circle cx="664.4" cy="340.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.4, up, completed, A 0.2847</title></circle>
+<circle cx="664.4" cy="331.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.45, up, completed, A 0.2827</title></circle>
+<circle cx="664.4" cy="322.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.5, up, completed, A 0.2858</title></circle>
+<circle cx="664.4" cy="313.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.55, up, completed, A 0.291</title></circle>
+<circle cx="664.4" cy="304.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.6, up, completed, A 0.2877</title></circle>
+<circle cx="664.4" cy="295.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.65, up, completed, A 0.2887</title></circle>
+<circle cx="664.4" cy="287.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.7, up, completed, A 0.2969</title></circle>
+<circle cx="664.4" cy="278.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.75, up, completed, A 0.2965</title></circle>
+<circle cx="664.4" cy="269.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.8, up, completed, A 0.3004</title></circle>
+<circle cx="664.4" cy="260.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.85, up, completed, A 0.2979</title></circle>
+<circle cx="664.4" cy="251.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.9, up, completed, A 0.3033</title></circle>
+<circle cx="664.4" cy="242.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 3.95, up, completed, A 0.3008</title></circle>
+<circle cx="664.4" cy="233.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.0, up, completed, A 0.2966</title></circle>
+<circle cx="664.4" cy="225.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.05, up, completed, A 0.2901</title></circle>
+<circle cx="664.4" cy="216.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.1, up, completed, A 0.2924</title></circle>
+<circle cx="664.4" cy="207.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.15, up, completed, A 0.2624</title></circle>
+<circle cx="664.4" cy="198.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.2, up, completed, A 0.2507</title></circle>
+<circle cx="664.4" cy="189.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.25, up, completed, A 0.2376</title></circle>
+<circle cx="664.4" cy="180.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.3, up, completed, A 0.2257</title></circle>
+<circle cx="664.4" cy="172.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.35, up, completed, A 0.222</title></circle>
+<circle cx="664.4" cy="163.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.84, Gamma 4.4, up, completed, A 0.232</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.84, Gamma 4.45, up, cpu_budget (Mac step cap)</title><line x1="660.9" y1="150.8" x2="667.9" y2="157.8"/><line x1="660.9" y1="157.8" x2="667.9" y2="150.8"/></g>
+<circle cx="664.4" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.84, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.84, Gamma 4.6, up, E0089 cpu_budget, 24 of 25 cycles (48 CPU-hour step cap)</title><line x1="658.9" y1="122.2" x2="669.9" y2="133.2"/><line x1="658.9" y1="133.2" x2="669.9" y2="122.2"/></g>
+<text x="598.1" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.74</text>
+<circle cx="591.1" cy="411.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.0, down, completed, A 0.1656</title></circle>
+<circle cx="591.1" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.95, down, completed, A 0.2183</title></circle>
+<circle cx="591.1" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.9, down, completed, A 0.2129</title></circle>
+<circle cx="591.1" cy="437.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.85, down, completed, A 0.192</title></circle>
+<circle cx="591.1" cy="446.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.8, down, completed, A 0.1805</title></circle>
+<circle cx="591.1" cy="455.2" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.75, down, completed, A 0.157</title></circle>
+<circle cx="591.1" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.7, down, completed, A 0.1393</title></circle>
+<circle cx="591.1" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.65, down, completed, A 0.1177</title></circle>
+<circle cx="591.1" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.6, down, completed, A 0.1061</title></circle>
+<circle cx="591.1" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.55, down, completed, A 0.0935</title></circle>
+<circle cx="591.1" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.5, down, completed, A 0.069</title></circle>
+<circle cx="591.1" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.45, down, completed, A 0.0644</title></circle>
+<circle cx="591.1" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.4, down, completed, A 0.0528</title></circle>
+<circle cx="591.1" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.35, down, completed, A 0.0505</title></circle>
+<circle cx="591.1" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.3, down, completed, A 0.0422</title></circle>
+<circle cx="591.1" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.25, down, completed, A 0.0331</title></circle>
+<circle cx="591.1" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.2, down, completed, A 0.0282</title></circle>
+<circle cx="591.1" cy="561.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.15, down, completed, A 0.0224</title></circle>
+<circle cx="591.1" cy="570.3" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.1, down, completed, A 0.0242</title></circle>
+<circle cx="591.1" cy="579.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.05, down, completed, A 0.0171</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.74, Gamma 2.0, down, cpu_budget (Mac step cap)</title><line x1="587.6" y1="584.5" x2="594.6" y2="591.5"/><line x1="587.6" y1="591.5" x2="594.6" y2="584.5"/></g>
+<circle cx="605.1" cy="570.3" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.1, up, completed, A 0.0153</title></circle>
+<circle cx="605.1" cy="561.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.15, up, completed, A 0.0336</title></circle>
+<circle cx="605.1" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.2, up, completed, A 0.0351</title></circle>
+<circle cx="605.1" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.25, up, completed, A 0.0367</title></circle>
+<circle cx="605.1" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.3, up, completed, A 0.0388</title></circle>
+<circle cx="605.1" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.35, up, completed, A 0.0395</title></circle>
+<circle cx="605.1" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.4, up, completed, A 0.0491</title></circle>
+<circle cx="605.1" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.45, up, completed, A 0.0447</title></circle>
+<circle cx="605.1" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.5, up, completed, A 0.0531</title></circle>
+<circle cx="605.1" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.55, up, completed, A 0.0648</title></circle>
+<circle cx="605.1" cy="481.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.6, up, completed, A 0.0832</title></circle>
+<circle cx="605.1" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.65, up, completed, A 0.1012</title></circle>
+<circle cx="605.1" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.7, up, completed, A 0.1221</title></circle>
+<circle cx="605.1" cy="455.2" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.75, up, completed, A 0.1395</title></circle>
+<circle cx="605.1" cy="446.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.8, up, completed, A 0.1677</title></circle>
+<circle cx="605.1" cy="437.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.85, up, completed, A 0.1904</title></circle>
+<circle cx="605.1" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.9, up, completed, A 0.2118</title></circle>
+<circle cx="605.1" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 2.95, up, completed, A 0.2423</title></circle>
+<circle cx="605.1" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.0, up, completed, A 0.2588</title></circle>
+<circle cx="605.1" cy="402.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.05, up, completed, A 0.2646</title></circle>
+<circle cx="605.1" cy="393.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.1, up, completed, A 0.2686</title></circle>
+<circle cx="605.1" cy="384.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.15, up, completed, A 0.2751</title></circle>
+<circle cx="605.1" cy="375.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.2, up, completed, A 0.2823</title></circle>
+<circle cx="605.1" cy="366.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.25, up, completed, A 0.2831</title></circle>
+<circle cx="605.1" cy="357.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.3, up, completed, A 0.2892</title></circle>
+<circle cx="605.1" cy="349.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.35, up, completed, A 0.2948</title></circle>
+<circle cx="605.1" cy="340.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.4, up, completed, A 0.2998</title></circle>
+<circle cx="605.1" cy="331.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.45, up, completed, A 0.2927</title></circle>
+<circle cx="605.1" cy="322.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.5, up, completed, A 0.2918</title></circle>
+<circle cx="605.1" cy="313.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.55, up, completed, A 0.291</title></circle>
+<circle cx="605.1" cy="304.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.6, up, completed, A 0.2874</title></circle>
+<circle cx="605.1" cy="295.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.65, up, completed, A 0.2877</title></circle>
+<circle cx="605.1" cy="287.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.7, up, completed, A 0.2822</title></circle>
+<circle cx="605.1" cy="278.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.75, up, completed, A 0.2826</title></circle>
+<circle cx="605.1" cy="269.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.8, up, completed, A 0.278</title></circle>
+<circle cx="605.1" cy="260.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.85, up, completed, A 0.2799</title></circle>
+<circle cx="605.1" cy="251.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.9, up, completed, A 0.2848</title></circle>
+<circle cx="605.1" cy="242.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 3.95, up, completed, A 0.2798</title></circle>
+<circle cx="605.1" cy="233.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.0, up, completed, A 0.2674</title></circle>
+<circle cx="605.1" cy="225.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.05, up, completed, A 0.2581</title></circle>
+<circle cx="605.1" cy="216.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.1, up, completed, A 0.21</title></circle>
+<circle cx="605.1" cy="207.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.15, up, completed, A 0.1758</title></circle>
+<circle cx="605.1" cy="198.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.2, up, completed, A 0.1487</title></circle>
+<circle cx="605.1" cy="189.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.25, up, completed, A 0.1528</title></circle>
+<circle cx="605.1" cy="180.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.3, up, completed, A 0.1486</title></circle>
+<circle cx="605.1" cy="172.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.35, up, completed, A 0.1427</title></circle>
+<circle cx="605.1" cy="163.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.74, Gamma 4.4, up, completed, A 0.1403</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.74, Gamma 4.45, up, cpu_budget (Mac step cap)</title><line x1="601.6" y1="150.8" x2="608.6" y2="157.8"/><line x1="601.6" y1="157.8" x2="608.6" y2="150.8"/></g>
+<circle cx="605.1" cy="145.4" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.74, Gamma 4.5, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<circle cx="605.1" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.74, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.74, Gamma 4.6, up, E0089 cpu_budget, 21 of 25 cycles (48 CPU-hour step cap)</title><line x1="599.6" y1="122.2" x2="610.6" y2="133.2"/><line x1="599.6" y1="133.2" x2="610.6" y2="122.2"/></g>
+<text x="537.4" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.65</text>
+<circle cx="530.4" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.0, down, completed, A 0.2111</title></circle>
+<circle cx="530.4" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.95, down, completed, A 0.2592</title></circle>
+<circle cx="530.4" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.9, down, completed, A 0.2566</title></circle>
+<circle cx="530.4" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.85, down, completed, A 0.241</title></circle>
+<circle cx="530.4" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.8, down, completed, A 0.2286</title></circle>
+<circle cx="530.4" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.75, down, completed, A 0.2033</title></circle>
+<circle cx="530.4" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.7, down, completed, A 0.1702</title></circle>
+<circle cx="530.4" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.65, down, completed, A 0.1439</title></circle>
+<circle cx="530.4" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.6, down, completed, A 0.1212</title></circle>
+<circle cx="530.4" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.55, down, completed, A 0.0908</title></circle>
+<circle cx="530.4" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.5, down, completed, A 0.0631</title></circle>
+<circle cx="530.4" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.45, down, completed, A 0.05</title></circle>
+<circle cx="530.4" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.4, down, completed, A 0.0426</title></circle>
+<circle cx="530.4" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.35, down, completed, A 0.0401</title></circle>
+<circle cx="530.4" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.3, down, completed, A 0.0367</title></circle>
+<circle cx="530.4" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.25, down, completed, A 0.0335</title></circle>
+<circle cx="530.4" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.2, down, completed, A 0.0299</title></circle>
+<circle cx="530.4" cy="561.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.15, down, completed, A 0.0301</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.65, Gamma 2.1, down, cpu_budget (Mac step cap)</title><line x1="526.9" y1="566.8" x2="533.9" y2="573.8"/><line x1="526.9" y1="573.8" x2="533.9" y2="566.8"/></g>
+<circle cx="544.4" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.2, up, completed, A 0.0285</title></circle>
+<circle cx="544.4" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.25, up, completed, A 0.0347</title></circle>
+<circle cx="544.4" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.3, up, completed, A 0.033</title></circle>
+<circle cx="544.4" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.35, up, completed, A 0.0372</title></circle>
+<circle cx="544.4" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.4, up, completed, A 0.0385</title></circle>
+<circle cx="544.4" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.45, up, completed, A 0.0432</title></circle>
+<circle cx="544.4" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.5, up, completed, A 0.0671</title></circle>
+<circle cx="544.4" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.55, up, completed, A 0.0705</title></circle>
+<circle cx="544.4" cy="481.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.6, up, completed, A 0.0745</title></circle>
+<circle cx="544.4" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.65, up, completed, A 0.105</title></circle>
+<circle cx="544.4" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.7, up, completed, A 0.1362</title></circle>
+<circle cx="544.4" cy="455.2" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.75, up, completed, A 0.1758</title></circle>
+<circle cx="544.4" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.8, up, completed, A 0.2139</title></circle>
+<circle cx="544.4" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.85, up, completed, A 0.2375</title></circle>
+<circle cx="544.4" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.9, up, completed, A 0.2467</title></circle>
+<circle cx="544.4" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 2.95, up, completed, A 0.2621</title></circle>
+<circle cx="544.4" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.0, up, completed, A 0.2693</title></circle>
+<circle cx="544.4" cy="402.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.05, up, completed, A 0.2812</title></circle>
+<circle cx="544.4" cy="393.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.1, up, completed, A 0.2822</title></circle>
+<circle cx="544.4" cy="384.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.15, up, completed, A 0.2849</title></circle>
+<circle cx="544.4" cy="375.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.2, up, completed, A 0.2843</title></circle>
+<circle cx="544.4" cy="366.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.25, up, completed, A 0.2854</title></circle>
+<circle cx="544.4" cy="357.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.3, up, completed, A 0.2856</title></circle>
+<circle cx="544.4" cy="349.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.35, up, completed, A 0.2812</title></circle>
+<circle cx="544.4" cy="340.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.4, up, completed, A 0.2768</title></circle>
+<circle cx="544.4" cy="331.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.45, up, completed, A 0.2771</title></circle>
+<circle cx="544.4" cy="322.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.5, up, completed, A 0.2812</title></circle>
+<circle cx="544.4" cy="313.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.55, up, completed, A 0.2793</title></circle>
+<circle cx="544.4" cy="304.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.6, up, completed, A 0.2733</title></circle>
+<circle cx="544.4" cy="295.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.65, up, completed, A 0.2668</title></circle>
+<circle cx="544.4" cy="287.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.7, up, completed, A 0.2676</title></circle>
+<circle cx="544.4" cy="278.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.75, up, completed, A 0.2716</title></circle>
+<circle cx="544.4" cy="269.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.8, up, completed, A 0.273</title></circle>
+<circle cx="544.4" cy="260.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.85, up, completed, A 0.2651</title></circle>
+<circle cx="544.4" cy="251.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.9, up, completed, A 0.2669</title></circle>
+<circle cx="544.4" cy="242.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 3.95, up, completed, A 0.2529</title></circle>
+<circle cx="544.4" cy="233.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.0, up, completed, A 0.2496</title></circle>
+<circle cx="544.4" cy="225.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.05, up, completed, A 0.2313</title></circle>
+<circle cx="544.4" cy="216.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.1, up, completed, A 0.2188</title></circle>
+<circle cx="544.4" cy="207.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.15, up, completed, A 0.2023</title></circle>
+<circle cx="544.4" cy="198.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.2, up, completed, A 0.1908</title></circle>
+<circle cx="544.4" cy="189.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.25, up, completed, A 0.1765</title></circle>
+<circle cx="544.4" cy="180.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.3, up, completed, A 0.1682</title></circle>
+<circle cx="544.4" cy="172.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.35, up, completed, A 0.1699</title></circle>
+<circle cx="544.4" cy="163.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.65, Gamma 4.4, up, completed, A 0.1621</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.65, Gamma 4.45, up, cpu_budget (Mac step cap)</title><line x1="540.9" y1="150.8" x2="547.9" y2="157.8"/><line x1="540.9" y1="157.8" x2="547.9" y2="150.8"/></g>
+<circle cx="544.4" cy="145.4" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.65, Gamma 4.5, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<circle cx="544.4" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.65, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.65, Gamma 4.6, up, E0089 cpu_budget, 10 of 25 cycles (48 CPU-hour step cap)</title><line x1="538.9" y1="122.2" x2="549.9" y2="133.2"/><line x1="538.9" y1="133.2" x2="549.9" y2="122.2"/></g>
+<text x="475.9" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.57</text>
+<circle cx="468.9" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.0, down, completed, A 0.2526</title></circle>
+<circle cx="468.9" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.95, down, completed, A 0.285</title></circle>
+<circle cx="468.9" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.9, down, completed, A 0.2798</title></circle>
+<circle cx="468.9" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.85, down, completed, A 0.2736</title></circle>
+<circle cx="468.9" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.8, down, completed, A 0.2575</title></circle>
+<circle cx="468.9" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.75, down, completed, A 0.2339</title></circle>
+<circle cx="468.9" cy="464.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.7, down, completed, A 0.2074</title></circle>
+<circle cx="468.9" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.65, down, completed, A 0.1755</title></circle>
+<circle cx="468.9" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.6, down, completed, A 0.1489</title></circle>
+<circle cx="468.9" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.55, down, completed, A 0.0955</title></circle>
+<circle cx="468.9" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.5, down, completed, A 0.0741</title></circle>
+<circle cx="468.9" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.45, down, completed, A 0.0572</title></circle>
+<circle cx="468.9" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.4, down, completed, A 0.0476</title></circle>
+<circle cx="468.9" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.35, down, completed, A 0.0243</title></circle>
+<circle cx="468.9" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.3, down, completed, A 0.0373</title></circle>
+<circle cx="468.9" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.25, down, completed, A 0.0279</title></circle>
+<circle cx="468.9" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.2, down, completed, A 0.0249</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.57, Gamma 2.15, down, cpu_budget (Mac step cap)</title><line x1="465.4" y1="558.0" x2="472.4" y2="565.0"/><line x1="465.4" y1="565.0" x2="472.4" y2="558.0"/></g>
+<circle cx="482.9" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.25, up, completed, A 0.0216</title></circle>
+<circle cx="482.9" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.3, up, completed, A 0.0311</title></circle>
+<circle cx="482.9" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.35, up, completed, A 0.0456</title></circle>
+<circle cx="482.9" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.4, up, completed, A 0.0396</title></circle>
+<circle cx="482.9" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.45, up, completed, A 0.0428</title></circle>
+<circle cx="482.9" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.5, up, completed, A 0.0556</title></circle>
+<circle cx="482.9" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.55, up, completed, A 0.0682</title></circle>
+<circle cx="482.9" cy="481.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.6, up, completed, A 0.0884</title></circle>
+<circle cx="482.9" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.65, up, completed, A 0.1302</title></circle>
+<circle cx="482.9" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.7, up, completed, A 0.1663</title></circle>
+<circle cx="482.9" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.75, up, completed, A 0.213</title></circle>
+<circle cx="482.9" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.8, up, completed, A 0.2335</title></circle>
+<circle cx="482.9" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.85, up, completed, A 0.265</title></circle>
+<circle cx="482.9" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.9, up, completed, A 0.2711</title></circle>
+<circle cx="482.9" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 2.95, up, completed, A 0.2755</title></circle>
+<circle cx="482.9" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.0, up, completed, A 0.2837</title></circle>
+<circle cx="482.9" cy="402.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.05, up, completed, A 0.2935</title></circle>
+<circle cx="482.9" cy="393.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.1, up, completed, A 0.2936</title></circle>
+<circle cx="482.9" cy="384.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.15, up, completed, A 0.2904</title></circle>
+<circle cx="482.9" cy="375.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.2, up, completed, A 0.2971</title></circle>
+<circle cx="482.9" cy="366.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.25, up, completed, A 0.2919</title></circle>
+<circle cx="482.9" cy="357.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.3, up, completed, A 0.2997</title></circle>
+<circle cx="482.9" cy="349.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.35, up, completed, A 0.3007</title></circle>
+<circle cx="482.9" cy="340.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.4, up, completed, A 0.3041</title></circle>
+<circle cx="482.9" cy="331.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.45, up, completed, A 0.3059</title></circle>
+<circle cx="482.9" cy="322.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.5, up, completed, A 0.3081</title></circle>
+<circle cx="482.9" cy="313.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.55, up, completed, A 0.3109</title></circle>
+<circle cx="482.9" cy="304.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.6, up, completed, A 0.3132</title></circle>
+<circle cx="482.9" cy="295.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.65, up, completed, A 0.3185</title></circle>
+<circle cx="482.9" cy="287.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.7, up, completed, A 0.3371</title></circle>
+<circle cx="482.9" cy="278.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.75, up, completed, A 0.3547</title></circle>
+<circle cx="482.9" cy="269.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.8, up, completed, A 0.3601</title></circle>
+<circle cx="482.9" cy="260.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.85, up, completed, A 0.3737</title></circle>
+<circle cx="482.9" cy="251.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.9, up, completed, A 0.3897</title></circle>
+<circle cx="482.9" cy="242.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 3.95, up, completed, A 0.4058</title></circle>
+<circle cx="482.9" cy="233.9" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.0, up, completed, A 0.4118</title></circle>
+<circle cx="482.9" cy="225.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.05, up, completed, A 0.4267</title></circle>
+<circle cx="482.9" cy="216.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.1, up, completed, A 0.4499</title></circle>
+<circle cx="482.9" cy="207.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.15, up, completed, A 0.4647</title></circle>
+<circle cx="482.9" cy="198.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.2, up, completed, A 0.481</title></circle>
+<circle cx="482.9" cy="189.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.25, up, completed, A 0.5018</title></circle>
+<circle cx="482.9" cy="180.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.3, up, completed, A 0.5126</title></circle>
+<circle cx="482.9" cy="172.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.35, up, completed, A 0.5326</title></circle>
+<circle cx="482.9" cy="163.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.57, Gamma 4.4, up, completed, A 0.5411</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.57, Gamma 4.45, up, cpu_budget (Mac step cap)</title><line x1="479.4" y1="150.8" x2="486.4" y2="157.8"/><line x1="479.4" y1="157.8" x2="486.4" y2="150.8"/></g>
+<circle cx="482.9" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.57, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.57, Gamma 4.6, up, E0089 cpu_budget, 23 of 25 cycles (48 CPU-hour step cap)</title><line x1="477.4" y1="122.2" x2="488.4" y2="133.2"/><line x1="477.4" y1="133.2" x2="488.4" y2="122.2"/></g>
+<text x="414.5" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.50</text>
+<circle cx="407.5" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.0, down, completed, A 0.2914</title></circle>
+<circle cx="407.5" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.95, down, completed, A 0.3131</title></circle>
+<circle cx="407.5" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.9, down, completed, A 0.3114</title></circle>
+<circle cx="407.5" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.85, down, completed, A 0.3093</title></circle>
+<circle cx="407.5" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.8, down, completed, A 0.2971</title></circle>
+<circle cx="407.5" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.75, down, completed, A 0.279</title></circle>
+<circle cx="407.5" cy="464.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.7, down, completed, A 0.2489</title></circle>
+<circle cx="407.5" cy="473.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.65, down, completed, A 0.2145</title></circle>
+<circle cx="407.5" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.6, down, completed, A 0.182</title></circle>
+<circle cx="407.5" cy="490.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.55, down, completed, A 0.1422</title></circle>
+<circle cx="407.5" cy="499.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.5, down, completed, A 0.107</title></circle>
+<circle cx="407.5" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.45, down, completed, A 0.0695</title></circle>
+<circle cx="407.5" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.4, down, completed, A 0.0532</title></circle>
+<circle cx="407.5" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.35, down, completed, A 0.0461</title></circle>
+<circle cx="407.5" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.3, down, completed, A 0.0395</title></circle>
+<circle cx="407.5" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.25, down, completed, A 0.033</title></circle>
+<circle cx="407.5" cy="552.6" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.2, down, completed, A 0.026</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.5, Gamma 2.15, down, cpu_budget (Mac step cap)</title><line x1="404.0" y1="558.0" x2="411.0" y2="565.0"/><line x1="404.0" y1="565.0" x2="411.0" y2="558.0"/></g>
+<circle cx="421.5" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.25, up, completed, A 0.0324</title></circle>
+<circle cx="421.5" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.3, up, completed, A 0.0248</title></circle>
+<circle cx="421.5" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.35, up, completed, A 0.0295</title></circle>
+<circle cx="421.5" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.4, up, completed, A 0.0328</title></circle>
+<circle cx="421.5" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.45, up, completed, A 0.0425</title></circle>
+<circle cx="421.5" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.5, up, completed, A 0.0518</title></circle>
+<circle cx="421.5" cy="490.7" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.55, up, completed, A 0.0806</title></circle>
+<circle cx="421.5" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.6, up, completed, A 0.1142</title></circle>
+<circle cx="421.5" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.65, up, completed, A 0.1533</title></circle>
+<circle cx="421.5" cy="464.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.7, up, completed, A 0.1961</title></circle>
+<circle cx="421.5" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.75, up, completed, A 0.222</title></circle>
+<circle cx="421.5" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.8, up, completed, A 0.263</title></circle>
+<circle cx="421.5" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.85, up, completed, A 0.2855</title></circle>
+<circle cx="421.5" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.9, up, completed, A 0.2945</title></circle>
+<circle cx="421.5" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 2.95, up, completed, A 0.3045</title></circle>
+<circle cx="421.5" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.0, up, completed, A 0.3104</title></circle>
+<circle cx="421.5" cy="402.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.05, up, completed, A 0.3287</title></circle>
+<circle cx="421.5" cy="393.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.1, up, completed, A 0.3354</title></circle>
+<circle cx="421.5" cy="384.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.15, up, completed, A 0.3396</title></circle>
+<circle cx="421.5" cy="375.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.2, up, completed, A 0.3492</title></circle>
+<circle cx="421.5" cy="366.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.25, up, completed, A 0.357</title></circle>
+<circle cx="421.5" cy="357.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.3, up, completed, A 0.3632</title></circle>
+<circle cx="421.5" cy="349.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.35, up, completed, A 0.3695</title></circle>
+<circle cx="421.5" cy="340.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.4, up, completed, A 0.3751</title></circle>
+<circle cx="421.5" cy="331.3" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.45, up, completed, A 0.3836</title></circle>
+<circle cx="421.5" cy="322.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.5, up, completed, A 0.3893</title></circle>
+<circle cx="421.5" cy="313.6" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.55, up, completed, A 0.3945</title></circle>
+<circle cx="421.5" cy="304.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.6, up, completed, A 0.3964</title></circle>
+<circle cx="421.5" cy="295.9" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.65, up, completed, A 0.4072</title></circle>
+<circle cx="421.5" cy="287.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.7, up, completed, A 0.424</title></circle>
+<circle cx="421.5" cy="278.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.75, up, completed, A 0.445</title></circle>
+<circle cx="421.5" cy="269.3" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.8, up, completed, A 0.452</title></circle>
+<circle cx="421.5" cy="260.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.85, up, completed, A 0.4453</title></circle>
+<circle cx="421.5" cy="251.6" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.9, up, completed, A 0.4215</title></circle>
+<circle cx="421.5" cy="242.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 3.95, up, completed, A 0.4021</title></circle>
+<circle cx="421.5" cy="233.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.0, up, completed, A 0.3157</title></circle>
+<circle cx="421.5" cy="225.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.05, up, completed, A 0.2582</title></circle>
+<circle cx="421.5" cy="216.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.1, up, completed, A 0.2377</title></circle>
+<circle cx="421.5" cy="207.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.15, up, completed, A 0.2236</title></circle>
+<circle cx="421.5" cy="198.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.2, up, completed, A 0.1957</title></circle>
+<circle cx="421.5" cy="189.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.25, up, completed, A 0.1823</title></circle>
+<circle cx="421.5" cy="180.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.3, up, completed, A 0.176</title></circle>
+<circle cx="421.5" cy="172.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.35, up, completed, A 0.1675</title></circle>
+<circle cx="421.5" cy="163.1" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.5, Gamma 4.4, up, completed, A 0.1566</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.5, Gamma 4.45, up, cpu_budget (Mac step cap)</title><line x1="418.0" y1="150.8" x2="425.0" y2="157.8"/><line x1="418.0" y1="157.8" x2="425.0" y2="150.8"/></g>
+<circle cx="421.5" cy="145.4" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.5, Gamma 4.5, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<circle cx="421.5" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.5, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.5, Gamma 4.6, up, E0089 cpu_budget, 1 of 25 cycles (48 CPU-hour step cap)</title><line x1="416.0" y1="122.2" x2="427.0" y2="133.2"/><line x1="416.0" y1="133.2" x2="427.0" y2="122.2"/></g>
+<text x="354.7" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.44</text>
+<circle cx="347.7" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.0, down, completed, A 0.3746</title></circle>
+<circle cx="347.7" cy="419.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.95, down, completed, A 0.4001</title></circle>
+<circle cx="347.7" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.9, down, completed, A 0.3878</title></circle>
+<circle cx="347.7" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.85, down, completed, A 0.3732</title></circle>
+<circle cx="347.7" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.8, down, completed, A 0.3608</title></circle>
+<circle cx="347.7" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.75, down, completed, A 0.344</title></circle>
+<circle cx="347.7" cy="464.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.7, down, completed, A 0.329</title></circle>
+<circle cx="347.7" cy="473.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.65, down, completed, A 0.2951</title></circle>
+<circle cx="347.7" cy="481.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.6, down, completed, A 0.2458</title></circle>
+<circle cx="347.7" cy="490.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.55, down, completed, A 0.1953</title></circle>
+<circle cx="347.7" cy="499.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.5, down, completed, A 0.1417</title></circle>
+<circle cx="347.7" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.45, down, completed, A 0.0707</title></circle>
+<circle cx="347.7" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.4, down, completed, A 0.0503</title></circle>
+<circle cx="347.7" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.35, down, completed, A 0.0376</title></circle>
+<circle cx="347.7" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.3, down, completed, A 0.0147</title></circle>
+<circle cx="347.7" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.25, down, completed, A 0.0254</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.44, Gamma 2.2, down, cpu_budget (Mac step cap)</title><line x1="344.2" y1="549.1" x2="351.2" y2="556.1"/><line x1="344.2" y1="556.1" x2="351.2" y2="549.1"/></g>
+<circle cx="361.7" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.3, up, completed, A 0.0343</title></circle>
+<circle cx="361.7" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.35, up, completed, A 0.0319</title></circle>
+<circle cx="361.7" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.4, up, completed, A 0.0412</title></circle>
+<circle cx="361.7" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.45, up, completed, A 0.055</title></circle>
+<circle cx="361.7" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.5, up, completed, A 0.0726</title></circle>
+<circle cx="361.7" cy="490.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.55, up, completed, A 0.1047</title></circle>
+<circle cx="361.7" cy="481.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.6, up, completed, A 0.1459</title></circle>
+<circle cx="361.7" cy="473.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.65, up, completed, A 0.1965</title></circle>
+<circle cx="361.7" cy="464.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.7, up, completed, A 0.2331</title></circle>
+<circle cx="361.7" cy="455.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.75, up, completed, A 0.2768</title></circle>
+<circle cx="361.7" cy="446.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.8, up, completed, A 0.3283</title></circle>
+<circle cx="361.7" cy="437.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.85, up, completed, A 0.3532</title></circle>
+<circle cx="361.7" cy="428.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.9, up, completed, A 0.3664</title></circle>
+<circle cx="361.7" cy="419.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 2.95, up, completed, A 0.3811</title></circle>
+<circle cx="361.7" cy="411.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.0, up, completed, A 0.3969</title></circle>
+<circle cx="361.7" cy="402.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.05, up, completed, A 0.4092</title></circle>
+<circle cx="361.7" cy="393.3" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.1, up, completed, A 0.433</title></circle>
+<circle cx="361.7" cy="384.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.15, up, completed, A 0.4482</title></circle>
+<circle cx="361.7" cy="375.6" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.2, up, completed, A 0.4675</title></circle>
+<circle cx="361.7" cy="366.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.25, up, completed, A 0.4816</title></circle>
+<circle cx="361.7" cy="357.9" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.3, up, completed, A 0.4996</title></circle>
+<circle cx="361.7" cy="349.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.35, up, completed, A 0.517</title></circle>
+<circle cx="361.7" cy="340.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.4, up, completed, A 0.5308</title></circle>
+<circle cx="361.7" cy="331.3" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.45, up, completed, A 0.5449</title></circle>
+<circle cx="361.7" cy="322.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.5, up, completed, A 0.5621</title></circle>
+<circle cx="361.7" cy="313.6" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.55, up, completed, A 0.5726</title></circle>
+<circle cx="361.7" cy="304.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.6, up, completed, A 0.5852</title></circle>
+<circle cx="361.7" cy="295.9" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.65, up, completed, A 0.5969</title></circle>
+<circle cx="361.7" cy="287.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.7, up, completed, A 0.6047</title></circle>
+<circle cx="361.7" cy="278.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.75, up, completed, A 0.5805</title></circle>
+<circle cx="361.7" cy="269.3" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.8, up, completed, A 0.5153</title></circle>
+<circle cx="361.7" cy="260.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.85, up, completed, A 0.4799</title></circle>
+<circle cx="361.7" cy="251.6" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.9, up, completed, A 0.4313</title></circle>
+<circle cx="361.7" cy="242.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 3.95, up, completed, A 0.4019</title></circle>
+<circle cx="361.7" cy="233.9" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.0, up, completed, A 0.3506</title></circle>
+<circle cx="361.7" cy="225.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.05, up, completed, A 0.3185</title></circle>
+<circle cx="361.7" cy="216.2" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.1, up, completed, A 0.2718</title></circle>
+<circle cx="361.7" cy="207.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.15, up, completed, A 0.2439</title></circle>
+<circle cx="361.7" cy="198.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.2, up, completed, A 0.2028</title></circle>
+<circle cx="361.7" cy="189.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.25, up, completed, A 0.1753</title></circle>
+<circle cx="361.7" cy="180.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.3, up, completed, A 0.1575</title></circle>
+<circle cx="361.7" cy="172.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.44, Gamma 4.35, up, completed, A 0.1373</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.44, Gamma 4.4, up, cpu_budget (Mac step cap)</title><line x1="358.2" y1="159.6" x2="365.2" y2="166.6"/><line x1="358.2" y1="166.6" x2="365.2" y2="159.6"/></g>
+<circle cx="361.7" cy="145.4" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.44, Gamma 4.5, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<circle cx="361.7" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.44, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.44, Gamma 4.6, up, E0089 cpu_budget, 1 of 25 cycles (48 CPU-hour step cap)</title><line x1="356.2" y1="122.2" x2="367.2" y2="133.2"/><line x1="356.2" y1="133.2" x2="367.2" y2="122.2"/></g>
+<text x="286.0" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.38</text>
+<circle cx="279.0" cy="411.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.0, down, completed, A 0.5807</title></circle>
+<circle cx="279.0" cy="419.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.95, down, completed, A 0.5991</title></circle>
+<circle cx="279.0" cy="428.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.9, down, completed, A 0.5692</title></circle>
+<circle cx="279.0" cy="437.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.85, down, completed, A 0.5382</title></circle>
+<circle cx="279.0" cy="446.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.8, down, completed, A 0.5039</title></circle>
+<circle cx="279.0" cy="455.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.75, down, completed, A 0.4833</title></circle>
+<circle cx="279.0" cy="464.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.7, down, completed, A 0.4536</title></circle>
+<circle cx="279.0" cy="473.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.65, down, completed, A 0.4182</title></circle>
+<circle cx="279.0" cy="481.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.6, down, completed, A 0.3821</title></circle>
+<circle cx="279.0" cy="490.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.55, down, completed, A 0.3311</title></circle>
+<circle cx="279.0" cy="499.5" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.5, down, completed, A 0.2197</title></circle>
+<circle cx="279.0" cy="508.4" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.45, down, completed, A 0.1046</title></circle>
+<circle cx="279.0" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.4, down, completed, A 0.0464</title></circle>
+<circle cx="279.0" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.35, down, completed, A 0.038</title></circle>
+<circle cx="279.0" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.3, down, completed, A 0.0275</title></circle>
+<circle cx="279.0" cy="543.8" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.25, down, completed, A 0.033</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.38, Gamma 2.2, down, cpu_budget (Mac step cap)</title><line x1="275.5" y1="549.1" x2="282.5" y2="556.1"/><line x1="275.5" y1="556.1" x2="282.5" y2="549.1"/></g>
+<circle cx="293.0" cy="534.9" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.3, up, completed, A 0.0</title></circle>
+<circle cx="293.0" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.35, up, completed, A 0.0</title></circle>
+<circle cx="293.0" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.4, up, completed, A 0.0274</title></circle>
+<circle cx="293.0" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.45, up, completed, A 0.0744</title></circle>
+<circle cx="293.0" cy="499.5" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.5, up, completed, A 0.0764</title></circle>
+<circle cx="293.0" cy="490.7" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.55, up, completed, A 0.1403</title></circle>
+<circle cx="293.0" cy="481.8" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.6, up, completed, A 0.2334</title></circle>
+<circle cx="293.0" cy="473.0" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.65, up, completed, A 0.3231</title></circle>
+<circle cx="293.0" cy="464.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.7, up, completed, A 0.3984</title></circle>
+<circle cx="293.0" cy="455.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.75, up, completed, A 0.4501</title></circle>
+<circle cx="293.0" cy="446.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.8, up, completed, A 0.5066</title></circle>
+<circle cx="293.0" cy="437.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.85, up, completed, A 0.5498</title></circle>
+<circle cx="293.0" cy="428.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.9, up, completed, A 0.5835</title></circle>
+<circle cx="293.0" cy="419.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 2.95, up, completed, A 0.6189</title></circle>
+<circle cx="293.0" cy="411.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.0, up, completed, A 0.6449</title></circle>
+<circle cx="293.0" cy="402.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.05, up, completed, A 0.6848</title></circle>
+<circle cx="293.0" cy="393.3" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.1, up, completed, A 0.718</title></circle>
+<circle cx="293.0" cy="384.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.15, up, completed, A 0.7495</title></circle>
+<circle cx="293.0" cy="375.6" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.2, up, completed, A 0.7801</title></circle>
+<circle cx="293.0" cy="366.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.25, up, completed, A 0.802</title></circle>
+<circle cx="293.0" cy="357.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.3, up, completed, A 0.8255</title></circle>
+<circle cx="293.0" cy="349.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.35, up, completed, A 0.8552</title></circle>
+<circle cx="293.0" cy="340.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.4, up, completed, A 0.8753</title></circle>
+<circle cx="293.0" cy="331.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.45, up, completed, A 0.9083</title></circle>
+<circle cx="293.0" cy="322.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.5, up, completed, A 0.9235</title></circle>
+<circle cx="293.0" cy="313.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.55, up, completed, A 0.9503</title></circle>
+<circle cx="293.0" cy="304.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.6, up, completed, A 0.9891</title></circle>
+<circle cx="293.0" cy="295.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.65, up, completed, A 1.0077</title></circle>
+<circle cx="293.0" cy="287.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.7, up, completed, A 1.0331</title></circle>
+<circle cx="293.0" cy="278.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.75, up, completed, A 1.0621</title></circle>
+<circle cx="293.0" cy="269.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.8, up, completed, A 1.0863</title></circle>
+<circle cx="293.0" cy="260.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.85, up, completed, A 1.1162</title></circle>
+<circle cx="293.0" cy="251.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.9, up, completed, A 1.1421</title></circle>
+<circle cx="293.0" cy="242.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 3.95, up, completed, A 1.1662</title></circle>
+<circle cx="293.0" cy="233.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.0, up, completed, A 1.169</title></circle>
+<circle cx="293.0" cy="225.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.05, up, completed, A 1.0833</title></circle>
+<circle cx="293.0" cy="216.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.1, up, completed, A 0.9264</title></circle>
+<circle cx="293.0" cy="207.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.15, up, completed, A 0.8473</title></circle>
+<circle cx="293.0" cy="198.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.2, up, completed, A 0.633</title></circle>
+<circle cx="293.0" cy="189.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.25, up, completed, A 0.2558</title></circle>
+<circle cx="293.0" cy="180.8" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.3, up, completed, A 0.1351</title></circle>
+<circle cx="293.0" cy="172.0" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.38, Gamma 4.35, up, completed, A 0.1243</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.38, Gamma 4.4, up, cpu_budget (Mac step cap)</title><line x1="289.5" y1="159.6" x2="296.5" y2="166.6"/><line x1="289.5" y1="166.6" x2="296.5" y2="159.6"/></g>
+<circle cx="293.0" cy="145.4" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.38, Gamma 4.5, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.38, Gamma 4.55, up, E0089 cpu_budget, 14 of 25 cycles (48 CPU-hour step cap)</title><line x1="287.5" y1="131.1" x2="298.5" y2="142.1"/><line x1="287.5" y1="142.1" x2="298.5" y2="131.1"/></g>
+<text x="220.0" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.33</text>
+<circle cx="213.0" cy="411.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.0, down, completed, A 0.973</title></circle>
+<circle cx="213.0" cy="419.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.95, down, completed, A 0.9933</title></circle>
+<circle cx="213.0" cy="428.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.9, down, completed, A 0.9533</title></circle>
+<circle cx="213.0" cy="437.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.85, down, completed, A 0.9084</title></circle>
+<circle cx="213.0" cy="446.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.8, down, completed, A 0.8427</title></circle>
+<circle cx="213.0" cy="455.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.75, down, completed, A 0.7738</title></circle>
+<circle cx="213.0" cy="464.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.7, down, completed, A 0.7082</title></circle>
+<circle cx="213.0" cy="473.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.65, down, completed, A 0.6347</title></circle>
+<circle cx="213.0" cy="481.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.6, down, completed, A 0.59</title></circle>
+<circle cx="213.0" cy="490.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.55, down, completed, A 0.5322</title></circle>
+<circle cx="213.0" cy="499.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.5, down, completed, A 0.4567</title></circle>
+<circle cx="213.0" cy="508.4" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.45, down, completed, A 0.3667</title></circle>
+<circle cx="213.0" cy="517.2" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.4, down, completed, A 0.1654</title></circle>
+<circle cx="213.0" cy="526.1" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.35, down, completed, A 0.0234</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.33, Gamma 2.3, down, cpu_budget (Mac step cap)</title><line x1="209.5" y1="531.4" x2="216.5" y2="538.4"/><line x1="209.5" y1="538.4" x2="216.5" y2="531.4"/></g>
+<circle cx="227.0" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.4, up, completed, A 0.0365</title></circle>
+<circle cx="227.0" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.45, up, completed, A 0.0867</title></circle>
+<circle cx="227.0" cy="499.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.5, up, completed, A 0.1507</title></circle>
+<circle cx="227.0" cy="490.7" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.55, up, completed, A 0.2927</title></circle>
+<circle cx="227.0" cy="481.8" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.6, up, completed, A 0.4639</title></circle>
+<circle cx="227.0" cy="473.0" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.65, up, completed, A 0.6672</title></circle>
+<circle cx="227.0" cy="464.1" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.7, up, completed, A 0.7316</title></circle>
+<circle cx="227.0" cy="455.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.75, up, completed, A 0.7757</title></circle>
+<circle cx="227.0" cy="446.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.8, up, completed, A 0.8523</title></circle>
+<circle cx="227.0" cy="437.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.85, up, completed, A 0.9222</title></circle>
+<circle cx="227.0" cy="428.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.9, up, completed, A 0.9589</title></circle>
+<circle cx="227.0" cy="419.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 2.95, up, completed, A 0.9982</title></circle>
+<circle cx="227.0" cy="411.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.0, up, completed, A 1.072</title></circle>
+<circle cx="227.0" cy="402.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.05, up, completed, A 1.1059</title></circle>
+<circle cx="227.0" cy="393.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.1, up, completed, A 1.1453</title></circle>
+<circle cx="227.0" cy="384.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.15, up, completed, A 1.1866</title></circle>
+<circle cx="227.0" cy="375.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.2, up, completed, A 1.2239</title></circle>
+<circle cx="227.0" cy="366.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.25, up, completed, A 1.265</title></circle>
+<circle cx="227.0" cy="357.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.3, up, completed, A 1.3089</title></circle>
+<circle cx="227.0" cy="349.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.35, up, completed, A 1.3487</title></circle>
+<circle cx="227.0" cy="340.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.4, up, completed, A 1.3863</title></circle>
+<circle cx="227.0" cy="331.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.45, up, completed, A 1.4296</title></circle>
+<circle cx="227.0" cy="322.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.5, up, completed, A 1.4673</title></circle>
+<circle cx="227.0" cy="313.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.55, up, completed, A 1.5011</title></circle>
+<circle cx="227.0" cy="304.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.6, up, completed, A 1.5326</title></circle>
+<circle cx="227.0" cy="295.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.65, up, completed, A 1.5401</title></circle>
+<circle cx="227.0" cy="287.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.7, up, completed, A 1.5739</title></circle>
+<circle cx="227.0" cy="278.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.75, up, completed, A 1.6238</title></circle>
+<circle cx="227.0" cy="269.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.8, up, completed, A 1.7432</title></circle>
+<circle cx="227.0" cy="260.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.85, up, completed, A 1.7462</title></circle>
+<circle cx="227.0" cy="251.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.9, up, completed, A 1.7998</title></circle>
+<circle cx="227.0" cy="242.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 3.95, up, completed, A 1.7936</title></circle>
+<circle cx="227.0" cy="233.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.0, up, completed, A 1.78</title></circle>
+<circle cx="227.0" cy="225.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.05, up, completed, A 1.815</title></circle>
+<circle cx="227.0" cy="216.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.1, up, completed, A 1.8413</title></circle>
+<circle cx="227.0" cy="207.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.15, up, completed, A 1.8862</title></circle>
+<circle cx="227.0" cy="198.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.2, up, completed, A 1.9482</title></circle>
+<circle cx="227.0" cy="189.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.25, up, completed, A 1.9553</title></circle>
+<circle cx="227.0" cy="180.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.3, up, completed, A 1.9637</title></circle>
+<circle cx="227.0" cy="172.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.35, up, completed, A 2.003</title></circle>
+<circle cx="227.0" cy="163.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.4, up, completed, A 1.9757</title></circle>
+<circle cx="227.0" cy="154.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.33, Gamma 4.45, up, completed, A 1.8789</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.33, Gamma 4.5, up, cpu_budget (Mac step cap)</title><line x1="223.5" y1="141.9" x2="230.5" y2="148.9"/><line x1="223.5" y1="148.9" x2="230.5" y2="141.9"/></g>
+<circle cx="227.0" cy="136.6" r="3.6" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"><title>f* 0.33, Gamma 4.55, up, E0089 completed, 25 of 25 cycles; amplitude not computed</title></circle>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>f* 0.33, Gamma 4.6, up, E0089 cpu_budget, 21 of 25 cycles (48 CPU-hour step cap)</title><line x1="221.5" y1="122.2" x2="232.5" y2="133.2"/><line x1="221.5" y1="133.2" x2="232.5" y2="122.2"/></g>
+<text x="175.4" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.30</text>
+<circle cx="168.4" cy="411.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.0, down, completed, A 1.2989</title></circle>
+<circle cx="168.4" cy="419.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.95, down, completed, A 1.3565</title></circle>
+<circle cx="168.4" cy="428.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.9, down, completed, A 1.2871</title></circle>
+<circle cx="168.4" cy="437.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.85, down, completed, A 1.2453</title></circle>
+<circle cx="168.4" cy="446.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.8, down, completed, A 1.1876</title></circle>
+<circle cx="168.4" cy="455.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.75, down, completed, A 1.0778</title></circle>
+<circle cx="168.4" cy="464.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.7, down, completed, A 1.0694</title></circle>
+<circle cx="168.4" cy="473.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.65, down, completed, A 0.9896</title></circle>
+<circle cx="168.4" cy="481.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.6, down, completed, A 0.9095</title></circle>
+<circle cx="168.4" cy="490.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.55, down, completed, A 0.8234</title></circle>
+<circle cx="168.4" cy="499.5" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.5, down, completed, A 0.7141</title></circle>
+<circle cx="168.4" cy="508.4" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.45, down, completed, A 0.58</title></circle>
+<circle cx="168.4" cy="517.2" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.4, down, completed, A 0.4443</title></circle>
+<circle cx="168.4" cy="526.1" r="3.6" fill="#3987e5" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.35, down, completed, A 0.2079</title></circle>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.3, Gamma 2.3, down, cpu_budget (Mac step cap)</title><line x1="164.9" y1="531.4" x2="171.9" y2="538.4"/><line x1="164.9" y1="538.4" x2="171.9" y2="531.4"/></g>
+<circle cx="182.4" cy="517.2" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.4, up, completed, A 0.0088</title></circle>
+<circle cx="182.4" cy="508.4" r="3.6" fill="#cde2fb" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.45, up, completed, A 0.0</title></circle>
+<circle cx="182.4" cy="499.5" r="3.6" fill="#86b6ef" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.5, up, completed, A 0.1229</title></circle>
+<circle cx="182.4" cy="490.7" r="3.6" fill="#1c5cab" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.55, up, completed, A 0.4563</title></circle>
+<circle cx="182.4" cy="481.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.6, up, completed, A 0.8498</title></circle>
+<circle cx="182.4" cy="473.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.65, up, completed, A 0.9848</title></circle>
+<circle cx="182.4" cy="464.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.7, up, completed, A 1.0964</title></circle>
+<circle cx="182.4" cy="455.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.75, up, completed, A 1.1968</title></circle>
+<circle cx="182.4" cy="446.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.8, up, completed, A 1.2613</title></circle>
+<circle cx="182.4" cy="437.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.85, up, completed, A 1.311</title></circle>
+<circle cx="182.4" cy="428.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.9, up, completed, A 1.2988</title></circle>
+<circle cx="182.4" cy="419.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 2.95, up, completed, A 1.3484</title></circle>
+<circle cx="182.4" cy="411.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.0, up, completed, A 1.4322</title></circle>
+<circle cx="182.4" cy="402.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.05, up, completed, A 1.4952</title></circle>
+<circle cx="182.4" cy="393.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.1, up, completed, A 1.5119</title></circle>
+<circle cx="182.4" cy="384.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.15, up, completed, A 1.4978</title></circle>
+<circle cx="182.4" cy="375.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.2, up, completed, A 1.5912</title></circle>
+<circle cx="182.4" cy="366.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.25, up, completed, A 1.7077</title></circle>
+<circle cx="182.4" cy="357.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.3, up, completed, A 1.7675</title></circle>
+<circle cx="182.4" cy="349.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.35, up, completed, A 1.8073</title></circle>
+<circle cx="182.4" cy="340.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.4, up, completed, A 1.7918</title></circle>
+<circle cx="182.4" cy="331.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.45, up, completed, A 1.8012</title></circle>
+<circle cx="182.4" cy="322.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.5, up, completed, A 1.8833</title></circle>
+<circle cx="182.4" cy="313.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.55, up, completed, A 1.9423</title></circle>
+<circle cx="182.4" cy="304.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.6, up, completed, A 1.9939</title></circle>
+<circle cx="182.4" cy="295.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.65, up, completed, A 2.0092</title></circle>
+<circle cx="182.4" cy="287.0" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.7, up, completed, A 2.0285</title></circle>
+<circle cx="182.4" cy="278.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.75, up, completed, A 2.072</title></circle>
+<circle cx="182.4" cy="269.3" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.8, up, completed, A 2.1426</title></circle>
+<circle cx="182.4" cy="260.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.85, up, completed, A 2.2342</title></circle>
+<circle cx="182.4" cy="251.6" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.9, up, completed, A 2.3103</title></circle>
+<circle cx="182.4" cy="242.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 3.95, up, completed, A 2.3843</title></circle>
+<circle cx="182.4" cy="233.9" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.0, up, completed, A 2.4282</title></circle>
+<circle cx="182.4" cy="225.1" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.05, up, completed, A 2.4923</title></circle>
+<circle cx="182.4" cy="216.2" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.1, up, completed, A 2.5899</title></circle>
+<circle cx="182.4" cy="207.4" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.15, up, completed, A 2.6759</title></circle>
+<circle cx="182.4" cy="198.5" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.2, up, completed, A 2.7443</title></circle>
+<circle cx="182.4" cy="189.7" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.25, up, completed, A 2.766</title></circle>
+<circle cx="182.4" cy="180.8" r="3.6" fill="#0d366b" stroke="#ffffff" stroke-width="1"><title>f* 0.3, Gamma 4.3, up, completed, A 1.847</title></circle>
+<text x="187.4" y="170.8" font-size="10" fill="#6b6b66" text-anchor="middle">record ends</text>
+<text x="126.0" y="670" font-size="12" fill="#6b6b66" text-anchor="middle">0.27</text>
+<g stroke="#c0392b" stroke-width="1.6" stroke-linecap="round"><title>f* 0.27, Gamma 3.0, start, cpu_budget (Mac step cap)</title><line x1="129.5" y1="407.5" x2="136.5" y2="414.5"/><line x1="129.5" y1="414.5" x2="136.5" y2="407.5"/></g>
+<text x="126.0" y="399.0" font-size="10" fill="#6b6b66" text-anchor="middle">first step</text>
+<text x="126.0" y="410.0" font-size="10" fill="#6b6b66" text-anchor="middle">not finished</text>
+<text x="730" y="130" font-size="13" fill="#1f1f1d" font-weight="bold">Pattern amplitude A</text>
+<text x="730" y="146" font-size="11" fill="#6b6b66">(band amplitude of the height field,</text>
+<text x="730" y="160" font-size="11" fill="#6b6b66">wavelengths L/3 and shorter, sphere</text>
+<text x="730" y="174" font-size="11" fill="#6b6b66">diameters; larger = more patterned)</text>
+<circle cx="738" cy="192" r="6" fill="#cde2fb"/>
+<text x="752" y="196" font-size="12" fill="#1f1f1d">0 to 0.1</text>
+<circle cx="738" cy="214" r="6" fill="#86b6ef"/>
+<text x="752" y="218" font-size="12" fill="#1f1f1d">0.1 to 0.2</text>
+<circle cx="738" cy="236" r="6" fill="#3987e5"/>
+<text x="752" y="240" font-size="12" fill="#1f1f1d">0.2 to 0.4</text>
+<circle cx="738" cy="258" r="6" fill="#1c5cab"/>
+<text x="752" y="262" font-size="12" fill="#1f1f1d">0.4 to 0.8</text>
+<circle cx="738" cy="280" r="6" fill="#0d366b"/>
+<text x="752" y="284" font-size="12" fill="#1f1f1d">0.8 and above</text>
+<circle cx="738" cy="312" r="5" fill="#ffffff" stroke="#1f1f1d" stroke-width="1.2"/>
+<text x="752" y="316" font-size="12" fill="#1f1f1d">ran all 25 cycles on Hatteras;</text>
+<text x="752" y="330" font-size="12" fill="#1f1f1d">amplitude not computed</text>
+<g stroke="#c0392b" stroke-width="2.4" stroke-linecap="round"><title>legend</title><line x1="732.5" y1="346.5" x2="743.5" y2="357.5"/><line x1="732.5" y1="357.5" x2="743.5" y2="346.5"/></g>
+<text x="752" y="356" font-size="12" fill="#1f1f1d">step stopped by its CPU cap</text>
+<text x="752" y="370" font-size="12" fill="#1f1f1d">(large: 48 CPU-hours, Hatteras;</text>
+<text x="752" y="384" font-size="12" fill="#1f1f1d">small: 0.5-4 CPU-hours, Mac)</text>
+<text x="730" y="414" font-size="11.5" fill="#6b6b66">In each column, the left marks are</text>
+<text x="730" y="429" font-size="11.5" fill="#6b6b66">the way down from Gamma 3.0, the</text>
+<text x="730" y="444" font-size="11.5" fill="#6b6b66">right marks the way back up.</text>
+<text x="730" y="459" font-size="11.5" fill="#6b6b66"></text>
+<text x="730" y="474" font-size="11.5" fill="#6b6b66">No loop got above Gamma 4.6: the</text>
+<text x="730" y="489" font-size="11.5" fill="#6b6b66">cost per cycle rises several times</text>
+<text x="730" y="504" font-size="11.5" fill="#6b6b66">with each 0.05 step above 4.5; the layer</text>
+<text x="730" y="519" font-size="11.5" fill="#6b6b66">alternating a cheap and an expensive</text>
+<text x="730" y="534" font-size="11.5" fill="#6b6b66">cycle (period doubling).</text>
+<text x="730" y="549" font-size="11.5" fill="#6b6b66"></text>
+<text x="730" y="564" font-size="11.5" fill="#6b6b66">Pattern type (stripes, squares,</text>
+<text x="730" y="579" font-size="11.5" fill="#6b6b66">hexagons) is not shown: the pass</text>
+<text x="730" y="594" font-size="11.5" fill="#6b6b66">kept ring spectra only.</text>
+<text x="730" y="609" font-size="11.5" fill="#6b6b66"></text>
+<text x="730" y="624" font-size="11.5" fill="#6b6b66">f* 0.30: the E0065 record ends at</text>
+<text x="730" y="639" font-size="11.5" fill="#6b6b66">Gamma 4.3 on the way up; it was not</text>
+<text x="730" y="654" font-size="11.5" fill="#6b6b66">continued in E0089.</text>
+</svg>
