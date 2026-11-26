@@ -1,0 +1,73 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the last nudge loop (f* 0.44, Hatteras job 164657) ended. Like f* 0.50, it stopped on its 48 CPU-hour step cap at Gamma 4.6 after one cheap cycle, so all eight continued loops are over and none got above Gamma 4.6: the loop experiment's expectation of completing above 5.0 is falsified. Following the checker, costs are now quoted per cycle: the layer alternates cheap and expensive cycles near 4.6, and at f* 0.44 and 0.50 a single unfinished expensive cycle cost at least about 700,000 events per particle, three times any other loop's costliest cycle. The line's pinned phase diagram is now drawn.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Where did the last nudge loop (f* 0.44) stop, and what does a cycle near the stop really cost, given the checker's finding that per-step averages hide a cycle-to-cycle alternation?",
+   "what_was_done": "Collected the ended job's mirrored files and added the loop to the step-by-step table. Then read the event count of every completed cycle in the last three steps of all eight loops, split the cycles into the cheap and expensive halves of the alternation, gave the unfinished cycle of each stopped step separately as a lower bound, and added the counts of near-zero-speed collisions. Recorded the experiment's outcome and drew the line's phase diagram from the recorded data.",
+   "result": "The f* 0.44 loop stopped at Gamma 4.6 after one completed cycle, using 97.8 CPU-hours for the job. That cycle was a cheap one (636 events per particle); the next, unfinished after eight tenths of a cycle, had already cost at least 697,738. At f* 0.50 the same: 456, then at least 725,554. In every other loop's stopping step the cost alternates every cycle: expensive cycles average 55,120 to 118,314 events per particle, cheap ones 1,269 to 7,114, and the costliest single completed cycle anywhere is 230,431 (f* 0.65). At f* 0.44 and 0.50, collisions between two spheres meeting at almost zero speed rose about 255 and 299 times per cycle from Gamma 4.55, while such collisions with the plate did not rise much; they are still only two to three hundredths of a percent of all sphere collisions, so the extra work is ordinary sphere-sphere collisions, about 18 and 26 times more per cycle. The energy audit was clean in every completed cycle. All eight loops together used 537.6 CPU-hours.",
+   "takeaway": "The nudge cannot be pushed past Gamma 4.6 with 48 CPU-hours per step at any of the eight frequencies; whether the cost falls again by Gamma 5.0, as the inelastic ball model predicts, is untested. The very expensive cycles at f* 0.44 and 0.50 come from neighbouring frequencies, so they are less likely to be a fluke of one run, but each rests on one unfinished cycle of one seed, and whether they are physics or an effect of the nudge is untested. The earlier figure of 389,000 events per cycle at f* 0.50 described no actual cycle and is withdrawn."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "(Repeated; all eight loops have now stopped at Gamma 4.55 to 4.6.) Should I (a) give the loops more than 48 CPU-hours a step from Gamma 4.6 to 5.0, or (b) run a cheaper test: start from the saved Gamma 4.6 state and run a few cycles at each Gamma from 4.65 to 5.0, to see whether the cost falls as the inelastic ball model predicts?",
+   "why_it_matters": "It decides whether the nudge is measured above Gamma 4.6 at all. At f* 0.44 and 0.50 one expensive cycle at 4.6 costs over 20 CPU-hours, so neither option fits there within 100 CPU-hours per job.",
+   "default_if_unanswered": "Nothing more is spent on this line until you answer. If you choose (b), I register it as a new experiment at one or two frequencies other than f* 0.44 and 0.50, under 100 CPU-hours per job."
+  },
+  {
+   "question": "(Still open.) budgets.yaml limits CPU to 100 hours 'per run'. Does a run mean one cluster job (one whole loop at one frequency) or one Gamma step of a loop?",
+   "why_it_matters": "The f* 0.44 job used 97.8 CPU-hours; under the job reading, any continuation past Gamma 4.6 is out of reach at the cap that stopped it.",
+   "default_if_unanswered": "Treat a run as one job."
+  },
+  {
+   "question": "The phase diagram you pinned asks for each condition marked by the pattern seen there. The fast pass kept only ring-averaged spectra, so the pattern type (stripes, squares, hexagons) cannot be told; the figure colours each condition by pattern amplitude instead, with stopped steps marked. Is amplitude enough, or do you want the pattern type, which needs the height fields kept (rerunning chosen conditions)?",
+   "why_it_matters": "It decides whether the pinned figure is finished or needs new runs.",
+   "default_if_unanswered": "Keep amplitude only and redraw the figure when new nudge data arrive."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state at one or two frequencies away from f* 0.44 and 0.50 (for example 0.57 and 0.84), a few cycles each at 4.65, 4.7, 4.8 and 5.0, costs quoted per pair of cycles.",
+   "rationale": "It tests the one untested prediction (the cost falls again above 4.6) for tens of CPU-hours instead of hundreds."
+  },
+  {
+   "direction": "Compare sphere-sphere and near-zero-speed collisions per cycle at Gamma 4.5 to 4.6 between the nudge loops and the plain-engine loops of L0018 at the same frequencies, f* 0.44 and 0.50 included (for L0018 to run).",
+   "rationale": "It would show whether the extra collisions, which are between spheres and not with the plate the nudge acts on, come from the method or from the physics."
+  },
+  {
+   "direction": "Re-run Gamma 4.55 to 4.6 at f* 0.50 with a second seed for two or three cycles, capped below 100 CPU-hours.",
+   "rationale": "It tells whether the very expensive cycle belongs to the frequency band or to this run's state."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 828.134,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 97.821,
+   "limit": 100
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T07:40:40Z",
+  "actual_start": "2026-11-26T07:42:40Z",
+  "ended": "2026-11-26T07:50:29Z",
+  "interruptions": [],
+  "cpu_hours": 0.01,
+  "cores_available": 40,
+  "disk_free_gb": {
+   "start": 82,
+   "end": 82.0
+  },
+  "unfinished_runs": [],
+  "limits_hit": "The registered 48 CPU-hour step cap stopped every loop (the science, not the machine). The per-run budget: the f* 0.44 job used 97.8 of 100 CPU-hours (past 80%). scheduled_start is the job's end time from its record (the service start time is not visible here). No pmset on this Linux host, so sleep could not be checked; no gaps were seen. Local CPU was only the 37-second frozen-test run (74 of 74 passed) and small scripts. The diagram's text could not be checked by rendering (no fonts in the local renderer); its marks were checked."
+ }
+}

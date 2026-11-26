@@ -298,6 +298,27 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): last loop (f\* 0.44) ended at Gamma 4.6; costs per cycle, not per step (ran Nov 26 07:42Z)
+
+Started by the service for job hatteras-164657 (f\* 0.44, A0200, 97.82
+CPU-hours: under the 100 per run, past 80%). Session summary:
+`sessions/2026-11-26-L0015.json`. Evidence `evidence/E0089-cycle-table.json`
+(new) and `evidence/E0089-step-table.json` (eight loops).
+
+- **E0089 is over and falsified:** all eight continued loops stopped on the
+  48 CPU-hour step cap, f\* 0.38 at Gamma 4.55, the rest at 4.6. 537.6
+  CPU-hours in all. Energy audit clean throughout.
+- **Cheap and expensive cycles (T0049, D0090 supersedes D0086):** at every
+  stopping step the cost alternates cycle by cycle. Expensive cycles cost
+  55,120 to 118,314 events per particle, cheap ones 1,269 to 7,114.
+- **f\* 0.44 and 0.50:** one cheap cycle at 4.6 (636, 456), then an
+  unfinished cycle of at least 697,738 and 725,554 events per particle,
+  three times any other loop's costliest cycle; near-zero-speed sphere-pair
+  collisions per cycle up about 255 and 299 times, though still only 0.02 to
+  0.03% of pair collisions. The Nov 25 figure "389,000 per cycle" is
+  withdrawn. One seed; physics or method untested.
+- **Pinned phase diagram** drawn: `lines/L0015/pinned/phase-diagram.svg`.
+
 ### L0015 (nudge fast pass): f\* 0.50 loop ended at Gamma 4.6 after one cycle (ran Nov 25 15:59Z)
 
 Started by the service for job hatteras-164658 (f\* 0.50, A0194, 82.38
@@ -1660,11 +1681,10 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Nudge fast pass (L0015, Nov 25 05:40Z run):** collect the two E0089
-  loops still in Gamma 4.6 (f\* 0.44, 0.50) as they end, adding each to
-  `evidence/E0089-step-table.json`; D0072 wake on Nov 26 08:00Z. Then ask
-  Chris for a bigger allowance or a cheaper cost probe above 4.6 (D0071),
-  and write the E0089 outcome.
+- **Nudge fast pass (L0015, Nov 26 07:42Z run):** nothing running. Waiting
+  for Chris: a bigger step cap from Gamma 4.6 to 5.0, or a short cost probe
+  from the saved 4.6 state (new experiment); what "per run" means; whether
+  amplitude without pattern type is enough on the phase diagram.
 - **Nudge (L0001):** waiting for Chris: close now, or after a frozen-test
   run on 16f3334 (needs the nudge branch on this machine, B0008).
 - **Grapenuts (L0020):** collect the rest of E0099 (deep 2D, 3D) and
