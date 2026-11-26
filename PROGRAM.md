@@ -298,6 +298,20 @@ The five options in `notes/contact-options.md`.
 
 ## Current state
 
+### L0015 (nudge fast pass): budget-guard timer moot; checker's Nov 26 wording points fixed (ran Nov 26 09:01Z)
+
+Started by the service for the D0072 budget-guard timers (cancel any E0089
+loop before 100 CPU-hours). No E0089 job runs (all eight ended and were
+collected by Nov 26 07:42Z), so nothing was cancelled and no CPU was spent.
+The run answered the checker's Nov 26 review: collision rises at f\* 0.44
+and 0.50 at Gamma 4.6 are now compared per pair of cycles
+(`evidence/E0089-pair-ratios.json`, `tools/e0089_pair_ratios.py`): at least
+16 and 24 times for sphere-pair collisions, 231 and 279 times for
+near-zero-speed sphere-pair collisions, and near-zero-speed plate
+collisions 1.2 and 4.2 times (not flat at f\* 0.50). The line's state is
+corrected to match; the cycle-table tool's docstring now says cycles are
+split by parity. Summary: `sessions/2026-11-26-L0015-2.json`.
+
 ### L0015 (nudge fast pass): last loop (f\* 0.44) ended at Gamma 4.6; costs per cycle, not per step (ran Nov 26 07:42Z)
 
 Started by the service for job hatteras-164657 (f\* 0.44, A0200, 97.82
@@ -1701,7 +1715,7 @@ These are findings, not edits; the referee is his.
 
 ## Next
 
-- **Nudge fast pass (L0015, Nov 26 07:42Z run):** nothing running. Waiting
+- **Nudge fast pass (L0015, Nov 26 09:01Z run):** nothing running. Waiting
   for Chris: a bigger step cap from Gamma 4.6 to 5.0, or a short cost probe
   from the saved 4.6 state (new experiment); what "per run" means; whether
   amplitude without pattern type is enough on the phase diagram.

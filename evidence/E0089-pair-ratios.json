@@ -1,0 +1,70 @@
+{
+ "experiment_id": "E0089",
+ "line_id": "L0015",
+ "what": "Per-pair-of-cycles collision ratios for E0089's stopping steps (checker Nov 26, point 1). Answers the checker review of Nov 26 (point 1).",
+ "method": "ratio_per_pair_lower_bound = stopped step's whole count / (2 x step-before count per cycle). ratio_per_cycle_spanned_old = the earlier figure (per cycle spanned, both steps).",
+ "source": {
+  "path": "evidence/E0089-cycle-table.json",
+  "sha256": "92cf7f9a2125cebe8f20f8fde2da258220c3ac785e7a8a666510464f5a422d33"
+ },
+ "stopping_steps": {
+  "0.44": {
+   "gamma": 4.6,
+   "gamma_before": 4.55,
+   "cycles_spanned": 1.81,
+   "pair_collisions_per_particle": {
+    "stopped_step_total": 551429.5,
+    "step_before_per_pair": 34847.2,
+    "ratio_per_pair_lower_bound": 15.8,
+    "ratio_per_cycle_spanned_old": 17.5
+   },
+   "plate_collisions_per_particle": {
+    "stopped_step_total": 73700.8,
+    "step_before_per_pair": 8308.0,
+    "ratio_per_pair_lower_bound": 8.9,
+    "ratio_per_cycle_spanned_old": 9.8
+   },
+   "tiny_pair_collisions": {
+    "stopped_step_total": 6761851,
+    "step_before_per_pair": 29278,
+    "ratio_per_pair_lower_bound": 231.0,
+    "ratio_per_cycle_spanned_old": 255.2
+   },
+   "tiny_plate_collisions": {
+    "stopped_step_total": 14990,
+    "step_before_per_pair": 12048,
+    "ratio_per_pair_lower_bound": 1.2,
+    "ratio_per_cycle_spanned_old": 1.4
+   }
+  },
+  "0.5": {
+   "gamma": 4.6,
+   "gamma_before": 4.55,
+   "cycles_spanned": 1.864,
+   "pair_collisions_per_particle": {
+    "stopped_step_total": 573928.2,
+    "step_before_per_pair": 23652.6,
+    "ratio_per_pair_lower_bound": 24.3,
+    "ratio_per_cycle_spanned_old": 26.0
+   },
+   "plate_collisions_per_particle": {
+    "stopped_step_total": 76877.5,
+    "step_before_per_pair": 6385.4,
+    "ratio_per_pair_lower_bound": 12.0,
+    "ratio_per_cycle_spanned_old": 12.9
+   },
+   "tiny_pair_collisions": {
+    "stopped_step_total": 10353671,
+    "step_before_per_pair": 37092,
+    "ratio_per_pair_lower_bound": 279.1,
+    "ratio_per_cycle_spanned_old": 299.5
+   },
+   "tiny_plate_collisions": {
+    "stopped_step_total": 87847,
+    "step_before_per_pair": 21088,
+    "ratio_per_pair_lower_bound": 4.2,
+    "ratio_per_cycle_spanned_old": 4.5
+   }
+  }
+ }
+}

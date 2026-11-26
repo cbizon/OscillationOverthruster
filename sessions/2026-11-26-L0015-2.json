@@ -1,0 +1,53 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0015",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "The service started this run for this line's budget-guard timers, which were set to cancel any nudge fast-pass loop before it passed 100 CPU-hours. No loop was running: all eight ended on their step cap and were collected by this morning's earlier run. So nothing was cancelled and no CPU was spent. The run fixed three small inaccuracies the checker found in this morning's records. No conclusion changed.",
+ "experiments": [
+  {
+   "experiment_id": "E0089",
+   "question": "Near Gamma 4.6, by how much did collisions rise in the two loops whose last cycle blew up (f* 0.44 and 0.50), counted fairly?",
+   "what_was_done": "Counted collisions per pair of cycles (one cheap plus one expensive). The stopped step holds one cheap cycle plus most of an expensive one, so its whole count was compared with one pair of cycles from the step before. The earlier figures divided by the cycles spanned, which mixes the two kinds of cycle. This was a reanalysis of the existing per-cycle table; no new runs.",
+   "result": "Near-zero-speed sphere-pair collisions rose at least 231 and 279 times (earlier: 255 and 299). Sphere-pair collisions of all speeds rose at least 16 and 24 times (earlier: 17.5 and 26). Near-zero-speed plate collisions rose 1.2 and 4.2 times, so they were not flat at f* 0.50 as the earlier note said. All of these are lower bounds, because the expensive cycle never finished.",
+   "takeaway": "The checker's figures are confirmed, and the line's state and note now quote them. The picture is unchanged: the blow-up is mostly ordinary sphere-pair collisions, and the near-zero-speed ones are a tiny share of them that rises steeply."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "A short cost probe from the saved Gamma 4.6 state, a few cycles each at 4.65 to 5.0, at frequencies away from f* 0.44 and 0.50, with costs quoted per pair of cycles (as proposed this morning).",
+   "rationale": "It tests the one prediction still open, that the cost falls again above 4.6. It costs tens of CPU-hours instead of hundreds. It waits for Chris's answer to this morning's questions."
+  },
+  {
+   "direction": "Compare collisions per pair of cycles near Gamma 4.5 to 4.6, near-zero-speed ones included, with L0018's plain-engine loops at the same frequencies (for L0018 to run).",
+   "rationale": "It would tell whether the collision blow-up at f* 0.44 and 0.50 comes from the physics or from the nudge method."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 820.554,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 0.0,
+   "limit": 100
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T09:01:44Z",
+  "actual_start": "2026-11-26T09:01:44Z",
+  "ended": "2026-11-26T09:05:52Z",
+  "interruptions": [],
+  "cpu_hours": 0.0,
+  "cores_available": 38,
+  "disk_free_gb": {
+   "start": 82,
+   "end": 82
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none. scheduled_start is the time I noted, because the service's start time is not visible here. This is a Linux host with no pmset or uptime: cores_available comes from /proc/loadavg (load 2.4 on 40 cores), and sleep could not be checked. The weekly CPU figure is program check's 820.554; the previous summary said 828.134, probably because older jobs left the seven-day window (not checked). Housekeeping, as the checker reported: earlier runs of this line left pytest's scratch folders (pytest-12 to pytest-17) in /Users/bizon/.tmp/pytest-of-roborobo, outside the allowed folders. They are left in place rather than deleted outside the allowed folders. Future tests use a basetemp under sequel-data/tmp. Local CPU this run was a few seconds of scripts."
+ }
+}

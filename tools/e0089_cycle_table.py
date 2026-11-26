@@ -8,7 +8,8 @@ audit.json (the referee's per-cycle audit; these are per cycle, not running tota
 and reports for each step:
 
   - the completed cycles' events, split into the cheap and expensive halves of the
-    alternation (cycles below / above the step's median);
+    alternation by parity (odd and even positions in the step; the parity class
+    with the smaller mean is 'cheap');
   - the mean per pair of cycles (one cheap + one expensive), over complete pairs only;
   - for a step stopped on the CPU cap, the unfinished cycle: step total (counters.json
     difference with the previous step) minus the completed cycles, with the fraction of

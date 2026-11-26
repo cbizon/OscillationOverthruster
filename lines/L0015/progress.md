@@ -51,11 +51,14 @@
   pair 56,390 to 121,010 (f* 0.38 at 4.55: 88,588).
 - **f* 0.44 and 0.50 at 4.6:** one cheap completed cycle (636, 456), then an
   unfinished cycle of at least 697,738 (0.81 cycle) and 725,554 (0.86).
-  Three times any other loop's costliest cycle (230,431 at 0.65). Tiny
-  sphere-pair collisions per cycle up 255 and 299 times from 4.55; tiny
-  plate collisions not. Tiny ones are still only 0.02 to 0.03% of pair
-  collisions: the events are ordinary pair collisions (pair collisions per
-  cycle up 17.5 and 26 times, plate 9.8 and 12.9). The old "f* 0.50
+  Three times any other loop's costliest cycle (230,431 at 0.65). Compare
+  rises PER PAIR OF CYCLES (checker Nov 26; `tools/e0089_pair_ratios.py` ->
+  `evidence/E0089-pair-ratios.json`), all lower bounds: tiny sphere-pair
+  collisions up 231 and 279 times from 4.55; tiny plate collisions 1.2 and
+  4.2 times (not flat at 0.50); pair collisions 15.8 and 24.3, plate 8.9 and
+  12.0. (The older per-cycle-spanned 255/299, 17.5/26 mix cycle kinds.)
+  Tiny ones are still only 0.02 to 0.03% of pair collisions: the events are
+  ordinary pair collisions. The old "f* 0.50
   outlier, 389,000 per cycle" figure is withdrawn (describes no cycle).
 - `evidence/E0089-step-table.json` has all eight loops (f* 0.44 merged Nov
   26); its per-cycle averages for stopped steps are superseded (note in
@@ -72,6 +75,11 @@
   Nov 26 run: cycle table, D0090, T0049/T0047, tiny collisions).
 
 - **Record timestamps:** take `at` and `ended` from the clock when written.
+- **Tests:** run pytest with `--basetemp ~/Projects/experiments/sequel-data/tmp/pytest`
+  (the Nov 26 07:42Z run left pytest-17 in /Users/bizon/.tmp, outside the
+  allowed folders; left in place, reported to Chris).
+- **Nov 26 09:01Z run (timer):** D0072 guard timers fired with nothing
+  running; answered checker Nov 26 (pair ratios, state wording, docstring).
 
 ## Things noticed, not yet followed up
 
@@ -94,7 +102,7 @@
   Hatteras.
 - Physics or method: compare collisions near 4.5 to 4.6 with L0018's plain
   engine loops (another line's data), tiny pair collisions included.
-- D0072 wake (Nov 26 08:00Z) is moot: no E0089 job is running.
+- D0072 timers have fired (Nov 26 09:01Z run); none left. Don't re-set them: no E0089 job runs.
 
 ## Jobs in flight
 
