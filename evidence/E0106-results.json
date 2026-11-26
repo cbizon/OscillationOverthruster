@@ -1,0 +1,186 @@
+{
+ "experiment_id": "E0106",
+ "artifact": "A0201",
+ "code": "method/rest 3895370 (D0091)",
+ "command": "PYTHONPATH=. timeout 3000 nice -n 10 python scripts/rest_plate/feed_run.py SEED FSTAR 1200 OUT.json 30",
+ "files": [
+  {
+   "path": "runs/E0106/s1_f0.3.json",
+   "bytes": 37582,
+   "sha256": "957d1756f8131ccbde2dfa99e378f541474e37a163fbda6194a3c062f64e783d"
+  },
+  {
+   "path": "runs/E0106/s1_f0.3.log",
+   "bytes": 25217,
+   "sha256": "4bae7461f3b9c4c29f2201330cfd1a8f09d0eb016b48827eacb8f144fe627882"
+  },
+  {
+   "path": "runs/E0106/s2_f0.3.json",
+   "bytes": 35530,
+   "sha256": "ed24f5e7086f678c9456c5b7737761b8fc85643bf6fda79e95167b73db0cc0a9"
+  },
+  {
+   "path": "runs/E0106/s2_f0.3.log",
+   "bytes": 24510,
+   "sha256": "512af16d67bce23d6921c701a63253a984a2f5479dff60163a45159ace8184af"
+  },
+  {
+   "path": "runs/E0106/s1_f0.4.json",
+   "bytes": 35154,
+   "sha256": "5f3b63c7b6cef01da1f795bbc3007c0b30a9fc0c0959f76f686751e32f3d64e8"
+  },
+  {
+   "path": "runs/E0106/s1_f0.4.log",
+   "bytes": 21238,
+   "sha256": "8e483177d12d4b1e26ee849575d15ade1d24a4eff380fe5d619c41829fa1c372"
+  }
+ ],
+ "results": {
+  "s1_f0.3": {
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.870650988602072,
+   "cap_t": null,
+   "error": null,
+   "t_reached": 5.869999999999919,
+   "cpu_s": 248.181327108,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 5.329070518200751e-15,
+   "stack_stats": {
+    "built": 20,
+    "joined": 33,
+    "broken": 19,
+    "split": 0,
+    "spans": 54,
+    "segments": 3412,
+    "sphere_time": 0.028358833266214134,
+    "python_cpu_s": 226.172296395,
+    "fallback_collisions": 0,
+    "start_refused": 1,
+    "ends": {
+     "stop": 53,
+     "cell": 1
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 48,
+    "refused_why": {
+     "stack start: contact 4 pulls (N = -0.404727)": 1
+    },
+    "pull_dropped": 30
+   },
+   "counters": {
+    "C_EVENTS": 10076,
+    "C_STACKEV": 20,
+    "C_STACKHIT": 53,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 813,
+    "C_CAPTURE": 40,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 39,
+    "C_EGAIN": 0
+   }
+  },
+  "s2_f0.3": {
+   "stopped_by": "error",
+   "loop_t": null,
+   "cap_t": null,
+   "error": "ValueError: sphere penetrates the bottom plate",
+   "t_reached": 6.219999999999912,
+   "cpu_s": 103.338981422,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 5.480060849549773e-12,
+   "stack_stats": {
+    "built": 13,
+    "joined": 0,
+    "broken": 13,
+    "split": 0,
+    "spans": 16,
+    "segments": 925,
+    "sphere_time": 0.09997005180967555,
+    "python_cpu_s": 80.61542202400021,
+    "fallback_collisions": 19779,
+    "start_refused": 2,
+    "ends": {
+     "stop": 16
+    },
+    "largest": 3,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 4,
+    "refused_why": {
+     "stack start: contact 2 pulls (N = -0.264321)": 1,
+     "stack start: contact 1 pulls (N = -0.978793)": 1
+    }
+   },
+   "counters": {
+    "C_EVENTS": 113569,
+    "C_STACKEV": 19792,
+    "C_STACKHIT": 13,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 390,
+    "C_CAPTURE": 39310,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 39307,
+    "C_EGAIN": 0
+   }
+  },
+  "s1_f0.4": {
+   "stopped_by": "cpu cap inside a step",
+   "loop_t": null,
+   "cap_t": 5.276079624822157,
+   "error": null,
+   "t_reached": 5.269999999999932,
+   "cpu_s": 1205.114849537,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 3.3834046675451646e-14,
+   "stack_stats": {
+    "built": 90,
+    "joined": 24,
+    "broken": 88,
+    "split": 0,
+    "spans": 129,
+    "segments": 5516,
+    "sphere_time": 0.13187866233745993,
+    "python_cpu_s": 1182.952190650001,
+    "fallback_collisions": 3,
+    "start_refused": 44,
+    "ends": {
+     "stop": 117,
+     "cell": 12
+    },
+    "largest": 5,
+    "touch_max_gain": 7.110978880949392e-16,
+    "touch_impulse_contacts": 166,
+    "refused_why": {
+     "stack start: contact 3 pulls (N = -0.845204)": 1,
+     "stack start: contact 1 pulls (N = -0.896901)": 1,
+     "stack start: contact 2 pulls (N = -0.896904)": 3,
+     "stack start: contact 1 pulls (N = -1.11134)": 7,
+     "stack start: contact 1 pulls (N = -0.896904)": 2,
+     "stack start: contact 2 pulls (N = -1.11134)": 5,
+     "stack start: contact 1 pulls (N = -0.896903)": 14,
+     "stack start: contact 2 pulls (N = -0.896903)": 11
+    }
+   },
+   "counters": {
+    "C_EVENTS": 18335,
+    "C_STACKEV": 93,
+    "C_STACKHIT": 113,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 2746,
+    "C_CAPTURE": 190,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 183,
+    "C_EGAIN": 0
+   }
+  }
+ },
+ "fix_acted": {
+  "s1_f0.3": "pull_dropped 30 (new path ran 30 times); every 0.01 step up to 5.87 identical to E0105 (same built/broken counts); first difference at the loop instant 5.870650988602072, where E0105 refused 16 starts and E0106 dropped the pulling contact 30 times and refused 1",
+  "s2_f0.3": "identical to E0105 step by step and in its stop (plate penetration after the step to 6.22, 19,779 fallback collisions): the new path did not run (its two pulling contacts arose at span restarts, which still refuse)",
+  "s1_f0.4": "steps identical to E0105 to 5.25; E0106 reached 5.27 in 1205 s CPU and was stopped by the CPU cap inside a step at t = 5.276 (the in-step cap works)"
+ },
+ "loop_s1_f0.3": "after the contact 93-94 is dropped, the search finds the pair touching again at an approach of 6.9e-18 to 1.0e-17 at the same instant; 30 repeats"
+}

@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-26 07:00Z run of line L0009 (method/rest 83532c8). Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-26 08:04Z run of line L0009 (method/rest 607b687 tested; f6d148d adds the untested plate check marked below). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -71,17 +71,23 @@ sphere k touches a STACK sphere h:
                                      if k was riding; one restitution-0 touch over
                                      the whole new stack removes every closing
                                      contact's approach by normal impulses, the
-                                     plate immovable (D0089); if the new stack's
-                                     start is refused (a contact would pull), all
-                                     its spheres go back FREE/RIDER unchanged
-                                     (known to loop at one instant; to be fixed)
+                                     plate immovable (D0089)
     else:                            break the stack, ordinary collision follows
+
+start of any stack (built, joined, or split):
+    a contact whose push would be negative ("pulls") is not a contact:
+    drop it and start the parts still joined; single spheres go back
+    RIDER/FREE (D0091; before, the whole start was refused and the same
+    touch came back at the same instant)
 
 end of a stack's stored span:
     if a contact's push fell to zero ("open"):
         split the stack: parts still on the plate stay stacks (or become RIDER
         when one sphere is left); the rest become FREE
     elif a stack sphere reached a side wall: break the stack
+    elif a stack sphere with no plate contact reached the plate:
+        break the stack; the plate hit is an ordinary event
+        (D0093, committed 2026-11-26 in f6d148d, NOT YET TESTED)
     else (span reached a cell face, the run's stop time, or the store is full):
         start the next span
 
@@ -123,7 +129,10 @@ each integrator step is stored as a quartic polynomial in time per sphere
 other spheres search for their first contact with a stack sphere by
       conservative advancement on the stored polynomials: steps that provably
       cannot skip a contact, from the gap, its rate of change, and a bound on
-      the acceleration taken from the polynomials
+      the acceleration taken from the polynomials; a pair already at
+      contact counts as touching only if its gap could go below the search's
+      floor (1e-13 on the squared distance) before it opens (D0092): a
+      round-off approach (7e-18) between spheres at rest is not a touch
 a contact found, or the span's end, hands control back to Python
 ```
 
@@ -135,7 +144,8 @@ a contact found, or the span's end, hands control back to Python
 | Contact searches against riders | built, tested against brute force |
 | Moving stacks, integrated offline | built, tested; books close to 3e-13 |
 | Event loop stops at a slow touch on a rider and builds the stack | built, tested |
-| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; first layer runs below |
+| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle yet (best: seed 1, f* 0.3 reaches 5.88 of 7.45) |
+| Plate check for stack spheres without a plate contact | committed untested (D0093) |
 | Still spheres and the balance test in the event loop | designed, built only as a separate function |
 | Bounce off a still sphere between v_rest and v_wake | designed, not built |
 | Checkpoints with live stacks | not built (refused with an error) |

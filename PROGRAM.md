@@ -460,6 +460,26 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: same-instant loop fixed, plate sinking inside stacks found (ran Nov 26 08:04Z)
+
+Session summary: `sessions/2026-11-26-L0009-3.json`; numbers in
+`evidence/E0105-collection.json`, `evidence/E0106-results.json`,
+`evidence/E0107-results.json`; branch `method/rest` at 607b687 (tested) and f6d148d
+(untested plate check).
+
+- The seed 1, f* 0.4 job of E0105 had ended without a result: local background jobs
+  do not outlive the run that starts them on this machine.
+- The refused-join loop is gone in two steps: a contact that would pull is dropped
+  when a stack starts (D0091), and a pair at rest whose approach is round-off (7e-18)
+  is no longer counted as touching (D0092). The seed 1, f* 0.3 stall layer now passes
+  5.8707 and stops in the step to 5.89.
+- The new stop: a free sphere joined a stack 4.2e-6 above the plate without a plate
+  contact, and sank 4.65e-5 into the plate inside the stack, whose integration did not
+  check for it. A fix (break the stack where such a sphere reaches the plate, D0093) is
+  committed untested; a trace with it ran over five times slower and did not finish.
+- No stall layer completes its first cycle yet; no touch has gained energy.
+- Next: test D0093, then the same pull rule at span restarts, then the f* 0.4 crawl.
+
 ### L0009, timer run: overlap fixed, same-instant loops found (ran Nov 26 06:29Z)
 
 Session summary: `sessions/2026-11-26-L0009-2.json`; numbers in

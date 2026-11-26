@@ -1,0 +1,188 @@
+{
+ "experiment_id": "E0107",
+ "artifact": "A0202",
+ "code": "method/rest 607b687 (D0091 + D0092)",
+ "command": "as E0106",
+ "files": [
+  {
+   "path": "runs/E0107/s1_f0.3.json",
+   "bytes": 35023,
+   "sha256": "32b23d0740c660894e21c5e14e37816cdadaa080d93e13f742a963eef1904fcc"
+  },
+  {
+   "path": "runs/E0107/s1_f0.3.log",
+   "bytes": 23185,
+   "sha256": "de5bb3ea41d3f3b2cf607b749a7166bcea8b7d976114c69cd5eaa68f47c127d4"
+  },
+  {
+   "path": "runs/E0107/s2_f0.3.json",
+   "bytes": 34988,
+   "sha256": "06f89248ea5ed830328bd02942de6099ad34e665e3894fd3a4652e6334b39894"
+  },
+  {
+   "path": "runs/E0107/s2_f0.3.log",
+   "bytes": 24515,
+   "sha256": "fd4a34ecad392694b0e07cd3d282e939e5bab69b27b02de30dd50cfc7c68c4bf"
+  },
+  {
+   "path": "runs/E0107/s1_f0.4.json",
+   "bytes": 36129,
+   "sha256": "782662ca2ac6ee60e92ade37a7f7ec57f39acd1f5e269d429e10d4141736a16b"
+  },
+  {
+   "path": "runs/E0107/s1_f0.4.log",
+   "bytes": 21243,
+   "sha256": "51f00c9465842f0ad0e23a39f22a9d1dd931902ef182bbd91168b6d2cdf94b23"
+  }
+ ],
+ "results": {
+  "s1_f0.3": {
+   "stopped_by": "error",
+   "loop_t": null,
+   "cap_t": null,
+   "error": "ValueError: sphere penetrates the bottom plate",
+   "t_reached": 5.879999999999919,
+   "cpu_s": 122.383244404,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 6.217248937900877e-15,
+   "stack_stats": {
+    "built": 33,
+    "joined": 5,
+    "broken": 33,
+    "split": 0,
+    "spans": 41,
+    "segments": 1089,
+    "sphere_time": 0.0529551153269221,
+    "python_cpu_s": 103.725506699,
+    "fallback_collisions": 0,
+    "start_refused": 1,
+    "ends": {
+     "stop": 40,
+     "cell": 1
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 19,
+    "refused_why": {
+     "stack start: contact 4 pulls (N = -0.404727)": 1
+    },
+    "pull_dropped": 1
+   },
+   "counters": {
+    "C_EVENTS": 10416,
+    "C_STACKEV": 33,
+    "C_STACKHIT": 38,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 549,
+    "C_CAPTURE": 50,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 48,
+    "C_EGAIN": 0
+   }
+  },
+  "s2_f0.3": {
+   "stopped_by": "error",
+   "loop_t": null,
+   "cap_t": null,
+   "error": "ValueError: sphere penetrates the bottom plate",
+   "t_reached": 6.219999999999912,
+   "cpu_s": 107.18023324400001,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 5.480060849549773e-12,
+   "stack_stats": {
+    "built": 13,
+    "joined": 0,
+    "broken": 13,
+    "split": 0,
+    "spans": 16,
+    "segments": 925,
+    "sphere_time": 0.09997005180967555,
+    "python_cpu_s": 87.88556189299958,
+    "fallback_collisions": 19779,
+    "start_refused": 2,
+    "ends": {
+     "stop": 16
+    },
+    "largest": 3,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 4,
+    "refused_why": {
+     "stack start: contact 2 pulls (N = -0.264321)": 1,
+     "stack start: contact 1 pulls (N = -0.978793)": 1
+    }
+   },
+   "counters": {
+    "C_EVENTS": 113569,
+    "C_STACKEV": 19792,
+    "C_STACKHIT": 13,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 390,
+    "C_CAPTURE": 39310,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 39307,
+    "C_EGAIN": 0
+   }
+  },
+  "s1_f0.4": {
+   "stopped_by": "cpu cap inside a step",
+   "cap_t": 5.276079624822157,
+   "t_reached": 5.269999999999932,
+   "cpu_s": 1200.3194161840001,
+   "max_gain": 0.0,
+   "max_snap": 3.3834046675451646e-14,
+   "stack_stats": {
+    "built": 90,
+    "joined": 24,
+    "broken": 89,
+    "split": 0,
+    "spans": 129,
+    "segments": 5516,
+    "sphere_time": 0.13187868180909135,
+    "python_cpu_s": 1181.5549499929996,
+    "fallback_collisions": 3,
+    "start_refused": 45,
+    "ends": {
+     "stop": 117,
+     "cell": 12
+    },
+    "largest": 5,
+    "touch_max_gain": 7.110978880949392e-16,
+    "touch_impulse_contacts": 168,
+    "refused_why": {
+     "stack start: contact 3 pulls (N = -0.845204)": 1,
+     "stack start: contact 1 pulls (N = -0.896901)": 1,
+     "stack start: contact 2 pulls (N = -0.896904)": 3,
+     "stack start: contact 1 pulls (N = -1.11134)": 7,
+     "stack start: contact 1 pulls (N = -0.896904)": 2,
+     "stack start: contact 2 pulls (N = -1.11134)": 5,
+     "stack start: contact 1 pulls (N = -0.896903)": 14,
+     "stack start: contact 2 pulls (N = -0.896903)": 12
+    }
+   },
+   "counters": {
+    "C_EVENTS": 18340,
+    "C_STACKEV": 94,
+    "C_STACKHIT": 113,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 2746,
+    "C_CAPTURE": 190,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 183,
+    "C_EGAIN": 0
+   }
+  }
+ },
+ "fix_acted": {
+  "s1_f0.3": "steps identical to E0106 to 5.87; passes 5.870650988602072 (pull_dropped 1, start_refused 1) and completes the step to 5.88 (33 built, 5 joined, 33 broken); stops in the step to 5.89. No counter for how often the D0092 probe ran (not added).",
+  "s2_f0.3": "identical to E0105 and E0106 (plate penetration after 6.22)"
+ },
+ "trace_s1_f0.3_penetration": {
+  "script": "scratch (tmp/tr/pen.py, not kept): run to 5.88 in 0.01 steps, log the stack handlers, run_to 5.89",
+  "finding": "free sphere 92 joined stack [93, 94] at t = 5.8821867322626185 with plate gap 4.16e-6 (no plate contact); stack integration has no plate check for a sphere without a plate contact; at the break at 5.884592182663938 (sphere 86 hits 94) sphere 92 is handed back free with plate gap -4.65e-5, and the plate search raises 'sphere penetrates the bottom plate'.",
+  "sphere_92_gap_at_join": 4.156549203049309e-06,
+  "sphere_92_gap_at_break": -4.6508149334822946e-05
+ },
+ "s1_f0.4": "collected 08:43Z after the outcome record was written: stopped by the CPU cap inside a step at t = 5.276079624822157 after 1200 s, same stop as E0106; touch_max_gain 7.1e-16 (round-off, below the 1e-12 falsifier bound)"
+}

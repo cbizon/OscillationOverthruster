@@ -1,0 +1,83 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "This timer run was to collect the last stall-layer run of the previous experiment and fix the loop where a stack refused at its start was touched again at the same instant. The old run had ended without a result. The loop is fixed in two steps, and the seed 1, f* 0.3 layer now gets past it, only to stop in the next hundredth of a time unit on a new fault: a sphere sank into the plate inside a stack. A fix for that is committed but not yet tested, so no layer completes a cycle yet.",
+ "experiments": [
+  {
+   "experiment_id": "E0105",
+   "question": "Collect the seed 1, f* 0.4 layer left running by the previous run.",
+   "what_was_done": "Looked for the process and its result file, recorded the run folder again, and recomputed the touch statistics of the seed 1, f* 0.3 run without the repeats of its own loop, as the checker asked.",
+   "result": "The process was gone and there was no result file; its log stopped at time 5.25, written at 07:03. It most likely ended with the previous run: each run here starts with a fresh set of process numbers, so background jobs on this machine do not outlive the run that starts them. Without the loop's fifteen repeats, the seed 1 layer had 23 real touches on stack spheres, 18 at or above the rest speed and one at or above the wake speed, with a median approach speed of 0.017; the median stack lifetime is 0.00047.",
+   "takeaway": "Local jobs must finish inside the run or go to the cluster. The checker's corrected touch numbers stand."
+  },
+  {
+   "experiment_id": "E0106",
+   "question": "If a stack's start drops the contact that would pull, instead of refusing the whole stack, does the seed 1, f* 0.3 layer get past the loop at time 5.8707?",
+   "what_was_done": "Changed the code so that a contact needing a negative push is removed at a stack's start and the remaining joined parts start as stacks. Reran the three stall layers for at most twenty minutes of CPU each, now with the CPU limit checked inside each step as well as between steps.",
+   "result": "The change acted: the new path ran thirty times in the seed 1 layer, and every step up to 5.87 matched the previous run exactly. But the layer looped again at the same instant: after the contact between spheres 93 and 94 was dropped, the contact search found the two touching again at an approach speed of seven billionths of a billionth, which is round-off. The seed 2 layer was unchanged (the new path never ran there). The f* 0.4 layer crawled from 5.25 and was stopped by the CPU limit inside a step at 5.276, which shows the new limit works. The largest energy gain at any touch was zero in the two f* 0.3 layers and 7e-16 (round-off) in the f* 0.4 layer; the ledger outcome for this experiment says 'touch_max_gain 0' for all layers, which is wrong for the f* 0.4 layer (the falsifier's bound, 1e-12, is not reached either way).",
+   "takeaway": "Dropping the pulling contact is right but not enough: the search must not treat a round-off approach between spheres at rest as a touch."
+  },
+  {
+   "experiment_id": "E0107",
+   "question": "With the search also fixed, does the seed 1, f* 0.3 layer pass 5.8707?",
+   "what_was_done": "Changed the stack contact search so that two spheres already at contact count as touching only if their gap could close past the search's existing tolerance before they start to separate. No new constant was added. Reran the three layers.",
+   "result": "Seed 1 at f* 0.3 passed 5.8707 and finished the step to 5.88, building 33 stacks, then stopped in the step to 5.89 with a sphere below the plate. Tracing it showed that a free sphere joined a two-sphere stack while 4.2 millionths of a diameter above the plate, without touching the plate, and then sank 46 millionths into the plate inside the stack, because the stack's integration did not check the plate for a sphere with no plate contact. Seed 2 again stopped at 6.22 on a sphere below the plate, probably the same cause (not traced). No touch gained energy. The f* 0.4 layer crawled from 5.25 and was stopped by its CPU limit at 5.276, as in the previous experiment. The largest energy gain at any touch was 7e-16, round-off.",
+   "takeaway": "The same-instant loop is fixed; the next fault is a missing plate check inside stacks. A fix (end the stack where such a sphere reaches the plate, as at a side wall) is committed but untested: a trace with it used five times the CPU of the run without it and did not finish, for reasons not yet known."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Asked before, still open: a touch on a stack sphere between the rest speed (0.01) and the wake speed (0.05) breaks the stack now. Should it instead bounce off the stack sphere as if it were immovable, as you chose for still spheres?",
+   "why_it_matters": "Counted without the loop repeats (the previous summary's 38 included 15 of them): in the seed 1 layer 23 touches hit stack spheres, 18 broke a stack and only one of those was at or above the wake speed, so the bounce rule would have kept 17 stacks alive. In the seed 2 layer 13 touches hit stack spheres, 9 broke a stack and 5 of those were at or above the wake speed, so the bounce rule would have kept only 4.",
+   "default_if_unanswered": "Keep breaking stacks above the rest speed, and fix the faults that stop the layers first."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Test the plate check for stack spheres (find why the trace with it ran five times slower), then apply the pull rule at span restarts too, and rerun the three stall layers inside one run.",
+   "rationale": "These are the faults that now stop both f* 0.3 layers; nothing about cost or energy can be measured until a layer completes a cycle."
+  },
+  {
+   "direction": "Find where the f* 0.4 layer spends its CPU after time 5.25 (stack size, integrator steps per span).",
+   "rationale": "It is the one layer that crawls rather than fails, and it is the test of whether moving stacks can be cheap enough without time-stepping."
+  },
+  {
+   "direction": "Move the stall-layer reruns to Hatteras with a fixed CPU limit once a layer gets through its first cycle locally.",
+   "rationale": "Local background jobs do not outlive a run here, so anything longer than a run's hour has to go to the cluster."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 829.1,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.694,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T08:04:00Z",
+  "actual_start": "2026-11-26T08:04:19Z",
+  "ended": "2026-11-26T08:44:26Z",
+  "interruptions": [
+   {
+    "start": "2026-11-26T08:23:00Z",
+    "end": "2026-11-26T08:33:00Z",
+    "cause": "A wait on the plate-check trace, which hit the background tool's 10-minute limit without finishing and was stopped."
+   }
+  ],
+  "cpu_hours": 1.11,
+  "cores_available": 38,
+  "disk_free_gb": {
+   "start": 82,
+   "end": 82
+  },
+  "unfinished_runs": [],
+  "limits_hit": "none from the machine (load about 3 on 40 cores, 82 GB free, data folder 694 MB). ps, uptime, pmset, free and caffeinate are absent on this Linux worker: process CPU was read from /proc and from the runs' own process_time, sleep could not be checked. CPU this run: E0106 1556 s, E0107 seed 1 and 2 229 s plus the f* 0.4 run 1200 s, the trace 579 s, method tests about 390 s, frozen tests about 40 s. Timestamps: the 'at' of the E0106 and E0107 registrations and of D0091 and D0092 were written as estimates (08:07:30 and 08:15:00) that turned out later than the commits holding them (08:07:11 and 08:14:49); the E0106 runs started at 08:07:01, ten seconds before their registration was committed, and wrote their first results about five minutes later; the E0107 runs started at 08:14:53, after the commit."
+ }
+}

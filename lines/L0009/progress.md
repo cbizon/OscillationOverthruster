@@ -1,50 +1,56 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 26 06:29Z timer run)
+## Current state (after the Nov 26 08:04Z timer run, summary sessions/2026-11-26-L0009-3.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
-tip bf51277** (83532c8 = D0089 join fix + `scripts/rest_plate/feed_run.py`; bf51277 adds
-`stack_stats['refused_why']`, diagnosis only). Numbers: `evidence/E0105-results.json`
-(artifact A0199). Pinned page updated for D0089.
+tip f6d148d.** 3895370 = D0091 (drop a pulling contact at a stack start, helper
+`_start_parts` shared with `_on_span_end`; feed_run.py CPU cap also checked at every stack
+handler call); 607b687 = D0092 (in `edmd.first_contact_any`, a closing pair at contact is a
+touch only if the gap could go below -RIDER_GAP_TOL before it opens; probe step from M).
+Method tests 55 pass on 607b687; frozen 74 pass on main. **f6d148d = D0093, UNTESTED**:
+`_stack_span` samples the plate gap of stack spheres with no plate contact, cuts the span at
+the crossing (bisection), end_kind 'plate' -> `_on_span_end` breaks the stack. Counter
+`stack_stats['plate_cuts']`.
 
-Found this run:
-- **E0104 overlap, fixed (D0089).** A riding sphere (92) joining stack [93, 94] had its own
-  velocity changed by the join touch (D0087), so it sank 3.171e-6 into the plate; hand-back
-  lifted it into 94 (-1.534e-6). Now `_touch_projection` removes every closing contact's
-  approach over the whole new stack by normal impulses (active set, plate immovable).
-  Seed 1 max hand-back snap 5.3e-15. Method 55 and frozen 74 tests pass on 83532c8.
-- **Runs depend on the 0.01 step boundaries** (stacks pause at each run_to end): with
-  rounded steps the same code gives different failures (penetration errors, no loop at
-  f* 0.4). Always step as `t = t + 0.01` (feed_capped/feed_run) to reproduce.
-- **Same-instant loops** (checker saw one): E0104 code loops at 5.252841380439 (f* 0.4:
-  build 54-58, join 69, break by 70, repeat) and 6.242660634071709 (seed 2: build 54-60,
-  break by 67, repeat), states identical each round. After D0089, seed 1 f* 0.3 loops at
-  5.870651: build 84-93, join 94 refused ("stack start: contact 1/2 pulls, N = -1.26625"),
-  handed back unchanged, repeat.
-- **E0105** (falsified): seed 1 f* 0.3 same-instant loop at 5.8707 (35 built, 3 joined, 16
-  refused); seed 2 f* 0.3 "sphere penetrates the bottom plate" at 6.22 with 19,779 fallback
-  collisions (side-by-side riders touching, D0078 rule); seed 1 f* 0.4 still running.
+Found this run (evidence/E0105-collection.json, E0106-results.json, E0107-results.json):
+- **E0105 s1_f0.4 has no result**: pid 1080 gone, log stopped at 5.25 (07:03). Local
+  background jobs do NOT outlive the run here (each run gets a fresh process-id space, its
+  own pids start near 80; no `ps`, `uptime`, `caffeinate`). Run local jobs only within the
+  run, or on Hatteras.
+- **E0106 (D0091, falsified)**: path ran 30 times, but pair 93-94 re-touched at an approach
+  of 7e-18 at the same instant -> loop at 5.870650988602072. In-step CPU cap works (f* 0.4
+  stopped at 5.276 after 1205 s).
+- **E0107 (D0091+D0092, supported)**: seed 1 f* 0.3 passes 5.8707, completes step 5.88,
+  stops in step to 5.89: "sphere penetrates the bottom plate". Traced: free sphere 92 joined
+  stack [93, 94] at 5.8821867 with plate gap 4.16e-6 and no plate contact; the stack
+  integration has no plate check for it; at the break (86 hits 94, 5.8845922) 92 is handed
+  back with gap -4.65e-5. Seed 2 identical in all three experiments (penetration after
+  6.22; its two pulling contacts come at span restarts in `_stack_span`, which still
+  refuse; probably the same sinking cause, not traced). Seed 1 f* 0.4 crawls from 5.25.
+- With D0093 the trace (`run to 5.88 in 0.01 steps, then run_to(5.89)`) used 579 s CPU
+  without finishing (about 110 s before). Unknown why: a crawl, or many plate cuts.
 
 ## What's next
 
-1. Collect E0105 s1_f0.4 (`runs/E0105/s1_f0.4.{log,json}`, timer set for ~07:52Z); remove
-   its active.jsonl entries (all three E0105 lines; the other two processes ended), run
-   `program record` on runs/E0105, add its result to a new evidence file (E0105 outcome
-   is already recorded falsified).
-2. Fix refused starts: when `consistent_modes` says a contact pulls, drop that contact and
-   start the stack without it (split into components as `_on_span_end` does); the sphere
-   that leaves must not be re-touched at the same instant (gap 0, opening). Same guard for
-   break-then-rebuild loops: check if a same-instant repeat is possible after a break.
-3. Trace seed 2's plate penetration at 6.22 (and the 19,779 side-by-side rider fallbacks).
-4. New experiment rerunning the three layers with feed_run.py.
-5. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres. E0105
-   seed 1: 38 touches on stack spheres, 18 at or above v_rest, 1 at or above v_wake.
+1. Test D0093: rerun the trace with per-handler logging (pattern: wrap `s._on_stack_event`,
+   `_on_stack_hit`, `_on_span_end`, log t, i, j, stacks before/after and plate gaps; plus
+   `plate_cuts`) and faulthandler; find where the 579 s goes. Register an experiment first,
+   with `at` taken from `date -u` (this run's E0106/E0107 `at` were estimates 20-30 s after
+   the commits; disclosed in the summary).
+2. Span restarts (`_stack_span` -> `consistent_modes` raising "pulls") still refuse and
+   break the whole stack: apply D0091 there too.
+3. Add a counter for the D0092 probe (how often a contact touch was skipped as round-off).
+4. f* 0.4 crawl from 5.25: where the stack integration spends its time (largest stack,
+   steps per span).
+5. Seed 2's 19,779 side-by-side rider collisions (D0078 rule).
+6. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres. E0105
+   numbers without the loop repeats: seed 1, 23 real touches, 18 at or above v_rest, 1 at or
+   above v_wake, median approach 0.017; seed 2, 13 touches, 9 at or above v_rest, 5 at or
+   above v_wake.
 
 ## Jobs in flight
 
-- E0105 seed 1 f* 0.4: local process (pid 1080), `feed_run.py 1 0.4 2400 s1_f0.4.json 30`
-  from the worktree at 83532c8, timeout 3 h, started 07:00:48Z. Entries in
-  `runs/active.jsonl` (pids 1075 and 1078 have ended).
+None (E0107 s1_f0.4 collected or stopped at the end of this run; see the summary).
 
 ## Older state (after the Nov 26 05:05Z timer run)
 
