@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-26 run of line L0009. Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-26 07:00Z run of line L0009 (method/rest 83532c8). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -67,8 +67,14 @@ RIDER reaches a side wall:           RIDER -> FREE, ordinary wall collision
 
 sphere k touches a STACK sphere h:
     if k is in another stack:        break both stacks, ordinary event follows
-    elif approach < v_rest:          k joins the stack (its approach removed,
-                                     contact k-h, plus k-plate if k was riding)
+    elif approach < v_rest:          k joins the stack: contact k-h, plus k-plate
+                                     if k was riding; one restitution-0 touch over
+                                     the whole new stack removes every closing
+                                     contact's approach by normal impulses, the
+                                     plate immovable (D0089); if the new stack's
+                                     start is refused (a contact would pull), all
+                                     its spheres go back FREE/RIDER unchanged
+                                     (known to loop at one instant; to be fixed)
     else:                            break the stack, ordinary collision follows
 
 end of a stack's stored span:

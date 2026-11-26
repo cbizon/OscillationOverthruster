@@ -1,0 +1,350 @@
+{
+ "experiment_id": "E0105",
+ "artifact": "A0199",
+ "code": "method/rest 83532c8 (runs), bf51277 (refusal counter, diagnosis only)",
+ "command": "PYTHONPATH=. timeout 10800 nice -n 10 python scripts/rest_plate/feed_run.py SEED FSTAR 2400 OUT.json 30",
+ "results": {
+  "s1_f0.3": {
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.870650988602072,
+   "error": null,
+   "t_reached": 5.869999999999919,
+   "cpu_s": 144.183137023,
+   "stack_stats": {
+    "built": 35,
+    "joined": 3,
+    "broken": 34,
+    "split": 0,
+    "spans": 39,
+    "segments": 2002,
+    "sphere_time": 0.028358833266214134,
+    "python_cpu_s": 144.10142349900002,
+    "fallback_collisions": 0,
+    "start_refused": 16,
+    "ends": {
+     "stop": 38,
+     "cell": 1
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 33
+   },
+   "counters": {
+    "C_EVENTS": 10046,
+    "C_STACKEV": 35,
+    "C_STACKHIT": 38,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 530,
+    "C_CAPTURE": 40,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 39,
+    "C_EGAIN": 0
+   },
+   "max_snap": 5.329070518200751e-15,
+   "max_gain": 0.0,
+   "stack_hits": 38,
+   "hits_at_or_above_v_rest": 18,
+   "hits_at_or_above_v_wake": 1,
+   "hit_approach_median": 0.009527240116314218,
+   "stack_lifetime_median": 8.19305389336833e-05,
+   "stack_lifetime_max": 0.0020804288824392003,
+   "stacks_ended": 37,
+   "loop_calls": [
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     1.0357292705222697e-17
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     8.631077254352248e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     8.631077254352248e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ],
+    [
+     "_on_stack_event",
+     5.870650988602072,
+     84,
+     93,
+     3.034440720376943e-17
+    ],
+    [
+     "_on_stack_hit",
+     5.870650988602072,
+     93,
+     94,
+     6.904861803481798e-18
+    ]
+   ]
+  },
+  "s2_f0.3": {
+   "stopped_by": "error",
+   "loop_t": null,
+   "error": "ValueError: sphere penetrates the bottom plate",
+   "t_reached": 6.219999999999912,
+   "cpu_s": 82.446706154,
+   "stack_stats": {
+    "built": 13,
+    "joined": 0,
+    "broken": 13,
+    "split": 0,
+    "spans": 16,
+    "segments": 925,
+    "sphere_time": 0.09997005180967555,
+    "python_cpu_s": 81.5834186750009,
+    "fallback_collisions": 19779,
+    "start_refused": 2,
+    "ends": {
+     "stop": 16
+    },
+    "largest": 3,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 4
+   },
+   "counters": {
+    "C_EVENTS": 113569,
+    "C_STACKEV": 19792,
+    "C_STACKHIT": 13,
+    "C_STACKEND": 0,
+    "C_STACKSEARCH": 390,
+    "C_CAPTURE": 39310,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 39307,
+    "C_EGAIN": 0
+   },
+   "max_snap": 5.480060849549773e-12,
+   "max_gain": 0.0,
+   "stack_hits": 13,
+   "hits_at_or_above_v_rest": 9,
+   "hits_at_or_above_v_wake": 5,
+   "hit_approach_median": 0.04438256566053189,
+   "stack_lifetime_median": 0.0021013422825415518,
+   "stack_lifetime_max": 0.014703820033265202,
+   "stacks_ended": 13,
+   "loop_calls": null
+  }
+ },
+ "pending": {
+  "s1_f0.4": "running at the end of the 2026-11-26 06:29Z run; last step reported 5.25 at 76.6 s CPU; collected by the next run"
+ },
+ "diagnosis": {
+  "E0104_overlap": "Traced with the E0104 code (c6dfd4d), steps accumulated as t + 0.01: three-sphere stack [93, 94, 92]; 92 joined as a riding sphere at 5.891640 and the join changed its velocity alone (D0087), so it moved off the plate; at the break at 5.893901 its plate gap was -3.171e-06 (93: -2.2e-15); handing it back lifted it by 3.171e-06, leaving 94-92 at -1.534e-06, and the next search raised rider and free sphere overlap.",
+  "fix_acted": "With D0089 the largest hand-back snap in the seed 1 run is 5.3e-15 (E0104 code: 3.2e-6, checker) and 33 contacts carried an impulse in join touches; the trajectory differs from E0104 from the first join on, so the E0104 overlap state is not reached at all.",
+  "step_boundary_dependence": "With steps rounded to 10 digits instead of accumulated, the same code gives different runs: seed 1 f* 0.4 ran past 5.27 with no loop, and seeds 1 and 2 at f* 0.3 stopped with sphere penetrates the bottom plate before 5.89 and 6.24. Stacks pause at every run_to end, so the output step is part of the trajectory.",
+  "loop_seed1_f03": "Same-instant loop at 5.870651: a touch 84-93 builds a stack, then a touch 93-94 at approach about 1e-17 (below v_rest) asks to join; the joined stack start is refused, stack start: contact 1 or 2 pulls (N = -1.26625); the spheres are handed back unchanged and the same two touches repeat.",
+  "loop_seed1_f04_E0104code": "Same-instant loop at 5.252841380439 (reproduced with accumulated steps): stack event 54-58 builds, 58-69 joins, 58-70 breaks the stack and collides, and the build repeats with the same state; about 9.5 s of Python per round.",
+  "loop_seed2_f03_E0104code": "Same-instant loop at 6.242660634071709: stack event 54-60 builds, touch 60-67 breaks and collides, repeat with identical state; about 2.3 s per round."
+ },
+ "files": {
+  "s1_f0.3.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0105/s1_f0.3.json",
+   "bytes": 40547,
+   "sha256": "1458835f0810e491293a10f0f6c3742bb5c88ed35c190ce92818a3c1668b17db"
+  },
+  "s1_f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0105/s1_f0.3.log",
+   "bytes": 24579,
+   "sha256": "3a1968a6074710abf4990af9b78edbb274ab3142259e193fe8ac7d1092f860fb"
+  },
+  "s1_f0.4.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0105/s1_f0.4.log",
+   "bytes": 19472,
+   "sha256": "a20de0e45518430243d360a0310ae265858f52205fb30b93b80d2d871c9a6d07"
+  },
+  "s2_f0.3.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0105/s2_f0.3.json",
+   "bytes": 38789,
+   "sha256": "8d0acf9f44bc0c1c0972caeeeb2626e4b4b45714d5df00c8fef402175f626ce3"
+  },
+  "s2_f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0105/s2_f0.3.log",
+   "bytes": 23806,
+   "sha256": "90e7daa534eabefd300c13743c9fa5a8f24601e89c928a6c62ea3bda2b2029b7"
+  }
+ }
+}

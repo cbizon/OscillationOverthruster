@@ -1,0 +1,74 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "This timer run traced the faults that stopped the three 2D stall layers on branch method/rest. The overlap error in the seed 1 layer came from a riding sphere joining a moving stack: the join gave it a velocity off the plate's, so it sank 3.2e-6 into the plate. That is fixed, and handing spheres back to the plate now moves them by round-off only. The layers still do not finish a cycle. Each now stops in a same-instant loop, or, for seed 2, on a sphere penetrating the plate, so the method is still not surviving a layer.",
+ "experiments": [
+  {
+   "experiment_id": "E0105",
+   "question": "With the join fix, does the seed 1 layer get past its overlap error, and do the three stall layers finish their first cycle?",
+   "what_was_done": "First the earlier run was reproduced exactly, logging every stack event, to find the cause of the overlap and of the two stuck layers. Then the join rule was changed: a slow touch that adds a sphere to a stack now removes the closing speed at every contact of the new stack at once, with the plate treated as immovable. The three layers were rerun with output after every hundredth of a time unit and a detector that stops a run when stack events repeat at one instant.",
+   "result": "The fix acted. The largest correction when a sphere is handed back to the plate went from three millionths of a diameter to round-off. The seed 1 run took a different path from the first join on and never reached the old overlap. It stopped at 5.87, about where the old run stalled: a two-sphere stack is built, a third sphere asks to join, and the three-sphere stack is refused because one contact would have to pull. The spheres are handed back unchanged, and the same touches repeat forever at one instant. The seed 2 layer stopped at 6.22 because a sphere penetrated the plate, after almost twenty thousand fallback collisions between riding spheres side by side. In the earlier code, the other two layers had also been looping at one instant (5.2528 and 6.2427), not stuck in slow integration. The runs also turned out to depend on the output step, because stacks pause at every step. The seed 1, f* 0.4 run was still going when this was written.",
+   "takeaway": "The overlap was a booking bug and is fixed. What stops the layers now is a different fault: a stack that cannot start, or a stack that is broken, hands its spheres back in a state that makes the same events happen again at once. That needs a rule for starting a stack without the contact that would pull. The prediction (all three layers complete a cycle) is falsified."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Asked before, still open: a touch on a stack sphere between the rest speed (0.01) and the wake speed (0.05) breaks the stack now. Should it instead bounce off the stack sphere as if the sphere were immovable, as you chose for still spheres?",
+   "why_it_matters": "In tonight's seed 1 rerun, 38 touches hit stack spheres. 18 were at or above the rest speed, and so broke the stack, and only one was at or above the wake speed. Under the bounce rule, 17 of the 18 breaks would have been bounces and the stacks would have lived on. The join rule (D0089, which replaces D0087's) also treats the plate as immovable and shares the touch across the stack; a bounce would treat the stack sphere itself as immovable.",
+   "default_if_unanswered": "Keep breaking above the rest speed (D0087), fix the same-instant loops first, and count breaks and their cost in the next rerun."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Start a refused stack without the contact that would pull: split it into the part that holds and spheres that leave, and make sure a sphere leaving at zero gap is not touched again at the same instant.",
+   "rationale": "This is the fault that now stops the seed 1 layer, and likely the earlier loops too. Every other measurement waits on it."
+  },
+  {
+   "direction": "Make the layer runs independent of the output step, or at least fix the step in every experiment and say so.",
+   "rationale": "With rounded instead of accumulated steps the same code fails differently, so a result at one output step is not a result about the method."
+  },
+  {
+   "direction": "Trace the seed 2 plate penetration and the near twenty thousand fallback collisions between side-by-side riding spheres; build side-by-side stacks if that is where the cost is.",
+   "rationale": "This fallback is the old stall mechanism kept alive by the D0078 rule, and it is now the most frequent event in that layer."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 291.2,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.694,
+   "limit": 15
+  }
+ },
+ "open_blockers": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T06:29:00Z",
+  "actual_start": "2026-11-26T06:29:08Z",
+  "ended": "2026-11-26T07:16:00Z",
+  "interruptions": [
+   {
+    "start": "2026-11-26T06:35:00Z",
+    "end": "2026-11-26T06:45:00Z",
+    "cause": "A wait on traced reruns that hit the background tool's 10-minute limit; the traces with rounded steps did not reproduce the earlier run (the run depends on the step boundaries), so they had to be repeated with accumulated steps."
+   }
+  ],
+  "cpu_hours": 0.7,
+  "cores_available": 35,
+  "disk_free_gb": {
+   "start": 82,
+   "end": 82
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0105",
+    "reason": "seed 1 f* 0.4 still running at the end (last step 5.25); a timer starts the next run to collect it"
+   }
+  ],
+  "limits_hit": "none from the machine (load about 4.4 on 40 cores). The CPU figure is an upper bound summed from the processes' run times: E0105's two finished runs measured 144 and 82 s, the trace and test processes about 0.6 h together; ps, pmset and uptime do not exist on this Linux worker, so no per-process accounting or sleep log was taken. The week's spend is from program check (290.5) plus this run."
+ }
+}

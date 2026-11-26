@@ -439,6 +439,24 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: overlap fixed, same-instant loops found (ran Nov 26 06:29Z)
+
+Session summary: `sessions/2026-11-26-L0009-2.json`; numbers in
+`evidence/E0105-results.json`; branch `method/rest` at bf51277.
+
+- The overlap error that stopped the seed 1, f* 0.3 stall layer is traced and fixed.
+  A riding sphere that joined a stack took the whole touch itself and sank 3.2e-6
+  into the plate. Now the touch is shared over the whole stack, with the plate
+  immovable (D0089).
+- All three stall layers still stop in their first cycle. Seed 1 runs to 5.87 and
+  then loops forever at one instant: a join is refused because a contact would
+  pull, and the same touch repeats. Seed 2 stops at 6.22 because a sphere
+  penetrates the plate. In the earlier code the other two layers also looped at
+  one instant; they were not stuck in integration.
+- Runs depend on the 0.01 output step, because stacks pause at each step.
+- Next: start a refused stack without its pulling contact, trace the plate
+  penetration, and rerun.
+
 ### L0009, timer run: moving stacks fed into the event loop (ran Nov 26 05:05Z)
 
 Session summary: `sessions/2026-11-26-L0009.json`; numbers in

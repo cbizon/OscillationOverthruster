@@ -1,6 +1,52 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 26 05:05Z timer run)
+## Current state (after the Nov 26 06:29Z timer run)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip bf51277** (83532c8 = D0089 join fix + `scripts/rest_plate/feed_run.py`; bf51277 adds
+`stack_stats['refused_why']`, diagnosis only). Numbers: `evidence/E0105-results.json`
+(artifact A0199). Pinned page updated for D0089.
+
+Found this run:
+- **E0104 overlap, fixed (D0089).** A riding sphere (92) joining stack [93, 94] had its own
+  velocity changed by the join touch (D0087), so it sank 3.171e-6 into the plate; hand-back
+  lifted it into 94 (-1.534e-6). Now `_touch_projection` removes every closing contact's
+  approach over the whole new stack by normal impulses (active set, plate immovable).
+  Seed 1 max hand-back snap 5.3e-15. Method 55 and frozen 74 tests pass on 83532c8.
+- **Runs depend on the 0.01 step boundaries** (stacks pause at each run_to end): with
+  rounded steps the same code gives different failures (penetration errors, no loop at
+  f* 0.4). Always step as `t = t + 0.01` (feed_capped/feed_run) to reproduce.
+- **Same-instant loops** (checker saw one): E0104 code loops at 5.252841380439 (f* 0.4:
+  build 54-58, join 69, break by 70, repeat) and 6.242660634071709 (seed 2: build 54-60,
+  break by 67, repeat), states identical each round. After D0089, seed 1 f* 0.3 loops at
+  5.870651: build 84-93, join 94 refused ("stack start: contact 1/2 pulls, N = -1.26625"),
+  handed back unchanged, repeat.
+- **E0105** (falsified): seed 1 f* 0.3 same-instant loop at 5.8707 (35 built, 3 joined, 16
+  refused); seed 2 f* 0.3 "sphere penetrates the bottom plate" at 6.22 with 19,779 fallback
+  collisions (side-by-side riders touching, D0078 rule); seed 1 f* 0.4 still running.
+
+## What's next
+
+1. Collect E0105 s1_f0.4 (`runs/E0105/s1_f0.4.{log,json}`, timer set for ~07:52Z); remove
+   its active.jsonl entries (all three E0105 lines; the other two processes ended), run
+   `program record` on runs/E0105, add its result to a new evidence file (E0105 outcome
+   is already recorded falsified).
+2. Fix refused starts: when `consistent_modes` says a contact pulls, drop that contact and
+   start the stack without it (split into components as `_on_span_end` does); the sphere
+   that leaves must not be re-touched at the same instant (gap 0, opening). Same guard for
+   break-then-rebuild loops: check if a same-instant repeat is possible after a break.
+3. Trace seed 2's plate penetration at 6.22 (and the 19,779 side-by-side rider fallbacks).
+4. New experiment rerunning the three layers with feed_run.py.
+5. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres. E0105
+   seed 1: 38 touches on stack spheres, 18 at or above v_rest, 1 at or above v_wake.
+
+## Jobs in flight
+
+- E0105 seed 1 f* 0.4: local process (pid 1080), `feed_run.py 1 0.4 2400 s1_f0.4.json 30`
+  from the worktree at 83532c8, timeout 3 h, started 07:00:48Z. Entries in
+  `runs/active.jsonl` (pids 1075 and 1078 have ended).
+
+## Older state (after the Nov 26 05:05Z timer run)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip c6dfd4d.** Numbers: `evidence/E0104-results.json` (artifact A0198). Pinned page (Chris
