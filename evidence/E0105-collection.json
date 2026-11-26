@@ -1,0 +1,33 @@
+{
+ "experiment_id": "E0105",
+ "part": "collection of seed 1 f* 0.4, and the seed 1 f* 0.3 hit statistics without the same-instant repeats",
+ "written": "2026-11-26T08:10Z (run 2026-11-26-L0009-3)",
+ "artifact": "A0199 (re-recorded 2026-11-26 08:08Z: 5 files, 147193 bytes)",
+ "s1_f0.4": {
+  "result_file": null,
+  "log": "runs/E0105/s1_f0.4.log",
+  "log_bytes": 19472,
+  "log_sha256": "a20de0e45518430243d360a0310ae265858f52205fb30b93b80d2d871c9a6d07",
+  "log_last_written": "2026-11-26T07:03:25Z",
+  "last_log_line": "step 5.2500 cpu 76.6 built 19 broken 17",
+  "process": "pid 1080 not present at 08:04Z; no feed_run process on the machine. The log stopped at 07:03 (the crawl the checker traced: 30 to 70 s CPU per handler call past 5.2508). The process most likely ended with the previous run's session at about 07:11 (this run's shell starts a new process-id space: its own pids begin near 80), so a local job does not outlive the run that started it here.",
+  "stopped_by": "process ended without writing its result (no stop reason recorded); last completed step 5.25"
+ },
+ "s1_f0.3_without_loop_repeats": {
+  "touches_recorded": 38,
+  "loop_repeats_excluded_(approach_below_1e-12)": 15,
+  "touches": 23,
+  "at_or_above_v_rest_0.01": 18,
+  "at_or_above_v_wake_0.05": 1,
+  "median_approach": 0.017120798168187328,
+  "lifetimes_recorded": 37,
+  "zero_length_excluded": 15,
+  "median_lifetime": 0.00047367068066650475
+ },
+ "s2_f0.3_touches": {
+  "touches": 13,
+  "at_or_above_v_rest_0.01": 9,
+  "at_or_above_v_wake_0.05": 5,
+  "median_approach": 0.04438256566053189
+ }
+}
