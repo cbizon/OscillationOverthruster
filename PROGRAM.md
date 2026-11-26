@@ -932,6 +932,26 @@ Instruction of Nov 21 (one item on L0017). Session summary:
   400-cycle loops (29 steps, Gamma 1.9 to 2.6 and back). Job 164664, single
   core, 5-day wall time, estimated 80 CPU-hours.
 
+### Nov 26 findings, second run (L0018, started by the service for job 164667)
+
+No instruction. Session summary: `sessions/2026-11-26-L0018-2.json`.
+Evidence: `evidence/E0074-results.json` (all ten friction-off loops;
+supersedes `evidence/E0074-interim.json`). Pinned table updated.
+
+- **Friction off (E0074) at width 200: all ten loops have ended, none with
+  a stopped step.** f\* 0.84, 0.74 and 0.65 completed all 213 steps (0.65:
+  A0203, 101.0 CPU-hours), as at width 100.
+- **Per-run budget passed; seven loops cancelled (D0094).** The f\* 0.65
+  loop used 101.0 CPU-hours, and the seven still running (f\* 0.57 to 0.27)
+  had each passed 101 on one core, over the 100 CPU-hour per-run limit. They
+  were cancelled at about 11:24Z (A0204-A0210), at last completed Gamma 2.35,
+  3.0, 4.15, 5.3, 6.55 going down (f\* 0.57 to 0.33) and 6.65, 5.95 going up
+  (0.30, 0.27). They can be resumed from their run folders. Finishing would
+  take about 118 to 274 CPU-hours a loop in total. Open blocker B0009 asks
+  Chris whether to resume.
+- Cost per step at width 200: about 10 times width 100 going up (median 9.7
+  to 11.1), 7.0 to 9.9 going down.
+
 ### Nov 26 findings (L0018, started by the service for nine ended jobs)
 
 No instruction. Session summary: `sessions/2026-11-26-L0018.json`.

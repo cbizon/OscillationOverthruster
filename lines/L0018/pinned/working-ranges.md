@@ -1,6 +1,6 @@
 # Wider box: how far each loop got in Gamma, width 200 against the paper's width 100
 
-Updated 2026-11-26 from evidence/E0076-results.json, evidence/E0075-results.json and evidence/E0074-interim.json, by tools/l0018_pinned_ranges.py. One seed per box and f*.
+Updated 2026-11-26 from evidence/E0076-results.json, evidence/E0075-results.json and evidence/E0074-results.json, by tools/l0018_pinned_ranges.py. One seed per box and f*.
 
 Each loop changes Gamma (peak plate acceleration over gravity) in steps of 0.05 and holds 25 cycles a step. The *floor* is the lowest Gamma completed going down, the *top* the highest completed going up; in brackets is why the next step stopped and at what Gamma: a CPU cap (the step ran out of its CPU-time allowance, so the stop measures the budget, not the physics), an overlap (two spheres found overlapping) or a stall (simulated time stopped advancing). Width 200 holds four times as many spheres (240000 against 60000) at the same depth.
 
@@ -40,8 +40,19 @@ Step CPU caps: width 200 2 CPU-hours down and 8 up; width 100 0.5 both ways, and
 
 ## Friction off (E0074 at width 200, E0060 at width 100), Gamma 1.7 to 7.0 and back
 
-- f* 0.84: width 200 completed all 213 steps, as width 100 did.
-- f* 0.74: width 200 completed all 213 steps, as width 100 did.
-- The other eight f* are still running at width 200.
+Width 100 completed all 213 steps at every f*. No step stopped at width 200 either; seven loops were cancelled when they passed the 100 CPU-hour per-run limit (decision D0094), so they end at their last completed step.
+
+| f* | width 200 | last completed step (Gamma, leg) | CPU-hours | cost a step, width 200 over width 100 (median up) |
+|---|---|---|---|---|
+| 0.84 | all 213 steps | 1.7 (down) | 80.5 | 9.8 |
+| 0.74 | all 213 steps | 1.7 (down) | 89.9 | 10.1 |
+| 0.65 | all 213 steps | 1.7 (down) | 101.0 | 9.9 |
+| 0.57 | 200 of 213 steps, cancelled, no stop | 2.35 (down) | 101.1 | 10.1 |
+| 0.50 | 187 of 213 steps, cancelled, no stop | 3.0 (down) | 101.1 | 9.9 |
+| 0.44 | 164 of 213 steps, cancelled, no stop | 4.15 (down) | 101.1 | 9.8 |
+| 0.38 | 141 of 213 steps, cancelled, no stop | 5.3 (down) | 101.1 | 9.7 |
+| 0.33 | 116 of 213 steps, cancelled, no stop | 6.55 (down) | 101.1 | 9.7 |
+| 0.30 | 100 of 213 steps, cancelled, no stop | 6.65 (up) | 101.1 | 11.1 |
+| 0.27 | 86 of 213 steps, cancelled, no stop | 5.95 (up) | 101.1 | 10.8 |
 
 Where the spatial pattern appears (the registered test of these experiments) is not yet measured at either width.

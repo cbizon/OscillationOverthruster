@@ -9,7 +9,7 @@ R = Path(__file__).resolve().parent.parent
 ev = lambda p: json.load(open(R / "evidence" / p))
 b = ev("E0076-results.json")["table"]
 n = ev("E0075-results.json")
-z = ev("E0074-interim.json")
+z = ev("E0074-results.json")
 cont = n["width100_tops_with_2h_up_cap"]["by_fstar"]
 FS = ["0.84", "0.74", "0.65", "0.57", "0.50", "0.44", "0.38", "0.33", "0.30", "0.27"]
 
@@ -29,7 +29,7 @@ L = []
 L.append("# Wider box: how far each loop got in Gamma, width 200 against the paper's width 100")
 L.append("")
 L.append("Updated %s from evidence/E0076-results.json, evidence/E0075-results.json and "
-         "evidence/E0074-interim.json, by tools/l0018_pinned_ranges.py. One seed per box and f*." % datetime.date.today())
+         "evidence/E0074-results.json, by tools/l0018_pinned_ranges.py. One seed per box and f*." % datetime.date.today())
 L.append("")
 L.append("Each loop changes Gamma (peak plate acceleration over gravity) in steps of 0.05 and holds 25 cycles a step. "
          "The *floor* is the lowest Gamma completed going down, the *top* the highest completed going up; in brackets is why the "
@@ -87,9 +87,16 @@ for row in n["summary_table"]:
 L.append("")
 L.append("## Friction off (E0074 at width 200, E0060 at width 100), Gamma 1.7 to 7.0 and back")
 L.append("")
-for l in z["loops"]:
-    L.append("- f* %s: width 200 completed all %d steps, as width 100 did." % (l["fstar"], l["steps_completed"]))
-L.append("- The other eight f* are still running at width 200.")
+L.append("Width 100 completed all 213 steps at every f*. No step stopped at width 200 either; seven loops were cancelled "
+         "when they passed the 100 CPU-hour per-run limit (decision D0094), so they end at their last completed step.")
+L.append("")
+L.append("| f* | width 200 | last completed step (Gamma, leg) | CPU-hours | cost a step, width 200 over width 100 (median up) |")
+L.append("|---|---|---|---|---|")
+for t in z["summary_table"]:
+    w = "all %d steps" % t["steps_planned"] if t["steps_completed"] == t["steps_planned"] else \
+        "%d of %d steps, cancelled, no stop" % (t["steps_completed"], t["steps_planned"])
+    L.append("| %s | %s | %s (%s) | %.1f | %.1f |" % (t["fstar"], w, t["last_completed"]["gamma"],
+             t["last_completed"]["leg"], t["job_cpu_hours"], t["cost_ratio_median"]["up"]))
 L.append("")
 L.append("Where the spatial pattern appears (the registered test of these experiments) is not yet measured at either width.")
 (R / "lines/L0018/pinned").mkdir(parents=True, exist_ok=True)

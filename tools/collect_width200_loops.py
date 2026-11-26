@@ -26,10 +26,16 @@ for exp, job in jobs:
     low_i = gammas.index(1.7)
     d = M / exp / f"hatteras-{job}" / "out"
     steps = []
+    interrupted = []
     for sd in sorted(p for p in d.iterdir() if p.is_dir() and p.name.startswith("step-")):
         i = int(sd.name.split("-")[1])
         f = sd / "summary.json"
         s = json.load(open(f))
+        if "outcome" not in s:
+            # step still running when the job ended (cancelled or timed out): ramp.py's placeholder
+            # summary, or none written yet; not a completed or stopped step
+            interrupted.append(dict(step=i, gamma=gammas[i], cpu_h_so_far=round(s.get("cpu_seconds", 0.0) / 3600, 3)))
+            continue
         if exp == "E0075":
             leg = "down" if i <= low_i else ("up" if i <= top_i else "down2")
         else:
@@ -47,7 +53,7 @@ for exp, job in jobs:
     L = dict(experiment=exp, job=job, artifact=None, fstar=fstar,
              slurm_state=rec.get("state"), elapsed=rec.get("elapsed"),
              job_cpu_hours=rec.get("cpu_hours"), steps_present=len(steps),
-             steps_completed=len(comp), steps_planned=len(gammas),
+             steps_completed=len(comp), steps_planned=len(gammas), interrupted_steps=interrupted,
              stops=[{k: s[k] for k in ("step", "gamma", "leg", "outcome", "cycles", "requested", "cap_cpu_h", "cpu_h")} for s in stops],
              energy_gains_any_step=sum(s["energy_gains"] for s in steps),
              audit_failures_any_step=sum(s["audit_failures"] for s in steps),

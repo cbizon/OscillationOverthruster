@@ -1,0 +1,67 @@
+{
+ "date": "2026-11-26",
+ "line_id": "L0018",
+ "instruction": "none: started by the service for job",
+ "answers": [],
+ "headline": "The service started this run because the friction-off loop at f* 0.65 in the box twice as wide ended. It completed the whole loop, but it used 101 CPU-hours, past the 100 CPU-hour limit for one run, and the seven friction-off loops still running had each passed that limit too. Following the rule to stop spending at the limit, they were cancelled at their last completed step. No step of any of the ten loops had stopped. Whether to resume them is for Chris to decide.",
+ "experiments": [
+  {
+   "experiment_id": "E0074",
+   "question": "Does the friction-off model cover the whole loop in the box twice as wide, and at what cost, now that the f* 0.65 loop has ended and the other seven are past the one-run budget?",
+   "what_was_done": "Read every mirrored step summary of the f* 0.65 loop and of the seven loops cancelled for budget, with the committed collection script (now also listing a step still running when a job ended). Compared step costs with the friction-off loops in the paper's box, and wrote one results file for all ten loops that reproduces the two collected earlier step for step.",
+   "result": "The f* 0.65 loop completed all 213 steps, Gamma 1.7 to 7.0 and back, at 101.0 CPU-hours. The seven cancelled loops had completed between 86 and 200 steps each, without a single stopped step, energy gain, audit failure or slow stretch. Five had passed Gamma 7.0 and were on the way down, at 2.35, 3.0, 4.15, 5.3 and 6.55 for f* 0.57, 0.50, 0.44, 0.38 and 0.33. The two slowest were still on the way up, at 6.65 and 5.95 for f* 0.30 and 0.27. A matching step cost about ten times the paper's box going up (median 9.7 to 11.1) and seven to ten times going down. Finishing each loop would take about 118 to 274 CPU-hours in all, against the 34 to 101 registered.",
+   "takeaway": "Nothing so far in the wider box stops where the paper's box does not, for the friction-off model. Three loops are complete, and the other seven cover the whole climb up (bar the top of it at f* 0.30 and 0.27) and part of the way down. The comparison the experiment registered, where the pattern appears, needs the stored spectra and has not been made. Completing the loops would need a larger allowance for one run.",
+   "graded_by_referee": false
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Seven friction-off loops in the wider box (f* 0.57 to 0.27) were cancelled at about 101 CPU-hours each, because they had passed the 100 CPU-hour limit for one run. Should they be resumed from where they stopped? Finishing would take about 17 to 173 more CPU-hours each, about 540 in all, and each loop would then total 118 to 274 CPU-hours.",
+   "why_it_matters": "The registered test, where the pattern appears, can use the up leg of every loop as it is. Without the down legs, the hysteresis between the two branches can be compared at only three of ten f*.",
+   "default_if_unanswered": "Leave them cancelled. Measure where the pattern appears on the steps that exist: all three complete loops, plus the up legs and partial down legs of the other seven."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Measure where the pattern appears at both widths for all three passes (friction off, nudge, unmodified engine), judging the pattern by its wavelength in sphere diameters, as a Hatteras job next to the stored spectra; then write the three outcomes against their registrations.",
+   "rationale": "All thirty width-200 loops have ended. Every registered test of this line is about where the pattern appears, and none has been measured."
+  },
+  {
+   "direction": "If Chris approves, resume the four friction-off loops nearest completion (f* 0.57, 0.50, 0.44, 0.38: about 17 to 57 more CPU-hours each) with a total-CPU guard, and leave the slowest three.",
+   "rationale": "These four loops are already on the way down. Finishing them gives seven of ten complete loops for the hysteresis comparison, at about a third of what finishing all seven would cost."
+  }
+ ],
+ "budget": {
+  "cpu_hours_week": {
+   "spent": 820.554,
+   "limit": 10000
+  },
+  "cpu_hours_per_run": {
+   "spent": 101.147,
+   "limit": 100
+  }
+ },
+ "open_blockers": [
+  "B0009"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-26T11:20:13Z",
+  "actual_start": "2026-11-26T11:20:13Z",
+  "ended": "2026-11-26T11:28:32Z",
+  "interruptions": [],
+  "cpu_hours": 0.01,
+  "cores_available": 37.0,
+  "disk_free_gb": {
+   "start": 81,
+   "end": 81
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0074",
+    "reason": "Seven friction-off loops (f* 0.57 to 0.27) were cancelled at about 101 CPU-hours each, past the 100 CPU-hour per-run limit (D0094). They can be resumed if Chris raises the allowance (B0009)."
+   }
+  ],
+  "limits_hit": "The program's per-run CPU limit, not the machine: eight friction-off loops passed 100 CPU-hours. The one that ended used 101.0; the seven still running had each reached about 101.1 and were cancelled. The overrun was foreseeable, because the jobs had a five-day wall time on one core and no total-CPU guard. Earlier runs of this line did not catch it. Budget: the per-run limit was passed (100%+) by these eight runs. program check reports 820.6 of 10000 weekly CPU-hours, but it undercounts ended jobs, as the checker noted. The checker's running count was about 1700 before this run, and the eight jobs collected now add 808 (job records), so the week is about 2500, about 25%, below the 50% warning. This host is Linux: pmset and uptime are unavailable, so sleep was not measured, and cores_available is 40 minus the load average of 3.0 (/proc/loadavg). Checker Nov 26 review answered: the line state now says the width-100 nudge loop at f* 0.30 ended still climbing at 4.3, and gives the f* 0.30 cost with no early rise next to the f* 0.33 sentence. The earlier summary's headline cannot be edited. sequel-data/tmp/L0018 is emptied; other lines' files in tmp are left alone."
+ }
+}

@@ -2,13 +2,13 @@
 
 ## Status
 
-Active. All ten E0076 (baseline) and all ten E0075 (nudge) width-200 loops
-have ended and are collected (last seven nudge loops Nov 26). Two of ten
-E0074 (friction off) loops ended Nov 26 (f* 0.84, 0.74, both completed all
-213 steps); eight E0074 loops still run on Hatteras. Slurm marks every
-stopped loop FAILED (exit 1): that is how ramp.py exits when a loop stops,
-not a crash; a loop that finishes every step is COMPLETED. Read the step
-outcomes.
+Active, waiting on Chris (B0009). All thirty width-200 loops have ended.
+E0076 (baseline) and E0075 (nudge): all ten each, collected. E0074 (friction
+off): f* 0.84, 0.74, 0.65 completed all 213 steps; the other seven were
+cancelled Nov 26 about 11:24Z (D0094) because each had passed the 100
+CPU-hour per-run limit (101.1 CPU-hours by Slurm, one core). None had a
+stopped step. Resuming them is Chris's call: about 118 to 274 CPU-hours a
+loop in total. Nothing is running for this line.
 
 ## What is done
 
@@ -76,6 +76,11 @@ outcomes.
   a bit steeper at width 200; at f* 0.33 one step earlier at width 200
   (10.3 times from 4.3 to 4.4 vs 2.0). Matched-step cost ratio down
   8.7-9.5, up 7.3-7.9 (f* 0.84-0.44), 10.1-10.3 (0.33, 0.30).
+- E0074 all ten (Nov 26 second run): evidence/E0074-results.json (summary_table,
+  findings, per-step data; supersedes E0074-interim.json, whose two loops
+  reproduce step for step). No step stopped in any loop. Matched-step cost
+  ratio median up 9.7 to 11.1, down 7.0 to 9.9. collect_width200_loops.py now
+  lists a step still running at cancel as interrupted_steps.
 - E0074 f* 0.84 and 0.74 (Nov 26): evidence/E0074-interim.json. All 213
   steps, clean, 80.5 and 89.9 CPU-hours; costliest step 0.95 CPU-hours (cap
   4); matched-step cost ratio about 10 (E0070's cost holds said 4.7-5.6).
@@ -90,17 +95,23 @@ outcomes.
 
 ## Jobs in flight
 
-| Experiment | Host | Jobs | f* | Description | Wall time |
-|---|---|---|---|---|---|
-| E0074 | hatteras | 164667-164674 running; 164665, 164666 ended Nov 26 | 0.65-0.27 | no friction, L 200, N 240000, 213 steps | 5 days |
+None. E0074 jobs 164668 to 164674 cancelled Nov 26 (artifacts A0204 to
+A0210); 164667 (f* 0.65) completed (A0203).
 
-E0074: Gamma 1.7 to 7.0 and back, 25 cycles per step, 4 CPU-hour cap.
-Started about Nov 22 06:15Z; 5-day wall time ends about Nov 27 06:15Z. A
-loop that hits wall time will show as TIMEOUT: record it as unfinished,
-with the last completed step.
+To resume a cancelled loop (only if Chris says so): submit the same command
+as its job record (evidence/E0074/hatteras-<job>.json) with the run folder as
+`--input A02xx` and ramp.py's outdir pointing at a copy of it; ramp.py skips
+completed steps and continues from the latest kept checkpoint (step 0, every
+Gamma multiple of 0.5, and the latest completed step). Use
+`--max-cpu-hours-total` so a loop cannot pass whatever allowance Chris sets.
 
 ## What is next
 
+- B0009 (Chris): resume the seven cancelled E0074 loops or not, and under
+  what per-run allowance. Default if unanswered: leave them cancelled.
+- LESSON: a Hatteras job with a wall time over 100 hours on one core can pass
+  the 100 CPU-hour per-run limit. Check wall time x cores against it at
+  submission, and use ramp.py --max-cpu-hours-total.
 - E0076's registered judgement is on onset (where the pattern appears),
   not on the working range: "fails if at 3 or more f* where both boxes have
   an onset the L 200 onset is more than 0.1 in Gamma from the paper's box".
@@ -114,7 +125,6 @@ with the last completed step.
   and gets emptied under you. Copy each fetched file to tmp/L0018/ at once.
   One fetch takes about 3 to 7 s; a whole loop's fields.npz about 3 to 5 min.
   For all 15 loops, a Hatteras job next to the data is quicker.
-- Collect E0074 loops as they end: `python3 -I tools/collect_width200_loops.py OUT.json E0074:<job> ...`, then merge into evidence/E0074-interim.json (artifact ids from the service prompt).
 - Onset rule (checker Nov 25): judge the pattern by its wavelength in sphere
   diameters, not by ring index or a variance share above one half; at width
   200 the pattern ring holds a smaller share (0.3 to 0.54 vs 0.5 to 0.76)
@@ -131,6 +141,7 @@ with the last completed step.
 
 ## Key evidence
 
+- evidence/E0074-results.json (friction off, all ten loops)
 - evidence/E0076-results.json (working ranges, all ten loops)
 - evidence/E0076-interim.json (per-step data, cost ratios)
 - evidence/E0070-results.json (cost holds)
