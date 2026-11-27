@@ -1,6 +1,48 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 26 08:04Z timer run, summary sessions/2026-11-26-L0009-3.json)
+## Current state (after the Nov 27 05:05Z timer run, summary sessions/2026-11-27-L0009.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip 975a4d7** = D0095 (pull found at a span restart or after an in-span mode change:
+span ends as 'open' at that contact, or `_Pull` before the first piece -> `_start_parts`
+without it; counters `pull_opened`, `pull_dropped`) + D0096 (plate cut records
+`rec['plate_body']`; `_on_span_end` kind 'plate' breaks, then hands that sphere back as a
+rider if |vz - vp| < v_rest and plate accel > -g; counter `plate_landed`). Method tests 55
+pass; frozen 74 pass on main (start of this run).
+
+Results (evidence/E0108-results.json A0211, E0109-results.json A0212):
+- E0108 (f6d148d, D0093 alone, falsified): plate cut acted (2 cuts, first 5.88242 sphere
+  92); seed 1 looped at 5.886136 (92 left free at plate, rejoined rebuilt [93, 94]).
+  Seed 2 stuck in one handler call in step 6.23, killed at 1307 s CPU (no json).
+- E0109 (975a4d7, falsified on f* 0.4 clause): seed 2 f* 0.3 reaches 6.59 (cap 900 s;
+  pull_opened 7, pull_dropped 8, plate_landed 1, fallback collisions 4); seed 1 f* 0.3
+  reaches 5.91 then loops at 5.918301642464967: sphere 92 rests against the right side
+  wall (x + r = 20.0000) in stacks [93, 94, 92]/[92, 94]; every span is cut at start as
+  'cell' at a wall -> break -> rebuild. f* 0.4 stops at 5.27 (cap): handler calls of 112 s
+  (69 joins 4-stack at 5.2508) and 18 s; integration cost, not a loop.
+- The 579 s of the Nov 26 D0093 trace was not reproduced (steps to 5.88 as in E0107).
+- Local jobs: run them inside the run (they do not survive it). The CPU cap in
+  feed_run.py is checked only between handler calls; a single long call overruns it.
+
+## What's next
+
+1. Side walls as stack contacts (like the plate contact): a stack sphere at a wall gets a
+   wall contact (normal push, friction), so spans are not cut at once. Design note first
+   (decision), then build and rerun seed 1 f* 0.3.
+2. f* 0.4 cost: instrument `stack.integrate` (steps, rejected steps, mode switches, force
+   solves per call) on the 5.2508 join; find what makes 3-5 sphere stacks cost 18-112 s.
+3. Seed 2: check the near-same-instant loop on 54/60 (checker Nov 26) is gone (E0109 had
+   4 fallback collisions, E0107 19,779) and where it is spending time at 6.59.
+4. Make the CPU cap interrupt inside a handler (check in the integrator loop) so runs stop
+   on time.
+5. Counter for the D0092 probe; seed 2 side-by-side rider collisions (D0078).
+6. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres.
+
+## Jobs in flight
+
+None (all E0108/E0109 processes ended or were stopped; active.jsonl unchanged).
+
+## Older state (after the Nov 26 08:04Z timer run, summary sessions/2026-11-26-L0009-3.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip f6d148d.** 3895370 = D0091 (drop a pulling contact at a stack start, helper

@@ -474,6 +474,24 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: plate check tested, pull rule at restarts, side-wall loop found (ran Nov 27 05:05Z)
+
+Session summary: `sessions/2026-11-27-L0009.json`; numbers in
+`evidence/E0108-results.json`, `evidence/E0109-results.json`; branch `method/rest` at
+975a4d7 (D0093, D0095, D0096; method tests 55 pass, frozen tests 74 pass on main).
+
+- The plate check (D0093) works: the sphere that sank into the plate is now cut off at
+  the plate. It exposed a new same-instant loop (the sphere left free at the plate
+  touched the rebuilt stack again), fixed by landing it on the plate at once (D0096).
+- The pull rule now also applies at span restarts (D0095).
+- Furthest so far: seed 2, f* 0.3 reaches 6.59 (was 6.22); seed 1, f* 0.3 reaches
+  5.91 (was 5.88) and then loops because a stack sphere rests against a side wall,
+  which stacks do not treat as a contact; seed 1, f* 0.4 still stops at 5.27, where
+  single stack integrations take 18 to 112 s of CPU.
+- No stall layer completes its first cycle; no touch has gained energy (largest 1.2e-16).
+- Next: side walls as stack contacts; find why integrating 3 to 5 sphere stacks is so
+  slow at f* 0.4.
+
 ### L0009, timer run: same-instant loop fixed, plate sinking inside stacks found (ran Nov 26 08:04Z)
 
 Session summary: `sessions/2026-11-26-L0009-3.json`; numbers in
