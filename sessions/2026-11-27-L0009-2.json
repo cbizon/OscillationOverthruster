@@ -57,12 +57,14 @@
   }
  ],
  "budget": {
-  "cpu_hours_this_run": 1.13,
-  "cpu_hours_week": 823.0,
-  "cpu_hours_week_limit": 10000,
-  "share_week": "8%",
-  "per_run_limit": 100,
-  "note": "Week total from program check (821.8) plus this run; no budget passed 50%."
+  "cpu_hours": {
+   "spent": 822.9,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.696,
+   "limit": 15
+  }
  },
  "open_blockers": [
   "B0009"
@@ -79,7 +81,7 @@
    "end": 76
   },
   "unfinished_runs": [],
-  "limits_hit": "No interruptions seen; sleep could not be checked (pmset is absent on this Linux worker). Open blocker B0009 affects L0018, not this line. None from the machine (load 2.1 on 40 cores at the start, 76 GB free, data folder 696 MB). CPU from the runs' own process_time: E0110 1751 s, E0111 1079 s, E0112 682 s, E0113 283 s, tests about 290 s. The runs ended on their own (CPU cap, error or loop detector) inside the run. Finished processes stayed as zombies, so waits on process ids hung (two background waits timed out); none of this lost data. Disclosures: (1) the commit f397ada (D0098) lacks the attribution line. (2) The E0111 outcome line was first appended with status 'falsified', which misread its own falsifier: seed 1 did complete the step to 5.92. I corrected that line before it was ever committed, so no committed line changed. (3) The E0112 trace ran under the profiler, so its absolute times are inflated; its counts and shares are the result."
+  "limits_hit": "No interruptions seen; sleep could not be checked (pmset is absent on this Linux worker). Open blocker B0009 affects L0018, not this line. None from the machine (load 2.1 on 40 cores at the start, 76 GB free, data folder 696 MB). CPU from the runs' own process_time: E0110 1751 s, E0111 1079 s, E0112 682 s, E0113 283 s, tests about 290 s. The runs ended on their own (CPU cap, error or loop detector) inside the run. Finished processes stayed as zombies, so waits on process ids hung (two background waits timed out); none of this lost data. Disclosures: (1) the commit f397ada (D0098) lacks the attribution line. (2) The E0111 outcome line was first appended with status 'falsified', which misread its own falsifier: seed 1 did complete the step to 5.92. I corrected that line before it was ever committed, so no committed line changed. (3) The E0112 trace ran under the profiler, so its absolute times are inflated; its counts and shares are the result. Budget: week CPU 822.9 of 10000 hours (program check's 821.8 plus this run's 1.13), 8%; no budget passed 50%."
  },
  "decisions_needing_you": []
 }
