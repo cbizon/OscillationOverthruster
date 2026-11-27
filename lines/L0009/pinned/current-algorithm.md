@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-27 08:01Z run of line L0009 (method/rest f397ada: side walls as stack contacts, D0098, tested in E0111; the version before it, 975a4d7, was tested in E0108, E0109 and E0110). Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-27 09:53Z run of line L0009 (method/rest a10d930: pairs inside a stack checked, D0100, tested in E0116 at 22e1f09; direct force-matrix build, tested in E0117; earlier versions tested in E0108 to E0113). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -95,6 +95,12 @@ end of a stack's stored span:
             as the engine's wall collision); one restitution-0 touch over the
             whole stack removes the approach, as at a join
         else: break the stack; the wall hit is an ordinary collision
+    elif two spheres of the stack with no contact between them touch (D0100,
+            2026-11-27; span cut at the crossing, found by bisection):
+        if they approach slower than v_rest: a rolling contact between them
+            is added; one restitution-0 touch over the whole stack removes
+            the approach, as at a join
+        else: break the stack; the two collide by the ordinary collision at once
     elif a stack sphere with no plate contact reached the plate (D0093;
             span cut at the crossing, found by bisection):
         break the stack; that sphere is handed back by the capture rule at
@@ -113,7 +119,8 @@ break a stack:  each sphere -> RIDER if it has a plate contact and the plate
 ```
 state: positions, velocities, spins of its spheres; contacts (sphere-sphere,
        sphere-plate or sphere-side-wall), each "rolling" or "sliding"
-forces at any instant: one small linear solve —
+forces at any instant: one small linear solve (its matrix filled directly from
+    each force's effect on the accelerations, 2026-11-27, E0117) —
     each contact's push keeps that contact's approach acceleration at zero;
     rolling contact: friction keeps its slip acceleration at zero;
     sliding contact: friction = 0.5 × push, against the slip
@@ -160,11 +167,13 @@ a contact found, or the span's end, hands control back to Python
 | Contact searches against riders | built, tested against brute force |
 | Moving stacks, integrated offline | built, tested; books close to 3e-13 |
 | Event loop stops at a slow touch on a rider and builds the stack | built, tested |
-| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle (7.45) yet. Furthest on 2026-11-27: seed 2, f* 0.3 to 6.59 (E0109, E0111; stopped by the 900 s CPU cap); seed 1, f* 0.3 to 5.92, then "rider and free sphere overlap" in the step to 5.93 (E0113, not traced); seed 1, f* 0.4 to 5.27 at 848 s CPU (E0109) |
+| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle (7.45) yet. Furthest on 2026-11-27: seed 2, f* 0.3 to 6.59 (E0109, E0111, E0116; stopped by the 900 s CPU cap); seed 1, f* 0.3 to 5.92, then a same-instant loop at 5.9205 (E0116, traced in E0118); seed 1, f* 0.4 completes 5.28, then a same-instant loop at 5.2816 (E0110) |
+| Same-instant loop after a dropped join contact | open (E0118): a sphere joins at round-off approach, the new contact pulls and is dropped (D0091), the sphere goes back free still closing at about 1e-18 with a gap of 4e-14, and the search reports the touch again. The joined and pull_dropped counters count each repeat |
+| Pairs inside a stack with no contact between them | checked since 2026-11-27 (D0100); E0115 found two such spheres overlapping by 4.6e-5 when their stack broke (E0113's error); in E0116 the check acted once (a join) |
 | Plate check for stack spheres without a plate contact | built (D0093); acted twice in E0108 and stopped the plate penetration; the landing on the plate (D0096) acted once in E0109 |
 | Side walls as stack contacts | built 2026-11-27 (D0098); in E0111 seed 1 it acted 5 times (2 joins) and the layer passed the side-wall loop at 5.918 |
 | Restart of a stack paused at a step's end | handled like a span-end restart since 2026-11-27 (D0099); acted in E0113 |
-| Cost of a stack | 99% of a stack's CPU is its force solves (E0112): about 9 per integrator step, about 14 integrator steps per stored piece, each solve slowed by Python overhead on 3-vectors; a 5-sphere join cost 185 s under the profiler |
+| Cost of a stack | 99% of a stack's CPU was its force solves (E0112): about 9 per integrator step, about 14 integrator steps per stored piece; a 5-sphere join cost 185 s under the profiler. The direct matrix build (2026-11-27, E0117) makes each solve 6 to 10 times cheaper with the same results (2e-15 where the matrix is well conditioned); not yet timed in a layer. Still open: up to 200 full steps to locate each contact change, and sequential joins at one instant redoing the whole integration |
 | Still spheres and the balance test in the event loop | designed, built only as a separate function |
 | Bounce off a still sphere between v_rest and v_wake | designed, not built |
 | Checkpoints with live stacks | not built (refused with an error) |

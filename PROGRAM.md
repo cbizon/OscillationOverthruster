@@ -474,6 +474,28 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: overlap traced and fixed, same-instant loop traced, force solve made cheap (ran Nov 27 09:53Z)
+
+Started by the line's timer; no instruction. Summary: `sessions/2026-11-27-L0009-3.json`.
+
+- **Current state.** Branch method/rest a10d930. The seed 1 f* 0.3 overlap (E0113) came from
+  two spheres of one stack with no contact between them, which the stack integration never
+  checked (E0115). D0100 now watches such pairs like a side wall: it acted once in seed 1
+  (E0116) and that overlap is gone. But seed 1 then stops in a same-instant loop at
+  5.9205. Both that loop and the f* 0.4 loop at 5.2816 (E0118, E0114) are a join undone
+  over and over: the new contact is found pulling and dropped (D0091), and the sphere goes
+  back free still closing at round-off speed (about 1e-16 to 1e-18), so the search reports
+  the touch again. The joined and pull_dropped counters count every repeat, which confirms
+  the checker's reading of E0110's "43". The contact-force matrix is now filled directly:
+  the same forces to 2e-15, each solve 6 to 10 times cheaper (E0117), not yet timed in a
+  layer. Seed 2 f* 0.3 is unchanged (CPU cap at 6.59). E0117 also found that singular force
+  matrices are not flagged by numpy's solve, so the least-squares fallback added for them
+  never runs.
+- **Next.** Stop a dropped join contact from being reported again as a touch at the same
+  instant (start from the E0118 and E0114 snapshots), and count only joins that hold. Handle
+  singular force matrices by condition, not by numpy raising. Time the cheaper solve in the
+  f* 0.4 layer.
+
 ### L0009, timer run: side walls as stack contacts, stack cost traced (ran Nov 27 08:01Z)
 
 Session summary: `sessions/2026-11-27-L0009-2.json`; numbers in

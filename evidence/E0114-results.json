@@ -1,0 +1,88 @@
+{
+ "experiment_id": "E0114",
+ "code": "snapshot made at method/rest b1702ad (started before the stack.py edit); trace at 915363e (b1702ad + trace script; no D0100, old force build)",
+ "snapshot_cpu_s": 1369.9,
+ "trace_cpu_s": 489.883182153,
+ "stopped_by": "same-instant loop",
+ "loop_t": 5.281594649757622,
+ "same_loop_instant_as_E0110": true,
+ "calls_at_loop_instant": 41,
+ "calls_moving_pull_dropped": 40,
+ "calls_moving_joined": 40,
+ "first_call": {
+  "name": "_on_span_end",
+  "moved": {
+   "split": 1
+  },
+  "stacks_before": {
+   "1": [
+    80,
+    83
+   ],
+   "0": [
+    54,
+    58,
+    70,
+    59
+   ]
+  },
+  "stacks_after": {
+   "1": [
+    80,
+    83
+   ],
+   "0": [
+    54,
+    58,
+    70
+   ]
+  },
+  "handed_back": [
+   59
+  ]
+ },
+ "repeated_call": {
+  "name": "_on_stack_hit",
+  "stack_sphere": 54,
+  "hitter": 59,
+  "approach": 1.469756965047901e-17,
+  "moved": {
+   "joined": 1,
+   "pull_dropped": 1
+  },
+  "gap_after": 2.6645352591003757e-15,
+  "approach_after": 1.4869668380947994e-17,
+  "modes_after": [
+   "stack",
+   "free"
+  ]
+ },
+ "approaches_first_three": [
+  1.4697569650479013e-16,
+  1.0720580215643514e-16,
+  8.213347745855918e-17
+ ],
+ "finding": "The loop starts with a split: contact 54-59 of stack [54, 58, 70, 59] opens and 59 goes back free. 59 then touches 54 at approach 1.5e-16; the join builds [54, 58, 70, 59], the new contact pulls at the start, the drop rule removes it, [54, 58, 70] restarts, and 59 goes back free with gap 2.7e-15 still closing at 1e-16 to 1.5e-17; the search reports the touch again. Every repeat moves pull_dropped and joined by one, so about 30 of E0110's 35 drops (its loop limit was 30) were repeats, as the checker read it.",
+ "files": {
+  "s1_f0.4_t5.28.pkl": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0114/s1_f0.4_t5.28.pkl",
+   "bytes": 16049652,
+   "sha256": "590d5c105933c3d3dc09a10f6791b09a279e57fbbcc5f96e9555a8f93ad01eb0"
+  },
+  "snap.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0114/snap.log",
+   "bytes": 19697,
+   "sha256": "c77934e3458e44d3eb1e9311ebc2b2651506a1234decacbb4860fcef79ca8eee"
+  },
+  "trace.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0114/trace.json",
+   "bytes": 32435,
+   "sha256": "63cf9072dbae42d7267f5faa7f932a38be98b2852bedef5f257b30ae9026553b"
+  },
+  "trace.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0114/trace.log",
+   "bytes": 48,
+   "sha256": "3778ee7fda9b7dde0cacdda83b382143101bed508c122e8a9e56f0b639422555"
+  }
+ }
+}

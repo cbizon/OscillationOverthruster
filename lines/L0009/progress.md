@@ -1,6 +1,59 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 27 08:01Z timer run, summary sessions/2026-11-27-L0009-2.json)
+## Current state (after the Nov 27 09:53Z timer run, summary sessions/2026-11-27-L0009-3.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip a10d930.** 22e1f09 = D0100: pairs of stack spheres with no contact between them are
+watched like a side wall (`Simulation._pair_list`, span cut by bisection, end kind 'inner',
+`_on_inner`: approach < v_rest -> rolling contact added with the join projection, else break
++ ordinary collision; counters `inner_cuts`, `inner_joined`, `inner_broken`). a10d930 =
+`Stack.forces` builds the matrix directly (M = H G, `_cx` cross product); the old build is
+`Stack.forces_loop` (reference). Scripts: `snap_run.py` (run to a step end, pickle the
+Simulation: pickling works, ~16 MB), `trace_step.py` (one step from a pickle with handler
+logging), `force_bench.py`. Method tests 57 pass at a10d930; frozen 74 pass on main.
+Second checkout for tracing at a fixed commit: `~/Projects/experiments/sequel-data/worktrees/rest-trace`
+(detached; left at 915363e).
+
+Results this run:
+- E0115 (supported): the "rider and free sphere overlap" (E0113) came from spheres 84 and 93
+  of one 5-sphere stack with no contact between them overlapping by 4.6e-5, handed back when
+  86 was hit at 5.92284 -> D0100.
+- E0116 (D0100 at 22e1f09, falsified): seed 1 path acted (inner_cuts 1, joined 1), overlap
+  gone, but a same-instant loop at 5.920523784634156 (84-86, approach 1e-18). Seed 2 identical
+  to E0111 (CPU cap at 6.59, no inner cut).
+- E0118 (supported): that loop = free 86 joins [84, 93], the new contact pulls, dropped
+  (D0091), 86 back free at gap 4.3e-14 still closing at 7.8e-19, touch reported again.
+  36 of 41 calls move pull_dropped AND joined (both counters count repeats).
+- E0117 (supported): direct force build = same system to 2.1e-15 where well conditioned;
+  6.3-10.5x cheaper per solve; replay 2.21 vs 6.70 s. 38 of 300 random rolling stacks have
+  singular force matrices (condition > 1e12) that `np.linalg.solve` does NOT flag, so the
+  D0098 lstsq fallback never runs for them. Check how often real stacks hit this.
+- E0114 (supported): f* 0.4 loop at 5.2816 is the same: 54-59 opens (split), 59 rejoins at 1.5e-16,
+  pulls, dropped, back free still closing; 40 of 41 calls move pull_dropped and joined.
+
+## What's next
+
+0. Fix the dropped-join loop (E0118, and very likely E0110's 5.2816): when a join's new
+   contact is dropped as pulling, the pair separates by its accelerations; the round-off
+   approach left must not count as a touch. Look first at why D0092's probe in
+   `edmd.first_contact_any` does not reject it (gap 4.3e-14 > 0 so maybe not "at contact";
+   or the joiner is free and the probe uses the wrong acceleration bound). Also stop
+   counting undone joins in `joined`. Test from runs/E0118/s1_f0.3_t5.92.pkl (made at
+   22e1f09; trace_step.py, 320 s) and from runs/E0114/s1_f0.4_t5.28.pkl (made at b1702ad).
+1. Singular force matrices: count condition numbers in real stacks; use lstsq (or a rank
+   check) when the matrix is singular, not only when solve raises.
+2. Time the direct force build in a layer (seed 1 f* 0.4 to 5.28 took 1350 s with the old
+   build); then locate contact changes from the dense output; join all touches at one
+   instant at once (checker: ~300 of 494 s in E0112 were sequential joins at 5.251078).
+3. Report `n_indeterminate` in feed_run; CPU cap inside a handler; seed 2 at 6.59.
+4. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres.
+
+## Jobs in flight
+
+None kept (local jobs do not survive the run). Snapshots kept: runs/E0114 (A0217),
+runs/E0118 (A0221).
+
+## Older state (after the Nov 27 08:01Z timer run, summary sessions/2026-11-27-L0009-2.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip 0cd6a2b.** f397ada = D0098: side walls as stack contacts. `stack.Wall(axis, sign, pos)`
