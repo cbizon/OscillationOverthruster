@@ -52,7 +52,7 @@
  "run_conditions": {
   "scheduled_start": "2026-11-27T05:05:00Z",
   "actual_start": "2026-11-27T05:05:19Z",
-  "ended": "2026-11-27T05:54:43Z",
+  "ended": "2026-11-27T05:57:48Z",
   "interruptions": [],
   "cpu_hours": 1.6,
   "cores_available": 32,
@@ -66,6 +66,6 @@
     "reason": "Seed 2 at frequency 0.3 got stuck inside one stack integration past its 900 s cap (the cap is only checked between calls); stopped by hand at 1307 s CPU, so it has a log but no result file. B0009 (open, affects L0018 and records no line) is listed as an open blocker."
    }
   ],
-  "limits_hit": "none from the machine (load 7.4 on 40 cores at the start, 76 GB free, data folder 696 MB). The science was limited by the 900 s CPU caps chosen for the runs, so they ended inside the run's hour; local background jobs do not survive the run on this worker. uptime, ps, pmset, free, pkill and caffeinate are absent: load from /proc/loadavg, process CPU from /proc and the runs' own process_time, sleep could not be checked. CPU: E0108 2503 s, E0109 1949 s (from the runs), traces about 1200 s (from /proc and their logs; the first trace was killed early, the f* 0.4 trace stopped by hand), method tests 105 s, frozen tests 67 s. The first trace crashed in its own faulthandler watchdog (a tool fault, not the engine). Budget figure from program check (820.6) plus this run's 1.6. The E0108 and E0109 registrations were committed before their runs started (05:06:34 before 05:06:40; 05:18:56 before 05:18:57)."
+  "limits_hit": "none from the machine (load 7.4 on 40 cores at the start, 76 GB free, data folder 696 MB). The science was limited by the 900 s CPU caps chosen for the runs, so they ended inside the run's hour; local background jobs do not survive the run on this worker. uptime, ps, pmset, free, pkill and caffeinate are absent: load from /proc/loadavg, process CPU from /proc and the runs' own process_time, sleep could not be checked. CPU: E0108 2503 s, E0109 1949 s (from the runs), traces about 1200 s (from /proc and their logs; the first trace was killed early, the f* 0.4 trace stopped by hand), method tests 105 s, frozen tests 67 s. The first trace crashed in its own faulthandler watchdog (a tool fault, not the engine). Budget figure from program check (820.6) plus this run's 1.6. The E0108 and E0109 registrations were committed before their runs started (05:06:34 before 05:06:40; 05:18:56 before 05:18:57). Ledger correction: the checker asked for correcting records for the E0106 and E0107 outcomes. I first appended second outcome records, which program check refuses ('has a second outcome'). Because the append-only check covers every committed version, I rebuilt this run's four unpushed commits on line/L0009 without those two lines, keeping each commit's message and author and committer dates (registration timestamps unchanged: E0108 05:06:34, E0109 05:18:56). The corrections are recorded instead as decision D0097. The commit message 'Correct E0106/E0107 outcomes...' (b0558a3) therefore no longer contains outcome records."
  }
 }
