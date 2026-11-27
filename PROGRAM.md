@@ -474,6 +474,24 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: side walls as stack contacts, stack cost traced (ran Nov 27 08:01Z)
+
+Session summary: `sessions/2026-11-27-L0009-2.json`; numbers in
+`evidence/E0110-results.json` to `evidence/E0113-results.json`; branch `method/rest` at
+0cd6a2b (D0098, D0099; method tests 57 pass, frozen tests 74 pass on main).
+
+- Side walls are now contacts of a moving stack, and a sphere reaching a wall is stopped
+  exactly at it (D0098). Seed 1, f* 0.3 gets past the side-wall loop at 5.918 and
+  completes 5.92 (E0111).
+- A stack paused at the end of a run step had no handling when restarted; it now gets the
+  same handling as any restart (D0099). Seed 1 then stops in the step to 5.93 on a rider
+  overlapping a free sphere (E0113, not traced yet).
+- Why f* 0.4 is slow (E0112): 99% of a stack's CPU goes to its force solves, about nine
+  per integrator step and about fourteen integrator steps per stored piece, each solve
+  slowed by Python overhead on 3-vectors. This is cost, not a loop.
+- No stall layer completes its first cycle; no touch has gained energy.
+- Next: trace the overlap at 5.92; make the force solve and the event location cheap.
+
 ### L0009, timer run: plate check tested, pull rule at restarts, side-wall loop found (ran Nov 27 05:05Z)
 
 Session summary: `sessions/2026-11-27-L0009.json`; numbers in

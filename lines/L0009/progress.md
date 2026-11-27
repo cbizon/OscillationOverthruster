@@ -1,6 +1,55 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 27 05:05Z timer run, summary sessions/2026-11-27-L0009.json)
+## Current state (after the Nov 27 08:01Z timer run, summary sessions/2026-11-27-L0009-2.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip 0cd6a2b.** f397ada = D0098: side walls as stack contacts. `stack.Wall(axis, sign, pos)`
+partner (still plane, normal push, roll/slide with mu; no plate power); `_stack_span` finds
+a side-wall crossing by bisection (`_wall_list`: walls a sphere has no contact with, gap
+offset by a negative start gap), cut kind 'wall'; `_on_span_end` -> `_on_wall`: approach
+below v_rest -> wall contact added, approach removed by `_touch_projection` (now has wall
+rows), `_stack_new`; else break (ordinary wall bounce). Side walls are no longer cell exits.
+Singular force matrix -> lstsq (counter `Stack.n_indeterminate`, not yet reported by
+feed_run). Counters `wall_cuts`, `wall_joined`, `wall_broken`. 1c2b35b adds
+`scripts/rest_plate/cost_trace.py`. 0cd6a2b = D0099: `_restart_span` used for both span-end
+restarts and pause restarts at the start of `run_to` (pause restarts had no handling);
+`_pull_index` also reads integrate's "conditions violated [2k, ...]" as contact k pulling.
+Method tests 57 pass; frozen 74 pass on main.
+
+Results this run:
+- E0111 (f397ada, supported): seed 1 f* 0.3 passes the wall loop at 5.918, completes 5.92
+  (5 wall cuts, 2 joins), then stopped on the pause-restart error (-> D0099). Seed 2
+  unchanged from E0109 (6.59 at 900 s cap; no wall cuts).
+- E0112 (supported): f* 0.4 stack cost = force solves (99.1% of handler CPU; 9.1 solves per
+  Dormand-Prince step; ~14 steps per stored piece; ~18 ms/solve under cProfile; numpy
+  `cross` on 3-vectors and axis handling top the profile).
+- E0113 (0cd6a2b, falsified): D0099 acted (2 splits); seed 1 stops in the step to 5.93 with
+  "rider and free sphere overlap" (not traced).
+- E0110 (975a4d7, f* 0.4, cap 2100 s): see the summary for its end; it tests D0095 past 5.276.
+- Rider snaps up to 3.3e-10 now (max_snap; was 3e-14 before the plate landing D0096):
+  check where (hand_back of a sphere slightly off the plate?).
+- Local jobs: finished processes stay as zombies (/proc/<pid> exists, state Z); wait on the
+  result json, not on the pid.
+
+## What's next
+
+1. Trace the "rider and free sphere overlap" in seed 1 f* 0.3, step 5.92 -> 5.93 (E0113).
+   Suspects: a wall join or pull split handing a sphere back as a rider next to a free
+   sphere; the 3.3e-10 snaps.
+2. Make force solves cheap (E0112): write the 3-vector cross products and the matrix build
+   without numpy small-array calls (or in numba), and locate contact changes with fewer
+   full steps (the bisection takes up to 200 full Dormand-Prince steps per event; use the
+   dense output instead). Same results to round-off; a performance change: time both on
+   the same inputs.
+3. Report `n_indeterminate` in feed_run; check seed 2 at 6.59 (where its time goes).
+4. CPU cap inside a handler (cost_trace's SIGPROF timer works; use it in feed_run).
+5. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres.
+
+## Jobs in flight
+
+None at the end of this run (see the summary for E0110).
+
+## Older state (after the Nov 27 05:05Z timer run, summary sessions/2026-11-27-L0009.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip 975a4d7** = D0095 (pull found at a span restart or after an in-span mode change:
