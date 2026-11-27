@@ -1,0 +1,87 @@
+{
+ "date": "2026-11-27",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "Timer run for the resting-contact method: make side walls contacts of a moving stack, then find why the frequency 0.4 layer is so slow. Side walls now hold stack spheres, and seed 1 at frequency 0.3 got past its side-wall loop to 5.92. After a second fix, for restarting stacks paused at a step's end, it now stops on a riding sphere overlapping a free one. The slowness at frequency 0.4 is the contact-force solve: 99% of a stack's CPU, repeated about 126 times per stored piece of path. A longer frequency 0.4 run showed the pull rule from the last run working there, then hit a new same-instant loop at 5.2816.",
+ "experiments": [
+  {
+   "experiment_id": "E0110",
+   "question": "Does the pull rule from the last run (a contact that pulls at a restart is dropped or opened) act in the frequency 0.4 layer, and does that layer get past 5.276, where pulling stack starts were refused before? The checker found the last run's 900 second cap ended before that point, so the rule was never tested there.",
+   "what_was_done": "Ran the same code and script as last run on seed 1 at frequency 0.4, with a CPU cap of 2100 seconds instead of 900.",
+   "result": "The rule acted 43 times (35 pulling contacts dropped at stack starts, 8 opened at restarts), no start was refused, and the layer completed the step to 5.28 after 1360 seconds. At 5.2816 it then looped at one instant: sphere 54 touched stack sphere 59 again and again, at approach speeds of about one ten-thousand-trillionth of the sound-speed scale (round-off), and each touch was handled as a join. No energy was gained.",
+   "takeaway": "The pull rule works where it was aimed. The next obstacle is a touch on a stack sphere at round-off speed, the same kind of thing the rule for contacts already inside a stack (D0092) fixed, but now for a sphere arriving from outside."
+  },
+  {
+   "experiment_id": "E0111",
+   "question": "With side walls made contacts of a moving stack, and the wall crossing found exactly, does seed 1 at frequency 0.3 get past 5.918, where it looped with a stack sphere 1.5e-7 past the right wall?",
+   "what_was_done": "Built side-wall contacts. A stack sphere reaching a wall is stopped at the exact crossing (bisection on the stored path). If it moves towards the wall slower than the rest speed, it stays against the wall as a contact with the paper's friction. Otherwise the stack breaks and the wall bounce is the engine's ordinary one. Then ran seeds 1 and 2 at frequency 0.3, 900 seconds each.",
+   "result": "In seed 1 the wall rule acted 5 times (2 spheres held against a wall). The layer passed 5.918 and completed the step to 5.92. It then stopped on an error at the restart of a stack paused at the step's end: one of its contacts was already pulling, and that restart had no handling at all. Seed 2 never reached a wall and ran exactly as before (to 6.59 at the cap). No energy was gained.",
+   "takeaway": "The side-wall loop is gone, and the wall penetration the checker found is removed at its source. It exposed a gap at pause restarts, fixed next."
+  },
+  {
+   "experiment_id": "E0112",
+   "question": "Where does a moving stack spend its CPU in the frequency 0.4 layer, where single updates took 18 to 112 seconds?",
+   "what_was_done": "Ran seed 1 at frequency 0.4 to 5.25, then for 600 CPU seconds counted, for every stack update: integrator steps, contact-force solves, their CPU and the stack size. Also profiled the code.",
+   "result": "99% of the stack CPU (490 of 494 seconds) went into the contact-force solves: about 9 per integrator step and about 14 integrator steps per stored piece of path. The worst update, a fifth sphere joining a stack, took 185 seconds (with the profiler on): 800 steps and 7,299 solves for 57 stored pieces. The profile is dominated by numpy's cross product called on single 3-vectors.",
+   "takeaway": "The slowness is cost, not a loop. It has two causes that can be fixed without changing results: each solve is slow Python overhead, and locating each contact change takes dozens of full integrator steps where the step's own interpolation would do."
+  },
+  {
+   "experiment_id": "E0113",
+   "question": "With pause restarts handled like any other restart, does seed 1 at frequency 0.3 complete the step to 5.93?",
+   "what_was_done": "A stack paused at a step's end now restarts under the same rules as at a span end: a pulling contact splits the stack, any other refusal breaks it. A start whose first violated condition is a negative push counts as that contact pulling. Reran seed 1 at frequency 0.3.",
+   "result": "The fix acted (2 splits where there were none) and the error is gone. But the layer stopped in the same step with 'rider and free sphere overlap': a sphere riding the plate overlaps a free one. Not traced yet.",
+   "takeaway": "One more fault to trace in the seed 1 layer, between 5.92 and 5.93."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "Should a sphere that hits a moving-stack sphere at a speed between the rest speed (0.01) and the wake speed (0.05) bounce off it as if the stack sphere were immovable, as the design says for still spheres, or break the stack as now?",
+   "why_it_matters": "It decides how often stacks are broken and rebuilt, which is now the main cost of the method.",
+   "default_if_unanswered": "Keep breaking the stack above the rest speed (as built)."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Make the contact-force solve and event location cheap (plain-float 3-vector arithmetic or compiled code; event times from the step's interpolation), timed against the current code on the same layer.",
+   "rationale": "E0112: this is 99% of the stack cost, and the frequency 0.4 layer cannot be judged until it is cheaper. A performance change with identical results to round-off."
+  },
+  {
+   "direction": "Trace the two new stops: the riding-sphere overlap at 5.92 to 5.93 (seed 1, frequency 0.3) and the round-off touch loop at 5.2816 (seed 1, frequency 0.4).",
+   "rationale": "They are what now keeps two of the three test layers from completing the first cycle."
+  },
+  {
+   "direction": "Use the CPU-timer interrupt from the cost trace in the run script, so caps stop runs inside a long stack update.",
+   "rationale": "Caps have overrun by up to 400 seconds before."
+  }
+ ],
+ "budget": {
+  "cpu_hours_this_run": 1.13,
+  "cpu_hours_week": 823.0,
+  "cpu_hours_week_limit": 10000,
+  "share_week": "8%",
+  "per_run_limit": 100,
+  "note": "Week total from program check (821.8) plus this run; no budget passed 50%."
+ },
+ "open_blockers": [
+  "B0009 (affects L0018, no particular line): seven E0074 friction-off loops at width 200 were cancelled after passing the 100 CPU-hour per-run limit (D0094); still open."
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-27T08:01:00Z",
+  "actual_start": "2026-11-27T08:01:43Z",
+  "ended": "2026-11-27T08:44:39Z",
+  "interruptions": [
+   "None seen. Sleep could not be checked: pmset is absent on this Linux worker."
+  ],
+  "cpu_hours": 1.13,
+  "cores_available": 38,
+  "disk_free_gb": {
+   "start": 76,
+   "end": 76
+  },
+  "unfinished_runs": [],
+  "limits_hit": "None from the machine (load 2.1 on 40 cores at the start, 76 GB free, data folder 696 MB). CPU from the runs' own process_time: E0110 1751 s, E0111 1079 s, E0112 682 s, E0113 283 s, tests about 290 s. The runs ended on their own (CPU cap, error or loop detector) inside the run. Finished processes stayed as zombies, so waits on process ids hung (two background waits timed out); none of this lost data. Disclosures: (1) the commit f397ada (D0098) lacks the attribution line. (2) The E0111 outcome line was first appended with status 'falsified', which misread its own falsifier: seed 1 did complete the step to 5.92. I corrected that line before it was ever committed, so no committed line changed. (3) The E0112 trace ran under the profiler, so its absolute times are inflated; its counts and shares are the result."
+ },
+ "decisions_needing_you": []
+}
