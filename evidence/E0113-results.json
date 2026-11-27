@@ -1,0 +1,70 @@
+{
+ "experiment_id": "E0113",
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0113/s1_f0.3.json",
+   "size": 39104,
+   "sha256": "8903bd3bb2b7fb3e36ac23731ccd35eab08460e0e2221acc64b53b5d99cd00ef"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0113/s1_f0.3.log",
+   "size": 22798,
+   "sha256": "e49083ffd9937bb3bed1190ea3b937ffec0025a1e249792ee282bf17cf1c446c"
+  }
+ ],
+ "results": {
+  "s1_f0.3.json": {
+   "seed": 1,
+   "f_star": 0.3,
+   "cpu_cap_s": 900.0,
+   "T": 7.4535599249993005,
+   "stopped_by": "error",
+   "error": "ValueError: rider and free sphere overlap",
+   "t_reached": 5.919999999999918,
+   "cpu_s": 282.589267154,
+   "stack_stats": {
+    "built": 36,
+    "joined": 14,
+    "broken": 36,
+    "split": 2,
+    "spans": 59,
+    "segments": 1655,
+    "sphere_time": 0.07326331745164172,
+    "python_cpu_s": 282.503147505,
+    "fallback_collisions": 2,
+    "start_refused": 0,
+    "ends": {
+     "stop": 45,
+     "wall": 7,
+     "open": 5,
+     "plate": 2
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 43,
+    "wall_cuts": 7,
+    "pull_opened": 7,
+    "wall_joined": 4,
+    "pull_dropped": 1,
+    "plate_cuts": 2,
+    "plate_landed": 1
+   },
+   "counters": {
+    "C_EVENTS": 11512,
+    "C_STACKEV": 38,
+    "C_STACKHIT": 49,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 961,
+    "C_CAPTURE": 85,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 83,
+    "C_EGAIN": 0
+   },
+   "max_gain": 0.0,
+   "max_snap": 3.25931726052886e-10
+  }
+ },
+ "code": "method/rest 0cd6a2b (D0098 + D0099), scripts/rest_plate/feed_run.py 1 0.3 900 out 30",
+ "acted": "split 2 and pull_opened 7 against 0 and 2 in E0111 at the same stop point; the step log is identical to E0111 up to 5.92",
+ "stop": "ValueError rider and free sphere overlap, in the step to 5.93, not traced"
+}

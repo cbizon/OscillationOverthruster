@@ -1,0 +1,130 @@
+{
+ "experiment_id": "E0111",
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0111/s1_f0.3.json",
+   "size": 38803,
+   "sha256": "8410df7500ef9cee30ac1469c48ecf51b056505f413bcec725369a11ff9098e5"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0111/s1_f0.3.log",
+   "size": 22811,
+   "sha256": "41df8b6cedefbfdd45146fe7ce8ee2f1288d8411ac9c5ca8f847b75c7361ea29"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0111/s2_f0.3.json",
+   "size": 45364,
+   "sha256": "af7f24db8b1d06017087c7cd93639cf77c573ea0de0cdfc2fa5b69a75a34b783"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0111/s2_f0.3.log",
+   "size": 25433,
+   "sha256": "603c9d23bada0d73891e18df1c1cd6620168ea33ec8e0cafabb29262bb7c466c"
+  }
+ ],
+ "results": {
+  "s1_f0.3.json": {
+   "seed": 1,
+   "f_star": 0.3,
+   "cpu_cap_s": 900.0,
+   "T": 7.4535599249993005,
+   "stopped_by": "error",
+   "error": "ValueError: stack start: conditions violated [12]",
+   "t_reached": 5.919999999999918,
+   "cpu_s": 176.46567119,
+   "stack_stats": {
+    "built": 35,
+    "joined": 13,
+    "broken": 33,
+    "split": 0,
+    "spans": 52,
+    "segments": 1325,
+    "sphere_time": 0.0583966536480256,
+    "python_cpu_s": 139.53459337500001,
+    "fallback_collisions": 2,
+    "start_refused": 0,
+    "ends": {
+     "stop": 43,
+     "wall": 5,
+     "open": 2,
+     "plate": 2
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 40,
+    "wall_cuts": 5,
+    "pull_opened": 2,
+    "wall_joined": 2,
+    "pull_dropped": 1,
+    "plate_cuts": 2,
+    "plate_landed": 1
+   },
+   "counters": {
+    "C_EVENTS": 11384,
+    "C_STACKEV": 37,
+    "C_STACKHIT": 45,
+    "C_STACKEND": 3,
+    "C_STACKSEARCH": 754,
+    "C_CAPTURE": 83,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 79,
+    "C_EGAIN": 0
+   },
+   "max_gain": 0.0,
+   "max_snap": 3.2593128196367616e-10
+  },
+  "s2_f0.3.json": {
+   "seed": 2,
+   "f_star": 0.3,
+   "cpu_cap_s": 900.0,
+   "T": 7.4535599249993005,
+   "stopped_by": "cpu cap inside a step",
+   "cap_t": 6.592994780535426,
+   "t_reached": 6.589999999999904,
+   "cpu_s": 903.2960703340001,
+   "stack_stats": {
+    "built": 73,
+    "joined": 37,
+    "broken": 67,
+    "split": 6,
+    "spans": 144,
+    "segments": 7188,
+    "sphere_time": 0.6171976946742319,
+    "python_cpu_s": 903.1267405499991,
+    "fallback_collisions": 4,
+    "start_refused": 0,
+    "ends": {
+     "stop": 134,
+     "open": 7,
+     "plate": 2,
+     "cell": 1
+    },
+    "largest": 5,
+    "touch_max_gain": 1.1834166553447847e-17,
+    "touch_impulse_contacts": 112,
+    "pull_opened": 7,
+    "pull_dropped": 8,
+    "plate_cuts": 2,
+    "plate_landed": 1
+   },
+   "counters": {
+    "C_EVENTS": 25022,
+    "C_STACKEV": 77,
+    "C_STACKHIT": 104,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 4301,
+    "C_CAPTURE": 344,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 341,
+    "C_EGAIN": 0
+   },
+   "max_gain": 0.0,
+   "max_snap": 2.603426363378958e-10
+  }
+ },
+ "code": "method/rest f397ada (D0098), scripts/rest_plate/feed_run.py seed 0.3 900 out 30",
+ "first_step_differing_from_E0109": {
+  "seed1": "5.92 (E0109 stopped in it, looping at 5.918301642464967); all earlier step lines identical in time reached and counts",
+  "seed2": "none: every step line identical in counts, stopped by the cap at 6.59 as in E0109; wall_cuts 0, so D0098 did not act in seed 2"
+ }
+}

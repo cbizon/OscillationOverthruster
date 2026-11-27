@@ -1,0 +1,185 @@
+{
+ "experiment_id": "E0112",
+ "files": [
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0112/s1_f0.4.json",
+   "size": 4580,
+   "sha256": "525852cba0095dca441f1c7634e9f6b48eb563ec6ac850cc1ad31c3e5cfafd1e"
+  },
+  {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0112/s1_f0.4.log",
+   "size": 2310,
+   "sha256": "49cb1362bb66768a7701737b65cf825fded65bc7eb276e0faacfe46c7eeb7737"
+  }
+ ],
+ "results": {
+  "s1_f0.4.json": {
+   "seed": 1,
+   "f_star": 0.4,
+   "t_start": 5.2499999999999325,
+   "cpu_to_start_s": 83.018379736,
+   "cpu_cap_s": 600.0,
+   "stopped_by": "cpu cap",
+   "t_reached": 5.2499999999999325,
+   "cpu_s": 598.89170217,
+   "totals": {
+    "integrate": 38,
+    "dp_step": 3617,
+    "forces": 32856,
+    "forces_s": 593.4159349100003
+   }
+  }
+ },
+ "code": "method/rest 1c2b35b, scripts/rest_plate/cost_trace.py 1 0.4 5.25 600",
+ "calls": [
+  {
+   "t": 5.250787376708798,
+   "handler": "_on_stack_hit",
+   "cpu_s": 170.362610739,
+   "n_live": 2,
+   "largest": 5,
+   "contacts": 5,
+   "rolling": 2,
+   "integrate": 7,
+   "dp_step": 794,
+   "forces": 7330,
+   "forces_s": 169.08043659599957,
+   "segments": 70,
+   "dip_samples_live": 255
+  },
+  {
+   "t": 5.251078047168275,
+   "handler": "_on_stack_hit",
+   "cpu_s": 0.08651943699999265,
+   "n_live": 1,
+   "largest": 2,
+   "contacts": 2,
+   "rolling": 1,
+   "integrate": 0,
+   "dp_step": 1,
+   "forces": 7,
+   "forces_s": 0.08552212699999018,
+   "segments": 0,
+   "dip_samples_live": -1057
+  },
+  {
+   "t": 5.251078047168275,
+   "handler": "_on_stack_event",
+   "cpu_s": 6.9671365570000034,
+   "n_live": 2,
+   "largest": 2,
+   "contacts": 2,
+   "rolling": 1,
+   "integrate": 2,
+   "dp_step": 138,
+   "forces": 1332,
+   "forces_s": 6.801416580000648,
+   "segments": 35,
+   "dip_samples_live": 238
+  },
+  {
+   "t": 5.251078047168275,
+   "handler": "_on_stack_hit",
+   "cpu_s": 29.185482915000023,
+   "n_live": 2,
+   "largest": 3,
+   "contacts": 3,
+   "rolling": 2,
+   "integrate": 4,
+   "dp_step": 319,
+   "forces": 2873,
+   "forces_s": 28.837662857999987,
+   "segments": 24,
+   "dip_samples_live": 121
+  },
+  {
+   "t": 5.251078047168275,
+   "handler": "_on_stack_hit",
+   "cpu_s": 78.12994797099998,
+   "n_live": 2,
+   "largest": 4,
+   "contacts": 4,
+   "rolling": 2,
+   "integrate": 6,
+   "dp_step": 597,
+   "forces": 5447,
+   "forces_s": 77.27551848699932,
+   "segments": 57,
+   "dip_samples_live": 391
+  },
+  {
+   "t": 5.251078047168275,
+   "handler": "_on_stack_hit",
+   "cpu_s": 184.91088827500005,
+   "n_live": 2,
+   "largest": 5,
+   "contacts": 5,
+   "rolling": 2,
+   "integrate": 7,
+   "dp_step": 800,
+   "forces": 7299,
+   "forces_s": 183.45162469100097,
+   "segments": 57,
+   "dip_samples_live": 218
+  },
+  {
+   "t": 5.251691037256445,
+   "handler": "_on_span_end",
+   "cpu_s": 24.245099560000085,
+   "n_live": 2,
+   "largest": 5,
+   "contacts": 5,
+   "rolling": 3,
+   "integrate": 2,
+   "dp_step": 118,
+   "forces": 1070,
+   "forces_s": 24.03530988499972,
+   "segments": 0,
+   "dip_samples_live": 142
+  }
+ ],
+ "profile_top": [
+  "         560118954 function calls in 1059.718 seconds",
+  "",
+  "   Ordered by: internal time",
+  "   List reduced from 176 to 15 due to restriction <15>",
+  "",
+  "   ncalls  tottime  percall  cumtime  percall filename:lineno(function)",
+  "  6683381  272.116    0.000  883.454    0.000 /Users/bizon/Projects/experiments/sequel.L0009/.venv/lib/python3.12/site-packages/numpy/_core/numeric.py:1563(cross)",
+  " 40100282  225.596    0.000  342.169    0.000 /Users/bizon/Projects/experiments/sequel.L0009/.venv/lib/python3.12/site-packages/numpy/_core/numeric.py:1427(normalize_axis_tuple)",
+  " 20050142  146.699    0.000  552.560    0.000 /Users/bizon/Projects/experiments/sequel.L0009/.venv/lib/python3.12/site-packages/numpy/_core/numeric.py:1489(moveaxis)",
+  "   322350   83.425    0.000  712.184    0.002 /Users/bizon/Projects/experiments/sequel-data/worktrees/rest/granular/stack.py:237(accel)",
+  "127125425   40.231    0.000   40.231    0.000 {built-in method builtins.len}",
+  " 80200564   37.431    0.000   56.503    0.000 /Users/bizon/Projects/experiments/sequel.L0009/.venv/lib/python3.12/site-packages/numpy/_core/numeric.py:1476(<genexpr>)",
+  "   289495   30.682    0.000  838.356    0.003 /Users/bizon/Projects/experiments/sequel-data/worktrees/rest/granular/stack.py:261(residuals)",
+  " 60152219   28.899    0.000   28.899    0.000 {built-in method numpy.lib.array_utils.normalize_axis_index}",
+  " 47803102   24.649    0.000   24.649    0.000 {built-in method builtins.isinstance}",
+  " 13399993   21.720    0.000   21.720    0.000 {method 'astype' of 'numpy.ndarray' objects}",
+  " 20050154   21.642    0.000   21.642    0.000 {built-in method builtins.sorted}",
+  " 20050850   18.945    0.000   18.945    0.000 {method 'transpose' of 'numpy.ndarray' objects}",
+  "   850233   17.234    0.000   18.118    0.000 /Users/bizon/Projects/experiments/sequel-data/worktrees/rest/granular/stack.py:149(_fric_dir)",
+  " 40100621   12.905    0.000   12.905    0.000 {built-in method _operator.index}",
+  " 20050141   12.366    0.000   12.366    0.000 {method 'insert' of 'list' objects}",
+  "",
+  ""
+ ],
+ "derived": {
+  "handler_calls": 7,
+  "handler_cpu_s": 493.8876854540001,
+  "force_solve_cpu_in_handlers_s": 489.5674912240002,
+  "share_force_solves": 0.9912526787825685,
+  "total_force_solves": 32856,
+  "total_dp_steps": 3617,
+  "cpu_per_force_solve_ms": 18.06111318815438,
+  "force_solves_per_dp_step": 9.08377108100636,
+  "slowest_call": {
+   "cpu_s": 184.9,
+   "stack": 5,
+   "dp_steps": 800,
+   "force_solves": 7299,
+   "segments": 57,
+   "dp_steps_per_segment": 14.035087719298245
+  },
+  "note": "Times were measured under cProfile, which slows Python calls; shares and counts, not absolute seconds, are the result. The trace did not complete the step to 5.26 within 600 s (E0109 took about 730 s for it without the profiler)."
+ }
+}
