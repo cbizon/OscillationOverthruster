@@ -1,0 +1,87 @@
+{
+ "experiment_id": "E0117",
+ "code": "method/rest a10d930",
+ "machine": "Linux worker (this run; same process for both versions)",
+ "summary": {
+  "trials": 300,
+  "agree_1e_12": 262,
+  "differ": 38,
+  "differ_with_cond_above_1e12": 38,
+  "agree_max_rel_diff": 2.125684048903747e-15,
+  "cond_above_1e12": 38,
+  "largest_cond_among_agreeing": 181.42874141567688
+ },
+ "timing_per_solve": {
+  "2": {
+   "contacts": [
+    "roll",
+    "roll"
+   ],
+   "direct_ms": 0.6768587799999981,
+   "loop_ms": 5.03246965
+  },
+  "3": {
+   "contacts": [
+    "roll",
+    "slide",
+    "roll"
+   ],
+   "direct_ms": 0.9850332133333357,
+   "loop_ms": 6.898984553333332
+  },
+  "4": {
+   "contacts": [
+    "slide",
+    "roll",
+    "roll",
+    "roll"
+   ],
+   "direct_ms": 1.3023326900000025,
+   "loop_ms": 13.693059513333328
+  },
+  "5": {
+   "contacts": [
+    "slide",
+    "roll",
+    "slide",
+    "slide",
+    "slide"
+   ],
+   "direct_ms": 1.2360417600000002,
+   "loop_ms": 7.813194830000001
+  }
+ },
+ "ratio_per_solve": {
+  "2": 7.4350363749436985,
+  "3": 7.0038090695310515,
+  "4": 10.514256163940184,
+  "5": 6.321141471789756
+ },
+ "replay": {
+  "direct_total_cpu_s": 3.3341226220000006,
+  "loop_total_cpu_s": 6.759960927999998,
+  "direct_stack_cpu_s": 2.2115889809999985,
+  "loop_stack_cpu_s": 6.699356128000002,
+  "direct_force_solves": 2408,
+  "loop_force_solves": 2401,
+  "other_fields": "every other field of the two replay results agrees to 1e-12 relative"
+ },
+ "note": "The 38 random stacks whose results differ all have force matrices with condition number above 1e12 (singular: both versions return round-off-dominated forces, and numpy.linalg.solve raised for neither, so the D0098 least-squares fallback did not run). The largest condition number among the 262 agreeing stacks is 181. Whether real stacks reach such singular matrices is not checked here.",
+ "files": {
+  "bench.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0117/bench.json",
+   "bytes": 69210,
+   "sha256": "7077d5fa3aaf3c9d136dd3cafc08d61fc41b8f8750963c88c06d43fce7c860e9"
+  },
+  "bench.json.replay_direct.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0117/bench.json.replay_direct.json",
+   "bytes": 2104,
+   "sha256": "85a4d520851388175161d96ed7a65f0f458adb761ecabbd6d7457f716e1de9ec"
+  },
+  "bench.json.replay_loop.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0117/bench.json.replay_loop.json",
+   "bytes": 2095,
+   "sha256": "15ef62f76d1b10ad2ef1ce489fd716f4ad114d58d1602d05bc93b15f572305d2"
+  }
+ }
+}
