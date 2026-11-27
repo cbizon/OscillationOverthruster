@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-26 08:04Z run of line L0009 (method/rest 607b687 tested; f6d148d adds the untested plate check marked below). Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-27 05:05Z run of line L0009 (method/rest 975a4d7, tested in E0108 and E0109; the plate landing (D0096) is built but its path has not yet run in a layer). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -74,20 +74,27 @@ sphere k touches a STACK sphere h:
                                      plate immovable (D0089)
     else:                            break the stack, ordinary collision follows
 
-start of any stack (built, joined, or split):
-    a contact whose push would be negative ("pulls") is not a contact:
-    drop it and start the parts still joined; single spheres go back
-    RIDER/FREE (D0091; before, the whole start was refused and the same
-    touch came back at the same instant)
+a contact whose push would be negative ("pulls") is not a contact:
+    at a stack's start (built, joined, or split), before its first piece:
+        drop it and start the parts still joined; single spheres go back
+        RIDER/FREE (D0091)
+    found later (at a span restart, or after a contact switches between
+    rolling and sliding inside a span): the span ends there as at an
+    opening contact and the stack splits (D0095, 2026-11-27)
+    (before D0091/D0095 the start was refused, every sphere handed back
+    unchanged, and the same touch came back at the same instant)
 
 end of a stack's stored span:
     if a contact's push fell to zero ("open"):
         split the stack: parts still on the plate stay stacks (or become RIDER
         when one sphere is left); the rest become FREE
     elif a stack sphere reached a side wall: break the stack
-    elif a stack sphere with no plate contact reached the plate:
-        break the stack; the plate hit is an ordinary event
-        (D0093, committed 2026-11-26 in f6d148d, NOT YET TESTED)
+    elif a stack sphere with no plate contact reached the plate (D0093;
+            span cut at the crossing, found by bisection):
+        break the stack; that sphere is handed back by the capture rule at
+        once: RIDER if its approach is below v_rest and the plate pushes,
+        else FREE and the plate hit is an ordinary event (D0096; built
+        2026-11-27, its path has not yet run in a layer)
     else (span reached a cell face, the run's stop time, or the store is full):
         start the next span
 
@@ -144,8 +151,9 @@ a contact found, or the span's end, hands control back to Python
 | Contact searches against riders | built, tested against brute force |
 | Moving stacks, integrated offline | built, tested; books close to 3e-13 |
 | Event loop stops at a slow touch on a rider and builds the stack | built, tested |
-| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle yet (best: seed 1, f* 0.3 reaches 5.88 of 7.45) |
-| Plate check for stack spheres without a plate contact | committed untested (D0093) |
+| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle (7.45) yet. Furthest on 2026-11-27 (E0109): seed 2, f* 0.3 past 6.4; seed 1, f* 0.3 to 5.91, then a same-instant loop at the side wall; seed 1, f* 0.4 crawls at 5.25 (stack integration costs up to 112 s per handler call) |
+| Plate check for stack spheres without a plate contact | built (D0093); acted twice in E0108 and stopped the plate penetration |
+| Side walls as stack contacts | not built: a stack sphere resting against a side wall breaks its stack at every span start (E0109, seed 1 at 5.918) |
 | Still spheres and the balance test in the event loop | designed, built only as a separate function |
 | Bounce off a still sphere between v_rest and v_wake | designed, not built |
 | Checkpoints with live stacks | not built (refused with an error) |

@@ -1,0 +1,135 @@
+{
+ "experiment_id": "E0108",
+ "artifact": "A0211",
+ "code": "method/rest f6d148d (D0093)",
+ "command": "PYTHONPATH=. nice -n 10 python scripts/rest_plate/feed_run.py SEED FSTAR 900 OUT.json 30",
+ "files": [
+  {
+   "path": "sequel-data/runs/E0108/s1_f0.3.json",
+   "size": 42091,
+   "sha256": "5c2867fe9c713840b86406e00ab115b023567e94c50788dadcf1052e93c8c9b6"
+  },
+  {
+   "path": "sequel-data/runs/E0108/s1_f0.3.log",
+   "size": 24552,
+   "sha256": "201a99c48a5182542c1c8e72305026b371e34bb116e77f1e38b56eaf1645af77"
+  },
+  {
+   "path": "sequel-data/runs/E0108/s1_f0.4.json",
+   "size": 34771,
+   "sha256": "5b1cd88c096f97501eb55eca1c17b00d896ab2e84c1a90ac3a90e5832db5911f"
+  },
+  {
+   "path": "sequel-data/runs/E0108/s1_f0.4.log",
+   "size": 20292,
+   "sha256": "a42da63338d4ab184276552478ebf95d20d784852c0c42cbc7fce740dbce3b6c"
+  },
+  {
+   "path": "sequel-data/runs/E0108/s2_f0.3.log",
+   "size": 23055,
+   "sha256": "722881294743a3138e7f47220aa5697a5e854cc35f2a692fad3946ac2e6091c8"
+  }
+ ],
+ "results": {
+  "s1_f0.3": {
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.886136438156586,
+   "cap_t": null,
+   "error": null,
+   "t_reached": 5.879999999999919,
+   "cpu_s": 284.838453127,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 6.661338147750939e-15,
+   "stack_stats": {
+    "built": 57,
+    "joined": 25,
+    "broken": 56,
+    "split": 0,
+    "spans": 86,
+    "segments": 2133,
+    "sphere_time": 0.05646183306592789,
+    "python_cpu_s": 284.75438765400014,
+    "fallback_collisions": 0,
+    "start_refused": 1,
+    "ends": {
+     "stop": 67,
+     "cell": 17,
+     "plate": 2
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 68,
+    "refused_why": {
+     "stack start: contact 4 pulls (N = -0.404727)": 1
+    },
+    "pull_dropped": 1,
+    "plate_cuts": 2
+   },
+   "counters": {
+    "C_EVENTS": 10733,
+    "C_STACKEV": 57,
+    "C_STACKHIT": 66,
+    "C_STACKEND": 17,
+    "C_STACKSEARCH": 936,
+    "C_CAPTURE": 51,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 50,
+    "C_EGAIN": 0
+   }
+  },
+  "s1_f0.4": {
+   "stopped_by": "cpu cap inside a step",
+   "loop_t": null,
+   "cap_t": 5.270938034560616,
+   "error": null,
+   "t_reached": 5.269999999999932,
+   "cpu_s": 911.022163488,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 3.146788385421928e-14,
+   "stack_stats": {
+    "built": 34,
+    "joined": 15,
+    "broken": 33,
+    "split": 0,
+    "spans": 64,
+    "segments": 2605,
+    "sphere_time": 0.11509252926614,
+    "python_cpu_s": 910.8964442309997,
+    "fallback_collisions": 2,
+    "start_refused": 0,
+    "ends": {
+     "stop": 52,
+     "cell": 12
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 49
+   },
+   "counters": {
+    "C_EVENTS": 17706,
+    "C_STACKEV": 36,
+    "C_STACKHIT": 49,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 1492,
+    "C_CAPTURE": 180,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 178,
+    "C_EGAIN": 0
+   }
+  }
+ },
+ "s2_f0.3_note": "No result file: the run passed its 900 s CPU cap inside one stack handler call in the step to 6.23 (the cap is checked only between calls) and was killed by the agent at 1307 s CPU (05:51Z); its log ends at the step to 6.22 (11 built, 10 broken), where E0107 stopped with plate penetration.",
+ "fix_acted": {
+  "plate_cuts_s1_f0.3": 2,
+  "first_cut": "t = 5.882420282260396, sphere 92 (it joined stack [93, 94] at 5.882186732262618 with no plate contact); E0107 had it 4.65e-5 below the plate at 5.8845922",
+  "step_logs": "identical to E0107 in all three layers through the last step E0107 completed"
+ },
+ "loop_s1_f0.3": {
+  "t": 5.886136438156586,
+  "cycle": "stack [93, 94] built; sphere 92 touches 94 (approach 1e-18 to 1e-14) and joins with no plate contact; the span is cut at once by the plate check; break; 92 handed back free at the plate; same instant again",
+  "fix": "D0096"
+ },
+ "trace_s1_f0.3_note": "agent trace from 5.85 (scratch, not kept): the step to 5.86 used 46 s CPU as in E0107 (single joins into 3- and 4-sphere stacks took 6.0, 16.9 and 19.2 s); the 579 s of the Nov 26 trace was not reproduced in the steps to 5.88; the trace process crashed in its own faulthandler watchdog 4 min after start, after the first plate cuts."
+}

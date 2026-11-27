@@ -1,0 +1,205 @@
+{
+ "experiment_id": "E0109",
+ "artifact": "A0212",
+ "code": "method/rest 975a4d7 (D0093 + D0095 + D0096)",
+ "command": "PYTHONPATH=. nice -n 10 python scripts/rest_plate/feed_run.py SEED FSTAR 900 OUT.json 30",
+ "files": [
+  {
+   "path": "sequel-data/runs/E0109/s1_f0.3.json",
+   "size": 41981,
+   "sha256": "b0e7f30b9f6ccdcecc700defff9ae24944400dfedc885e28403a45f1aa61d319"
+  },
+  {
+   "path": "sequel-data/runs/E0109/s1_f0.3.log",
+   "size": 24594,
+   "sha256": "7d468dbcde3506f1d7316eac9b0494d6c994b71c28e7837c4fa704e1092b1d22"
+  },
+  {
+   "path": "sequel-data/runs/E0109/s1_f0.4.json",
+   "size": 34855,
+   "sha256": "2f7f467130535cd9258235a1f1381d49c9ff0c588ea2aee7497bbb72cd05ee89"
+  },
+  {
+   "path": "sequel-data/runs/E0109/s1_f0.4.log",
+   "size": 20299,
+   "sha256": "3da5f7b9149fe139ca061a6b46347fd7c661b65f865c173c172c387e13ee2760"
+  },
+  {
+   "path": "sequel-data/runs/E0109/s2_f0.3.json",
+   "size": 45355,
+   "sha256": "20a899fff4fa6820f22348c1dd0bc3ba073da75717b3290d5fa8ff9dc893189f"
+  },
+  {
+   "path": "sequel-data/runs/E0109/s2_f0.3.log",
+   "size": 25435,
+   "sha256": "9fb331f8f2fb09febc3d859177250127301356a8ac715297145b167048e44b4b"
+  }
+ ],
+ "results": {
+  "s1_f0.3": {
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.918301642464967,
+   "cap_t": null,
+   "error": null,
+   "t_reached": 5.909999999999918,
+   "cpu_s": 108.42319590299999,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 3.2592772924999736e-10,
+   "stack_stats": {
+    "built": 68,
+    "joined": 34,
+    "broken": 67,
+    "split": 0,
+    "spans": 103,
+    "segments": 1010,
+    "sphere_time": 0.047912162666888136,
+    "python_cpu_s": 108.32477151099997,
+    "fallback_collisions": 2,
+    "start_refused": 0,
+    "ends": {
+     "stop": 62,
+     "cell": 39,
+     "open": 2
+    },
+    "largest": 5,
+    "touch_max_gain": 1.1102230246251565e-16,
+    "touch_impulse_contacts": 82,
+    "pull_opened": 2
+   },
+   "counters": {
+    "C_EVENTS": 11605,
+    "C_STACKEV": 71,
+    "C_STACKHIT": 63,
+    "C_STACKEND": 38,
+    "C_STACKSEARCH": 948,
+    "C_CAPTURE": 81,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 76,
+    "C_EGAIN": 0
+   }
+  },
+  "s2_f0.3": {
+   "stopped_by": "cpu cap inside a step",
+   "loop_t": null,
+   "cap_t": 6.590158757006385,
+   "error": null,
+   "t_reached": 6.589999999999904,
+   "cpu_s": 918.2108321960001,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 2.6034241429329086e-10,
+   "stack_stats": {
+    "built": 70,
+    "joined": 36,
+    "broken": 65,
+    "split": 6,
+    "spans": 140,
+    "segments": 6766,
+    "sphere_time": 0.6165626666483064,
+    "python_cpu_s": 918.0129531819991,
+    "fallback_collisions": 4,
+    "start_refused": 0,
+    "ends": {
+     "stop": 130,
+     "open": 7,
+     "plate": 2,
+     "cell": 1
+    },
+    "largest": 5,
+    "touch_max_gain": 1.1834166553447847e-17,
+    "touch_impulse_contacts": 111,
+    "pull_opened": 7,
+    "pull_dropped": 8,
+    "plate_cuts": 2,
+    "plate_landed": 1
+   },
+   "counters": {
+    "C_EVENTS": 24926,
+    "C_STACKEV": 74,
+    "C_STACKHIT": 101,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 4190,
+    "C_CAPTURE": 343,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 340,
+    "C_EGAIN": 0
+   }
+  },
+  "s1_f0.4": {
+   "stopped_by": "cpu cap inside a step",
+   "loop_t": null,
+   "cap_t": 5.271080118862829,
+   "error": null,
+   "t_reached": 5.269999999999932,
+   "cpu_s": 923.2918724929999,
+   "energy_residual": null,
+   "max_gain": 0.0,
+   "max_snap": 3.146788385421928e-14,
+   "stack_stats": {
+    "built": 34,
+    "joined": 16,
+    "broken": 33,
+    "split": 0,
+    "spans": 65,
+    "segments": 2818,
+    "sphere_time": 0.11702456427135477,
+    "python_cpu_s": 923.1739162590001,
+    "fallback_collisions": 2,
+    "start_refused": 0,
+    "ends": {
+     "stop": 53,
+     "cell": 12
+    },
+    "largest": 5,
+    "touch_max_gain": 0.0,
+    "touch_impulse_contacts": 54
+   },
+   "counters": {
+    "C_EVENTS": 17717,
+    "C_STACKEV": 36,
+    "C_STACKHIT": 50,
+    "C_STACKEND": 7,
+    "C_STACKSEARCH": 1539,
+    "C_CAPTURE": 180,
+    "C_RELEASE": 0,
+    "C_RIDERHIT": 178,
+    "C_EGAIN": 0
+   }
+  }
+ },
+ "fix_acted": {
+  "first_step_differing_from_E0108": {
+   "s1_f0.3": "step to 5.87",
+   "s2_f0.3": "step to 6.23 (E0108 never completed it)",
+   "s1_f0.4": "none among completed steps (both stop inside the step to 5.28)"
+  },
+  "pull_opened": {
+   "s1_f0.3": 2,
+   "s2_f0.3": 7,
+   "s1_f0.4": 0
+  },
+  "pull_dropped": {
+   "s1_f0.3": 0,
+   "s2_f0.3": 8,
+   "s1_f0.4": 0
+  },
+  "plate_landed": {
+   "s1_f0.3": 0,
+   "s2_f0.3": 1,
+   "s1_f0.4": 0
+  },
+  "plate_cuts": {
+   "s1_f0.3": 0,
+   "s2_f0.3": 2,
+   "s1_f0.4": 0
+  }
+ },
+ "loop_s1_f0.3": {
+  "t": 5.918301642464967,
+  "cause": "sphere 92 rests against the right side wall (x 19.49745803021592 + r 0.5025421188814229 = 20.0000 = L) in stacks [93, 94, 92] and [92, 94]; every span is cut at its start as a cell end at a side wall, the stack breaks and is rebuilt at the same instant",
+  "source": "agent run of 975a4d7 to 5.91 then run_to(5.92), printing each span end after 5.9183 (scratch, not kept)"
+ },
+ "crawl_s1_f0.4": "agent trace of 975a4d7 from 5.25 (scratch): the first handler call after 5.25 (sphere 69 joins a 4-sphere stack at t 5.250787376708798) took 111.8 s CPU; a 3-sphere join at 5.251078047168275 took 18.4 s; the next call ran over 130 s before the trace was stopped. The crawl is stack integration cost per call, not a same-instant loop.",
+ "seed2_trace_note": "agent trace of 975a4d7 from 6.22 (scratch): steps 6.23 to 6.28 completed; one join (sphere 60 into [54, 61]) took 35.8 s CPU."
+}
