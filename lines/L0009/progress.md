@@ -25,7 +25,9 @@ Results this run:
   `cross` on 3-vectors and axis handling top the profile).
 - E0113 (0cd6a2b, falsified): D0099 acted (2 splits); seed 1 stops in the step to 5.93 with
   "rider and free sphere overlap" (not traced).
-- E0110 (975a4d7, f* 0.4, cap 2100 s): see the summary for its end; it tests D0095 past 5.276.
+- E0110 (975a4d7, f* 0.4, cap 2100 s, supported): D0095 acted (35 dropped, 8 opened, 0 refused);
+  completes 5.28 (1360 s), then a same-instant loop at 5.281594649757622: sphere 54 touches
+  stack sphere 59 again and again at approach 1.5e-16 .. 1.5e-17, each a join (joined 79).
 - Rider snaps up to 3.3e-10 now (max_snap; was 3e-14 before the plate landing D0096):
   check where (hand_back of a sphere slightly off the plate?).
 - Local jobs: finished processes stay as zombies (/proc/<pid> exists, state Z); wait on the
@@ -33,6 +35,9 @@ Results this run:
 
 ## What's next
 
+0. f* 0.4 loop at 5.2816 (E0110): a touch on a stack sphere at round-off approach rejoins at
+   the same instant; find what undoes the join (split/pull right after?) and apply the D0092
+   round-off rule to free-to-stack touches.
 1. Trace the "rider and free sphere overlap" in seed 1 f* 0.3, step 5.92 -> 5.93 (E0113).
    Suspects: a wall join or pull split handing a sphere back as a rider next to a free
    sphere; the 3.3e-10 snaps.

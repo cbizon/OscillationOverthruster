@@ -489,8 +489,10 @@ Session summary: `sessions/2026-11-27-L0009-2.json`; numbers in
 - Why f* 0.4 is slow (E0112): 99% of a stack's CPU goes to its force solves, about nine
   per integrator step and about fourteen integrator steps per stored piece, each solve
   slowed by Python overhead on 3-vectors. This is cost, not a loop.
+- Seed 1, f* 0.4 now gets past its pulling contacts and completes 5.28, then loops at one
+  instant at 5.2816 on a touch at a round-off approach speed (E0110).
 - No stall layer completes its first cycle; no touch has gained energy.
-- Next: trace the overlap at 5.92; make the force solve and the event location cheap.
+- Next: trace the overlap at 5.92 and the loop at 5.2816; make the force solve and the event location cheap.
 
 ### L0009, timer run: plate check tested, pull rule at restarts, side-wall loop found (ran Nov 27 05:05Z)
 
