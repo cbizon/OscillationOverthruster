@@ -1,0 +1,80 @@
+{
+ "experiment_id": "E0115",
+ "code": "method/rest 915363e (= b1702ad = 0cd6a2b + scripts)",
+ "snapshot_cpu_s": 121.8,
+ "trace_cpu_s": 140.620528348,
+ "reproduced_error": "ValueError: rider and free sphere overlap",
+ "handler_calls": 9,
+ "breaking_call": {
+  "name": "_on_stack_hit",
+  "t": 5.922840593725576,
+  "hitter": 87,
+  "stack_sphere": 86,
+  "approach": 0.006441707370620255,
+  "stack_before": {
+   "0": [
+    93,
+    94,
+    92,
+    86,
+    84
+   ]
+  },
+  "handed_back": [
+   93,
+   94,
+   92,
+   86,
+   84
+  ],
+  "overlaps_of_handed_back": [
+   [
+    84,
+    93,
+    "free",
+    "rider",
+    -4.604127879326292e-05,
+    0.01910877586379778
+   ],
+   [
+    93,
+    84,
+    "rider",
+    "free",
+    -4.604127879326292e-05,
+    0.01910877586379778
+   ]
+  ]
+ },
+ "overlaps_at_error": [
+  [
+   84,
+   93,
+   "free",
+   "rider",
+   -4.604127879326292e-05,
+   0.01910877586379778
+  ],
+  [
+   93,
+   84,
+   "rider",
+   "free",
+   -4.604127879326292e-05,
+   0.01910877586379778
+  ]
+ ],
+ "finding": "Spheres 84 and 93 were both in the five-sphere stack [93, 94, 92, 86, 84] with no contact between them; the stack integration does not check such pairs. When sphere 87 hit stack sphere 86 above v_rest at 5.922840593725576 the stack broke and handed 84 (free) and 93 (rider) back overlapping by 4.6e-5 and closing at 0.019; the rider-free search then refused the overlap. The pickle used here (state at 5.92) was deleted after the trace (rm, not program delete): it held the old code's state, superseded by E0118's.",
+ "files": {
+  "snap.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0115/snap.log",
+   "bytes": 22027,
+   "sha256": "2007f813232daa7523d47c5f2bce709dd7a42339a6a2be3758be4fd24f11df13"
+  },
+  "trace.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0115/trace.json",
+   "bytes": 6412,
+   "sha256": "ecfe8658a703a88e8a7b3e8cea5f14098239efaddaf72ece58907c28b1a692df"
+  }
+ }
+}

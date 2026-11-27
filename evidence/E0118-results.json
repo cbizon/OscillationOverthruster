@@ -1,0 +1,108 @@
+{
+ "experiment_id": "E0118",
+ "code": "method/rest 22e1f09",
+ "snapshot_cpu_s": 146.9,
+ "trace_cpu_s": 319.43141386400004,
+ "stopped_by": "same-instant loop",
+ "loop_t": 5.920523784634156,
+ "calls_at_loop_instant": 41,
+ "calls_moving_pull_dropped": 36,
+ "calls_moving_joined": 36,
+ "repeated_call": {
+  "name": "_on_stack_hit",
+  "stack_sphere": 84,
+  "hitter": 86,
+  "approach": 8.632049166809503e-19,
+  "moved": {
+   "joined": 1,
+   "pull_dropped": 1
+  },
+  "stacks_before": {
+   "0": [
+    84,
+    93
+   ]
+  },
+  "stacks_after": {
+   "0": [
+    84,
+    93
+   ]
+  },
+  "handed_back": [
+   86
+  ],
+  "gap_after": 4.3076653355456074e-14,
+  "approach_after": 7.771585596833504e-19,
+  "modes_after": [
+   "stack",
+   "free"
+  ]
+ },
+ "first_calls_at_loop_instant": [
+  {
+   "name": "_on_stack_hit",
+   "i": 93,
+   "j": 94,
+   "approach": -2.1135640801753422e-07,
+   "moved": {
+    "broken": 1
+   }
+  },
+  {
+   "name": "_on_stack_event",
+   "i": 84,
+   "j": 93,
+   "approach": 1.9611686610916753e-11,
+   "moved": {
+    "built": 1
+   }
+  },
+  {
+   "name": "_on_stack_event",
+   "i": 92,
+   "j": 94,
+   "approach": 8.798089947776273e-08,
+   "moved": {
+    "built": 1,
+    "wall_cuts": 1
+   }
+  },
+  {
+   "name": "_on_stack_hit",
+   "i": 93,
+   "j": 94,
+   "approach": 4.649283538644528e-08,
+   "moved": {
+    "broken": 1
+   }
+  },
+  {
+   "name": "_on_stack_event",
+   "i": 84,
+   "j": 93,
+   "approach": 8.867221399488858e-10,
+   "moved": {
+    "built": 1
+   }
+  }
+ ],
+ "finding": "Each repeat: free sphere 86 touches sphere 84 of stack [84, 93] at approach 8.6e-19; the join builds [84, 93, 86], the new 84-86 contact pulls at the start, the drop rule removes it and starts the parts: [84, 93] again and 86 handed back free, gap 4.3e-14, still closing at 7.8e-19; the event search reports the same touch. The joined counter also counts these undone joins.",
+ "files": {
+  "s1_f0.3_t5.92.pkl": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0118/s1_f0.3_t5.92.pkl",
+   "bytes": 16053478,
+   "sha256": "7a6b5b5e0f921f4e7ff3aaf8e93ec90c311a1fb5811a09e84ba451677d02c5a9"
+  },
+  "snap.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0118/snap.log",
+   "bytes": 22027,
+   "sha256": "9aeeae8dbc0741f000217f99580353dd6e6ced18b6d6ccd70bbeb6e483c2a708"
+  },
+  "trace.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0118/trace.json",
+   "bytes": 32874,
+   "sha256": "a90c0947cd4273e38c056f51272243cc91849665f216ba697a892068d2e9b55b"
+  }
+ }
+}

@@ -1,0 +1,156 @@
+{
+ "experiment_id": "E0116",
+ "code": "method/rest 22e1f09 (D0100)",
+ "seed1": {
+  "stopped_by": "same-instant loop",
+  "loop_t": 5.920523784634156,
+  "t_reached": 5.919999999999918,
+  "cpu_s": 407.572912087,
+  "last_step": [
+   5.919999999999918,
+   153.759636128,
+   35
+  ],
+  "stack_stats": {
+   "built": 44,
+   "joined": 45,
+   "broken": 39,
+   "split": 1,
+   "spans": 100,
+   "segments": 3712,
+   "sphere_time": 0.06144420442832921,
+   "python_cpu_s": 407.48424823799996,
+   "fallback_collisions": 2,
+   "start_refused": 0,
+   "ends": {
+    "stop": 84,
+    "wall": 9,
+    "open": 4,
+    "plate": 2,
+    "inner": 1
+   },
+   "largest": 5,
+   "touch_max_gain": 8.229642522170189e-17,
+   "touch_impulse_contacts": 67,
+   "wall_cuts": 9,
+   "pull_opened": 3,
+   "wall_joined": 4,
+   "pull_dropped": 31,
+   "plate_cuts": 2,
+   "plate_landed": 1,
+   "inner_cuts": 1,
+   "inner_joined": 1
+  },
+  "max_gain": 0.0,
+  "max_snap": 3.2593217014209586e-10,
+  "loop_calls_last5": [
+   [
+    "_on_stack_hit",
+    5.920523784634156,
+    84,
+    86,
+    8.632049166809503e-19
+   ],
+   [
+    "_on_stack_hit",
+    5.920523784634156,
+    84,
+    86,
+    8.632049166809503e-19
+   ],
+   [
+    "_on_stack_hit",
+    5.920523784634156,
+    84,
+    86,
+    8.632049166809503e-19
+   ],
+   [
+    "_on_stack_hit",
+    5.920523784634156,
+    84,
+    86,
+    8.632049166809503e-19
+   ],
+   [
+    "_on_stack_hit",
+    5.920523784634156,
+    84,
+    86,
+    8.632049166809503e-19
+   ]
+  ],
+  "first_step_differing_from_E0113": null,
+  "steps_identical_to_E0113_before": 592
+ },
+ "seed2": {
+  "stopped_by": "cpu cap inside a step",
+  "t_reached": 6.589999999999904,
+  "cpu_s": 913.3913204739999,
+  "last_step": [
+   6.589999999999904,
+   802.818576285,
+   70
+  ],
+  "inner_cuts": 0,
+  "max_gain": 0.0,
+  "steps_identical_to_E0111": "all 659 step lines have the same time and built count as E0111",
+  "stack_stats": {
+   "built": 73,
+   "joined": 38,
+   "broken": 68,
+   "split": 6,
+   "spans": 145,
+   "segments": 7366,
+   "sphere_time": 0.629571635205636,
+   "python_cpu_s": 913.2115071440006,
+   "fallback_collisions": 4,
+   "start_refused": 0,
+   "ends": {
+    "stop": 134,
+    "open": 7,
+    "plate": 2,
+    "cell": 2
+   },
+   "largest": 5,
+   "touch_max_gain": 1.1834166553447847e-17,
+   "touch_impulse_contacts": 115,
+   "pull_opened": 7,
+   "pull_dropped": 8,
+   "plate_cuts": 2,
+   "plate_landed": 1
+  }
+ },
+ "snapshot_trace": {
+  "note": "Not a test of D0100: E0115's pickle at 5.92 was made by the old code and already held 84 and 93 overlapping by 3.5e-6; D0100 cut at the restart instant, the approach 0.0107 was above v_rest, the stack broke and the ordinary collision refused the overlap.",
+  "error": "ValueError: sphere pair overlaps",
+  "cpu_s": 38.764627446999995
+ },
+ "files": {
+  "s1_f0.3.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0116/s1_f0.3.json",
+   "bytes": 43029,
+   "sha256": "64bb222c37af2328069b897841de165e22295381e685d251f4b308f175f257ea"
+  },
+  "s1_f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0116/s1_f0.3.log",
+   "bytes": 24954,
+   "sha256": "ee428b35df01bee2c38e1e79c5c323f7a6fa70fe10633ed93aa94b6cc8d3994c"
+  },
+  "s2_f0.3.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0116/s2_f0.3.json",
+   "bytes": 45546,
+   "sha256": "ae1e6404b0d62754570910f1d3947ab7d5708e4089a8d7802327185f759a4984"
+  },
+  "s2_f0.3.log": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0116/s2_f0.3.log",
+   "bytes": 25433,
+   "sha256": "9bcd0f4775720fb7027833fecbf9186e91376562414caebdb66c9667318c9215"
+  },
+  "trace_5.92.json": {
+   "path": "/Users/bizon/Projects/experiments/sequel-data/runs/E0116/trace_5.92.json",
+   "bytes": 2125,
+   "sha256": "0223023901c08ff470e55697d9cfeb3d8ffd412c9a3dd60794e573a543857e2e"
+  }
+ }
+}
