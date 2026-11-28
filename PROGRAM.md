@@ -485,7 +485,7 @@ sphere 86 rejoined beside 84 every 4.45e-10), then a cascade where stacks [84, 9
 from the inner-pair check being cut by gap round-off (E0125); D0104 adds the touch search's
 round-off floor there and removes it (E0126), but seed 1 then sits in the cascade to the
 900 s cap. f* 0.4 completes 5.29 and crawls near 5.292 (E0124, E0126). E0116's outcome
-corrected (inner check acted before 5.92).
+corrected by E0127 (inner check acted before 5.92).
 
 Next: why a touch between spheres of two separating stacks breaks both, at 1e-14 intervals
 (checker's Nov 27 point; trace the 93-94 approach at those touches; apply the round-off

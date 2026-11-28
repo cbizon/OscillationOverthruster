@@ -22,7 +22,7 @@ Results this run:
 - E0126 (D0104, falsified): chatter gone (inner_joined 3), seed 1 stays in phase 2 from
   5.920524237 for 1380 calls to the 900 s cap. f* 0.4: 5.29 at 500 s, 5.292022 at 900 s, last
   burst 216 calls of joins/builds/breaks on 58, 69, 54, 60.
-- E0116 outcome corrected (new record): the inner check acted before 5.92.
+- E0127 (re-analysis superseding E0116): the inner check acted before 5.92. A second E0116 outcome is refused by program check; removed by rewriting this run's own commits (disclosed).
 - Machine was loaded: ~0.6 CPU-s per wall-s; plan caps in CPU accordingly (a 900 s cap took
   ~25 min wall).
 
