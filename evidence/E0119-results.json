@@ -1,0 +1,140 @@
+{
+ "experiment_id": "E0119",
+ "artifact": "A0222",
+ "code": "method/rest a10d930 (traces, diagnostics); scripts at 4a28b9d (snap_at.py, scripts/rest_plate/diag/)",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0119",
+  "list": {
+   "diag3_f04.txt": {
+    "bytes": 528,
+    "sha256": "4e6265279d9661a642034b3f6ef5960cd46529dbcbe7076b6e598e3c425ec556"
+   },
+   "diag4_f04.txt": {
+    "bytes": 956,
+    "sha256": "dad97eddcecf2629e69a04495f662c88251fa7e50dda79849b2990042cef33b2"
+   },
+   "diag4_s1.txt": {
+    "bytes": 275,
+    "sha256": "f85ef134a72d342cce0610b9bdc900edc4dcc68261ddc3b39023bac5e24b78b0"
+   },
+   "diag_f04.txt": {
+    "bytes": 990,
+    "sha256": "19e9d12c5eea044aedbb24f79bd9efe66d00c6052390143ea01abd3c09eb443a"
+   },
+   "diag_s1.txt": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   "f04_loop.pkl": {
+    "bytes": 16068496,
+    "sha256": "7a21c12d6e334c2f62f9584fc0c5f130a9d8d0f865e7250f9be37bea5f68bcf3"
+   },
+   "s1_loop.pkl": {
+    "bytes": 16063380,
+    "sha256": "f65f53d76236a8a1b63bff6c85f4c35c2405e0b5e65e4d3184fab635065c4a35"
+   },
+   "snap.log": {
+    "bytes": 66,
+    "sha256": "030c530f6ba01160f4fedc56a2a3b222fbf1c52969b4fbd8573883ad08910c94"
+   },
+   "snap_f04.log": {
+    "bytes": 66,
+    "sha256": "e45e6dbf766dc8d2adac3f4ca76218a7b303cd7f02924c8ae003de0954a0c396"
+   },
+   "trace_f04_a10d930.json": {
+    "bytes": 26460,
+    "sha256": "d15b7c5839a794908ea5b7c19cfe27402cf3714bb68f7adfee3cd19c621e533e"
+   },
+   "trace_s1.log": {
+    "bytes": 48,
+    "sha256": "b2a8ff766000d3346f9f3bfc988924e73cc9623b28ec82bcf3e2fa16ee000e4f"
+   },
+   "trace_s1_a10d930.json": {
+    "bytes": 44625,
+    "sha256": "087959df76eb8e59303bce8f0d4a399acc9950a5a46e0fff03c76a7d2f8f31e0"
+   }
+  }
+ },
+ "a10d930_reaches_old_loop": {
+  "seed1_f0.3": {
+   "from": "runs/E0118/s1_f0.3_t5.92.pkl",
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.920523820830523,
+   "calls": 81,
+   "cpu_s": 107.435506862,
+   "note": "22e1f09 looped at 5.920523784634156 (E0118); a10d930 (direct force build, same to round-off) passes it and loops 3.6e-11 later at 5.920523820830523: same pair (stack sphere 84, free sphere 86), same pattern (each repeat moves joined and pull_dropped), 41 calls at that instant."
+  },
+  "f0.4": {
+   "from": "runs/E0119/f04_loop.pkl (snapshot at 5.281594649757622, made from runs/E0114 pickle with a10d930 code)",
+   "stopped_by": "same-instant loop",
+   "loop_t": 5.281594649757622,
+   "calls": 41,
+   "cpu_s": 84.48416227300001,
+   "note": "Loop reproduces at the E0110/E0114 instant: span end splits [54,58,70,59] -> [54,58,70]; then 40 calls of free 59 touching stack sphere 54 at approach 1.5e-16 to 1.5e-17, each moving joined and pull_dropped."
+  }
+ },
+ "probe_at_f0.4_loop": {
+  "pair": [
+   54,
+   59
+  ],
+  "sigma": 1.0032372627893795,
+  "hv": 5.329070518200751e-15,
+  "dd": -2.1545102273969454e-16,
+  "gap": 2.6645352591003757e-15,
+  "M": 46.5333096405646,
+  "horizon": 0.008405350242377985,
+  "branch": "round-off zone entered (hv <= RIDER_GAP_TOL 1e-13, dd < 0); probe step 6.73e-8; pair still closing at its end (dd -1.009e-07), so the rule reports a touch at tau 0",
+  "hv_dd_later": {
+   "6.73e-8": [
+    1.554e-15,
+    -1.009e-07
+   ],
+   "6.73e-7": [
+    -3.346e-13,
+    -1.009e-06
+   ],
+   "1e-6": [
+    -7.452e-13,
+    -1.5e-06
+   ],
+   "1e-4": [
+    -7.502e-09,
+    -0.00015
+   ]
+  },
+  "compiled_first_contact_any": [
+   0.0,
+   0
+  ],
+  "reading": "The closing is real in the stored path: the gap goes below the search floor about 6e-7 after the instant. It is not a round-off approach."
+ },
+ "why_the_join_is_undone_f0.4": {
+  "joined_stack": "[54,58,70,59], contacts plate-54, 58-54, 70-58, 59-54; consistent_modes switches all four to sliding (slips 1.75e-11, 0.00228, 0.00212, 0.011, all above SLIP0 1e-13)",
+  "pushes_all_sliding": [
+   8.66345,
+   6.48327,
+   3.13117,
+   -0.40743
+  ],
+  "force_matrix_condition": 30.17,
+  "pushes_all_rolling": [
+   5.67086,
+   2.76362,
+   1.34566,
+   1.56101
+  ],
+  "left_stack_start": "[54,58,70] starts with all contacts sliding; under them sphere 54 accelerates at (4.5955, 0, 0.6798), which opens the 54-59 contact (59 free falls at -1)",
+  "left_stack_stored_path": "finite differences of the stored segments at the start instant (h 1e-9 to 1e-7) give 54 at (1.35, 0, 0.68): the plate contact (slip 1.75e-11) sticks within 1e-9, after which 59 closes on 54 (relative normal acceleration about -0.75)",
+  "reading": "Not a singular force matrix (condition 30). The start modes and the modes the stack has a moment later disagree: sliding at the start makes the joining contact pull; the stick a nanosecond later makes it close. The search reports the touch at the start instant (probe rule), so the join is tried with the start modes again and again."
+ },
+ "other_bug": "Simulation._stack_finish returns at once when the hit is at the span's start instant and leaves st.contacts at the modes the span ended with (all rolling here), not those at its start; the join then builds from the wrong modes (fixed in D0101's commit).",
+ "seed1_stack_start": "At the a10d930 seed 1 loop, the joined stack [84,93,86] starts with slips 1.45e-7 (plate, sliding), 1.92e-9 (93-84, rolling: drift, above SLIP0), 0.0102 (new contact).",
+ "cpu_s": {
+  "snap_s1": 41.45,
+  "snap_f04": 18.22,
+  "trace_s1": 107.44,
+  "trace_f04": 84.48,
+  "diagnostics_approx": 120
+ }
+}

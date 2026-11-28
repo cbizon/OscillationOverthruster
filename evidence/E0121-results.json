@@ -1,0 +1,148 @@
+{
+ "experiment_id": "E0121",
+ "artifact": "A0224",
+ "code": "method/rest fde8612 (D0101 + D0102); diag4.py at the commit after it",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0121",
+  "list": {
+   "diag4_f04.txt": {
+    "bytes": 1339,
+    "sha256": "f0b32378e6de6b3019fa8817a1f9d7919865d38f427da11706a8cff18e013147"
+   },
+   "diag4_s1.txt": {
+    "bytes": 1068,
+    "sha256": "fe1f3fd2f63f9384c5e6d3e5903fbf6c5c697fa5e7fa3c531977593d36eba5fb"
+   },
+   "f04_loop2.pkl": {
+    "bytes": 16062753,
+    "sha256": "a228838dcb41542306787b8fb91f9f8ee777f892fb530764d9dacee82c9f8ba0"
+   },
+   "s1_loop2.pkl": {
+    "bytes": 16078924,
+    "sha256": "c4549611ed30d7b9065e45b963e962cac7efe6f47dc66e121ba821ab5d746748"
+   },
+   "snap_f04.log": {
+    "bytes": 69,
+    "sha256": "72c15bba18dc40a76791d36202912011db36ec3775bc49fd227f485146e2a101"
+   },
+   "snap_s1.log": {
+    "bytes": 66,
+    "sha256": "1c981e01b485733a6ee2653e0a8c8bb52eb0ac6feb110ad4e9fdf217fbca9175"
+   },
+   "trace_f04.json": {
+    "bytes": 29781,
+    "sha256": "49baaf7c87523f6a5da5d4819b354bec25ceac9465f456b6c3c3fe638cd075eb"
+   },
+   "trace_f04.log": {
+    "bytes": 53,
+    "sha256": "ed002db817782c51a6ef2335257569720eb592b055cca0e1c8f7fc0eb283ae9a"
+   },
+   "trace_s1.json": {
+    "bytes": 26273,
+    "sha256": "debf2c9e7cb8b559f0c4dd631c63b6b41ed3973ec6754cf4116b10450515b386"
+   },
+   "trace_s1.log": {
+    "bytes": 47,
+    "sha256": "90de95be501743acd4447449816a3748f85c96803a9db3af614f6caeb02d4e3e"
+   }
+  }
+ },
+ "f0.4": {
+  "from": "runs/E0119/f04_loop.pkl",
+  "stopped_by": "same-instant loop",
+  "loop_t": 5.281595188287501,
+  "calls": 46,
+  "cpu_s": 112.87782523999999,
+  "held_kept": 2,
+  "join_dropped": 39,
+  "first_call_differing_from_E0120": 1,
+  "first_differing_t": 5.281594934910397,
+  "E0120_t_there": 5.281594649757622,
+  "loop": "38 of 41 calls at 5.281595188287501 are 59 touching stack sphere 54 and the join dropped; gap after -3.7e-14 (past the search floor, so the touch is reported again at once), approach after 7.7e-18",
+  "joined_stack_start": {
+   "spheres": [
+    54,
+    58,
+    70,
+    59
+   ],
+   "slips": [
+    1.49e-07,
+    0.00228,
+    0.00211,
+    0.011
+   ],
+   "modes": "all sliding",
+   "pushes": [
+    8.66344,
+    6.48327,
+    3.13117,
+    -0.40743
+   ],
+   "pushes_with_contact0_rolling": [
+    7.40932,
+    4.9103,
+    2.37148,
+    0.42716
+   ],
+   "pushes_with_contact1_rolling": [
+    6.66927,
+    4.97445,
+    2.4197,
+    0.41118
+   ],
+   "new_pair_normal_acc_without_its_contact": 0.9175,
+   "note": "contact 0 is 54 on the plate, slip 1.49e-7"
+  }
+ },
+ "seed1_f0.3": {
+  "from": "runs/E0118/s1_f0.3_t5.92.pkl",
+  "stopped_by": "same-instant loop",
+  "loop_t": 5.920506155202801,
+  "calls": 45,
+  "cpu_s": 91.703313085,
+  "held_kept": 1,
+  "join_dropped": 39,
+  "first_call_differing_from_E0120": 0,
+  "first_differing_t": 5.92021917718095,
+  "E0120_t_there": 5.920219177175241,
+  "loop": "39 of 41 calls at 5.920506155202801 are 86 touching stack sphere 84 and the join dropped; gap after -2.7e-14",
+  "furthest_time_compared": {
+   "a10d930": 5.920523820830523,
+   "D0101": 5.920524091311899,
+   "D0101_and_D0102": 5.920506155202801,
+   "note": "the loop now comes 1.8e-5 time units earlier than with D0101 alone"
+  },
+  "joined_stack_start": {
+   "spheres": [
+    84,
+    93,
+    86
+   ],
+   "slips": [
+    0.000132,
+    3.4e-05,
+    0.0102
+   ],
+   "modes": "all sliding",
+   "pushes": [
+    5.17223,
+    2.38684,
+    -0.07861
+   ],
+   "pushes_with_contact1_rolling": [
+    5.69208,
+    2.82272,
+    0.37144
+   ],
+   "new_pair_normal_acc_without_its_contact": 0.1587,
+   "note": "contact 1 is 93 on 84, slip 3.4e-5"
+  }
+ },
+ "reading": "D0102 acted in both (traces differ from E0120 from the first or second call). Both loops are now one mechanism: a sliding contact elsewhere in the stack with a small slip (1.5e-7 at f* 0.4, 3.4e-5 in seed 1) makes the joining contact pull at the start instant; with that contact rolling, the joining contact pushes. The sliding contact sticks shortly after, and the sphere handed back free is already past the search floor, so the touch comes again at the same instant.",
+ "cpu_s_diagnostics": {
+  "snap_f04": 6.35,
+  "snap_s1": 6.73,
+  "diag4_runs_approx": 90
+ }
+}

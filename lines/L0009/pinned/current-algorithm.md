@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-27 09:53Z run of line L0009 (method/rest a10d930: pairs inside a stack checked, D0100, tested in E0116 at 22e1f09; direct force-matrix build, tested in E0117; earlier versions tested in E0108 to E0113). Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-28 05:03Z run of line L0009 (method/rest fde8612: contacts carried over rolling keep rolling at a new stack's start, D0101, and a touch on a stack sphere is reported where the gap actually crosses the search floor, D0102, both tested in E0120 and E0121; pairs inside a stack checked, D0100; direct force-matrix build, E0117; earlier versions tested in E0108 to E0116). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -135,7 +135,11 @@ contact changes, each a located root of the dense output, cut back to it:
     sliding slip reaches 0   -> contact rolls (or slides on if rolling needs
                                 more friction than 0.5 × push)
 at a stack's start: a contact that slips, or needs more than 0.5 × push to
-    roll, starts sliding
+    roll, starts sliding; except that a contact which was rolling in the
+    live stack the new one comes from (join, split, wall or inner join,
+    dropped contact) keeps rolling unless it needs more than 0.5 × push:
+    its slip there is the integration's drift, e.g. 1.75e-11 (D0101,
+    2026-11-28)
 plate work and friction loss: integrated with the motion and booked in the
     engine's energy accounts at each span's end, with the plate's vertical
     impulse (change of the stack's vertical momentum plus its weight × time)
@@ -153,9 +157,12 @@ other spheres search for their first contact with a stack sphere by
       conservative advancement on the stored polynomials: steps that provably
       cannot skip a contact, from the gap, its rate of change, and a bound on
       the acceleration taken from the polynomials; a pair already at
-      contact counts as touching only if its gap could go below the search's
-      floor (1e-13 on the squared distance) before it opens (D0092): a
-      round-off approach (7e-18) between spheres at rest is not a touch
+      contact counts as touching only when its gap actually goes below the
+      search's floor (1e-13 on the squared distance): the search steps on
+      by steps that provably keep it above the floor and reports the touch
+      where it reaches half the floor (D0092; D0102, 2026-11-28: before, a
+      pair still closing one step later was reported at the step's start);
+      a round-off approach (7e-18) between spheres at rest is not a touch
 a contact found, or the span's end, hands control back to Python
 ```
 
@@ -167,8 +174,8 @@ a contact found, or the span's end, hands control back to Python
 | Contact searches against riders | built, tested against brute force |
 | Moving stacks, integrated offline | built, tested; books close to 3e-13 |
 | Event loop stops at a slow touch on a rider and builds the stack | built, tested |
-| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle (7.45) yet. Furthest on 2026-11-27: seed 2, f* 0.3 to 6.59 (E0109, E0111, E0116; stopped by the 900 s CPU cap); seed 1, f* 0.3 to 5.92, then a same-instant loop at 5.9205 (E0116, traced in E0118); seed 1, f* 0.4 completes 5.28, then a same-instant loop at 5.2816 (E0110) |
-| Same-instant loop after a dropped join contact | open (E0118): a sphere joins at round-off approach, the new contact pulls and is dropped (D0091), the sphere goes back free still closing at about 1e-18 with a gap of 4e-14, and the search reports the touch again. The joined and pull_dropped counters count each repeat |
+| Stacks fed back into the event loop (spans, searches, join, break, split) | built 2026-11-26; no 2D stall layer completes its first cycle (7.45) yet. Furthest on 2026-11-27: seed 2, f* 0.3 to 6.59 (E0109, E0111, E0116; stopped by the 900 s CPU cap); seed 1, f* 0.3 to 5.92, then a same-instant loop at 5.9205 (E0116, traced in E0118; at fde8612 at 5.9205062, E0121); seed 1, f* 0.4 completes 5.28, then a same-instant loop at 5.2816 (E0110; at fde8612 at 5.2815952, E0121) |
+| Same-instant loop after a dropped join contact | open. 2026-11-28 (E0119 to E0121): not a round-off approach and not a singular force matrix. At the joined stack's start another contact slides with a small slip (1.5e-7 at f* 0.4, 3.4e-5 in seed 1); with it sliding the joining contact pulls (push -0.41, -0.079), with it rolling it would push (+0.43, +0.37). The sliding contact sticks soon after, but the joining sphere has already been handed back free, past the search floor, and touches again at once. Fixed on the way: the slip test switching drifted rolling contacts to sliding (D0101), the start-instant modes (D0101), the touch reported at the start of the round-off zone (D0102). Undone joins now count as join_dropped, not joined. Next: keep the joining sphere in the stack as a member with no contact, watched like the pairs inside a stack (D0100), so the join happens when the gap really closes |
 | Pairs inside a stack with no contact between them | checked since 2026-11-27 (D0100); E0115 found two such spheres overlapping by 4.6e-5 when their stack broke (E0113's error); in E0116 the check acted once (a join) |
 | Plate check for stack spheres without a plate contact | built (D0093); acted twice in E0108 and stopped the plate penetration; the landing on the plate (D0096) acted once in E0109 |
 | Side walls as stack contacts | built 2026-11-27 (D0098); in E0111 seed 1 it acted 5 times (2 joins) and the layer passed the side-wall loop at 5.918 |

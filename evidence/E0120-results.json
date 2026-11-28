@@ -1,0 +1,51 @@
+{
+ "experiment_id": "E0120",
+ "artifact": "A0223",
+ "code": "method/rest 98fe790 (D0101)",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0120",
+  "list": {
+   "trace_f04.json": {
+    "bytes": 26718,
+    "sha256": "f83d9dead01edb55a07491ef951f72a46d000ecb671f231e07db2ec47e465471"
+   },
+   "trace_f04.log": {
+    "bytes": 48,
+    "sha256": "fa65b32d5580d9dbb6d8d5249c102f5c06c9399f6d3f3416431f03548c7fb5c1"
+   },
+   "trace_s1.json": {
+    "bytes": 143875,
+    "sha256": "6faac4c83f4c7b820b24708933123f34458e5c8f9ec9b7221516cd43ae8456cd"
+   },
+   "trace_s1.log": {
+    "bytes": 54,
+    "sha256": "7cde132875660dfd459f0cee8bc882ebe7b7e9803228f7a4b9c72917755d82aa"
+   }
+  }
+ },
+ "f0.4": {
+  "from": "runs/E0119/f04_loop.pkl",
+  "stopped_by": "same-instant loop",
+  "loop_t": 5.281594649757622,
+  "calls": 41,
+  "cpu_s": 104.152786377,
+  "held_kept": 0,
+  "join_dropped": 40,
+  "first_call_differing_from_E0119_a10d930": 1,
+  "how_it_differs": "same handlers, times and spheres; the repeated joins now move join_dropped instead of joined (the counter change); no held_kept: the left stack's plate contact was sliding at its start (given modes slide), so there was no rolling contact to hold",
+  "reading": "D0101's hold did not act here. With the start-instant modes restored, the plate contact under 54 is sliding at the start (slip 1.75e-11) and sticks within 1e-9; the touch is still reported at the start instant."
+ },
+ "seed1_f0.3": {
+  "from": "runs/E0118/s1_f0.3_t5.92.pkl",
+  "stopped_by": "same-instant loop",
+  "loop_t": 5.920524091311899,
+  "calls": 260,
+  "cpu_s": 280.75487914800004,
+  "held_kept": 18,
+  "join_dropped": 91,
+  "first_call_differing_from_E0119_a10d930": 0,
+  "first_call_t": 5.920219177175241,
+  "calls_moving_held_kept": 12,
+  "reading": "D0101 acted from the first handler call (12 calls moved held_kept, 18 contacts held). The loop moved 2.7e-7 later, to 5.920524091311899, same pair (stack 84, free 86), same pattern."
+ }
+}
