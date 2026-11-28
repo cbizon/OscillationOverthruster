@@ -1,0 +1,111 @@
+{
+ "experiment_id": "E0128",
+ "line_id": "L0009",
+ "commit": "dbc0f59",
+ "reproduction": {
+  "note": "trace_live.py from runs/E0118/s1_f0.3_t5.92.pkl, steps 0.01, cap 150 s CPU: handler-call log identical to E0126's (name, event time, pair, counters moved) for the first calls; the next call differs only because the CPU cap fired inside it",
+  "identical_calls": 225,
+  "first_diff_call": 225,
+  "first_diff_cause": "cpu cap inside call 225 (counters not moved)"
+ },
+ "span_cut_sensitivity": {
+  "note": "snap_at.py from the same pickle with run_to(5.95) in one go (t_stop 5.95 instead of the step end 5.93): first handler call at or after 5.92052424 was at event time 5.920524285342532 after 41.5 CPU s, i.e. past E0126's stuck point 5.9205242402 that E0126 never left in 900 s. Spans ending at t_stop are cut differently, so round-off differs; whether seed 1 enters or stays in the cascade depends on this.",
+  "t_reached": 5.920524285342532,
+  "cpu_s": 41.508
+ },
+ "v_rest": 0.01,
+ "rider_gap_tol": 1e-13,
+ "cascade": {
+  "recorded_calls": 40,
+  "stack_stack_hits_93_94": 12,
+  "steady_hits_after_5_9205242402": 11,
+  "gap_at_hit_range": [
+   -6.994405055138486e-14,
+   -6.927791673660977e-14
+  ],
+  "hv_at_hit_range": [
+   -1.4055423491754482e-13,
+   -1.3922196728799463e-13
+  ],
+  "floor_hv": -5e-14,
+  "approach_at_hit_median": 4.501065907679397e-14,
+  "approach_at_hit_range": [
+   1.3288840333772481e-14,
+   4.770502885758189e-14
+  ],
+  "tangential_rel_speed": 0.012867478917886425,
+  "approach_after_walton_median": -4.4803058919620293e-14,
+  "approach_at_rebuild_start_median": -3.834722538793016e-15,
+  "closing_accel_in_rebuilt_stacks_median": 4.887251413517559,
+  "interval_between_hits_median": 9.769962616701378e-15,
+  "stacks_at_hit": [
+   [
+    84,
+    93,
+    86
+   ],
+   [
+    92,
+    94
+   ]
+  ],
+  "first_hit": {
+   "t": 5.920524237272787,
+   "approach": 1.7841403615981222e-07,
+   "gap": -7.105427357601002e-14
+  },
+  "second_hit": {
+   "t": 5.920524240218779,
+   "approach": 1.3288840333772481e-14,
+   "stacks": [
+    [
+     84,
+     93,
+     86
+    ],
+    [
+     92,
+     94
+    ]
+   ]
+  }
+ },
+ "conclusion": "The 93-94 touches are real slow touches, not round-off: the pair already overlaps by about 7e-14 (squared-gap value about -1.4e-13, past the search floor -5e-14), closes at about 4.5e-14 (far below v_rest 0.01, far above zero), Walton's operator reverses it to about -4.5e-14, the stack starts' projection leaves about -3.8e-15, and the rebuilt stacks [84, 93] and [92, 94] accelerate the pair together at about 4.9, so it touches again about 1e-14 later. The stacks are pressed against each other. Hypothesis supported.",
+ "files": [
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/diag6.json",
+   "bytes": 28701,
+   "sha256": "229b3755c16322446543ef813a47f252390aa4f0f397228e3520711c1e94e724"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/diag6.log",
+   "bytes": 9,
+   "sha256": "cf95aa5cc587391d8f3aa2491c57aa35ad122bf11f0a0f6a31dfa8f4e5aba6b4"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/repro_log.jsonl",
+   "bytes": 36599,
+   "sha256": "a7a744fe081469d6195581ee42e26bdf3be6a1772473a7a51f626a2d1032b72c"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/repro.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/snap.log",
+   "bytes": 60,
+   "sha256": "da2736fc6f9590c5b11f6c4919b7405d5680c7f205d7313404923605d352fbf6"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0128/snap.pkl",
+   "bytes": 16055878,
+   "sha256": "8921963c256ac96ecda51e2b4007ff4ca76baf7d3317c01093607b91720358c3"
+  }
+ ],
+ "scripts": [
+  "scripts/rest_plate/diag/diag6.py (method/rest 828dc7b; run at dbc0f59 engine, script uncommitted then, identical content)",
+  "scripts/rest_plate/trace_live.py",
+  "scripts/rest_plate/snap_at.py"
+ ]
+}

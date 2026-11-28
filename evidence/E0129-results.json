@@ -1,0 +1,188 @@
+{
+ "experiment_id": "E0129",
+ "line_id": "L0009",
+ "commit": "828dc7b (D0105 on dbc0f59)",
+ "results": {
+  "s1": {
+   "end": "cap",
+   "cpu_s": 899.831321247,
+   "calls": 348,
+   "last_event_t": 5.921601253448903,
+   "steps": [],
+   "first_diff_vs_E0126": {
+    "call": 4,
+    "E0126": {
+     "kind": "call",
+     "n": 4,
+     "name": "_on_stack_hit",
+     "t": 5.920506155202801,
+     "i": 93,
+     "j": 94,
+     "moved": {
+      "broken": 1
+     },
+     "sizes": [],
+     "cpu": 8.531
+    },
+    "E0129": {
+     "kind": "call",
+     "n": 4,
+     "name": "_on_stack_hit",
+     "t": 5.920506155202801,
+     "i": 93,
+     "j": 94,
+     "moved": {
+      "broken": 1,
+      "start_refused": 1,
+      "held_kept": 2
+     },
+     "sizes": [],
+     "cpu": 7.469
+    }
+   },
+   "calls_moving_stacks_joined": 13,
+   "moved_during_run": {
+    "built": 83,
+    "joined": 161,
+    "broken": 72,
+    "stacks_joined": 13,
+    "start_refused": 54,
+    "held_kept": 144,
+    "kept_members": 8,
+    "members_released": 0,
+    "inner_joined": 1,
+    "wall_joined": 37,
+    "largest": 5,
+    "touch_max_gain": 2.353361747380957e-16
+   },
+   "refused_why_cumulative": {
+    "stack start: conditions violated [1]": 3,
+    "stack start: conditions violated [1, 3]": 6,
+    "stack start: conditions violated [1, 3, 7]": 10,
+    "stack start: conditions violated [1, 3, 9]": 19,
+    "stack start: conditions violated [1, 3, 5]": 11,
+    "stack start: conditions violated [1, 7]": 1,
+    "stack start: conditions violated [7]": 2,
+    "stack start: conditions violated [1, 7, 9]": 1,
+    "stack start: conditions violated [3]": 1
+   },
+   "refused_why_at_start": null,
+   "wall_join_refusals": {
+    "count": 33,
+    "first": 5.921597447285378,
+    "last": 5.921601253448893,
+    "median_interval": 1.0380319981351249e-07
+   },
+   "cycle_pattern": "from 5.9215974 a five-sphere group (84, 86, 92, 93, 94) is built up by joins (84-93 built, 93-94, 92-94, 86-94 joined, some as two-stack joins), its span ends at a side-wall touch (wall_joined) whose new stack's start is refused (conditions violated, mostly odd entries = rolling contacts slipping or needing more than mu N), so every sphere is handed back, and it is rebuilt; about 1.04e-7 time units (median of 33 rounds) and about 20 CPU s per round",
+   "E0126_last_event_t": 5.920524240223244
+  },
+  "f04": {
+   "end": "cap",
+   "cpu_s": 899.922201474,
+   "calls": 431,
+   "last_event_t": 5.294984639267075,
+   "steps": [
+    {
+     "t": 5.29,
+     "cpu": 418.07
+    }
+   ],
+   "first_diff_vs_E0126": {
+    "call": 298,
+    "E0126": {
+     "kind": "call",
+     "n": 298,
+     "name": "_on_stack_hit",
+     "t": 5.292022124573566,
+     "i": 58,
+     "j": 69,
+     "moved": {
+      "broken": 1
+     },
+     "sizes": [
+      3
+     ],
+     "cpu": 529.006
+    },
+    "E0129": {
+     "kind": "call",
+     "n": 298,
+     "name": "_on_stack_hit",
+     "t": 5.292022124573566,
+     "i": 58,
+     "j": 69,
+     "moved": {
+      "stacks_joined": 1
+     },
+     "sizes": [
+      3,
+      5
+     ],
+     "cpu": 463.224
+    }
+   },
+   "calls_moving_stacks_joined": 8,
+   "moved_during_run": {
+    "built": 103,
+    "joined": 193,
+    "broken": 90,
+    "stacks_joined": 8,
+    "start_refused": 74,
+    "held_kept": 118,
+    "kept_members": 43,
+    "members_released": 0,
+    "inner_joined": 35,
+    "wall_joined": 0,
+    "largest": 8,
+    "touch_max_gain": 1.4051651156811285e-15
+   },
+   "refused_why_cumulative": {
+    "stack start: conditions violated [1]": 52,
+    "stack start: conditions violated [1, 3]": 9,
+    "stack start: conditions violated [1, 3, 5]": 1,
+    "stack start: conditions violated [9]": 1,
+    "stack start: conditions violated [1, 5]": 2,
+    "stack start: conditions violated [1, 3, 9, 11]": 3,
+    "stack start: conditions violated [1, 9, 11]": 4,
+    "stack start: conditions violated [1, 3, 7]": 1,
+    "stack start: conditions violated [1, 3, 11, 13]": 1
+   },
+   "refused_why_at_start": null,
+   "E0126": {
+    "t529_cpu": 499.8,
+    "last_event_t": 5.292022
+   }
+  }
+ },
+ "conclusion": "D0105 acted. Seed 1 differs from E0126 at call 4 (the first 93-94 touch at 5.920506155: the joined stack's start was refused and every sphere handed back); 13 calls made two-stack joins in seed 1. At f* 0.4 the log is identical to E0126 through call 297 and first differs at call 298 (5.292022, a 58-69 touch now joining two stacks instead of breaking both); 8 two-stack joins. The 1e-14 break-and-rebuild cascade is gone: seed 1 passes E0126's stuck point 5.9205242402 at once, but from 5.9215974 enters a new crawl, a five-sphere stack (84, 86, 92, 93, 94) rebuilt by joins and refused at a side-wall touch every ~1.04e-7 (33 rounds, ~20 CPU s each), reaching 5.9216013 at the 900 s cap without completing 5.93. Most refusals are rolling contacts that slip or need more than mu N at the start (odd entries of 'conditions violated'), with contacts carried over rolling (held_kept 144). f* 0.4 completes 5.29 (418 CPU s; identical to E0126 to there, so the time difference from E0126's 500 s is machine load) and reaches 5.294985 against E0126's 5.292022. Falsified on the seed 1 clause.",
+ "files": [
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0129/s1_log.jsonl",
+   "bytes": 58736,
+   "sha256": "f80d4dec46f21583d5ff0bc10fca9cd5a991e9df608d39987d6d7492f5f5606e"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0129/f04_log.jsonl",
+   "bytes": 73371,
+   "sha256": "6b98aef84a60440b8eeb50886a88b91b366627e186f459b68fa30928239d5315"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0129/f04_step.pkl",
+   "bytes": 16055003,
+   "sha256": "32da4a046efd7cf57464b489a4c5f987a85fd3a2aec502c56786a5e76f38f85d"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0129/s1.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "~/Projects/experiments/sequel-data/runs/E0129/f04.out",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "notes": [
+  "f04_step.pkl is the f* 0.4 layer at the step end 5.29 (828dc7b), kept as a resume point."
+ ]
+}

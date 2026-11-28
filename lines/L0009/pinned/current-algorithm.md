@@ -1,7 +1,7 @@
 # Resting-contact method (line L0009): the current algorithm
 
 As built on branch `method/rest` (worktree `sequel-data/worktrees/rest`), as of the
-2026-11-28 07:02Z run of line L0009 (method/rest dbc0f59: the check of pairs inside a stack ignores crossings within the touch search's round-off floor, D0104, tested in E0126; before it 39e28e3: spheres detached by a pulling contact at a stack's start stay in it as members with no contact, D0103, tested in E0122; contacts carried over rolling keep rolling at a new stack's start, D0101, and a touch on a stack sphere is reported where the gap actually crosses the search floor, D0102, both tested in E0120 and E0121; pairs inside a stack checked, D0100; direct force-matrix build, E0117; earlier versions tested in E0108 to E0116). Source: `granular/edmd.py`, `granular/sim.py`,
+2026-11-28 08:44Z run of line L0009 (method/rest 828dc7b: two stacks whose spheres touch below v_rest join into one stack, D0105, tested in E0129; before it dbc0f59: the check of pairs inside a stack ignores crossings within the touch search's round-off floor, D0104, tested in E0126; before it 39e28e3: spheres detached by a pulling contact at a stack's start stay in it as members with no contact, D0103, tested in E0122; contacts carried over rolling keep rolling at a new stack's start, D0101, and a touch on a stack sphere is reported where the gap actually crosses the search floor, D0102, both tested in E0120 and E0121; pairs inside a stack checked, D0100; direct force-matrix build, E0117; earlier versions tested in E0108 to E0116). Source: `granular/edmd.py`, `granular/sim.py`,
 `granular/stack.py`, `granular/rest_kernel.py` on that branch; design in
 `lines/L0009/design.md`; decisions D0073 to D0085 and later ones in
 `ledger/decisions.jsonl`. Units: sphere diameter D, gravity g, sphere mass.
@@ -66,7 +66,15 @@ two spheres touch, one of them a RIDER:
 RIDER reaches a side wall:           RIDER -> FREE, ordinary wall collision
 
 sphere k touches a STACK sphere h:
-    if k is in another stack:        break both stacks, ordinary event follows
+    if k is in another stack:
+        if approach < v_rest and the two stacks together have at most 8 spheres:
+                                     join the two stacks into one (D0105, 2026-11-28):
+                                     every contact of both kept (rolling ones keep
+                                     rolling), plus a rolling contact k-h; one
+                                     restitution-0 touch over the new stack as below;
+                                     if its start is refused, every sphere is handed
+                                     back free or riding
+        else:                        break both stacks, ordinary collision follows
     elif approach < v_rest:          k joins the stack: contact k-h, plus k-plate
                                      if k was riding; one restitution-0 touch over
                                      the whole new stack removes every closing
