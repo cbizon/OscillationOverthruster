@@ -1,0 +1,1083 @@
+{
+ "experiment_id": "E0126",
+ "artifact": "A0229",
+ "code": "method/rest dbc0f59 (D0104 on D0103), trace_live.py a5d95f2",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0126",
+  "list": {
+   "f04.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   "f04_log.jsonl": {
+    "bytes": 84000,
+    "sha256": "db4ab9b11a57c61a7531b317e3cee88631e4b016209e81d0b9188cbeef01341c"
+   },
+   "s1.out": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   "s1_log.jsonl": {
+    "bytes": 221500,
+    "sha256": "272d119a5271949857edaf0def45548cf7472914b7856c1da32094be669469ce"
+   }
+  }
+ },
+ "seed1_f0.3": {
+  "log": "/Users/bizon/Projects/experiments/sequel-data/runs/E0126/s1_log.jsonl",
+  "t_start": 5.919999999999918,
+  "window": 1e-08,
+  "n_calls": 1419,
+  "steps": [],
+  "end": {
+   "kind": "cap",
+   "stopped_by": "cpu cap",
+   "cpu": 898.876097568,
+   "stats": {
+    "built": 965,
+    "joined": 28,
+    "broken": 503,
+    "split": 2,
+    "spans": 1006,
+    "segments": 24365,
+    "sphere_time": 0.06145894298360144,
+    "python_cpu_s": 1041.3133709540004,
+    "fallback_collisions": 2,
+    "start_refused": 6,
+    "ends": {
+     "stop": 522,
+     "wall": 469,
+     "open": 5,
+     "plate": 2,
+     "inner": 8
+    },
+    "largest": 5,
+    "touch_max_gain": 1.3169827741408404e-16,
+    "touch_impulse_contacts": 100,
+    "wall_cuts": 469,
+    "pull_opened": 3,
+    "wall_joined": 5,
+    "pull_dropped": 9,
+    "plate_cuts": 2,
+    "plate_landed": 1,
+    "inner_cuts": 8,
+    "inner_joined": 4,
+    "held_kept": 8,
+    "refused_why": {
+     "stack start: conditions violated [1]": 1,
+     "stack start: conditions violated [3]": 2,
+     "stack start: conditions violated [7]": 1,
+     "stack start: conditions violated [1, 3]": 2
+    },
+    "kept_members": 6
+   }
+  },
+  "t_max_event": 5.920524240223244,
+  "last_call": {
+   "kind": "call",
+   "n": 1418,
+   "name": "_on_stack_event",
+   "t": 5.920524240223244,
+   "i": 84,
+   "j": 93,
+   "moved": {},
+   "sizes": [
+    2
+   ],
+   "cpu": 898.876
+  },
+  "counters_over_cpu": [
+   {
+    "cpu": 61.406,
+    "calls": 51,
+    "t_max": 5.920524240218789,
+    "built": 19,
+    "broken": 14,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 8,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 120.675,
+    "calls": 135,
+    "t_max": 5.920524240219063,
+    "built": 75,
+    "broken": 42,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 36,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 180.939,
+    "calls": 222,
+    "t_max": 5.920524240219346,
+    "built": 133,
+    "broken": 71,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 65,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 240.382,
+    "calls": 310,
+    "t_max": 5.920524240219629,
+    "built": 192,
+    "broken": 100,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 95,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 300.467,
+    "calls": 396,
+    "t_max": 5.920524240219913,
+    "built": 249,
+    "broken": 129,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 123,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 360.643,
+    "calls": 483,
+    "t_max": 5.920524240220196,
+    "built": 307,
+    "broken": 158,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 152,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 420.213,
+    "calls": 571,
+    "t_max": 5.920524240220479,
+    "built": 366,
+    "broken": 187,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 182,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 481.136,
+    "calls": 660,
+    "t_max": 5.9205242402207725,
+    "built": 425,
+    "broken": 217,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 211,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 540.731,
+    "calls": 768,
+    "t_max": 5.920524240221124,
+    "built": 497,
+    "broken": 253,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 247,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 600.152,
+    "calls": 880,
+    "t_max": 5.920524240221486,
+    "built": 572,
+    "broken": 290,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 285,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 660.341,
+    "calls": 990,
+    "t_max": 5.920524240221847,
+    "built": 645,
+    "broken": 327,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 321,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 720.297,
+    "calls": 1098,
+    "t_max": 5.920524240222199,
+    "built": 717,
+    "broken": 363,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 357,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 780.237,
+    "calls": 1206,
+    "t_max": 5.920524240222551,
+    "built": 789,
+    "broken": 399,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 393,
+    "wall_joined": 3,
+    "held_kept": 8
+   },
+   {
+    "cpu": 840.444,
+    "calls": 1312,
+    "t_max": 5.920524240222893,
+    "built": 860,
+    "broken": 434,
+    "joined": 14,
+    "inner_joined": 3,
+    "kept_members": 6,
+    "members_released": 0,
+    "pull_dropped": 6,
+    "start_refused": 6,
+    "wall_cuts": 429,
+    "wall_joined": 3,
+    "held_kept": 8
+   }
+  ],
+  "n_bursts": 18,
+  "calls_in_bursts_of_3_or_more": 1408,
+  "largest_bursts": [
+   {
+    "n_calls": 1380,
+    "t_first": 5.920524237272787,
+    "t_span": 2.95045765597024e-09,
+    "distinct_times": 459,
+    "cpu_first": 51.747,
+    "cpu_last": 898.876,
+    "intervals_first": [
+     2.9459927830544075e-09,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      94,
+      919
+     ],
+     [
+      93,
+      919
+     ],
+     [
+      84,
+      461
+     ],
+     [
+      92,
+      460
+     ],
+     [
+      86,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 460,
+     "start_refused": 1,
+     "held_kept": 2,
+     "built": 918,
+     "wall_cuts": 459,
+     "joined": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1
+    }
+   },
+   {
+    "n_calls": 4,
+    "t_first": 5.920506155202801,
+    "t_span": 0.0,
+    "distinct_times": 1,
+    "cpu_first": 8.531,
+    "cpu_last": 13.053,
+    "intervals_first": [],
+    "intervals_last": [],
+    "spheres": [
+     [
+      93,
+      2
+     ],
+     [
+      94,
+      2
+     ],
+     [
+      84,
+      2
+     ],
+     [
+      86,
+      1
+     ],
+     [
+      92,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 1,
+     "built": 2,
+     "joined": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1,
+     "wall_cuts": 1
+    }
+   },
+   {
+    "n_calls": 4,
+    "t_first": 5.9205225798994645,
+    "t_span": 0.0,
+    "distinct_times": 1,
+    "cpu_first": 18.312,
+    "cpu_last": 22.713,
+    "intervals_first": [],
+    "intervals_last": [],
+    "spheres": [
+     [
+      93,
+      2
+     ],
+     [
+      94,
+      2
+     ],
+     [
+      84,
+      2
+     ],
+     [
+      86,
+      1
+     ],
+     [
+      92,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 1,
+     "built": 2,
+     "joined": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1,
+     "wall_cuts": 1
+    }
+   },
+   {
+    "n_calls": 4,
+    "t_first": 5.92052375953991,
+    "t_span": 0.0,
+    "distinct_times": 1,
+    "cpu_first": 28.002,
+    "cpu_last": 32.138,
+    "intervals_first": [],
+    "intervals_last": [],
+    "spheres": [
+     [
+      93,
+      2
+     ],
+     [
+      94,
+      2
+     ],
+     [
+      84,
+      2
+     ],
+     [
+      86,
+      1
+     ],
+     [
+      92,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 1,
+     "built": 2,
+     "joined": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1,
+     "wall_cuts": 1
+    }
+   },
+   {
+    "n_calls": 4,
+    "t_first": 5.920524158572485,
+    "t_span": 9.769962616701378e-15,
+    "distinct_times": 2,
+    "cpu_first": 44.813,
+    "cpu_last": 50.256,
+    "intervals_first": [
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      84,
+      3
+     ],
+     [
+      93,
+      2
+     ],
+     [
+      94,
+      1
+     ],
+     [
+      86,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 1,
+     "start_refused": 1,
+     "held_kept": 2,
+     "inner_joined": 1,
+     "built": 1,
+     "joined": 2,
+     "pull_dropped": 1,
+     "kept_members": 1
+    }
+   }
+  ]
+ },
+ "f0.4": {
+  "log": "/Users/bizon/Projects/experiments/sequel-data/runs/E0126/f04_log.jsonl",
+  "t_start": 5.281594649757622,
+  "window": 1e-08,
+  "n_calls": 514,
+  "steps": [
+   {
+    "t": 5.29,
+    "cpu": 499.815,
+    "calls": 288
+   }
+  ],
+  "end": {
+   "kind": "cap",
+   "stopped_by": "cpu cap",
+   "cpu": 899.967167913,
+   "stats": {
+    "built": 226,
+    "joined": 239,
+    "broken": 170,
+    "split": 36,
+    "spans": 519,
+    "segments": 34734,
+    "sphere_time": 0.21098110143324345,
+    "python_cpu_s": 2285.397099232002,
+    "fallback_collisions": 4,
+    "start_refused": 49,
+    "ends": {
+     "stop": 427,
+     "cell": 13,
+     "open": 43,
+     "inner": 34,
+     "plate": 2
+    },
+    "largest": 6,
+    "touch_max_gain": 1.4051651156811285e-15,
+    "touch_impulse_contacts": 799,
+    "pull_opened": 39,
+    "pull_dropped": 42,
+    "held_kept": 57,
+    "refused_why": {
+     "stack start: conditions violated [1]": 44,
+     "stack start: conditions violated [1, 3]": 4,
+     "stack start: conditions violated [1, 3, 5]": 1
+    },
+    "kept_members": 36,
+    "inner_cuts": 34,
+    "inner_joined": 32,
+    "plate_cuts": 2
+   }
+  },
+  "t_max_event": 5.292022133021244,
+  "last_call": {
+   "kind": "call",
+   "n": 513,
+   "name": "_on_stack_event",
+   "t": 5.292022133021244,
+   "i": 69,
+   "j": 74,
+   "moved": {},
+   "sizes": [
+    2,
+    3,
+    3
+   ],
+   "cpu": 899.967
+  },
+  "counters_over_cpu": [
+   {
+    "cpu": 61.568,
+    "calls": 32,
+    "t_max": 5.281596451463931,
+    "built": 7,
+    "broken": 7,
+    "joined": 14,
+    "inner_joined": 4,
+    "kept_members": 5,
+    "members_released": 0,
+    "pull_dropped": 5,
+    "start_refused": 7,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 7
+   },
+   {
+    "cpu": 120.926,
+    "calls": 69,
+    "t_max": 5.283168564568785,
+    "built": 15,
+    "broken": 15,
+    "joined": 30,
+    "inner_joined": 9,
+    "kept_members": 10,
+    "members_released": 0,
+    "pull_dropped": 10,
+    "start_refused": 13,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 16
+   },
+   {
+    "cpu": 182.171,
+    "calls": 102,
+    "t_max": 5.283234832171509,
+    "built": 22,
+    "broken": 22,
+    "joined": 46,
+    "inner_joined": 14,
+    "kept_members": 15,
+    "members_released": 0,
+    "pull_dropped": 15,
+    "start_refused": 20,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 23
+   },
+   {
+    "cpu": 241.402,
+    "calls": 138,
+    "t_max": 5.283236390701815,
+    "built": 28,
+    "broken": 28,
+    "joined": 64,
+    "inner_joined": 20,
+    "kept_members": 21,
+    "members_released": 0,
+    "pull_dropped": 21,
+    "start_refused": 26,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 29
+   },
+   {
+    "cpu": 300.386,
+    "calls": 174,
+    "t_max": 5.283237946366728,
+    "built": 34,
+    "broken": 34,
+    "joined": 82,
+    "inner_joined": 26,
+    "kept_members": 27,
+    "members_released": 0,
+    "pull_dropped": 27,
+    "start_refused": 32,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 35
+   },
+   {
+    "cpu": 361.393,
+    "calls": 210,
+    "t_max": 5.283291302010681,
+    "built": 40,
+    "broken": 40,
+    "joined": 100,
+    "inner_joined": 31,
+    "kept_members": 32,
+    "members_released": 0,
+    "pull_dropped": 32,
+    "start_refused": 37,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 40
+   },
+   {
+    "cpu": 427.611,
+    "calls": 249,
+    "t_max": 5.285731945513831,
+    "built": 51,
+    "broken": 52,
+    "joined": 114,
+    "inner_joined": 32,
+    "kept_members": 34,
+    "members_released": 0,
+    "pull_dropped": 34,
+    "start_refused": 42,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 46
+   },
+   {
+    "cpu": 480.866,
+    "calls": 275,
+    "t_max": 5.287031037320195,
+    "built": 58,
+    "broken": 59,
+    "joined": 126,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 46,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 51
+   },
+   {
+    "cpu": 542.376,
+    "calls": 306,
+    "t_max": 5.292022132621557,
+    "built": 70,
+    "broken": 67,
+    "joined": 137,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   },
+   {
+    "cpu": 601.315,
+    "calls": 344,
+    "t_max": 5.292022133020834,
+    "built": 89,
+    "broken": 77,
+    "joined": 146,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   },
+   {
+    "cpu": 662.166,
+    "calls": 377,
+    "t_max": 5.292022133020912,
+    "built": 105,
+    "broken": 85,
+    "joined": 155,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   },
+   {
+    "cpu": 721.508,
+    "calls": 409,
+    "t_max": 5.29202213302099,
+    "built": 121,
+    "broken": 93,
+    "joined": 163,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   },
+   {
+    "cpu": 781.343,
+    "calls": 441,
+    "t_max": 5.292022133021068,
+    "built": 137,
+    "broken": 101,
+    "joined": 171,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   },
+   {
+    "cpu": 840.17,
+    "calls": 476,
+    "t_max": 5.292022133021156,
+    "built": 155,
+    "broken": 110,
+    "joined": 179,
+    "inner_joined": 32,
+    "kept_members": 36,
+    "members_released": 0,
+    "pull_dropped": 36,
+    "start_refused": 49,
+    "wall_cuts": 0,
+    "wall_joined": 0,
+    "held_kept": 57
+   }
+  ],
+  "n_bursts": 78,
+  "calls_in_bursts_of_3_or_more": 478,
+  "largest_bursts": [
+   {
+    "n_calls": 216,
+    "t_first": 5.292022124573566,
+    "t_span": 8.447678112588619e-09,
+    "distinct_times": 54,
+    "cpu_first": 529.006,
+    "cpu_last": 899.967,
+    "intervals_first": [
+     8.047990718296205e-09,
+     3.991891261989622e-10,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15,
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      58,
+      162
+     ],
+     [
+      69,
+      108
+     ],
+     [
+      54,
+      54
+     ],
+     [
+      60,
+      54
+     ],
+     [
+      74,
+      54
+     ]
+    ],
+    "moved": {
+     "broken": 54,
+     "built": 107,
+     "joined": 54
+    }
+   },
+   {
+    "n_calls": 7,
+    "t_first": 5.283168564568785,
+    "t_span": 9.769962616701378e-15,
+    "distinct_times": 2,
+    "cpu_first": 119.483,
+    "cpu_last": 132.524,
+    "intervals_first": [
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      58,
+      5
+     ],
+     [
+      54,
+      4
+     ],
+     [
+      59,
+      2
+     ],
+     [
+      70,
+      2
+     ],
+     [
+      60,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 2,
+     "built": 2,
+     "joined": 3,
+     "start_refused": 1,
+     "held_kept": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1
+    }
+   },
+   {
+    "n_calls": 7,
+    "t_first": 5.287018226706294,
+    "t_span": 9.769962616701378e-15,
+    "distinct_times": 2,
+    "cpu_first": 460.989,
+    "cpu_last": 472.53,
+    "intervals_first": [
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      58,
+      5
+     ],
+     [
+      54,
+      4
+     ],
+     [
+      59,
+      2
+     ],
+     [
+      70,
+      2
+     ],
+     [
+      60,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 2,
+     "built": 2,
+     "joined": 3,
+     "start_refused": 1,
+     "held_kept": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1
+    }
+   },
+   {
+    "n_calls": 7,
+    "t_first": 5.287080178557523,
+    "t_span": 9.769962616701378e-15,
+    "distinct_times": 2,
+    "cpu_first": 480.874,
+    "cpu_last": 494.021,
+    "intervals_first": [
+     9.769962616701378e-15
+    ],
+    "intervals_last": [
+     9.769962616701378e-15
+    ],
+    "spheres": [
+     [
+      54,
+      4
+     ],
+     [
+      69,
+      3
+     ],
+     [
+      58,
+      3
+     ],
+     [
+      74,
+      2
+     ],
+     [
+      59,
+      2
+     ]
+    ],
+    "moved": {
+     "broken": 2,
+     "built": 2,
+     "joined": 3
+    }
+   },
+   {
+    "n_calls": 6,
+    "t_first": 5.2815954937548995,
+    "t_span": 4.7761083976638474e-09,
+    "distinct_times": 4,
+    "cpu_first": 17.598,
+    "cpu_last": 28.974,
+    "intervals_first": [
+     9.769962616701378e-15,
+     4.771159467509278e-09,
+     4.9391601919523964e-12
+    ],
+    "intervals_last": [
+     9.769962616701378e-15,
+     4.771159467509278e-09,
+     4.9391601919523964e-12
+    ],
+    "spheres": [
+     [
+      54,
+      5
+     ],
+     [
+      58,
+      2
+     ],
+     [
+      59,
+      2
+     ],
+     [
+      70,
+      1
+     ]
+    ],
+    "moved": {
+     "broken": 1,
+     "start_refused": 1,
+     "held_kept": 1,
+     "inner_joined": 1,
+     "built": 1,
+     "joined": 3,
+     "pull_opened": 1,
+     "split": 1,
+     "pull_dropped": 1,
+     "inner_cuts": 1,
+     "kept_members": 1
+    }
+   }
+  ]
+ },
+ "stopped": "both at the registered 900 s CPU cap. Step-end pickles removed with rm at the end (never recorded).",
+ "acted": {
+  "seed1_first_call_differing_from_E0123": 9,
+  "seed1_t_E0123": 5.920518619865057,
+  "seed1_t_E0126": 5.920518632334398,
+  "f04_first_call_differing_from_E0124": 8,
+  "f04_t_E0124": 5.281595189487345,
+  "f04_t_E0126": 5.2815954937548995,
+  "seed1_inner_joined_at_180s": {
+   "E0123": 97,
+   "E0126": 3
+  }
+ },
+ "reading": "D0104 acted and removed seed 1's keep-and-rejoin chatter (inner_joined 3 against 97 at equal CPU), but seed 1 went straight into the build-break cascade at 5.920524237272787 and stayed in it to the cap: 1380 calls in 2.95e-9 time units, stacks [84, 93] and [92, 94] built and broken by 93-94 touches every 9.8e-15, 459 wall cuts; event time 5.920524240223 at 900 s (E0123 reached 5.920524449586 at 801 s). f* 0.4 completes 5.29 but at 499.8 s (E0124: 240.1 s), reaches 5.292022133 at 900 s, last burst 216 calls on 58, 69, 54, 60 (54 joins, 107 builds, 54 breaks, no inner joins)."
+}

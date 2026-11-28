@@ -1,0 +1,475 @@
+{
+ "experiment_id": "E0125",
+ "artifact": "A0228",
+ "code": "method/rest 39e28e3, snap_at.py, diag5.py 09fcfbc",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0125",
+  "list": {
+   "diag5.json": {
+    "bytes": 5505,
+    "sha256": "1c241e69390188df5d923c50c9a0589be303e1bcae6546d55aa4c0ec9b579e9a"
+   },
+   "diag5.log": {
+    "bytes": 3186,
+    "sha256": "b9bbd318b27f8df2ec3274f8521a80a2f9d711057f7aa70f83bc57322eaf4eaf"
+   },
+   "snap.log": {
+    "bytes": 60,
+    "sha256": "bd00fd311177f82d3b43ce0ef6c290bd1919c137661f6c464cfd671973378cea"
+   },
+   "snap.pkl": {
+    "bytes": 16035952,
+    "sha256": "7d244e8326fb56b2baf21f66b1651a7872ce788821d83dcc55c22a0eaf8d12e1"
+   }
+  }
+ },
+ "snapshot_t": 5.920523782501014,
+ "snap_cpu_s": 36.35,
+ "starts": [
+  {
+   "t": 5.920523782501014,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ],
+     [
+      "0",
+      "2"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide",
+     "roll"
+    ],
+    "slips": [
+     5.11e-07,
+     5.28e-08,
+     0.0102
+    ],
+    "consistent_modes": "ValueError: stack start: contact 2 pulls (N = -0.0786144)",
+    "modes_after": [
+     "slide",
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.1722,
+     2.3868,
+     -0.078614
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0,
+     -1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.11e-07,
+     5.28e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  {
+   "t": 5.920523782501014,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.11e-07,
+     5.28e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ]
+    ],
+    "modes_given": [
+     "slide"
+    ],
+    "slips": [
+     5.11e-07
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide"
+    ],
+    "pushes": [
+     2.9333
+    ],
+    "fric_ratio": [
+     1.0
+    ]
+   }
+  },
+  {
+   "t": 5.920523782946017,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ],
+     [
+      "0",
+      "2"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide",
+     "roll"
+    ],
+    "slips": [
+     5.08e-07,
+     5.05e-08,
+     0.0102
+    ],
+    "consistent_modes": "ValueError: stack start: contact 2 pulls (N = -0.0786144)",
+    "modes_after": [
+     "slide",
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.1722,
+     2.3868,
+     -0.078614
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0,
+     -1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.08e-07,
+     5.05e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  {
+   "t": 5.920523782946017,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.08e-07,
+     5.05e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ]
+    ],
+    "modes_given": [
+     "slide"
+    ],
+    "slips": [
+     5.08e-07
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide"
+    ],
+    "pushes": [
+     2.9333
+    ],
+    "fric_ratio": [
+     1.0
+    ]
+   }
+  },
+  {
+   "t": 5.920523783391017,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ],
+     [
+      "0",
+      "2"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide",
+     "roll"
+    ],
+    "slips": [
+     5.05e-07,
+     4.82e-08,
+     0.0102
+    ],
+    "consistent_modes": "ValueError: stack start: contact 2 pulls (N = -0.0786144)",
+    "modes_after": [
+     "slide",
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.1722,
+     2.3868,
+     -0.078614
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0,
+     -1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.05e-07,
+     4.82e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  {
+   "t": 5.920523783391017,
+   "idx": [
+    84,
+    93,
+    86
+   ],
+   "with_all": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ],
+     [
+      "0",
+      "1"
+     ]
+    ],
+    "modes_given": [
+     "slide",
+     "slide"
+    ],
+    "slips": [
+     5.05e-07,
+     4.82e-08
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide",
+     "slide"
+    ],
+    "pushes": [
+     5.2285,
+     2.4468
+    ],
+    "fric_ratio": [
+     1.0,
+     1.0
+    ]
+   },
+   "without_last": {
+    "partners": [
+     [
+      "1",
+      "-1"
+     ]
+    ],
+    "modes_given": [
+     "slide"
+    ],
+    "slips": [
+     5.05e-07
+    ],
+    "switched": [],
+    "modes_after": [
+     "slide"
+    ],
+    "pushes": [
+     2.9333
+    ],
+    "fric_ratio": [
+     1.0
+    ]
+   }
+  }
+ ],
+ "reading": "Six stack starts in three rounds 4.45e-10 apart (5.920523782501014, ...782946017, ...783391017), each a pair: [84, 93, 86] with contacts 84-plate (sliding, slip 5.1e-7), 93 on 84 (sliding, slip 5.3e-8 falling 2.3e-9 per round) and the joining 84-86 given rolling; consistent_modes switches 84-86 to sliding by the slip test (slip 0.0102) and it pulls, N = -0.0786144, identical in all three rounds; then the start without it (pushes 5.2285, 2.4468, both sliding at ratio 1.0, nothing switched). Without the joining contact nothing switches: the hypothesis' mechanism (another contact pushed past its friction limit) is wrong; the contact that slides is the joining one itself. Since the pair opens at 0.16 without its contact (E0121), its gap grows about 1e-20 in 4.45e-10, far below gap noise: the inner-pair check is cut by round-off."
+}
