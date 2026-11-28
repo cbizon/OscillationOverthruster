@@ -474,6 +474,18 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: stack-to-stack touches traced and joined; seed 1 now crawls at a side-wall touch (ran Nov 28 08:44Z)
+
+Started by the line's timer; no instruction. Summary: `sessions/2026-11-28-L0009-3.json`.
+
+- Current state: the 93-94 touches in seed 1 are real slow touches of two stacks pressed
+  together (E0128), not round-off. Joining two stacks on a touch below the rest speed (D0105,
+  method/rest 828dc7b) ends the 1e-14 break-and-rebuild cascade, but seed 1 then crawls from
+  5.9215974: a five-sphere stack is refused at its start at a side-wall touch and rebuilt every
+  ~1e-7 (E0129, falsified on seed 1). f* 0.4 reaches 5.294985 (was 5.292022).
+- Next: trace a refused start (rolling contacts carried over that slip or need more than the
+  friction limit) and stop it; then f* 0.4 from runs/E0129/f04_step.pkl.
+
 ### L0009, timer run: D0103 makes both layers crawl; round-off chatter fixed, a stack-to-stack break-and-rebuild cascade left (ran Nov 28 07:02Z)
 
 Started by the line's timer; no instruction. Summary: `sessions/2026-11-28-L0009-2.json`.

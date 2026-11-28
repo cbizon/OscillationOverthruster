@@ -1,6 +1,54 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 28 07:02Z timer run, summary sessions/2026-11-28-L0009-2.json)
+## Current state (after the Nov 28 08:44Z timer run, summary sessions/2026-11-28-L0009-3.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`, tip 828dc7b.**
+- 828dc7b = D0105: `_on_stack_hit` -> `Simulation._join_stacks` when two stacks touch below
+  v_rest and together fit the store (8 spheres): all contacts of both (second stack's body
+  indices offset), held rolling (D0101), plus a rolling contact between the touching spheres;
+  `_touch_projection` as in a free sphere's join; refused start -> every sphere handed back
+  (counted `broken`). Counters `stacks_joined`, `stacks_join_dropped`. Method tests 57 pass.
+- New script `scripts/rest_plate/diag/diag6.py` (pair gap / approach / post-collision speed and
+  rebuilt-stack sampling for a named pair; optional t_from). trace_live.py logs the new counters.
+- RUN PYTHON WITH `/Users/bizon/Projects/experiments/sequel.L0009/.venv/bin/python` (the
+  worktree .venv lacks numpy; `uv run` in the worktree fails on the ../research-programs path).
+
+Results this run:
+- E0128 (supported): the 93-94 touches are real: overlap 7e-14 (hv -1.4e-13, past floor
+  -5e-14), approach 4.5e-14, Walton sends apart at 4.5e-14, rebuilt stacks start the pair at
+  -3.8e-15 and accelerate it together at ~4.9, so it touches again every 9.8e-15. Repro of
+  E0126 call-for-call (225 calls). snap_at.py run_to(5.95) in one go passes the stuck point in
+  41.5 CPU s: entering the cascade depends on t_stop (where spans end).
+- E0129 (D0105, falsified on seed 1): acted (s1 differs at call 4; 13 two-stack joins; f* 0.4
+  identical to E0126 through call 297, differs at 298 = 5.292022, 8 joins). Seed 1 passes
+  5.9205242 but from 5.9215974 crawls: 5-sphere stack (84, 86, 92, 93, 94) built by joins,
+  span ends at a side-wall touch (wall_joined), new stack start refused ("conditions violated"
+  mostly odd entries [1, 3, ...] = rolling contacts slipping > 1e-9 or needing > mu N;
+  held_kept 144), all handed back, rebuilt. 33 rounds, median 1.04e-7 apart, ~20 CPU s each;
+  5.9216013 at 900 s. f* 0.4: 5.29 at 418 s (same path as E0126, time = machine load), 5.294985
+  at 900 s. touch_max_gain 1.4e-15. members_released still 0.
+
+## What's next
+
+0. Seed 1 wall-touch crawl at 5.9215974: trace one refused start (which contacts, slip values,
+   friction ratios; are they the held ones from D0101?). Likely fix: at a stack start, a
+   carried-over rolling contact that slips beyond 1e-9 (or needs > mu N) starts sliding instead
+   of the whole start being refused. Run with trace_live from runs/E0118 pickle, dt 0.01 (the
+   crawl starts ~90 CPU s in); or snap_at.py with t_end 5.93 (NOT 5.95: t_stop changes the path).
+1. f* 0.4 on from runs/E0129/f04_step.pkl (5.29, made at 828dc7b).
+2. Is D0103 still needed? (members_released 0 everywhere.) Complementarity solve at starts.
+3. Singular force matrices by condition number (E0117); seed 2 at 6.59.
+4. Open to Chris: is joining stacks (D0105) acceptable; immovable bounce between v_rest and v_wake.
+
+## Jobs in flight
+
+None (both E0129 processes ended at their caps; active.jsonl has no L0009 entries). Timer set:
+L0009 restarts ~09:31Z Nov 28. Snapshots kept: runs/E0114 (A0217), runs/E0118 (A0221:
+s1_f0.3_t5.92.pkl), runs/E0119 (A0222), runs/E0121 (A0224), runs/E0125 (A0228), runs/E0128
+(A0230: snap.pkl at 5.920524285, past the old stuck point, dbc0f59), runs/E0129 (A0231:
+f04_step.pkl at 5.29, 828dc7b).
+
+## Older state (after the Nov 28 07:02Z timer run, summary sessions/2026-11-28-L0009-2.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`, tip dbc0f59.**
 - dbc0f59 = D0104: `Simulation._pair_list` offsets each inner pair by -RIDER_GAP_TOL/(4 (Ra+Rb))
@@ -26,7 +74,7 @@ Results this run:
 - Machine was loaded: ~0.6 CPU-s per wall-s; plan caps in CPU accordingly (a 900 s cap took
   ~25 min wall).
 
-## What's next
+## What was next then
 
 0. Seed 1 phase 2: trace the 93-94 stack_hit (approach speed, gap, are [84, 93] and [92, 94]
    separating?). `_on_stack_hit` breaks both stacks on a touch between stacks. If round-off:
@@ -42,7 +90,7 @@ Results this run:
 4. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres; join
    stacks on a slow stack-stack touch?
 
-## Jobs in flight
+## Jobs then
 
 None (all local processes ended; active.jsonl has no L0009 entries). Snapshots kept:
 runs/E0114 (A0217), runs/E0118 (A0221: s1_f0.3_t5.92.pkl), runs/E0119 (A0222: f04_loop.pkl),

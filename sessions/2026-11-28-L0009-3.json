@@ -1,0 +1,82 @@
+{
+ "date": "2026-11-28",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "Started by this line's timer to trace the touches between spheres 93 and 94 that kept breaking two neighbouring moving stacks in seed 1, and to stop them. The trace shows real slow touches, not round-off: the two stacks lean on each other, so after every collision they are pushed together again within 1e-14 time units. Joining the two stacks into one on such a touch (D0105) ends that cascade. Seed 1 then crawls a new way a little later: a five-sphere stack is rebuilt and refused at a side-wall touch about every 1e-7 time units. So no layer is past its stuck point yet; the frequency 0.4 layer gets further than before (5.29498 against 5.29202).",
+ "experiments": [
+  {
+   "experiment_id": "E0128",
+   "question": "Are the touches between spheres 93 and 94 that break two stacks in seed 1 at frequency 0.3 real slow approaches or round-off, and are the stacks moving apart?",
+   "what_was_done": "Reran the layer from the saved state at 5.92 with the current branch code and recorded, at each such touch, the gap, the speed at which the two spheres approach, the speed after the collision, and how the pair moves in the two stacks rebuilt right after.",
+   "result": "At each touch the spheres already overlap by seven hundred-trillionths of a diameter (beyond the touch search's round-off floor) and approach at about 4.5e-14. The collision sends them apart at that speed, but the rebuilt stacks push them together again with an acceleration of about 4.9 (gravity units), so they touch again about 1e-14 time units later. The rerun matches the earlier run's log call for call. Run without stopping at the 0.01 step end, the same layer slips past this point in 42 CPU seconds.",
+   "takeaway": "The stacks are pressed against each other: this is a lasting contact between two stacks, not a numerical artefact, and breaking both stacks at each touch can never end. Whether a layer falls into such a cascade depends on round-off, through where the integration spans happen to end."
+  },
+  {
+   "experiment_id": "E0129",
+   "question": "If two stacks whose spheres touch below the rest speed are joined into one (D0105), does seed 1 finish the step from 5.92 to 5.93, and does the frequency 0.4 layer still finish 5.29?",
+   "what_was_done": "Added the join to the branch (commit 828dc7b) and ran both layers for 900 CPU seconds each with a log line per handler call, comparing call by call with the previous run. Disclosure: three ledger records written this run (the decision and the two outcomes) failed the program check when first appended, each for one field the schema does not allow; they were corrected in the working copy before any commit, so no committed line changed and no history was rewritten.",
+   "result": "The change acted: seed 1's log first differs at the fourth call, and 13 calls joined two stacks (8 at frequency 0.4, whose log is unchanged up to the first such touch at 5.292022). Seed 1 passed the old stuck point at once but did not finish the step: from 5.9215974 a group of five spheres is built up into one stack, which touches a side wall; the stack with the wall contact is refused at its start and every sphere is released, then it is built again. This repeated 33 times, about every 1e-7 time units and 20 CPU seconds, to 5.9216013 at the cap. Most refusals are rolling contacts carried over from the old stack that slip or need more friction than the friction limit allows. The frequency 0.4 layer finished 5.29 and reached 5.29498, further than the 5.29202 of the previous run.",
+   "takeaway": "Joining stacks removes the break-and-rebuild cascade but exposes the next obstacle: the rule that keeps carried-over contacts rolling (D0101) conflicts with the check that refuses a stack start when a rolling contact slips. The registered test failed on seed 1."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [
+  {
+   "question": "This run joined two moving stacks into one when their spheres touch slower than the rest speed (decision D0105), following the default stated last time, because the trace showed the stacks pressed against each other. Is joining stacks acceptable, or should touches between stacks be handled another way?",
+   "why_it_matters": "It decides how large stacks can grow (up to the eight-sphere store) and how costly they are; it is a choice about how lasting contact is modelled.",
+   "default_if_unanswered": "Keep D0105 on the method branch and go on with the next obstacle."
+  },
+  {
+   "question": "Still open from earlier runs: should a hit between the rest speed and the wake speed bounce off a stack sphere as if it could not move, or break the stack as now?",
+   "why_it_matters": "It decides how often stacks are broken, which drives the cost of these crawls.",
+   "default_if_unanswered": "Keep breaking the stack, as built."
+  }
+ ],
+ "proposed_directions": [
+  {
+   "direction": "Stop seed 1's new crawl: find why a five-sphere stack touching the side wall is refused at its start (rolling contacts carried over that slip or need more than the friction limit), e.g. start such contacts sliding when they slip, rather than refusing the whole stack.",
+   "rationale": "It is now the only thing seen blocking seed 1 (E0129); refusals were 54 in 900 s against 6 in the previous run."
+  },
+  {
+   "direction": "Decide the modes at a stack's start by a complementarity solve of normal and friction forces rather than fixed rules (carried-over contacts kept rolling, a slip threshold).",
+   "rationale": "Every loop and crawl of the last four runs passes through a start where the fixed rules disagree with what happens a moment later (E0119, E0121, E0125, E0129)."
+  },
+  {
+   "direction": "Reconsider keeping detached spheres as stack members (D0103): members were never released in any run, including both of this run's.",
+   "rationale": "The checker argues it is extra machinery; it has acted (kept_members) but its release path has never run."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 693.7,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.86,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0009"
+ ],
+ "run_conditions": {
+  "scheduled_start": "2026-11-28T08:44:08Z",
+  "actual_start": "2026-11-28T08:44:08Z",
+  "ended": "2026-11-28T09:15:26Z",
+  "interruptions": [],
+  "cpu_hours": 0.6,
+  "cores_available": 38,
+  "disk_free_gb": {
+   "start": 75,
+   "end": 75
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0129",
+    "reason": "Both runs stopped at their registered 900 CPU-second caps; seed 1 was crawling at 5.9216 and frequency 0.4 at 5.29498."
+   }
+  ],
+  "limits_hit": "none (the 900 s CPU caps are the registered design; the load average was about 3 on 40 cores). pmset does not exist on this machine, so sleep and wake could not be checked from its log; timestamps of the logs show no gap. Scripts were run with the line's virtual environment python (the worktree's own .venv lacks numpy and uv run fails there on a relative path source)."
+ }
+}
