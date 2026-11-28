@@ -1,0 +1,55 @@
+{
+ "experiment_id": "E0122",
+ "artifact": "A0225",
+ "code": "method/rest 39e28e3 (D0101 + D0102 + D0103)",
+ "files": {
+  "folder": "~/Projects/experiments/sequel-data/runs/E0122",
+  "list": {
+   "trace_f04.json": {
+    "bytes": 82403,
+    "sha256": "6944369f88a5514d39482339b2cce3b5d3a5335648a065cbf92945a7d6311008"
+   },
+   "trace_f04.log": {
+    "bytes": 41,
+    "sha256": "2242eb524f6926b2f6ffcb81f0838aad3643ff8f6a2aadf775cf016a19a5cb39"
+   },
+   "trace_s1.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   }
+  }
+ },
+ "f0.4": {
+  "from": "runs/E0119/f04_loop.pkl (5.281594649757622)",
+  "to": 5.29,
+  "stopped_by": "completed",
+  "t_local_end": 5.29,
+  "calls": 148,
+  "cpu_s": 239.551231374,
+  "max_calls_at_one_instant": 8,
+  "counters": {
+   "kept_members": 31,
+   "members_released": null,
+   "held_kept": 25,
+   "join_dropped": null,
+   "joined": 101,
+   "pull_dropped": 37,
+   "inner_cuts": 29,
+   "inner_joined": 27,
+   "split": 11,
+   "broken": 86,
+   "built": 87,
+   "start_refused": 19,
+   "fallback_collisions": 4,
+   "largest": 6,
+   "touch_max_gain": 1.534909393205614e-15
+  },
+  "first_call_differing_from_E0121": 7,
+  "calls_with_spheres_handed_back_overlapping": 0
+ },
+ "seed1_f0.3": {
+  "from": "runs/E0118/s1_f0.3_t5.92.pkl",
+  "to": 5.93,
+  "result": "unfinished: started 05:29:05Z, still running at 05:48:39Z with no output (trace_step.py writes only at its end; trace_s1.log empty); earlier traces of the same step took 92 to 281 s. Not collected; a local process does not survive the run. Whether it crawls in one handler or advances slowly is unknown."
+ }
+}

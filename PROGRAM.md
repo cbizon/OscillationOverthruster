@@ -474,6 +474,27 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: undone-join loops traced to sliding at the start instant; f* 0.4 passes its loop (ran Nov 28 05:03Z)
+
+Started by the line's timer; no instruction. Summary: `sessions/2026-11-28-L0009.json`.
+
+- **Current state.** Branch method/rest 39e28e3. The same-instant loops (seed 1 f* 0.3 at
+  5.9205, f* 0.4 at 5.2816) are not round-off approaches and not singular force matrices
+  (E0119, condition 30). When a sphere joins a moving stack, another contact of the stack is
+  still sliding with a tiny slip (1.5e-7, 3.4e-5); under it the new contact would pull (push
+  -0.41, -0.079), with that contact rolling it would push (+0.43, +0.37) (E0121). It sticks a
+  moment later, but the sphere has been handed back and touches again at once. D0101 (drifted
+  rolling contacts keep rolling at a new stack's start; start-instant modes bug fixed) and
+  D0102 (touch reported at the real crossing) acted but did not stop either loop (E0120,
+  E0121). D0103 keeps the detached sphere in the stack as a member with no contact until its
+  gap really closes: from the snapshot at 5.2816 the f* 0.4 layer completes 5.29 (E0122, 31
+  members kept, 27 joined later). Seed 1 with D0103 had not finished its step 5.92 to 5.93
+  after 19.5 minutes (before: 1.5 to 5 minutes). Undone joins are now counted as
+  join_dropped, not joined.
+- **Next.** Rerun seed 1's step with a CPU cap and a per-call log to see whether D0103 makes
+  it crawl; run f* 0.4 on from 5.29; then singular force matrices by condition, and timing
+  the cheaper solve in a layer.
+
 ### L0009, timer run: overlap traced and fixed, same-instant loop traced, force solve made cheap (ran Nov 27 09:53Z)
 
 Started by the line's timer; no instruction. Summary: `sessions/2026-11-27-L0009-3.json`.

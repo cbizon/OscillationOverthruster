@@ -1,6 +1,66 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 27 09:53Z timer run, summary sessions/2026-11-27-L0009-3.json)
+## Current state (after the Nov 28 05:03Z timer run, summary sessions/2026-11-28-L0009.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
+tip 39e28e3 (code) + later script commits.** New this run:
+- 98fe790 = D0101: contacts carried over rolling from a live stack keep rolling at a new
+  stack's start (`Stack.held`, `Simulation._hold`, counter `held_kept`); `_stack_finish` at
+  the span's start instant restores the first segment's modes (it left the span's END modes:
+  real bug); undone joins count as `join_dropped`, not `joined`.
+- fde8612 = D0102: `edmd.first_contact_any` round-off rule walks on and reports the touch
+  where hv reaches -RIDER_GAP_TOL/2 (the real crossing), not at the zone's start.
+- 39e28e3 = D0103: a pulling contact dropped at a stack's start that leaves one plate-held
+  part and detached off-plate parts -> the stack keeps ALL spheres; detached ones are
+  members with no contact (`_start_kept`), joined again by the inner-pair check (D0100)
+  when their gap closes past its start value; released at the next span restart
+  (`_restart_span`, counter `members_released`). Counter `kept_members`.
+- Scripts: `snap_at.py` (pickle at the first handler call at/after a time: replay a loop in
+  seconds), `scripts/rest_plate/diag/diag*.py` (probe copy, force matrix at a refused start,
+  stack starts with pushes under alternative modes).
+Method tests 57 pass; frozen 74 pass on main and against the branch engine (39e28e3).
+
+Results this run:
+- E0119 (supported): the undone join is NOT a round-off approach or a singular matrix
+  (condition 30). Start modes disagree with the modes a moment later: a contact sliding
+  with tiny slip at the start makes the joining contact pull; it sticks soon after, then
+  the free sphere closes. Also a10d930 passes the 22e1f09 seed-1 loop instant and loops
+  3.6e-11 later (same pair).
+- E0120 (D0101, falsified): seed 1 loop moved to 5.920524091; f* 0.4 unchanged (hold did
+  not act there).
+- E0121 (D0101+D0102, falsified): loops at 5.281595188 (f* 0.4) and 5.920506155 (seed 1,
+  EARLIER than D0101 alone); same mechanism (sliding contact slip 1.5e-7 / 3.4e-5; with it
+  rolling the joining contact pushes +0.43 / +0.37).
+- E0122 (D0103): f* 0.4 from runs/E0119/f04_loop.pkl COMPLETES 5.29 (148 calls, 240 s;
+  kept_members 31, inner_joined 27, max 8 calls at one instant, touch_max_gain 1.5e-15).
+  Seed 1 (5.92 -> 5.93 from runs/E0118 pickle): still running after 19.5 min with no output
+  when the run ended (earlier traces of that step: 92-281 s). Unknown: crawl or slow progress.
+
+## What's next
+
+0. FIRST: rerun seed 1 5.92 -> 5.93 at 39e28e3 with a CPU cap and a handler log written as
+   it goes (trace_step.py only writes at the end; add a per-call flush and faulthandler
+   dump_traceback_later) to see whether D0103 makes it crawl (a member kept in a stack for a
+   whole span? many restarts?). Then run f* 0.4 from 5.29 on; register first. Watch kept_members/members_released,
+   touch_max_gain (1.5e-15 now, was 8e-17), start_refused (19 in E0122 f* 0.4).
+1. Singular force matrices: count condition numbers in real stacks; lstsq or a rank check
+   when singular (np.linalg.solve does not flag them, E0117).
+2. Time the direct force build in a layer; locate contact changes from the dense output;
+   join all touches at one instant at once.
+3. Report `n_indeterminate` in feed_run; CPU cap inside a handler; seed 2 at 6.59.
+4. Checker (Nov 27): a separating touch between two stacks breaks both (negative-approach
+   93-94 hits in seed 1): decide whether it should.
+5. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres.
+
+## Jobs in flight
+
+None collected. The E0122 seed 1 trace (writing runs/E0122/trace_s1.json) was still running at
+the end; if that file appears, run `program record` on runs/E0122 again and read it.
+Snapshots kept: runs/E0114 (A0217), runs/E0118
+(A0221), runs/E0119 (A0222: f04_loop.pkl at 5.281594649757622, s1_loop.pkl), runs/E0121
+(A0224: f04_loop2.pkl, s1_loop2.pkl).
+
+## Older state (after the Nov 27 09:53Z timer run, summary sessions/2026-11-27-L0009-3.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip a10d930.** 22e1f09 = D0100: pairs of stack spheres with no contact between them are

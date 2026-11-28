@@ -1,0 +1,86 @@
+{
+ "date": "2026-11-28",
+ "line_id": "L0009",
+ "instruction": "none: started by the service for timer",
+ "answers": [],
+ "headline": "Started by this line's timer to stop the same-instant loops where a sphere joins a moving stack and is undone at once (seed 1 at f* 0.3 near 5.9205, f* 0.4 at 5.2816). They turned out to have one cause: at the instant of the join another contact of the stack is still sliding with a tiny slip, under which the new contact would pull; a moment later it sticks and the new contact would push. Keeping the detached sphere inside the stack until it really touches again (D0103) gets the f* 0.4 layer through the step to 5.29; seed 1's step with that change had not finished after 19.5 minutes, so it is untested.",
+ "experiments": [
+  {
+   "experiment_id": "E0119",
+   "question": "Why is the touch of a sphere whose join was just undone reported again at the same instant?",
+   "what_was_done": "Saved the layer at the loop instant so it replays in seconds, then compared the search's decision, the contact-force matrix and the stack's motion just after the instant.",
+   "result": "The search was right to report it: the pair really closes, by about 1e-13 within a millionth of a time unit. The force matrix is well conditioned (condition number 30). The cause is a disagreement about modes: the joined stack starts with all contacts sliding, so the new contact needs a pull of 0.41 and is dropped; the stack left behind has a plate contact sliding at a slip of about 1e-11 that sticks within a billionth of a time unit, after which the free sphere closes again. A second bug was found: a stack hit at the very instant its stored path starts used the contact modes from the end of that path.",
+   "takeaway": "The loop is about choosing contact modes at the start instant, not about round-off approaches as the last run thought."
+  },
+  {
+   "experiment_id": "E0120",
+   "question": "Does keeping drifted rolling contacts rolling at a new stack's start (D0101, with the start-instant modes fixed) stop the loops?",
+   "what_was_done": "Replayed both loops from saved states.",
+   "result": "No. In seed 1 the rule acted (18 contacts kept rolling) and the loop moved later by 3e-7 time units, same spheres. In the f* 0.4 layer it did not act, because the plate contact there really was sliding at the start, and the loop stayed at the same instant.",
+   "takeaway": "Needed for consistency, but not the fix."
+  },
+  {
+   "experiment_id": "E0121",
+   "question": "Does reporting a touch where the gap actually crosses the search floor (D0102), rather than where the pair first comes within round-off, stop the loops?",
+   "what_was_done": "Replayed both loops from saved states.",
+   "result": "No. It acted in both, and both loop at new instants: f* 0.4 at 5.2815952, seed 1 at 5.9205062, which is earlier than with D0101 alone. In both, a contact elsewhere in the stack slides with a small slip (1.5e-7 and 3.4e-5); with it sliding the new contact would pull (push -0.41 and -0.079), with it rolling it would push (+0.43 and +0.37). The sphere handed back is already past the search floor, so it touches again at once.",
+   "takeaway": "Shows the mechanism directly in both layers: handing the sphere back at the start instant is what makes the loop."
+  },
+  {
+   "experiment_id": "E0122",
+   "question": "Does keeping a sphere detached by a pulling contact at a stack's start inside the stack, with no contact, until its gap really closes (D0103), get both layers past their loops?",
+   "what_was_done": "Replayed f* 0.4 from the saved state at 5.2816 to 5.29, and seed 1 from 5.92 to 5.93.",
+   "result": "f* 0.4 completes the step to 5.29 in 240 seconds of CPU, with 31 spheres kept this way, 27 of them joined later where they really touched, at most 8 handler calls at one instant, no sphere handed back overlapping, and no touch gaining more than 1.5e-15 of energy. Seed 1's step was still running after 19.5 minutes with no output when the run had to end; earlier versions took 1.5 to 5 minutes for it.",
+   "takeaway": "The f* 0.4 layer passes the point where it had been stuck since November 27. Whether seed 1 passes, or the change makes it crawl, is not known yet."
+  }
+ ],
+ "claims_changed": [],
+ "questions": [],
+ "proposed_directions": [
+  {
+   "direction": "Rerun seed 1's step 5.92 to 5.93 with the new rule, a CPU cap, and a log written at every handler call, then run the f* 0.4 and seed 2 layers on toward the end of cycle 0.",
+   "rationale": "The new rule is the first to get a layer past its loop; seed 1 either passes or shows a new cost problem, and the trace script only writes at its end, which hid which one this run."
+  },
+  {
+   "direction": "Detect singular contact-force matrices by their condition number and use the least-squares forces for them.",
+   "rationale": "E0117 found 38 of 300 random rolling stacks singular without numpy noticing; real stacks have not been checked, and wrong forces there could produce pulls like the ones traced this run."
+  },
+  {
+   "direction": "Time the cheaper force solve in a whole layer and join all spheres touching at one instant in one step.",
+   "rationale": "Stack cost decides whether the method can run the long-contact test at all; the f* 0.4 step to 5.29 still took 240 seconds for 0.008 time units."
+  }
+ ],
+ "budget": {
+  "cpu_hours": {
+   "spent": 825.9,
+   "limit": 10000
+  },
+  "disk_gb": {
+   "spent": 0.82,
+   "limit": 15
+  }
+ },
+ "open_blockers": [
+  "B0009"
+ ],
+ "decisions_needing_you": [],
+ "run_conditions": {
+  "scheduled_start": "2026-11-28T05:02:59Z",
+  "actual_start": "2026-11-28T05:02:59Z",
+  "ended": "2026-11-28T05:56:00Z",
+  "interruptions": [],
+  "cpu_hours": 0.75,
+  "cores_available": 34,
+  "disk_free_gb": {
+   "start": 75,
+   "end": 75
+  },
+  "unfinished_runs": [
+   {
+    "experiment_id": "E0122",
+    "reason": "The seed 1 trace (5.92 to 5.93) was still running at 05:49Z after 20 minutes with no output; the process is not visible from later shell calls and does not survive the run, so it was not collected. If runs/E0122/trace_s1.json appears, the next run records the folder again and reads it."
+   }
+  ],
+  "limits_hit": "None from the machine: load 6.3 on 40 cores at the start (about 34 free), 75 GB free, data folder 0.8 GB. The run's own time limit cut the E0122 seed 1 trace short. Sleep could not be checked (pmset and ps are absent on this Linux worker). CPU is from the scripts' own process_time where they finished: E0119 snapshots 25, 18 and 41 s, traces 107 and 84 s, diagnostics about 150 s; E0120 104 and 281 s; E0121 113 and 92 s, snapshots 6 and 7 s, diagnostics about 100 s; E0122 f* 0.4 240 s; the unfinished seed 1 trace counted at its wall time, about 1200 s (it ran at nice 10 on a lightly loaded machine); tests about 200 s; total about 2700 s. Scheduled start is the first command's time (the service's start time was not given). Disclosure: E0119's cost estimate counted one diagnostic pass; I ran four short diagnostic scripts on its snapshots, kept at scripts/rest_plate/diag/. Still open to Chris from earlier runs (no decision record): should a hit between the rest speed and the wake speed bounce off a stack sphere as if it could not move, or break the stack as now? B0009 (open, affects L0018, no line) is listed as an open blocker."
+ }
+}
