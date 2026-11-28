@@ -474,6 +474,23 @@ with no code and no runs: `lines/L0009/design.md`.
     and its energy return are dropped.
 - Five choices for Chris end the design.
 
+### L0009, timer run: D0103 makes both layers crawl; round-off chatter fixed, a stack-to-stack break-and-rebuild cascade left (ran Nov 28 07:02Z)
+
+Started by the line's timer; no instruction. Summary: `sessions/2026-11-28-L0009-2.json`.
+
+Current state: method/rest dbc0f59. With D0103 (detached spheres kept as members) seed 1
+f* 0.3 does not finish the step 5.92 to 5.93: a per-call log (E0123) shows chatter (the kept
+sphere 86 rejoined beside 84 every 4.45e-10), then a cascade where stacks [84, 93] and
+[92, 94] are broken by a 93-94 touch and rebuilt every 1e-14 time units. The chatter came
+from the inner-pair check being cut by gap round-off (E0125); D0104 adds the touch search's
+round-off floor there and removes it (E0126), but seed 1 then sits in the cascade to the
+900 s cap. f* 0.4 completes 5.29 and crawls near 5.292 (E0124, E0126). E0116's outcome
+corrected (inner check acted before 5.92).
+
+Next: why a touch between spheres of two separating stacks breaks both, at 1e-14 intervals
+(checker's Nov 27 point; trace the 93-94 approach at those touches; apply the round-off
+rule to stack-stack pairs, or let such a touch join the stacks); then f* 0.4 near 5.292.
+
 ### L0009, timer run: undone-join loops traced to sliding at the start instant; f* 0.4 passes its loop (ran Nov 28 05:03Z)
 
 Started by the line's timer; no instruction. Summary: `sessions/2026-11-28-L0009.json`.

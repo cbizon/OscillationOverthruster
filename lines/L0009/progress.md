@@ -1,6 +1,54 @@
 # L0009 Option four — progress
 
-## Current state (after the Nov 28 05:03Z timer run, summary sessions/2026-11-28-L0009.json)
+## Current state (after the Nov 28 07:02Z timer run, summary sessions/2026-11-28-L0009-2.json)
+
+**Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`, tip dbc0f59.**
+- dbc0f59 = D0104: `Simulation._pair_list` offsets each inner pair by -RIDER_GAP_TOL/(4 (Ra+Rb))
+  (the D0102 floor in gap terms). Method tests 57 pass.
+- Scripts: `trace_live.py` (per-call JSON-lines log, flushed; SIGPROF CPU cap that fires inside
+  handlers; `kill -PROF <pid>` stops it cleanly with a cap line; step-end pickle, resumable);
+  `live_summary.py` (steps, counters over CPU, bursts); `diag/diag5.py` (stack starts: modes,
+  switches, pushes, friction ratios, with and without the joining contact).
+
+Results this run:
+- E0123 (39e28e3, supported): seed 1 5.92->5.93 crawls. Phase 1: 86 kept beside 84, rejoined
+  every 4.45e-10 (inner_joined 97 by 180 s). Phase 2 from 5.920524234706: stacks [84, 93] and
+  [92, 94] broken by a 93-94 stack_hit and rebuilt (wall cut on [92, 94]) every 9.8e-15; 1076
+  calls; got out at ~600 s; 5.920524449586 at 801 s.
+- E0124 (falsified): f* 0.4 completes 5.29 (240 s), then crawls: 5.291911 at 801 s, kept 121,
+  released 0.
+- E0125: inside the chatter the joining contact 84-86 itself slides (slip 0.0102) and pulls
+  (-0.0786, identical each round); the inner check was cut by gap noise -> D0104.
+- E0126 (D0104, falsified): chatter gone (inner_joined 3), seed 1 stays in phase 2 from
+  5.920524237 for 1380 calls to the 900 s cap. f* 0.4: 5.29 at 500 s, 5.292022 at 900 s, last
+  burst 216 calls of joins/builds/breaks on 58, 69, 54, 60.
+- E0116 outcome corrected (new record): the inner check acted before 5.92.
+- Machine was loaded: ~0.6 CPU-s per wall-s; plan caps in CPU accordingly (a 900 s cap took
+  ~25 min wall).
+
+## What's next
+
+0. Seed 1 phase 2: trace the 93-94 stack_hit (approach speed, gap, are [84, 93] and [92, 94]
+   separating?). `_on_stack_hit` breaks both stacks on a touch between stacks. If round-off:
+   apply the D0092/D0102 rule to stack-stack pairs in `edmd.first_contact_any`. If real slow
+   touches: join the stacks below v_rest (asked Chris; record a decision). Start from
+   runs/E0125/snap.pkl (39e28e3 state inside phase 1, 5.92052378) or regenerate a state at
+   5.9205242372 with snap_at.py (from runs/E0118 pickle, ~3 min CPU with D0104).
+1. f* 0.4 crawl near 5.292 (E0124 keep-rejoin bursts on 54; E0126 join/build/break on 58, 69).
+   The 5.29 pickle was not kept (rm at the end; disclosed): regenerate with trace_live (240 s).
+2. Is D0103 still needed with D0104? Test handing detached spheres back free with the floor.
+3. Singular force matrices by condition number (E0117); time the force build in a layer;
+   join all touches at one instant at once; `n_indeterminate` in feed_run; seed 2 at 6.59.
+4. Still open to Chris: immovable bounce between v_rest and v_wake for stack spheres; join
+   stacks on a slow stack-stack touch?
+
+## Jobs in flight
+
+None (all local processes ended; active.jsonl has no L0009 entries). Snapshots kept:
+runs/E0114 (A0217), runs/E0118 (A0221: s1_f0.3_t5.92.pkl), runs/E0119 (A0222: f04_loop.pkl),
+runs/E0121 (A0224), runs/E0125 (A0228: snap.pkl inside seed 1's chatter, made at 39e28e3).
+
+## Older state (after the Nov 28 05:03Z timer run, summary sessions/2026-11-28-L0009.json)
 
 **Branch `method/rest`, worktree `~/Projects/experiments/sequel-data/worktrees/rest`,
 tip 39e28e3 (code) + later script commits.** New this run:
